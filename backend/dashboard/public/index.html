@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Oggi · Vego Analytics</title>
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<script>document.documentElement.dataset.theme = localStorage.getItem('vego-theme') || 'dark';</script>
+<link rel="stylesheet" href="/styles.css">
+</head>
+<body data-page="today">
+<div class="shell">
+  <aside class="sidebar" id="side"></aside>
+  <div>
+    <main id="main" class="page" hidden>
+      <header class="topbar">
+        <div><p class="crumb">Oggi</p><h1>Come va</h1></div>
+        <div class="right"><span class="stamp" id="windowLabel"></span><span class="stamp" id="stamp"></span><button id="refresh" class="btn" type="button">Aggiorna</button></div>
+      </header>
+
+      <div id="todayHero"></div>
+
+      <div class="grid">
+        <div class="panel c12">
+          <div class="panel-head"><div><h2>Dal download al pagamento</h2><p class="hint" id="todayFunnelHint"></p></div></div>
+          <div class="funnel" id="todayFunnel"></div>
+        </div>
+      </div>
+
+      <div class="grid">
+        <div class="panel c5">
+          <div class="panel-head"><div><h2>Quanto costa un pagante</h2><p class="hint" id="todayCostHint"></p></div><div class="right"><a class="btn ghost small" href="/money">Soldi →</a></div></div>
+          <div class="strip" id="todayCost" style="margin:0"></div>
+          <p class="read" id="todayCostRead"></p>
+        </div>
+        <div class="panel c7">
+          <div class="panel-head"><div><h2>Margine sui due piani</h2><p class="hint" id="todayPlansHint"></p></div></div>
+          <div class="plans" id="todayPlans"></div>
+        </div>
+      </div>
+
+      <div class="grid">
+        <div class="panel c5">
+          <div class="panel-head"><div><h2>Spesa AI</h2><p class="hint">ultimi 14 giorni</p></div><div class="right"><span class="big" id="todaySpendNow"></span></div></div>
+          <div class="chart short grow"><canvas id="todaySpendChart"></canvas></div>
+        </div>
+        <div class="panel c4">
+          <div class="panel-head"><div><h2>Da dove arriva chi paga</h2><p class="hint" id="todaySourcesHint"></p></div><div class="right"><a class="btn ghost small" href="/people">Persone →</a></div></div>
+          <div class="bars" id="todaySources"></div>
+        </div>
+        <div class="panel c3">
+          <div class="panel-head"><div><h2>Ultimi paganti</h2></div><div class="right"><a class="btn ghost small" href="/users?f=paid">Tutti →</a></div></div>
+          <div class="list" id="todayRecent"></div>
+        </div>
+      </div>
+
+      <div class="grid">
+        <div class="panel c12">
+          <div class="panel-head"><div><h2>Onboarding</h2><p class="hint" id="todayOnbHint"></p></div><div class="right"><span class="big" id="todayOnbPct"></span><a class="btn ghost small" href="/onboarding">Onboarding →</a></div></div>
+          <div class="funnel" id="todayOnb"></div>
+        </div>
+      </div>
+    </main>
+    <div id="state" class="state">Leggo Firestore…</div>
+  </div>
+</div>
+<div class="drawer-backdrop" id="drawerBackdrop"></div>
+<aside class="drawer" id="drawer" aria-hidden="true"></aside>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+<script src="/app.js"></script>
+</body>
+</html>

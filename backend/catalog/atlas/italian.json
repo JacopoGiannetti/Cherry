@@ -1,0 +1,3790 @@
+{
+  "tile": "Italian",
+  "generatedAt": "2026-10-05",
+  "dishes": [
+    {
+      "key": "spaghetti-aglio-olio-e-peperoncino",
+      "name": "Spaghetti aglio, olio e peperoncino",
+      "nameEn": "Spaghetti with garlic, olive oil and chili",
+      "aliases": [
+        "aglio e olio",
+        "spaghetti aglio e olio"
+      ],
+      "tiles": [
+        "Italian"
+      ],
+      "cuisine": "Italian",
+      "region": "Campania",
+      "format": "pasta",
+      "protein": "grains",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 20,
+      "effort": "low",
+      "familiarity": 1,
+      "traditionalDiet": "vegan",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "spaghetti",
+        "garlic",
+        "extra virgin olive oil",
+        "dried chili",
+        "parsley",
+        "salt"
+      ],
+      "specialtyIngredients": [],
+      "veganApproach": "Naturally vegan as traditionally made, with no cheese.",
+      "technique": "Garlic and chili are gently sizzled in plenty of olive oil, then the spaghetti is tossed in the pan with a splash of pasta water to emulsify.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "quick",
+        "date"
+      ],
+      "sources": [
+        {
+          "title": "Spaghetti aglio e olio - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Spaghetti_aglio_e_olio"
+        },
+        {
+          "title": "Spaghetti aglio, olio e peperoncino - Wikipedia (IT)",
+          "url": "https://it.wikipedia.org/wiki/Spaghetti_aglio,_olio_e_peperoncino"
+        },
+        {
+          "title": "Spaghetti aglio, olio e peperoncino - Il Cucchiaio d'Argento",
+          "url": "https://www.cucchiaio.it/ricetta/spaghetti-aglio-olio-e-peperoncino/"
+        }
+      ]
+    },
+    {
+      "key": "pasta-al-pomodoro",
+      "name": "Pasta al pomodoro",
+      "nameEn": "Pasta with tomato sauce",
+      "aliases": [
+        "spaghetti al pomodoro",
+        "pasta al sugo",
+        "spaghetti pomodoro e basilico"
+      ],
+      "tiles": [
+        "Italian"
+      ],
+      "cuisine": "Italian",
+      "region": "Campania",
+      "format": "pasta",
+      "protein": "vegetables",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 25,
+      "effort": "low",
+      "familiarity": 1,
+      "traditionalDiet": "vegetarian",
+      "versions": [
+        "vegan",
+        "vegetarian"
+      ],
+      "keyIngredients": [
+        "spaghetti",
+        "tomatoes",
+        "extra virgin olive oil",
+        "garlic",
+        "basil",
+        "salt",
+        "parmigiano reggiano"
+      ],
+      "specialtyIngredients": [
+        "san marzano tomatoes"
+      ],
+      "veganApproach": "Skip the grated parmigiano or use a plant-based grated cheese; the sauce itself is vegan.",
+      "technique": "Tomatoes are simmered briefly with garlic-infused olive oil and basil, then the al dente spaghetti is finished in the sauce.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "quick",
+        "comfort"
+      ],
+      "sources": [
+        {
+          "title": "Pasta al pomodoro - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Pasta_al_pomodoro"
+        },
+        {
+          "title": "Pasta al pomodoro - Wikipedia (IT)",
+          "url": "https://it.wikipedia.org/wiki/Pasta_al_pomodoro"
+        },
+        {
+          "title": "Spaghetti al Pomodoro - La Cucina Italiana",
+          "url": "https://www.lacucinaitaliana.com/italian-food/how-to-cook/spaghetti-al-pomodoro-the-worlds-best-pasta-recipe"
+        }
+      ]
+    },
+    {
+      "key": "penne-allarrabbiata",
+      "name": "Penne all'arrabbiata",
+      "nameEn": "Penne in spicy tomato sauce",
+      "aliases": [
+        "arrabbiata",
+        "penne arrabbiata"
+      ],
+      "tiles": [
+        "Italian"
+      ],
+      "cuisine": "Italian",
+      "region": "Lazio",
+      "format": "pasta",
+      "protein": "vegetables",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 25,
+      "effort": "low",
+      "familiarity": 1,
+      "traditionalDiet": "vegan",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "penne",
+        "tomatoes",
+        "garlic",
+        "dried chili",
+        "extra virgin olive oil",
+        "parsley"
+      ],
+      "specialtyIngredients": [],
+      "veganApproach": "Naturally vegan; simply leave off any optional grated pecorino.",
+      "technique": "Garlic and a generous amount of chili are fried in olive oil before the tomatoes are added and reduced into a fiery sauce for the penne.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "quick"
+      ],
+      "sources": [
+        {
+          "title": "Penne all'arrabbiata - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Penne_arrabiata"
+        },
+        {
+          "title": "Arrabbiata - Wikipedia (IT)",
+          "url": "https://it.wikipedia.org/wiki/Arrabbiata"
+        },
+        {
+          "title": "Penne all'arrabbiata - Turismo Roma",
+          "url": "https://www.turismoroma.it/en/page/penne-allarrabbiata"
+        }
+      ]
+    },
+    {
+      "key": "spaghetti-alla-puttanesca",
+      "name": "Spaghetti alla puttanesca",
+      "nameEn": "Spaghetti with tomatoes, olives and capers",
+      "aliases": [
+        "puttanesca",
+        "spaghetti aulive e chiapparielli"
+      ],
+      "tiles": [
+        "Italian"
+      ],
+      "cuisine": "Italian",
+      "region": "Campania",
+      "format": "pasta",
+      "protein": "vegetables",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 25,
+      "effort": "low",
+      "familiarity": 1,
+      "traditionalDiet": "vegan",
+      "versions": [
+        "vegan",
+        "pescatarian"
+      ],
+      "keyIngredients": [
+        "spaghetti",
+        "tomatoes",
+        "black olives",
+        "capers",
+        "garlic",
+        "extra virgin olive oil",
+        "oregano",
+        "anchovies"
+      ],
+      "specialtyIngredients": [
+        "gaeta olives"
+      ],
+      "veganApproach": "The Neapolitan version is already vegan; omit the anchovies used in the Lazio-style version.",
+      "technique": "Garlic, olives and capers are fried in olive oil, tomatoes are added and briskly reduced into a punchy sauce for the spaghetti.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "quick"
+      ],
+      "sources": [
+        {
+          "title": "Spaghetti alla puttanesca - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Spaghetti_alla_puttanesca"
+        },
+        {
+          "title": "Vegan Spaghetti alla Puttanesca - Gastroplant",
+          "url": "https://gastroplant.com/vegan-spaghetti-alla-puttanesca/"
+        },
+        {
+          "title": "Pasta alla Puttanesca - Bianca Zapatka",
+          "url": "https://biancazapatka.com/en/pasta-alla-puttanesca/"
+        }
+      ]
+    },
+    {
+      "key": "pasta-alla-norma",
+      "name": "Pasta alla Norma",
+      "nameEn": "Pasta with eggplant, tomato and ricotta salata",
+      "aliases": [
+        "maccheroni alla Norma",
+        "pasta c'a Norma"
+      ],
+      "tiles": [
+        "Italian"
+      ],
+      "cuisine": "Italian",
+      "region": "Sicily",
+      "format": "pasta",
+      "protein": "vegetables",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 45,
+      "effort": "medium",
+      "familiarity": 1,
+      "traditionalDiet": "vegetarian",
+      "versions": [
+        "vegan",
+        "vegetarian"
+      ],
+      "keyIngredients": [
+        "short pasta",
+        "eggplant",
+        "tomatoes",
+        "garlic",
+        "basil",
+        "ricotta salata",
+        "extra virgin olive oil"
+      ],
+      "specialtyIngredients": [
+        "ricotta salata"
+      ],
+      "veganApproach": "Replace the grated ricotta salata with a salty plant-based ricotta or toasted almond crumble.",
+      "technique": "Cubes of eggplant are fried until golden and folded into a basil tomato sauce, then topped with grated ricotta salata.",
+      "seasons": [
+        "summer",
+        "autumn"
+      ],
+      "occasions": [
+        "everyday",
+        "hosting"
+      ],
+      "sources": [
+        {
+          "title": "Pasta alla Norma - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Pasta_alla_Norma"
+        },
+        {
+          "title": "Vegan Pasta alla Norma - Barilla",
+          "url": "https://www.barilla.com/en-au/recipe/all/vegana-pasta-alla-norma"
+        },
+        {
+          "title": "Pasta alla Norma - Holy Cow Vegan",
+          "url": "https://holycowvegan.net/pasta-alla-norma-recipe/"
+        }
+      ]
+    },
+    {
+      "key": "tagliatelle-al-ragu",
+      "name": "Tagliatelle al ragù",
+      "nameEn": "Tagliatelle with Bolognese ragù",
+      "aliases": [
+        "tagliatelle alla bolognese",
+        "ragù alla bolognese"
+      ],
+      "tiles": [
+        "Italian",
+        "American"
+      ],
+      "cuisine": "Italian",
+      "region": "Emilia-Romagna",
+      "format": "pasta",
+      "protein": "soy_mince",
+      "method": "slow_cook",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 180,
+      "effort": "medium",
+      "familiarity": 1,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "egg tagliatelle",
+        "beef",
+        "pancetta",
+        "onion",
+        "carrot",
+        "celery",
+        "tomato paste",
+        "white wine",
+        "milk"
+      ],
+      "specialtyIngredients": [],
+      "veganApproach": "Build the soffritto as usual and replace the meat with soy mince or red lentils, using egg-free pasta and plant milk.",
+      "technique": "A carrot, celery and onion soffritto is browned with the meat, deglazed with wine and simmered very slowly with tomato and milk.",
+      "seasons": [
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "hosting",
+        "comfort",
+        "mealprep"
+      ],
+      "sources": [
+        {
+          "title": "Bolognese sauce - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Bolognese_sauce"
+        },
+        {
+          "title": "Ricetta del ragù alla bolognese - Camera di Commercio di Bologna",
+          "url": "https://www.bo.camcom.gov.it/it/blog/depositata-la-rinnovata-ricetta-del-vero-ragu-alla-bolognese"
+        },
+        {
+          "title": "Vegan Bolognese Tagliatelle - Lazy Cat Kitchen",
+          "url": "https://www.lazycatkitchen.com/vegan-bolognese-tagliatelle/"
+        }
+      ]
+    },
+    {
+      "key": "lasagne-alla-bolognese",
+      "name": "Lasagne alla bolognese",
+      "nameEn": "Baked lasagna with ragù and béchamel",
+      "aliases": [
+        "lasagne al forno",
+        "lasagna"
+      ],
+      "tiles": [
+        "Italian",
+        "American"
+      ],
+      "cuisine": "Italian",
+      "region": "Emilia-Romagna",
+      "format": "bake",
+      "protein": "lentils",
+      "method": "oven",
+      "appliances": [
+        "stovetop",
+        "oven"
+      ],
+      "cookMinutes": 210,
+      "effort": "high",
+      "familiarity": 1,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegan",
+        "vegetarian"
+      ],
+      "keyIngredients": [
+        "lasagne sheets",
+        "beef ragù",
+        "béchamel",
+        "parmigiano reggiano",
+        "butter",
+        "onion",
+        "carrot",
+        "celery",
+        "tomato"
+      ],
+      "specialtyIngredients": [],
+      "veganApproach": "Layer egg-free sheets with a lentil or soy ragù and a béchamel made with olive oil and plant milk.",
+      "technique": "Sheets of pasta are layered with slow-cooked ragù, béchamel and parmigiano, then baked until bubbling and browned.",
+      "seasons": [
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "hosting",
+        "comfort",
+        "mealprep"
+      ],
+      "sources": [
+        {
+          "title": "Lasagne - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Lasagne"
+        },
+        {
+          "title": "Vegan Lasagne Bolognese - Barilla",
+          "url": "https://www.barilla.com/en-us/recipe/all/vegan-lasagne-bolognese"
+        },
+        {
+          "title": "Vegan Lentil Lasagna - Aline Made",
+          "url": "https://www.aline-made.com/vegan-lentil-lasagna/"
+        }
+      ]
+    },
+    {
+      "key": "spaghetti-alla-carbonara",
+      "name": "Spaghetti alla carbonara",
+      "nameEn": "Spaghetti carbonara",
+      "aliases": [
+        "carbonara"
+      ],
+      "tiles": [
+        "Italian",
+        "American"
+      ],
+      "cuisine": "Italian",
+      "region": "Lazio",
+      "format": "pasta",
+      "protein": "tofu",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 20,
+      "effort": "medium",
+      "familiarity": 1,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "spaghetti",
+        "guanciale",
+        "egg yolks",
+        "pecorino romano",
+        "black pepper"
+      ],
+      "specialtyIngredients": [
+        "guanciale",
+        "pecorino romano"
+      ],
+      "veganApproach": "Swap the egg and pecorino for a silky plant-based sauce and the guanciale for smoky crisped mushrooms or tempeh.",
+      "technique": "Crisped guanciale and its fat are tossed off the heat with the pasta and a beaten egg and pecorino mixture until creamy, never scrambled.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "quick",
+        "comfort",
+        "date"
+      ],
+      "sources": [
+        {
+          "title": "Carbonara - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Carbonara"
+        },
+        {
+          "title": "Vegan Carbonara - Serious Eats",
+          "url": "https://www.seriouseats.com/vegan-carbonara-pasta-recipe"
+        }
+      ]
+    },
+    {
+      "key": "cacio-e-pepe",
+      "name": "Cacio e pepe",
+      "nameEn": "Pasta with pecorino and black pepper",
+      "aliases": [
+        "tonnarelli cacio e pepe",
+        "spaghetti cacio e pepe"
+      ],
+      "tiles": [
+        "Italian",
+        "American"
+      ],
+      "cuisine": "Italian",
+      "region": "Lazio",
+      "format": "pasta",
+      "protein": "nuts_seeds",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 20,
+      "effort": "medium",
+      "familiarity": 1,
+      "traditionalDiet": "vegetarian",
+      "versions": [
+        "vegan",
+        "vegetarian"
+      ],
+      "keyIngredients": [
+        "tonnarelli",
+        "pecorino romano",
+        "black pepper",
+        "pasta water",
+        "salt"
+      ],
+      "specialtyIngredients": [
+        "pecorino romano"
+      ],
+      "veganApproach": "Emulsify toasted black pepper and starchy pasta water with a cashew or nutritional yeast cream in place of pecorino.",
+      "technique": "Finely grated pecorino and toasted cracked pepper are whisked with starchy pasta water into a glossy, creamy emulsion.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "quick",
+        "date",
+        "comfort"
+      ],
+      "sources": [
+        {
+          "title": "Cacio e pepe - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Cacio_e_pepe"
+        },
+        {
+          "title": "Vegan Cacio e Pepe - NYT Cooking",
+          "url": "https://cooking.nytimes.com/recipes/1020729-vegan-cacio-e-pepe"
+        },
+        {
+          "title": "Vegan Cacio e Pepe - Simply Recipes",
+          "url": "https://www.simplyrecipes.com/vegan-cacio-e-pepe-recipe-6890181"
+        }
+      ]
+    },
+    {
+      "key": "trenette-al-pesto",
+      "name": "Trenette al pesto",
+      "nameEn": "Trenette with Genoese basil pesto, potatoes and green beans",
+      "aliases": [
+        "trenette al pesto genovese",
+        "pasta al pesto"
+      ],
+      "tiles": [
+        "Italian",
+        "Fresh & light"
+      ],
+      "cuisine": "Italian",
+      "region": "Liguria",
+      "format": "pasta",
+      "protein": "nuts_seeds",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 30,
+      "effort": "low",
+      "familiarity": 1,
+      "traditionalDiet": "vegetarian",
+      "versions": [
+        "vegan",
+        "vegetarian"
+      ],
+      "keyIngredients": [
+        "trenette",
+        "basil",
+        "pine nuts",
+        "garlic",
+        "extra virgin olive oil",
+        "parmigiano reggiano",
+        "pecorino",
+        "potatoes",
+        "green beans"
+      ],
+      "specialtyIngredients": [
+        "genovese basil",
+        "pecorino fiore sardo"
+      ],
+      "veganApproach": "Make the pesto without cheese, adding extra pine nuts and a little nutritional yeast for savoriness.",
+      "technique": "Basil, garlic, pine nuts and cheese are pounded into pesto, then tossed with pasta cooked together with potatoes and green beans.",
+      "seasons": [
+        "spring",
+        "summer"
+      ],
+      "occasions": [
+        "everyday",
+        "hosting"
+      ],
+      "sources": [
+        {
+          "title": "Trenette al pesto - Wikipedia (IT)",
+          "url": "https://it.wikipedia.org/wiki/Trenette_al_pesto"
+        },
+        {
+          "title": "Pesto - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Pesto"
+        },
+        {
+          "title": "Trenette al Pesto (vegan) - Six Hungry Feet",
+          "url": "https://sixhungryfeet.com/trenette-al-pesto-vegan/"
+        }
+      ]
+    },
+    {
+      "key": "fettuccine-alfredo",
+      "name": "Fettuccine Alfredo",
+      "nameEn": "Fettuccine with butter and parmigiano",
+      "aliases": [
+        "fettuccine al burro",
+        "alfredo"
+      ],
+      "tiles": [
+        "Italian",
+        "American"
+      ],
+      "cuisine": "Italian",
+      "region": "Lazio",
+      "format": "pasta",
+      "protein": "nuts_seeds",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 20,
+      "effort": "low",
+      "familiarity": 1,
+      "traditionalDiet": "vegetarian",
+      "versions": [
+        "vegan",
+        "vegetarian"
+      ],
+      "keyIngredients": [
+        "egg fettuccine",
+        "butter",
+        "parmigiano reggiano",
+        "pasta water",
+        "black pepper"
+      ],
+      "specialtyIngredients": [
+        "parmigiano reggiano"
+      ],
+      "veganApproach": "Use egg-free fettuccine and a blended cashew and garlic cream with nutritional yeast in place of butter and cheese.",
+      "technique": "Fresh fettuccine are tossed vigorously with butter, parmigiano and pasta water until a smooth, creamy coating forms.",
+      "seasons": [
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "quick",
+        "comfort",
+        "date"
+      ],
+      "sources": [
+        {
+          "title": "Fettuccine Alfredo - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Fettuccine_Alfredo"
+        },
+        {
+          "title": "Vegan Alfredo Sauce - The Kitchn",
+          "url": "https://www.thekitchn.com/vegan-alfredo-sauce-recipe-23273396"
+        }
+      ]
+    },
+    {
+      "key": "ravioli-ricotta-e-spinaci",
+      "name": "Ravioli ricotta e spinaci",
+      "nameEn": "Ricotta and spinach ravioli with butter and sage",
+      "aliases": [
+        "ravioli di ricotta e spinaci",
+        "ravioli burro e salvia"
+      ],
+      "tiles": [
+        "Italian"
+      ],
+      "cuisine": "Italian",
+      "region": "Nationwide",
+      "format": "pasta",
+      "protein": "tofu",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 90,
+      "effort": "high",
+      "familiarity": 1,
+      "traditionalDiet": "vegetarian",
+      "versions": [
+        "vegan",
+        "vegetarian"
+      ],
+      "keyIngredients": [
+        "flour",
+        "eggs",
+        "ricotta",
+        "spinach",
+        "parmigiano reggiano",
+        "nutmeg",
+        "butter",
+        "sage"
+      ],
+      "specialtyIngredients": [],
+      "veganApproach": "Use an egg-free semolina dough, fill with tofu or cashew ricotta and spinach, and dress with olive oil or plant butter and sage.",
+      "technique": "Fresh egg pasta is rolled thin, filled with a ricotta, spinach and nutmeg mixture, sealed, boiled briefly and glazed in sage butter.",
+      "seasons": [
+        "spring",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "hosting",
+        "date"
+      ],
+      "sources": [
+        {
+          "title": "List of Italian dishes - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/List_of_Italian_dishes"
+        },
+        {
+          "title": "Ravioli ricotta e spinaci burro e salvia - GialloZafferano",
+          "url": "https://ricette.giallozafferano.it/Ravioli-ricotta-e-spinaci-burro-e-salvia.html"
+        },
+        {
+          "title": "Vegan Ravioli - A Plantiful Path",
+          "url": "https://aplantifulpath.com/vegan-ravioli/"
+        }
+      ]
+    },
+    {
+      "key": "gnocchi-alla-sorrentina",
+      "name": "Gnocchi alla sorrentina",
+      "nameEn": "Baked potato gnocchi with tomato, mozzarella and basil",
+      "aliases": [
+        "gnocchi sorrentina"
+      ],
+      "tiles": [
+        "Italian",
+        "American"
+      ],
+      "cuisine": "Italian",
+      "region": "Campania",
+      "format": "bake",
+      "protein": "vegetables",
+      "method": "oven",
+      "appliances": [
+        "stovetop",
+        "oven"
+      ],
+      "cookMinutes": 75,
+      "effort": "medium",
+      "familiarity": 2,
+      "traditionalDiet": "vegetarian",
+      "versions": [
+        "vegan",
+        "vegetarian"
+      ],
+      "keyIngredients": [
+        "potato gnocchi",
+        "tomatoes",
+        "mozzarella",
+        "basil",
+        "parmigiano reggiano",
+        "garlic",
+        "extra virgin olive oil"
+      ],
+      "specialtyIngredients": [
+        "fior di latte mozzarella"
+      ],
+      "veganApproach": "Use egg-free potato gnocchi and a plant-based mozzarella that melts under the grill.",
+      "technique": "Gnocchi are tossed in a basil tomato sauce, layered with mozzarella in terracotta dishes and baked until the cheese melts.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "hosting",
+        "comfort"
+      ],
+      "sources": [
+        {
+          "title": "Gnocchi alla sorrentina - Wikipedia (IT)",
+          "url": "https://it.wikipedia.org/wiki/Gnocchi_alla_sorrentina"
+        },
+        {
+          "title": "Gnocchi alla sorrentina vegan - Vegolosi",
+          "url": "https://www.vegolosi.it/ricette-vegane/gnocchi-alla-sorrentina-vegan/"
+        },
+        {
+          "title": "Gnocchi alla sorrentina - Rinascimento Vegetale",
+          "url": "https://rinascimentovegetale.it/en/ricette/gnocchi-sorrentina"
+        }
+      ]
+    },
+    {
+      "key": "pasta-e-ceci",
+      "name": "Pasta e ceci",
+      "nameEn": "Pasta with chickpeas",
+      "aliases": [
+        "pasta e ceci alla romana"
+      ],
+      "tiles": [
+        "Italian",
+        "American"
+      ],
+      "cuisine": "Italian",
+      "region": "Lazio",
+      "format": "pasta",
+      "protein": "chickpeas",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 40,
+      "effort": "low",
+      "familiarity": 2,
+      "traditionalDiet": "vegan",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "short pasta",
+        "chickpeas",
+        "garlic",
+        "rosemary",
+        "extra virgin olive oil",
+        "tomato paste",
+        "onion"
+      ],
+      "specialtyIngredients": [],
+      "veganApproach": "Naturally vegan when made without the anchovies of some Roman versions.",
+      "technique": "Chickpeas are simmered with garlic and rosemary, partly mashed to thicken, then small pasta is cooked directly in the creamy broth.",
+      "seasons": [
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "comfort",
+        "mealprep"
+      ],
+      "sources": [
+        {
+          "title": "Pasta e ceci - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Pasta_e_ceci"
+        },
+        {
+          "title": "Chickpeas and Roman-style pasta - Turismo Roma",
+          "url": "https://turismoroma.it/en/page/chickpeas-and-roman-style-pasta-chickpeas"
+        },
+        {
+          "title": "Rachel Roddy's pasta e ceci - The Guardian",
+          "url": "https://www.theguardian.com/lifeandstyle/2016/feb/09/chickpea-pasta-soup-recipe-rachel-roddy"
+        }
+      ]
+    },
+    {
+      "key": "pasta-e-lenticchie",
+      "name": "Pasta e lenticchie",
+      "nameEn": "Pasta with lentils",
+      "aliases": [
+        "pasta e lenticchie alla napoletana"
+      ],
+      "tiles": [
+        "Italian",
+        "American"
+      ],
+      "cuisine": "Italian",
+      "region": "Campania",
+      "format": "pasta",
+      "protein": "lentils",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 45,
+      "effort": "low",
+      "familiarity": 2,
+      "traditionalDiet": "vegan",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "mixed short pasta",
+        "brown lentils",
+        "onion",
+        "carrot",
+        "celery",
+        "garlic",
+        "cherry tomatoes",
+        "extra virgin olive oil"
+      ],
+      "specialtyIngredients": [
+        "pasta mista"
+      ],
+      "veganApproach": "Naturally vegan; finish with olive oil instead of grated cheese.",
+      "technique": "Lentils are stewed with a soffritto and a few tomatoes, then mixed pasta is cooked in the pot until thick and creamy.",
+      "seasons": [
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "comfort",
+        "mealprep"
+      ],
+      "sources": [
+        {
+          "title": "Pasta e lenticchie alla napoletana - La Cucina Napoletana",
+          "url": "https://www.lacucinanapoletana.com/pasta-and-lentils-pasta-e-lenticchie-alla-napoletana/"
+        },
+        {
+          "title": "Pasta e lenticchie alla napoletana - La Cucina Italiana",
+          "url": "https://www.lacucinaitaliana.it/article/pasta-lenticchie-napoletana-ricetta-tradizionale/"
+        },
+        {
+          "title": "Pasta and Lentils - NYT Cooking",
+          "url": "https://cooking.nytimes.com/recipes/1023006-pasta-and-lentils-pasta-e-lenticchie"
+        }
+      ]
+    },
+    {
+      "key": "orecchiette-con-le-cime-di-rapa",
+      "name": "Orecchiette con le cime di rapa",
+      "nameEn": "Orecchiette with turnip greens",
+      "aliases": [
+        "orecchiette alle cime di rapa",
+        "recchietelle"
+      ],
+      "tiles": [
+        "Italian"
+      ],
+      "cuisine": "Italian",
+      "region": "Puglia",
+      "format": "pasta",
+      "protein": "vegetables",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 30,
+      "effort": "low",
+      "familiarity": 2,
+      "traditionalDiet": "pescatarian",
+      "versions": [
+        "vegan",
+        "pescatarian"
+      ],
+      "keyIngredients": [
+        "orecchiette",
+        "turnip greens",
+        "garlic",
+        "anchovies",
+        "dried chili",
+        "extra virgin olive oil",
+        "breadcrumbs"
+      ],
+      "specialtyIngredients": [
+        "cime di rapa"
+      ],
+      "veganApproach": "Leave out the anchovies and top with crisp toasted breadcrumbs fried in olive oil and chili.",
+      "technique": "The greens are boiled in the same water as the orecchiette, then tossed with oil in which garlic, chili and anchovies have melted.",
+      "seasons": [
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday"
+      ],
+      "sources": [
+        {
+          "title": "Orecchiette con le cime di rapa - PAT Puglia",
+          "url": "https://www.patpuglia.it/it/12/Orecchiette_con_le_cime_di_rapa/BA_286_P"
+        },
+        {
+          "title": "Orecchiette - Wikipedia (IT)",
+          "url": "https://it.wikipedia.org/wiki/orecchiette"
+        },
+        {
+          "title": "Orecchiette con cime di rapa - Il Cucchiaio d'Argento",
+          "url": "https://www.cucchiaio.it/ricetta/ricetta-orecchiette-cime-rapa/"
+        }
+      ]
+    },
+    {
+      "key": "pici-allaglione",
+      "name": "Pici all'aglione",
+      "nameEn": "Hand-rolled pici with garlicky tomato sauce",
+      "aliases": [
+        "pici aglione"
+      ],
+      "tiles": [
+        "Italian"
+      ],
+      "cuisine": "Italian",
+      "region": "Tuscany",
+      "format": "pasta",
+      "protein": "vegetables",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 90,
+      "effort": "high",
+      "familiarity": 2,
+      "traditionalDiet": "vegan",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "flour",
+        "water",
+        "aglione garlic",
+        "tomatoes",
+        "extra virgin olive oil",
+        "dried chili",
+        "salt"
+      ],
+      "specialtyIngredients": [
+        "aglione della valdichiana"
+      ],
+      "veganApproach": "Naturally vegan: pici are an egg-free flour and water pasta and the sauce is just garlic, tomato and oil.",
+      "technique": "Thick pici are rolled by hand from flour and water, then dressed with a sauce of mild aglione garlic slowly melted in oil with tomato.",
+      "seasons": [
+        "summer",
+        "autumn"
+      ],
+      "occasions": [
+        "hosting",
+        "comfort"
+      ],
+      "sources": [
+        {
+          "title": "Pici all'aglione - Visit Tuscany",
+          "url": "https://www.visittuscany.com/en/recipes/pici-allaglione/"
+        },
+        {
+          "title": "Pici all'aglione - La Cucina Italiana",
+          "url": "https://www.lacucinaitaliana.com/italian-food/italian-dishes/pici-aglione-traditional-tuscan-recipe"
+        },
+        {
+          "title": "Pici all'aglione - Sonia Peronaci",
+          "url": "https://www.soniaperonaci.it/pici-allaglione/"
+        }
+      ]
+    },
+    {
+      "key": "spaghetti-alla-nerano",
+      "name": "Spaghetti alla Nerano",
+      "nameEn": "Spaghetti with fried zucchini and provolone",
+      "aliases": [
+        "spaghetti con le zucchine alla Nerano"
+      ],
+      "tiles": [
+        "Italian"
+      ],
+      "cuisine": "Italian",
+      "region": "Campania",
+      "format": "pasta",
+      "protein": "vegetables",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 35,
+      "effort": "medium",
+      "familiarity": 2,
+      "traditionalDiet": "vegetarian",
+      "versions": [
+        "vegan",
+        "vegetarian"
+      ],
+      "keyIngredients": [
+        "spaghetti",
+        "zucchini",
+        "provolone del monaco",
+        "basil",
+        "extra virgin olive oil",
+        "garlic",
+        "parmigiano reggiano"
+      ],
+      "specialtyIngredients": [
+        "provolone del monaco"
+      ],
+      "veganApproach": "Blend part of the fried zucchini with pasta water and olive oil to make the creamy sauce without cheese.",
+      "technique": "Zucchini rounds are fried in oil, rested, then emulsified with pasta water and provolone into a creamy sauce with basil.",
+      "seasons": [
+        "summer"
+      ],
+      "occasions": [
+        "everyday",
+        "date",
+        "hosting"
+      ],
+      "sources": [
+        {
+          "title": "Spaghetti alla Nerano - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Spaghetti_alla_Nerano"
+        },
+        {
+          "title": "Vegan Spaghetti alla Nerano - Let's Go Tomato",
+          "url": "https://letsgotomato.com/vegan-spaghetti-alla-nerano-spaghetti-with-fried-zucchini/"
+        }
+      ]
+    },
+    {
+      "key": "pasta-e-patate",
+      "name": "Pasta e patate",
+      "nameEn": "Pasta with potatoes and provola",
+      "aliases": [
+        "pasta patate e provola",
+        "pasta e patane"
+      ],
+      "tiles": [
+        "Italian",
+        "American"
+      ],
+      "cuisine": "Italian",
+      "region": "Campania",
+      "format": "pasta",
+      "protein": "vegetables",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 45,
+      "effort": "low",
+      "familiarity": 2,
+      "traditionalDiet": "vegetarian",
+      "versions": [
+        "vegan",
+        "vegetarian"
+      ],
+      "keyIngredients": [
+        "mixed short pasta",
+        "potatoes",
+        "onion",
+        "celery",
+        "carrot",
+        "cherry tomatoes",
+        "provola",
+        "parmigiano reggiano"
+      ],
+      "specialtyIngredients": [
+        "provola affumicata",
+        "pasta mista"
+      ],
+      "veganApproach": "Rely on the starch of the potatoes for creaminess and stir in a smoked plant-based cheese instead of provola.",
+      "technique": "Potatoes are stewed with a soffritto until they break down, then the pasta is cooked in the pot risotto-style and finished with melting provola.",
+      "seasons": [
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "comfort"
+      ],
+      "sources": [
+        {
+          "title": "Pasta, patate e provola - La Cucina Italiana",
+          "url": "https://www.lacucinaitaliana.it/ricetta/pasta-patate-e-provola/"
+        },
+        {
+          "title": "Pasta e patate con provola: storia e curiosità - La Cucina Italiana",
+          "url": "https://www.lacucinaitaliana.it/article/pasta-patate-e-provola-ricetta-storia-e-curiosita-di-un-grande-classico-campano/"
+        }
+      ]
+    },
+    {
+      "key": "pizzoccheri-della-valtellina",
+      "name": "Pizzoccheri della Valtellina",
+      "nameEn": "Buckwheat pasta with cabbage, potatoes and cheese",
+      "aliases": [
+        "pizzoccheri"
+      ],
+      "tiles": [
+        "Italian",
+        "American"
+      ],
+      "cuisine": "Italian",
+      "region": "Lombardy",
+      "format": "pasta",
+      "protein": "grains",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 50,
+      "effort": "medium",
+      "familiarity": 2,
+      "traditionalDiet": "vegetarian",
+      "versions": [
+        "vegan",
+        "vegetarian"
+      ],
+      "keyIngredients": [
+        "buckwheat flour",
+        "wheat flour",
+        "savoy cabbage",
+        "potatoes",
+        "valtellina casera cheese",
+        "butter",
+        "garlic",
+        "sage",
+        "parmigiano reggiano"
+      ],
+      "specialtyIngredients": [
+        "valtellina casera",
+        "buckwheat flour"
+      ],
+      "veganApproach": "Keep the buckwheat pasta, cabbage and potatoes and replace butter and casera with garlic-sage olive oil and a melting plant cheese.",
+      "technique": "Buckwheat ribbons are boiled with potatoes and cabbage, then layered with cheese and doused in sizzling garlic and sage butter.",
+      "seasons": [
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "comfort",
+        "hosting"
+      ],
+      "sources": [
+        {
+          "title": "Pizzoccheri - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Pizzoccheri"
+        },
+        {
+          "title": "Pizzoccheri della Valtellina - Wikipedia (IT)",
+          "url": "https://it.wikipedia.org/wiki/Pizzoccheri_della_Valtellina"
+        },
+        {
+          "title": "Pizzoccheri vegan - VeganHome",
+          "url": "https://www.veganhome.it/ricette/piatti-unici/pizzoccheri-vegan/"
+        }
+      ]
+    },
+    {
+      "key": "tortelli-di-zucca",
+      "name": "Tortelli di zucca",
+      "nameEn": "Pumpkin tortelli",
+      "aliases": [
+        "tortelli di zucca mantovani",
+        "tortelli mantovani"
+      ],
+      "tiles": [
+        "Italian"
+      ],
+      "cuisine": "Italian",
+      "region": "Lombardy",
+      "format": "pasta",
+      "protein": "vegetables",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop",
+        "oven"
+      ],
+      "cookMinutes": 150,
+      "effort": "high",
+      "familiarity": 2,
+      "traditionalDiet": "vegetarian",
+      "versions": [
+        "vegetarian"
+      ],
+      "keyIngredients": [
+        "flour",
+        "eggs",
+        "pumpkin",
+        "amaretti biscuits",
+        "mostarda",
+        "parmigiano reggiano",
+        "nutmeg",
+        "butter"
+      ],
+      "specialtyIngredients": [
+        "mostarda mantovana",
+        "amaretti"
+      ],
+      "veganApproach": null,
+      "technique": "Roasted pumpkin is mashed with amaretti, mostarda and parmigiano, sealed in fresh egg pasta and served with melted butter.",
+      "seasons": [
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "hosting"
+      ],
+      "sources": [
+        {
+          "title": "Tortelli di zucca - Wikipedia (IT)",
+          "url": "https://it.wikipedia.org/wiki/Tortelli_di_zucca"
+        },
+        {
+          "title": "Tortelli di zucca - Cibo360",
+          "url": "https://www.cibo360.it/cucina/mondo/tortelli_di_zucca.htm"
+        }
+      ]
+    },
+    {
+      "key": "ciceri-e-tria",
+      "name": "Ciceri e tria",
+      "nameEn": "Chickpeas with boiled and fried pasta",
+      "aliases": [
+        "ciciri e tria",
+        "massa e ciceri"
+      ],
+      "tiles": [
+        "Italian"
+      ],
+      "cuisine": "Italian",
+      "region": "Puglia",
+      "format": "pasta",
+      "protein": "chickpeas",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 60,
+      "effort": "medium",
+      "familiarity": 3,
+      "traditionalDiet": "vegan",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "durum wheat semolina",
+        "water",
+        "chickpeas",
+        "onion",
+        "garlic",
+        "bay leaf",
+        "extra virgin olive oil",
+        "salt"
+      ],
+      "specialtyIngredients": [],
+      "veganApproach": "Naturally vegan: an egg-free semolina pasta cooked with chickpeas and olive oil.",
+      "technique": "Fresh semolina ribbons are split, part boiled with stewed chickpeas and part fried crisp in olive oil, then combined for contrast.",
+      "seasons": [
+        "autumn",
+        "winter",
+        "spring"
+      ],
+      "occasions": [
+        "comfort",
+        "hosting"
+      ],
+      "sources": [
+        {
+          "title": "Ciceri e tria - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Ciceri_e_tria"
+        },
+        {
+          "title": "Ciciri e tria - PAT Puglia",
+          "url": "https://www.patpuglia.it/it/12/Ciciri_e_tria/7_270"
+        }
+      ]
+    },
+    {
+      "key": "lagane-e-ceci",
+      "name": "Lagane e ceci",
+      "nameEn": "Wide pasta ribbons with chickpeas",
+      "aliases": [
+        "lagane e ceci alla calabrese",
+        "lagane e cicciari"
+      ],
+      "tiles": [
+        "Italian"
+      ],
+      "cuisine": "Italian",
+      "region": "Calabria",
+      "format": "pasta",
+      "protein": "chickpeas",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 60,
+      "effort": "medium",
+      "familiarity": 3,
+      "traditionalDiet": "vegan",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "durum wheat semolina",
+        "water",
+        "chickpeas",
+        "garlic",
+        "dried chili",
+        "extra virgin olive oil",
+        "bay leaf"
+      ],
+      "specialtyIngredients": [
+        "peperoncino calabrese"
+      ],
+      "veganApproach": "Naturally vegan: egg-free lagane with chickpeas, garlic, chili and olive oil.",
+      "technique": "Hand-cut flour and water lagane are boiled and folded into soupy chickpeas finished with chili-infused olive oil.",
+      "seasons": [
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "comfort",
+        "everyday"
+      ],
+      "sources": [
+        {
+          "title": "Lagane with chickpeas - The Pasta Project",
+          "url": "https://www.the-pasta-project.com/lagane-with-chickpeas/"
+        },
+        {
+          "title": "Lagane e ceci alla calabrese - Sagr",
+          "url": "https://sagr.it/en/calabria/cedar-riviera/recipes/lagane-e-ceci-alla-calabrese"
+        },
+        {
+          "title": "Pasta e ceci - Wikipedia (IT)",
+          "url": "https://it.wikipedia.org/wiki/Pasta_e_ceci"
+        }
+      ]
+    },
+    {
+      "key": "busiate-al-pesto-trapanese",
+      "name": "Busiate al pesto trapanese",
+      "nameEn": "Busiate with Trapani almond and tomato pesto",
+      "aliases": [
+        "busiate col pesto trapanese",
+        "pasta cu l'agghia pistata"
+      ],
+      "tiles": [
+        "Italian",
+        "Fresh & light"
+      ],
+      "cuisine": "Italian",
+      "region": "Sicily",
+      "format": "pasta",
+      "protein": "nuts_seeds",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 25,
+      "effort": "low",
+      "familiarity": 2,
+      "traditionalDiet": "vegetarian",
+      "versions": [
+        "vegan",
+        "vegetarian"
+      ],
+      "keyIngredients": [
+        "busiate",
+        "almonds",
+        "tomatoes",
+        "basil",
+        "garlic",
+        "extra virgin olive oil",
+        "pecorino"
+      ],
+      "specialtyIngredients": [
+        "busiate"
+      ],
+      "veganApproach": "Simply skip the pecorino; the raw almond, tomato and basil pesto is otherwise plant-based.",
+      "technique": "Raw tomatoes, almonds, basil and garlic are pounded into a fresh uncooked pesto and tossed with spiral busiate.",
+      "seasons": [
+        "summer"
+      ],
+      "occasions": [
+        "everyday",
+        "quick",
+        "hosting"
+      ],
+      "sources": [
+        {
+          "title": "Busiate col pesto trapanese - Wikipedia (IT)",
+          "url": "https://it.wikipedia.org/wiki/Busiate_col_pesto_trapanese"
+        },
+        {
+          "title": "Busiate - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Busiate"
+        },
+        {
+          "title": "Busiate with pesto trapanese - La Cucina Italiana",
+          "url": "https://www.lacucinaitaliana.com/italian-food/italian-dishes/traditional-sicilian-pasta-recipe-busiate-with-pesto-trapanese"
+        }
+      ]
+    },
+    {
+      "key": "culurgiones",
+      "name": "Culurgiones",
+      "nameEn": "Sardinian potato and mint filled pasta",
+      "aliases": [
+        "culurgiones d'Ogliastra",
+        "culurzones",
+        "angiulottus"
+      ],
+      "tiles": [
+        "Italian"
+      ],
+      "cuisine": "Italian",
+      "region": "Sardinia",
+      "format": "dumplings",
+      "protein": "cheese",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 120,
+      "effort": "high",
+      "familiarity": 3,
+      "traditionalDiet": "vegetarian",
+      "versions": [
+        "vegetarian"
+      ],
+      "keyIngredients": [
+        "durum wheat semolina",
+        "potatoes",
+        "pecorino sardo",
+        "mint",
+        "garlic",
+        "extra virgin olive oil",
+        "tomato sauce"
+      ],
+      "specialtyIngredients": [
+        "pecorino sardo"
+      ],
+      "veganApproach": null,
+      "technique": "A potato, pecorino and mint filling is sealed in semolina dough with a distinctive wheat-ear pleat, then boiled and served with tomato sauce.",
+      "seasons": [
+        "autumn",
+        "winter",
+        "spring"
+      ],
+      "occasions": [
+        "hosting"
+      ],
+      "sources": [
+        {
+          "title": "Culurgiones - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Culurgiones"
+        },
+        {
+          "title": "Culurgiones - Wikipedia (IT)",
+          "url": "https://it.wikipedia.org/wiki/Culurgiones"
+        }
+      ]
+    },
+    {
+      "key": "spaghetti-alle-vongole",
+      "name": "Spaghetti alle vongole",
+      "nameEn": "Spaghetti with clams",
+      "aliases": [
+        "spaghetti con le vongole",
+        "vongole in bianco"
+      ],
+      "tiles": [
+        "Italian",
+        "Fresh & light"
+      ],
+      "cuisine": "Italian",
+      "region": "Campania",
+      "format": "pasta",
+      "protein": "shellfish",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 30,
+      "effort": "medium",
+      "familiarity": 1,
+      "traditionalDiet": "pescatarian",
+      "versions": [
+        "vegan",
+        "pescatarian"
+      ],
+      "keyIngredients": [
+        "spaghetti",
+        "clams",
+        "garlic",
+        "extra virgin olive oil",
+        "parsley",
+        "white wine",
+        "dried chili"
+      ],
+      "specialtyIngredients": [
+        "lupini clams"
+      ],
+      "veganApproach": "Make the Neapolitan 'vongole fujute' version: garlic, oil, parsley and cherry tomatoes with no clams at all.",
+      "technique": "Clams are steamed open in garlic oil and wine, and the spaghetti finishes cooking in their briny juices.",
+      "seasons": [
+        "spring",
+        "summer"
+      ],
+      "occasions": [
+        "date",
+        "hosting"
+      ],
+      "sources": [
+        {
+          "title": "Spaghetti alle vongole - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Spaghetti_alle_vongole"
+        },
+        {
+          "title": "Spaghetti alle vongole - Wikipedia (IT)",
+          "url": "https://it.wikipedia.org/wiki/Spaghetti_alle_vongole"
+        }
+      ]
+    },
+    {
+      "key": "spaghetti-allo-scoglio",
+      "name": "Spaghetti allo scoglio",
+      "nameEn": "Spaghetti with mixed seafood",
+      "aliases": [
+        "spaghetti ai frutti di mare"
+      ],
+      "tiles": [
+        "Italian"
+      ],
+      "cuisine": "Italian",
+      "region": "Southern Italy",
+      "format": "pasta",
+      "protein": "shellfish",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 45,
+      "effort": "medium",
+      "familiarity": 1,
+      "traditionalDiet": "pescatarian",
+      "versions": [
+        "pescatarian"
+      ],
+      "keyIngredients": [
+        "spaghetti",
+        "mussels",
+        "clams",
+        "prawns",
+        "squid",
+        "cherry tomatoes",
+        "garlic",
+        "white wine",
+        "parsley"
+      ],
+      "specialtyIngredients": [],
+      "veganApproach": null,
+      "technique": "Mussels and clams are opened in garlic and wine, squid and prawns are added with cherry tomatoes, and the pasta is finished in the seafood juices.",
+      "seasons": [
+        "spring",
+        "summer"
+      ],
+      "occasions": [
+        "hosting",
+        "date"
+      ],
+      "sources": [
+        {
+          "title": "Spaghetti allo scoglio - Wikipedia (IT)",
+          "url": "https://it.wikipedia.org/wiki/Spaghetti_allo_scoglio"
+        },
+        {
+          "title": "Spaghetti allo Scoglio - Serious Eats",
+          "url": "https://www.seriouseats.com/spaghetti-allo-scoglio-mixed-seafood-spaghetti"
+        },
+        {
+          "title": "Spaghetti allo scoglio - Il Cucchiaio d'Argento",
+          "url": "https://www.cucchiaio.it/ricetta/spaghetti-allo-scoglio/"
+        }
+      ]
+    },
+    {
+      "key": "pasta-con-le-sarde",
+      "name": "Pasta con le sarde",
+      "nameEn": "Pasta with sardines and wild fennel",
+      "aliases": [
+        "pasta chi sarde",
+        "bucatini con le sarde"
+      ],
+      "tiles": [
+        "Italian"
+      ],
+      "cuisine": "Italian",
+      "region": "Sicily",
+      "format": "pasta",
+      "protein": "fish",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 50,
+      "effort": "medium",
+      "familiarity": 2,
+      "traditionalDiet": "pescatarian",
+      "versions": [
+        "vegan",
+        "pescatarian"
+      ],
+      "keyIngredients": [
+        "bucatini",
+        "fresh sardines",
+        "wild fennel",
+        "onion",
+        "anchovies",
+        "raisins",
+        "pine nuts",
+        "saffron",
+        "toasted breadcrumbs"
+      ],
+      "specialtyIngredients": [
+        "wild fennel",
+        "saffron"
+      ],
+      "veganApproach": "Follow the 'sarde a mare' tradition: keep the wild fennel, raisins, pine nuts and toasted breadcrumbs and leave the fish in the sea.",
+      "technique": "Wild fennel is boiled in the pasta water and stewed with onion, sardines, raisins, pine nuts and saffron, then topped with toasted breadcrumbs.",
+      "seasons": [
+        "spring",
+        "summer"
+      ],
+      "occasions": [
+        "hosting"
+      ],
+      "sources": [
+        {
+          "title": "Pasta con le sarde - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Pasta_con_le_sarde"
+        },
+        {
+          "title": "Pasta con le sarde - Wikipedia (IT)",
+          "url": "https://it.wikipedia.org/wiki/Pasta_con_le_sarde"
+        },
+        {
+          "title": "Pasta con le Sarde - Serious Eats",
+          "url": "https://www.seriouseats.com/pasta-pasta-con-le-sarde-sicilian-pasta-with-sardines"
+        }
+      ]
+    },
+    {
+      "key": "fregola-con-arselle",
+      "name": "Fregola con arselle",
+      "nameEn": "Sardinian fregola with clams",
+      "aliases": [
+        "fregula cun cocciula",
+        "fregola con le arselle"
+      ],
+      "tiles": [
+        "Italian"
+      ],
+      "cuisine": "Italian",
+      "region": "Sardinia",
+      "format": "pasta",
+      "protein": "shellfish",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 40,
+      "effort": "medium",
+      "familiarity": 3,
+      "traditionalDiet": "pescatarian",
+      "versions": [
+        "pescatarian"
+      ],
+      "keyIngredients": [
+        "fregola",
+        "clams",
+        "garlic",
+        "parsley",
+        "cherry tomatoes",
+        "extra virgin olive oil",
+        "dried chili"
+      ],
+      "specialtyIngredients": [
+        "fregola",
+        "arselle"
+      ],
+      "veganApproach": null,
+      "technique": "Toasted semolina fregola is cooked risotto-style in the filtered liquor of freshly opened clams with tomato and parsley.",
+      "seasons": [
+        "spring",
+        "summer"
+      ],
+      "occasions": [
+        "hosting",
+        "date"
+      ],
+      "sources": [
+        {
+          "title": "Fregola with clams - The Pasta Project",
+          "url": "https://www.the-pasta-project.com/fregola-with-clams-recipe-from-sardinia/"
+        },
+        {
+          "title": "Fregola con arselle - Sagr",
+          "url": "https://sagr.it/en/sardinia/cagliari-and-sulcis/recipes/fregola-con-arselle"
+        },
+        {
+          "title": "Fregola con arselle - Tesori Sardi",
+          "url": "https://www.tesorisardi.com/ricetta-fregola-con-arselle/"
+        }
+      ]
+    },
+    {
+      "key": "risotto-ai-funghi",
+      "name": "Risotto ai funghi porcini",
+      "nameEn": "Porcini mushroom risotto",
+      "aliases": [
+        "risotto ai funghi",
+        "risotto ai porcini"
+      ],
+      "tiles": [
+        "Italian",
+        "American"
+      ],
+      "cuisine": "Italian",
+      "region": "Northern Italy",
+      "format": "risotto",
+      "protein": "mushrooms",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 40,
+      "effort": "medium",
+      "familiarity": 1,
+      "traditionalDiet": "vegetarian",
+      "versions": [
+        "vegan",
+        "vegetarian"
+      ],
+      "keyIngredients": [
+        "carnaroli rice",
+        "porcini mushrooms",
+        "onion",
+        "white wine",
+        "vegetable stock",
+        "butter",
+        "parmigiano reggiano",
+        "parsley"
+      ],
+      "specialtyIngredients": [
+        "porcini mushrooms"
+      ],
+      "veganApproach": "Use the porcini soaking water in the stock and finish the mantecatura with olive oil or plant butter and nutritional yeast.",
+      "technique": "Toasted rice is cooked by gradual additions of hot stock with sautéed porcini, then whipped off the heat with butter and cheese.",
+      "seasons": [
+        "autumn"
+      ],
+      "occasions": [
+        "date",
+        "hosting",
+        "comfort"
+      ],
+      "sources": [
+        {
+          "title": "Risotto ai funghi porcini - GialloZafferano",
+          "url": "https://ricette.giallozafferano.it/Risotto-ai-funghi-porcini.html"
+        },
+        {
+          "title": "Vegan mushroom risotto - BBC Good Food",
+          "url": "https://www.bbcgoodfood.com/recipes/vegan-mushroom-risotto"
+        },
+        {
+          "title": "Vegan mushroom risotto - Lazy Cat Kitchen",
+          "url": "https://www.lazycatkitchen.com/vegan-mushroom-risotto/"
+        }
+      ]
+    },
+    {
+      "key": "risotto-alla-milanese",
+      "name": "Risotto alla milanese",
+      "nameEn": "Saffron risotto",
+      "aliases": [
+        "risotto allo zafferano",
+        "risotto giallo"
+      ],
+      "tiles": [
+        "Italian"
+      ],
+      "cuisine": "Italian",
+      "region": "Lombardy",
+      "format": "risotto",
+      "protein": "grains",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 35,
+      "effort": "medium",
+      "familiarity": 1,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegan",
+        "vegetarian"
+      ],
+      "keyIngredients": [
+        "carnaroli rice",
+        "saffron",
+        "beef marrow",
+        "onion",
+        "white wine",
+        "meat stock",
+        "butter",
+        "parmigiano reggiano"
+      ],
+      "specialtyIngredients": [
+        "saffron"
+      ],
+      "veganApproach": "Cook the rice in vegetable stock without marrow and finish with plant butter and nutritional yeast for a golden, creamy result.",
+      "technique": "Rice is toasted with onion and marrow, cooked with stock and saffron, then creamed off the heat with butter and parmigiano.",
+      "seasons": [
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "date",
+        "hosting"
+      ],
+      "sources": [
+        {
+          "title": "Risotto alla milanese - Wikipedia (IT)",
+          "url": "https://it.wikipedia.org/wiki/Risotto_alla_milanese"
+        },
+        {
+          "title": "Risotto alla Milanese - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Risotto_alla_Milanese"
+        },
+        {
+          "title": "Classic Risotto Milanese - Saveur",
+          "url": "https://www.saveur.com/article/recipes/classic-risotto-milanese/"
+        }
+      ]
+    },
+    {
+      "key": "risi-e-bisi",
+      "name": "Risi e bisi",
+      "nameEn": "Venetian rice and peas",
+      "aliases": [
+        "riso e piselli"
+      ],
+      "tiles": [
+        "Italian",
+        "Fresh & light"
+      ],
+      "cuisine": "Italian",
+      "region": "Veneto",
+      "format": "risotto",
+      "protein": "edamame_peas",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 45,
+      "effort": "medium",
+      "familiarity": 2,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegan",
+        "vegetarian"
+      ],
+      "keyIngredients": [
+        "vialone nano rice",
+        "fresh peas",
+        "pea pod stock",
+        "onion",
+        "pancetta",
+        "butter",
+        "parmigiano reggiano",
+        "parsley"
+      ],
+      "specialtyIngredients": [
+        "vialone nano rice"
+      ],
+      "veganApproach": "Skip the pancetta, make the stock from the pea pods and finish with olive oil and parsley instead of butter and cheese.",
+      "technique": "Rice and young peas are cooked in a stock made from the pea pods until loose and soupy, almost halfway between risotto and soup.",
+      "seasons": [
+        "spring"
+      ],
+      "occasions": [
+        "everyday",
+        "hosting"
+      ],
+      "sources": [
+        {
+          "title": "Risi e bisi - Wikipedia (IT)",
+          "url": "https://it.wikipedia.org/wiki/Risi_e_bisi"
+        },
+        {
+          "title": "How to cook the perfect risi e bisi - The Guardian",
+          "url": "https://www.theguardian.com/lifeandstyle/2017/may/25/how-to-cook-the-perfect-risi-e-bisi-felicity-cloake"
+        }
+      ]
+    },
+    {
+      "key": "risotto-alla-zucca",
+      "name": "Risotto alla zucca",
+      "nameEn": "Pumpkin risotto",
+      "aliases": [
+        "risotto con la zucca",
+        "risotto di zucca mantovano"
+      ],
+      "tiles": [
+        "Italian"
+      ],
+      "cuisine": "Italian",
+      "region": "Lombardy",
+      "format": "risotto",
+      "protein": "vegetables",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 45,
+      "effort": "medium",
+      "familiarity": 2,
+      "traditionalDiet": "vegetarian",
+      "versions": [
+        "vegan",
+        "vegetarian"
+      ],
+      "keyIngredients": [
+        "carnaroli rice",
+        "pumpkin",
+        "onion",
+        "white wine",
+        "vegetable stock",
+        "butter",
+        "parmigiano reggiano",
+        "sage"
+      ],
+      "specialtyIngredients": [],
+      "veganApproach": "Let the pumpkin melt into the rice for creaminess and finish with olive oil, toasted seeds and sage instead of butter and cheese.",
+      "technique": "Diced pumpkin is softened with onion until it collapses, then the rice is cooked in it with stock and creamed at the end.",
+      "seasons": [
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "comfort",
+        "date"
+      ],
+      "sources": [
+        {
+          "title": "Traditional Mantuan pumpkin risotto - Mussini",
+          "url": "https://www.mussini.it/en/recipe-traditional-mantuan-pumpkin-risotto-with-cold-balsamic-vinegar/"
+        },
+        {
+          "title": "Risotto alla zucca vegan - Beauty Food Blog",
+          "url": "https://beautyfoodblog.com/risotto-alla-zucca-vegan-senza-glutine-creamy-vegan-pumpkin-risotto/"
+        },
+        {
+          "title": "Risotto alla zucca - Polenta e Baccalà",
+          "url": "https://polentaebaccala.com/2017/10/03/risotto-alla-zucca-risotto-with-pumpkin/"
+        }
+      ]
+    },
+    {
+      "key": "insalata-di-riso",
+      "name": "Insalata di riso",
+      "nameEn": "Italian rice salad",
+      "aliases": [
+        "riso freddo"
+      ],
+      "tiles": [
+        "Italian",
+        "Fresh & light"
+      ],
+      "cuisine": "Italian",
+      "region": "Nationwide",
+      "format": "salad",
+      "protein": "vegetables",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 30,
+      "effort": "low",
+      "familiarity": 2,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegan",
+        "vegetarian"
+      ],
+      "keyIngredients": [
+        "rice",
+        "pickled vegetables",
+        "olives",
+        "cherry tomatoes",
+        "hard-boiled eggs",
+        "ham",
+        "tuna",
+        "cheese cubes"
+      ],
+      "specialtyIngredients": [
+        "giardiniera"
+      ],
+      "veganApproach": "Toss the rice with giardiniera, olives, tomatoes and chickpeas or marinated tofu instead of ham, tuna, egg and cheese.",
+      "technique": "Rice is boiled, cooled quickly to keep it separate and mixed with diced pickles, vegetables and other cold ingredients.",
+      "seasons": [
+        "summer"
+      ],
+      "occasions": [
+        "mealprep",
+        "everyday"
+      ],
+      "sources": [
+        {
+          "title": "Insalata di riso - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Insalata_di_riso"
+        },
+        {
+          "title": "Insalata di riso - Wikipedia (IT)",
+          "url": "https://it.wikipedia.org/wiki/Insalata_di_riso"
+        },
+        {
+          "title": "Italian Rice Salad - Recipes from Italy",
+          "url": "https://www.recipesfromitaly.com/italian-rice-salad/"
+        }
+      ]
+    },
+    {
+      "key": "sartu-di-riso",
+      "name": "Sartù di riso",
+      "nameEn": "Neapolitan baked rice timbale",
+      "aliases": [
+        "sartù",
+        "sartù napoletano"
+      ],
+      "tiles": [
+        "Italian",
+        "American"
+      ],
+      "cuisine": "Italian",
+      "region": "Campania",
+      "format": "bake",
+      "protein": "edamame_peas",
+      "method": "oven",
+      "appliances": [
+        "stovetop",
+        "oven"
+      ],
+      "cookMinutes": 150,
+      "effort": "high",
+      "familiarity": 3,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegan",
+        "vegetarian"
+      ],
+      "keyIngredients": [
+        "rice",
+        "tomato ragù",
+        "meatballs",
+        "peas",
+        "mozzarella",
+        "hard-boiled eggs",
+        "parmigiano reggiano",
+        "breadcrumbs"
+      ],
+      "specialtyIngredients": [
+        "fior di latte mozzarella"
+      ],
+      "veganApproach": "Fill the rice shell with peas, mushrooms and a plant-based melting cheese and bind the rice with tomato sauce instead of egg.",
+      "technique": "Rice cooked in tomato ragù lines a breadcrumbed mould, is filled with peas, cheese and small meatballs, then baked and turned out.",
+      "seasons": [
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "hosting"
+      ],
+      "sources": [
+        {
+          "title": "Sartù di riso - Wikipedia (IT)",
+          "url": "https://it.wikipedia.org/wiki/Sart%C3%B9_di_riso"
+        },
+        {
+          "title": "Sartù vegetariano - Il Cucchiaio d'Argento",
+          "url": "https://www.cucchiaio.it/ricetta/ricetta-sartu-vegetariano/"
+        },
+        {
+          "title": "Sartù di riso vegetariano - Primo Chef",
+          "url": "https://primochef.it/sartu-di-riso-vegetariano/cucina-naturale/"
+        }
+      ]
+    },
+    {
+      "key": "tiella-barese",
+      "name": "Tiella barese",
+      "nameEn": "Baked rice, potatoes and mussels",
+      "aliases": [
+        "patate, riso e cozze",
+        "riso patate e cozze"
+      ],
+      "tiles": [
+        "Italian"
+      ],
+      "cuisine": "Italian",
+      "region": "Puglia",
+      "format": "bake",
+      "protein": "shellfish",
+      "method": "oven",
+      "appliances": [
+        "oven"
+      ],
+      "cookMinutes": 75,
+      "effort": "medium",
+      "familiarity": 3,
+      "traditionalDiet": "pescatarian",
+      "versions": [
+        "pescatarian"
+      ],
+      "keyIngredients": [
+        "rice",
+        "potatoes",
+        "mussels",
+        "onion",
+        "cherry tomatoes",
+        "pecorino",
+        "parsley",
+        "garlic",
+        "extra virgin olive oil"
+      ],
+      "specialtyIngredients": [],
+      "veganApproach": null,
+      "technique": "Raw rice, sliced potatoes and half-shell mussels are layered in a pan with tomatoes and pecorino, then baked with water until tender.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn"
+      ],
+      "occasions": [
+        "hosting"
+      ],
+      "sources": [
+        {
+          "title": "Tiella barese - Wikipedia (IT)",
+          "url": "https://it.wikipedia.org/wiki/Tiella_barese"
+        },
+        {
+          "title": "Teglia al forno con patate, riso e cozze - PAT Puglia",
+          "url": "https://www.patpuglia.it/it/12/Teglia_al_forno_con_patate_riso_e_cozze/BA_300_P"
+        },
+        {
+          "title": "Tiella barese - GialloZafferano",
+          "url": "https://ricette.giallozafferano.it/Tiella-barese.html"
+        }
+      ]
+    },
+    {
+      "key": "risotto-alla-pescatora",
+      "name": "Risotto alla pescatora",
+      "nameEn": "Seafood risotto",
+      "aliases": [
+        "risotto ai frutti di mare",
+        "risotto alla marinara"
+      ],
+      "tiles": [
+        "Italian"
+      ],
+      "cuisine": "Italian",
+      "region": "Nationwide",
+      "format": "risotto",
+      "protein": "shellfish",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 50,
+      "effort": "medium",
+      "familiarity": 2,
+      "traditionalDiet": "pescatarian",
+      "versions": [
+        "pescatarian"
+      ],
+      "keyIngredients": [
+        "carnaroli rice",
+        "mussels",
+        "clams",
+        "prawns",
+        "squid",
+        "garlic",
+        "white wine",
+        "fish stock",
+        "parsley"
+      ],
+      "specialtyIngredients": [],
+      "veganApproach": null,
+      "technique": "Shellfish are opened and their liquor used as stock, the rice is cooked in it and the seafood folded in at the end.",
+      "seasons": [
+        "spring",
+        "summer"
+      ],
+      "occasions": [
+        "hosting",
+        "date"
+      ],
+      "sources": [
+        {
+          "title": "Risotto alla pescatora - GialloZafferano",
+          "url": "https://ricette.giallozafferano.it/Risotto-alla-pescatora.html"
+        },
+        {
+          "title": "Risotto alla pescatora - Sicucina",
+          "url": "https://www.sicucina.it/ricetta/risotto-alla-pescatora/"
+        }
+      ]
+    },
+    {
+      "key": "minestrone",
+      "name": "Minestrone",
+      "nameEn": "Italian vegetable soup",
+      "aliases": [
+        "minestrone di verdure"
+      ],
+      "tiles": [
+        "Italian",
+        "Fresh & light"
+      ],
+      "cuisine": "Italian",
+      "region": "Nationwide",
+      "format": "soup",
+      "protein": "beans",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 60,
+      "effort": "low",
+      "familiarity": 1,
+      "traditionalDiet": "vegetarian",
+      "versions": [
+        "vegan",
+        "vegetarian"
+      ],
+      "keyIngredients": [
+        "borlotti beans",
+        "potatoes",
+        "carrots",
+        "celery",
+        "onion",
+        "zucchini",
+        "cabbage",
+        "tomatoes",
+        "short pasta",
+        "parmigiano reggiano"
+      ],
+      "specialtyIngredients": [],
+      "veganApproach": "Simmer the vegetables and beans in water with olive oil, skip the parmigiano rind and finish with a spoon of basil pesto without cheese.",
+      "technique": "Seasonal vegetables and beans are slowly simmered in a single pot, often with rice or small pasta added at the end.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "mealprep",
+        "comfort"
+      ],
+      "sources": [
+        {
+          "title": "Minestrone - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Minestrone"
+        },
+        {
+          "title": "Minestrone - Wikipedia (IT)",
+          "url": "https://it.wikipedia.org/wiki/Minestrone"
+        }
+      ]
+    },
+    {
+      "key": "pasta-e-fagioli",
+      "name": "Pasta e fagioli",
+      "nameEn": "Pasta and bean soup",
+      "aliases": [
+        "pasta e fasule",
+        "pasta fazool",
+        "pasta e fasoi"
+      ],
+      "tiles": [
+        "Italian",
+        "American"
+      ],
+      "cuisine": "Italian",
+      "region": "Nationwide",
+      "format": "soup",
+      "protein": "beans",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 50,
+      "effort": "low",
+      "familiarity": 1,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "borlotti beans",
+        "short pasta",
+        "onion",
+        "celery",
+        "carrot",
+        "garlic",
+        "tomatoes",
+        "rosemary",
+        "pancetta"
+      ],
+      "specialtyIngredients": [],
+      "veganApproach": "Use the meatless version: build flavor with a soffritto, rosemary and good olive oil instead of pancetta or pork rind.",
+      "technique": "Beans are stewed with soffritto and herbs, partly mashed for body, and the pasta is cooked directly in the thick soup.",
+      "seasons": [
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "comfort",
+        "mealprep"
+      ],
+      "sources": [
+        {
+          "title": "Pasta e fagioli - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Pasta_e_fagioli"
+        },
+        {
+          "title": "Pasta e fagioli - Wikipedia (IT)",
+          "url": "https://it.wikipedia.org/wiki/Pasta_e_fagioli"
+        }
+      ]
+    },
+    {
+      "key": "ribollita",
+      "name": "Ribollita",
+      "nameEn": "Tuscan bread and bean soup",
+      "aliases": [
+        "ribollita toscana"
+      ],
+      "tiles": [
+        "Italian"
+      ],
+      "cuisine": "Italian",
+      "region": "Tuscany",
+      "format": "soup",
+      "protein": "beans",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 90,
+      "effort": "medium",
+      "familiarity": 1,
+      "traditionalDiet": "vegan",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "cannellini beans",
+        "cavolo nero",
+        "savoy cabbage",
+        "stale tuscan bread",
+        "onion",
+        "carrot",
+        "celery",
+        "tomatoes",
+        "extra virgin olive oil"
+      ],
+      "specialtyIngredients": [
+        "cavolo nero",
+        "tuscan bread"
+      ],
+      "veganApproach": "Naturally vegan: beans, greens and stale bread with plenty of raw olive oil on top.",
+      "technique": "A thick bean and cavolo nero soup is layered with stale bread and reheated, 're-boiled', until dense enough to hold a spoon.",
+      "seasons": [
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "comfort",
+        "mealprep"
+      ],
+      "sources": [
+        {
+          "title": "Ribollita - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Ribollita"
+        },
+        {
+          "title": "Ribollita - Wikipedia (IT)",
+          "url": "https://it.wikipedia.org/wiki/Ribollita"
+        },
+        {
+          "title": "Ribollita - Serious Eats",
+          "url": "https://www.seriouseats.com/ribollita-tuscan-italian-vegetable-soup-stew-recipe"
+        }
+      ]
+    },
+    {
+      "key": "pappa-al-pomodoro",
+      "name": "Pappa al pomodoro",
+      "nameEn": "Tuscan tomato and bread soup",
+      "aliases": [
+        "pappa col pomodoro"
+      ],
+      "tiles": [
+        "Italian"
+      ],
+      "cuisine": "Italian",
+      "region": "Tuscany",
+      "format": "soup",
+      "protein": "vegetables",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 40,
+      "effort": "low",
+      "familiarity": 2,
+      "traditionalDiet": "vegan",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "ripe tomatoes",
+        "stale tuscan bread",
+        "garlic",
+        "basil",
+        "extra virgin olive oil",
+        "vegetable stock",
+        "salt"
+      ],
+      "specialtyIngredients": [
+        "tuscan bread"
+      ],
+      "veganApproach": "Naturally vegan: tomatoes, bread, garlic, basil and olive oil.",
+      "technique": "Stale bread is simmered with ripe tomatoes, garlic and stock until it collapses into a thick porridge, then finished with basil and raw oil.",
+      "seasons": [
+        "summer"
+      ],
+      "occasions": [
+        "everyday",
+        "comfort"
+      ],
+      "sources": [
+        {
+          "title": "Pappa al pomodoro - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Pappa_al_pomodoro"
+        },
+        {
+          "title": "Pappa al pomodoro - Eating Around Italy",
+          "url": "https://eatingarounditaly.com/pappa-al-pomodoro-recipe/"
+        }
+      ]
+    },
+    {
+      "key": "acquacotta",
+      "name": "Acquacotta",
+      "nameEn": "Maremma vegetable and bread soup",
+      "aliases": [
+        "acquacotta maremmana"
+      ],
+      "tiles": [
+        "Italian"
+      ],
+      "cuisine": "Italian",
+      "region": "Tuscany",
+      "format": "soup",
+      "protein": "vegetables",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 50,
+      "effort": "low",
+      "familiarity": 3,
+      "traditionalDiet": "vegetarian",
+      "versions": [
+        "vegan",
+        "vegetarian"
+      ],
+      "keyIngredients": [
+        "onions",
+        "celery",
+        "tomatoes",
+        "chard",
+        "stale bread",
+        "eggs",
+        "pecorino",
+        "extra virgin olive oil"
+      ],
+      "specialtyIngredients": [],
+      "veganApproach": "Leave out the poached egg and pecorino and add white beans to the vegetable broth for substance.",
+      "technique": "Onions and greens are stewed in olive oil and water, then ladled over toasted bread, traditionally with an egg poached in the broth.",
+      "seasons": [
+        "spring",
+        "autumn"
+      ],
+      "occasions": [
+        "everyday",
+        "comfort"
+      ],
+      "sources": [
+        {
+          "title": "Acquacotta - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Acquacotta"
+        },
+        {
+          "title": "Acquacotta - Wikipedia (IT)",
+          "url": "https://it.wikipedia.org/wiki/Acquacotta"
+        },
+        {
+          "title": "Acquacotta Maremmana - The Spruce Eats",
+          "url": "https://www.thespruceeats.com/tuscan-vegetable-soup-acquacotta-maremmana-recipe-4105298"
+        }
+      ]
+    },
+    {
+      "key": "zuppa-di-farro-della-garfagnana",
+      "name": "Zuppa di farro della Garfagnana",
+      "nameEn": "Garfagnana spelt and bean soup",
+      "aliases": [
+        "minestra di farro",
+        "farro alla garfagnina"
+      ],
+      "tiles": [
+        "Italian"
+      ],
+      "cuisine": "Italian",
+      "region": "Tuscany",
+      "format": "soup",
+      "protein": "beans",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 75,
+      "effort": "low",
+      "familiarity": 3,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "farro",
+        "borlotti beans",
+        "onion",
+        "carrot",
+        "celery",
+        "tomatoes",
+        "sage",
+        "rosemary",
+        "pancetta"
+      ],
+      "specialtyIngredients": [
+        "farro della garfagnana"
+      ],
+      "veganApproach": "Make the soffritto with olive oil only, as many Garfagnana households do, and let the beans and farro carry the flavor.",
+      "technique": "Borlotti beans are cooked and partly puréed, then simmered with a herby soffritto and farro until thick.",
+      "seasons": [
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "comfort",
+        "mealprep"
+      ],
+      "sources": [
+        {
+          "title": "Minestra garfagnina di farro - Il Cucchiaio d'Argento",
+          "url": "https://www.cucchiaio.it/ricetta/ricetta-minestra-garfagnina-farro/"
+        },
+        {
+          "title": "Zuppa di farro della Garfagnana - Castiglione di Garfagnana",
+          "url": "http://castiglionegarfa.altervista.org/zuppa-di-farro-della-garfagnana.html"
+        },
+        {
+          "title": "Zuppa di farro della Garfagnana - Piatto Tipico",
+          "url": "https://piattotipico.com/piatti-tipici/zuppa-di-farro-della-garfagnana"
+        }
+      ]
+    },
+    {
+      "key": "macco-di-fave",
+      "name": "Macco di fave",
+      "nameEn": "Sicilian dried fava bean purée soup",
+      "aliases": [
+        "maccu",
+        "maccu di fave"
+      ],
+      "tiles": [
+        "Italian"
+      ],
+      "cuisine": "Italian",
+      "region": "Sicily",
+      "format": "soup",
+      "protein": "beans",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 120,
+      "effort": "low",
+      "familiarity": 3,
+      "traditionalDiet": "vegan",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "dried fava beans",
+        "wild fennel",
+        "onion",
+        "tomatoes",
+        "extra virgin olive oil",
+        "dried chili",
+        "salt"
+      ],
+      "specialtyIngredients": [
+        "wild fennel"
+      ],
+      "veganApproach": "Naturally vegan: dried fava beans slowly cooked to a cream with wild fennel and olive oil.",
+      "technique": "Shelled dried fava beans are simmered for a long time and stirred until they dissolve into a thick purée, often with broken spaghetti.",
+      "seasons": [
+        "autumn",
+        "winter",
+        "spring"
+      ],
+      "occasions": [
+        "comfort",
+        "mealprep"
+      ],
+      "sources": [
+        {
+          "title": "Macco di fave - Wikipedia (IT)",
+          "url": "https://it.wikipedia.org/wiki/Macco_di_fave"
+        },
+        {
+          "title": "Maccu - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Maccu"
+        }
+      ]
+    },
+    {
+      "key": "cacciucco",
+      "name": "Cacciucco alla livornese",
+      "nameEn": "Livorno fish stew",
+      "aliases": [
+        "cacciucco"
+      ],
+      "tiles": [
+        "Italian"
+      ],
+      "cuisine": "Italian",
+      "region": "Tuscany",
+      "format": "stew",
+      "protein": "fish",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 90,
+      "effort": "high",
+      "familiarity": 2,
+      "traditionalDiet": "pescatarian",
+      "versions": [
+        "pescatarian"
+      ],
+      "keyIngredients": [
+        "mixed rockfish",
+        "octopus",
+        "cuttlefish",
+        "mussels",
+        "tomatoes",
+        "red wine",
+        "garlic",
+        "sage",
+        "dried chili",
+        "toasted bread"
+      ],
+      "specialtyIngredients": [],
+      "veganApproach": null,
+      "technique": "Several kinds of fish and shellfish are added in stages to a spicy tomato and wine base and served over garlic-rubbed toasted bread.",
+      "seasons": [
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "hosting"
+      ],
+      "sources": [
+        {
+          "title": "Cacciucco - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Cacciucco"
+        },
+        {
+          "title": "Cacciucco alla livornese - Visit Tuscany",
+          "url": "https://www.visittuscany.com/en/recipes/cacciucco-alla-livornese-from-market-to-table/"
+        },
+        {
+          "title": "Cacciucco - Wikipedia (IT)",
+          "url": "https://it.wikipedia.org/wiki/Cacciucco"
+        }
+      ]
+    },
+    {
+      "key": "ciambotta",
+      "name": "Ciambotta",
+      "nameEn": "Southern Italian summer vegetable stew",
+      "aliases": [
+        "ciambotta lucana",
+        "giambotta",
+        "cianfotta"
+      ],
+      "tiles": [
+        "Italian"
+      ],
+      "cuisine": "Italian",
+      "region": "Southern Italy",
+      "format": "stew",
+      "protein": "vegetables",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 60,
+      "effort": "low",
+      "familiarity": 3,
+      "traditionalDiet": "vegan",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "eggplant",
+        "bell peppers",
+        "potatoes",
+        "zucchini",
+        "tomatoes",
+        "onion",
+        "basil",
+        "extra virgin olive oil"
+      ],
+      "specialtyIngredients": [],
+      "veganApproach": "Naturally vegan: a one-pot stew of summer vegetables in olive oil.",
+      "technique": "Potatoes, peppers, eggplant and zucchini are added in stages to an onion and tomato base and stewed until soft and saucy.",
+      "seasons": [
+        "summer"
+      ],
+      "occasions": [
+        "everyday",
+        "mealprep"
+      ],
+      "sources": [
+        {
+          "title": "Ciambotta - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/ciambotta"
+        },
+        {
+          "title": "Italian Vegetable Stew (Ciambotta) - America's Test Kitchen",
+          "url": "https://www.americastestkitchen.com/recipes/6951-italian-vegetable-stew-ciambotta"
+        },
+        {
+          "title": "Rachel Roddy's ciambotta - The Guardian",
+          "url": "https://www.theguardian.com/food/article/2024/jun/17/ciambotta-or-braised-peppers-tomatoes-and-potatoes-recipe-rachel-roddy"
+        }
+      ]
+    },
+    {
+      "key": "fagioli-alluccelletto",
+      "name": "Fagioli all'uccelletto",
+      "nameEn": "Tuscan beans with tomato and sage",
+      "aliases": [
+        "fagioli all'uccelletto toscani"
+      ],
+      "tiles": [
+        "Italian"
+      ],
+      "cuisine": "Italian",
+      "region": "Tuscany",
+      "format": "stew",
+      "protein": "beans",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 35,
+      "effort": "low",
+      "familiarity": 2,
+      "traditionalDiet": "vegan",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "cannellini beans",
+        "tomatoes",
+        "garlic",
+        "sage",
+        "extra virgin olive oil",
+        "black pepper",
+        "salt"
+      ],
+      "specialtyIngredients": [],
+      "veganApproach": "Naturally vegan: cannellini beans stewed in tomato with garlic and sage.",
+      "technique": "Garlic and sage are fried in olive oil, tomatoes are added and the cooked cannellini are simmered in the sauce until they absorb it.",
+      "seasons": [
+        "autumn",
+        "winter",
+        "spring"
+      ],
+      "occasions": [
+        "everyday",
+        "mealprep"
+      ],
+      "sources": [
+        {
+          "title": "Fagioli all'uccelletto - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Fagioli_all%27uccelletto"
+        },
+        {
+          "title": "Fagioli all'uccelletto - La Cucina Italiana",
+          "url": "https://www.lacucinaitaliana.com/italian-food/italian-dishes/fagioli-alluccelletto-tuscan-bean-recipe"
+        }
+      ]
+    },
+    {
+      "key": "parmigiana-di-melanzane",
+      "name": "Parmigiana di melanzane",
+      "nameEn": "Eggplant parmigiana",
+      "aliases": [
+        "parmigiana",
+        "melanzane alla parmigiana"
+      ],
+      "tiles": [
+        "Italian",
+        "American"
+      ],
+      "cuisine": "Italian",
+      "region": "Southern Italy",
+      "format": "bake",
+      "protein": "vegetables",
+      "method": "oven",
+      "appliances": [
+        "stovetop",
+        "oven"
+      ],
+      "cookMinutes": 90,
+      "effort": "medium",
+      "familiarity": 1,
+      "traditionalDiet": "vegetarian",
+      "versions": [
+        "vegan",
+        "vegetarian"
+      ],
+      "keyIngredients": [
+        "eggplant",
+        "tomato sauce",
+        "mozzarella",
+        "parmigiano reggiano",
+        "basil",
+        "extra virgin olive oil",
+        "garlic"
+      ],
+      "specialtyIngredients": [
+        "fior di latte mozzarella"
+      ],
+      "veganApproach": "Layer the fried or baked eggplant with tomato sauce, basil and a melting plant-based mozzarella and a nut-based grated topping.",
+      "technique": "Fried eggplant slices are layered with tomato sauce, basil, mozzarella and parmigiano, then baked and rested before slicing.",
+      "seasons": [
+        "summer",
+        "autumn"
+      ],
+      "occasions": [
+        "hosting",
+        "comfort",
+        "mealprep"
+      ],
+      "sources": [
+        {
+          "title": "Parmigiana - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Parmigiana"
+        },
+        {
+          "title": "Parmigiana - Wikipedia (IT)",
+          "url": "https://it.wikipedia.org/wiki/parmigiana"
+        },
+        {
+          "title": "Vegan Eggplant Parmesan - A Couple Cooks",
+          "url": "https://www.acouplecooks.com/vegan-eggplant-parmesan/"
+        }
+      ]
+    },
+    {
+      "key": "peperoni-ripieni-alla-siciliana",
+      "name": "Peperoni ripieni alla siciliana",
+      "nameEn": "Sicilian stuffed peppers with breadcrumbs",
+      "aliases": [
+        "peperoni ripieni di pane",
+        "peperoni ripieni"
+      ],
+      "tiles": [
+        "Italian"
+      ],
+      "cuisine": "Italian",
+      "region": "Sicily",
+      "format": "stuffed",
+      "protein": "vegetables",
+      "method": "oven",
+      "appliances": [
+        "oven"
+      ],
+      "cookMinutes": 60,
+      "effort": "medium",
+      "familiarity": 2,
+      "traditionalDiet": "vegetarian",
+      "versions": [
+        "vegan",
+        "vegetarian"
+      ],
+      "keyIngredients": [
+        "bell peppers",
+        "breadcrumbs",
+        "pecorino",
+        "capers",
+        "black olives",
+        "pine nuts",
+        "raisins",
+        "parsley",
+        "extra virgin olive oil"
+      ],
+      "specialtyIngredients": [],
+      "veganApproach": "Leave out the pecorino and bind the breadcrumb filling with olive oil and a little tomato sauce.",
+      "technique": "Peppers are filled with seasoned breadcrumbs, capers, olives, pine nuts and cheese, drizzled with oil and baked until soft.",
+      "seasons": [
+        "summer",
+        "autumn"
+      ],
+      "occasions": [
+        "everyday",
+        "hosting",
+        "mealprep"
+      ],
+      "sources": [
+        {
+          "title": "Peperoni ripieni alla siciliana - Ricette di Sicilia",
+          "url": "https://ricettedisicilia.org/peperoni-ripieni-alla-siciliana/"
+        },
+        {
+          "title": "Peperoni ripieni di pane - Il Cuore in Pentola",
+          "url": "https://www.ilcuoreinpentola.it/ricette/secondi-piatti/peperoni-ripieni-di-pane/"
+        }
+      ]
+    },
+    {
+      "key": "fave-e-cicoria",
+      "name": "Fave e cicoria",
+      "nameEn": "Fava bean purée with wild chicory",
+      "aliases": [
+        "fave bianche e cicorie",
+        "'ncapriata",
+        "fave e cicorie"
+      ],
+      "tiles": [
+        "Italian"
+      ],
+      "cuisine": "Italian",
+      "region": "Puglia",
+      "format": "other",
+      "protein": "beans",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 75,
+      "effort": "low",
+      "familiarity": 3,
+      "traditionalDiet": "vegan",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "dried split fava beans",
+        "wild chicory",
+        "potato",
+        "extra virgin olive oil",
+        "garlic",
+        "salt"
+      ],
+      "specialtyIngredients": [
+        "wild chicory"
+      ],
+      "veganApproach": "Naturally vegan: fava bean purée with boiled bitter greens and raw olive oil.",
+      "technique": "Dried split fava beans are simmered and whipped into a smooth purée, served with boiled chicory and plenty of olive oil.",
+      "seasons": [
+        "autumn",
+        "winter",
+        "spring"
+      ],
+      "occasions": [
+        "everyday",
+        "mealprep"
+      ],
+      "sources": [
+        {
+          "title": "Fave bianche e cicorie - Wikipedia (IT)",
+          "url": "https://it.wikipedia.org/wiki/Fave_bianche_e_cicorie"
+        },
+        {
+          "title": "Fave bianche e cicorie - PAT Puglia",
+          "url": "https://www.patpuglia.it/it/12/Fave_bianche_e_cicorie/7_271"
+        },
+        {
+          "title": "'Ncapriata pugliese - Mangiare Buono",
+          "url": "https://www.mangiarebuono.it/il-gusto-dolceamaro-della-ncapriata-pugliese/"
+        }
+      ]
+    },
+    {
+      "key": "panzanella",
+      "name": "Panzanella",
+      "nameEn": "Tuscan bread and tomato salad",
+      "aliases": [
+        "panmolle",
+        "pan molle"
+      ],
+      "tiles": [
+        "Italian",
+        "Fresh & light"
+      ],
+      "cuisine": "Italian",
+      "region": "Tuscany",
+      "format": "salad",
+      "protein": "vegetables",
+      "method": "no_cook",
+      "appliances": [],
+      "cookMinutes": 20,
+      "effort": "low",
+      "familiarity": 2,
+      "traditionalDiet": "vegan",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "stale tuscan bread",
+        "tomatoes",
+        "red onion",
+        "cucumber",
+        "basil",
+        "extra virgin olive oil",
+        "red wine vinegar",
+        "salt"
+      ],
+      "specialtyIngredients": [
+        "tuscan bread"
+      ],
+      "veganApproach": "Naturally vegan: bread, tomatoes, onion, cucumber, basil, oil and vinegar.",
+      "technique": "Stale bread is soaked in water, squeezed and crumbled, then tossed with raw tomatoes, onion and cucumber dressed with oil and vinegar.",
+      "seasons": [
+        "summer"
+      ],
+      "occasions": [
+        "quick",
+        "everyday",
+        "hosting"
+      ],
+      "sources": [
+        {
+          "title": "Panzanella - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Panzanella"
+        },
+        {
+          "title": "Panzanella - Wikipedia (IT)",
+          "url": "https://it.wikipedia.org/wiki/Panzanella"
+        },
+        {
+          "title": "Classic Panzanella Salad - Recipes from Italy",
+          "url": "https://www.recipesfromitaly.com/panzanella-salad/"
+        }
+      ]
+    },
+    {
+      "key": "polenta-e-funghi",
+      "name": "Polenta e funghi",
+      "nameEn": "Polenta with sautéed mushrooms",
+      "aliases": [
+        "polenta con i funghi",
+        "polenta e funghi trifolati"
+      ],
+      "tiles": [
+        "Italian",
+        "American"
+      ],
+      "cuisine": "Italian",
+      "region": "Northern Italy",
+      "format": "other",
+      "protein": "mushrooms",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 55,
+      "effort": "low",
+      "familiarity": 2,
+      "traditionalDiet": "vegan",
+      "versions": [
+        "vegan",
+        "vegetarian"
+      ],
+      "keyIngredients": [
+        "cornmeal",
+        "porcini mushrooms",
+        "mixed wild mushrooms",
+        "garlic",
+        "parsley",
+        "extra virgin olive oil",
+        "white wine",
+        "salt"
+      ],
+      "specialtyIngredients": [
+        "porcini mushrooms",
+        "bramata cornmeal"
+      ],
+      "veganApproach": "The base recipe is vegan; just skip the optional grated cheese or butter stirred into the polenta.",
+      "technique": "Coarse cornmeal is whisked into boiling water and stirred slowly until thick, then topped with mushrooms sautéed in garlic and parsley.",
+      "seasons": [
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "comfort",
+        "everyday"
+      ],
+      "sources": [
+        {
+          "title": "Funghi e polenta - A modo mio",
+          "url": "https://a-modo-mio.it/polenta-funghi-it/"
+        },
+        {
+          "title": "Funghi con polenta: la ricetta tradizionale - Barracuda",
+          "url": "https://barracudamatera.it/consigli/ricetta-funghi-con-polenta/"
+        }
+      ]
+    },
+    {
+      "key": "frittata",
+      "name": "Frittata",
+      "nameEn": "Italian open omelette",
+      "aliases": [
+        "frittata di verdure",
+        "frittata di zucchine",
+        "farifrittata"
+      ],
+      "tiles": [
+        "Italian",
+        "Fresh & light"
+      ],
+      "cuisine": "Italian",
+      "region": "Nationwide",
+      "format": "egg_dish",
+      "protein": "chickpeas",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 25,
+      "effort": "low",
+      "familiarity": 1,
+      "traditionalDiet": "vegetarian",
+      "versions": [
+        "vegan",
+        "vegetarian"
+      ],
+      "keyIngredients": [
+        "eggs",
+        "zucchini",
+        "onion",
+        "parmigiano reggiano",
+        "extra virgin olive oil",
+        "parsley",
+        "salt"
+      ],
+      "specialtyIngredients": [],
+      "veganApproach": "Replace the eggs with a rested chickpea flour and water batter, as in the 'farifrittata'.",
+      "technique": "Vegetables are mixed into beaten eggs and cooked slowly in a pan until set, then flipped whole to brown the other side.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "quick",
+        "everyday",
+        "mealprep"
+      ],
+      "sources": [
+        {
+          "title": "Frittata - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Frittata"
+        },
+        {
+          "title": "Farifrittata di zucchine - Veganchallenge.it",
+          "url": "https://www.veganchallenge.it/frittata-di-zucchine/"
+        }
+      ]
+    },
+    {
+      "key": "erbazzone",
+      "name": "Erbazzone",
+      "nameEn": "Reggio Emilia chard and parmigiano pie",
+      "aliases": [
+        "erbazzone reggiano",
+        "scarpazzone",
+        "scarpasòun"
+      ],
+      "tiles": [
+        "Italian"
+      ],
+      "cuisine": "Italian",
+      "region": "Emilia-Romagna",
+      "format": "savory_pie",
+      "protein": "vegetables",
+      "method": "oven",
+      "appliances": [
+        "stovetop",
+        "oven"
+      ],
+      "cookMinutes": 90,
+      "effort": "medium",
+      "familiarity": 3,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegan",
+        "vegetarian"
+      ],
+      "keyIngredients": [
+        "flour",
+        "lard",
+        "swiss chard",
+        "spinach",
+        "spring onions",
+        "garlic",
+        "parmigiano reggiano",
+        "pancetta",
+        "parsley"
+      ],
+      "specialtyIngredients": [
+        "parmigiano reggiano"
+      ],
+      "veganApproach": "Make the thin pastry with olive oil instead of lard and season the chard filling with garlic, spring onion and nutritional yeast.",
+      "technique": "Boiled chard and spinach are sautéed with onion and lardo, mixed with parmigiano and baked between two very thin sheets of pastry.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn"
+      ],
+      "occasions": [
+        "mealprep",
+        "hosting",
+        "everyday"
+      ],
+      "sources": [
+        {
+          "title": "Erbazzone reggiano IGP - Regione Emilia-Romagna",
+          "url": "https://agricoltura.regione.emilia-romagna.it/dop-igp/prodotti-dop-e-igp-emilia-romagna/tutte-dop-igp-emilia-romagna/erbazzone-reggiano-igp"
+        },
+        {
+          "title": "Erbazzone - Wikipedia (IT)",
+          "url": "https://it.wikipedia.org/wiki/Erbazzone"
+        }
+      ]
+    },
+    {
+      "key": "torta-pasqualina",
+      "name": "Torta pasqualina",
+      "nameEn": "Ligurian Easter chard and ricotta pie",
+      "aliases": [
+        "pasqualina"
+      ],
+      "tiles": [
+        "Italian"
+      ],
+      "cuisine": "Italian",
+      "region": "Liguria",
+      "format": "savory_pie",
+      "protein": "tofu",
+      "method": "oven",
+      "appliances": [
+        "stovetop",
+        "oven"
+      ],
+      "cookMinutes": 100,
+      "effort": "high",
+      "familiarity": 2,
+      "traditionalDiet": "vegetarian",
+      "versions": [
+        "vegan",
+        "vegetarian"
+      ],
+      "keyIngredients": [
+        "flour",
+        "extra virgin olive oil",
+        "swiss chard",
+        "ricotta",
+        "eggs",
+        "parmigiano reggiano",
+        "marjoram",
+        "onion"
+      ],
+      "specialtyIngredients": [
+        "prescinsêua"
+      ],
+      "veganApproach": "Fill an olive oil pastry with chard and a seasoned tofu ricotta in place of the cheese and whole eggs.",
+      "technique": "Chard and ricotta are layered between many thin oil pastry sheets with whole eggs nestled in the filling, then baked.",
+      "seasons": [
+        "spring"
+      ],
+      "occasions": [
+        "hosting",
+        "mealprep"
+      ],
+      "sources": [
+        {
+          "title": "Torta pasqualina - Wikipedia (IT)",
+          "url": "https://it.wikipedia.org/wiki/torta_pasqualina"
+        },
+        {
+          "title": "Torta Pasqualina vegan - La Cucina Italiana",
+          "url": "https://www.lacucinaitaliana.it/gallery/torta-pasqualina-vegan-pasqua-pasquetta-ricetta/"
+        }
+      ]
+    },
+    {
+      "key": "pizza-margherita",
+      "name": "Pizza Margherita",
+      "nameEn": "Margherita pizza",
+      "aliases": [
+        "margherita"
+      ],
+      "tiles": [
+        "Italian",
+        "American"
+      ],
+      "cuisine": "Italian",
+      "region": "Campania",
+      "format": "pizza",
+      "protein": "nuts_seeds",
+      "method": "oven",
+      "appliances": [
+        "oven"
+      ],
+      "cookMinutes": 40,
+      "effort": "medium",
+      "familiarity": 1,
+      "traditionalDiet": "vegetarian",
+      "versions": [
+        "vegan",
+        "vegetarian"
+      ],
+      "keyIngredients": [
+        "flour",
+        "yeast",
+        "peeled tomatoes",
+        "mozzarella",
+        "basil",
+        "extra virgin olive oil",
+        "salt"
+      ],
+      "specialtyIngredients": [
+        "fior di latte mozzarella",
+        "mozzarella di bufala campana"
+      ],
+      "veganApproach": "The dough is already vegan; top with tomato, basil and a cashew or plant-based mozzarella.",
+      "technique": "A long-risen dough is stretched by hand, topped with crushed tomatoes, mozzarella and basil and baked in a very hot oven.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "hosting",
+        "comfort"
+      ],
+      "sources": [
+        {
+          "title": "Pizza Margherita - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Pizza_Margherita"
+        },
+        {
+          "title": "Verace Pizza Napoletana disciplinare - AVPN",
+          "url": "https://www.pizzanapoletana.org/public/pdf/Disciplinare_AVPN_2022_en.pdf"
+        },
+        {
+          "title": "Vegan Margherita Pizza - Fork in the Road",
+          "url": "https://www.forkintheroad.co/vegan-margherita-pizza/"
+        }
+      ]
+    },
+    {
+      "key": "pizza-marinara",
+      "name": "Pizza marinara",
+      "nameEn": "Neapolitan pizza with tomato, garlic and oregano",
+      "aliases": [
+        "pizza alla marinara",
+        "marinara"
+      ],
+      "tiles": [
+        "Italian"
+      ],
+      "cuisine": "Italian",
+      "region": "Campania",
+      "format": "pizza",
+      "protein": "vegetables",
+      "method": "oven",
+      "appliances": [
+        "oven"
+      ],
+      "cookMinutes": 35,
+      "effort": "medium",
+      "familiarity": 1,
+      "traditionalDiet": "vegan",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "flour",
+        "yeast",
+        "peeled tomatoes",
+        "garlic",
+        "oregano",
+        "extra virgin olive oil",
+        "salt"
+      ],
+      "specialtyIngredients": [],
+      "veganApproach": "Naturally vegan: tomato, garlic, oregano and olive oil, no cheese.",
+      "technique": "Neapolitan dough is topped with crushed tomatoes in a spiral, sliced garlic, oregano and olive oil, then baked very hot.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "hosting"
+      ],
+      "sources": [
+        {
+          "title": "Pizza marinara - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Pizza_marinara"
+        },
+        {
+          "title": "Verace Pizza Napoletana disciplinare - AVPN",
+          "url": "https://www.pizzanapoletana.org/public/pdf/Disciplinare_AVPN_2022_en.pdf"
+        }
+      ]
+    },
+    {
+      "key": "calzone",
+      "name": "Calzone napoletano",
+      "nameEn": "Neapolitan folded pizza",
+      "aliases": [
+        "calzone",
+        "calzone al forno"
+      ],
+      "tiles": [
+        "Italian",
+        "American"
+      ],
+      "cuisine": "Italian",
+      "region": "Campania",
+      "format": "pizza",
+      "protein": "tofu",
+      "method": "oven",
+      "appliances": [
+        "oven"
+      ],
+      "cookMinutes": 40,
+      "effort": "medium",
+      "familiarity": 1,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegan",
+        "vegetarian"
+      ],
+      "keyIngredients": [
+        "flour",
+        "yeast",
+        "ricotta",
+        "mozzarella",
+        "salami",
+        "pecorino",
+        "tomato sauce",
+        "basil"
+      ],
+      "specialtyIngredients": [
+        "napoli salami",
+        "fior di latte mozzarella"
+      ],
+      "veganApproach": "Fill the dough with tofu ricotta, a melting plant cheese and sautéed vegetables or mushrooms instead of salami and dairy.",
+      "technique": "A round of pizza dough is filled with ricotta, mozzarella and salami, folded into a half-moon, sealed and baked.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "comfort"
+      ],
+      "sources": [
+        {
+          "title": "Calzone - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Calzone"
+        },
+        {
+          "title": "Calzone - Wikipedia (IT)",
+          "url": "https://it.wikipedia.org/wiki/Calzone"
+        }
+      ]
+    },
+    {
+      "key": "pesce-allacqua-pazza",
+      "name": "Pesce all'acqua pazza",
+      "nameEn": "Fish poached in 'crazy water'",
+      "aliases": [
+        "acqua pazza",
+        "orata all'acqua pazza"
+      ],
+      "tiles": [
+        "Italian",
+        "Fresh & light"
+      ],
+      "cuisine": "Italian",
+      "region": "Campania",
+      "format": "other",
+      "protein": "fish",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 30,
+      "effort": "low",
+      "familiarity": 2,
+      "traditionalDiet": "pescatarian",
+      "versions": [
+        "pescatarian"
+      ],
+      "keyIngredients": [
+        "whole white fish",
+        "cherry tomatoes",
+        "garlic",
+        "extra virgin olive oil",
+        "parsley",
+        "white wine",
+        "water",
+        "dried chili"
+      ],
+      "specialtyIngredients": [],
+      "veganApproach": null,
+      "technique": "A whole white fish is gently poached in a light broth of water, olive oil, garlic and cherry tomatoes and finished with parsley.",
+      "seasons": [
+        "spring",
+        "summer"
+      ],
+      "occasions": [
+        "date",
+        "everyday"
+      ],
+      "sources": [
+        {
+          "title": "Pesce all'acqua pazza - Wikipedia (IT)",
+          "url": "https://it.wikipedia.org/wiki/Pesce_all%27acqua_pazza"
+        },
+        {
+          "title": "Acqua pazza (food) - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Acqua_pazza_(food)"
+        }
+      ]
+    },
+    {
+      "key": "seppie-con-piselli",
+      "name": "Seppie con piselli",
+      "nameEn": "Cuttlefish stewed with peas",
+      "aliases": [
+        "seppie coi piselli",
+        "seppie in umido con piselli"
+      ],
+      "tiles": [
+        "Italian"
+      ],
+      "cuisine": "Italian",
+      "region": "Emilia-Romagna",
+      "format": "stew",
+      "protein": "shellfish",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 60,
+      "effort": "low",
+      "familiarity": 2,
+      "traditionalDiet": "pescatarian",
+      "versions": [
+        "pescatarian"
+      ],
+      "keyIngredients": [
+        "cuttlefish",
+        "peas",
+        "tomato",
+        "onion",
+        "garlic",
+        "white wine",
+        "parsley",
+        "extra virgin olive oil"
+      ],
+      "specialtyIngredients": [],
+      "veganApproach": null,
+      "technique": "Cuttlefish strips are browned with onion and garlic, deglazed with wine and slowly stewed in tomato before the peas are added.",
+      "seasons": [
+        "spring"
+      ],
+      "occasions": [
+        "everyday",
+        "comfort"
+      ],
+      "sources": [
+        {
+          "title": "Seppie con piselli - Regione Emilia-Romagna (PAT)",
+          "url": "https://agricoltura.regione.emilia-romagna.it/dop-igp/altri-regimi-di-qualita/prodotti-tradizionali/pat-suddivisi-per-categoria/prodotti-della-gastronomia-piatti-composti/seppie-con-piselli"
+        },
+        {
+          "title": "Seppie con piselli - Cookaround",
+          "url": "https://www.cookaround.com/ricetta/Seppie-con-piselli.html"
+        }
+      ]
+    }
+  ]
+}

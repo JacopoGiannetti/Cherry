@@ -1,0 +1,255 @@
+name: Cherry
+options:
+  bundleIdPrefix: com.cherry
+  deploymentTarget:
+    iOS: "26.0"
+  developmentLanguage: en
+  createIntermediateGroups: true
+  # Icon Composer: Xcode 26 tratta il bundle .icon come un file solo.
+  # Senza questo XcodeGen lo spacchetta (icon.json + svg) e actool
+  # non riconosce l'icona Liquid Glass.
+  fileTypes:
+    icon:
+      file: true
+
+packages:
+  Firebase:
+    url: https://github.com/firebase/firebase-ios-sdk
+    from: 11.0.0
+  SuperwallKit:
+    url: https://github.com/superwall/Superwall-iOS
+    from: 4.0.0
+  AppsFlyerFramework:
+    url: https://github.com/AppsFlyerSDK/AppsFlyerFramework
+    from: 6.14.0
+  Lottie:
+    url: https://github.com/airbnb/lottie-ios
+    from: 4.5.0
+
+# Lo scheme da usare per lanciare l'app è SEMPRE "Cherry".
+# CherryShare e CherryActivity sono extension: non girano da sole.
+schemes:
+  Cherry:
+    build:
+      targets:
+        Cherry: all
+    run:
+      config: Debug
+    archive:
+      config: Release
+
+settings:
+  base:
+    SWIFT_VERSION: "5.10"
+    MARKETING_VERSION: 1.2
+    CURRENT_PROJECT_VERSION: 5
+    CODE_SIGN_STYLE: Automatic
+    # Team Apple Developer di Jacopo: vale per tutti e tre i target.
+    DEVELOPMENT_TEAM: 7ZST47J92X
+    # Solo iPhone (XcodeGen di suo metterebbe "1,2"). Cherry è disegnata
+    # su una colonna verticale — mockup di telefono nell'onboarding,
+    # deck a schermo pieno, Live Activity — e su iPad Apple pretende
+    # tutti e quattro gli orientamenti per il multitasking: un bundle
+    # iPad con il solo verticale viene respinto all'upload (ITMS-90474).
+    TARGETED_DEVICE_FAMILY: "1"
+
+targets:
+  Cherry:
+    type: application
+    platform: iOS
+    sources:
+      - path: Cherry
+        excludes:
+          # Gitignored: senza questo file Xcode non deve far fallire il build.
+          - Supporting/GoogleService-Info.plist
+      - path: Shared
+    preBuildScripts:
+      - name: Embed GoogleService-Info.plist
+        basedOnDependencyAnalysis: false
+        script: |
+          SRC="${SRCROOT}/Cherry/Supporting/GoogleService-Info.plist"
+          DEST="${BUILT_PRODUCTS_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleService-Info.plist"
+          if [ -f "$SRC" ]; then
+            cp "$SRC" "$DEST"
+            echo "note: GoogleService-Info.plist copied into the bundle"
+          else
+            echo "note: GoogleService-Info.plist missing — demo mode"
+          fi
+    dependencies:
+      - package: Firebase
+        products:
+          - FirebaseAuth
+          - FirebaseFirestore
+          - FirebaseStorage
+      - package: SuperwallKit
+      - package: AppsFlyerFramework
+        products:
+          - AppsFlyerLib
+      - package: Lottie
+      - target: CherryShare
+      - target: CherryActivity
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.cherry.jacopogiannetti.app
+        INFOPLIST_KEY_UIUserInterfaceStyle: Light
+      configs:
+        # APNs ha due ambienti separati: le build da Xcode registrano i
+        # token in sandbox, TestFlight e App Store in produzione. Due
+        # file di entitlements evitano di cambiare una riga a mano a
+        # ogni release (e di accorgersene solo quando i push spariscono).
+        Release:
+          CODE_SIGN_ENTITLEMENTS: Cherry/CherryRelease.entitlements
+    entitlements:
+      path: Cherry/Cherry.entitlements
+      properties:
+        com.apple.developer.applesignin: [Default]
+        com.apple.security.application-groups: [group.com.cherry.jacopogiannetti.app]
+        # Live Activity aggiornate da remoto: senza push, la spunta
+        # dell'altra persona non arriverebbe a schermo bloccato.
+        aps-environment: development
+    info:
+      path: Cherry/Supporting/Info.plist
+      properties:
+        CFBundleDisplayName: Cherry
+        UILaunchScreen:
+          UIColorName: LaunchBackground
+        UISupportedInterfaceOrientations: [UIInterfaceOrientationPortrait]
+        NSSupportsLiveActivities: true
+        # La spesa condivisa aggiorna la Live Activity dell'altra persona
+        # a ogni pausa fra le spunte. Senza questa chiave iOS mette gli
+        # aggiornamenti ad alta priorità sotto budget e a metà lista
+        # smette di consegnarli.
+        NSSupportsLiveActivitiesFrequentUpdates: true
+        NSCameraUsageDescription: "Cherry uses the camera to scan restaurant menus and product barcodes."
+        NSPhotoLibraryUsageDescription: "Cherry lets you import recipe screenshots from your photo library."
+        ITSAppUsesNonExemptEncryption: false
+        # Il prompt ATT si chiede su TrustView, agganciato al bottone
+        # che c'è già. Questo è il testo che iOS mostra sotto la sua
+        # domanda: deve dire il perché vero, e il perché vero è che la
+        # pubblicità la compriamo fuori per trovare gente, non la
+        # mostriamo dentro.
+        NSUserTrackingUsageDescription: "Cherry shows no ads. We only use this to learn which of our own ads brought you here, so we can spend less on advertising and keep the price down."
+        # Copia dei postback SKAdNetwork ad AppsFlyer: senza, la sua
+        # dashboard SKAN è cieca e l'unica lettura dei postback resta
+        # quella di Meta, cioè la parte in causa.
+        NSAdvertisingAttributionReportEndpoint: https://appsflyer-skadnetwork.com/
+        UIUserInterfaceStyle: Light
+        CFBundleURLTypes:
+          - CFBundleURLName: com.cherry.jacopogiannetti.app
+            CFBundleURLSchemes: [cherry]
+        # SKAdNetwork: senza l'id di una rete pubblicitaria qui dentro,
+        # le sue campagne iOS non vengono attribuite — e questa lista sta
+        # nel binario, quindi aggiungerla dopo costa un update dello
+        # Store. Meglio spedirla ora anche se le ads non partono subito.
+        # Fonte: tabella ufficiale Google (che include Meta), più
+        # ByteDance/TikTok, Snapchat e Reddit dalle rispettive docs.
+        # Apple Search Ads non serve: usa AdServices, non SKAN.
+        SKAdNetworkItems:
+          - SKAdNetworkIdentifier: cstr6suwn9.skadnetwork      # Google
+          - SKAdNetworkIdentifier: v9wttpbfk9.skadnetwork      # Meta / Facebook
+          - SKAdNetworkIdentifier: n38lu8286q.skadnetwork      # Meta / Instagram
+          - SKAdNetworkIdentifier: 22mmun2rn5.skadnetwork      # TikTok / Pangle
+          - SKAdNetworkIdentifier: 238da6jt44.skadnetwork      # ByteDance / Pangle CN
+          - SKAdNetworkIdentifier: 424m5254lk.skadnetwork      # Snapchat
+          - SKAdNetworkIdentifier: plwbsc43qj.skadnetwork      # Reddit
+          - SKAdNetworkIdentifier: ludvb6z3bs.skadnetwork      # AppLovin
+          - SKAdNetworkIdentifier: su67r6k2v3.skadnetwork      # ironSource
+          - SKAdNetworkIdentifier: 4dzt52r2t5.skadnetwork      # Unity Ads
+          - SKAdNetworkIdentifier: kbd757ywx3.skadnetwork      # Mintegral
+          - SKAdNetworkIdentifier: 9t245vhmpl.skadnetwork      # Moloco
+          - SKAdNetworkIdentifier: 7ug5zh24hu.skadnetwork      # Liftoff
+          - SKAdNetworkIdentifier: gta9lk7p23.skadnetwork      # Liftoff Monetize
+          - SKAdNetworkIdentifier: f38h382jlk.skadnetwork      # Chartboost
+          - SKAdNetworkIdentifier: wzmmz9fp6w.skadnetwork      # InMobi
+          - SKAdNetworkIdentifier: p78axxw29g.skadnetwork      # Amazon
+          - SKAdNetworkIdentifier: uw77j35x4d.skadnetwork      # The Trade Desk
+          - SKAdNetworkIdentifier: hs6bdukanm.skadnetwork      # Criteo
+          - SKAdNetworkIdentifier: 2u9pt9hc89.skadnetwork      # Remerge
+          - SKAdNetworkIdentifier: 8s468mfl3y.skadnetwork      # RTB House
+          - SKAdNetworkIdentifier: mlmmfzh3r3.skadnetwork      # Digital Turbine
+          - SKAdNetworkIdentifier: 4fzdc2evr5.skadnetwork      # Aarki
+          - SKAdNetworkIdentifier: 2fnua5tdw4.skadnetwork      # Adform
+          - SKAdNetworkIdentifier: ydx93a7ass.skadnetwork      # Adikteev
+          - SKAdNetworkIdentifier: v72qych5uu.skadnetwork      # Appier
+          - SKAdNetworkIdentifier: cp8zw746q7.skadnetwork      # Arpeely
+          - SKAdNetworkIdentifier: 3sh42y64q3.skadnetwork      # Basis
+          - SKAdNetworkIdentifier: c6k4g5qg8m.skadnetwork      # Beeswax
+          - SKAdNetworkIdentifier: s39g8k73mm.skadnetwork      # Bidease
+          - SKAdNetworkIdentifier: wg4vff78zm.skadnetwork      # BidMachine
+          - SKAdNetworkIdentifier: 3qy4746246.skadnetwork      # Bigabid
+          - SKAdNetworkIdentifier: v4nxqhlyqp.skadnetwork      # i-mobile
+          - SKAdNetworkIdentifier: yclnxrl5pm.skadnetwork      # Jampp
+          - SKAdNetworkIdentifier: t38b2kh725.skadnetwork      # LifeStreet
+          - SKAdNetworkIdentifier: vutu7akeur.skadnetwork      # LINE Ads
+          - SKAdNetworkIdentifier: y5ghdn5j9k.skadnetwork      # Mediaforce
+          - SKAdNetworkIdentifier: 47vhws6wlr.skadnetwork      # MicroAd
+          - SKAdNetworkIdentifier: a2p9lx4jpn.skadnetwork      # Opera
+          - SKAdNetworkIdentifier: 44jx6755aq.skadnetwork      # Persona.ly
+          - SKAdNetworkIdentifier: k674qkevps.skadnetwork      # PubMatic
+          - SKAdNetworkIdentifier: 4468km3ulz.skadnetwork      # Realtime Technologies
+          - SKAdNetworkIdentifier: klf5c3l5u5.skadnetwork      # Sift Media
+          - SKAdNetworkIdentifier: ppxm28t8ap.skadnetwork      # Smadex
+          - SKAdNetworkIdentifier: kbmxgpxpgc.skadnetwork      # StackAdapt
+          - SKAdNetworkIdentifier: 578prtvx9j.skadnetwork      # Unicorn
+          - SKAdNetworkIdentifier: tl55sbb4fm.skadnetwork      # Verve
+          - SKAdNetworkIdentifier: c3frkrj4fj.skadnetwork      # Viant
+          - SKAdNetworkIdentifier: e5fvkxwrpn.skadnetwork      # Yahoo!
+          - SKAdNetworkIdentifier: 8c4e2ghe7u.skadnetwork      # Yahoo! Japan
+          - SKAdNetworkIdentifier: 3rd42ekr43.skadnetwork      # YouAppi
+          - SKAdNetworkIdentifier: 97r2b46745.skadnetwork      # Zemanta
+          - SKAdNetworkIdentifier: 3qcr597p9d.skadnetwork      # Zucks
+
+  CherryShare:
+    type: app-extension
+    platform: iOS
+    sources:
+      - path: CherryShare
+    resources:
+      - path: CherryShare/Assets.xcassets
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.cherry.jacopogiannetti.app.share
+        INFOPLIST_KEY_UIUserInterfaceStyle: Light
+    entitlements:
+      path: CherryShare/CherryShare.entitlements
+      properties:
+        com.apple.security.application-groups: [group.com.cherry.jacopogiannetti.app]
+    info:
+      path: CherryShare/Info.plist
+      properties:
+        CFBundleDisplayName: Cherry
+        UIUserInterfaceStyle: Light
+        NSExtension:
+          NSExtensionPointIdentifier: com.apple.share-services
+          NSExtensionPrincipalClass: $(PRODUCT_MODULE_NAME).ShareViewController
+          NSExtensionAttributes:
+            NSExtensionActivationRule:
+              NSExtensionActivationSupportsAttachmentsWithMatchingTypeIdentifiers:
+                - public.url
+                - public.plain-text
+                - public.text
+              NSExtensionActivationSupportsAttachmentsWithMaxCount: 10
+              NSExtensionActivationSupportsWebURLWithMaxCount: 1
+              NSExtensionActivationSupportsText: true
+
+  CherryActivity:
+    type: app-extension
+    platform: iOS
+    sources:
+      - path: CherryActivity
+      - path: Shared
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.cherry.jacopogiannetti.app.activity
+        INFOPLIST_KEY_UIUserInterfaceStyle: Light
+    entitlements:
+      path: CherryActivity/CherryActivity.entitlements
+      properties:
+        com.apple.security.application-groups: [group.com.cherry.jacopogiannetti.app]
+    info:
+      path: CherryActivity/Info.plist
+      properties:
+        CFBundleDisplayName: Cherry
+        UIUserInterfaceStyle: Light
+        NSExtension:
+          NSExtensionPointIdentifier: com.apple.widgetkit-extension

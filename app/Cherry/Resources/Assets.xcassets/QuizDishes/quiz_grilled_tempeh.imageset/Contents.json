@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "quiz_grilled_tempeh.png",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

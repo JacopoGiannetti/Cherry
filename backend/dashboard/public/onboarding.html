@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Onboarding · Vego Analytics</title>
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<script>document.documentElement.dataset.theme = localStorage.getItem('vego-theme') || 'dark';</script>
+<link rel="stylesheet" href="/styles.css">
+</head>
+<body data-page="onboarding">
+<div class="shell">
+  <aside class="sidebar" id="side"></aside>
+  <div>
+    <main id="main" class="page" hidden>
+      <header class="topbar">
+        <div><p class="crumb">Onboarding</p><h1>Arrivano al paywall?</h1></div>
+        <div class="right"><select id="onbVersion" class="btn" aria-label="Versione dell’onboarding"></select><span class="stamp" id="windowLabel"></span><span class="stamp" id="stamp"></span><button id="refresh" class="btn" type="button">Aggiorna</button></div>
+      </header>
+
+      <div id="onboardingHero"></div>
+
+      <div class="section"><h2>Interruttori</h2><p class="hint">valgono dalla 1.2, per chi apre l’app dopo il cambio · senza rete l’app li tiene spenti</p></div>
+      <div class="grid">
+        <div class="panel c12">
+          <div class="panel-head solo">
+            <div><h2>Richiesta di stelle nell’onboarding</h2><p class="hint">il popup di Apple sulla slide delle recensioni</p></div>
+            <button id="reviewPromptToggle" class="btn" type="button" disabled>…</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="section"><h2>v1 contro v2</h2><p class="hint">stessi due numeri per entrambe: quanti arrivano al paywall, quanti da lì pagano · il menu in alto cambia la versione letta sotto</p></div>
+      <div class="grid" id="onbCompare"></div>
+
+      <div class="grid">
+        <div class="panel c12">
+          <div class="panel-head" id="onboardingMixHead"></div>
+          <div class="mix" id="onboardingMix"></div>
+          <p class="read" id="onboardingNote"></p>
+        </div>
+      </div>
+
+      <div class="section"><h2>Cosa chiedono a Vego di risolvere</h2><p class="hint">dalla slide “Which of these feel familiar?” · scelta multipla, la prima toccata pesa di più</p></div>
+      <div class="grid">
+        <div class="panel c4">
+          <div class="panel-head"><div><h2>Quanto viene scelta <span class="tip" data-tip="Quante persone hanno toccato quella voce, su chi ha risposto. Le somme superano il 100% perché la scelta è multipla."></span></h2><p class="hint" id="blockersHint"></p></div></div>
+          <div class="bars" id="blockersRank"></div>
+        </div>
+        <div class="panel c4">
+          <div class="panel-head"><div><h2>Su cosa comprano <span class="tip" data-tip="Solo la prima voce toccata, cioè il problema principale. Di quel gruppo, quanti hanno poi pagato. Il tasso compare dai 5 utenti in su."></span></h2><p class="hint">problema principale → paganti</p></div></div>
+          <div class="bars" id="blockersPaid"></div>
+          <p class="read" id="blockersRead"></p>
+        </div>
+        <div class="panel c4">
+          <div class="panel-head"><div><h2>Perché comprano, a punti <span class="tip" data-tip="Solo chi ha pagato. Ogni persona distribuisce 6 punti: 3 alla prima voce toccata, 2 alla seconda, 1 alla terza."></span></h2><p class="hint" id="blockersScoreHint"></p></div></div>
+          <div class="chart short"><canvas id="blockersScoreChart"></canvas></div>
+        </div>
+      </div>
+
+      <div class="section"><h2>Le risposte del quiz</h2><p class="hint">scelte chiuse delle slide dopo i no-go · la barra è quante persone, il secondo numero è chi poi paga (dai 5 in su)</p></div>
+      <div class="grid" id="quizChoices"></div>
+
+      <div class="section"><h2>Slide per slide</h2><p class="hint">la barra è chi, partito dalla prima slide, è arrivato fin qui</p></div>
+      <div class="steps" id="onboardingSteps"></div>
+    </main>
+    <div id="state" class="state">Leggo Firestore…</div>
+  </div>
+</div>
+<div class="drawer-backdrop" id="drawerBackdrop"></div>
+<aside class="drawer" id="drawer" aria-hidden="true"></aside>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+<script src="/app.js"></script>
+</body>
+</html>

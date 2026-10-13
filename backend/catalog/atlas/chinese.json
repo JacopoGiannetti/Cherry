@@ -1,0 +1,3781 @@
+{
+  "tile": "Chinese",
+  "generatedAt": "2026-10-05",
+  "dishes": [
+    {
+      "key": "mapo-tofu",
+      "name": "Mapo doufu",
+      "nameEn": "Mapo tofu",
+      "aliases": [
+        "Mabo dofu",
+        "ma po tofu",
+        "mabo don",
+        "mapo doufu",
+        "mapo tofu",
+        "mābō dōfu",
+        "pockmarked grandma's tofu"
+      ],
+      "tiles": [
+        "Chinese",
+        "Japanese"
+      ],
+      "cuisine": "Chinese",
+      "region": "Sichuan",
+      "format": "stew",
+      "protein": "tofu",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 25,
+      "effort": "low",
+      "familiarity": 1,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "silken tofu",
+        "ground beef",
+        "doubanjiang",
+        "fermented black beans",
+        "sichuan peppercorns",
+        "chili flakes",
+        "garlic",
+        "scallions"
+      ],
+      "specialtyIngredients": [
+        "doubanjiang",
+        "fermented black beans",
+        "sichuan peppercorns"
+      ],
+      "veganApproach": "Replace the minced beef with finely chopped shiitake mushrooms fried until crisp, keeping the doubanjiang and Sichuan pepper base unchanged.",
+      "technique": "Tofu cubes are gently simmered in a fiery sauce of fried doubanjiang and fermented black beans, thickened with starch and finished with ground roasted Sichuan pepper.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "quick",
+        "comfort"
+      ],
+      "sources": [
+        {
+          "title": "Mapo tofu - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Mapo_tofu"
+        },
+        {
+          "title": "Vegan Mapo Tofu - The Woks of Life",
+          "url": "https://thewoksoflife.com/vegan-mapo-tofu/"
+        },
+        {
+          "title": "The Best Vegan Mapo Tofu - Serious Eats",
+          "url": "https://www.seriouseats.com/the-best-vegan-mapo-tofu-recipe"
+        }
+      ]
+    },
+    {
+      "key": "kung-pao-tofu",
+      "name": "Gongbao doufu",
+      "nameEn": "Kung pao tofu",
+      "aliases": [
+        "gong bao tofu",
+        "kung pao",
+        "gongbao"
+      ],
+      "tiles": [
+        "Chinese",
+        "American"
+      ],
+      "cuisine": "Chinese",
+      "region": "Sichuan",
+      "format": "stir_fry",
+      "protein": "tofu",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 25,
+      "effort": "low",
+      "familiarity": 1,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "chicken",
+        "roasted peanuts",
+        "dried chilies",
+        "sichuan peppercorns",
+        "scallions",
+        "garlic",
+        "ginger",
+        "chinkiang vinegar",
+        "soy sauce"
+      ],
+      "specialtyIngredients": [
+        "sichuan peppercorns",
+        "chinkiang vinegar",
+        "shaoxing wine"
+      ],
+      "veganApproach": "Swap the diced chicken for crisp-fried cubes of firm tofu, a widely cooked variation of the Sichuan classic.",
+      "technique": "Dried chilies and Sichuan pepper are flash-fried in oil, then the protein, scallions and peanuts are tossed in a glossy sweet-sour 'lychee-flavor' sauce.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "quick"
+      ],
+      "sources": [
+        {
+          "title": "Kung Pao chicken - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Kung_Pao_chicken"
+        },
+        {
+          "title": "Crispy Vegan Kung Pao Tofu - Serious Eats",
+          "url": "https://www.seriouseats.com/crispy-vegan-kung-pao-tofu-recipe"
+        },
+        {
+          "title": "Kung Pao Tofu - NYT Cooking",
+          "url": "https://cooking.nytimes.com/recipes/1025397-kung-pao-tofu"
+        }
+      ]
+    },
+    {
+      "key": "yu-xiang-qiezi",
+      "name": "Yu xiang qiezi",
+      "nameEn": "Fish-fragrant eggplant",
+      "aliases": [
+        "sichuan eggplant",
+        "eggplant with garlic sauce",
+        "yuxiang eggplant"
+      ],
+      "tiles": [
+        "Chinese"
+      ],
+      "cuisine": "Chinese",
+      "region": "Sichuan",
+      "format": "stir_fry",
+      "protein": "vegetables",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 30,
+      "effort": "medium",
+      "familiarity": 1,
+      "traditionalDiet": "vegan",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "chinese eggplant",
+        "pickled chili paste",
+        "garlic",
+        "ginger",
+        "scallions",
+        "chinkiang vinegar",
+        "sugar",
+        "soy sauce"
+      ],
+      "specialtyIngredients": [
+        "pao la jiao",
+        "doubanjiang",
+        "chinkiang vinegar"
+      ],
+      "veganApproach": "The classic Sichuan version is naturally meat-free; skip the optional pork mince some restaurants add.",
+      "technique": "Eggplant is fried until silky, then braised in the 'fish-fragrant' sauce of pickled chilies, garlic, ginger, vinegar and sugar.",
+      "seasons": [
+        "summer",
+        "autumn"
+      ],
+      "occasions": [
+        "everyday",
+        "hosting"
+      ],
+      "sources": [
+        {
+          "title": "Fish-Fragrant Eggplant (Yuxiang Qiezi) - The Woks of Life",
+          "url": "https://thewoksoflife.com/fish-fragrant-eggplant-yuxiang-qiezi/"
+        },
+        {
+          "title": "Hannah Che's Fish-Fragrant Eggplant - Simply Recipes",
+          "url": "https://www.simplyrecipes.com/hannah-che-fish-fragrant-eggplant-6890589"
+        },
+        {
+          "title": "Fish-Fragrant Eggplants - Serious Eats",
+          "url": "https://www.seriouseats.com/fish-fragrant-eggplants-sichuan-braised-eggplant-with-garlic-ginger-and-chilies"
+        }
+      ]
+    },
+    {
+      "key": "dan-dan-noodles",
+      "name": "Dandan mian",
+      "nameEn": "Dan dan noodles",
+      "aliases": [
+        "dandan noodles",
+        "dan dan mian"
+      ],
+      "tiles": [
+        "Chinese"
+      ],
+      "cuisine": "Chinese",
+      "region": "Sichuan",
+      "format": "noodles",
+      "protein": "mushrooms",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 30,
+      "effort": "medium",
+      "familiarity": 1,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "wheat noodles",
+        "minced pork",
+        "ya cai",
+        "chili oil",
+        "sichuan peppercorns",
+        "chinese sesame paste",
+        "soy sauce",
+        "bok choy"
+      ],
+      "specialtyIngredients": [
+        "ya cai",
+        "chili oil",
+        "sichuan peppercorns",
+        "chinese sesame paste"
+      ],
+      "veganApproach": "Replace the crispy pork topping with finely minced mushrooms fried with ya cai and soy until browned.",
+      "technique": "Noodles sit on a sauce of chili oil, sesame paste and Sichuan pepper and are topped with a crisp-fried savory mince before mixing.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "comfort"
+      ],
+      "sources": [
+        {
+          "title": "Dandan noodles - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Dandan_noodles"
+        },
+        {
+          "title": "Vegan Dan Dan Noodles - Omnivore's Cookbook",
+          "url": "https://omnivorescookbook.com/vegan-dan-dan-noodles/"
+        },
+        {
+          "title": "Vegan Dan Dan Noodles - Serious Eats",
+          "url": "https://www.seriouseats.com/vegan-dan-dan-noodles-recipe"
+        }
+      ]
+    },
+    {
+      "key": "gan-bian-si-ji-dou",
+      "name": "Gan bian si ji dou",
+      "nameEn": "Sichuan dry-fried green beans",
+      "aliases": [
+        "dry-fried green beans",
+        "szechuan green beans"
+      ],
+      "tiles": [
+        "Chinese"
+      ],
+      "cuisine": "Chinese",
+      "region": "Sichuan",
+      "format": "stir_fry",
+      "protein": "vegetables",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 20,
+      "effort": "low",
+      "familiarity": 2,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "green beans",
+        "minced pork",
+        "ya cai",
+        "dried chilies",
+        "sichuan peppercorns",
+        "garlic",
+        "ginger"
+      ],
+      "specialtyIngredients": [
+        "ya cai",
+        "sichuan peppercorns"
+      ],
+      "veganApproach": "Omit the small amount of pork mince and rely on ya cai and fried chilies for savoriness, a common meatless home version.",
+      "technique": "Green beans are dry-fried until blistered and wrinkled, then tossed with chilies, Sichuan pepper and preserved mustard greens.",
+      "seasons": [
+        "summer",
+        "autumn"
+      ],
+      "occasions": [
+        "everyday",
+        "quick"
+      ],
+      "sources": [
+        {
+          "title": "Dry-Fried Green Beans - Red House Spice",
+          "url": "https://redhousespice.com/dry-fried-green-beans/"
+        },
+        {
+          "title": "Szechuan Dry-Fried Green Beans - Omnivore's Cookbook",
+          "url": "https://omnivorescookbook.com/szechuan-dry-fried-green-beans/"
+        }
+      ]
+    },
+    {
+      "key": "shui-zhu-yu",
+      "name": "Shui zhu yu",
+      "nameEn": "Sichuan boiled fish in chili oil",
+      "aliases": [
+        "water-boiled fish",
+        "sichuan boiled fish"
+      ],
+      "tiles": [
+        "Chinese"
+      ],
+      "cuisine": "Chinese",
+      "region": "Sichuan",
+      "format": "stew",
+      "protein": "fish",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 40,
+      "effort": "medium",
+      "familiarity": 2,
+      "traditionalDiet": "pescatarian",
+      "versions": [
+        "pescatarian"
+      ],
+      "keyIngredients": [
+        "white fish fillets",
+        "doubanjiang",
+        "dried chilies",
+        "sichuan peppercorns",
+        "bean sprouts",
+        "napa cabbage",
+        "garlic",
+        "ginger"
+      ],
+      "specialtyIngredients": [
+        "doubanjiang",
+        "sichuan peppercorns"
+      ],
+      "veganApproach": null,
+      "technique": "Velveted fish slices are poached in a doubanjiang broth over vegetables, then covered with chilies and Sichuan pepper and scorched with sizzling oil.",
+      "seasons": [
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "hosting",
+        "comfort"
+      ],
+      "sources": [
+        {
+          "title": "Boiled Fish Sichuan Style - China Sichuan Food",
+          "url": "https://www.chinasichuanfood.com/boiled-fish-sichuan/"
+        },
+        {
+          "title": "Shui Zhu Yu (Boiled Fish) - Omnivore's Cookbook",
+          "url": "https://omnivorescookbook.com/shui-zhu-yu-boiled-fish/"
+        }
+      ]
+    },
+    {
+      "key": "suan-cai-yu",
+      "name": "Suan cai yu",
+      "nameEn": "Fish with pickled mustard greens",
+      "aliases": [
+        "sour cabbage fish",
+        "pickled cabbage fish soup"
+      ],
+      "tiles": [
+        "Chinese"
+      ],
+      "cuisine": "Chinese",
+      "region": "Sichuan",
+      "format": "soup",
+      "protein": "fish",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 40,
+      "effort": "medium",
+      "familiarity": 2,
+      "traditionalDiet": "pescatarian",
+      "versions": [
+        "pescatarian"
+      ],
+      "keyIngredients": [
+        "white fish fillets",
+        "pickled mustard greens",
+        "pickled chilies",
+        "sichuan peppercorns",
+        "garlic",
+        "ginger",
+        "egg white",
+        "white pepper"
+      ],
+      "specialtyIngredients": [
+        "suan cai",
+        "pickled chilies",
+        "sichuan peppercorns"
+      ],
+      "veganApproach": null,
+      "technique": "Fish bones and pickled greens make a sour broth in which egg-white-velveted fish slices are poached, finished with a hot-oil sizzle.",
+      "seasons": [
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "hosting",
+        "comfort"
+      ],
+      "sources": [
+        {
+          "title": "Suan Cai Yu - Red House Spice",
+          "url": "https://redhousespice.com/suan-cai-yu/"
+        },
+        {
+          "title": "Suan Cai Yu - Omnivore's Cookbook",
+          "url": "https://omnivorescookbook.com/suan-cai-yu/"
+        },
+        {
+          "title": "Szechuan Fish with Pickled Mustard - China Sichuan Food",
+          "url": "https://www.chinasichuanfood.com/szechuan-fish-suan-cai-yu/"
+        }
+      ]
+    },
+    {
+      "key": "chongqing-xiaomian",
+      "name": "Chongqing xiaomian",
+      "nameEn": "Chongqing spicy noodles",
+      "aliases": [
+        "chongqing noodles",
+        "xiao mian"
+      ],
+      "tiles": [
+        "Chinese"
+      ],
+      "cuisine": "Chinese",
+      "region": "Chongqing",
+      "format": "noodles",
+      "protein": "grains",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 20,
+      "effort": "low",
+      "familiarity": 3,
+      "traditionalDiet": "vegan",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "wheat noodles",
+        "chili oil",
+        "sichuan peppercorns",
+        "ya cai",
+        "roasted peanuts",
+        "garlic",
+        "chinkiang vinegar",
+        "leafy greens"
+      ],
+      "specialtyIngredients": [
+        "chili oil",
+        "ya cai",
+        "sichuan peppercorns"
+      ],
+      "veganApproach": "The everyday breakfast bowl is meat-free; just skip any lard used in some stalls' seasoning.",
+      "technique": "Each bowl is built with a layered seasoning of chili oil, ground Sichuan pepper, garlic water and vinegar, then filled with noodles, greens and crunchy toppings.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "quick"
+      ],
+      "sources": [
+        {
+          "title": "Chongqing Noodles - China Sichuan Food",
+          "url": "https://chinasichuanfood.com/chongqing-noodles/"
+        },
+        {
+          "title": "Chongqing Noodles - Red House Spice",
+          "url": "https://redhousespice.com/chongqing-noodles/"
+        },
+        {
+          "title": "Chongqing Xiaomian Noodle - V for Veganista",
+          "url": "https://www.vforveganista.com/recipes/chongqing-xiaomian-noodle/"
+        }
+      ]
+    },
+    {
+      "key": "suan-la-fen",
+      "name": "Suan la fen",
+      "nameEn": "Hot and sour glass noodle soup",
+      "aliases": [
+        "hot and sour sweet potato noodles",
+        "suanla fen"
+      ],
+      "tiles": [
+        "Chinese"
+      ],
+      "cuisine": "Chinese",
+      "region": "Sichuan / Chongqing",
+      "format": "noodles",
+      "protein": "grains",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 20,
+      "effort": "low",
+      "familiarity": 3,
+      "traditionalDiet": "vegan",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "sweet potato noodles",
+        "chinkiang vinegar",
+        "chili oil",
+        "sichuan peppercorns",
+        "roasted peanuts",
+        "garlic",
+        "ya cai",
+        "cilantro"
+      ],
+      "specialtyIngredients": [
+        "sweet potato starch noodles",
+        "chili oil",
+        "chinkiang vinegar"
+      ],
+      "veganApproach": "Use vegetable stock and leave out the optional pork mince topping; the sour-spicy base is already plant-based.",
+      "technique": "Chewy sweet potato noodles are cooked and dropped into a hot broth seasoned with black vinegar, chili oil and Sichuan pepper, then topped with peanuts and pickles.",
+      "seasons": [
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "quick",
+        "comfort"
+      ],
+      "sources": [
+        {
+          "title": "Hot and Sour Glass Noodle Soup - Red House Spice",
+          "url": "https://redhousespice.com/hot-sour-glass-noodle-soup/"
+        },
+        {
+          "title": "Hot and Sour Sweet Potato Noodles - China Sichuan Food",
+          "url": "https://www.chinasichuanfood.com/hot-and-sour-sweet-potato-noodles/"
+        }
+      ]
+    },
+    {
+      "key": "ma-yi-shang-shu",
+      "name": "Ma yi shang shu",
+      "nameEn": "Ants climbing a tree",
+      "aliases": [
+        "ants climbing trees",
+        "glass noodles with minced pork"
+      ],
+      "tiles": [
+        "Chinese"
+      ],
+      "cuisine": "Chinese",
+      "region": "Sichuan",
+      "format": "noodles",
+      "protein": "soy_mince",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 25,
+      "effort": "low",
+      "familiarity": 3,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegan",
+        "vegetarian"
+      ],
+      "keyIngredients": [
+        "mung bean glass noodles",
+        "minced pork",
+        "doubanjiang",
+        "garlic",
+        "ginger",
+        "scallions",
+        "soy sauce",
+        "stock"
+      ],
+      "specialtyIngredients": [
+        "doubanjiang",
+        "mung bean vermicelli"
+      ],
+      "veganApproach": "Use rehydrated soy mince, diced tofu or chopped dried shiitake as the 'ants' in place of the pork.",
+      "technique": "A savory mince is fried with doubanjiang, then soaked glass noodles simmer in stock until they absorb the liquid and cling to the 'ants'.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "quick"
+      ],
+      "sources": [
+        {
+          "title": "Vegan Ants Climbing a Tree - The Woks of Life",
+          "url": "https://thewoksoflife.com/vegan-ants-climbing-a-tree/"
+        },
+        {
+          "title": "Ants climbing trees with soya mince - BBC Food",
+          "url": "https://www.bbc.co.uk/food/recipes/veggie_ants_climbing_13975"
+        },
+        {
+          "title": "Ma Yi Shang Shu - HomeNaturallyMade",
+          "url": "https://homenaturallymade.com/ma-yi-shang-shu/"
+        }
+      ]
+    },
+    {
+      "key": "mala-xiang-guo",
+      "name": "Mala xiang guo",
+      "nameEn": "Sichuan mala dry pot",
+      "aliases": [
+        "spicy dry pot",
+        "ma la xiang guo",
+        "mlxg"
+      ],
+      "tiles": [
+        "Chinese"
+      ],
+      "cuisine": "Chinese",
+      "region": "Sichuan / Chongqing",
+      "format": "stir_fry",
+      "protein": "tofu",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 40,
+      "effort": "medium",
+      "familiarity": 2,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "lotus root",
+        "potatoes",
+        "bok choy",
+        "mushrooms",
+        "fried tofu",
+        "dried chilies",
+        "sichuan peppercorns",
+        "doubanjiang",
+        "hot pot base"
+      ],
+      "specialtyIngredients": [
+        "sichuan hot pot base",
+        "doubanjiang",
+        "sichuan peppercorns",
+        "tofu skin"
+      ],
+      "veganApproach": "Build the pot entirely from tofu products, yuba, mushrooms and vegetables and check that the hot pot base is free of beef tallow.",
+      "technique": "A mix of separately blanched or fried ingredients is tossed in a wok with chilies, Sichuan pepper and hot pot base like a dry hot pot.",
+      "seasons": [
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "hosting",
+        "comfort"
+      ],
+      "sources": [
+        {
+          "title": "Ma La Xiang Guo - Omnivore's Cookbook",
+          "url": "https://omnivorescookbook.com/ma-la-xiang-guo/"
+        },
+        {
+          "title": "Vegan Mala Xiang Guo - V for Veganista",
+          "url": "https://www.vforveganista.com/recipes/vegan-mala-xiang-guo-spicy-pot/"
+        },
+        {
+          "title": "Chongqing hot pot - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Chongqing_hot_pot"
+        }
+      ]
+    },
+    {
+      "key": "huoguo-hot-pot",
+      "name": "Huoguo",
+      "nameEn": "Chinese hot pot",
+      "aliases": [
+        "hot pot",
+        "hotpot",
+        "steamboat",
+        "mushroom hot pot"
+      ],
+      "tiles": [
+        "Chinese"
+      ],
+      "cuisine": "Chinese",
+      "region": "Sichuan / Chongqing / nationwide",
+      "format": "soup",
+      "protein": "mushrooms",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 60,
+      "effort": "medium",
+      "familiarity": 1,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "broth",
+        "thinly sliced meat",
+        "tofu",
+        "napa cabbage",
+        "enoki mushrooms",
+        "shiitake mushrooms",
+        "noodles",
+        "sesame dipping sauce"
+      ],
+      "specialtyIngredients": [
+        "dried shiitake",
+        "kombu",
+        "tofu skin",
+        "sichuan hot pot base"
+      ],
+      "veganApproach": "Use a mushroom-and-kelp broth and cook tofu, yuba, wheat gluten, mushrooms and vegetables at the table instead of meat.",
+      "technique": "A pot of broth simmers at the table while diners cook raw ingredients in it a few at a time and dip them in sauces.",
+      "seasons": [
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "hosting",
+        "comfort"
+      ],
+      "sources": [
+        {
+          "title": "Hot pot - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Hot_pot"
+        },
+        {
+          "title": "Chinese Hot Pot at Home - The Woks of Life",
+          "url": "https://thewoksoflife.com/chinese-hot-pot-at-home/"
+        },
+        {
+          "title": "Vegetarian Hot Pot - Hot Pot 101",
+          "url": "https://hotpot101.com/recipes/vegetarian-hot-pot/"
+        }
+      ]
+    },
+    {
+      "key": "duo-jiao-zheng-yu",
+      "name": "Duo jiao zheng yu",
+      "nameEn": "Hunan steamed fish with chopped salted chilies",
+      "aliases": [
+        "duo jiao yu tou",
+        "steamed fish with chopped chillies"
+      ],
+      "tiles": [
+        "Chinese",
+        "Fresh & light"
+      ],
+      "cuisine": "Chinese",
+      "region": "Hunan",
+      "format": "other",
+      "protein": "fish",
+      "method": "steam",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 25,
+      "effort": "low",
+      "familiarity": 3,
+      "traditionalDiet": "pescatarian",
+      "versions": [
+        "pescatarian"
+      ],
+      "keyIngredients": [
+        "whole fish or fish head",
+        "chopped salted chilies",
+        "garlic",
+        "ginger",
+        "scallions",
+        "shaoxing wine",
+        "steamed fish soy sauce"
+      ],
+      "specialtyIngredients": [
+        "duo jiao",
+        "shaoxing wine"
+      ],
+      "veganApproach": null,
+      "technique": "Fish is blanketed with fermented chopped chilies, garlic and ginger, steamed briefly and finished with hot oil over scallions.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "quick",
+        "hosting"
+      ],
+      "sources": [
+        {
+          "title": "Hunan Steamed Fish with Salted Chilies (Duo Jiao Yu) - The Woks of Life",
+          "url": "https://thewoksoflife.com/hunan-steamed-fish-salted-chilies-tofu-duo-jiao-yu/"
+        },
+        {
+          "title": "Steamed fish with chopped salted chillies - The Times (Fuchsia Dunlop)",
+          "url": "https://www.thetimes.com/travel/destinations/uk-travel/england/london-travel/steamed-fish-with-chopped-salted-chillies-duo-jiao-zheng-yu-385wxw7vktm"
+        },
+        {
+          "title": "Duojiao Yutou - Citaste",
+          "url": "https://citaste.com/en/changsha/duojiao-yutou/"
+        }
+      ]
+    },
+    {
+      "key": "hunan-home-style-tofu",
+      "name": "Jia chang dou fu",
+      "nameEn": "Hunan home-style tofu",
+      "aliases": [
+        "peng's home-style tofu",
+        "jiachang doufu",
+        "hunan-style tofu"
+      ],
+      "tiles": [
+        "Chinese"
+      ],
+      "cuisine": "Chinese",
+      "region": "Hunan",
+      "format": "stir_fry",
+      "protein": "tofu",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 30,
+      "effort": "low",
+      "familiarity": 3,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "firm tofu",
+        "pork belly",
+        "fermented black beans",
+        "chili bean paste",
+        "fresh chilies",
+        "garlic",
+        "leeks",
+        "soy sauce"
+      ],
+      "specialtyIngredients": [
+        "fermented black beans",
+        "chili bean paste"
+      ],
+      "veganApproach": "Leave out the slivers of pork and let the golden pan-fried tofu, black beans and chilies carry the dish.",
+      "technique": "Slices of tofu are pan-fried until golden on both sides, then braised briefly with fermented black beans, chili paste and leeks.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday"
+      ],
+      "sources": [
+        {
+          "title": "Vegetarian Hunan-style tofu - Los Angeles Times",
+          "url": "https://www.latimes.com/recipe/vegetarian-hunan-style-tofu"
+        },
+        {
+          "title": "Peng's Home-Style Tofu - The Backyard Lemon Tree",
+          "url": "https://thebackyardlemontree.com/2015/05/12/pengs-home-style-tofu/"
+        }
+      ]
+    },
+    {
+      "key": "general-tsos-tofu",
+      "name": "Zuo zongtang doufu",
+      "nameEn": "General Tso's tofu",
+      "aliases": [
+        "general tso tofu",
+        "general tso's"
+      ],
+      "tiles": [
+        "Chinese",
+        "American"
+      ],
+      "cuisine": "Chinese",
+      "region": "Hunan / Taiwan",
+      "format": "stir_fry",
+      "protein": "tofu",
+      "method": "deep_fry",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 40,
+      "effort": "medium",
+      "familiarity": 1,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "chicken thighs",
+        "dried chilies",
+        "garlic",
+        "ginger",
+        "soy sauce",
+        "rice vinegar",
+        "sugar",
+        "cornstarch"
+      ],
+      "specialtyIngredients": [
+        "dried chilies",
+        "shaoxing wine"
+      ],
+      "veganApproach": "Coat and fry cubes of pressed firm tofu in place of chicken, keeping the sweet, sour and spicy glaze.",
+      "technique": "Starch-coated pieces are fried until crisp, then tossed in a reduced glaze of soy, vinegar, sugar and dried chilies.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "comfort"
+      ],
+      "sources": [
+        {
+          "title": "The fabulous General Tso - Fuchsia Dunlop",
+          "url": "http://www.fuchsiadunlop.com/the-fabulous-general-tso/"
+        },
+        {
+          "title": "General Tso's Tofu - The Woks of Life",
+          "url": "https://thewoksoflife.com/general-tsos-tofu/"
+        }
+      ]
+    },
+    {
+      "key": "buddhas-delight",
+      "name": "Lo hon jai",
+      "nameEn": "Buddha's delight",
+      "aliases": [
+        "luohan zhai",
+        "jai",
+        "monk's vegetables"
+      ],
+      "tiles": [
+        "Chinese",
+        "Fresh & light"
+      ],
+      "cuisine": "Chinese",
+      "region": "Guangdong / Buddhist",
+      "format": "stir_fry",
+      "protein": "tofu",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 40,
+      "effort": "medium",
+      "familiarity": 1,
+      "traditionalDiet": "vegan",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "napa cabbage",
+        "dried shiitake",
+        "wood ear",
+        "tofu skin",
+        "fried tofu",
+        "glass noodles",
+        "snow peas",
+        "carrots",
+        "fermented bean curd"
+      ],
+      "specialtyIngredients": [
+        "wood ear",
+        "dried tofu skin",
+        "fermented bean curd",
+        "lily buds"
+      ],
+      "veganApproach": "Traditionally vegan Buddhist dish; if a recipe calls for oyster sauce use mushroom 'oyster' sauce instead.",
+      "technique": "A medley of rehydrated dried goods, tofu products and vegetables is stir-fried and gently braised in a savory fermented-bean-curd sauce.",
+      "seasons": [
+        "winter",
+        "spring"
+      ],
+      "occasions": [
+        "everyday",
+        "hosting",
+        "mealprep"
+      ],
+      "sources": [
+        {
+          "title": "Buddha's delight - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Buddha%27s_delight"
+        },
+        {
+          "title": "Buddha's Delight (Lo Han Jai) - The Woks of Life",
+          "url": "https://thewoksoflife.com/buddhas-delight-lo-han-jai/"
+        },
+        {
+          "title": "Buddha's Delight - Serious Eats",
+          "url": "https://www.seriouseats.com/buddhas-delight-chinese-vegetarian-stir-fry-recipe"
+        }
+      ]
+    },
+    {
+      "key": "cantonese-steamed-fish",
+      "name": "Qing zheng yu",
+      "nameEn": "Cantonese steamed fish with ginger and scallion",
+      "aliases": [
+        "steamed whole fish",
+        "ginger scallion steamed fish"
+      ],
+      "tiles": [
+        "Chinese",
+        "Fresh & light"
+      ],
+      "cuisine": "Chinese",
+      "region": "Guangdong",
+      "format": "other",
+      "protein": "fish",
+      "method": "steam",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 25,
+      "effort": "low",
+      "familiarity": 2,
+      "traditionalDiet": "pescatarian",
+      "versions": [
+        "pescatarian"
+      ],
+      "keyIngredients": [
+        "whole white fish",
+        "ginger",
+        "scallions",
+        "cilantro",
+        "light soy sauce",
+        "sugar",
+        "neutral oil"
+      ],
+      "specialtyIngredients": [],
+      "veganApproach": null,
+      "technique": "A whole fish is steamed over ginger just until done, then topped with fresh scallion and ginger shreds, sizzled with smoking oil and dressed with sweetened soy.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "hosting",
+        "date",
+        "quick"
+      ],
+      "sources": [
+        {
+          "title": "Cantonese Steamed Fish - The Woks of Life",
+          "url": "https://thewoksoflife.com/cantonese-steamed-fish/"
+        },
+        {
+          "title": "Steamed Fish with Ginger and Scallion - Made With Lau",
+          "url": "https://www.madewithlau.com/recipes/steamed-fish-ginger-scallion"
+        },
+        {
+          "title": "Cantonese-Style Steamed Fish - NYT Cooking",
+          "url": "https://cooking.nytimes.com/recipes/1024660-cantonese-style-steamed-fish"
+        }
+      ]
+    },
+    {
+      "key": "salt-and-pepper-tofu",
+      "name": "Jiao yan dou fu",
+      "nameEn": "Salt and pepper tofu",
+      "aliases": [
+        "salt & pepper tofu",
+        "jiaoyan tofu"
+      ],
+      "tiles": [
+        "Chinese"
+      ],
+      "cuisine": "Chinese",
+      "region": "Guangdong",
+      "format": "fritters",
+      "protein": "tofu",
+      "method": "deep_fry",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 30,
+      "effort": "medium",
+      "familiarity": 1,
+      "traditionalDiet": "vegan",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "firm tofu",
+        "cornstarch",
+        "garlic",
+        "fresh chilies",
+        "scallions",
+        "salt",
+        "white pepper",
+        "five-spice powder"
+      ],
+      "specialtyIngredients": [
+        "five-spice powder"
+      ],
+      "veganApproach": "Naturally vegan; it is the tofu sibling of Cantonese salt and pepper squid and shrimp.",
+      "technique": "Starch-dusted tofu is fried until crisp, then wok-tossed with fried garlic, chilies, scallions and a seasoned pepper-salt.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "hosting"
+      ],
+      "sources": [
+        {
+          "title": "Salt and Pepper Tofu - Red House Spice",
+          "url": "https://redhousespice.com/salt-and-pepper-tofu/"
+        },
+        {
+          "title": "Salt and Pepper Tofu - CharWok",
+          "url": "https://charwok.com/salt-and-pepper-tofu/"
+        }
+      ]
+    },
+    {
+      "key": "egg-fried-rice",
+      "name": "Dan chao fan",
+      "nameEn": "Egg fried rice",
+      "aliases": [
+        "fried rice",
+        "chao fan"
+      ],
+      "tiles": [
+        "Chinese",
+        "American"
+      ],
+      "cuisine": "Chinese",
+      "region": "Nationwide",
+      "format": "rice_dish",
+      "protein": "eggs",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 15,
+      "effort": "low",
+      "familiarity": 1,
+      "traditionalDiet": "vegetarian",
+      "versions": [
+        "vegetarian"
+      ],
+      "keyIngredients": [
+        "day-old cooked rice",
+        "eggs",
+        "scallions",
+        "light soy sauce",
+        "white pepper",
+        "neutral oil"
+      ],
+      "specialtyIngredients": [],
+      "veganApproach": null,
+      "technique": "Beaten eggs are scrambled in a very hot wok, then cold rice is tossed in until each grain is separate and lightly toasted.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "quick",
+        "comfort"
+      ],
+      "sources": [
+        {
+          "title": "Egg Fried Rice - The Woks of Life",
+          "url": "https://thewoksoflife.com/egg-fried-rice/"
+        },
+        {
+          "title": "Perfect Egg Fried Rice - Serious Eats",
+          "url": "https://www.seriouseats.com/perfect-egg-fried-rice"
+        },
+        {
+          "title": "Fried Rice with Beaten Egg - China Sichuan Food",
+          "url": "https://www.chinasichuanfood.com/fried-rice-with-beaten-egg/"
+        }
+      ]
+    },
+    {
+      "key": "vegetable-chow-mein",
+      "name": "Chow mein",
+      "nameEn": "Vegetable chow mein",
+      "aliases": [
+        "chao mian",
+        "fried noodles"
+      ],
+      "tiles": [
+        "Chinese",
+        "American"
+      ],
+      "cuisine": "Chinese",
+      "region": "Guangdong",
+      "format": "noodles",
+      "protein": "vegetables",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 25,
+      "effort": "low",
+      "familiarity": 1,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegan",
+        "vegetarian"
+      ],
+      "keyIngredients": [
+        "egg noodles",
+        "cabbage",
+        "bean sprouts",
+        "carrots",
+        "scallions",
+        "soy sauce",
+        "oyster sauce",
+        "sesame oil"
+      ],
+      "specialtyIngredients": [
+        "chow mein noodles",
+        "oyster sauce"
+      ],
+      "veganApproach": "Use egg-free wheat noodles and swap the oyster sauce for mushroom 'oyster' sauce.",
+      "technique": "Par-boiled noodles are pan-fried until lightly crisp, then tossed over high heat with shredded vegetables and a soy-based sauce.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "quick"
+      ],
+      "sources": [
+        {
+          "title": "Chow mein - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Chow_mein"
+        },
+        {
+          "title": "Vegetable Chow Mein - The Woks of Life",
+          "url": "https://thewoksoflife.com/vegetable-chow-mein/"
+        },
+        {
+          "title": "Vegetarian Chow Mein - Omnivore's Cookbook",
+          "url": "https://omnivorescookbook.com/vegetarian-chow-mein/"
+        }
+      ]
+    },
+    {
+      "key": "vegetable-lo-mein",
+      "name": "Lo mein",
+      "nameEn": "Vegetable lo mein",
+      "aliases": [
+        "lao mian",
+        "tossed noodles"
+      ],
+      "tiles": [
+        "Chinese",
+        "American"
+      ],
+      "cuisine": "Chinese",
+      "region": "Guangdong",
+      "format": "noodles",
+      "protein": "vegetables",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 20,
+      "effort": "low",
+      "familiarity": 1,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegan",
+        "vegetarian"
+      ],
+      "keyIngredients": [
+        "egg noodles",
+        "bok choy",
+        "mushrooms",
+        "carrots",
+        "scallions",
+        "soy sauce",
+        "oyster sauce",
+        "sesame oil"
+      ],
+      "specialtyIngredients": [
+        "oyster sauce",
+        "dark soy sauce"
+      ],
+      "veganApproach": "Choose egg-free wheat noodles and use mushroom 'oyster' sauce in the dressing.",
+      "technique": "Fully boiled soft noodles are tossed in the wok with stir-fried vegetables and a glossy soy dressing rather than being crisped.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "quick",
+        "comfort"
+      ],
+      "sources": [
+        {
+          "title": "Lo mein - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Lo_mein"
+        },
+        {
+          "title": "Vegetable Lo Mein - The Woks of Life",
+          "url": "https://thewoksoflife.com/vegetable-lo-mein/"
+        },
+        {
+          "title": "Vegetable Lo Mein - Made With Lau",
+          "url": "https://www.madewithlau.com/recipes/vegetable-lo-mein"
+        }
+      ]
+    },
+    {
+      "key": "wonton-soup",
+      "name": "Wantan tong",
+      "nameEn": "Wonton soup",
+      "aliases": [
+        "huntun",
+        "wantan",
+        "yuntun"
+      ],
+      "tiles": [
+        "Chinese",
+        "Fresh & light"
+      ],
+      "cuisine": "Chinese",
+      "region": "Guangdong / nationwide",
+      "format": "dumplings",
+      "protein": "tofu",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 60,
+      "effort": "high",
+      "familiarity": 1,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegan",
+        "vegetarian",
+        "pescatarian"
+      ],
+      "keyIngredients": [
+        "wonton wrappers",
+        "pork",
+        "shrimp",
+        "ginger",
+        "scallions",
+        "clear broth",
+        "bok choy",
+        "white pepper"
+      ],
+      "specialtyIngredients": [
+        "wonton wrappers"
+      ],
+      "veganApproach": "Fill egg-free wrappers with tofu, shiitake and greens and serve in a vegetable-mushroom broth.",
+      "technique": "Thin wrappers are folded around a small spoonful of filling, boiled until they float and served in a clear seasoned broth.",
+      "seasons": [
+        "autumn",
+        "winter",
+        "spring"
+      ],
+      "occasions": [
+        "everyday",
+        "comfort",
+        "mealprep"
+      ],
+      "sources": [
+        {
+          "title": "Wonton - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Wonton"
+        },
+        {
+          "title": "Vegetarian Wonton Soup - The Woks of Life",
+          "url": "https://thewoksoflife.com/vegetarian-wonton-soup/"
+        },
+        {
+          "title": "Vegan Wonton Soup - Omnivore's Cookbook",
+          "url": "https://omnivorescookbook.com/vegan-wonton-soup/"
+        }
+      ]
+    },
+    {
+      "key": "egg-foo-young",
+      "name": "Fu rong dan",
+      "nameEn": "Egg foo young",
+      "aliases": [
+        "egg foo yung",
+        "fu yung egg",
+        "egg fu yung"
+      ],
+      "tiles": [
+        "Chinese",
+        "American"
+      ],
+      "cuisine": "Chinese",
+      "region": "Guangdong",
+      "format": "egg_dish",
+      "protein": "eggs",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 30,
+      "effort": "medium",
+      "familiarity": 1,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegetarian"
+      ],
+      "keyIngredients": [
+        "eggs",
+        "bean sprouts",
+        "onion",
+        "scallions",
+        "mushrooms",
+        "soy sauce",
+        "oyster sauce",
+        "cornstarch"
+      ],
+      "specialtyIngredients": [
+        "oyster sauce"
+      ],
+      "veganApproach": null,
+      "technique": "Eggs beaten with crisp vegetables are fried into puffy omelette patties and served with a thickened soy gravy (use mushroom 'oyster' sauce for a vegetarian gravy).",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "comfort"
+      ],
+      "sources": [
+        {
+          "title": "Egg foo young - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Egg_foo_yong"
+        },
+        {
+          "title": "Egg Foo Young - The Woks of Life",
+          "url": "https://thewoksoflife.com/egg-foo-young/"
+        }
+      ]
+    },
+    {
+      "key": "sweet-and-sour-tofu",
+      "name": "Gu lou dou fu",
+      "nameEn": "Sweet and sour tofu",
+      "aliases": [
+        "gu lou yuk",
+        "sweet and sour",
+        "su gu lou"
+      ],
+      "tiles": [
+        "Chinese",
+        "American"
+      ],
+      "cuisine": "Chinese",
+      "region": "Guangdong",
+      "format": "stir_fry",
+      "protein": "tofu",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 30,
+      "effort": "medium",
+      "familiarity": 1,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "pork shoulder",
+        "bell peppers",
+        "onion",
+        "pineapple",
+        "rice vinegar",
+        "sugar",
+        "ketchup",
+        "cornstarch"
+      ],
+      "specialtyIngredients": [],
+      "veganApproach": "Use crisp-fried tofu in place of battered pork; 'su gu lou' meatless versions are part of Cantonese repertoire.",
+      "technique": "Starch-coated pieces are fried until crisp and quickly tossed with peppers, pineapple and a tangy vinegar-sugar-tomato sauce.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "comfort"
+      ],
+      "sources": [
+        {
+          "title": "Sweet and sour pork - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Sweet_and_sour_pork"
+        },
+        {
+          "title": "Sweet and Sour Tofu - Omnivore's Cookbook",
+          "url": "https://omnivorescookbook.com/sweet-and-sour-tofu/"
+        },
+        {
+          "title": "Sweet and Sour Tofu - Taste of Asian Food",
+          "url": "https://tasteasianfood.com/sweet-and-sour-tofu/"
+        }
+      ]
+    },
+    {
+      "key": "congee",
+      "name": "Zhou",
+      "nameEn": "Congee",
+      "aliases": [
+        "jook",
+        "rice porridge",
+        "xifan",
+        "juk"
+      ],
+      "tiles": [
+        "Chinese",
+        "Fresh & light"
+      ],
+      "cuisine": "Chinese",
+      "region": "Guangdong / nationwide",
+      "format": "rice_dish",
+      "protein": "mushrooms",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 90,
+      "effort": "low",
+      "familiarity": 1,
+      "traditionalDiet": "vegan",
+      "versions": [
+        "vegan",
+        "pescatarian"
+      ],
+      "keyIngredients": [
+        "jasmine rice",
+        "water or stock",
+        "ginger",
+        "scallions",
+        "white pepper",
+        "shiitake mushrooms",
+        "youtiao",
+        "pickled vegetables"
+      ],
+      "specialtyIngredients": [
+        "youtiao",
+        "zha cai"
+      ],
+      "veganApproach": "Plain congee is vegan; build flavor with shiitake, ginger and a vegetable stock instead of chicken.",
+      "technique": "Rice is simmered in plenty of water until the grains break down into a silky porridge, then finished with savory toppings such as mushrooms or sliced fish.",
+      "seasons": [
+        "autumn",
+        "winter",
+        "spring"
+      ],
+      "occasions": [
+        "everyday",
+        "comfort",
+        "mealprep"
+      ],
+      "sources": [
+        {
+          "title": "Congee - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Congee"
+        },
+        {
+          "title": "Vegan Congee (Jook) - Healthy Nibbles",
+          "url": "https://healthynibblesandbits.com/vegan-congee-recipe-jook/"
+        },
+        {
+          "title": "Congee with Chicken and Mushroom - Red House Spice",
+          "url": "https://redhousespice.com/congee-with-chicken-mushroom/"
+        }
+      ]
+    },
+    {
+      "key": "bo-zai-fan-claypot-rice",
+      "name": "Bo zai fan",
+      "nameEn": "Cantonese claypot rice",
+      "aliases": [
+        "claypot rice",
+        "bao zai fan",
+        "mushroom claypot rice"
+      ],
+      "tiles": [
+        "Chinese"
+      ],
+      "cuisine": "Chinese",
+      "region": "Guangdong",
+      "format": "rice_dish",
+      "protein": "mushrooms",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 45,
+      "effort": "medium",
+      "familiarity": 2,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegan",
+        "vegetarian"
+      ],
+      "keyIngredients": [
+        "long-grain rice",
+        "chinese sausage",
+        "dried shiitake",
+        "bok choy",
+        "ginger",
+        "scallions",
+        "sweet soy sauce",
+        "eggs"
+      ],
+      "specialtyIngredients": [
+        "claypot",
+        "lap cheong",
+        "dried shiitake"
+      ],
+      "veganApproach": "Top the rice with marinated shiitake and greens instead of sausage, using mushroom 'oyster' sauce in the sweet soy dressing.",
+      "technique": "Rice cooks in a clay pot until a crisp crust forms at the bottom, with toppings steamed on top in the final minutes and drizzled with sweet soy.",
+      "seasons": [
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "comfort",
+        "date"
+      ],
+      "sources": [
+        {
+          "title": "Claypot rice - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Claypot_rice"
+        },
+        {
+          "title": "Cantonese Clay Pot Rice - Serious Eats",
+          "url": "https://www.seriouseats.com/cantonese-clay-pot-rice-with-chinese-sausage-recipe-7509523"
+        },
+        {
+          "title": "Mushroom Rice - To Vegetables With Love",
+          "url": "https://tovegetableswithlove.substack.com/p/mushroom-rice"
+        }
+      ]
+    },
+    {
+      "key": "garlic-vermicelli-scallops",
+      "name": "Suan rong fen si zheng shan bei",
+      "nameEn": "Steamed scallops with garlic and glass noodles",
+      "aliases": [
+        "garlic scallops",
+        "steamed scallops vermicelli"
+      ],
+      "tiles": [
+        "Chinese",
+        "Fresh & light"
+      ],
+      "cuisine": "Chinese",
+      "region": "Guangdong / Hong Kong",
+      "format": "other",
+      "protein": "shellfish",
+      "method": "steam",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 25,
+      "effort": "low",
+      "familiarity": 2,
+      "traditionalDiet": "pescatarian",
+      "versions": [
+        "pescatarian"
+      ],
+      "keyIngredients": [
+        "scallops on the half shell",
+        "mung bean vermicelli",
+        "garlic",
+        "scallions",
+        "light soy sauce",
+        "neutral oil",
+        "fresh chilies"
+      ],
+      "specialtyIngredients": [
+        "mung bean vermicelli"
+      ],
+      "veganApproach": null,
+      "technique": "Scallops sit on soaked glass noodles under a heap of fried and raw garlic, are steamed for a few minutes and finished with hot oil and soy.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "hosting",
+        "date",
+        "quick"
+      ],
+      "sources": [
+        {
+          "title": "Steamed Garlic Scallops with Vermicelli - Asian Cooking Mom",
+          "url": "https://www.asiancookingmom.com/steamed-garlic-scallops-with-vermicelli-%e8%92%9c%e8%93%89%e7%b2%89%e4%b8%9d%e6%89%87%e8%b4%9d/"
+        },
+        {
+          "title": "Steamed scallops over glass noodles - The Hong Kong Cookery",
+          "url": "https://www.thehongkongcookery.com/2012/02/steamed-scallops-over-glass-noodle.html"
+        }
+      ]
+    },
+    {
+      "key": "ginger-scallion-lobster",
+      "name": "Jiang cong chao long xia",
+      "nameEn": "Cantonese ginger scallion lobster",
+      "aliases": [
+        "ginger and scallion lobster",
+        "cong jiang chao longxia"
+      ],
+      "tiles": [
+        "Chinese"
+      ],
+      "cuisine": "Chinese",
+      "region": "Guangdong / Hong Kong",
+      "format": "stir_fry",
+      "protein": "shellfish",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 35,
+      "effort": "high",
+      "familiarity": 2,
+      "traditionalDiet": "pescatarian",
+      "versions": [
+        "pescatarian"
+      ],
+      "keyIngredients": [
+        "live lobster",
+        "ginger",
+        "scallions",
+        "garlic",
+        "shaoxing wine",
+        "oyster sauce",
+        "cornstarch",
+        "stock"
+      ],
+      "specialtyIngredients": [
+        "shaoxing wine",
+        "oyster sauce"
+      ],
+      "veganApproach": null,
+      "technique": "Chopped lobster pieces are dusted with starch and flash-fried, then wok-tossed with masses of ginger and scallion in a light wine sauce.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "hosting",
+        "date"
+      ],
+      "sources": [
+        {
+          "title": "Ginger Scallion Lobster - The Woks of Life",
+          "url": "https://thewoksoflife.com/ginger-scallion-lobster-cantonese/"
+        },
+        {
+          "title": "Cantonese Ginger Scallion Lobster - Serious Eats",
+          "url": "https://www.seriouseats.com/cantonese-lobster-chinese-ginger-scallion-recipe"
+        },
+        {
+          "title": "Ginger Scallion Lobster - The Mala Market",
+          "url": "https://blog.themalamarket.com/ginger-scallion-lobster-cong-jiang-chao-longxia/"
+        }
+      ]
+    },
+    {
+      "key": "cheung-fun",
+      "name": "Cheung fun",
+      "nameEn": "Steamed rice noodle rolls",
+      "aliases": [
+        "chang fen",
+        "rice noodle roll",
+        "chee cheong fun"
+      ],
+      "tiles": [
+        "Chinese",
+        "Fresh & light"
+      ],
+      "cuisine": "Chinese",
+      "region": "Guangdong",
+      "format": "noodles",
+      "protein": "mushrooms",
+      "method": "steam",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 45,
+      "effort": "high",
+      "familiarity": 2,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegan",
+        "pescatarian"
+      ],
+      "keyIngredients": [
+        "rice flour",
+        "wheat starch",
+        "shrimp",
+        "char siu pork",
+        "scallions",
+        "sweet soy sauce",
+        "sesame oil"
+      ],
+      "specialtyIngredients": [
+        "wheat starch",
+        "sweet soy sauce"
+      ],
+      "veganApproach": "Fill the rice sheets with stir-fried mixed mushrooms or simply scallions, as in plain dim sum rolls.",
+      "technique": "A thin rice batter is steamed in a tray into a translucent sheet around the filling, then rolled up and doused with sweetened soy.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "hosting",
+        "comfort"
+      ],
+      "sources": [
+        {
+          "title": "Rice noodle roll - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/rice_noodle_roll"
+        },
+        {
+          "title": "Cheung Fun, Steamed Rice Noodle Rolls - Red House Spice",
+          "url": "https://redhousespice.com/cheung-fun/"
+        },
+        {
+          "title": "Mixed Mushroom Cheung Fun - Healthy Nibbles",
+          "url": "https://healthynibblesandbits.com/mixed-mushroom-cheung-fun/"
+        }
+      ]
+    },
+    {
+      "key": "lo-mai-gai",
+      "name": "Lo mai gai",
+      "nameEn": "Sticky rice in lotus leaf",
+      "aliases": [
+        "nuomiji",
+        "lotus leaf wrap",
+        "glutinous rice chicken"
+      ],
+      "tiles": [
+        "Chinese"
+      ],
+      "cuisine": "Chinese",
+      "region": "Guangdong",
+      "format": "rice_dish",
+      "protein": "mushrooms",
+      "method": "steam",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 120,
+      "effort": "high",
+      "familiarity": 2,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "glutinous rice",
+        "dried lotus leaves",
+        "chicken",
+        "chinese sausage",
+        "dried shiitake",
+        "dried shrimp",
+        "soy sauce",
+        "oyster sauce"
+      ],
+      "specialtyIngredients": [
+        "dried lotus leaves",
+        "glutinous rice",
+        "dried shiitake"
+      ],
+      "veganApproach": "Fill the parcels with shiitake, seitan or tofu and vegetables, seasoned with soy and mushroom 'oyster' sauce.",
+      "technique": "Soaked glutinous rice is layered around a savory filling, wrapped in rehydrated lotus leaves and steamed until the rice turns sticky and fragrant.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "hosting",
+        "mealprep"
+      ],
+      "sources": [
+        {
+          "title": "Lo mai gai - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Lo_mai_gai"
+        },
+        {
+          "title": "Sticky Rice in Lotus Leaf - Chow Vegan",
+          "url": "https://chowvegan.com/2010/01/10/sticky-rice-in-lotus-leaf/"
+        },
+        {
+          "title": "Lo Mai Gai - Serious Eats",
+          "url": "https://www.seriouseats.com/sticky-rice-wrapped-lotus-leaf-lo-mai-gai-recipe"
+        }
+      ]
+    },
+    {
+      "key": "hua-dan-xia-ren",
+      "name": "Hua dan xia ren",
+      "nameEn": "Cantonese shrimp and silky scrambled eggs",
+      "aliases": [
+        "shrimp and eggs",
+        "smooth egg shrimp",
+        "shrimp egg stir-fry"
+      ],
+      "tiles": [
+        "Chinese"
+      ],
+      "cuisine": "Chinese",
+      "region": "Guangdong",
+      "format": "egg_dish",
+      "protein": "shellfish",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 15,
+      "effort": "low",
+      "familiarity": 2,
+      "traditionalDiet": "pescatarian",
+      "versions": [
+        "pescatarian"
+      ],
+      "keyIngredients": [
+        "shrimp",
+        "eggs",
+        "scallions",
+        "cornstarch",
+        "sesame oil",
+        "white pepper",
+        "salt"
+      ],
+      "specialtyIngredients": [],
+      "veganApproach": null,
+      "technique": "Quickly seared shrimp are folded into eggs beaten with a starch slurry and cooked gently so the curds stay soft and silky.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "quick"
+      ],
+      "sources": [
+        {
+          "title": "Shrimp and Eggs, Cantonese-Style - The Woks of Life",
+          "url": "https://thewoksoflife.com/shrimp-and-eggs/"
+        },
+        {
+          "title": "Shrimp and Egg Stir-Fry - Red House Spice",
+          "url": "https://redhousespice.com/shrimp-egg-stir-fry/"
+        },
+        {
+          "title": "Scrambled Eggs & Shrimp - Made With Lau",
+          "url": "https://www.madewithlau.com/recipes/cantonese-scrambled-eggs"
+        }
+      ]
+    },
+    {
+      "key": "cong-you-ban-mian",
+      "name": "Cong you ban mian",
+      "nameEn": "Shanghai scallion oil noodles",
+      "aliases": [
+        "scallion oil noodles",
+        "spring onion oil noodles",
+        "cong ban mian"
+      ],
+      "tiles": [
+        "Chinese"
+      ],
+      "cuisine": "Chinese",
+      "region": "Shanghai",
+      "format": "noodles",
+      "protein": "grains",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 20,
+      "effort": "low",
+      "familiarity": 2,
+      "traditionalDiet": "vegan",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "thin wheat noodles",
+        "scallions",
+        "neutral oil",
+        "light soy sauce",
+        "dark soy sauce",
+        "sugar"
+      ],
+      "specialtyIngredients": [
+        "dark soy sauce"
+      ],
+      "veganApproach": "Naturally vegan; skip the dried shrimp some cooks fry into the oil.",
+      "technique": "Scallions are slowly fried until dark and crisp, then the fragrant oil is cooked with soy and sugar and tossed through hot noodles.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "quick",
+        "comfort"
+      ],
+      "sources": [
+        {
+          "title": "Soy Scallion Noodles (Cong Ban Mian) - The Woks of Life",
+          "url": "https://thewoksoflife.com/soy-scallion-noodles-cong-ban-mian/"
+        },
+        {
+          "title": "Spring Onion Oil Noodles - Red House Spice",
+          "url": "https://redhousespice.com/spring-onion-oil-noodles/"
+        },
+        {
+          "title": "Shanghai Scallion Oil Noodles - America's Test Kitchen",
+          "url": "https://www.americastestkitchen.com/recipes/15906-shanghai-scallion-oil-noodles"
+        }
+      ]
+    },
+    {
+      "key": "chao-nian-gao",
+      "name": "Chao nian gao",
+      "nameEn": "Shanghai stir-fried rice cakes",
+      "aliases": [
+        "stir-fried rice cakes",
+        "nian gao",
+        "shanghai rice cakes"
+      ],
+      "tiles": [
+        "Chinese"
+      ],
+      "cuisine": "Chinese",
+      "region": "Shanghai",
+      "format": "stir_fry",
+      "protein": "grains",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 25,
+      "effort": "low",
+      "familiarity": 2,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "sliced rice cakes",
+        "napa cabbage",
+        "shiitake mushrooms",
+        "shredded pork",
+        "soy sauce",
+        "dark soy sauce",
+        "shaoxing wine"
+      ],
+      "specialtyIngredients": [
+        "nian gao",
+        "shaoxing wine"
+      ],
+      "veganApproach": "Leave out the shredded pork and add more shiitake and greens, a common vegetable-only version.",
+      "technique": "Soaked oval rice cake slices are stir-fried with cabbage and mushrooms until chewy and glazed in soy.",
+      "seasons": [
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "quick",
+        "comfort"
+      ],
+      "sources": [
+        {
+          "title": "Rice Cakes with Mixed Vegetables - The Woks of Life",
+          "url": "https://thewoksoflife.com/rice-cakes-mixed-vegetables/"
+        },
+        {
+          "title": "Shanghai Stir-Fried Rice Cakes - Tiffy Cooks",
+          "url": "https://tiffycooks.com/shanghai-stir-fried-rice-cakes-20-minutes-only/"
+        }
+      ]
+    },
+    {
+      "key": "shanghai-cu-chao-mian",
+      "name": "Shanghai cu chao mian",
+      "nameEn": "Shanghai fried thick noodles",
+      "aliases": [
+        "shanghai fried noodles",
+        "cu chao"
+      ],
+      "tiles": [
+        "Chinese"
+      ],
+      "cuisine": "Chinese",
+      "region": "Shanghai",
+      "format": "noodles",
+      "protein": "mushrooms",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 25,
+      "effort": "low",
+      "familiarity": 2,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "thick shanghai noodles",
+        "bok choy",
+        "shiitake mushrooms",
+        "pork",
+        "dark soy sauce",
+        "light soy sauce",
+        "sugar",
+        "oyster sauce"
+      ],
+      "specialtyIngredients": [
+        "shanghai noodles",
+        "dark soy sauce",
+        "oyster sauce"
+      ],
+      "veganApproach": "Replace the pork with extra shiitake and use mushroom 'oyster' sauce with the dark soy glaze.",
+      "technique": "Thick wheat noodles are wok-fried with bok choy and a dark soy-sugar sauce until deeply coated and caramelized.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "quick",
+        "comfort"
+      ],
+      "sources": [
+        {
+          "title": "Shanghai Fried Noodles - The Woks of Life",
+          "url": "https://thewoksoflife.com/shanghai-fried-noodles/"
+        },
+        {
+          "title": "Vegetarian Shanghai Noodles - Tiffy Cooks",
+          "url": "https://tiffycooks.com/authentic-healthy-20-minutes-vegetarian-shanghai-noodles/"
+        }
+      ]
+    },
+    {
+      "key": "lions-head",
+      "name": "Shi zi tou",
+      "nameEn": "Lion's head meatballs",
+      "aliases": [
+        "lion's head",
+        "shizitou",
+        "braised lion's head"
+      ],
+      "tiles": [
+        "Chinese"
+      ],
+      "cuisine": "Chinese",
+      "region": "Jiangsu / Shanghai",
+      "format": "stew",
+      "protein": "tofu",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 90,
+      "effort": "medium",
+      "familiarity": 2,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "ground pork",
+        "water chestnuts",
+        "napa cabbage",
+        "ginger",
+        "scallions",
+        "shaoxing wine",
+        "soy sauce",
+        "stock"
+      ],
+      "specialtyIngredients": [
+        "water chestnuts",
+        "shaoxing wine"
+      ],
+      "veganApproach": "Shape the large meatballs from firm tofu, mushrooms and water chestnuts and braise them on napa cabbage in vegetable stock.",
+      "technique": "Oversized, tender meatballs are browned and then slowly braised on a bed of napa cabbage until soft and rich.",
+      "seasons": [
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "hosting",
+        "comfort"
+      ],
+      "sources": [
+        {
+          "title": "Lion's Head (food) - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Lion%27s_Head_(food)"
+        },
+        {
+          "title": "Vegan Lion's Head Stew - WoonHeng",
+          "url": "https://woonheng.com/vegan-lions-head-stew/"
+        },
+        {
+          "title": "Vegan Lion's Head Meatballs - Chinese Veggie",
+          "url": "https://chineseveggie.com/vegan-lions-head-meatballs/"
+        }
+      ]
+    },
+    {
+      "key": "west-lake-vinegar-fish",
+      "name": "Xi hu cu yu",
+      "nameEn": "West Lake fish in vinegar gravy",
+      "aliases": [
+        "west lake fish",
+        "xihu cuyu"
+      ],
+      "tiles": [
+        "Chinese"
+      ],
+      "cuisine": "Chinese",
+      "region": "Zhejiang (Hangzhou)",
+      "format": "other",
+      "protein": "fish",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 30,
+      "effort": "medium",
+      "familiarity": 3,
+      "traditionalDiet": "pescatarian",
+      "versions": [
+        "pescatarian"
+      ],
+      "keyIngredients": [
+        "grass carp",
+        "chinkiang vinegar",
+        "sugar",
+        "ginger",
+        "shaoxing wine",
+        "soy sauce",
+        "cornstarch"
+      ],
+      "specialtyIngredients": [
+        "chinkiang vinegar",
+        "shaoxing wine"
+      ],
+      "veganApproach": null,
+      "technique": "A whole carp is gently poached until just cooked, then coated with a glossy sweet-and-sour vinegar sauce thickened with starch.",
+      "seasons": [
+        "spring",
+        "autumn"
+      ],
+      "occasions": [
+        "hosting"
+      ],
+      "sources": [
+        {
+          "title": "West Lake Fish - Travel China Guide",
+          "url": "https://www.travelchinaguide.com/tour/food/chinese-cooking/west-lake-fish.htm"
+        },
+        {
+          "title": "West Lake Fish in Vinegar Gravy - Went China",
+          "url": "https://wentchina.com/west-lake-fish-in-vinegar-gravy/"
+        }
+      ]
+    },
+    {
+      "key": "squirrel-fish",
+      "name": "Song shu gui yu",
+      "nameEn": "Suzhou squirrel-shaped sweet and sour fish",
+      "aliases": [
+        "squirrel fish",
+        "songshu guiyu"
+      ],
+      "tiles": [
+        "Chinese"
+      ],
+      "cuisine": "Chinese",
+      "region": "Jiangsu (Suzhou)",
+      "format": "other",
+      "protein": "fish",
+      "method": "deep_fry",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 60,
+      "effort": "high",
+      "familiarity": 3,
+      "traditionalDiet": "pescatarian",
+      "versions": [
+        "pescatarian"
+      ],
+      "keyIngredients": [
+        "mandarin fish",
+        "cornstarch",
+        "ketchup",
+        "sugar",
+        "rice vinegar",
+        "garlic",
+        "pine nuts",
+        "peas"
+      ],
+      "specialtyIngredients": [
+        "mandarin fish"
+      ],
+      "veganApproach": null,
+      "technique": "A whole fish is deboned, crosshatch-scored, dredged and deep-fried so it fans out like a squirrel's tail, then glazed with sweet-sour sauce.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "hosting"
+      ],
+      "sources": [
+        {
+          "title": "Squirrel Fish - The Woks of Life",
+          "url": "https://thewoksoflife.com/squirrel-fish-recipe/"
+        },
+        {
+          "title": "Squirrel-shaped Mandarin Fish - Suzhou Government",
+          "url": "https://english.suzhou.gov.cn/szsenglish/szdfms/201611/1823acdf41bf440d8f617f61c629cf82.shtml"
+        },
+        {
+          "title": "200-year-old recipe for Chinese sweet and sour fish - Goldthread",
+          "url": "https://www.goldthread2.com/food/200-year-old-recipe-chinese-sweet-and-sour-fish/article/3052028"
+        }
+      ]
+    },
+    {
+      "key": "longjing-shrimp",
+      "name": "Long jing xia ren",
+      "nameEn": "Dragon Well tea shrimp",
+      "aliases": [
+        "longjing shrimp",
+        "shrimp with dragon well tea"
+      ],
+      "tiles": [
+        "Chinese",
+        "Fresh & light"
+      ],
+      "cuisine": "Chinese",
+      "region": "Zhejiang (Hangzhou)",
+      "format": "stir_fry",
+      "protein": "shellfish",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 20,
+      "effort": "low",
+      "familiarity": 3,
+      "traditionalDiet": "pescatarian",
+      "versions": [
+        "pescatarian"
+      ],
+      "keyIngredients": [
+        "river shrimp",
+        "longjing green tea leaves",
+        "egg white",
+        "cornstarch",
+        "shaoxing wine",
+        "salt"
+      ],
+      "specialtyIngredients": [
+        "longjing tea",
+        "shaoxing wine"
+      ],
+      "veganApproach": null,
+      "technique": "Velveted shrimp are briefly oil-blanched and then tossed with freshly steeped Dragon Well tea leaves and a splash of rice wine.",
+      "seasons": [
+        "spring"
+      ],
+      "occasions": [
+        "date",
+        "hosting",
+        "quick"
+      ],
+      "sources": [
+        {
+          "title": "Stir-fried Shrimp with Dragon Well Tea - Cooks Without Borders",
+          "url": "https://cookswithoutborders.com/stirfried-shrimp-with-dragon-well-tea"
+        },
+        {
+          "title": "Longjing Shrimp - The World of Chinese",
+          "url": "https://www.theworldofchinese.com/2017/03/longjing-shrimp/"
+        },
+        {
+          "title": "Longjing Shrimp - Citaste",
+          "url": "https://citaste.com/en/hangzhou/longjing-shrimp/"
+        }
+      ]
+    },
+    {
+      "key": "hong-shao-kao-fu",
+      "name": "Si xi kao fu",
+      "nameEn": "Shanghai braised wheat gluten with mushrooms",
+      "aliases": [
+        "kao fu",
+        "kaofu",
+        "hong shao kao fu",
+        "four happiness gluten"
+      ],
+      "tiles": [
+        "Chinese"
+      ],
+      "cuisine": "Chinese",
+      "region": "Shanghai",
+      "format": "stew",
+      "protein": "seitan",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 75,
+      "effort": "medium",
+      "familiarity": 3,
+      "traditionalDiet": "vegan",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "kao fu wheat gluten",
+        "dried shiitake",
+        "wood ear",
+        "dried lily flowers",
+        "peanuts",
+        "shaoxing wine",
+        "soy sauce",
+        "sugar"
+      ],
+      "specialtyIngredients": [
+        "kao fu",
+        "wood ear",
+        "dried lily flowers"
+      ],
+      "veganApproach": "Traditionally vegan Jiangnan dish built on spongy wheat gluten.",
+      "technique": "Torn gluten is browned and slowly braised with mushrooms, wood ear, lily buds and peanuts until it soaks up a sweet soy glaze; served warm or cold.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "mealprep",
+        "hosting"
+      ],
+      "sources": [
+        {
+          "title": "Hongshao Kao Fu - The Woks of Life",
+          "url": "https://thewoksoflife.com/hong-shao-kao-fu-braised-wheat-gluten-mushrooms/"
+        },
+        {
+          "title": "Shanghainese Kao Fu - Connie Cao",
+          "url": "https://www.connieandluna.com/blog/2020/9/shanghainese-hong-shao-kao-fu-recipe-vegetarian"
+        }
+      ]
+    },
+    {
+      "key": "su-shao-e",
+      "name": "Su shao e",
+      "nameEn": "Hangzhou Buddhist vegetarian goose",
+      "aliases": [
+        "vegetarian goose",
+        "su e",
+        "tofu skin rolls"
+      ],
+      "tiles": [
+        "Chinese"
+      ],
+      "cuisine": "Chinese",
+      "region": "Zhejiang (Hangzhou)",
+      "format": "other",
+      "protein": "tofu",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 45,
+      "effort": "high",
+      "familiarity": 3,
+      "traditionalDiet": "vegan",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "tofu skin sheets",
+        "dried shiitake",
+        "bamboo shoots",
+        "light soy sauce",
+        "dark soy sauce",
+        "sugar",
+        "sesame oil",
+        "ginger"
+      ],
+      "specialtyIngredients": [
+        "tofu skin",
+        "shaoxing wine"
+      ],
+      "veganApproach": "A Buddhist temple dish that is vegan by design.",
+      "technique": "Sauce-soaked yuba sheets are layered or rolled around a mushroom filling, steamed to set, pan-fried until crisp and glazed in the remaining sauce.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "hosting",
+        "mealprep"
+      ],
+      "sources": [
+        {
+          "title": "Vegetarian Goose - Citaste",
+          "url": "https://citaste.com/en/hangzhou/su-shao-e/"
+        },
+        {
+          "title": "Chinese Vegetarian Roast Goose - The Plant-Based Wok",
+          "url": "https://theplantbasedwok.com/chinese-vegetarian-roast-goose/"
+        },
+        {
+          "title": "Hangzhou Buddhist roast goose (Fuchsia Dunlop) - Eat Your Books",
+          "url": "https://www.eatyourbooks.com/library/recipes/1679603/hangzhou-buddhist-roast-goose-su"
+        }
+      ]
+    },
+    {
+      "key": "hong-shao-yu",
+      "name": "Hong shao yu",
+      "nameEn": "Red-braised whole fish",
+      "aliases": [
+        "red-cooked fish",
+        "chinese braised fish"
+      ],
+      "tiles": [
+        "Chinese"
+      ],
+      "cuisine": "Chinese",
+      "region": "Jiangnan / nationwide",
+      "format": "stew",
+      "protein": "fish",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 35,
+      "effort": "medium",
+      "familiarity": 2,
+      "traditionalDiet": "pescatarian",
+      "versions": [
+        "pescatarian"
+      ],
+      "keyIngredients": [
+        "whole fish",
+        "ginger",
+        "scallions",
+        "shaoxing wine",
+        "light soy sauce",
+        "dark soy sauce",
+        "sugar",
+        "chinkiang vinegar"
+      ],
+      "specialtyIngredients": [
+        "shaoxing wine",
+        "dark soy sauce"
+      ],
+      "veganApproach": null,
+      "technique": "A scored whole fish is pan-fried until golden, then braised in soy, rice wine and sugar while basting until the sauce becomes a glossy glaze.",
+      "seasons": [
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "hosting"
+      ],
+      "sources": [
+        {
+          "title": "Chinese Braised Whole Fish - Omnivore's Cookbook",
+          "url": "https://omnivorescookbook.com/chinese-braised-whole-fish/"
+        },
+        {
+          "title": "Red-Cooked Fish (Hong Shao Yu) - Saveur",
+          "url": "https://www.saveur.com/article/Recipes/Hong-Shao-Yu-/"
+        }
+      ]
+    },
+    {
+      "key": "hot-and-sour-soup",
+      "name": "Suan la tang",
+      "nameEn": "Hot and sour soup",
+      "aliases": [
+        "suanla tang",
+        "hot & sour soup"
+      ],
+      "tiles": [
+        "Chinese"
+      ],
+      "cuisine": "Chinese",
+      "region": "Sichuan / Beijing",
+      "format": "soup",
+      "protein": "tofu",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 30,
+      "effort": "low",
+      "familiarity": 1,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegan",
+        "vegetarian"
+      ],
+      "keyIngredients": [
+        "firm tofu",
+        "wood ear",
+        "dried shiitake",
+        "bamboo shoots",
+        "eggs",
+        "pork",
+        "chinkiang vinegar",
+        "white pepper",
+        "cornstarch"
+      ],
+      "specialtyIngredients": [
+        "wood ear",
+        "dried lily flowers",
+        "chinkiang vinegar"
+      ],
+      "veganApproach": "Use mushroom stock, leave out the pork and skip the egg ribbons or replace them with extra silken tofu.",
+      "technique": "A starch-thickened broth with tofu, mushrooms and bamboo is sharpened with black vinegar and white pepper and finished with swirled egg.",
+      "seasons": [
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "comfort"
+      ],
+      "sources": [
+        {
+          "title": "Hot and sour soup - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/hot_and_sour_soup"
+        },
+        {
+          "title": "Vegetarian Hot and Sour Soup - The Woks of Life",
+          "url": "https://thewoksoflife.com/vegetarian-hot-sour-soup/"
+        }
+      ]
+    },
+    {
+      "key": "jiaozi",
+      "name": "Jiaozi",
+      "nameEn": "Chinese dumplings",
+      "aliases": [
+        "shui jiao",
+        "potstickers",
+        "guotie",
+        "boiled dumplings"
+      ],
+      "tiles": [
+        "Chinese"
+      ],
+      "cuisine": "Chinese",
+      "region": "Northern China",
+      "format": "dumplings",
+      "protein": "vegetables",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 90,
+      "effort": "high",
+      "familiarity": 1,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegan",
+        "vegetarian"
+      ],
+      "keyIngredients": [
+        "wheat flour wrappers",
+        "ground pork",
+        "napa cabbage",
+        "chinese chives",
+        "ginger",
+        "scallions",
+        "soy sauce",
+        "sesame oil"
+      ],
+      "specialtyIngredients": [
+        "chinese chives"
+      ],
+      "veganApproach": "Fill the wrappers with napa cabbage, shiitake, glass noodles and tofu, a long-standing vegetarian filling in northern homes.",
+      "technique": "Hand-rolled wrappers are pleated around a seasoned filling and boiled, steamed or pan-fried into potstickers.",
+      "seasons": [
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "hosting",
+        "mealprep",
+        "comfort"
+      ],
+      "sources": [
+        {
+          "title": "Jiaozi - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Jiaozi"
+        },
+        {
+          "title": "Vegan Dumplings - Red House Spice",
+          "url": "https://redhousespice.com/vegan-dumplings/"
+        },
+        {
+          "title": "Pan-Fried Vegetarian Dumplings - Red House Spice",
+          "url": "https://redhousespice.com/pan-fried-vegetarian-dumplings/"
+        }
+      ]
+    },
+    {
+      "key": "xi-hong-shi-chao-ji-dan",
+      "name": "Xi hong shi chao ji dan",
+      "nameEn": "Stir-fried tomato and scrambled eggs",
+      "aliases": [
+        "tomato egg stir-fry",
+        "tomato and eggs",
+        "fanqie chao dan"
+      ],
+      "tiles": [
+        "Chinese"
+      ],
+      "cuisine": "Chinese",
+      "region": "Nationwide",
+      "format": "egg_dish",
+      "protein": "eggs",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 15,
+      "effort": "low",
+      "familiarity": 2,
+      "traditionalDiet": "vegetarian",
+      "versions": [
+        "vegetarian"
+      ],
+      "keyIngredients": [
+        "eggs",
+        "ripe tomatoes",
+        "scallions",
+        "sugar",
+        "salt",
+        "neutral oil"
+      ],
+      "specialtyIngredients": [],
+      "veganApproach": null,
+      "technique": "Fluffy scrambled eggs are set aside, tomatoes are cooked down with a pinch of sugar into a juicy sauce, then the eggs are folded back in.",
+      "seasons": [
+        "summer",
+        "autumn"
+      ],
+      "occasions": [
+        "everyday",
+        "quick",
+        "comfort"
+      ],
+      "sources": [
+        {
+          "title": "Stir-fried tomato and scrambled eggs - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Stir-fried_tomato_and_scrambled_eggs"
+        },
+        {
+          "title": "Tomato Egg Stir-Fry - Red House Spice",
+          "url": "https://redhousespice.com/tomato-egg-stir-fry/"
+        },
+        {
+          "title": "Chinese Tomato and Scrambled Egg - Serious Eats",
+          "url": "https://www.seriouseats.com/chinese-tomato-scrambled-egg-recipe-5218069"
+        }
+      ]
+    },
+    {
+      "key": "moo-shu",
+      "name": "Mu xu",
+      "nameEn": "Moo shu vegetables",
+      "aliases": [
+        "mu shu",
+        "moo shi",
+        "muxi"
+      ],
+      "tiles": [
+        "Chinese",
+        "American"
+      ],
+      "cuisine": "Chinese",
+      "region": "Shandong / Beijing",
+      "format": "stir_fry",
+      "protein": "eggs",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 25,
+      "effort": "low",
+      "familiarity": 1,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegetarian"
+      ],
+      "keyIngredients": [
+        "pork",
+        "eggs",
+        "wood ear",
+        "dried lily flowers",
+        "cucumber",
+        "scallions",
+        "soy sauce",
+        "shaoxing wine"
+      ],
+      "specialtyIngredients": [
+        "wood ear",
+        "dried lily flowers",
+        "mandarin pancakes"
+      ],
+      "veganApproach": null,
+      "technique": "Softly scrambled egg is stir-fried with wood ear, lily buds and vegetables and eaten with rice or, American-style, rolled in thin pancakes with hoisin.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "quick"
+      ],
+      "sources": [
+        {
+          "title": "Moo shu pork - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Moo_shu_pork"
+        },
+        {
+          "title": "Vegetable Moo Shu - The Woks of Life",
+          "url": "https://thewoksoflife.com/vegetable-moo-shu/"
+        },
+        {
+          "title": "Moo Shu Pork, the Original Recipe - Red House Spice",
+          "url": "https://redhousespice.com/moo-shu-pork/"
+        }
+      ]
+    },
+    {
+      "key": "jianbing",
+      "name": "Jianbing",
+      "nameEn": "Chinese savory crepe",
+      "aliases": [
+        "jianbing guozi",
+        "chinese breakfast crepe"
+      ],
+      "tiles": [
+        "Chinese"
+      ],
+      "cuisine": "Chinese",
+      "region": "Shandong / Tianjin",
+      "format": "wrap",
+      "protein": "eggs",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 25,
+      "effort": "medium",
+      "familiarity": 2,
+      "traditionalDiet": "vegetarian",
+      "versions": [
+        "vegetarian"
+      ],
+      "keyIngredients": [
+        "wheat and mung bean flour batter",
+        "eggs",
+        "scallions",
+        "cilantro",
+        "sweet bean sauce",
+        "chili sauce",
+        "youtiao or crispy cracker"
+      ],
+      "specialtyIngredients": [
+        "tianmian jiang",
+        "mung bean flour",
+        "baocui"
+      ],
+      "veganApproach": null,
+      "technique": "A thin batter is spread on a griddle, topped with cracked egg, sauces and herbs, then folded around a crunchy fried cracker.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "quick"
+      ],
+      "sources": [
+        {
+          "title": "Jianbing - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Jianbing"
+        },
+        {
+          "title": "Jian Bing (Chinese Crepes) - Red House Spice",
+          "url": "https://redhousespice.com/jian-bing-chinese-crepes/"
+        }
+      ]
+    },
+    {
+      "key": "tomato-egg-noodle-soup",
+      "name": "Xi hong shi ji dan mian",
+      "nameEn": "Tomato and egg noodle soup",
+      "aliases": [
+        "tomato egg noodles",
+        "fanqie jidan mian"
+      ],
+      "tiles": [
+        "Chinese"
+      ],
+      "cuisine": "Chinese",
+      "region": "Northern China",
+      "format": "soup",
+      "protein": "eggs",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 20,
+      "effort": "low",
+      "familiarity": 2,
+      "traditionalDiet": "vegetarian",
+      "versions": [
+        "vegetarian"
+      ],
+      "keyIngredients": [
+        "wheat noodles",
+        "tomatoes",
+        "eggs",
+        "scallions",
+        "bok choy",
+        "light soy sauce",
+        "white pepper"
+      ],
+      "specialtyIngredients": [],
+      "veganApproach": null,
+      "technique": "Tomatoes are fried until they collapse into a tangy broth, noodles are cooked in it and beaten egg is drizzled in to form soft ribbons.",
+      "seasons": [
+        "autumn",
+        "winter",
+        "spring"
+      ],
+      "occasions": [
+        "everyday",
+        "quick",
+        "comfort"
+      ],
+      "sources": [
+        {
+          "title": "Tomato Egg Noodle Soup - Red House Spice",
+          "url": "https://redhousespice.com/tomato-egg-noodle-soup/"
+        },
+        {
+          "title": "Tomato Egg Noodle Soup - CharWok",
+          "url": "https://charwok.com/tomato-egg-noodle-soup/"
+        },
+        {
+          "title": "Tomato and egg noodles - Visit Beijing",
+          "url": "https://english.visitbeijing.com.cn/article/47ONpHOhgrs"
+        }
+      ]
+    },
+    {
+      "key": "zhajiangmian",
+      "name": "Zhajiang mian",
+      "nameEn": "Beijing fried sauce noodles",
+      "aliases": [
+        "zha jiang mian",
+        "fried sauce noodles",
+        "noodles with soybean paste"
+      ],
+      "tiles": [
+        "Chinese"
+      ],
+      "cuisine": "Chinese",
+      "region": "Beijing / Shandong",
+      "format": "noodles",
+      "protein": "tofu",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 40,
+      "effort": "medium",
+      "familiarity": 2,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "thick wheat noodles",
+        "pork belly",
+        "yellow soybean paste",
+        "sweet bean sauce",
+        "cucumber",
+        "bean sprouts",
+        "scallions",
+        "radish"
+      ],
+      "specialtyIngredients": [
+        "huang jiang",
+        "tianmian jiang"
+      ],
+      "veganApproach": "Fry crumbled firm tofu and chopped mushrooms in the bean pastes instead of pork; a vegetarian zhajiang has a long history in Beijing.",
+      "technique": "Fermented bean pastes are slowly fried with diced protein into a thick, salty sauce, served over noodles with crisp shredded vegetables to mix in.",
+      "seasons": [
+        "summer",
+        "spring",
+        "autumn"
+      ],
+      "occasions": [
+        "everyday",
+        "mealprep"
+      ],
+      "sources": [
+        {
+          "title": "Zhajiangmian - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Zhajiangmian"
+        },
+        {
+          "title": "Vegan Zha Jiang Mian - WoonHeng",
+          "url": "https://woonheng.com/vegan-zha-jiang-mian/"
+        },
+        {
+          "title": "Zha Jiang Mian - Visit Beijing",
+          "url": "https://english.visitbeijing.com.cn/article/47OOqOzaoL1"
+        }
+      ]
+    },
+    {
+      "key": "biangbiang-noodles",
+      "name": "Biangbiang mian",
+      "nameEn": "Xi'an oil-splashed hand-pulled noodles",
+      "aliases": [
+        "biang biang noodles",
+        "you po mian",
+        "youpo chemian",
+        "belt noodles"
+      ],
+      "tiles": [
+        "Chinese"
+      ],
+      "cuisine": "Chinese",
+      "region": "Shaanxi",
+      "format": "noodles",
+      "protein": "grains",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 100,
+      "effort": "high",
+      "familiarity": 2,
+      "traditionalDiet": "vegan",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "wheat flour",
+        "chili flakes",
+        "garlic",
+        "scallions",
+        "sichuan peppercorns",
+        "black vinegar",
+        "light soy sauce",
+        "bok choy"
+      ],
+      "specialtyIngredients": [
+        "chinese chili flakes",
+        "sichuan peppercorns",
+        "black vinegar"
+      ],
+      "veganApproach": "The classic oil-splashed version is naturally vegan.",
+      "technique": "Rested dough is stretched and slapped into wide belts, boiled, topped with raw garlic and chili and doused with smoking hot oil, vinegar and soy.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "comfort"
+      ],
+      "sources": [
+        {
+          "title": "Biangbiang noodles - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Biangbiang_noodles"
+        },
+        {
+          "title": "Xi'an Biang Biang noodles - Red House Spice",
+          "url": "https://redhousespice.com/biang-biang-noodles/"
+        },
+        {
+          "title": "Biang Biang Noodles (Yu Po Mian) - Omnivore's Cookbook",
+          "url": "https://omnivorescookbook.com/biang-biang-noodles/"
+        }
+      ]
+    },
+    {
+      "key": "liangpi",
+      "name": "Liangpi",
+      "nameEn": "Xi'an cold skin noodles",
+      "aliases": [
+        "cold skin noodles",
+        "liang pi",
+        "mianpi"
+      ],
+      "tiles": [
+        "Chinese",
+        "Fresh & light"
+      ],
+      "cuisine": "Chinese",
+      "region": "Shaanxi",
+      "format": "noodles",
+      "protein": "seitan",
+      "method": "steam",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 120,
+      "effort": "high",
+      "familiarity": 3,
+      "traditionalDiet": "vegan",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "wheat starch sheets",
+        "wheat gluten",
+        "cucumber",
+        "bean sprouts",
+        "garlic water",
+        "black vinegar",
+        "chili oil",
+        "chinese sesame paste"
+      ],
+      "specialtyIngredients": [
+        "mian jin",
+        "black vinegar",
+        "chili oil"
+      ],
+      "veganApproach": "Naturally vegan; the steamed gluten (mian jin) left from washing the dough provides the protein.",
+      "technique": "Flour dough is washed to separate starch from gluten, the starch is steamed into thin sheets and cut into ribbons, then dressed cold with vinegar, garlic and chili oil.",
+      "seasons": [
+        "summer",
+        "spring"
+      ],
+      "occasions": [
+        "everyday",
+        "mealprep"
+      ],
+      "sources": [
+        {
+          "title": "Liangpi (Cold Skin Noodles) - Chinese Food Wiki",
+          "url": "https://www.chinesefoodwiki.org/Liangpi"
+        },
+        {
+          "title": "Xi'an Liangpi Recipe - Tea & Oranges",
+          "url": "https://www.teaoranges.com/wheat/xian-liangpi"
+        },
+        {
+          "title": "Liangpi - Taste of Asian Food",
+          "url": "https://tasteasianfood.com/liangpi/"
+        }
+      ]
+    },
+    {
+      "key": "di-san-xian",
+      "name": "Di san xian",
+      "nameEn": "Stir-fried eggplant, potato and pepper",
+      "aliases": [
+        "three earthly treasures",
+        "stir-fried three treasures"
+      ],
+      "tiles": [
+        "Chinese"
+      ],
+      "cuisine": "Chinese",
+      "region": "Dongbei (Northeast China)",
+      "format": "stir_fry",
+      "protein": "vegetables",
+      "method": "deep_fry",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 35,
+      "effort": "medium",
+      "familiarity": 3,
+      "traditionalDiet": "vegan",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "chinese eggplant",
+        "potatoes",
+        "green bell peppers",
+        "garlic",
+        "scallions",
+        "light soy sauce",
+        "sugar",
+        "cornstarch"
+      ],
+      "specialtyIngredients": [],
+      "veganApproach": "Naturally vegan; use mushroom 'oyster' sauce if a recipe calls for oyster sauce.",
+      "technique": "Potato, eggplant and pepper are fried separately until golden and tender, then tossed in a garlicky soy glaze.",
+      "seasons": [
+        "summer",
+        "autumn"
+      ],
+      "occasions": [
+        "everyday",
+        "comfort"
+      ],
+      "sources": [
+        {
+          "title": "Di San Xian - Omnivore's Cookbook",
+          "url": "https://omnivorescookbook.com/di-san-xian-recipe/"
+        },
+        {
+          "title": "Di San Xian - Red House Spice",
+          "url": "https://redhousespice.com/di-san-xian/"
+        },
+        {
+          "title": "Stir-Fried Three Treasures (Di San Xian) - America's Test Kitchen",
+          "url": "https://www.americastestkitchen.com/recipes/17123-stir-fried-three-treasures-di-san-xian"
+        }
+      ]
+    },
+    {
+      "key": "su-baozi",
+      "name": "Su baozi",
+      "nameEn": "Steamed vegetable buns",
+      "aliases": [
+        "vegetable baozi",
+        "cai bao",
+        "qing cai bao",
+        "bao"
+      ],
+      "tiles": [
+        "Chinese"
+      ],
+      "cuisine": "Chinese",
+      "region": "Northern China / Shanghai",
+      "format": "dumplings",
+      "protein": "vegetables",
+      "method": "steam",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 120,
+      "effort": "high",
+      "familiarity": 1,
+      "traditionalDiet": "vegan",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "yeasted wheat dough",
+        "bok choy",
+        "shiitake mushrooms",
+        "dried tofu",
+        "sesame oil",
+        "light soy sauce",
+        "white pepper"
+      ],
+      "specialtyIngredients": [
+        "dried bean curd"
+      ],
+      "veganApproach": "Vegetable buns are a vegan staple; use mushroom 'oyster' sauce where a filling calls for oyster sauce.",
+      "technique": "Soft yeasted dough is pleated around a chopped bok choy, mushroom and tofu filling, proofed and steamed until fluffy.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "mealprep",
+        "comfort"
+      ],
+      "sources": [
+        {
+          "title": "Steamed Vegetable Buns - The Woks of Life",
+          "url": "https://thewoksoflife.com/steamed-vegetable-buns/"
+        },
+        {
+          "title": "Baozi with Mushroom and Bok Choy - China Sichuan Food",
+          "url": "https://www.chinasichuanfood.com/baozi-with-mushroom-and-bok-choy/"
+        }
+      ]
+    },
+    {
+      "key": "lu-rou-fan",
+      "name": "Lu rou fan",
+      "nameEn": "Taiwanese braised mince over rice",
+      "aliases": [
+        "lo bah png",
+        "braised pork rice",
+        "su lu rou fan"
+      ],
+      "tiles": [
+        "Chinese"
+      ],
+      "cuisine": "Chinese",
+      "region": "Taiwan",
+      "format": "bowl",
+      "protein": "mushrooms",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 60,
+      "effort": "medium",
+      "familiarity": 2,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "pork belly",
+        "fried shallots",
+        "soy sauce",
+        "rice wine",
+        "rock sugar",
+        "five-spice powder",
+        "white rice",
+        "pickled radish"
+      ],
+      "specialtyIngredients": [
+        "fried shallots",
+        "five-spice powder",
+        "mijiu"
+      ],
+      "veganApproach": "Braise minced shiitake and crumbled firm tofu with shallots, soy and five-spice, using mushroom 'oyster' sauce for depth.",
+      "technique": "Finely chopped protein is braised with crispy shallots, soy and spices until glossy and spooned with its sauce over steamed rice.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "comfort",
+        "mealprep"
+      ],
+      "sources": [
+        {
+          "title": "Ló͘-bah-pn̄g - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/L%C3%B3%CD%98-bah-pn%CC%84g"
+        },
+        {
+          "title": "Vegan Lu Rou Fan - WoonHeng",
+          "url": "https://woonheng.com/vegan-lu-rou-fan/"
+        },
+        {
+          "title": "Vegan Taiwanese Braised 'Pork' Rice - Barrel Leaf",
+          "url": "https://www.barrelleaf.com/en/vegan-lu-rou-fan-pork-rice"
+        }
+      ]
+    },
+    {
+      "key": "three-cup-tofu",
+      "name": "San bei dou fu",
+      "nameEn": "Three cup tofu",
+      "aliases": [
+        "sanbei tofu",
+        "three-cup",
+        "san bei"
+      ],
+      "tiles": [
+        "Chinese"
+      ],
+      "cuisine": "Chinese",
+      "region": "Taiwan",
+      "format": "stir_fry",
+      "protein": "tofu",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 30,
+      "effort": "low",
+      "familiarity": 2,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "chicken",
+        "toasted sesame oil",
+        "rice wine",
+        "soy sauce",
+        "thai basil",
+        "ginger",
+        "garlic",
+        "sugar"
+      ],
+      "specialtyIngredients": [
+        "mijiu",
+        "thai basil"
+      ],
+      "veganApproach": "Use pan-fried firm tofu (or king oyster mushrooms) instead of chicken, a common Taiwanese vegetarian variant.",
+      "technique": "Ginger and garlic are fried in sesame oil, then the protein is braised in equal parts rice wine and soy until syrupy and finished with Thai basil.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "date"
+      ],
+      "sources": [
+        {
+          "title": "Sanbeiji - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Sanbeiji"
+        },
+        {
+          "title": "Three Cup (San Bei) Tofu - WoonHeng",
+          "url": "https://woonheng.com/three-cup-san-bei-tofu/"
+        },
+        {
+          "title": "Three Cup (Sanbei) Tofu - Sophia Hsin",
+          "url": "https://www.sophiahsin.com/blog/three-cup-sanbei-tofu"
+        }
+      ]
+    },
+    {
+      "key": "oyster-omelette",
+      "name": "O-a-tsian",
+      "nameEn": "Taiwanese oyster omelette",
+      "aliases": [
+        "oyster omelet",
+        "o-a-jian",
+        "oyster pancake"
+      ],
+      "tiles": [
+        "Chinese"
+      ],
+      "cuisine": "Chinese",
+      "region": "Taiwan / Fujian",
+      "format": "egg_dish",
+      "protein": "shellfish",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 20,
+      "effort": "medium",
+      "familiarity": 2,
+      "traditionalDiet": "pescatarian",
+      "versions": [
+        "pescatarian"
+      ],
+      "keyIngredients": [
+        "small oysters",
+        "eggs",
+        "sweet potato starch",
+        "leafy greens",
+        "bean sprouts",
+        "ketchup",
+        "miso",
+        "sugar"
+      ],
+      "specialtyIngredients": [
+        "sweet potato starch"
+      ],
+      "veganApproach": null,
+      "technique": "A thin sweet potato starch batter is fried with oysters and greens, egg is cracked over and the chewy translucent pancake is flipped and sauced pink.",
+      "seasons": [
+        "autumn",
+        "winter",
+        "spring"
+      ],
+      "occasions": [
+        "everyday",
+        "quick"
+      ],
+      "sources": [
+        {
+          "title": "Oyster omelette - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Oyster_omelette"
+        },
+        {
+          "title": "Taiwanese Oyster Omelet - Serious Eats",
+          "url": "https://www.seriouseats.com/taiwanese-oyster-omelet-recipe"
+        },
+        {
+          "title": "Taiwanese Oyster Omelet - Tiny Urban Kitchen",
+          "url": "https://tinyurbankitchen.com/taiwanese-oyster-omelet-recipe/"
+        }
+      ]
+    },
+    {
+      "key": "gua-bao",
+      "name": "Gua bao",
+      "nameEn": "Taiwanese braised bun",
+      "aliases": [
+        "koah-pau",
+        "bao bun",
+        "taiwanese hamburger",
+        "pork belly bun"
+      ],
+      "tiles": [
+        "Chinese"
+      ],
+      "cuisine": "Chinese",
+      "region": "Taiwan / Fujian",
+      "format": "sandwich",
+      "protein": "tofu",
+      "method": "steam",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 90,
+      "effort": "high",
+      "familiarity": 1,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "lotus leaf buns",
+        "pork belly",
+        "pickled mustard greens",
+        "peanut powder",
+        "cilantro",
+        "soy sauce",
+        "star anise"
+      ],
+      "specialtyIngredients": [
+        "suan cai",
+        "lotus leaf buns"
+      ],
+      "veganApproach": "Fill the folded buns with soy-braised firm tofu slabs (seasoned with mushroom 'oyster' sauce), keeping the pickled greens, peanut sugar and cilantro.",
+      "technique": "Soft folded steamed buns are stuffed with a slab of red-braised filling, stir-fried pickled mustard greens, sweet peanut powder and cilantro.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "hosting",
+        "comfort"
+      ],
+      "sources": [
+        {
+          "title": "Koah-pau (Gua bao) - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Gua_bao"
+        },
+        {
+          "title": "Vegan Gua Bao - WoonHeng",
+          "url": "https://woonheng.com/vegan-gua-bao/"
+        },
+        {
+          "title": "Vegan Gua Bao - Food52",
+          "url": "https://food52.com/recipes/85048-vegan-gua-bao-recipe"
+        }
+      ]
+    },
+    {
+      "key": "ma-jiang-liang-mian",
+      "name": "Ma jiang liang mian",
+      "nameEn": "Cold sesame noodles",
+      "aliases": [
+        "liang mian",
+        "chilled sesame noodles",
+        "majiang mian"
+      ],
+      "tiles": [
+        "Chinese",
+        "Fresh & light"
+      ],
+      "cuisine": "Chinese",
+      "region": "Taiwan / Shanghai",
+      "format": "noodles",
+      "protein": "nuts_seeds",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 20,
+      "effort": "low",
+      "familiarity": 1,
+      "traditionalDiet": "vegan",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "wheat noodles",
+        "chinese sesame paste",
+        "soy sauce",
+        "black vinegar",
+        "garlic",
+        "ginger",
+        "chili oil",
+        "cucumber"
+      ],
+      "specialtyIngredients": [
+        "chinese sesame paste",
+        "black vinegar"
+      ],
+      "veganApproach": "The sesame dressing is plant-based; skip the ham or egg strips sometimes added in Taiwan.",
+      "technique": "Cooked noodles are chilled, then tossed in a dressing of roasted sesame paste, soy, black vinegar and chili oil and topped with julienned cucumber.",
+      "seasons": [
+        "summer",
+        "spring"
+      ],
+      "occasions": [
+        "everyday",
+        "quick",
+        "mealprep"
+      ],
+      "sources": [
+        {
+          "title": "Liang Mian (Chilled Sesame Noodles) - America's Test Kitchen",
+          "url": "https://www.americastestkitchen.com/recipes/16214-liang-mian-chilled-sesame-noodles"
+        },
+        {
+          "title": "Taiwanese Cold Noodles with Sesame Dressing - Cooking in Chinglish",
+          "url": "https://cookinginchinglish.com/taiwanese-cold-noodle/"
+        },
+        {
+          "title": "Shanghai Sesame Paste Noodles - My Hungry Traveler",
+          "url": "https://myhungrytraveler.com/cuisines/chinese/shanghai-sesame-noodles/"
+        }
+      ]
+    }
+  ]
+}

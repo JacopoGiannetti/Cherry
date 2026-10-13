@@ -1,0 +1,32 @@
+# Blueprint Render: collega la repo su render.com → New → Blueprint.
+# Le chiavi vanno inserite a mano in Environment (sync: false).
+services:
+  - type: web
+    name: cherry-backend
+    runtime: node
+    rootDir: backend
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /health
+    envVars:
+      - key: FIREBASE_SERVICE_ACCOUNT_JSON
+        sync: false
+      - key: FIREBASE_STORAGE_BUCKET
+        sync: false
+      # Il database in console si chiama "cherry", non "(default)".
+      - key: FIREBASE_DATABASE_ID
+        value: cherry
+      - key: GEMINI_MODEL
+        value: gemini-3.8-flash
+      - key: GEMINI_API_KEY
+        sync: false
+      - key: FAL_KEY
+        sync: false
+      - key: RAPIDAPI_KEY
+        sync: false
+      - key: SUPERWALL_WEBHOOK_SECRET
+        sync: false
+      - key: HMAC_SECRET
+        sync: false
+      - key: OFF_USER_AGENT
+        value: Vego/1.0 (support@vego.app)

@@ -1,0 +1,3914 @@
+{
+  "tile": "Middle Eastern",
+  "generatedAt": "2026-10-05",
+  "dishes": [
+    {
+      "key": "mujadara",
+      "name": "Mujadara",
+      "nameEn": "Lentils and rice with crispy onions",
+      "aliases": [
+        "mujaddara",
+        "mejadra",
+        "mudardara"
+      ],
+      "tiles": [
+        "Middle Eastern",
+        "American"
+      ],
+      "cuisine": "Lebanese",
+      "region": "Levant",
+      "format": "rice_dish",
+      "protein": "lentils",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 60,
+      "effort": "low",
+      "familiarity": 2,
+      "traditionalDiet": "vegan",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "brown lentils",
+        "long-grain rice",
+        "onions",
+        "olive oil",
+        "cumin",
+        "black pepper",
+        "salt"
+      ],
+      "specialtyIngredients": [],
+      "veganApproach": "Naturally vegan.",
+      "technique": "Lentils are par-cooked, then simmered with rice and cumin and topped with onions fried slowly in olive oil until deep brown and crisp.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "mealprep",
+        "comfort"
+      ],
+      "sources": [
+        {
+          "title": "Mujaddara - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Mujaddara"
+        },
+        {
+          "title": "Lebanese Mujadara - Maureen Abood",
+          "url": "https://maureenabood.com/lebanese-mujadara/"
+        },
+        {
+          "title": "Mujadara (Lentils and Rice With Fried Onions) - NYT Cooking",
+          "url": "https://cooking.nytimes.com/recipes/1026528-mujadara-lentils-and-rice-with-fried-onions"
+        }
+      ]
+    },
+    {
+      "key": "koshari",
+      "name": "Koshari",
+      "nameEn": "Egyptian lentils, rice and pasta with spiced tomato sauce",
+      "aliases": [
+        "koshary",
+        "kushari",
+        "koshary egyptian"
+      ],
+      "tiles": [
+        "Middle Eastern",
+        "American"
+      ],
+      "cuisine": "Egyptian",
+      "region": "Cairo",
+      "format": "rice_dish",
+      "protein": "lentils",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 75,
+      "effort": "medium",
+      "familiarity": 2,
+      "traditionalDiet": "vegan",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "brown lentils",
+        "rice",
+        "small pasta",
+        "chickpeas",
+        "tomato sauce",
+        "onions",
+        "garlic",
+        "vinegar",
+        "cumin"
+      ],
+      "specialtyIngredients": [],
+      "veganApproach": "Naturally vegan.",
+      "technique": "Lentils, rice and pasta are cooked separately and layered, then crowned with chickpeas, a vinegary garlic-tomato sauce and crispy fried onions.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "mealprep",
+        "comfort"
+      ],
+      "sources": [
+        {
+          "title": "Koshary - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Koshary"
+        },
+        {
+          "title": "Koshari (Egyptian Lentils, Rice, and Pasta) - Serious Eats",
+          "url": "https://www.seriouseats.com/koshari-egyptian-lentils-rice-and-pasta-recipe-8653829"
+        },
+        {
+          "title": "Meera Sodha's vegan koshari - The Guardian",
+          "url": "https://www.theguardian.com/food/2018/dec/29/koshari-egyptian-rice-lentils-tomato-sauce-and-onion-recipe-vegan-meera-sodha"
+        }
+      ]
+    },
+    {
+      "key": "ful-medames",
+      "name": "Ful medames",
+      "nameEn": "Stewed fava beans with cumin, lemon and olive oil",
+      "aliases": [
+        "ful mudammas",
+        "foul medames",
+        "ful"
+      ],
+      "tiles": [
+        "Middle Eastern"
+      ],
+      "cuisine": "Egyptian",
+      "region": "Egypt",
+      "format": "stew",
+      "protein": "beans",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 20,
+      "effort": "low",
+      "familiarity": 2,
+      "traditionalDiet": "vegan",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "fava beans",
+        "garlic",
+        "lemon juice",
+        "cumin",
+        "olive oil",
+        "parsley",
+        "tomato",
+        "chili"
+      ],
+      "specialtyIngredients": [
+        "small dried fava beans (ful)"
+      ],
+      "veganApproach": "Naturally vegan.",
+      "technique": "Cooked fava beans are warmed and partly mashed with garlic, cumin and lemon, then finished with plenty of olive oil and fresh toppings.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "quick"
+      ],
+      "sources": [
+        {
+          "title": "Ful medames - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Ful_medames"
+        },
+        {
+          "title": "Ful Mudammas (Egyptian Fava Beans) - Serious Eats",
+          "url": "https://www.seriouseats.com/ful-mudammas-egyptian-breakfast-fava-beans-recipe"
+        },
+        {
+          "title": "How to make the perfect ful medames - Felicity Cloake, The Guardian",
+          "url": "https://www.theguardian.com/food/2023/nov/22/how-to-make-the-perfect-ful-medames-recipe-felicity-cloake"
+        }
+      ]
+    },
+    {
+      "key": "falafel-wrap",
+      "name": "Falafel wrap",
+      "nameEn": "Chickpea fritters in flatbread with tahini",
+      "aliases": [
+        "falafel sandwich",
+        "falafel pita",
+        "taameya"
+      ],
+      "tiles": [
+        "Middle Eastern"
+      ],
+      "cuisine": "Levantine",
+      "region": "Levant and Egypt",
+      "format": "wrap",
+      "protein": "chickpeas",
+      "method": "deep_fry",
+      "appliances": [
+        "stovetop",
+        "food_processor"
+      ],
+      "cookMinutes": 45,
+      "effort": "medium",
+      "familiarity": 1,
+      "traditionalDiet": "vegan",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "dried chickpeas",
+        "parsley",
+        "cilantro",
+        "onion",
+        "garlic",
+        "cumin",
+        "tahini",
+        "pita bread",
+        "tomato",
+        "cucumber"
+      ],
+      "specialtyIngredients": [
+        "tahini"
+      ],
+      "veganApproach": "Naturally vegan.",
+      "technique": "Soaked raw chickpeas are ground with herbs and spices, shaped and deep-fried until crisp, then wrapped in pita with salad and tahini sauce.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "hosting"
+      ],
+      "sources": [
+        {
+          "title": "Falafel - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Falafel"
+        },
+        {
+          "title": "Falafel Recipe - Feel Good Foodie",
+          "url": "https://feelgoodfoodie.net/recipe/falafel/"
+        },
+        {
+          "title": "Falafel Wrap - Elephantastic Vegan",
+          "url": "https://www.elephantasticvegan.com/falafel-wrap/"
+        }
+      ]
+    },
+    {
+      "key": "shakshuka",
+      "name": "Shakshuka",
+      "nameEn": "Eggs poached in spiced tomato and pepper sauce",
+      "aliases": [
+        "shakshouka",
+        "chakchouka"
+      ],
+      "tiles": [
+        "Middle Eastern"
+      ],
+      "cuisine": "Tunisian",
+      "region": "Maghreb",
+      "format": "egg_dish",
+      "protein": "tofu",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 30,
+      "effort": "low",
+      "familiarity": 1,
+      "traditionalDiet": "vegetarian",
+      "versions": [
+        "vegan",
+        "vegetarian"
+      ],
+      "keyIngredients": [
+        "eggs",
+        "tomatoes",
+        "red bell peppers",
+        "onion",
+        "garlic",
+        "cumin",
+        "paprika",
+        "harissa"
+      ],
+      "specialtyIngredients": [
+        "harissa"
+      ],
+      "veganApproach": "Replace the eggs with seasoned tofu set into wells in the simmering sauce.",
+      "technique": "Peppers and onions are softened into a spiced tomato sauce, then eggs are cracked into wells and gently poached in the pan.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "date",
+        "comfort"
+      ],
+      "sources": [
+        {
+          "title": "Shakshouka - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Shakshouka"
+        },
+        {
+          "title": "Vegan Tofu Shakshuka - This Savory Vegan",
+          "url": "https://www.thissavoryvegan.com/vegan-tofu-shakshuka/"
+        },
+        {
+          "title": "Tofu Shakshuka - The Washington Post",
+          "url": "https://www.washingtonpost.com/recipes/tofu-shakshuka/"
+        }
+      ]
+    },
+    {
+      "key": "maqluba",
+      "name": "Maqluba",
+      "nameEn": "Upside-down rice with fried eggplant and cauliflower",
+      "aliases": [
+        "maqlubeh",
+        "makloubeh",
+        "maqloubeh"
+      ],
+      "tiles": [
+        "Middle Eastern"
+      ],
+      "cuisine": "Palestinian",
+      "region": "Palestine and Levant",
+      "format": "rice_dish",
+      "protein": "vegetables",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 90,
+      "effort": "high",
+      "familiarity": 2,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegan",
+        "vegetarian"
+      ],
+      "keyIngredients": [
+        "rice",
+        "eggplant",
+        "cauliflower",
+        "potatoes",
+        "tomatoes",
+        "onion",
+        "baharat",
+        "chicken or lamb",
+        "pine nuts"
+      ],
+      "specialtyIngredients": [
+        "baharat (seven-spice)"
+      ],
+      "veganApproach": "Skip the meat and build the layers from fried eggplant, cauliflower and potatoes cooked in a spiced vegetable broth.",
+      "technique": "Fried vegetables, meat and rice are layered in a pot, simmered in spiced broth and then flipped onto a platter as a tall cake.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "hosting",
+        "comfort"
+      ],
+      "sources": [
+        {
+          "title": "Maqluba - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Maqluba"
+        },
+        {
+          "title": "Maqlubeh - Serious Eats",
+          "url": "https://www.seriouseats.com/maqlubeh-recipe-5704126"
+        },
+        {
+          "title": "Vegetarian Makloubeh - Falasteeni Foodie",
+          "url": "https://falasteenifoodie.com/vegetarian-makloubeh/"
+        }
+      ]
+    },
+    {
+      "key": "fattoush",
+      "name": "Fattoush",
+      "nameEn": "Levantine bread salad with sumac",
+      "aliases": [
+        "fattush",
+        "fatoush"
+      ],
+      "tiles": [
+        "Middle Eastern",
+        "Fresh & light"
+      ],
+      "cuisine": "Lebanese",
+      "region": "Lebanon",
+      "format": "salad",
+      "protein": "vegetables",
+      "method": "no_cook",
+      "appliances": [
+        "oven"
+      ],
+      "cookMinutes": 25,
+      "effort": "low",
+      "familiarity": 1,
+      "traditionalDiet": "vegan",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "pita bread",
+        "romaine lettuce",
+        "tomatoes",
+        "cucumbers",
+        "radishes",
+        "purslane",
+        "mint",
+        "sumac",
+        "pomegranate molasses",
+        "olive oil"
+      ],
+      "specialtyIngredients": [
+        "sumac",
+        "pomegranate molasses"
+      ],
+      "veganApproach": "Naturally vegan.",
+      "technique": "Toasted or fried pita shards are tossed with chopped crisp vegetables and herbs in a lemony sumac and olive-oil dressing just before serving.",
+      "seasons": [
+        "spring",
+        "summer"
+      ],
+      "occasions": [
+        "everyday",
+        "quick"
+      ],
+      "sources": [
+        {
+          "title": "Fattoush - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Fattoush"
+        },
+        {
+          "title": "Lebanese Fattoush Salad - Maureen Abood",
+          "url": "https://maureenabood.com/lebanese-fattoush-salad/"
+        },
+        {
+          "title": "Fattoush - Serious Eats",
+          "url": "https://www.seriouseats.com/fattoush-recipe-8638102"
+        }
+      ]
+    },
+    {
+      "key": "tabbouleh",
+      "name": "Tabbouleh",
+      "nameEn": "Parsley and bulgur salad with lemon",
+      "aliases": [
+        "tabouli",
+        "tabbouli",
+        "tabouleh"
+      ],
+      "tiles": [
+        "Middle Eastern",
+        "Fresh & light"
+      ],
+      "cuisine": "Lebanese",
+      "region": "Lebanon",
+      "format": "salad",
+      "protein": "grains",
+      "method": "no_cook",
+      "appliances": [],
+      "cookMinutes": 30,
+      "effort": "low",
+      "familiarity": 1,
+      "traditionalDiet": "vegan",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "flat-leaf parsley",
+        "fine bulgur",
+        "tomatoes",
+        "mint",
+        "green onions",
+        "lemon juice",
+        "olive oil"
+      ],
+      "specialtyIngredients": [
+        "fine bulgur"
+      ],
+      "veganApproach": "Naturally vegan.",
+      "technique": "Finely chopped parsley dominates, lightly bound with soaked fine bulgur, tomatoes and mint and dressed generously with lemon and olive oil.",
+      "seasons": [
+        "spring",
+        "summer"
+      ],
+      "occasions": [
+        "everyday",
+        "mealprep"
+      ],
+      "sources": [
+        {
+          "title": "Tabbouleh - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Tabbouleh"
+        },
+        {
+          "title": "Lebanese Tabbouleh Salad - Maureen Abood",
+          "url": "https://maureenabood.com/lebanese-tabbouleh-salad-recipe/"
+        },
+        {
+          "title": "Tabbouleh - Britannica",
+          "url": "https://www.britannica.com/topic/tabbouleh"
+        }
+      ]
+    },
+    {
+      "key": "kousa-mahshi",
+      "name": "Kousa mahshi",
+      "nameEn": "Rice-stuffed zucchini in tomato broth",
+      "aliases": [
+        "koosa mahshi",
+        "stuffed koosa",
+        "mahshi kousa"
+      ],
+      "tiles": [
+        "Middle Eastern"
+      ],
+      "cuisine": "Lebanese",
+      "region": "Levant",
+      "format": "stuffed",
+      "protein": "grains",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 90,
+      "effort": "high",
+      "familiarity": 2,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "kousa zucchini",
+        "short-grain rice",
+        "ground lamb or beef",
+        "tomatoes",
+        "tomato paste",
+        "garlic",
+        "dried mint",
+        "allspice"
+      ],
+      "specialtyIngredients": [
+        "kousa (pale green squash)"
+      ],
+      "veganApproach": "Fill the zucchini with a rice, tomato, onion and herb stuffing instead of minced meat.",
+      "technique": "Hollowed squash is filled with a raw spiced rice stuffing and slowly simmered in a garlicky tomato broth until the rice is tender.",
+      "seasons": [
+        "summer",
+        "autumn"
+      ],
+      "occasions": [
+        "hosting",
+        "comfort"
+      ],
+      "sources": [
+        {
+          "title": "Stuffed squash - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Stuffed_squash"
+        },
+        {
+          "title": "Vegetarian Stuffed Koosa - Maureen Abood",
+          "url": "https://maureenabood.com/vegetarian-stuffed-koosa/"
+        },
+        {
+          "title": "Kousa Mahshi (Stuffed Zucchini) - Plant Based Folk",
+          "url": "https://plantbasedfolk.com/kousa-mahshi-aka-stuffed-zucchini/"
+        }
+      ]
+    },
+    {
+      "key": "warak-enab",
+      "name": "Warak enab",
+      "nameEn": "Stuffed grape leaves with rice, herbs and lemon",
+      "aliases": [
+        "warak enab bi zeit",
+        "dolma",
+        "yalanji",
+        "yaprak sarma"
+      ],
+      "tiles": [
+        "Middle Eastern"
+      ],
+      "cuisine": "Lebanese",
+      "region": "Levant",
+      "format": "stuffed",
+      "protein": "grains",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 120,
+      "effort": "high",
+      "familiarity": 1,
+      "traditionalDiet": "vegan",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "grape leaves",
+        "short-grain rice",
+        "parsley",
+        "tomatoes",
+        "mint",
+        "onion",
+        "lemon juice",
+        "olive oil"
+      ],
+      "specialtyIngredients": [
+        "brined grape leaves"
+      ],
+      "veganApproach": "Naturally vegan.",
+      "technique": "Grape leaves are rolled tightly around a herby rice and tomato filling, packed in a pot and simmered under a plate with lemon and olive oil.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "hosting",
+        "mealprep"
+      ],
+      "sources": [
+        {
+          "title": "Stuffed grape leaves - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Stuffed_grape_leaves"
+        },
+        {
+          "title": "Vegetarian Stuffed Grape Leaf Rolls - Maureen Abood",
+          "url": "https://maureenabood.com/vegetarian-stuffed-grape-leaf-rolls/"
+        },
+        {
+          "title": "Warak Enab (Lebanese Grape Leaves) - Plant Based Folk",
+          "url": "https://plantbasedfolk.com/warak-enab-lebanese-grape-leaves/"
+        }
+      ]
+    },
+    {
+      "key": "sayadieh",
+      "name": "Sayadieh",
+      "nameEn": "Spiced fish with caramelized-onion rice",
+      "aliases": [
+        "sayadiyeh",
+        "siyadiyeh",
+        "sayyadiyeh"
+      ],
+      "tiles": [
+        "Middle Eastern"
+      ],
+      "cuisine": "Lebanese",
+      "region": "Lebanese coast",
+      "format": "rice_dish",
+      "protein": "fish",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 75,
+      "effort": "medium",
+      "familiarity": 3,
+      "traditionalDiet": "pescatarian",
+      "versions": [
+        "pescatarian"
+      ],
+      "keyIngredients": [
+        "white fish",
+        "rice",
+        "onions",
+        "cumin",
+        "fish stock",
+        "pine nuts",
+        "lemon",
+        "olive oil"
+      ],
+      "specialtyIngredients": [],
+      "veganApproach": null,
+      "technique": "Onions are caramelized almost black to color and flavor the stock, in which rice is cooked and served with fried fish and toasted nuts.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "hosting"
+      ],
+      "sources": [
+        {
+          "title": "Sayadieh - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Sayadieh"
+        },
+        {
+          "title": "Sayadieh: Lebanese-Style Fish and Rice - Hadia's Lebanese Cuisine",
+          "url": "https://hadiaslebanesecuisine.com/blog/sayadieh-lebanese-style-fish-and-rice/"
+        },
+        {
+          "title": "Fish Siyadiyeh - Great British Chefs",
+          "url": "https://www.greatbritishchefs.com/recipes/fish-siyadiyeh-recipe"
+        }
+      ]
+    },
+    {
+      "key": "samke-harra",
+      "name": "Samke harra",
+      "nameEn": "Baked fish with chili, cilantro and tahini sauce",
+      "aliases": [
+        "samkeh harra",
+        "samak harra"
+      ],
+      "tiles": [
+        "Middle Eastern"
+      ],
+      "cuisine": "Lebanese",
+      "region": "Tripoli",
+      "format": "bake",
+      "protein": "fish",
+      "method": "oven",
+      "appliances": [
+        "oven",
+        "stovetop"
+      ],
+      "cookMinutes": 45,
+      "effort": "medium",
+      "familiarity": 3,
+      "traditionalDiet": "pescatarian",
+      "versions": [
+        "pescatarian"
+      ],
+      "keyIngredients": [
+        "white fish",
+        "tahini",
+        "lemon juice",
+        "garlic",
+        "cilantro",
+        "chili",
+        "walnuts",
+        "olive oil"
+      ],
+      "specialtyIngredients": [
+        "tahini"
+      ],
+      "veganApproach": null,
+      "technique": "Fish is baked and then covered with a spicy sauce of garlic, cilantro, chili and nuts loosened with lemony tahini.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "hosting",
+        "date"
+      ],
+      "sources": [
+        {
+          "title": "Samke Harra - Feel Good Foodie",
+          "url": "https://feelgoodfoodie.net/recipe/samke-harra/"
+        },
+        {
+          "title": "Spicy Fish (Samkeh Harra) - Mama's Lebanese Kitchen",
+          "url": "https://mamaslebanesekitchen.com/sea-food/spicy-fish-recipe-samkeh-harra/"
+        }
+      ]
+    },
+    {
+      "key": "fattet-hummus",
+      "name": "Fattet hummus",
+      "nameEn": "Chickpeas over crisp pita with garlicky yogurt-tahini",
+      "aliases": [
+        "fatteh",
+        "fatteh hummus",
+        "fatet hummus"
+      ],
+      "tiles": [
+        "Middle Eastern",
+        "American"
+      ],
+      "cuisine": "Levantine",
+      "region": "Syria and Lebanon",
+      "format": "bowl",
+      "protein": "chickpeas",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop",
+        "oven"
+      ],
+      "cookMinutes": 30,
+      "effort": "low",
+      "familiarity": 2,
+      "traditionalDiet": "vegetarian",
+      "versions": [
+        "vegan",
+        "vegetarian"
+      ],
+      "keyIngredients": [
+        "chickpeas",
+        "pita bread",
+        "yogurt",
+        "tahini",
+        "garlic",
+        "lemon juice",
+        "pine nuts",
+        "cumin",
+        "butter"
+      ],
+      "specialtyIngredients": [
+        "tahini"
+      ],
+      "veganApproach": "Use plant-based yogurt for the sauce and toast the pine nuts in olive oil instead of butter.",
+      "technique": "Crisped pita is layered with warm chickpeas and their liquid, smothered in garlic yogurt-tahini sauce and topped with sizzling nuts.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "hosting",
+        "comfort"
+      ],
+      "sources": [
+        {
+          "title": "Fatteh - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Fatteh"
+        },
+        {
+          "title": "Fatteh (Spiced Chickpeas with Crispy Pita and Garlicky Yogurt) - The Mediterranean Dish",
+          "url": "https://www.themediterraneandish.com/fatteh-spiced-chickpeas-with-crispy-pita-and-garlicky-yogurt/"
+        },
+        {
+          "title": "Hummus Fatteh - Serious Eats",
+          "url": "https://www.seriouseats.com/hummus-fatteh-recipe-8641111"
+        }
+      ]
+    },
+    {
+      "key": "kibbet-laktin",
+      "name": "Kibbet laktin",
+      "nameEn": "Baked pumpkin and bulgur kibbeh with chickpea and greens filling",
+      "aliases": [
+        "pumpkin kibbeh",
+        "kibbeh lakteen",
+        "kibbet yaqtin"
+      ],
+      "tiles": [
+        "Middle Eastern"
+      ],
+      "cuisine": "Lebanese",
+      "region": "Lebanon",
+      "format": "bake",
+      "protein": "grains",
+      "method": "oven",
+      "appliances": [
+        "oven"
+      ],
+      "cookMinutes": 75,
+      "effort": "medium",
+      "familiarity": 3,
+      "traditionalDiet": "vegan",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "pumpkin",
+        "fine bulgur",
+        "flour",
+        "onions",
+        "chickpeas",
+        "spinach",
+        "walnuts",
+        "sumac",
+        "olive oil"
+      ],
+      "specialtyIngredients": [
+        "fine bulgur",
+        "sumac"
+      ],
+      "veganApproach": "Naturally vegan.",
+      "technique": "A dough of mashed pumpkin and fine bulgur is layered in a tray around a filling of onions, chickpeas and greens, scored and baked with olive oil.",
+      "seasons": [
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "hosting",
+        "mealprep"
+      ],
+      "sources": [
+        {
+          "title": "Kibbeh - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Kibbeh"
+        },
+        {
+          "title": "Lebanese Pumpkin Kibbeh - Maureen Abood",
+          "url": "https://maureenabood.com/lebanese-pumpkin-kibbeh/"
+        },
+        {
+          "title": "Pumpkin kibbeh (kibbet lakteen) - SBS Food",
+          "url": "https://www.sbs.com.au/food/recipe/pumpkin-kibbeh-kibbet-lakteen/9mxiioke2"
+        }
+      ]
+    },
+    {
+      "key": "bamia",
+      "name": "Bamia",
+      "nameEn": "Okra and tomato stew",
+      "aliases": [
+        "bamya",
+        "bamieh",
+        "okra stew"
+      ],
+      "tiles": [
+        "Middle Eastern"
+      ],
+      "cuisine": "Levantine",
+      "region": "Levant, Egypt and Iraq",
+      "format": "stew",
+      "protein": "vegetables",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 50,
+      "effort": "low",
+      "familiarity": 2,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "okra",
+        "tomatoes",
+        "tomato paste",
+        "garlic",
+        "cilantro",
+        "onion",
+        "lemon juice",
+        "lamb or beef"
+      ],
+      "specialtyIngredients": [],
+      "veganApproach": "Leave out the meat and simmer the okra in tomato with plenty of garlic and cilantro, as in the olive-oil bamia bi zeit.",
+      "technique": "Okra is briefly seared to limit sliminess, then simmered in a garlicky tomato sauce finished with fried cilantro and lemon.",
+      "seasons": [
+        "summer",
+        "autumn"
+      ],
+      "occasions": [
+        "everyday",
+        "comfort"
+      ],
+      "sources": [
+        {
+          "title": "Okra stew - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Okra_stew"
+        },
+        {
+          "title": "Bamia (Okra Stew) - Plant Based Folk",
+          "url": "https://plantbasedfolk.com/bamia-okra-stew/"
+        },
+        {
+          "title": "Vegan Okra in Tomato Sauce (Bamia Bzeit) - Zaatar and Zaytoun",
+          "url": "https://zaatarandzaytoun.com/vegan-okra-in-tomato-sauce-bamia-bzeit/"
+        }
+      ]
+    },
+    {
+      "key": "maghmour",
+      "name": "Maghmour",
+      "nameEn": "Lebanese eggplant and chickpea moussaka",
+      "aliases": [
+        "musaqa'a",
+        "lebanese moussaka",
+        "maghmoor"
+      ],
+      "tiles": [
+        "Middle Eastern"
+      ],
+      "cuisine": "Lebanese",
+      "region": "Lebanon",
+      "format": "stew",
+      "protein": "chickpeas",
+      "method": "oven",
+      "appliances": [
+        "oven",
+        "stovetop"
+      ],
+      "cookMinutes": 60,
+      "effort": "low",
+      "familiarity": 3,
+      "traditionalDiet": "vegan",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "eggplant",
+        "chickpeas",
+        "tomatoes",
+        "onions",
+        "garlic",
+        "olive oil",
+        "allspice"
+      ],
+      "specialtyIngredients": [],
+      "veganApproach": "Naturally vegan.",
+      "technique": "Roasted or fried eggplant is cooked with chickpeas, onions and garlic in a thick tomato sauce and eaten warm or at room temperature with bread.",
+      "seasons": [
+        "summer",
+        "autumn"
+      ],
+      "occasions": [
+        "everyday",
+        "mealprep"
+      ],
+      "sources": [
+        {
+          "title": "Lebanese Moussaka (Maghmour) - Six Hungry Feet",
+          "url": "https://sixhungryfeet.com/lebanese-moussaka-maghmour/"
+        },
+        {
+          "title": "Lebanese Vegan Moussaka - The Washington Post",
+          "url": "https://www.washingtonpost.com/recipes/lebanese-vegan-moussaka/"
+        },
+        {
+          "title": "Lebanese Moussaka - Hungry Paprikas",
+          "url": "https://www.hungrypaprikas.com/lebanese-moussaka/"
+        }
+      ]
+    },
+    {
+      "key": "manakish",
+      "name": "Manakish",
+      "nameEn": "Za'atar or cheese-topped flatbread",
+      "aliases": [
+        "manakeesh",
+        "man'oushe",
+        "manousheh"
+      ],
+      "tiles": [
+        "Middle Eastern"
+      ],
+      "cuisine": "Lebanese",
+      "region": "Levant",
+      "format": "flatbread",
+      "protein": "nuts_seeds",
+      "method": "oven",
+      "appliances": [
+        "oven"
+      ],
+      "cookMinutes": 120,
+      "effort": "medium",
+      "familiarity": 2,
+      "traditionalDiet": "vegan",
+      "versions": [
+        "vegan",
+        "vegetarian"
+      ],
+      "keyIngredients": [
+        "flour",
+        "yeast",
+        "za'atar",
+        "olive oil",
+        "sesame seeds",
+        "sumac",
+        "akkawi cheese"
+      ],
+      "specialtyIngredients": [
+        "za'atar",
+        "akkawi cheese"
+      ],
+      "veganApproach": "Naturally vegan.",
+      "technique": "Rounds of yeasted dough are dimpled, spread with a za'atar and olive-oil paste or with cheese, and baked very hot until blistered.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "hosting"
+      ],
+      "sources": [
+        {
+          "title": "Manakish - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Manakish"
+        },
+        {
+          "title": "Lebanese Manoushe Za'atar Flatbread - Maureen Abood",
+          "url": "https://maureenabood.com/lebanese-manoushe-zaatar-flatbread/"
+        },
+        {
+          "title": "Za'atar Manakeesh - King Arthur Baking",
+          "url": "https://www.kingarthurbaking.com/recipes/zaatar-manakeesh-recipe"
+        }
+      ]
+    },
+    {
+      "key": "shawarma-wrap",
+      "name": "Shawarma",
+      "nameEn": "Spiced shawarma wrap with garlic sauce and pickles",
+      "aliases": [
+        "shawurma",
+        "shwarma",
+        "chawarma"
+      ],
+      "tiles": [
+        "Middle Eastern",
+        "American"
+      ],
+      "cuisine": "Levantine",
+      "region": "Levant",
+      "format": "wrap",
+      "protein": "seitan",
+      "method": "oven",
+      "appliances": [
+        "oven"
+      ],
+      "cookMinutes": 60,
+      "effort": "medium",
+      "familiarity": 1,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "chicken or lamb",
+        "garlic",
+        "lemon juice",
+        "yogurt",
+        "shawarma spices",
+        "pita bread",
+        "pickles",
+        "tahini"
+      ],
+      "specialtyIngredients": [
+        "shawarma spice blend"
+      ],
+      "veganApproach": "Marinate thinly sliced seitan or oyster mushrooms in shawarma spices and roast until crisp-edged before wrapping with garlic sauce and pickles.",
+      "technique": "Thin slices of spice-marinated protein are cooked until charred at the edges and rolled in flatbread with garlic sauce, pickles and salad.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "hosting"
+      ],
+      "sources": [
+        {
+          "title": "Shawarma - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Shawarma"
+        },
+        {
+          "title": "Vegan Seitan Shawarma - One Arab Vegan",
+          "url": "https://www.onearabvegan.com/2020/08/vegan-seitan-shawarma/"
+        },
+        {
+          "title": "Mushroom Shawarma Wraps - VegKit",
+          "url": "https://www.vegkit.com/recipes/vegan-main-meals/mushroom-shawarma-wraps/"
+        }
+      ]
+    },
+    {
+      "key": "adas-bi-hamod",
+      "name": "Adas bi hamod",
+      "nameEn": "Lemony lentil soup with chard and potatoes",
+      "aliases": [
+        "shorbat adas bil hamod",
+        "adas bhamod"
+      ],
+      "tiles": [
+        "Middle Eastern"
+      ],
+      "cuisine": "Lebanese",
+      "region": "Lebanon",
+      "format": "soup",
+      "protein": "lentils",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 50,
+      "effort": "low",
+      "familiarity": 3,
+      "traditionalDiet": "vegan",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "brown lentils",
+        "swiss chard",
+        "potatoes",
+        "lemon juice",
+        "garlic",
+        "cilantro",
+        "onion",
+        "olive oil"
+      ],
+      "specialtyIngredients": [],
+      "veganApproach": "Naturally vegan.",
+      "technique": "Lentils are simmered with potato and shredded greens, then sharpened with plenty of lemon and a garlic-cilantro sauté.",
+      "seasons": [
+        "spring",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "mealprep",
+        "comfort"
+      ],
+      "sources": [
+        {
+          "title": "Shorbat Adas bil Hamod (Lentil Soup With Greens) - NYT Cooking",
+          "url": "https://cooking.nytimes.com/recipes/1026454-shorbat-adas-bil-hamod-lentil-soup-with-greens"
+        },
+        {
+          "title": "Lentil Soup (Adas bi Hamod) - Zaatar and Zaytoun",
+          "url": "https://zaatarandzaytoun.com/lentilsoup/"
+        },
+        {
+          "title": "Adas bi Hamod - Every Little Crumb",
+          "url": "https://everylittlecrumb.com/adas-bi-hamod/"
+        }
+      ]
+    },
+    {
+      "key": "musakhan",
+      "name": "Musakhan",
+      "nameEn": "Sumac-roasted chicken and onions on taboon bread",
+      "aliases": [
+        "msakhan",
+        "musakhkhan"
+      ],
+      "tiles": [
+        "Middle Eastern"
+      ],
+      "cuisine": "Palestinian",
+      "region": "Palestine",
+      "format": "flatbread",
+      "protein": "mushrooms",
+      "method": "oven",
+      "appliances": [
+        "oven",
+        "stovetop"
+      ],
+      "cookMinutes": 75,
+      "effort": "medium",
+      "familiarity": 2,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "chicken",
+        "onions",
+        "sumac",
+        "olive oil",
+        "taboon bread",
+        "pine nuts",
+        "allspice"
+      ],
+      "specialtyIngredients": [
+        "sumac",
+        "taboon bread"
+      ],
+      "veganApproach": "Swap the chicken for seared portobello mushrooms or roasted cauliflower over the sumac onions.",
+      "technique": "Mounds of onions are slowly cooked in olive oil with sumac, spread over bread with the roasted protein and baked until the bread soaks up the oil.",
+      "seasons": [
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "hosting",
+        "comfort"
+      ],
+      "sources": [
+        {
+          "title": "Musakhan - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Musakhan"
+        },
+        {
+          "title": "Mushroom Musakhan - America's Test Kitchen",
+          "url": "https://www.americastestkitchen.com/recipes/11688-mushroom-musakhan"
+        },
+        {
+          "title": "Vegan Cauliflower Musakhan - One Arab Vegan",
+          "url": "https://www.onearabvegan.com/2019/05/vegan-cauliflower-musakhan/"
+        }
+      ]
+    },
+    {
+      "key": "sabich",
+      "name": "Sabich",
+      "nameEn": "Pita with fried eggplant, egg, tahini and amba",
+      "aliases": [
+        "sabih",
+        "sabikh"
+      ],
+      "tiles": [
+        "Middle Eastern"
+      ],
+      "cuisine": "Iraqi Jewish",
+      "region": "Iraq and Israel",
+      "format": "sandwich",
+      "protein": "chickpeas",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 45,
+      "effort": "medium",
+      "familiarity": 2,
+      "traditionalDiet": "vegetarian",
+      "versions": [
+        "vegan",
+        "vegetarian"
+      ],
+      "keyIngredients": [
+        "eggplant",
+        "hard-boiled eggs",
+        "pita bread",
+        "hummus",
+        "tahini",
+        "amba",
+        "tomato",
+        "cucumber",
+        "potatoes"
+      ],
+      "specialtyIngredients": [
+        "amba (mango pickle sauce)"
+      ],
+      "veganApproach": "Omit the egg and add extra hummus and boiled potato for heft.",
+      "technique": "Salted eggplant slices are fried until creamy, then stuffed into pita with sliced egg, hummus, chopped salad, tahini and tangy mango amba.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "hosting"
+      ],
+      "sources": [
+        {
+          "title": "Sabich - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Sabich"
+        },
+        {
+          "title": "Sabich - My Jewish Learning",
+          "url": "https://www.myjewishlearning.com/recipe/sabich/"
+        },
+        {
+          "title": "Sabich Sandwich - Serious Eats",
+          "url": "https://www.seriouseats.com/sabich-sandwich-eggplant-egg-hummus-pita-recipe"
+        }
+      ]
+    },
+    {
+      "key": "imam-bayildi",
+      "name": "Imam bayildi",
+      "nameEn": "Olive-oil braised eggplant stuffed with onion and tomato",
+      "aliases": [
+        "imam",
+        "imam baildi",
+        "imam bayıldı",
+        "imam biyaldi",
+        "melitzanes imam"
+      ],
+      "tiles": [
+        "Greek",
+        "Middle Eastern"
+      ],
+      "cuisine": "Turkish",
+      "region": "Ottoman / Aegean Turkey",
+      "format": "stuffed",
+      "protein": "vegetables",
+      "method": "oven",
+      "appliances": [
+        "stovetop",
+        "oven"
+      ],
+      "cookMinutes": 75,
+      "effort": "medium",
+      "familiarity": 2,
+      "traditionalDiet": "vegan",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "eggplant",
+        "onions",
+        "tomatoes",
+        "garlic",
+        "olive oil",
+        "parsley",
+        "sugar",
+        "lemon"
+      ],
+      "specialtyIngredients": [],
+      "veganApproach": "Naturally vegan.",
+      "technique": "Whole eggplants are fried or roasted, split and filled with onions, garlic and tomato stewed in olive oil, then braised and served at room temperature.",
+      "seasons": [
+        "summer",
+        "autumn"
+      ],
+      "occasions": [
+        "hosting",
+        "mealprep"
+      ],
+      "sources": [
+        {
+          "title": "İmam bayıldı - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/İmam_bayıldı"
+        },
+        {
+          "title": "Imam Bayildi - Ozlem's Turkish Table",
+          "url": "https://ozlemsturkishtable.com/2013/07/a-turkish-classic-eggplants-stuffed-with-onion-garlic-and-tomatoes-in-olive-oil-imam-bayildi/"
+        },
+        {
+          "title": "Imam Bayildi - NYT Cooking",
+          "url": "https://cooking.nytimes.com/recipes/1015148-imam-bayildi"
+        }
+      ]
+    },
+    {
+      "key": "pide",
+      "name": "Pide",
+      "nameEn": "Turkish boat-shaped flatbread with spinach and feta",
+      "aliases": [
+        "ıspanaklı peynirli pide",
+        "peynirli pide",
+        "turkish pizza"
+      ],
+      "tiles": [
+        "Middle Eastern"
+      ],
+      "cuisine": "Turkish",
+      "region": "Black Sea and Anatolia",
+      "format": "flatbread",
+      "protein": "tofu",
+      "method": "oven",
+      "appliances": [
+        "oven"
+      ],
+      "cookMinutes": 120,
+      "effort": "medium",
+      "familiarity": 2,
+      "traditionalDiet": "vegetarian",
+      "versions": [
+        "vegan",
+        "vegetarian"
+      ],
+      "keyIngredients": [
+        "flour",
+        "yeast",
+        "spinach",
+        "feta cheese",
+        "onion",
+        "red pepper flakes",
+        "egg",
+        "olive oil"
+      ],
+      "specialtyIngredients": [
+        "turkish white cheese (beyaz peynir)"
+      ],
+      "veganApproach": "Bind the spinach and onion filling with crumbled tofu seasoned with lemon and salt instead of feta and egg.",
+      "technique": "Yeasted dough is stretched into boat shapes, filled with wilted spinach and white cheese, edges folded over and baked until golden.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "hosting"
+      ],
+      "sources": [
+        {
+          "title": "Pide - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Pide"
+        },
+        {
+          "title": "Turkish Flat Breads with Spinach, Feta and Peppers (Peynirli Pide) - Ozlem's Turkish Table",
+          "url": "https://ozlemsturkishtable.com/2014/09/turkish-flat-breads-with-spinach-feta-and-peppers-peynirli-pide/"
+        },
+        {
+          "title": "Spinach & cheese pide - BBC Good Food",
+          "url": "https://www.bbcgoodfood.com/recipes/spinach-cheese-pide"
+        }
+      ]
+    },
+    {
+      "key": "gozleme",
+      "name": "Gozleme",
+      "nameEn": "Griddled stuffed flatbread with spinach and cheese",
+      "aliases": [
+        "gözleme"
+      ],
+      "tiles": [
+        "Middle Eastern"
+      ],
+      "cuisine": "Turkish",
+      "region": "Anatolia",
+      "format": "flatbread",
+      "protein": "vegetables",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 60,
+      "effort": "medium",
+      "familiarity": 2,
+      "traditionalDiet": "vegetarian",
+      "versions": [
+        "vegan",
+        "vegetarian"
+      ],
+      "keyIngredients": [
+        "flour",
+        "spinach",
+        "feta cheese",
+        "onion",
+        "potatoes",
+        "butter",
+        "red pepper flakes"
+      ],
+      "specialtyIngredients": [],
+      "veganApproach": "Use the classic spiced potato and onion filling or herby spinach, brushing with olive oil instead of butter.",
+      "technique": "Thin unleavened dough is rolled out, filled, folded and cooked on a hot griddle or sac, brushed with fat until blistered.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "comfort"
+      ],
+      "sources": [
+        {
+          "title": "Gözleme - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Gözleme"
+        },
+        {
+          "title": "Gozleme: Anatolian Flat Breads Stuffed with Spinach, Onion and Feta - Ozlem's Turkish Table",
+          "url": "https://ozlemsturkishtable.com/2013/05/gozleme-anatolian-flat-breads-stuffed-with-spinach-onion-and-feta-cheese-so-delicious-and-easier-than-you-think/"
+        }
+      ]
+    },
+    {
+      "key": "lahmacun",
+      "name": "Lahmacun",
+      "nameEn": "Thin flatbread with spiced minced topping",
+      "aliases": [
+        "lahmajoun",
+        "lahm bi ajeen"
+      ],
+      "tiles": [
+        "Middle Eastern"
+      ],
+      "cuisine": "Turkish",
+      "region": "Southeastern Anatolia",
+      "format": "flatbread",
+      "protein": "lentils",
+      "method": "oven",
+      "appliances": [
+        "oven",
+        "food_processor"
+      ],
+      "cookMinutes": 90,
+      "effort": "medium",
+      "familiarity": 2,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "flour",
+        "minced lamb or beef",
+        "onion",
+        "tomatoes",
+        "red peppers",
+        "parsley",
+        "isot pepper",
+        "red pepper paste",
+        "lemon"
+      ],
+      "specialtyIngredients": [
+        "urfa pepper (isot)",
+        "red pepper paste (biber salçası)"
+      ],
+      "veganApproach": "Replace the minced meat with a paste of cooked lentils and walnuts blended with tomato, peppers and red pepper paste.",
+      "technique": "A very thin layer of finely minced spiced topping is spread over paper-thin dough and baked in a scorching oven, then rolled with parsley and lemon.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "hosting"
+      ],
+      "sources": [
+        {
+          "title": "Lahmacun - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Lahmacun"
+        },
+        {
+          "title": "Vegan Lahmacun (Turkish Pizza) - Madly Delish",
+          "url": "https://madlydelish.com/vegan-lahmacun-turkish-pizza/"
+        },
+        {
+          "title": "Turkey: Lahmacun (Vegan Recipe) - Vegan Physicist",
+          "url": "https://veganphysicist.com/turkey-lahmacun-vegan-recipe/"
+        }
+      ]
+    },
+    {
+      "key": "menemen",
+      "name": "Menemen",
+      "nameEn": "Turkish scrambled eggs with tomatoes and green peppers",
+      "aliases": [
+        "menemen turkish eggs"
+      ],
+      "tiles": [
+        "Middle Eastern"
+      ],
+      "cuisine": "Turkish",
+      "region": "Aegean Turkey",
+      "format": "egg_dish",
+      "protein": "tofu",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 20,
+      "effort": "low",
+      "familiarity": 2,
+      "traditionalDiet": "vegetarian",
+      "versions": [
+        "vegan",
+        "vegetarian"
+      ],
+      "keyIngredients": [
+        "eggs",
+        "tomatoes",
+        "green peppers",
+        "onion",
+        "olive oil",
+        "butter",
+        "red pepper flakes"
+      ],
+      "specialtyIngredients": [
+        "sivri biber (turkish green peppers)"
+      ],
+      "veganApproach": "Scramble crumbled firm tofu with a pinch of turmeric into the pepper and tomato base.",
+      "technique": "Mild green peppers and grated tomatoes are softened into a juicy sauce before eggs are stirred through and barely set.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "quick"
+      ],
+      "sources": [
+        {
+          "title": "Menemen (food) - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Menemen_(food)"
+        },
+        {
+          "title": "Menemen (Turkish-Style Scrambled Eggs) - Serious Eats",
+          "url": "https://www.seriouseats.com/menemen-turkish-style-scrambled-eggs-tomatoes-chilies-recipe"
+        },
+        {
+          "title": "How to cook the perfect menemen - Felicity Cloake, The Guardian",
+          "url": "https://www.theguardian.com/food/2023/may/24/how-to-cook-the-perfect-menemen-recipe-turkish-eggs-breakfast-peppers-felicity-cloake"
+        }
+      ]
+    },
+    {
+      "key": "karniyarik",
+      "name": "Karniyarik",
+      "nameEn": "Split eggplants stuffed with a spiced filling",
+      "aliases": [
+        "karnıyarık",
+        "mercimekli karnıyarık"
+      ],
+      "tiles": [
+        "Middle Eastern"
+      ],
+      "cuisine": "Turkish",
+      "region": "Turkey",
+      "format": "stuffed",
+      "protein": "lentils",
+      "method": "oven",
+      "appliances": [
+        "stovetop",
+        "oven"
+      ],
+      "cookMinutes": 75,
+      "effort": "medium",
+      "familiarity": 2,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "eggplant",
+        "minced beef or lamb",
+        "onion",
+        "tomatoes",
+        "green peppers",
+        "garlic",
+        "tomato paste",
+        "parsley"
+      ],
+      "specialtyIngredients": [],
+      "veganApproach": "Fill the eggplants with spiced lentils cooked with onion, peppers and tomato instead of minced meat.",
+      "technique": "Fried whole eggplants are slit open, packed with a sautéed spiced filling, topped with tomato and pepper and baked in a little sauce.",
+      "seasons": [
+        "summer",
+        "autumn"
+      ],
+      "occasions": [
+        "everyday",
+        "hosting"
+      ],
+      "sources": [
+        {
+          "title": "Karnıyarık - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Karnıyarık"
+        },
+        {
+          "title": "Stuffed Aubergines with Lentils (Mercimekli Karniyarik) - Ozlem's Turkish Table",
+          "url": "https://ozlemsturkishtable.com/2020/09/online-cookery-classes-coming-up-and-stuffed-aubergines-with-lentils-mercimekli-karniyarik/"
+        },
+        {
+          "title": "Karniyarik: Turkish Stuffed Aubergines (Vegan) - Sibel's Recipe",
+          "url": "https://www.sibelsrecipe.com/post/karniyarik-turkish-stuffed-aubergines-vegan-and-gluten-free"
+        }
+      ]
+    },
+    {
+      "key": "mercimek-corbasi",
+      "name": "Mercimek corbasi",
+      "nameEn": "Turkish red lentil soup",
+      "aliases": [
+        "mercimek çorbası",
+        "turkish lentil soup",
+        "red lentil soup"
+      ],
+      "tiles": [
+        "Middle Eastern",
+        "American"
+      ],
+      "cuisine": "Turkish",
+      "region": "Turkey",
+      "format": "soup",
+      "protein": "lentils",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop",
+        "blender"
+      ],
+      "cookMinutes": 40,
+      "effort": "low",
+      "familiarity": 1,
+      "traditionalDiet": "vegan",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "red lentils",
+        "onion",
+        "carrot",
+        "potato",
+        "tomato paste",
+        "cumin",
+        "red pepper flakes",
+        "lemon"
+      ],
+      "specialtyIngredients": [],
+      "veganApproach": "Naturally vegan.",
+      "technique": "Red lentils simmer with onion, carrot and potato until they collapse, then are blended smooth and finished with chili-infused oil and lemon.",
+      "seasons": [
+        "spring",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "mealprep",
+        "comfort"
+      ],
+      "sources": [
+        {
+          "title": "Lentil soup - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Lentil_soup"
+        },
+        {
+          "title": "Turkish Lentil Soup - The Mediterranean Dish",
+          "url": "https://www.themediterraneandish.com/turkish-lentil-soup/"
+        },
+        {
+          "title": "Mercimek Çorbası (Turkish Lentil Soup) - Simply Recipes",
+          "url": "https://www.simplyrecipes.com/mercimek-corbasi-turkish-lentil-soup-recipe-6824723"
+        }
+      ]
+    },
+    {
+      "key": "kisir",
+      "name": "Kisir",
+      "nameEn": "Spicy bulgur salad with pepper paste and herbs",
+      "aliases": [
+        "kısır"
+      ],
+      "tiles": [
+        "Middle Eastern",
+        "Fresh & light"
+      ],
+      "cuisine": "Turkish",
+      "region": "Southeastern Turkey",
+      "format": "salad",
+      "protein": "grains",
+      "method": "no_cook",
+      "appliances": [],
+      "cookMinutes": 30,
+      "effort": "low",
+      "familiarity": 3,
+      "traditionalDiet": "vegan",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "fine bulgur",
+        "red pepper paste",
+        "tomato paste",
+        "parsley",
+        "mint",
+        "green onions",
+        "pomegranate molasses",
+        "lemon juice",
+        "olive oil"
+      ],
+      "specialtyIngredients": [
+        "red pepper paste (biber salçası)",
+        "pomegranate molasses"
+      ],
+      "veganApproach": "Naturally vegan.",
+      "technique": "Fine bulgur is soaked in hot water, kneaded with pepper and tomato pastes, then tossed with herbs, onions and a tangy pomegranate dressing.",
+      "seasons": [
+        "spring",
+        "summer"
+      ],
+      "occasions": [
+        "everyday",
+        "mealprep"
+      ],
+      "sources": [
+        {
+          "title": "Kısır - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Kısır"
+        },
+        {
+          "title": "Spicy Bulgur Wheat Salad (Kisir) - Ozlem's Turkish Table",
+          "url": "https://ozlemsturkishtable.com/2010/04/spicy-bulgur-wheat-salad-kisir/"
+        },
+        {
+          "title": "Turkish Bulgur Salad (Kisir) - Turkish Food Travel",
+          "url": "https://www.turkishfoodtravel.com/2020/07/17/turkish-bulgur-salad-kisir/"
+        }
+      ]
+    },
+    {
+      "key": "cig-kofte",
+      "name": "Cig kofte",
+      "nameEn": "Spiced bulgur kofte wrapped in lettuce or lavash",
+      "aliases": [
+        "çiğ köfte",
+        "etsiz çiğ köfte",
+        "chee kufta"
+      ],
+      "tiles": [
+        "Middle Eastern"
+      ],
+      "cuisine": "Turkish",
+      "region": "Şanlıurfa, Southeastern Anatolia",
+      "format": "wrap",
+      "protein": "grains",
+      "method": "no_cook",
+      "appliances": [],
+      "cookMinutes": 45,
+      "effort": "medium",
+      "familiarity": 3,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "fine bulgur",
+        "isot pepper",
+        "red pepper paste",
+        "tomato paste",
+        "onion",
+        "garlic",
+        "pomegranate molasses",
+        "parsley",
+        "lettuce",
+        "lavash"
+      ],
+      "specialtyIngredients": [
+        "urfa pepper (isot)",
+        "red pepper paste (biber salçası)"
+      ],
+      "veganApproach": "Make the meatless etsiz style, kneading fine bulgur with pepper pastes and spices until it binds, as it is commonly sold across Turkey today.",
+      "technique": "Fine bulgur is kneaded at length with pepper paste, spices and onion until it softens and binds, then shaped and wrapped with herbs and lemon.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "hosting"
+      ],
+      "sources": [
+        {
+          "title": "Çiğ köfte - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Çiğ_köfte"
+        },
+        {
+          "title": "Cig Kofte - Picnic on a Broom",
+          "url": "https://picniconabroom.com/cig-kofte/"
+        }
+      ]
+    },
+    {
+      "key": "balik-ekmek",
+      "name": "Balik ekmek",
+      "nameEn": "Istanbul grilled mackerel sandwich",
+      "aliases": [
+        "balık ekmek",
+        "istanbul fish sandwich"
+      ],
+      "tiles": [
+        "Middle Eastern"
+      ],
+      "cuisine": "Turkish",
+      "region": "Istanbul",
+      "format": "sandwich",
+      "protein": "fish",
+      "method": "grill",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 25,
+      "effort": "low",
+      "familiarity": 2,
+      "traditionalDiet": "pescatarian",
+      "versions": [
+        "pescatarian"
+      ],
+      "keyIngredients": [
+        "mackerel",
+        "crusty bread",
+        "onion",
+        "lettuce",
+        "tomato",
+        "sumac",
+        "lemon",
+        "chili flakes"
+      ],
+      "specialtyIngredients": [
+        "sumac"
+      ],
+      "veganApproach": null,
+      "technique": "Mackerel fillets are griddled until crisp-skinned and stuffed into bread with sliced onion, lettuce and sumac, finished with lemon.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "quick"
+      ],
+      "sources": [
+        {
+          "title": "Balık ekmek - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Balık_ekmek"
+        },
+        {
+          "title": "Istanbul's Famous Mackerel Sandwiches - Bon Appétit",
+          "url": "https://www.bonappetit.com/recipe/istanbuls-famous-mackerel-sandwiches"
+        },
+        {
+          "title": "Istanbul's mackerel sandwich - Olive Magazine",
+          "url": "https://www.olivemagazine.com/recipes/fish-and-seafood/istanbuls-mackerel-sandwich/"
+        }
+      ]
+    },
+    {
+      "key": "kuru-fasulye",
+      "name": "Kuru fasulye",
+      "nameEn": "Turkish white beans in tomato and pepper sauce",
+      "aliases": [
+        "etsiz kuru fasulye",
+        "turkish white bean stew"
+      ],
+      "tiles": [
+        "Middle Eastern",
+        "American"
+      ],
+      "cuisine": "Turkish",
+      "region": "Turkey",
+      "format": "stew",
+      "protein": "beans",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 90,
+      "effort": "low",
+      "familiarity": 2,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "dried white beans",
+        "onion",
+        "tomato paste",
+        "red pepper paste",
+        "tomatoes",
+        "olive oil",
+        "red pepper flakes",
+        "lamb or pastırma"
+      ],
+      "specialtyIngredients": [
+        "red pepper paste (biber salçası)"
+      ],
+      "veganApproach": "Cook the etsiz (meatless) version with olive oil, onions and pepper paste for depth.",
+      "technique": "Soaked white beans are simmered slowly with onions and tomato and pepper pastes until creamy, and traditionally eaten with rice pilaf.",
+      "seasons": [
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "mealprep",
+        "comfort"
+      ],
+      "sources": [
+        {
+          "title": "Kuru fasulye - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Kuru_fasulye"
+        },
+        {
+          "title": "Kuru Fasulye (White Bean Stew) - Baking Hermann",
+          "url": "https://bakinghermann.com/kuru-fasulye-white-bean-stew/"
+        },
+        {
+          "title": "Turkish Vegan White Bean Stew (Etsiz Kuru Fasulye) - Mom's Bites",
+          "url": "https://www.momsbites.com/blog/2025/04/04/turkish-vegan-white-bean-stew-etsiz-kuru-fasulye/"
+        }
+      ]
+    },
+    {
+      "key": "mercimek-koftesi",
+      "name": "Mercimek koftesi",
+      "nameEn": "Red lentil and bulgur patties in lettuce cups",
+      "aliases": [
+        "mercimek köftesi",
+        "turkish lentil kofte"
+      ],
+      "tiles": [
+        "Middle Eastern",
+        "Fresh & light"
+      ],
+      "cuisine": "Turkish",
+      "region": "Turkey",
+      "format": "other",
+      "protein": "lentils",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 45,
+      "effort": "low",
+      "familiarity": 3,
+      "traditionalDiet": "vegan",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "red lentils",
+        "fine bulgur",
+        "onion",
+        "tomato paste",
+        "red pepper paste",
+        "parsley",
+        "green onions",
+        "cumin",
+        "lettuce",
+        "lemon"
+      ],
+      "specialtyIngredients": [
+        "red pepper paste (biber salçası)"
+      ],
+      "veganApproach": "Naturally vegan.",
+      "technique": "Red lentils are cooked until thick, bulgur swells in their heat, and the mixture is kneaded with sautéed onion, pastes and herbs and shaped into finger-pressed patties.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "mealprep",
+        "hosting"
+      ],
+      "sources": [
+        {
+          "title": "Mercimek köftesi - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Mercimek_köftesi"
+        },
+        {
+          "title": "Mercimek Koftesi (Turkish Lentil Balls) - The Mediterranean Dish",
+          "url": "https://www.themediterraneandish.com/mercimek-koftesi-turkish-lentil-balls/"
+        },
+        {
+          "title": "Mercimek Koftesi (Lentil Balls) - NYT Cooking",
+          "url": "https://cooking.nytimes.com/recipes/12687-mercimek-koftesi-lentil-balls"
+        }
+      ]
+    },
+    {
+      "key": "turlu",
+      "name": "Turlu",
+      "nameEn": "Turkish mixed summer vegetable stew",
+      "aliases": [
+        "türlü"
+      ],
+      "tiles": [
+        "Middle Eastern"
+      ],
+      "cuisine": "Turkish",
+      "region": "Turkey",
+      "format": "stew",
+      "protein": "vegetables",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 75,
+      "effort": "low",
+      "familiarity": 3,
+      "traditionalDiet": "vegan",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "eggplant",
+        "zucchini",
+        "green beans",
+        "okra",
+        "potatoes",
+        "tomatoes",
+        "green peppers",
+        "onion",
+        "olive oil"
+      ],
+      "specialtyIngredients": [],
+      "veganApproach": "Naturally vegan.",
+      "technique": "A medley of summer vegetables is layered with tomatoes and onions and slowly stewed in olive oil until meltingly tender.",
+      "seasons": [
+        "summer",
+        "autumn"
+      ],
+      "occasions": [
+        "everyday",
+        "mealprep"
+      ],
+      "sources": [
+        {
+          "title": "Türlü - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Türlü"
+        },
+        {
+          "title": "Mixed Vegetable Stew - Republic of Türkiye Ministry of Culture and Tourism",
+          "url": "https://www.ktb.gov.tr/EN-99185/mixed-vegetable-stew.html"
+        },
+        {
+          "title": "Türlü - NYT Cooking",
+          "url": "https://cooking.nytimes.com/recipes/1014094-turlu"
+        }
+      ]
+    },
+    {
+      "key": "hamsili-pilav",
+      "name": "Hamsili pilav",
+      "nameEn": "Black Sea rice baked in a shell of anchovies",
+      "aliases": [
+        "hamsili pilavı",
+        "içli tava",
+        "kapça princoni"
+      ],
+      "tiles": [
+        "Middle Eastern"
+      ],
+      "cuisine": "Turkish",
+      "region": "Black Sea (Trabzon, Rize)",
+      "format": "rice_dish",
+      "protein": "fish",
+      "method": "oven",
+      "appliances": [
+        "stovetop",
+        "oven"
+      ],
+      "cookMinutes": 75,
+      "effort": "high",
+      "familiarity": 3,
+      "traditionalDiet": "pescatarian",
+      "versions": [
+        "pescatarian"
+      ],
+      "keyIngredients": [
+        "fresh anchovies",
+        "rice",
+        "onion",
+        "pine nuts",
+        "currants",
+        "dill",
+        "allspice",
+        "black pepper",
+        "butter"
+      ],
+      "specialtyIngredients": [
+        "fresh hamsi anchovies"
+      ],
+      "veganApproach": null,
+      "technique": "Fragrant pilaf with pine nuts and currants is packed into a dish lined with butterflied anchovies, covered with more fish, baked and turned out.",
+      "seasons": [
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "hosting"
+      ],
+      "sources": [
+        {
+          "title": "Rice with Anchovy (Hamsili Pilav) - Republic of Türkiye Ministry of Culture and Tourism",
+          "url": "https://www.ktb.gov.tr/EN-98988/rice-with-anchovy.html"
+        },
+        {
+          "title": "Hamsili Pilav: Turkish Baked Rice & Anchovies - Turkey's For Life",
+          "url": "https://www.turkeysforlife.com/2017/12/hamsili-pilav-baked-rice-anchovies.html"
+        },
+        {
+          "title": "Anchovy Pilaf (Hamsili Pilav) - Tarifi Kolay",
+          "url": "https://www.tarifikolay.com/en/anchovy-pilaf-recipe-177"
+        }
+      ]
+    },
+    {
+      "key": "ghormeh-sabzi",
+      "name": "Ghormeh sabzi",
+      "nameEn": "Persian herb stew with kidney beans and dried lime",
+      "aliases": [
+        "khoresh ghormeh sabzi",
+        "qormeh sabzi"
+      ],
+      "tiles": [
+        "Middle Eastern"
+      ],
+      "cuisine": "Persian",
+      "region": "Iran",
+      "format": "stew",
+      "protein": "beans",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 150,
+      "effort": "medium",
+      "familiarity": 2,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "parsley",
+        "cilantro",
+        "fenugreek leaves",
+        "green onions",
+        "kidney beans",
+        "dried limes",
+        "onion",
+        "turmeric",
+        "lamb or beef"
+      ],
+      "specialtyIngredients": [
+        "dried fenugreek leaves",
+        "dried limes (limoo amani)"
+      ],
+      "veganApproach": "Leave out the lamb and let kidney beans, slow-fried herbs and dried lime carry the stew, adding mushrooms for extra body if wanted.",
+      "technique": "A mountain of chopped herbs is fried slowly until dark and fragrant, then simmered for hours with beans and pierced dried limes.",
+      "seasons": [
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "comfort",
+        "hosting",
+        "mealprep"
+      ],
+      "sources": [
+        {
+          "title": "Ghormeh sabzi - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Ghormeh_sabzi"
+        },
+        {
+          "title": "Meera Sodha's vegan Persian herb, lime and kidney bean stew - The Guardian",
+          "url": "https://www.theguardian.com/food/2021/nov/06/meera-sodha-vegan-recipe-persian-herb-lime-kidney-bean-stew-ghormeh-sabzi"
+        },
+        {
+          "title": "Khoresh Ghormeh Sabzi - Plant Based Persian",
+          "url": "https://plantbasedpersian.com/khoresh-ghormeh-sabzi/"
+        }
+      ]
+    },
+    {
+      "key": "fesenjan",
+      "name": "Fesenjan",
+      "nameEn": "Walnut and pomegranate stew",
+      "aliases": [
+        "khoresh fesenjan",
+        "fesenjoon",
+        "fesenjān"
+      ],
+      "tiles": [
+        "Middle Eastern"
+      ],
+      "cuisine": "Persian",
+      "region": "Gilan and northern Iran",
+      "format": "stew",
+      "protein": "nuts_seeds",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop",
+        "food_processor"
+      ],
+      "cookMinutes": 120,
+      "effort": "medium",
+      "familiarity": 2,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "walnuts",
+        "pomegranate molasses",
+        "onion",
+        "chicken or duck",
+        "turmeric",
+        "cinnamon",
+        "saffron",
+        "sugar"
+      ],
+      "specialtyIngredients": [
+        "pomegranate molasses",
+        "saffron"
+      ],
+      "veganApproach": "Swap the poultry for roasted butternut squash or mushrooms simmered in the walnut and pomegranate sauce.",
+      "technique": "Finely ground walnuts are toasted and simmered for a long time with pomegranate molasses until the oil rises and the sauce turns dark and glossy.",
+      "seasons": [
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "hosting",
+        "date"
+      ],
+      "sources": [
+        {
+          "title": "Fesenjān - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Fesenjān"
+        },
+        {
+          "title": "Vegan Fesenjan: Butternut Squash, Walnut and Pomegranate Stew - Roxana's Kitchen",
+          "url": "https://roxanaskitchen.com/2016/02/08/vegan-fesenjan-butternut-squash-walnut-and-pomegranate-stew/"
+        },
+        {
+          "title": "Khoresh Fesenjan - Verdant Table",
+          "url": "https://www.verdanttablecookbook.com/khoresh-fesenjan/"
+        }
+      ]
+    },
+    {
+      "key": "khoresh-bademjan",
+      "name": "Khoresh bademjan",
+      "nameEn": "Persian eggplant and tomato stew",
+      "aliases": [
+        "khoresht bademjan",
+        "khoresh-e bademjan"
+      ],
+      "tiles": [
+        "Middle Eastern"
+      ],
+      "cuisine": "Persian",
+      "region": "Iran",
+      "format": "stew",
+      "protein": "lentils",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 90,
+      "effort": "medium",
+      "familiarity": 3,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "eggplant",
+        "tomatoes",
+        "yellow split peas",
+        "onion",
+        "tomato paste",
+        "turmeric",
+        "dried limes",
+        "unripe grapes",
+        "lamb or chicken"
+      ],
+      "specialtyIngredients": [
+        "dried limes",
+        "ghooreh (unripe grapes)"
+      ],
+      "veganApproach": "Replace the meat with yellow split peas cooked in the tomato and turmeric base under the fried eggplant.",
+      "technique": "Fried eggplant slices are laid over a tangy tomato and turmeric stew and gently simmered so they soak up the sauce without falling apart.",
+      "seasons": [
+        "summer",
+        "autumn"
+      ],
+      "occasions": [
+        "hosting",
+        "comfort"
+      ],
+      "sources": [
+        {
+          "title": "Khoresh bademjan - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Khoresh_bademjan"
+        },
+        {
+          "title": "Vegetarian Khoresh Bademjan - Persian Mama",
+          "url": "https://persianmama.com/vegetarian-khoresh-bademjan/"
+        },
+        {
+          "title": "Vegan Khoresh Bademjan (Persian Eggplant Stew) - Plant Based Persian",
+          "url": "https://plantbasedpersian.com/vegan-khoresh-bademjan-persian-eggplant-stew/"
+        }
+      ]
+    },
+    {
+      "key": "kuku-sabzi",
+      "name": "Kuku sabzi",
+      "nameEn": "Persian herb frittata",
+      "aliases": [
+        "kookoo sabzi",
+        "kuku-ye sabzi"
+      ],
+      "tiles": [
+        "Middle Eastern",
+        "Fresh & light"
+      ],
+      "cuisine": "Persian",
+      "region": "Iran",
+      "format": "egg_dish",
+      "protein": "eggs",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 45,
+      "effort": "low",
+      "familiarity": 2,
+      "traditionalDiet": "vegetarian",
+      "versions": [
+        "vegetarian"
+      ],
+      "keyIngredients": [
+        "eggs",
+        "parsley",
+        "cilantro",
+        "dill",
+        "chives",
+        "walnuts",
+        "barberries",
+        "turmeric"
+      ],
+      "specialtyIngredients": [
+        "dried barberries"
+      ],
+      "veganApproach": null,
+      "technique": "A huge volume of finely chopped herbs is bound with just enough egg and cooked slowly in a covered pan until set, green and fragrant.",
+      "seasons": [
+        "spring",
+        "summer"
+      ],
+      "occasions": [
+        "everyday",
+        "mealprep",
+        "hosting"
+      ],
+      "sources": [
+        {
+          "title": "Kuku (food) - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Kuku_(food)"
+        },
+        {
+          "title": "Kuku Sabzi (Persian Herb Frittata) - Unicorns in the Kitchen",
+          "url": "https://www.unicornsinthekitchen.com/kuku-sabzi-persian-herb-frittata/"
+        },
+        {
+          "title": "Kuku Sabzi (Persian Herb Frittata) - NYT Cooking",
+          "url": "https://cooking.nytimes.com/recipes/1020203-kuku-sabzi-persian-herb-frittata"
+        }
+      ]
+    },
+    {
+      "key": "ash-reshteh",
+      "name": "Ash reshteh",
+      "nameEn": "Persian bean, herb and noodle soup with kashk",
+      "aliases": [
+        "aush reshteh",
+        "ash-e reshteh"
+      ],
+      "tiles": [
+        "Middle Eastern"
+      ],
+      "cuisine": "Persian",
+      "region": "Iran",
+      "format": "soup",
+      "protein": "beans",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 120,
+      "effort": "medium",
+      "familiarity": 2,
+      "traditionalDiet": "vegetarian",
+      "versions": [
+        "vegan",
+        "vegetarian"
+      ],
+      "keyIngredients": [
+        "reshteh noodles",
+        "chickpeas",
+        "kidney beans",
+        "lentils",
+        "spinach",
+        "parsley",
+        "cilantro",
+        "kashk",
+        "fried onions",
+        "dried mint"
+      ],
+      "specialtyIngredients": [
+        "reshteh noodles",
+        "kashk"
+      ],
+      "veganApproach": "Finish with a cashew cream or plant-based yogurt drizzle in place of kashk.",
+      "technique": "Beans and lentils are simmered with masses of herbs and greens, thickened with thin noodles and topped with kashk, fried onions and mint oil.",
+      "seasons": [
+        "spring",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "comfort",
+        "hosting",
+        "mealprep"
+      ],
+      "sources": [
+        {
+          "title": "Aush reshteh - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Aush_reshteh"
+        },
+        {
+          "title": "Ash Reshteh (Persian Noodle and Herb Soup) - Cooking with Ayeh",
+          "url": "https://cookingwithayeh.com/ash-reshteh-persian-noodle-and-herb-soup/"
+        },
+        {
+          "title": "Ash Reshteh (Persian Greens, Bean and Noodle Soup) - NYT Cooking",
+          "url": "https://cooking.nytimes.com/recipes/1020205-ash-reshteh-persian-greens-bean-and-noodle-soup"
+        }
+      ]
+    },
+    {
+      "key": "adas-polo",
+      "name": "Adas polo",
+      "nameEn": "Persian lentil rice with dates and raisins",
+      "aliases": [
+        "adas polow",
+        "adas polo ba khorma"
+      ],
+      "tiles": [
+        "Middle Eastern"
+      ],
+      "cuisine": "Persian",
+      "region": "Iran",
+      "format": "rice_dish",
+      "protein": "lentils",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 75,
+      "effort": "medium",
+      "familiarity": 3,
+      "traditionalDiet": "vegetarian",
+      "versions": [
+        "vegan",
+        "vegetarian"
+      ],
+      "keyIngredients": [
+        "basmati rice",
+        "green lentils",
+        "dates",
+        "raisins",
+        "onion",
+        "saffron",
+        "cinnamon",
+        "butter"
+      ],
+      "specialtyIngredients": [
+        "saffron"
+      ],
+      "veganApproach": "Steam the rice with olive oil instead of butter, which still gives a crisp tahdig.",
+      "technique": "Par-boiled basmati is layered with cooked lentils and steamed until fluffy over a crispy tahdig, then topped with onions, dates and raisins sautéed with cinnamon.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "hosting"
+      ],
+      "sources": [
+        {
+          "title": "Adas Polo (Persian Rice and Lentils) - The Mediterranean Dish",
+          "url": "https://www.themediterraneandish.com/adas-polo-rice-and-lentils-recipe/"
+        },
+        {
+          "title": "Adas Polo - Maman Fari",
+          "url": "https://mamanfari.com/en/recipes/adas-polo"
+        },
+        {
+          "title": "Adas Polo ba Khorma (Persian Lentil Rice With Dates) - NYT Cooking",
+          "url": "https://cooking.nytimes.com/recipes/1025151-adas-polo-ba-khorma-persian-lentil-rice-with-dates"
+        }
+      ]
+    },
+    {
+      "key": "sabzi-polo-ba-mahi",
+      "name": "Sabzi polo ba mahi",
+      "nameEn": "Herbed rice with crisp fried fish",
+      "aliases": [
+        "sabzi polow ba mahi",
+        "sabzi polo mahi"
+      ],
+      "tiles": [
+        "Middle Eastern"
+      ],
+      "cuisine": "Persian",
+      "region": "Iran",
+      "format": "rice_dish",
+      "protein": "fish",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 90,
+      "effort": "high",
+      "familiarity": 3,
+      "traditionalDiet": "pescatarian",
+      "versions": [
+        "pescatarian"
+      ],
+      "keyIngredients": [
+        "basmati rice",
+        "dill",
+        "parsley",
+        "cilantro",
+        "chives",
+        "garlic",
+        "white fish",
+        "saffron",
+        "turmeric",
+        "butter"
+      ],
+      "specialtyIngredients": [
+        "saffron"
+      ],
+      "veganApproach": null,
+      "technique": "Par-boiled rice is steamed with a heap of chopped herbs over a crispy tahdig and served with turmeric-dusted pan-fried fish, traditionally for Nowruz.",
+      "seasons": [
+        "spring"
+      ],
+      "occasions": [
+        "hosting"
+      ],
+      "sources": [
+        {
+          "title": "Sabzi polo - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Sabzi_polo"
+        },
+        {
+          "title": "Sabzi Polo ba Mahi: Herbed Rice Pilaf with Fish - The Caspian Chef",
+          "url": "https://thecaspianchef.com/2021/02/sabzi-polo-ba-mahi-herbed-rice-pilaf-with-fish/"
+        },
+        {
+          "title": "Sabzi Polow ba Mahi - Los Angeles Times",
+          "url": "https://www.latimes.com/recipe/sabzi-polow-ba-mahi"
+        }
+      ]
+    },
+    {
+      "key": "baghali-polo",
+      "name": "Baghali polo",
+      "nameEn": "Dill rice with fava beans",
+      "aliases": [
+        "baghali polow",
+        "baqali polo"
+      ],
+      "tiles": [
+        "Middle Eastern"
+      ],
+      "cuisine": "Persian",
+      "region": "Iran",
+      "format": "rice_dish",
+      "protein": "beans",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 90,
+      "effort": "medium",
+      "familiarity": 3,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegan",
+        "vegetarian"
+      ],
+      "keyIngredients": [
+        "basmati rice",
+        "fava beans",
+        "dill",
+        "saffron",
+        "butter",
+        "turmeric",
+        "lamb shank"
+      ],
+      "specialtyIngredients": [
+        "saffron"
+      ],
+      "veganApproach": "Serve the dill and fava bean rice on its own without the lamb, steamed with olive oil instead of butter.",
+      "technique": "Par-boiled basmati is layered with skinned fava beans and plenty of dill, then steamed until fluffy over a golden tahdig and finished with saffron.",
+      "seasons": [
+        "spring",
+        "summer"
+      ],
+      "occasions": [
+        "hosting",
+        "comfort"
+      ],
+      "sources": [
+        {
+          "title": "Baghali polo - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Baghali_polo"
+        },
+        {
+          "title": "Baghali Polo (Persian Dill Rice with Fava Beans) - The Mediterranean Dish",
+          "url": "https://www.themediterraneandish.com/baghali-polo-persian-dill-rice-with-fava-beans/"
+        },
+        {
+          "title": "Baghali Polo (Persian Fava Bean Rice) - Cooking with Ayeh",
+          "url": "https://cookingwithayeh.com/baghali-polo-persian-fava-bean-rice/"
+        }
+      ]
+    },
+    {
+      "key": "ghalieh-mahi",
+      "name": "Ghalieh mahi",
+      "nameEn": "Southern Persian fish stew with tamarind and herbs",
+      "aliases": [
+        "qalieh mahi",
+        "ghalieh-ye mahi"
+      ],
+      "tiles": [
+        "Middle Eastern"
+      ],
+      "cuisine": "Persian",
+      "region": "Khuzestan and Bushehr (Persian Gulf)",
+      "format": "stew",
+      "protein": "fish",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 60,
+      "effort": "medium",
+      "familiarity": 3,
+      "traditionalDiet": "pescatarian",
+      "versions": [
+        "pescatarian"
+      ],
+      "keyIngredients": [
+        "white fish",
+        "tamarind",
+        "cilantro",
+        "fenugreek leaves",
+        "garlic",
+        "onion",
+        "turmeric",
+        "chili",
+        "flour"
+      ],
+      "specialtyIngredients": [
+        "tamarind paste",
+        "dried fenugreek leaves"
+      ],
+      "veganApproach": null,
+      "technique": "Cilantro and fenugreek are fried with garlic and spices, simmered with tamarind into a sour sauce, and the fish is poached in it at the end.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "hosting",
+        "everyday"
+      ],
+      "sources": [
+        {
+          "title": "Ghalieh Mahi: Fish in a Tamarind and Herb Sauce - The Caspian Chef",
+          "url": "https://thecaspianchef.com/2021/01/ghalieh-mahi-fish-in-a-tamarind-and-herb-sauce/"
+        },
+        {
+          "title": "Persian Cod With Herbs and Tamarind - NYT Cooking",
+          "url": "https://cooking.nytimes.com/recipes/1019481-persian-cod-with-herbs-and-tamarind"
+        },
+        {
+          "title": "Ghalieh Mahi (Spicy Tamarind Fish and Herb Stew) - The Washington Post",
+          "url": "https://www.washingtonpost.com/recipes/ghalieh-mahi-spicy-tamarind-fish-and-herb-stew/"
+        }
+      ]
+    },
+    {
+      "key": "lubia-polo",
+      "name": "Lubia polo",
+      "nameEn": "Persian rice with green beans and tomato",
+      "aliases": [
+        "loobia polo",
+        "lubia polow"
+      ],
+      "tiles": [
+        "Middle Eastern",
+        "American"
+      ],
+      "cuisine": "Persian",
+      "region": "Iran",
+      "format": "rice_dish",
+      "protein": "vegetables",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 75,
+      "effort": "medium",
+      "familiarity": 3,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "basmati rice",
+        "green beans",
+        "tomato paste",
+        "onion",
+        "minced beef",
+        "turmeric",
+        "cinnamon",
+        "saffron"
+      ],
+      "specialtyIngredients": [
+        "saffron"
+      ],
+      "veganApproach": "Skip the meat and let the green beans, onions and spiced tomato flavor the rice, adding lentils for protein if desired.",
+      "technique": "Green beans and onions are cooked in spiced tomato paste, then layered with par-boiled basmati and steamed to form a crunchy tahdig.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "comfort",
+        "mealprep"
+      ],
+      "sources": [
+        {
+          "title": "Loobia polo - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Loobia_polo"
+        },
+        {
+          "title": "Lubia Polo (Persian Green Bean Rice) - Cooking with Ayeh",
+          "url": "https://cookingwithayeh.com/lubia-polo-persian-green-bean-rice/"
+        },
+        {
+          "title": "Vegan Lubia Polo (Persian Green Bean Rice) - The Iranian Vegan",
+          "url": "https://www.theiranianvegan.com/recipes/vegan-lubia-polo-persian-green-bean-rice"
+        }
+      ]
+    },
+    {
+      "key": "masgouf",
+      "name": "Masgouf",
+      "nameEn": "Iraqi butterflied fire-roasted carp",
+      "aliases": [
+        "masgoof",
+        "samak masgouf"
+      ],
+      "tiles": [
+        "Middle Eastern"
+      ],
+      "cuisine": "Iraqi",
+      "region": "Baghdad (Tigris)",
+      "format": "other",
+      "protein": "fish",
+      "method": "grill",
+      "appliances": [
+        "grill"
+      ],
+      "cookMinutes": 60,
+      "effort": "medium",
+      "familiarity": 3,
+      "traditionalDiet": "pescatarian",
+      "versions": [
+        "pescatarian"
+      ],
+      "keyIngredients": [
+        "carp",
+        "olive oil",
+        "salt",
+        "turmeric",
+        "tomatoes",
+        "onions",
+        "lemon",
+        "flatbread"
+      ],
+      "specialtyIngredients": [],
+      "veganApproach": null,
+      "technique": "Whole carp is split along the back, opened flat and slow-roasted beside an open wood fire, then served with tomato, onion and bread.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn"
+      ],
+      "occasions": [
+        "hosting"
+      ],
+      "sources": [
+        {
+          "title": "Masgouf - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Masgouf"
+        },
+        {
+          "title": "It's the national dish that brought down a dictator - Los Angeles Times",
+          "url": "https://www.latimes.com/world-nation/story/2020-03-03/its-the-national-dish-that-brought-down-a-dictator-and-its-delicious"
+        },
+        {
+          "title": "Masgouf (Iraqi Fish) - My Jewish Learning",
+          "url": "https://www.myjewishlearning.com/recipe/masgouf-iraqi-fish/"
+        }
+      ]
+    },
+    {
+      "key": "molokhia",
+      "name": "Molokhia",
+      "nameEn": "Egyptian jute mallow soup with garlic and coriander",
+      "aliases": [
+        "mulukhiyah",
+        "molokheya",
+        "mloukhieh"
+      ],
+      "tiles": [
+        "Middle Eastern"
+      ],
+      "cuisine": "Egyptian",
+      "region": "Egypt",
+      "format": "soup",
+      "protein": "vegetables",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 45,
+      "effort": "low",
+      "familiarity": 3,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "jute mallow leaves",
+        "garlic",
+        "ground coriander",
+        "chicken or rabbit broth",
+        "ghee",
+        "lemon",
+        "rice"
+      ],
+      "specialtyIngredients": [
+        "frozen minced molokhia"
+      ],
+      "veganApproach": "Simmer the greens in a well-seasoned vegetable broth and fry the garlic and coriander tasha in olive oil instead of ghee.",
+      "technique": "Finely minced jute mallow is barely simmered in broth and finished with a sizzling fry of garlic and coriander, served with rice or bread.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "comfort"
+      ],
+      "sources": [
+        {
+          "title": "Mulukhiyah - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Mulukhiyah"
+        },
+        {
+          "title": "Molokhia - The Mediterranean Dish",
+          "url": "https://www.themediterraneandish.com/molokhia/"
+        },
+        {
+          "title": "Molokhia (Vegan) - Coptic Dad and Mom",
+          "url": "https://www.copticdadandmom.com/blog/molokhia-vegan"
+        }
+      ]
+    },
+    {
+      "key": "machboos-samak",
+      "name": "Machboos samak",
+      "nameEn": "Gulf spiced fish and rice",
+      "aliases": [
+        "fish machboos",
+        "majboos samak",
+        "machbous"
+      ],
+      "tiles": [
+        "Middle Eastern"
+      ],
+      "cuisine": "Gulf Arab",
+      "region": "Bahrain, Kuwait and UAE",
+      "format": "rice_dish",
+      "protein": "fish",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 75,
+      "effort": "medium",
+      "familiarity": 3,
+      "traditionalDiet": "pescatarian",
+      "versions": [
+        "pescatarian"
+      ],
+      "keyIngredients": [
+        "white fish",
+        "basmati rice",
+        "onions",
+        "tomatoes",
+        "dried limes",
+        "baharat",
+        "cardamom",
+        "cinnamon",
+        "garlic",
+        "cilantro"
+      ],
+      "specialtyIngredients": [
+        "loomi (dried limes)",
+        "gulf baharat"
+      ],
+      "veganApproach": null,
+      "technique": "Spice-rubbed fish is fried, then rice is cooked in a broth of onions, tomatoes, dried lime and whole spices and served with the fish.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "hosting"
+      ],
+      "sources": [
+        {
+          "title": "Kabsa - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Kabsa"
+        },
+        {
+          "title": "Fish Machboos Recipe - The Odehlicious",
+          "url": "https://theodehlicious.com/fish-machboos-recipe/"
+        },
+        {
+          "title": "Bahraini Fish Machboos - Fork and Salt",
+          "url": "https://forkandsalt.com/recipes/bahraini/bahraini-fish-machboos"
+        }
+      ]
+    },
+    {
+      "key": "vegetable-tagine",
+      "name": "Vegetable tagine",
+      "nameEn": "Moroccan spiced vegetable and chickpea stew",
+      "aliases": [
+        "tajine",
+        "tagine khodra",
+        "tajine aux légumes"
+      ],
+      "tiles": [
+        "Middle Eastern"
+      ],
+      "cuisine": "Moroccan",
+      "region": "Morocco",
+      "format": "stew",
+      "protein": "chickpeas",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 60,
+      "effort": "low",
+      "familiarity": 1,
+      "traditionalDiet": "vegan",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "carrots",
+        "potatoes",
+        "zucchini",
+        "chickpeas",
+        "onion",
+        "tomatoes",
+        "preserved lemon",
+        "olives",
+        "ras el hanout",
+        "cilantro"
+      ],
+      "specialtyIngredients": [
+        "preserved lemon",
+        "ras el hanout"
+      ],
+      "veganApproach": "Naturally vegan.",
+      "technique": "Vegetables and chickpeas are braised slowly with onions, tomatoes and warm spices under a lid, so they steam in their own juices.",
+      "seasons": [
+        "spring",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "mealprep",
+        "comfort"
+      ],
+      "sources": [
+        {
+          "title": "Tagine - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Tagine"
+        },
+        {
+          "title": "Moroccan Vegetable Tagine - The Mediterranean Dish",
+          "url": "https://www.themediterraneandish.com/moroccan-vegetable-tagine-recipe/"
+        },
+        {
+          "title": "Moroccan Vegetable Tagine - Vegan Cocotte",
+          "url": "https://vegancocotte.com/moroccan-vegetable-tagine/"
+        }
+      ]
+    },
+    {
+      "key": "couscous-seven-vegetables",
+      "name": "Couscous with seven vegetables",
+      "nameEn": "Moroccan couscous with seven vegetables",
+      "aliases": [
+        "couscous aux sept légumes",
+        "couscous bidaoui",
+        "seksu"
+      ],
+      "tiles": [
+        "Middle Eastern",
+        "American"
+      ],
+      "cuisine": "Moroccan",
+      "region": "Morocco",
+      "format": "other",
+      "protein": "chickpeas",
+      "method": "steam",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 90,
+      "effort": "medium",
+      "familiarity": 1,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegan",
+        "vegetarian"
+      ],
+      "keyIngredients": [
+        "couscous",
+        "carrots",
+        "turnips",
+        "zucchini",
+        "pumpkin",
+        "cabbage",
+        "chickpeas",
+        "tomatoes",
+        "smen or butter",
+        "lamb or beef"
+      ],
+      "specialtyIngredients": [
+        "smen (aged butter)"
+      ],
+      "veganApproach": "Leave out the meat, build the broth from the vegetables and spices and fluff the couscous with olive oil.",
+      "technique": "Couscous is steamed several times over a simmering broth in which meat and seven vegetables cook, then mounded and topped with the vegetables and broth.",
+      "seasons": [
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "hosting",
+        "comfort"
+      ],
+      "sources": [
+        {
+          "title": "Couscous - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Couscous"
+        },
+        {
+          "title": "Moroccan Couscous with Seven Vegetables - Taste of Maroc",
+          "url": "https://tasteofmaroc.com/moroccan-couscous-with-seven-vegetables/"
+        },
+        {
+          "title": "Moroccan Seven Vegetable Couscous - MarocMama",
+          "url": "https://marocmama.com/moroccan-seven-vegetable-couscous-recipe/"
+        }
+      ]
+    },
+    {
+      "key": "harira",
+      "name": "Harira",
+      "nameEn": "Moroccan tomato, lentil and chickpea soup",
+      "aliases": [
+        "hrira"
+      ],
+      "tiles": [
+        "Middle Eastern"
+      ],
+      "cuisine": "Moroccan",
+      "region": "Morocco",
+      "format": "soup",
+      "protein": "lentils",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 75,
+      "effort": "medium",
+      "familiarity": 2,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "lentils",
+        "chickpeas",
+        "tomatoes",
+        "celery",
+        "onion",
+        "cilantro",
+        "parsley",
+        "ginger",
+        "flour",
+        "lamb"
+      ],
+      "specialtyIngredients": [],
+      "veganApproach": "Omit the lamb and enrich the soup with extra lentils, chickpeas and a little vermicelli.",
+      "technique": "Legumes simmer in a tomato and herb broth with ginger and cinnamon, and the soup is thickened at the end with a flour-water slurry.",
+      "seasons": [
+        "spring",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "comfort",
+        "mealprep",
+        "everyday"
+      ],
+      "sources": [
+        {
+          "title": "Harira - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Harira"
+        },
+        {
+          "title": "Harira (Moroccan Lentil and Chickpea Soup) - The Mediterranean Dish",
+          "url": "https://www.themediterraneandish.com/harira-recipe/"
+        },
+        {
+          "title": "Vegan Moroccan Harira Soup - Vegetarian Times",
+          "url": "https://www.vegetariantimes.com/recipes/vegan-moroccan-harira-soup/"
+        }
+      ]
+    },
+    {
+      "key": "fish-tagine-chermoula",
+      "name": "Fish tagine with chermoula",
+      "nameEn": "Moroccan fish tagine with chermoula and vegetables",
+      "aliases": [
+        "tajine samak",
+        "tagine de poisson",
+        "fish mqualli"
+      ],
+      "tiles": [
+        "Middle Eastern"
+      ],
+      "cuisine": "Moroccan",
+      "region": "Moroccan coast",
+      "format": "stew",
+      "protein": "fish",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 60,
+      "effort": "medium",
+      "familiarity": 2,
+      "traditionalDiet": "pescatarian",
+      "versions": [
+        "pescatarian"
+      ],
+      "keyIngredients": [
+        "white fish",
+        "chermoula",
+        "potatoes",
+        "tomatoes",
+        "bell peppers",
+        "preserved lemon",
+        "olives",
+        "garlic",
+        "cilantro",
+        "cumin"
+      ],
+      "specialtyIngredients": [
+        "preserved lemon"
+      ],
+      "veganApproach": null,
+      "technique": "Fish marinated in chermoula is laid over sliced potatoes, tomatoes and peppers and braised gently with a little water until just cooked.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "hosting",
+        "everyday"
+      ],
+      "sources": [
+        {
+          "title": "Chermoula - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Chermoula"
+        },
+        {
+          "title": "Moroccan Fish Tagine with Chermoula and Vegetables - Taste of Maroc",
+          "url": "https://tasteofmaroc.com/moroccan-fish-tagine-with-chermoula-and-vegetables/"
+        },
+        {
+          "title": "Moroccan Fish Tagine - America's Test Kitchen",
+          "url": "https://www.americastestkitchen.com/recipes/12828-moroccan-fish-tagine"
+        }
+      ]
+    },
+    {
+      "key": "lablabi",
+      "name": "Lablabi",
+      "nameEn": "Tunisian chickpea soup over bread with harissa",
+      "aliases": [
+        "leblebi"
+      ],
+      "tiles": [
+        "Middle Eastern"
+      ],
+      "cuisine": "Tunisian",
+      "region": "Tunisia",
+      "format": "soup",
+      "protein": "chickpeas",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 30,
+      "effort": "low",
+      "familiarity": 3,
+      "traditionalDiet": "vegetarian",
+      "versions": [
+        "vegan",
+        "vegetarian"
+      ],
+      "keyIngredients": [
+        "chickpeas",
+        "stale bread",
+        "garlic",
+        "cumin",
+        "harissa",
+        "olive oil",
+        "lemon",
+        "egg",
+        "capers"
+      ],
+      "specialtyIngredients": [
+        "harissa"
+      ],
+      "veganApproach": "Leave off the soft egg and top with extra capers, olives and olive oil.",
+      "technique": "Chickpeas simmered in a garlicky cumin broth are ladled over torn stale bread and finished at the table with harissa, egg, lemon and oil.",
+      "seasons": [
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "comfort"
+      ],
+      "sources": [
+        {
+          "title": "Lablabi - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Lablabi"
+        },
+        {
+          "title": "Tunisian spiced chickpea and bread soup (lablabi) - Ottolenghi",
+          "url": "https://ottolenghi.co.uk/pages/recipes/tunisian-spiced-chickpea-bread-soup-lablabi"
+        },
+        {
+          "title": "Lablabi (Tunisian Chickpea Soup) - NYT Cooking",
+          "url": "https://cooking.nytimes.com/recipes/1020874-lablabi-tunisian-chickpea-soup"
+        }
+      ]
+    },
+    {
+      "key": "loubia",
+      "name": "Loubia",
+      "nameEn": "Moroccan white beans in spiced tomato sauce",
+      "aliases": [
+        "lubia",
+        "moroccan white bean stew"
+      ],
+      "tiles": [
+        "Middle Eastern"
+      ],
+      "cuisine": "Moroccan",
+      "region": "Morocco",
+      "format": "stew",
+      "protein": "beans",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 60,
+      "effort": "low",
+      "familiarity": 3,
+      "traditionalDiet": "vegan",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "dried white beans",
+        "tomatoes",
+        "onion",
+        "garlic",
+        "cumin",
+        "paprika",
+        "ginger",
+        "cilantro",
+        "olive oil"
+      ],
+      "specialtyIngredients": [],
+      "veganApproach": "Naturally vegan.",
+      "technique": "White beans are simmered in a tomato sauce seasoned with cumin, paprika and garlic until tender and the sauce is thick, then mopped up with bread.",
+      "seasons": [
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "mealprep",
+        "comfort"
+      ],
+      "sources": [
+        {
+          "title": "Moroccan Stewed White Beans (Loubia) - Taste of Maroc",
+          "url": "https://tasteofmaroc.com/moroccan-stewed-white-beans-recipe-loubia/"
+        },
+        {
+          "title": "Loubia (White Bean and Tomato Stew) - NYT Cooking",
+          "url": "https://cooking.nytimes.com/recipes/1024014-loubia-white-bean-and-tomato-stew"
+        },
+        {
+          "title": "Loubia: Moroccan White Bean Tomato Stew - Plant Based Jess",
+          "url": "https://plantbasedjess.com/loubia-moroccan-white-bean-tomato-stew/"
+        }
+      ]
+    },
+    {
+      "key": "bissara",
+      "name": "Bissara",
+      "nameEn": "Moroccan split fava bean soup with cumin and olive oil",
+      "aliases": [
+        "bessara",
+        "besara"
+      ],
+      "tiles": [
+        "Middle Eastern"
+      ],
+      "cuisine": "Moroccan",
+      "region": "Northern Morocco",
+      "format": "soup",
+      "protein": "beans",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop",
+        "blender"
+      ],
+      "cookMinutes": 60,
+      "effort": "low",
+      "familiarity": 3,
+      "traditionalDiet": "vegan",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "dried split fava beans",
+        "garlic",
+        "olive oil",
+        "cumin",
+        "paprika",
+        "lemon"
+      ],
+      "specialtyIngredients": [
+        "dried split fava beans"
+      ],
+      "veganApproach": "Naturally vegan.",
+      "technique": "Split fava beans are simmered with garlic until they fall apart, pureed into a velvety soup and finished with cumin, paprika and a pool of olive oil.",
+      "seasons": [
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "comfort",
+        "mealprep"
+      ],
+      "sources": [
+        {
+          "title": "Bissara - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Bissara"
+        },
+        {
+          "title": "Bessara - Fava Bean Dip or Soup - Taste of Maroc",
+          "url": "https://tasteofmaroc.com/bessara-fava-bean-dip-or-soup/"
+        },
+        {
+          "title": "Bissara (Creamy Fava Bean Purée) - NYT Cooking",
+          "url": "https://cooking.nytimes.com/recipes/1025816-bissara-creamy-fava-bean-puree"
+        }
+      ]
+    },
+    {
+      "key": "couscous-bil-hout",
+      "name": "Couscous bil hout",
+      "nameEn": "Tunisian fish couscous",
+      "aliases": [
+        "kosksi bil hout",
+        "couscous au poisson",
+        "couscous bel hout"
+      ],
+      "tiles": [
+        "Middle Eastern"
+      ],
+      "cuisine": "Tunisian",
+      "region": "Tunisian coast (Sfax, Djerba)",
+      "format": "other",
+      "protein": "fish",
+      "method": "steam",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 90,
+      "effort": "high",
+      "familiarity": 3,
+      "traditionalDiet": "pescatarian",
+      "versions": [
+        "pescatarian"
+      ],
+      "keyIngredients": [
+        "couscous",
+        "white fish",
+        "tomato paste",
+        "harissa",
+        "onion",
+        "garlic",
+        "potatoes",
+        "pumpkin",
+        "chickpeas"
+      ],
+      "specialtyIngredients": [
+        "harissa"
+      ],
+      "veganApproach": null,
+      "technique": "Couscous is steamed over a fiery tomato and harissa broth in which vegetables and then fish are cooked, and the grains are moistened with the broth before serving.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "hosting"
+      ],
+      "sources": [
+        {
+          "title": "Couscous - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Couscous"
+        },
+        {
+          "title": "Tunisian-Style Couscous with Fish - Ricardo",
+          "url": "https://www.ricardocuisine.com/en/recipes/5454-tunisian-style-couscous-with-fish"
+        },
+        {
+          "title": "Couscous Bel Hout (Tunisian Fish Couscous) - Mediterranean Menus",
+          "url": "https://mediterraneanmenus.com/couscous-bel-hout-tunisian-fish-couscous/"
+        }
+      ]
+    },
+    {
+      "key": "sardine-kefta-tagine",
+      "name": "Sardine kefta tagine",
+      "nameEn": "Moroccan sardine balls in spiced tomato sauce",
+      "aliases": [
+        "kefta del sardine",
+        "boulettes de sardines",
+        "tagine kefta sardine"
+      ],
+      "tiles": [
+        "Middle Eastern"
+      ],
+      "cuisine": "Moroccan",
+      "region": "Moroccan Atlantic coast",
+      "format": "stew",
+      "protein": "fish",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 60,
+      "effort": "medium",
+      "familiarity": 3,
+      "traditionalDiet": "pescatarian",
+      "versions": [
+        "pescatarian"
+      ],
+      "keyIngredients": [
+        "fresh sardines",
+        "cilantro",
+        "parsley",
+        "garlic",
+        "cumin",
+        "paprika",
+        "tomatoes",
+        "onion",
+        "olive oil"
+      ],
+      "specialtyIngredients": [],
+      "veganApproach": null,
+      "technique": "Boned sardines are minced with herbs and spices, rolled into balls and simmered in a spiced tomato sauce until just cooked.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn"
+      ],
+      "occasions": [
+        "everyday",
+        "hosting"
+      ],
+      "sources": [
+        {
+          "title": "Moroccan Sardine Fish Balls in Tomato Sauce - Taste of Maroc",
+          "url": "https://tasteofmaroc.com/moroccan-sardine-fish-balls-in-tomato-sauce/"
+        },
+        {
+          "title": "Moroccan Sardine Meatballs - MarocMama",
+          "url": "https://marocmama.com/moroccan-sardine-meatballs-recipe/"
+        },
+        {
+          "title": "Moroccan Sardine Balls in Spicy Tomato Sauce - The Spruce Eats",
+          "url": "https://www.thespruceeats.com/moroccan-sardine-balls-spicy-tomato-sauce-2394659"
+        }
+      ]
+    },
+    {
+      "key": "seafood-pastilla",
+      "name": "Seafood pastilla",
+      "nameEn": "Moroccan seafood pie in crisp pastry",
+      "aliases": [
+        "seafood bastilla",
+        "pastilla au poisson",
+        "bastilla bil hout"
+      ],
+      "tiles": [
+        "Middle Eastern"
+      ],
+      "cuisine": "Moroccan",
+      "region": "Morocco",
+      "format": "savory_pie",
+      "protein": "fish",
+      "method": "oven",
+      "appliances": [
+        "stovetop",
+        "oven"
+      ],
+      "cookMinutes": 120,
+      "effort": "high",
+      "familiarity": 3,
+      "traditionalDiet": "pescatarian",
+      "versions": [
+        "pescatarian"
+      ],
+      "keyIngredients": [
+        "warqa or phyllo pastry",
+        "white fish",
+        "shrimp",
+        "squid",
+        "rice vermicelli",
+        "garlic",
+        "cilantro",
+        "preserved lemon",
+        "paprika"
+      ],
+      "specialtyIngredients": [
+        "warqa pastry",
+        "preserved lemon"
+      ],
+      "veganApproach": null,
+      "technique": "A chermoula-spiced filling of fish, seafood and vermicelli is wrapped in layers of thin warqa or phyllo and baked until crisp and golden.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "hosting"
+      ],
+      "sources": [
+        {
+          "title": "Pastilla - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Pastilla"
+        },
+        {
+          "title": "Moroccan Seafood Bastilla - Taste of Maroc",
+          "url": "https://tasteofmaroc.com/moroccan-seafood-bastilla-recipe/"
+        },
+        {
+          "title": "Moroccan Seafood Bastilla - MarocMama",
+          "url": "https://marocmama.com/moroccan-seafood-bastilla/"
+        }
+      ]
+    },
+    {
+      "key": "kofta-kebab",
+      "name": "Kofta kebab",
+      "nameEn": "Grilled spiced minced skewers",
+      "aliases": [
+        "kofte kebab",
+        "kafta",
+        "köfte"
+      ],
+      "tiles": [
+        "Middle Eastern"
+      ],
+      "cuisine": "Levantine",
+      "region": "Levant, Turkey and Egypt",
+      "format": "skewers",
+      "protein": "chickpeas",
+      "method": "grill",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 40,
+      "effort": "medium",
+      "familiarity": 1,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "minced lamb or beef",
+        "onion",
+        "parsley",
+        "garlic",
+        "cumin",
+        "allspice",
+        "sumac",
+        "flatbread",
+        "tahini"
+      ],
+      "specialtyIngredients": [],
+      "veganApproach": "Shape a spiced chickpea and lentil mixture bound with breadcrumbs onto skewers and grill or bake until browned.",
+      "technique": "Minced meat is kneaded with grated onion, herbs and spices, molded onto flat skewers and charred quickly over high heat.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn"
+      ],
+      "occasions": [
+        "everyday",
+        "hosting"
+      ],
+      "sources": [
+        {
+          "title": "Kofta - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Kofta"
+        },
+        {
+          "title": "Turkish Style Vegan Kofte Kebabs - Connoisseurus Veg",
+          "url": "https://www.connoisseurusveg.com/turkish-style-vegan-kofte-kebabs/"
+        },
+        {
+          "title": "Vegan Egyptian Kofta - Cooking With Jade",
+          "url": "https://cookingwithjade.com/vegan-egyptian-kofta/"
+        }
+      ]
+    }
+  ]
+}

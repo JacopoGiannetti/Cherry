@@ -1,0 +1,76 @@
+rules_version = '2';
+
+// Regola di fondo: l'utente legge e scrive SOLO il proprio albero.
+// Il backend usa l'Admin SDK e bypassa queste regole, quindi le cache
+// globali e i contatori restano invisibili e intoccabili dai client.
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    match /users/{uid} {
+      allow read: if request.auth != null && request.auth.uid == uid;
+      // Il client può aggiornare il proprio profilo ma NON lo stato
+      // abbonamento né i contatori quota (li scrive solo il backend).
+      allow create: if request.auth != null && request.auth.uid == uid;
+      allow update: if request.auth != null && request.auth.uid == uid
+        && !request.resource.data.diff(resource.data).affectedKeys()
+            .hasAny(['subscription', 'dailyUsage', 'usage']);
+
+      // Serie giornaliera dei costi: solo backend.
+      match /usageDays/{day} {
+        allow read: if request.auth != null && request.auth.uid == uid;
+        allow write: if false;
+      }
+
+      match /{collection}/{docId} {
+        allow read, write: if request.auth != null && request.auth.uid == uid
+          && collection != 'usageDays';
+
+        match /{sub}/{subId} {
+          allow read, write: if request.auth != null && request.auth.uid == uid;
+        }
+      }
+    }
+
+    // Spazi condivisi: due persone, le stesse liste della spesa.
+    // Il documento dello spazio (membri, codice invito) lo scrive solo
+    // il backend; i membri lo leggono e basta. Le liste dentro, invece,
+    // si modificano dall'app come quelle personali: spuntare la spesa
+    // deve funzionare anche senza rete.
+    match /spaces/{spaceId} {
+      // Sul documento stesso basta resource.data: niente get() extra,
+      // e la query "i miei spazi" resta una sola lettura.
+      allow read: if request.auth != null
+        && request.auth.uid in resource.data.memberUids;
+      allow write: if false;
+
+      match /{collection}/{docId} {
+        allow read, write: if isSpaceMember(spaceId);
+
+        match /{sub}/{subId} {
+          allow read, write: if isSpaceMember(spaceId);
+        }
+      }
+    }
+
+    // Codici di invito: risolti solo dal backend, altrimenti sarebbero
+    // indovinabili a tentativi.
+    match /inviteCodes/{code} {
+      allow read, write: if false;
+    }
+
+    function isSpaceMember(spaceId) {
+      return request.auth != null
+        && request.auth.uid in get(/databases/$(database)/documents/spaces/$(spaceId)).data.memberUids;
+    }
+
+    // Cache globali: solo backend (Admin SDK). Nessun accesso client.
+    match /caches/{document=**} {
+      allow read, write: if false;
+    }
+
+    // Totali di prodotto: solo backend.
+    match /analytics/{document=**} {
+      allow read, write: if false;
+    }
+  }
+}

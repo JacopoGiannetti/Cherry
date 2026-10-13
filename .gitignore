@@ -1,0 +1,21 @@
+# macOS
+.DS_Store
+
+# Backend — le chiavi vivono SOLO qui, mai committate
+backend/.env
+backend/serviceAccount*.json
+backend/node_modules/
+# Chiave APNs (.p8): Apple la lascia scaricare una volta sola
+backend/secrets/
+
+# Xcode
+app/DerivedData/
+app/build/
+*.xcuserdata/
+*.xcuserdatad/
+app/Cherry.xcodeproj/xcuserdata/
+app/Cherry.xcodeproj/project.xcworkspace/xcuserdata/
+
+# Il GoogleService-Info.plist reale non va committato (repo condivisibile senza chiavi)
+app/Cherry/Supporting/GoogleService-Info.plist
+.shots/

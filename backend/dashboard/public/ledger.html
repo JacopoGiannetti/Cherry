@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Contabilità · Vego Analytics</title>
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<script>document.documentElement.dataset.theme = localStorage.getItem('vego-theme') || 'dark';</script>
+<link rel="stylesheet" href="/styles.css">
+<link rel="stylesheet" href="/ledger.css">
+</head>
+<body data-page="ledger">
+<div class="shell">
+  <aside class="sidebar" id="side"></aside>
+  <div>
+    <main id="main" class="page" hidden>
+      <header class="topbar">
+        <div><p class="crumb">Contabilità</p><h1 id="title">Entrate e uscite</h1></div>
+        <div class="right">
+          <div class="seg" id="tabs">
+            <button type="button" data-tab="panoramica">Panoramica</button>
+            <button type="button" data-tab="carica">Carica</button>
+            <button type="button" data-tab="documenti">Documenti</button>
+            <button type="button" data-tab="dichiarazione">Dichiarazione</button>
+            <button type="button" data-tab="anagrafiche">Anagrafiche</button>
+          </div>
+        </div>
+      </header>
+
+      <div class="lg-alert" id="setupAlert" hidden></div>
+
+      <!-- Panoramica ----------------------------------------------- -->
+      <section data-view="panoramica" hidden>
+        <div class="lg-bar">
+          <select id="yearPick" aria-label="Anno"></select>
+          <span class="dim">entrate senza IVA · uscite al costo vero, compresa l’IVA estera che non si recupera</span>
+        </div>
+        <div class="strip" id="kpis"></div>
+        <div class="grid">
+          <div class="panel c12">
+            <div class="panel-head"><div><h2>Mese per mese</h2><p class="hint" id="monthsHint"></p></div></div>
+            <div class="chart tall"><canvas id="monthsChart"></canvas></div>
+          </div>
+        </div>
+        <div class="grid">
+          <div class="panel c6">
+            <div class="panel-head"><div><h2>Da dove arrivano le entrate</h2><p class="hint" id="inHint"></p></div></div>
+            <div class="bars" id="inBars"></div>
+          </div>
+          <div class="panel c6">
+            <div class="panel-head"><div><h2>Dove vanno le uscite</h2><p class="hint" id="outHint"></p></div></div>
+            <div class="bars" id="outBars"></div>
+          </div>
+        </div>
+        <div class="grid">
+          <div class="panel c12 flush">
+            <div class="panel-head"><div><h2>Il dettaglio</h2></div></div>
+            <div class="scroll"><table class="tbl" id="monthsTable"></table></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Carica ---------------------------------------------------- -->
+      <section data-view="carica" hidden>
+        <div class="drop" id="drop">
+          <p><strong>Trascina qui le fatture in PDF o i report CSV</strong> (Meta, Cursor…), anche tutti insieme e di fornitori diversi.<br>
+          <span class="dim">Le legge questo browser: al server arrivano solo numero, data, importo e soggetto.</span></p>
+          <label class="btn small" for="fileInput">oppure scegli i file</label>
+          <input type="file" id="fileInput" accept="application/pdf,.pdf,text/csv,.csv" multiple hidden>
+        </div>
+
+        <div id="batch" hidden>
+          <div class="lg-summary" id="batchSummary"></div>
+          <div id="groups"></div>
+          <div class="lg-actions">
+            <div class="dim" id="batchNote"></div>
+            <div class="right">
+              <button class="btn ghost" id="batchClear" type="button">Annulla</button>
+              <button class="btn" id="saveOnly" type="button">Registra</button>
+              <button class="btn primary" id="saveXml" type="button">Registra e scarica XML</button>
+            </div>
+          </div>
+          <p class="read bad" id="batchProblems"></p>
+        </div>
+      </section>
+
+      <!-- Documenti ------------------------------------------------- -->
+      <section data-view="documenti" hidden>
+        <div class="lg-bar">
+          <select id="docYear" aria-label="Anno"></select>
+          <select id="docMonth" aria-label="Mese">
+            <option value="">tutto l’anno</option>
+            <option value="01">gennaio</option><option value="02">febbraio</option><option value="03">marzo</option>
+            <option value="04">aprile</option><option value="05">maggio</option><option value="06">giugno</option>
+            <option value="07">luglio</option><option value="08">agosto</option><option value="09">settembre</option>
+            <option value="10">ottobre</option><option value="11">novembre</option><option value="12">dicembre</option>
+          </select>
+          <select id="docTreat" aria-label="Binario">
+            <option value="">tutti i binari</option>
+            <option value="todo">TD17 da fare</option>
+            <option value="reverse">Estero senza IVA → TD17</option>
+            <option value="foreignVat">IVA estera già pagata</option>
+            <option value="domestic">Italiano con IVA</option>
+            <option value="noVat">Senza IVA</option>
+            <option value="income">Entrate</option>
+          </select>
+          <select id="docDir" aria-label="Tipo">
+            <option value="">entrate e uscite</option>
+            <option value="in">solo entrate</option>
+            <option value="out">solo uscite</option>
+          </select>
+          <select id="docParty" aria-label="Soggetto"></select>
+          <span class="spacer"></span>
+          <button class="btn small ghost" id="docPickAll" type="button" hidden></button>
+          <button class="btn small" id="docCsv" type="button">Esporta registro</button>
+          <button class="btn small primary" id="docGenerate" type="button" disabled>Genera XML</button>
+        </div>
+        <div class="panel c12 flush">
+          <div class="scroll"><table class="tbl" id="docsTable"></table></div>
+        </div>
+
+        <div class="section"><h2>Autofatture TD17</h2><p class="hint">quelle già numerate · l’XML si riscarica quando vuoi</p></div>
+        <div class="panel c12 flush">
+          <div class="scroll"><table class="tbl" id="td17Table"></table></div>
+        </div>
+      </section>
+
+      <!-- Dichiarazione --------------------------------------------- -->
+      <section data-view="dichiarazione" hidden>
+        <div class="lg-bar">
+          <select id="taxYear" aria-label="Anno"></select>
+          <span class="dim">stima dall’archivio: percentuali e totali vanno confermati col commercialista</span>
+          <span class="spacer"></span>
+          <button class="btn small primary" id="taxCsv" type="button">Scarica il registro per il commercialista</button>
+        </div>
+        <div class="strip" id="taxKpis"></div>
+        <div class="grid">
+          <div class="panel c12">
+            <div class="panel-head"><div><h2>Da sistemare prima di chiudere l’anno</h2></div></div>
+            <ul class="lg-checks" id="taxChecks"></ul>
+          </div>
+        </div>
+        <div class="grid">
+          <div class="panel c7 flush">
+            <div class="panel-head"><div><h2>Costi per la dichiarazione dei redditi</h2><p class="hint" id="taxCostsHint"></p></div></div>
+            <div class="scroll"><table class="tbl" id="taxCosts"></table></div>
+          </div>
+          <div class="panel c5 flush">
+            <div class="panel-head"><div><h2>Ricavi</h2><p class="hint">imponibile delle entrate</p></div></div>
+            <div class="scroll"><table class="tbl" id="taxRevenue"></table></div>
+          </div>
+        </div>
+        <div class="grid">
+          <div class="panel c12 flush">
+            <div class="panel-head"><div><h2>IVA trimestre per trimestre</h2><p class="hint">la TD17 va a debito e a credito insieme; l’IVA italiana è a credito; quella estera già pagata non c’entra, è costo</p></div></div>
+            <div class="scroll"><table class="tbl" id="taxVat"></table></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Anagrafiche ----------------------------------------------- -->
+      <section data-view="anagrafiche" hidden>
+        <div class="grid">
+          <div class="panel c7">
+            <div class="panel-head"><div><h2>I tuoi dati</h2><p class="hint">compaiono come committente in ogni TD17</p></div><div class="right"><span class="save-state" id="meState"></span></div></div>
+            <form class="form" id="meForm" autocomplete="off">
+              <div class="field"><label>Partita IVA</label><input type="text" name="piva" inputmode="numeric" maxlength="11"></div>
+              <div class="field"><label>Codice fiscale</label><input type="text" name="cf" maxlength="16"></div>
+              <div class="field"><label>Nome</label><input type="text" name="nome"></div>
+              <div class="field"><label>Cognome</label><input type="text" name="cognome"></div>
+              <div class="field wide"><label>Denominazione <span class="dim">(in alternativa a nome e cognome)</span></label><input type="text" name="denominazione"></div>
+              <div class="field wide"><label>Indirizzo</label><input type="text" name="indirizzo"></div>
+              <div class="field"><label>Numero civico</label><input type="text" name="civico"></div>
+              <div class="field"><label>CAP</label><input type="text" name="cap" inputmode="numeric" maxlength="5"></div>
+              <div class="field"><label>Comune</label><input type="text" name="comune"></div>
+              <div class="field"><label>Provincia</label><input type="text" name="provincia" maxlength="2"></div>
+              <div class="field"><label>Codice destinatario</label><input type="text" name="sdi" maxlength="7"></div>
+              <div class="field"><label>PEC <span class="dim">(se destinatario 0000000)</span></label><input type="text" name="pec"></div>
+              <div class="field"><label>Apertura partita IVA <span class="dim">(i costi di prima non si deducono)</span></label><input type="date" name="pivaStart"></div>
+            </form>
+          </div>
+          <div class="panel c5">
+            <div class="panel-head"><div><h2>Autofatture</h2><p class="hint">numerazione e raggruppamento</p></div><div class="right"><span class="save-state" id="numState"></span></div></div>
+            <form class="form" id="numForm" autocomplete="off">
+              <div class="field"><label>Prefisso</label><input type="text" name="prefix" maxlength="10"></div>
+              <div class="field"><label>Suffisso</label><input type="text" name="suffix" maxlength="10" placeholder="es. /2026"></div>
+              <div class="field"><label>Cifre minime</label><input type="number" name="digits" min="1" max="6"></div>
+              <div class="field"><label>Aliquota IVA</label><div class="in"><input type="number" name="vatRate" min="0" max="100" step="0.01"><span>%</span></div></div>
+              <div class="field"><label>Prossimo numero <span id="nextYearLabel" class="dim"></span></label><input type="number" name="next" min="1" step="1"></div>
+              <div class="field"><label>&nbsp;</label><p class="note" id="nextPreview"></p></div>
+              <div class="field wide"><label>Una TD17 per…</label>
+                <select name="td17Mode">
+                  <option value="supplierMonth">fornitore e mese: un XML con dentro tutte le sue fatture del mese</option>
+                  <option value="invoice">fattura: un XML per ogni fattura ricevuta</option>
+                </select>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <div class="section"><h2>Fornitori e clienti</h2><p class="hint">il sistema li riconosce da partita IVA e nome; i nuovi li crea il primo documento</p><div class="right"><button class="btn small" id="addParty" type="button">Aggiungi</button></div></div>
+        <div class="panel c12 flush">
+          <div class="scroll"><table class="tbl" id="partiesTable"></table></div>
+        </div>
+      </section>
+    </main>
+    <div id="state" class="state">Leggo la contabilità…</div>
+  </div>
+</div>
+
+<div class="lg-modal" id="partyModal" hidden>
+  <div class="box">
+    <div class="head"><strong id="partyModalTitle">Soggetto</strong><button class="btn small ghost" data-close type="button">Chiudi</button></div>
+    <form class="form" id="partyForm" autocomplete="off"></form>
+    <div class="foot"><span class="bad" id="partyError"></span><button class="btn primary" id="partySave" type="button">Salva</button></div>
+  </div>
+</div>
+
+<div class="lg-modal" id="docModal" hidden>
+  <div class="box">
+    <div class="head"><strong id="docModalTitle">Documento</strong><button class="btn small ghost" data-close type="button">Chiudi</button></div>
+    <form class="form" id="docForm" autocomplete="off"></form>
+    <div class="foot"><span class="bad" id="docError"></span><button class="btn primary" id="docSave" type="button">Salva</button></div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+<script src="/app.js"></script>
+<script src="/ledger-core.js"></script>
+<script type="module" src="/ledger.js"></script>
+</body>
+</html>

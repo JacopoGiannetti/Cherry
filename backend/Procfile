@@ -1,0 +1,5 @@
+# Google Cloud Buildpacks (pack --path=backend) usano questo al posto
+# di `npm start`. Render ignora il Procfile: lì startCommand resta
+# `npm start` (il backend). Senza questa riga, Cloud Run avvierebbe
+# l'API pubblica invece della dashboard.
+web: node dashboard/server.js

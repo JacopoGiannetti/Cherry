@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Costi AI · Vego Analytics</title>
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<script>document.documentElement.dataset.theme = localStorage.getItem('vego-theme') || 'dark';</script>
+<link rel="stylesheet" href="/styles.css">
+</head>
+<body data-page="product">
+<div class="shell">
+  <aside class="sidebar" id="side"></aside>
+  <div>
+    <main id="main" class="page" hidden>
+      <header class="topbar">
+        <div><p class="crumb">Costi AI</p><h1>Quanto costa ogni chiamata</h1></div>
+        <div class="right"><span class="stamp" id="windowLabel"></span><span class="stamp" id="stamp"></span><button id="refresh" class="btn" type="button">Aggiorna</button></div>
+      </header>
+
+      <div id="productHero"></div>
+
+      <div class="section"><h2>Per chiamata</h2></div>
+      <div class="grid">
+        <div class="panel c5">
+          <div class="panel-head"><div><h2>Feature per feature</h2><p class="hint">costo della feature ÷ sue chiamate</p></div></div>
+          <div class="chart"><canvas id="costPerCallChart"></canvas></div>
+        </div>
+        <div class="panel c7">
+          <div class="panel-head"><div><h2>Costo per job, giorno per giorno</h2><p class="hint">spesa del giorno ÷ job del giorno · ultimi 30 giorni</p></div></div>
+          <div class="chart"><canvas id="costPerJobDaily"></canvas></div>
+        </div>
+      </div>
+
+      <div class="section"><h2>Per feature</h2></div>
+      <div class="grid">
+        <div class="panel c5">
+          <div class="panel-head"><div><h2>Costo totale</h2><p class="hint" id="featureCostHint"></p></div></div>
+          <div class="chart"><canvas id="featureCostChart"></canvas></div>
+        </div>
+        <div class="panel c7">
+          <div class="panel-head"><div><h2>Mix medio per utente <span class="tip" data-tip="Per ogni utente si guarda come si dividono le sue chiamate fra le feature, poi si fa la media fra gli utenti. Un solo utente molto attivo non decide la forma del grafico."></span></h2><p class="hint" id="featureMixHint"></p></div></div>
+          <div class="chart"><canvas id="featureMixChart"></canvas></div>
+        </div>
+      </div>
+      <div class="grid">
+        <div class="panel c12 flush">
+          <div class="panel-head"><div><h2>Tutte le feature</h2></div></div>
+          <div class="scroll"><table class="tbl" id="featureTable"></table></div>
+        </div>
+      </div>
+
+      <div class="section"><h2>Stima</h2><p class="hint">quante chiamate prevedi per feature, e quanto costerebbero</p></div>
+      <div class="grid">
+        <div class="panel c7">
+          <div class="panel-head"><div><h2>Chiamate previste</h2><p class="hint" id="estimateHint"></p></div></div>
+          <div class="form" id="estimateInputs"></div>
+          <div class="scroll" style="margin-top:14px"><table class="tbl" id="estimateTable"></table></div>
+        </div>
+        <div class="panel c5">
+          <div class="panel-head"><div><h2>Costo stimato</h2><p class="hint" id="estimateScale"></p></div></div>
+          <div class="strip" id="estimateTotals" style="margin:0 0 16px"></div>
+          <div class="chart short"><canvas id="estimateChart"></canvas></div>
+        </div>
+      </div>
+
+      <div class="section"><h2>Uso</h2></div>
+      <div class="grid">
+        <div class="panel c6">
+          <div class="panel-head"><div><h2>Dal download all’uso</h2><p class="hint">arrivati → onboarding → paywall → prodotto usato → paganti</p></div></div>
+          <div class="bars" id="productFunnel"></div>
+        </div>
+        <div class="panel c6">
+          <div class="panel-head"><div><h2>Spazi condivisi</h2><p class="hint">chi cucina in due</p></div></div>
+          <div class="bars" id="spacesStats"></div>
+        </div>
+      </div>
+    </main>
+    <div id="state" class="state">Leggo Firestore…</div>
+  </div>
+</div>
+<div class="drawer-backdrop" id="drawerBackdrop"></div>
+<aside class="drawer" id="drawer" aria-hidden="true"></aside>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+<script src="/app.js"></script>
+</body>
+</html>

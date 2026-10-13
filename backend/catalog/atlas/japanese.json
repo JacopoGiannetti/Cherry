@@ -1,0 +1,3553 @@
+{
+  "tile": "Japanese",
+  "generatedAt": "2026-10-05",
+  "dishes": [
+    {
+      "key": "kare-raisu",
+      "name": "Kare raisu",
+      "nameEn": "Japanese curry rice",
+      "aliases": [
+        "Kare raiseu",
+        "curry rice",
+        "japanese curry",
+        "kare-raiseu",
+        "karē raisu",
+        "korean curry"
+      ],
+      "tiles": [
+        "American",
+        "Japanese",
+        "Korean"
+      ],
+      "cuisine": "Japanese",
+      "region": "Nationwide",
+      "format": "curry",
+      "protein": "vegetables",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 45,
+      "effort": "low",
+      "familiarity": 1,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "short-grain rice",
+        "curry roux",
+        "onion",
+        "carrot",
+        "potato",
+        "pork or beef",
+        "apple"
+      ],
+      "specialtyIngredients": [
+        "japanese curry roux"
+      ],
+      "veganApproach": "Skip the meat and use a dairy-free roux (many store-bought blocks contain milk or meat extracts) or a homemade flour-and-curry-powder roux, adding mushrooms or tofu for body.",
+      "technique": "Onions, carrots and potatoes are sautéed and simmered in stock, then curry roux blocks are melted in off the heat until the sauce turns thick and glossy.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "comfort",
+        "mealprep"
+      ],
+      "sources": [
+        {
+          "title": "Japanese curry - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Japanese_curry"
+        },
+        {
+          "title": "Vegan Japanese Curry - Okonomi Kitchen",
+          "url": "https://www.okonomikitchen.com/vegan-japanese-curry/"
+        },
+        {
+          "title": "Vegetarian Japanese Curry - Just One Cookbook",
+          "url": "https://www.justonecookbook.com/vegetarian-japanese-curry/"
+        }
+      ]
+    },
+    {
+      "key": "katsu-kare",
+      "name": "Katsu kare",
+      "nameEn": "Katsu curry",
+      "aliases": [
+        "katsu curry",
+        "katsu karē",
+        "tofu katsu curry"
+      ],
+      "tiles": [
+        "Japanese",
+        "American"
+      ],
+      "cuisine": "Japanese",
+      "region": "Tokyo",
+      "format": "curry",
+      "protein": "tofu",
+      "method": "deep_fry",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 60,
+      "effort": "medium",
+      "familiarity": 1,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "pork cutlet",
+        "panko",
+        "flour",
+        "egg",
+        "curry roux",
+        "onion",
+        "carrot",
+        "short-grain rice"
+      ],
+      "specialtyIngredients": [
+        "japanese curry roux"
+      ],
+      "veganApproach": "Pressed firm tofu is coated in a flour-and-water slurry and panko instead of egg, fried, and served with a dairy-free curry sauce.",
+      "technique": "A breaded cutlet is deep-fried until golden, sliced and laid over rice beside a thick Japanese curry sauce.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "comfort",
+        "hosting"
+      ],
+      "sources": [
+        {
+          "title": "Katsu curry - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Katsu_curry"
+        },
+        {
+          "title": "Vegan Tofu Katsu Curry - Okonomi Kitchen",
+          "url": "https://www.okonomikitchen.com/vegan-tofu-katsu-curry/"
+        },
+        {
+          "title": "Vegan tofu katsu - BBC Food",
+          "url": "https://www.bbc.co.uk/food/recipes/vegan_tofu_katsu_52859"
+        }
+      ]
+    },
+    {
+      "key": "shoyu-ramen",
+      "name": "Shoyu ramen",
+      "nameEn": "Soy sauce ramen",
+      "aliases": [
+        "shōyu rāmen",
+        "tokyo ramen"
+      ],
+      "tiles": [
+        "Japanese"
+      ],
+      "cuisine": "Japanese",
+      "region": "Tokyo",
+      "format": "noodles",
+      "protein": "mushrooms",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 40,
+      "effort": "medium",
+      "familiarity": 1,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegan",
+        "vegetarian"
+      ],
+      "keyIngredients": [
+        "ramen noodles",
+        "chicken stock",
+        "soy sauce tare",
+        "chashu pork",
+        "soft-boiled egg",
+        "menma",
+        "nori",
+        "scallions"
+      ],
+      "specialtyIngredients": [
+        "menma",
+        "kombu"
+      ],
+      "veganApproach": "A kombu and dried shiitake broth seasoned with soy tare replaces the chicken stock, topped with mushrooms or tofu; vegetarians can keep the marinated soft-boiled egg.",
+      "technique": "A clear stock is poured over a concentrated soy sauce tare in the bowl, then springy noodles and toppings are added at the last moment.",
+      "seasons": [
+        "spring",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "comfort"
+      ],
+      "sources": [
+        {
+          "title": "Ramen - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Ramen"
+        },
+        {
+          "title": "Easy Vegan Shoyu Ramen - Okonomi Kitchen",
+          "url": "https://www.okonomikitchen.com/easy-vegan-shoyu-ramen/"
+        },
+        {
+          "title": "Vegan Shoyu Ramen - The Foodie Takes Flight",
+          "url": "https://thefoodietakesflight.com/vegan-shoyu-ramen/"
+        }
+      ]
+    },
+    {
+      "key": "miso-ramen",
+      "name": "Miso ramen",
+      "nameEn": "Miso ramen",
+      "aliases": [
+        "sapporo ramen",
+        "miso rāmen"
+      ],
+      "tiles": [
+        "Japanese"
+      ],
+      "cuisine": "Japanese",
+      "region": "Hokkaido (Sapporo)",
+      "format": "noodles",
+      "protein": "tofu",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 35,
+      "effort": "medium",
+      "familiarity": 1,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegan",
+        "vegetarian"
+      ],
+      "keyIngredients": [
+        "ramen noodles",
+        "miso",
+        "pork stock",
+        "ground pork",
+        "bean sprouts",
+        "corn",
+        "butter",
+        "garlic",
+        "ginger"
+      ],
+      "specialtyIngredients": [],
+      "veganApproach": "Use kombu-shiitake or vegetable stock and soy mince or tofu crumbles in place of pork, finishing with vegan butter; vegetarians can add real butter and an egg.",
+      "technique": "Garlic, ginger and minced protein are stir-fried with vegetables, then deglazed with stock and miso for a rich, cloudy broth.",
+      "seasons": [
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "comfort"
+      ],
+      "sources": [
+        {
+          "title": "Ramen - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Ramen"
+        },
+        {
+          "title": "Easy Miso Ramen - Okonomi Kitchen",
+          "url": "https://www.okonomikitchen.com/easy-miso-ramen/"
+        },
+        {
+          "title": "Miso Ramen Recipe - Keeping the Peas",
+          "url": "https://www.keepingthepeas.com/miso-ramen-recipe/"
+        }
+      ]
+    },
+    {
+      "key": "tonkotsu-ramen",
+      "name": "Tonkotsu ramen",
+      "nameEn": "Pork bone broth ramen",
+      "aliases": [
+        "hakata ramen",
+        "vegan tonkotsu ramen"
+      ],
+      "tiles": [
+        "Japanese"
+      ],
+      "cuisine": "Japanese",
+      "region": "Fukuoka (Hakata)",
+      "format": "noodles",
+      "protein": "tofu",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 60,
+      "effort": "high",
+      "familiarity": 1,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "ramen noodles",
+        "pork bones",
+        "garlic",
+        "ginger",
+        "chashu pork",
+        "kikurage",
+        "pickled ginger",
+        "scallions",
+        "soft-boiled egg"
+      ],
+      "specialtyIngredients": [
+        "kikurage",
+        "beni shoga"
+      ],
+      "veganApproach": "The milky pork-bone broth is imitated with soy milk, sesame paste and kombu-shiitake dashi, topped with marinated tofu or mushrooms.",
+      "technique": "Pork bones are boiled hard for hours to emulsify fat and collagen into an opaque, creamy broth served over thin, firm noodles.",
+      "seasons": [
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "comfort",
+        "hosting"
+      ],
+      "sources": [
+        {
+          "title": "Ramen - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Ramen"
+        },
+        {
+          "title": "Vegan Tonkotsu Ramen - Okonomi Kitchen",
+          "url": "https://www.okonomikitchen.com/vegan-tonkotsu-ramen/"
+        },
+        {
+          "title": "Vegan Tonkotsu Ramen - No Recipes",
+          "url": "https://norecipes.com/vegan-tonkotsu-ramen/"
+        }
+      ]
+    },
+    {
+      "key": "kake-udon",
+      "name": "Kake udon",
+      "nameEn": "Udon noodle soup",
+      "aliases": [
+        "su udon",
+        "udon soup"
+      ],
+      "tiles": [
+        "Japanese"
+      ],
+      "cuisine": "Japanese",
+      "region": "Nationwide",
+      "format": "noodles",
+      "protein": "grains",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 20,
+      "effort": "low",
+      "familiarity": 1,
+      "traditionalDiet": "pescatarian",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "udon noodles",
+        "katsuobushi dashi",
+        "usukuchi soy sauce",
+        "mirin",
+        "scallions",
+        "shichimi togarashi"
+      ],
+      "specialtyIngredients": [
+        "kombu",
+        "katsuobushi",
+        "shichimi togarashi"
+      ],
+      "veganApproach": "Swap the bonito dashi for kombu and dried shiitake dashi; the rest of the bowl is already plant-based.",
+      "technique": "Thick wheat noodles are reheated and served in a hot, light dashi broth seasoned with soy sauce and mirin.",
+      "seasons": [
+        "spring",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "quick",
+        "comfort"
+      ],
+      "sources": [
+        {
+          "title": "Udon - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Udon"
+        },
+        {
+          "title": "Udon Noodle Soup - Just One Cookbook",
+          "url": "https://www.justonecookbook.com/udon-noodle-soup/"
+        },
+        {
+          "title": "Vegan Shiitake Kombu Dashi - Just One Cookbook",
+          "url": "https://www.justonecookbook.com/vegan-shiitake-kombu-dashi/"
+        }
+      ]
+    },
+    {
+      "key": "yaki-udon",
+      "name": "Yaki udon",
+      "nameEn": "Stir-fried udon noodles",
+      "aliases": [
+        "fried udon"
+      ],
+      "tiles": [
+        "Japanese"
+      ],
+      "cuisine": "Japanese",
+      "region": "Fukuoka (Kitakyushu)",
+      "format": "stir_fry",
+      "protein": "mushrooms",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 20,
+      "effort": "low",
+      "familiarity": 1,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "udon noodles",
+        "pork belly",
+        "cabbage",
+        "onion",
+        "carrot",
+        "shiitake",
+        "soy sauce",
+        "mentsuyu",
+        "katsuobushi"
+      ],
+      "specialtyIngredients": [
+        "mentsuyu"
+      ],
+      "veganApproach": "Leave out the pork and bonito flakes, add mushrooms or tofu, and season with soy sauce, mirin and a vegan mentsuyu.",
+      "technique": "Thick udon are stir-fried over high heat with vegetables and seasoned with a soy-based sauce until lightly caramelized.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "quick"
+      ],
+      "sources": [
+        {
+          "title": "Yaki udon - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Yaki_udon"
+        },
+        {
+          "title": "Yaki Udon - Just One Cookbook",
+          "url": "https://www.justonecookbook.com/yaki-udon/"
+        },
+        {
+          "title": "Yaki Udon (Japanese Stir-Fried Udon Noodles) - Plant-Based Matters",
+          "url": "https://plantbasedmatters.net/yaki-udon-japanese-stir-fried-udon-noodles/"
+        }
+      ]
+    },
+    {
+      "key": "yakisoba",
+      "name": "Yakisoba",
+      "nameEn": "Japanese stir-fried noodles",
+      "aliases": [
+        "sauce yakisoba",
+        "fried noodles"
+      ],
+      "tiles": [
+        "Japanese"
+      ],
+      "cuisine": "Japanese",
+      "region": "Nationwide",
+      "format": "stir_fry",
+      "protein": "vegetables",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 20,
+      "effort": "low",
+      "familiarity": 1,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "chukamen noodles",
+        "pork belly",
+        "cabbage",
+        "carrot",
+        "onion",
+        "yakisoba sauce",
+        "aonori",
+        "beni shoga"
+      ],
+      "specialtyIngredients": [
+        "yakisoba sauce",
+        "aonori",
+        "beni shoga"
+      ],
+      "veganApproach": "Skip the pork and use a Worcestershire-style sauce without anchovy, adding tofu or mushrooms for protein.",
+      "technique": "Steamed wheat noodles are stir-fried with cabbage and pork, then coated in a sweet-savory Worcestershire-based sauce.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "quick"
+      ],
+      "sources": [
+        {
+          "title": "Yakisoba - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Yakisoba"
+        },
+        {
+          "title": "Vegan Yakisoba - Okonomi Kitchen",
+          "url": "https://www.okonomikitchen.com/vegan-yakisoba/"
+        },
+        {
+          "title": "Yakisoba - Food in Japan",
+          "url": "https://www.foodinjapan.org/japan/yakisoba/"
+        }
+      ]
+    },
+    {
+      "key": "zaru-soba",
+      "name": "Zaru soba",
+      "nameEn": "Chilled buckwheat noodles with dipping sauce",
+      "aliases": [
+        "cold soba",
+        "mori soba"
+      ],
+      "tiles": [
+        "Japanese",
+        "Fresh & light"
+      ],
+      "cuisine": "Japanese",
+      "region": "Nationwide",
+      "format": "noodles",
+      "protein": "grains",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 15,
+      "effort": "low",
+      "familiarity": 1,
+      "traditionalDiet": "pescatarian",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "buckwheat soba noodles",
+        "mentsuyu",
+        "nori",
+        "scallions",
+        "wasabi",
+        "grated daikon"
+      ],
+      "specialtyIngredients": [
+        "mentsuyu",
+        "wasabi",
+        "kombu"
+      ],
+      "veganApproach": "Make the dipping sauce with kombu-shiitake dashi instead of bonito; the noodles and garnishes are already plant-based.",
+      "technique": "Soba is boiled briefly, rinsed in ice water to firm it up and served on a bamboo tray with a chilled dipping sauce.",
+      "seasons": [
+        "spring",
+        "summer"
+      ],
+      "occasions": [
+        "everyday",
+        "quick"
+      ],
+      "sources": [
+        {
+          "title": "Zaru Soba (Cold Soba Noodles) - Just One Cookbook",
+          "url": "https://www.justonecookbook.com/zaru-soba-cold-soba-noodles/"
+        },
+        {
+          "title": "Zaru Soba - Okonomi Kitchen",
+          "url": "https://www.okonomikitchen.com/zaru-soba/"
+        },
+        {
+          "title": "Vegan Zaru Soba - Gastroplant",
+          "url": "https://gastroplant.com/vegan-zaru-soba/"
+        }
+      ]
+    },
+    {
+      "key": "okonomiyaki",
+      "name": "Okonomiyaki",
+      "nameEn": "Japanese savory cabbage pancake",
+      "aliases": [
+        "osaka-style okonomiyaki",
+        "japanese pancake"
+      ],
+      "tiles": [
+        "Japanese",
+        "American"
+      ],
+      "cuisine": "Japanese",
+      "region": "Osaka",
+      "format": "other",
+      "protein": "vegetables",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 30,
+      "effort": "medium",
+      "familiarity": 1,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegan",
+        "vegetarian"
+      ],
+      "keyIngredients": [
+        "cabbage",
+        "flour",
+        "eggs",
+        "dashi",
+        "nagaimo",
+        "pork belly",
+        "okonomiyaki sauce",
+        "japanese mayonnaise",
+        "aonori",
+        "katsuobushi"
+      ],
+      "specialtyIngredients": [
+        "nagaimo",
+        "okonomiyaki sauce",
+        "aonori",
+        "tenkasu"
+      ],
+      "veganApproach": "Replace the eggs with grated nagaimo or extra starch, use kombu dashi in the batter and top with vegan mayo instead of bonito flakes.",
+      "technique": "A batter loaded with shredded cabbage is cooked as a thick pancake on a griddle, flipped once, then painted with sauce and mayonnaise.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "hosting",
+        "comfort"
+      ],
+      "sources": [
+        {
+          "title": "Okonomiyaki - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Okonomiyaki"
+        },
+        {
+          "title": "Vegan Osaka Okonomiyaki - Okonomi Kitchen",
+          "url": "https://www.okonomikitchen.com/vegan-osaka-okonomiyaki/"
+        },
+        {
+          "title": "Vegan Okonomiyaki - No Recipes",
+          "url": "https://norecipes.com/vegan-okonomiyaki/"
+        }
+      ]
+    },
+    {
+      "key": "gyoza",
+      "name": "Gyoza",
+      "nameEn": "Japanese pan-fried dumplings",
+      "aliases": [
+        "yaki gyoza",
+        "potstickers",
+        "vegetable gyoza"
+      ],
+      "tiles": [
+        "Japanese"
+      ],
+      "cuisine": "Japanese",
+      "region": "Nationwide",
+      "format": "dumplings",
+      "protein": "vegetables",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 60,
+      "effort": "medium",
+      "familiarity": 1,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "gyoza wrappers",
+        "ground pork",
+        "napa cabbage",
+        "garlic chives",
+        "garlic",
+        "ginger",
+        "soy sauce",
+        "sesame oil"
+      ],
+      "specialtyIngredients": [
+        "gyoza wrappers"
+      ],
+      "veganApproach": "Fill egg-free wrappers with finely chopped cabbage, mushrooms and crumbled firm tofu instead of pork.",
+      "technique": "Pleated dumplings are pan-fried until browned on the bottom, then steamed under a lid with a splash of water and crisped again.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "hosting",
+        "mealprep",
+        "comfort"
+      ],
+      "sources": [
+        {
+          "title": "Gyoza - Just One Cookbook",
+          "url": "https://www.justonecookbook.com/gyoza/"
+        },
+        {
+          "title": "Vegetable Gyoza - Just One Cookbook",
+          "url": "https://www.justonecookbook.com/vegetable-gyoza/"
+        }
+      ]
+    },
+    {
+      "key": "tempura",
+      "name": "Tempura",
+      "nameEn": "Japanese battered fried seafood and vegetables",
+      "aliases": [
+        "yasai tempura",
+        "vegetable tempura",
+        "shojin age"
+      ],
+      "tiles": [
+        "Japanese"
+      ],
+      "cuisine": "Japanese",
+      "region": "Tokyo (Edo)",
+      "format": "fritters",
+      "protein": "vegetables",
+      "method": "deep_fry",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 40,
+      "effort": "medium",
+      "familiarity": 1,
+      "traditionalDiet": "pescatarian",
+      "versions": [
+        "vegan",
+        "vegetarian",
+        "pescatarian"
+      ],
+      "keyIngredients": [
+        "shrimp",
+        "sweet potato",
+        "eggplant",
+        "shiitake",
+        "kabocha",
+        "flour",
+        "egg",
+        "ice water",
+        "tentsuyu"
+      ],
+      "specialtyIngredients": [
+        "kabocha",
+        "shishito peppers"
+      ],
+      "veganApproach": "Make the batter with flour, starch and ice-cold water (or sparkling water) without egg, fry only vegetables and serve with a kombu-based tentsuyu.",
+      "technique": "Ingredients are dipped in a barely mixed, ice-cold batter and deep-fried briefly so the coating stays lacy, light and crisp.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "hosting",
+        "date"
+      ],
+      "sources": [
+        {
+          "title": "Tempura - Just One Cookbook",
+          "url": "https://www.justonecookbook.com/tempura-recipe/"
+        },
+        {
+          "title": "Vegetable Tempura - Just One Cookbook",
+          "url": "https://www.justonecookbook.com/vegetable-tempura/"
+        },
+        {
+          "title": "Tempura recipe - Kikkoman",
+          "url": "https://www.kikkoman.com/en/cookbook/recipe/00000946.html"
+        }
+      ]
+    },
+    {
+      "key": "salmon-teriyaki",
+      "name": "Salmon teriyaki",
+      "nameEn": "Teriyaki salmon",
+      "aliases": [
+        "teriyaki salmon",
+        "sake no teriyaki",
+        "teriyaki tofu"
+      ],
+      "tiles": [
+        "Japanese"
+      ],
+      "cuisine": "Japanese",
+      "region": "Nationwide",
+      "format": "other",
+      "protein": "tofu",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 20,
+      "effort": "low",
+      "familiarity": 1,
+      "traditionalDiet": "pescatarian",
+      "versions": [
+        "pescatarian",
+        "vegan"
+      ],
+      "keyIngredients": [
+        "salmon fillets",
+        "soy sauce",
+        "mirin",
+        "sake",
+        "sugar",
+        "flour",
+        "short-grain rice"
+      ],
+      "specialtyIngredients": [],
+      "veganApproach": "Swap the salmon for starch-dusted slabs of firm tofu, pan-fried and glazed with the same soy, mirin and sake sauce.",
+      "technique": "Fish is pan-seared, then glazed in a reduction of soy sauce, mirin, sake and sugar until shiny.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "quick",
+        "date"
+      ],
+      "sources": [
+        {
+          "title": "Teriyaki - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Teriyaki"
+        },
+        {
+          "title": "Teriyaki Salmon - Just One Cookbook",
+          "url": "https://www.justonecookbook.com/teriyaki-salmon-recipe/"
+        },
+        {
+          "title": "Teriyaki Tofu - Just One Cookbook",
+          "url": "https://www.justonecookbook.com/teriyaki-tofu/"
+        }
+      ]
+    },
+    {
+      "key": "tonkatsu",
+      "name": "Tonkatsu",
+      "nameEn": "Breaded cutlet",
+      "aliases": [
+        "pork cutlet",
+        "tofu katsu"
+      ],
+      "tiles": [
+        "Japanese",
+        "American"
+      ],
+      "cuisine": "Japanese",
+      "region": "Tokyo",
+      "format": "other",
+      "protein": "tofu",
+      "method": "deep_fry",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 40,
+      "effort": "medium",
+      "familiarity": 1,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "pork loin",
+        "flour",
+        "egg",
+        "panko",
+        "shredded cabbage",
+        "tonkatsu sauce",
+        "short-grain rice"
+      ],
+      "specialtyIngredients": [
+        "tonkatsu sauce"
+      ],
+      "veganApproach": "Use pressed firm or frozen-and-thawed tofu, coated in a flour-and-water slurry and panko, served with a vegan tonkatsu sauce.",
+      "technique": "A thick cutlet is breaded in flour, egg and coarse panko and deep-fried, then sliced and served with shredded cabbage.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "comfort"
+      ],
+      "sources": [
+        {
+          "title": "Tonkatsu - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Tonkatsu"
+        },
+        {
+          "title": "Tofu Katsu - Okonomi Kitchen",
+          "url": "https://www.okonomikitchen.com/tofu-katsu/"
+        },
+        {
+          "title": "Vegan tofu katsu - The Japan Times",
+          "url": "https://www.japantimes.co.jp/life/2021/08/21/food/vegan-tofu-katsu/"
+        }
+      ]
+    },
+    {
+      "key": "karaage",
+      "name": "Karaage",
+      "nameEn": "Japanese fried chicken",
+      "aliases": [
+        "tori no karaage",
+        "tofu karaage"
+      ],
+      "tiles": [
+        "Japanese",
+        "American"
+      ],
+      "cuisine": "Japanese",
+      "region": "Nationwide",
+      "format": "fritters",
+      "protein": "tofu",
+      "method": "deep_fry",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 40,
+      "effort": "medium",
+      "familiarity": 1,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "chicken thigh",
+        "soy sauce",
+        "sake",
+        "ginger",
+        "garlic",
+        "potato starch",
+        "lemon"
+      ],
+      "specialtyIngredients": [],
+      "veganApproach": "Frozen-then-thawed firm tofu is torn into chunks, marinated in the same soy, ginger and garlic mix and double-fried in starch.",
+      "technique": "Marinated pieces are dredged in potato starch and double-fried for a thin, shattering crust.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "comfort",
+        "hosting"
+      ],
+      "sources": [
+        {
+          "title": "Karaage - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Karaage"
+        },
+        {
+          "title": "Tofu Karaage - No Recipes",
+          "url": "https://norecipes.com/tofu-karaage/"
+        },
+        {
+          "title": "Vegan Tofu Karaage - Foodaciously",
+          "url": "https://foodaciously.com/recipe/vegan-tofu-karaage/"
+        }
+      ]
+    },
+    {
+      "key": "onigiri",
+      "name": "Onigiri",
+      "nameEn": "Japanese rice balls",
+      "aliases": [
+        "omusubi",
+        "rice balls"
+      ],
+      "tiles": [
+        "Japanese"
+      ],
+      "cuisine": "Japanese",
+      "region": "Nationwide",
+      "format": "rice_dish",
+      "protein": "grains",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 40,
+      "effort": "low",
+      "familiarity": 1,
+      "traditionalDiet": "pescatarian",
+      "versions": [
+        "vegan",
+        "pescatarian"
+      ],
+      "keyIngredients": [
+        "short-grain rice",
+        "nori",
+        "salt",
+        "umeboshi",
+        "salted salmon",
+        "tuna mayo",
+        "kombu tsukudani"
+      ],
+      "specialtyIngredients": [
+        "umeboshi",
+        "nori"
+      ],
+      "veganApproach": "Choose plant fillings such as umeboshi, kombu tsukudani, seasoned mushrooms or miso and skip the fish.",
+      "technique": "Freshly cooked rice is shaped by hand with salted palms around a filling, then wrapped in nori.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "mealprep"
+      ],
+      "sources": [
+        {
+          "title": "Onigiri - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Onigiri"
+        },
+        {
+          "title": "Vegan Onigiri (Japanese Rice Ball) - Okonomi Kitchen",
+          "url": "https://www.okonomikitchen.com/vegan-onigiri-japanese-rice-ball-recipe/"
+        },
+        {
+          "title": "Onigiri - Food in Japan",
+          "url": "https://www.foodinjapan.org/japan/onigiri/"
+        }
+      ]
+    },
+    {
+      "key": "nigiri-zushi",
+      "name": "Nigiri-zushi",
+      "nameEn": "Hand-pressed sushi",
+      "aliases": [
+        "nigiri",
+        "edomae sushi",
+        "vegan nigiri"
+      ],
+      "tiles": [
+        "Japanese",
+        "Fresh & light"
+      ],
+      "cuisine": "Japanese",
+      "region": "Tokyo (Edo)",
+      "format": "rice_dish",
+      "protein": "vegetables",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 60,
+      "effort": "high",
+      "familiarity": 1,
+      "traditionalDiet": "pescatarian",
+      "versions": [
+        "vegan",
+        "pescatarian"
+      ],
+      "keyIngredients": [
+        "sushi rice",
+        "rice vinegar",
+        "sugar",
+        "salt",
+        "raw fish",
+        "wasabi",
+        "soy sauce"
+      ],
+      "specialtyIngredients": [
+        "sushi-grade fish",
+        "wasabi"
+      ],
+      "veganApproach": "Top the seasoned rice with grilled eggplant, avocado, marinated shiitake or tomato 'tuna' instead of fish.",
+      "technique": "Vinegared rice is pressed by hand into small oblongs, dabbed with wasabi and topped with a slice of fish.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "hosting",
+        "date"
+      ],
+      "sources": [
+        {
+          "title": "The Ultimate Guide to Sushi - Just One Cookbook",
+          "url": "https://www.justonecookbook.com/ultimate-sushi-guide/"
+        },
+        {
+          "title": "How to Make Nigiri - Serious Eats",
+          "url": "https://www.seriouseats.com/sushi-week-part-4-how-to-make-nigiri"
+        },
+        {
+          "title": "Vegan Nigiri - The Cheap Lazy Vegan",
+          "url": "https://thecheaplazyvegan.com/vegan-nigiri/"
+        }
+      ]
+    },
+    {
+      "key": "maki-zushi",
+      "name": "Maki-zushi",
+      "nameEn": "Rolled sushi",
+      "aliases": [
+        "makizushi",
+        "sushi rolls",
+        "futomaki",
+        "hosomaki"
+      ],
+      "tiles": [
+        "Japanese"
+      ],
+      "cuisine": "Japanese",
+      "region": "Nationwide",
+      "format": "rice_dish",
+      "protein": "vegetables",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 60,
+      "effort": "medium",
+      "familiarity": 1,
+      "traditionalDiet": "pescatarian",
+      "versions": [
+        "vegan",
+        "vegetarian",
+        "pescatarian"
+      ],
+      "keyIngredients": [
+        "sushi rice",
+        "nori",
+        "rice vinegar",
+        "cucumber",
+        "raw tuna",
+        "tamagoyaki",
+        "pickled daikon",
+        "shiitake"
+      ],
+      "specialtyIngredients": [
+        "nori",
+        "takuan",
+        "kanpyo"
+      ],
+      "veganApproach": "Fill the rolls with cucumber, avocado, pickled daikon, kanpyo and simmered shiitake; vegetarians can add tamagoyaki.",
+      "technique": "Seasoned rice is spread on nori, lined with fillings and rolled tight with a bamboo mat before slicing.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "hosting",
+        "mealprep",
+        "date"
+      ],
+      "sources": [
+        {
+          "title": "Makizushi - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Makizushi"
+        },
+        {
+          "title": "Futomaki - Just One Cookbook",
+          "url": "https://www.justonecookbook.com/futomaki/"
+        },
+        {
+          "title": "Vegetarian Sushi Rolls - Just One Cookbook",
+          "url": "https://www.justonecookbook.com/vegetarian-sushi-rolls/"
+        }
+      ]
+    },
+    {
+      "key": "chahan",
+      "name": "Chahan",
+      "nameEn": "Japanese fried rice",
+      "aliases": [
+        "yakimeshi",
+        "japanese fried rice"
+      ],
+      "tiles": [
+        "Japanese"
+      ],
+      "cuisine": "Japanese",
+      "region": "Nationwide",
+      "format": "rice_dish",
+      "protein": "vegetables",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 20,
+      "effort": "low",
+      "familiarity": 1,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegetarian",
+        "vegan"
+      ],
+      "keyIngredients": [
+        "cooked short-grain rice",
+        "eggs",
+        "char siu pork",
+        "scallions",
+        "soy sauce",
+        "garlic",
+        "sesame oil"
+      ],
+      "specialtyIngredients": [],
+      "veganApproach": "Leave out the pork and replace the egg with crumbled tofu, seasoning with soy sauce and a vegan chicken-style bouillon.",
+      "technique": "Day-old rice is tossed in a very hot pan with beaten egg so each grain is coated and separate.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "quick"
+      ],
+      "sources": [
+        {
+          "title": "Easy Fried Rice - Just One Cookbook",
+          "url": "https://www.justonecookbook.com/easy-fried-rice/"
+        },
+        {
+          "title": "Vegetarian Chahan - Chef JA Cooks",
+          "url": "https://chefjacooks.com/en/vegetarian-chahan/"
+        },
+        {
+          "title": "Vegan Japanese Fried Rice - Vegan Japanese",
+          "url": "https://veganjapanese.com/vegan-japanese-fried-rice/"
+        }
+      ]
+    },
+    {
+      "key": "tantanmen",
+      "name": "Tantanmen",
+      "nameEn": "Spicy sesame ramen",
+      "aliases": [
+        "tan tan ramen",
+        "tantan ramen"
+      ],
+      "tiles": [
+        "Japanese"
+      ],
+      "cuisine": "Japanese",
+      "region": "Tokyo (Japanese-Chinese)",
+      "format": "noodles",
+      "protein": "soy_mince",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 30,
+      "effort": "medium",
+      "familiarity": 2,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "ramen noodles",
+        "sesame paste",
+        "ground pork",
+        "chicken stock",
+        "doubanjiang",
+        "chili oil",
+        "bok choy",
+        "scallions"
+      ],
+      "specialtyIngredients": [
+        "chinese sesame paste",
+        "doubanjiang",
+        "rayu"
+      ],
+      "veganApproach": "Vegan mince or tofu crumbles replace the pork, and the creamy broth is built on soy milk, sesame paste and kombu dashi.",
+      "technique": "A spicy sesame base is whisked with hot broth in the bowl, then noodles are added and topped with stir-fried seasoned mince.",
+      "seasons": [
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "comfort"
+      ],
+      "sources": [
+        {
+          "title": "Tan Tan Ramen (Tantanmen) - Just One Cookbook",
+          "url": "https://www.justonecookbook.com/tantanmen/"
+        },
+        {
+          "title": "Vegan Sesame Tantanmen - Okonomi Kitchen",
+          "url": "https://www.okonomikitchen.com/vegan-sesame-tantanmen-homemade-ramen/"
+        },
+        {
+          "title": "Vegan Tantanmen With Pan-Fried Tofu - NYT Cooking",
+          "url": "https://cooking.nytimes.com/recipes/1022099-vegan-tantanmen-with-pan-fried-tofu"
+        }
+      ]
+    },
+    {
+      "key": "kitsune-udon",
+      "name": "Kitsune udon",
+      "nameEn": "Udon with sweet fried tofu",
+      "aliases": [
+        "fox udon"
+      ],
+      "tiles": [
+        "Japanese"
+      ],
+      "cuisine": "Japanese",
+      "region": "Osaka",
+      "format": "noodles",
+      "protein": "tofu",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 30,
+      "effort": "low",
+      "familiarity": 2,
+      "traditionalDiet": "pescatarian",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "udon noodles",
+        "aburaage",
+        "dashi",
+        "soy sauce",
+        "mirin",
+        "sugar",
+        "scallions"
+      ],
+      "specialtyIngredients": [
+        "aburaage",
+        "kombu"
+      ],
+      "veganApproach": "Use kombu-shiitake dashi for both the soup and the sweet simmering liquid for the fried tofu.",
+      "technique": "Fried tofu pouches are simmered in sweetened soy and dashi until they soak up the liquid, then laid over udon in hot broth.",
+      "seasons": [
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "comfort"
+      ],
+      "sources": [
+        {
+          "title": "Kitsune Udon - Just One Cookbook",
+          "url": "https://www.justonecookbook.com/kitsune-udon/"
+        },
+        {
+          "title": "Udon - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Udon"
+        },
+        {
+          "title": "Vegetarian Udon - Just One Cookbook",
+          "url": "https://www.justonecookbook.com/vegetarian-udon/"
+        }
+      ]
+    },
+    {
+      "key": "hiyashi-chuka",
+      "name": "Hiyashi chuka",
+      "nameEn": "Japanese cold ramen salad",
+      "aliases": [
+        "cold ramen",
+        "hiyashi chūka"
+      ],
+      "tiles": [
+        "Japanese",
+        "Fresh & light"
+      ],
+      "cuisine": "Japanese",
+      "region": "Sendai",
+      "format": "noodles",
+      "protein": "tofu",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 25,
+      "effort": "low",
+      "familiarity": 2,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegetarian",
+        "vegan"
+      ],
+      "keyIngredients": [
+        "ramen noodles",
+        "egg",
+        "ham",
+        "cucumber",
+        "tomato",
+        "soy sauce",
+        "rice vinegar",
+        "sesame oil",
+        "sugar"
+      ],
+      "specialtyIngredients": [],
+      "veganApproach": "Skip the ham, imitation crab and egg strips and top with tofu or vegan ham; vegetarians can keep the thin egg omelette.",
+      "technique": "Noodles are boiled, chilled in ice water and topped with neatly julienned toppings, then dressed with a tangy soy-vinegar or sesame sauce.",
+      "seasons": [
+        "summer"
+      ],
+      "occasions": [
+        "everyday",
+        "quick"
+      ],
+      "sources": [
+        {
+          "title": "Hiyashi Chuka (Cold Ramen) - Just One Cookbook",
+          "url": "https://www.justonecookbook.com/hiyashi-chuka-cold-ramen/"
+        },
+        {
+          "title": "Vegan Hiyashi Chuka (Cold Ramen) - Okonomi Kitchen",
+          "url": "https://www.okonomikitchen.com/vegan-hiyashi-chuka/"
+        }
+      ]
+    },
+    {
+      "key": "hiyashi-somen",
+      "name": "Hiyashi somen",
+      "nameEn": "Chilled somen noodles",
+      "aliases": [
+        "somen",
+        "sōmen",
+        "cold somen"
+      ],
+      "tiles": [
+        "Japanese",
+        "Fresh & light"
+      ],
+      "cuisine": "Japanese",
+      "region": "Nationwide",
+      "format": "noodles",
+      "protein": "grains",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 15,
+      "effort": "low",
+      "familiarity": 2,
+      "traditionalDiet": "pescatarian",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "somen noodles",
+        "tsuyu",
+        "dashi",
+        "soy sauce",
+        "mirin",
+        "scallions",
+        "ginger",
+        "shiso"
+      ],
+      "specialtyIngredients": [
+        "shiso",
+        "kombu"
+      ],
+      "veganApproach": "Make the tsuyu with kombu dashi, which turns this simple summer dish fully plant-based.",
+      "technique": "Very thin wheat noodles cook in a minute, are rinsed in cold water and served on ice with a concentrated dipping sauce.",
+      "seasons": [
+        "summer"
+      ],
+      "occasions": [
+        "everyday",
+        "quick"
+      ],
+      "sources": [
+        {
+          "title": "Sōmen - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/S%C5%8Dmen"
+        },
+        {
+          "title": "Japanese Cold Somen Noodles - Just One Cookbook",
+          "url": "https://www.justonecookbook.com/somen/"
+        },
+        {
+          "title": "Somen (Japanese Cold Noodles) - RecipeTin Japan",
+          "url": "https://japan.recipetineats.com/somen-japanese-cold-noodles/"
+        }
+      ]
+    },
+    {
+      "key": "katsudon",
+      "name": "Katsudon",
+      "nameEn": "Cutlet and egg rice bowl",
+      "aliases": [
+        "katsu don",
+        "tofu katsudon"
+      ],
+      "tiles": [
+        "Japanese",
+        "American"
+      ],
+      "cuisine": "Japanese",
+      "region": "Tokyo",
+      "format": "bowl",
+      "protein": "tofu",
+      "method": "deep_fry",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 45,
+      "effort": "medium",
+      "familiarity": 2,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegetarian",
+        "vegan"
+      ],
+      "keyIngredients": [
+        "pork cutlet",
+        "panko",
+        "eggs",
+        "onion",
+        "dashi",
+        "soy sauce",
+        "mirin",
+        "short-grain rice"
+      ],
+      "specialtyIngredients": [
+        "kombu"
+      ],
+      "veganApproach": "Use a panko-crusted tofu cutlet simmered in kombu-dashi broth with a silken tofu scramble in place of egg; vegetarians can keep the egg.",
+      "technique": "A fried cutlet is simmered briefly with onions in sweet dashi, bound with lightly beaten egg and slid over rice.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "comfort",
+        "everyday"
+      ],
+      "sources": [
+        {
+          "title": "Katsudon - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Katsudon"
+        },
+        {
+          "title": "Japanese-Style Katsudon Rice Bowls (Vegan) - The Foodie Takes Flight",
+          "url": "https://thefoodietakesflight.com/japanese-style-katsudon-rice-bowls-vegan-recipe/"
+        }
+      ]
+    },
+    {
+      "key": "gyudon",
+      "name": "Gyudon",
+      "nameEn": "Simmered beef rice bowl",
+      "aliases": [
+        "gyūdon",
+        "beef bowl",
+        "maitake don"
+      ],
+      "tiles": [
+        "Japanese"
+      ],
+      "cuisine": "Japanese",
+      "region": "Tokyo",
+      "format": "bowl",
+      "protein": "mushrooms",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 25,
+      "effort": "low",
+      "familiarity": 2,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "thinly sliced beef",
+        "onion",
+        "dashi",
+        "soy sauce",
+        "mirin",
+        "sake",
+        "sugar",
+        "short-grain rice",
+        "beni shoga"
+      ],
+      "specialtyIngredients": [
+        "beni shoga"
+      ],
+      "veganApproach": "Thin strips of maitake mushroom or rehydrated soy curls stand in for the beef, simmered in a sweet soy and kombu-dashi broth.",
+      "technique": "Thin slices are simmered quickly with onion in a sweet soy-dashi broth and spooned over rice with their juices.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "quick",
+        "comfort"
+      ],
+      "sources": [
+        {
+          "title": "Gyūdon - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Gy%C5%ABdon"
+        },
+        {
+          "title": "Vegan Gyudon - Pickled Plum",
+          "url": "https://pickledplum.com/vegan-gyudon/"
+        },
+        {
+          "title": "Maitake Gyu-don Style - Plant-Based Matters",
+          "url": "https://plantbasedmatters.net/maitake-gyu-don-style/"
+        }
+      ]
+    },
+    {
+      "key": "oyakodon",
+      "name": "Oyakodon",
+      "nameEn": "Chicken and egg rice bowl",
+      "aliases": [
+        "oyako don",
+        "tofu oyakodon"
+      ],
+      "tiles": [
+        "Japanese"
+      ],
+      "cuisine": "Japanese",
+      "region": "Tokyo",
+      "format": "bowl",
+      "protein": "tofu",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 25,
+      "effort": "low",
+      "familiarity": 2,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegetarian",
+        "vegan"
+      ],
+      "keyIngredients": [
+        "chicken thigh",
+        "eggs",
+        "onion",
+        "dashi",
+        "soy sauce",
+        "mirin",
+        "mitsuba",
+        "short-grain rice"
+      ],
+      "specialtyIngredients": [
+        "mitsuba"
+      ],
+      "veganApproach": "Fried tofu replaces the chicken and a soft silken-tofu scramble mimics the egg; vegetarians can pair tofu with real eggs.",
+      "technique": "Chicken and onion are simmered in sweet dashi, then beaten eggs are poured over and cooked just until softly set.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "quick",
+        "comfort"
+      ],
+      "sources": [
+        {
+          "title": "Oyakodon - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Oyakodon"
+        },
+        {
+          "title": "Vegan Tofu Oyakodon - Shinagawa Japanese Cooking",
+          "url": "https://www.shinagawa-japanese-cooking.com/post/vegan-tofu-oyakodon"
+        },
+        {
+          "title": "Vegetarian Tofu Oyakodon - Shinagawa Japanese Cooking",
+          "url": "https://www.shinagawa-japanese-cooking.com/post/vegetarian-tofu-oyakodon-japanese-rice-bowl-recipe"
+        }
+      ]
+    },
+    {
+      "key": "tendon",
+      "name": "Tendon",
+      "nameEn": "Tempura rice bowl",
+      "aliases": [
+        "ten don",
+        "tempura donburi"
+      ],
+      "tiles": [
+        "Japanese"
+      ],
+      "cuisine": "Japanese",
+      "region": "Tokyo",
+      "format": "bowl",
+      "protein": "vegetables",
+      "method": "deep_fry",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 45,
+      "effort": "medium",
+      "familiarity": 2,
+      "traditionalDiet": "pescatarian",
+      "versions": [
+        "vegan",
+        "pescatarian"
+      ],
+      "keyIngredients": [
+        "short-grain rice",
+        "shrimp tempura",
+        "vegetable tempura",
+        "dashi",
+        "soy sauce",
+        "mirin",
+        "sugar"
+      ],
+      "specialtyIngredients": [
+        "kombu"
+      ],
+      "veganApproach": "Top the rice with eggless vegetable tempura and drizzle with a sweet sauce built on kombu-shiitake dashi.",
+      "technique": "Freshly fried tempura is briefly dipped in a thick, sweet soy-mirin sauce and piled over hot rice.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "comfort",
+        "hosting"
+      ],
+      "sources": [
+        {
+          "title": "Ten Don (Tempura Rice Bowl) - Just One Cookbook",
+          "url": "https://www.justonecookbook.com/ten-don/"
+        },
+        {
+          "title": "Tempura Donburi - Sudachi",
+          "url": "https://sudachirecipes.com/tempura-donburi/"
+        }
+      ]
+    },
+    {
+      "key": "unadon",
+      "name": "Unadon",
+      "nameEn": "Grilled eel rice bowl",
+      "aliases": [
+        "unagi don",
+        "unagi no kabayaki don",
+        "eggplant unagi"
+      ],
+      "tiles": [
+        "Japanese"
+      ],
+      "cuisine": "Japanese",
+      "region": "Tokyo (Edo)",
+      "format": "bowl",
+      "protein": "vegetables",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 30,
+      "effort": "medium",
+      "familiarity": 2,
+      "traditionalDiet": "pescatarian",
+      "versions": [
+        "pescatarian",
+        "vegan"
+      ],
+      "keyIngredients": [
+        "eel",
+        "tare sauce",
+        "soy sauce",
+        "mirin",
+        "sake",
+        "sugar",
+        "short-grain rice",
+        "sansho pepper"
+      ],
+      "specialtyIngredients": [
+        "unagi",
+        "sansho pepper"
+      ],
+      "veganApproach": "Pan-fried or grilled eggplant (or tofu-and-nori 'eel') is glazed with the same sweet soy-mirin kabayaki sauce.",
+      "technique": "Eel fillets are grilled and basted repeatedly with a thick sweet soy tare, then laid over rice.",
+      "seasons": [
+        "summer"
+      ],
+      "occasions": [
+        "date",
+        "hosting"
+      ],
+      "sources": [
+        {
+          "title": "Unadon - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Unadon"
+        },
+        {
+          "title": "Vegan Unagi Don - Okonomi Kitchen",
+          "url": "https://www.okonomikitchen.com/vegan-unagi-don/"
+        },
+        {
+          "title": "Vegan Unagi Don - No Recipes",
+          "url": "https://norecipes.com/vegan-unagi-don/"
+        }
+      ]
+    },
+    {
+      "key": "sukiyaki",
+      "name": "Sukiyaki",
+      "nameEn": "Sweet soy hot pot",
+      "aliases": [
+        "kanto-style sukiyaki",
+        "kansai-style sukiyaki"
+      ],
+      "tiles": [
+        "Japanese"
+      ],
+      "cuisine": "Japanese",
+      "region": "Nationwide",
+      "format": "stew",
+      "protein": "tofu",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 40,
+      "effort": "medium",
+      "familiarity": 2,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegetarian",
+        "vegan"
+      ],
+      "keyIngredients": [
+        "thinly sliced beef",
+        "tofu",
+        "napa cabbage",
+        "shiitake",
+        "enoki",
+        "shungiku",
+        "shirataki",
+        "soy sauce",
+        "sugar",
+        "raw egg"
+      ],
+      "specialtyIngredients": [
+        "shirataki",
+        "shungiku",
+        "enoki"
+      ],
+      "veganApproach": "Leave out the beef and pile in tofu, mushrooms and yuba in the sweet soy warishita; vegetarians may keep the raw egg dip.",
+      "technique": "Ingredients are simmered at the table in a shallow iron pot with a sweet soy-mirin sauce and dipped in beaten raw egg.",
+      "seasons": [
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "hosting",
+        "comfort",
+        "date"
+      ],
+      "sources": [
+        {
+          "title": "Sukiyaki - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Sukiyaki"
+        },
+        {
+          "title": "Vegan Sukiyaki - Rhian's Recipes",
+          "url": "https://www.rhiansrecipes.com/vegan-sukiyaki-gf/"
+        },
+        {
+          "title": "Sukiyaki Recipe - Honest Food Talks",
+          "url": "https://www.honestfoodtalks.com/sukiyaki-recipe/"
+        }
+      ]
+    },
+    {
+      "key": "shabu-shabu",
+      "name": "Shabu-shabu",
+      "nameEn": "Swish-swish kombu hot pot",
+      "aliases": [
+        "shabushabu",
+        "vegetable shabu-shabu"
+      ],
+      "tiles": [
+        "Japanese",
+        "Fresh & light"
+      ],
+      "cuisine": "Japanese",
+      "region": "Osaka",
+      "format": "soup",
+      "protein": "tofu",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 30,
+      "effort": "low",
+      "familiarity": 2,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "thinly sliced beef",
+        "kombu",
+        "napa cabbage",
+        "tofu",
+        "shiitake",
+        "enoki",
+        "shungiku",
+        "ponzu",
+        "sesame sauce"
+      ],
+      "specialtyIngredients": [
+        "kombu",
+        "ponzu",
+        "shungiku"
+      ],
+      "veganApproach": "Cook only tofu, mushrooms, vegetables and noodles in the kombu broth and serve with ponzu and a sesame dip.",
+      "technique": "Diners swish paper-thin slices and vegetables through a gently simmering kombu broth and dip them in ponzu or sesame sauce.",
+      "seasons": [
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "hosting",
+        "date"
+      ],
+      "sources": [
+        {
+          "title": "Shabu-shabu - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Shabushabu"
+        },
+        {
+          "title": "Vegetable Shabu-Shabu in Kombu-Ginger Broth - NYT Cooking",
+          "url": "https://cooking.nytimes.com/recipes/1019507-vegetable-shabu-shabu-in-kombu-ginger-broth"
+        },
+        {
+          "title": "Shabu Shabu - Veganuary",
+          "url": "https://veganuary.com/recipes/shabu-shabu/"
+        }
+      ]
+    },
+    {
+      "key": "oden",
+      "name": "Oden",
+      "nameEn": "Dashi-simmered hot pot",
+      "aliases": [
+        "kanto-daki",
+        "vegan oden"
+      ],
+      "tiles": [
+        "Japanese"
+      ],
+      "cuisine": "Japanese",
+      "region": "Tokyo (Kanto)",
+      "format": "stew",
+      "protein": "tofu",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 90,
+      "effort": "medium",
+      "familiarity": 2,
+      "traditionalDiet": "pescatarian",
+      "versions": [
+        "vegan",
+        "vegetarian",
+        "pescatarian"
+      ],
+      "keyIngredients": [
+        "daikon",
+        "boiled eggs",
+        "konnyaku",
+        "fish cakes",
+        "atsuage",
+        "kombu",
+        "dashi",
+        "soy sauce",
+        "karashi mustard"
+      ],
+      "specialtyIngredients": [
+        "konnyaku",
+        "chikuwa",
+        "karashi"
+      ],
+      "veganApproach": "Simmer daikon, konnyaku, fried tofu, potatoes and kombu knots in kombu-shiitake dashi and skip the fish cakes; vegetarians can add boiled eggs.",
+      "technique": "Ingredients are simmered slowly for hours in a light soy-seasoned dashi until they absorb the broth.",
+      "seasons": [
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "comfort",
+        "mealprep"
+      ],
+      "sources": [
+        {
+          "title": "Oden - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Oden"
+        },
+        {
+          "title": "Vegan Oden - Paqupel Japan",
+          "url": "https://paqupeljapan.com/recipes/vegan-oden"
+        }
+      ]
+    },
+    {
+      "key": "omurice",
+      "name": "Omurice",
+      "nameEn": "Omelette-wrapped ketchup rice",
+      "aliases": [
+        "omu-raisu",
+        "omelette rice"
+      ],
+      "tiles": [
+        "Japanese",
+        "American"
+      ],
+      "cuisine": "Japanese",
+      "region": "Tokyo",
+      "format": "egg_dish",
+      "protein": "tofu",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 30,
+      "effort": "medium",
+      "familiarity": 2,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegetarian",
+        "vegan"
+      ],
+      "keyIngredients": [
+        "short-grain rice",
+        "chicken thigh",
+        "onion",
+        "ketchup",
+        "eggs",
+        "butter",
+        "peas"
+      ],
+      "specialtyIngredients": [],
+      "veganApproach": "Make the ketchup rice with mushrooms instead of chicken and wrap it in a silken tofu or chickpea-flour omelette; vegetarians keep real eggs.",
+      "technique": "Ketchup-fried rice is wrapped in or topped with a thin, soft omelette and finished with more ketchup or demi-glace.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "comfort"
+      ],
+      "sources": [
+        {
+          "title": "Omurice - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Omurice"
+        },
+        {
+          "title": "Vegan Omurice - Veggie Anh",
+          "url": "https://veggieanh.com/vegan-omurice/"
+        }
+      ]
+    },
+    {
+      "key": "korokke",
+      "name": "Korokke",
+      "nameEn": "Japanese potato croquettes",
+      "aliases": [
+        "japanese croquettes",
+        "potato korokke"
+      ],
+      "tiles": [
+        "Japanese",
+        "American"
+      ],
+      "cuisine": "Japanese",
+      "region": "Nationwide",
+      "format": "fritters",
+      "protein": "vegetables",
+      "method": "deep_fry",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 60,
+      "effort": "medium",
+      "familiarity": 2,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegetarian",
+        "vegan"
+      ],
+      "keyIngredients": [
+        "potatoes",
+        "ground beef",
+        "onion",
+        "flour",
+        "eggs",
+        "panko",
+        "tonkatsu sauce"
+      ],
+      "specialtyIngredients": [
+        "tonkatsu sauce"
+      ],
+      "veganApproach": "Mash the potatoes with sautéed onion and mushrooms or soy mince, and bread them with a flour-and-water slurry and panko instead of egg.",
+      "technique": "Seasoned mashed potato patties are breaded and deep-fried until crisp outside and fluffy within.",
+      "seasons": [
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "comfort",
+        "mealprep"
+      ],
+      "sources": [
+        {
+          "title": "Korokke - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Korokke"
+        },
+        {
+          "title": "Vegetable Korokke - Japanese Cooking 101",
+          "url": "https://japanesecooking101.com/vegetable-korokke-recipe/"
+        },
+        {
+          "title": "Japanese Croquettes (Korokke) - Vegan Japanese",
+          "url": "https://veganjapanese.com/japanese-croquettes-korokke/"
+        }
+      ]
+    },
+    {
+      "key": "hambagu",
+      "name": "Hambagu",
+      "nameEn": "Japanese hamburger steak",
+      "aliases": [
+        "hanbāgu",
+        "hamburg steak",
+        "tofu hambagu"
+      ],
+      "tiles": [
+        "Japanese",
+        "American"
+      ],
+      "cuisine": "Japanese",
+      "region": "Nationwide",
+      "format": "other",
+      "protein": "tofu",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 40,
+      "effort": "medium",
+      "familiarity": 2,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "ground beef and pork",
+        "onion",
+        "panko",
+        "milk",
+        "egg",
+        "ketchup",
+        "worcestershire sauce",
+        "red wine"
+      ],
+      "specialtyIngredients": [],
+      "veganApproach": "Patties are made from pressed tofu, mushrooms and panko bound with starch, then glazed with a ketchup and Worcestershire sauce.",
+      "technique": "Juicy patties are seared, steamed under a lid to cook through and finished with a pan sauce of ketchup and Worcestershire.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "comfort"
+      ],
+      "sources": [
+        {
+          "title": "Hamburger steak - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Hamburger_steak"
+        },
+        {
+          "title": "Vegan Japanese Tofu Hamburger Steak - Veg in Vegan Vegun",
+          "url": "https://veginveganvegun.com/en/vegan-japanese-tofu-hamburger-steak/"
+        },
+        {
+          "title": "Tofu Burger Patties - Pickled Plum",
+          "url": "https://pickledplum.com/tofu-burger-patties/"
+        }
+      ]
+    },
+    {
+      "key": "naporitan",
+      "name": "Naporitan",
+      "nameEn": "Spaghetti Napolitan",
+      "aliases": [
+        "napolitan",
+        "ketchup spaghetti"
+      ],
+      "tiles": [
+        "Japanese",
+        "American"
+      ],
+      "cuisine": "Japanese",
+      "region": "Yokohama",
+      "format": "pasta",
+      "protein": "mushrooms",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 25,
+      "effort": "low",
+      "familiarity": 2,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegetarian",
+        "vegan"
+      ],
+      "keyIngredients": [
+        "spaghetti",
+        "ketchup",
+        "sausage",
+        "onion",
+        "green bell pepper",
+        "mushrooms",
+        "butter",
+        "parmesan"
+      ],
+      "specialtyIngredients": [],
+      "veganApproach": "Swap the sausage for mushrooms or plant-based sausage and use vegan butter; vegetarians can finish with parmesan.",
+      "technique": "Soft-cooked spaghetti is stir-fried with vegetables and sausage in butter, then coated in reduced ketchup.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "quick",
+        "comfort"
+      ],
+      "sources": [
+        {
+          "title": "Naporitan - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Naporitan"
+        },
+        {
+          "title": "Napolitan (Ketchup Spaghetti) - Okonomi Kitchen",
+          "url": "https://www.okonomikitchen.com/napolitan-ketchup-spaghetti/"
+        },
+        {
+          "title": "Vegan Spaghetti Napolitan - Plant-Based Matters",
+          "url": "https://plantbasedmatters.net/vegan-spaghetti-napolitan/"
+        }
+      ]
+    },
+    {
+      "key": "inari-zushi",
+      "name": "Inari-zushi",
+      "nameEn": "Sushi rice in sweet fried tofu pouches",
+      "aliases": [
+        "inarizushi",
+        "inari sushi",
+        "inari"
+      ],
+      "tiles": [
+        "Japanese"
+      ],
+      "cuisine": "Japanese",
+      "region": "Nationwide",
+      "format": "stuffed",
+      "protein": "tofu",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 50,
+      "effort": "medium",
+      "familiarity": 2,
+      "traditionalDiet": "pescatarian",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "sushi rice",
+        "aburaage",
+        "dashi",
+        "soy sauce",
+        "mirin",
+        "sugar",
+        "rice vinegar",
+        "sesame seeds"
+      ],
+      "specialtyIngredients": [
+        "aburaage"
+      ],
+      "veganApproach": "Simmer the tofu pouches in kombu dashi instead of bonito dashi and the dish becomes fully vegan.",
+      "technique": "Fried tofu pouches are simmered in sweet soy until saturated, then stuffed with vinegared rice.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "mealprep",
+        "hosting"
+      ],
+      "sources": [
+        {
+          "title": "Inarizushi - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Inarizushi"
+        },
+        {
+          "title": "Inari Sushi - Just One Cookbook",
+          "url": "https://www.justonecookbook.com/inarizushi/"
+        }
+      ]
+    },
+    {
+      "key": "chirashi-zushi",
+      "name": "Chirashi-zushi",
+      "nameEn": "Scattered sushi rice",
+      "aliases": [
+        "chirashi",
+        "chirashizushi",
+        "barazushi"
+      ],
+      "tiles": [
+        "Japanese"
+      ],
+      "cuisine": "Japanese",
+      "region": "Nationwide",
+      "format": "rice_dish",
+      "protein": "mushrooms",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 60,
+      "effort": "medium",
+      "familiarity": 2,
+      "traditionalDiet": "pescatarian",
+      "versions": [
+        "vegan",
+        "vegetarian",
+        "pescatarian"
+      ],
+      "keyIngredients": [
+        "sushi rice",
+        "sashimi",
+        "shiitake",
+        "carrot",
+        "lotus root",
+        "snow peas",
+        "kinshi tamago",
+        "nori",
+        "ikura"
+      ],
+      "specialtyIngredients": [
+        "lotus root",
+        "kanpyo"
+      ],
+      "veganApproach": "Scatter the rice with shiitake, kanpyo, lotus root and vegetables simmered in kombu dashi; vegetarians add thin egg-crepe ribbons.",
+      "technique": "Vinegared rice is mixed with simmered vegetables and generously scattered with colorful toppings.",
+      "seasons": [
+        "spring"
+      ],
+      "occasions": [
+        "hosting"
+      ],
+      "sources": [
+        {
+          "title": "Chirashi Sushi - Just One Cookbook",
+          "url": "https://www.justonecookbook.com/chirashi-sushi/"
+        },
+        {
+          "title": "Vegan Chirashi-zushi - Hiroko Liston",
+          "url": "https://www.hirokoliston.com/vegan-chirashi-zushi/"
+        },
+        {
+          "title": "Chirashi-sushi - Kikkoman Washoku",
+          "url": "https://www.kikkoman.com/en/cookbook/washoku/chirashisushi.html"
+        }
+      ]
+    },
+    {
+      "key": "temaki-zushi",
+      "name": "Temaki-zushi",
+      "nameEn": "Hand-rolled sushi cones",
+      "aliases": [
+        "temaki",
+        "hand roll",
+        "temaki party"
+      ],
+      "tiles": [
+        "Japanese",
+        "Fresh & light"
+      ],
+      "cuisine": "Japanese",
+      "region": "Nationwide",
+      "format": "wrap",
+      "protein": "vegetables",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 45,
+      "effort": "low",
+      "familiarity": 2,
+      "traditionalDiet": "pescatarian",
+      "versions": [
+        "vegan",
+        "pescatarian"
+      ],
+      "keyIngredients": [
+        "sushi rice",
+        "nori",
+        "raw tuna",
+        "salmon",
+        "cucumber",
+        "avocado",
+        "shiso",
+        "tamagoyaki"
+      ],
+      "specialtyIngredients": [
+        "nori",
+        "shiso"
+      ],
+      "veganApproach": "Set out avocado, cucumber, pickles, tofu and marinated mushrooms so everyone rolls plant-based cones.",
+      "technique": "Diners roll seasoned rice and fillings in nori into cones at the table, eating them while the seaweed is still crisp.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "hosting",
+        "date"
+      ],
+      "sources": [
+        {
+          "title": "Temaki Sushi (Hand Roll) - Just One Cookbook",
+          "url": "https://www.justonecookbook.com/temaki-sushi-hand-roll/"
+        },
+        {
+          "title": "Vegan Sushi Rolls - World of Vegan",
+          "url": "https://www.worldofvegan.com/vegan-sushi-rolls/"
+        }
+      ]
+    },
+    {
+      "key": "nikujaga",
+      "name": "Nikujaga",
+      "nameEn": "Japanese meat and potato stew",
+      "aliases": [
+        "niku jaga",
+        "vegan nikujaga"
+      ],
+      "tiles": [
+        "Japanese"
+      ],
+      "cuisine": "Japanese",
+      "region": "Nationwide",
+      "format": "stew",
+      "protein": "vegetables",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 40,
+      "effort": "low",
+      "familiarity": 2,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "potatoes",
+        "thinly sliced beef",
+        "onion",
+        "carrot",
+        "shirataki",
+        "dashi",
+        "soy sauce",
+        "mirin",
+        "sugar"
+      ],
+      "specialtyIngredients": [
+        "shirataki"
+      ],
+      "veganApproach": "Drop the beef in favor of fried tofu, soy curls or mushrooms and simmer everything in kombu-shiitake dashi.",
+      "technique": "Potatoes and meat are simmered under a drop lid in a sweet soy dashi until tender and glazed.",
+      "seasons": [
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "comfort",
+        "mealprep"
+      ],
+      "sources": [
+        {
+          "title": "Nikujaga - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Nikujaga"
+        },
+        {
+          "title": "Vegan Nikujaga - Just Hungry",
+          "url": "https://justhungry.com/vegan-nikujaga-making-japanese-recipes-vegan"
+        },
+        {
+          "title": "Vegan Nikujaga - La Fuji Mama",
+          "url": "https://www.lafujimama.com/vegan-nikujaga/"
+        }
+      ]
+    },
+    {
+      "key": "gindara-saikyo-yaki",
+      "name": "Gindara saikyo-yaki",
+      "nameEn": "Miso-marinated black cod",
+      "aliases": [
+        "saikyo yaki",
+        "miso cod",
+        "black cod with miso"
+      ],
+      "tiles": [
+        "Japanese"
+      ],
+      "cuisine": "Japanese",
+      "region": "Kyoto",
+      "format": "other",
+      "protein": "fish",
+      "method": "oven",
+      "appliances": [
+        "oven"
+      ],
+      "cookMinutes": 25,
+      "effort": "low",
+      "familiarity": 2,
+      "traditionalDiet": "pescatarian",
+      "versions": [
+        "pescatarian"
+      ],
+      "keyIngredients": [
+        "black cod",
+        "saikyo miso",
+        "mirin",
+        "sake",
+        "salt",
+        "grated daikon"
+      ],
+      "specialtyIngredients": [
+        "saikyo miso",
+        "black cod"
+      ],
+      "veganApproach": null,
+      "technique": "Fish is cured with salt, marinated for two to three days in sweet white miso, then broiled or baked until caramelized.",
+      "seasons": [
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "date",
+        "hosting"
+      ],
+      "sources": [
+        {
+          "title": "Miso Cod (Black Cod with Miso) - Just One Cookbook",
+          "url": "https://www.justonecookbook.com/black-cod-with-miso/"
+        },
+        {
+          "title": "Saikyo Miso Sablefish (Black Cod) - Great British Chefs",
+          "url": "https://www.greatbritishchefs.com/recipes/saikyo-miso-black-cod-recipe"
+        },
+        {
+          "title": "Gindara Saikyo-Yaki - Mizkan Chef",
+          "url": "https://www.mizkanchef.com/en/chef-recipes/gindara-saikyo-yaki/"
+        }
+      ]
+    },
+    {
+      "key": "shiozake",
+      "name": "Shiozake",
+      "nameEn": "Japanese salt-grilled salmon",
+      "aliases": [
+        "shiojake",
+        "sake no shioyaki",
+        "salmon shioyaki"
+      ],
+      "tiles": [
+        "Japanese",
+        "Fresh & light"
+      ],
+      "cuisine": "Japanese",
+      "region": "Nationwide",
+      "format": "other",
+      "protein": "fish",
+      "method": "oven",
+      "appliances": [
+        "oven"
+      ],
+      "cookMinutes": 15,
+      "effort": "low",
+      "familiarity": 2,
+      "traditionalDiet": "pescatarian",
+      "versions": [
+        "pescatarian"
+      ],
+      "keyIngredients": [
+        "salmon fillets",
+        "salt",
+        "sake",
+        "grated daikon",
+        "lemon",
+        "short-grain rice"
+      ],
+      "specialtyIngredients": [],
+      "veganApproach": null,
+      "technique": "Skin-on fillets are salt-cured to firm the flesh and deepen the flavor, then broiled until the skin crisps.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "mealprep"
+      ],
+      "sources": [
+        {
+          "title": "Japanese Salted Salmon (Shiozake) - Just One Cookbook",
+          "url": "https://www.justonecookbook.com/how-to-cook-salmon-salted-salmon/"
+        },
+        {
+          "title": "Japanese Salted Breakfast Salmon (Shiozake) - Sudachi",
+          "url": "https://sudachirecipes.com/japanese-salted-salmon-shiozake/"
+        },
+        {
+          "title": "Salmon Shioyaki - Sunset Magazine",
+          "url": "https://sunset.com/recipe/salmon-shioyaki"
+        }
+      ]
+    },
+    {
+      "key": "curry-udon",
+      "name": "Kare udon",
+      "nameEn": "Curry udon",
+      "aliases": [
+        "curry udon",
+        "karē udon"
+      ],
+      "tiles": [
+        "Japanese",
+        "American"
+      ],
+      "cuisine": "Japanese",
+      "region": "Tokyo",
+      "format": "noodles",
+      "protein": "tofu",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 20,
+      "effort": "low",
+      "familiarity": 3,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "udon noodles",
+        "curry roux",
+        "dashi",
+        "onion",
+        "pork or beef",
+        "aburaage",
+        "scallions"
+      ],
+      "specialtyIngredients": [
+        "japanese curry roux",
+        "aburaage"
+      ],
+      "veganApproach": "Use kombu-shiitake dashi, a dairy-free curry roux and fried tofu or mushrooms in place of meat.",
+      "technique": "Japanese curry is thinned with dashi into a thick, glossy broth that clings to chewy udon.",
+      "seasons": [
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "quick",
+        "comfort"
+      ],
+      "sources": [
+        {
+          "title": "Udon - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Udon"
+        },
+        {
+          "title": "Vegan Curry Udon - Okonomi Kitchen",
+          "url": "https://www.okonomikitchen.com/vegan-curry-udon/"
+        },
+        {
+          "title": "Japanese Curry Udon - The Foodie Takes Flight",
+          "url": "https://thefoodietakesflight.com/japanese-curry-udon/"
+        }
+      ]
+    },
+    {
+      "key": "nabeyaki-udon",
+      "name": "Nabeyaki udon",
+      "nameEn": "Clay-pot udon hot pot",
+      "aliases": [
+        "nabe yaki udon"
+      ],
+      "tiles": [
+        "Japanese"
+      ],
+      "cuisine": "Japanese",
+      "region": "Nationwide",
+      "format": "noodles",
+      "protein": "tofu",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 30,
+      "effort": "medium",
+      "familiarity": 3,
+      "traditionalDiet": "pescatarian",
+      "versions": [
+        "vegan",
+        "vegetarian",
+        "pescatarian"
+      ],
+      "keyIngredients": [
+        "udon noodles",
+        "dashi",
+        "kamaboko",
+        "shrimp tempura",
+        "egg",
+        "aburaage",
+        "shiitake",
+        "negi",
+        "komatsuna"
+      ],
+      "specialtyIngredients": [
+        "kamaboko",
+        "aburaage",
+        "komatsuna"
+      ],
+      "veganApproach": "Use kombu-shiitake dashi, skip the fish cake, egg and shrimp, and top with vegetable tempura and fried tofu; vegetarians can keep the egg.",
+      "technique": "Udon and toppings are simmered in dashi in an individual clay pot, an egg is poached on top and tempura is added at the end.",
+      "seasons": [
+        "winter"
+      ],
+      "occasions": [
+        "comfort"
+      ],
+      "sources": [
+        {
+          "title": "Nabeyaki Udon - Just One Cookbook",
+          "url": "https://www.justonecookbook.com/nabeyaki-udon/"
+        },
+        {
+          "title": "Udon - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Udon"
+        }
+      ]
+    },
+    {
+      "key": "hayashi-rice",
+      "name": "Hayashi raisu",
+      "nameEn": "Hayashi rice (beef and mushroom demi-glace stew)",
+      "aliases": [
+        "hayashi rice",
+        "hashed beef rice"
+      ],
+      "tiles": [
+        "Japanese",
+        "American"
+      ],
+      "cuisine": "Japanese",
+      "region": "Tokyo",
+      "format": "stew",
+      "protein": "mushrooms",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 45,
+      "effort": "medium",
+      "familiarity": 3,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "thinly sliced beef",
+        "onion",
+        "mushrooms",
+        "demi-glace",
+        "tomato paste",
+        "red wine",
+        "butter",
+        "short-grain rice"
+      ],
+      "specialtyIngredients": [],
+      "veganApproach": "Replace the beef with mushrooms and build the demi-glace-style sauce from red wine, tomato and vegetable stock with vegan butter.",
+      "technique": "Caramelized onions, mushrooms and beef are simmered in a tomato and demi-glace sauce and served over rice.",
+      "seasons": [
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "comfort",
+        "mealprep"
+      ],
+      "sources": [
+        {
+          "title": "Hayashi rice - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Hayashi_rice"
+        },
+        {
+          "title": "Vegan Hayashi Rice - Okonomi Kitchen",
+          "url": "https://www.okonomikitchen.com/vegan-hayashi-rice/"
+        }
+      ]
+    },
+    {
+      "key": "doria",
+      "name": "Doria",
+      "nameEn": "Japanese rice gratin",
+      "aliases": [
+        "rice doria",
+        "mushroom doria"
+      ],
+      "tiles": [
+        "Japanese",
+        "American"
+      ],
+      "cuisine": "Japanese",
+      "region": "Yokohama",
+      "format": "bake",
+      "protein": "mushrooms",
+      "method": "oven",
+      "appliances": [
+        "stovetop",
+        "oven"
+      ],
+      "cookMinutes": 45,
+      "effort": "medium",
+      "familiarity": 3,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegetarian",
+        "vegan"
+      ],
+      "keyIngredients": [
+        "short-grain rice",
+        "bechamel",
+        "butter",
+        "milk",
+        "flour",
+        "cheese",
+        "chicken or shrimp",
+        "onion",
+        "mushrooms"
+      ],
+      "specialtyIngredients": [],
+      "veganApproach": "Make the white sauce with plant milk and vegan butter, use mushrooms in the rice and top with vegan cheese; vegetarians keep the dairy.",
+      "technique": "Buttery pilaf is covered in béchamel and cheese and baked until bubbling and browned.",
+      "seasons": [
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "comfort",
+        "hosting"
+      ],
+      "sources": [
+        {
+          "title": "Doria (food) - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Doria_(food)"
+        },
+        {
+          "title": "Mushroom Doria Rice Casserole - No Recipes",
+          "url": "https://norecipes.com/mushroom-doria-rice-casserole/"
+        },
+        {
+          "title": "Seafood Doria - Just One Cookbook",
+          "url": "https://www.justonecookbook.com/seafood-doria/"
+        }
+      ]
+    },
+    {
+      "key": "takikomi-gohan",
+      "name": "Takikomi gohan",
+      "nameEn": "Japanese mixed seasoned rice",
+      "aliases": [
+        "kayaku gohan",
+        "kinoko gohan",
+        "mushroom rice"
+      ],
+      "tiles": [
+        "Japanese"
+      ],
+      "cuisine": "Japanese",
+      "region": "Nationwide",
+      "format": "rice_dish",
+      "protein": "mushrooms",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 60,
+      "effort": "low",
+      "familiarity": 3,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "short-grain rice",
+        "dashi",
+        "soy sauce",
+        "mirin",
+        "shiitake",
+        "carrot",
+        "burdock",
+        "aburaage",
+        "chicken"
+      ],
+      "specialtyIngredients": [
+        "gobo",
+        "aburaage",
+        "kombu"
+      ],
+      "veganApproach": "Cook the rice in kombu-shiitake dashi with mushrooms, root vegetables and fried tofu instead of chicken.",
+      "technique": "Raw rice is cooked together with seasoned dashi and chopped ingredients so every grain absorbs their flavor.",
+      "seasons": [
+        "autumn"
+      ],
+      "occasions": [
+        "everyday",
+        "mealprep"
+      ],
+      "sources": [
+        {
+          "title": "Takikomi Gohan - Just One Cookbook",
+          "url": "https://www.justonecookbook.com/takikomi-gohan/"
+        },
+        {
+          "title": "Vegan Takikomi Gohan - Okonomi Kitchen",
+          "url": "https://www.okonomikitchen.com/vegan-takikomi-gohan/"
+        },
+        {
+          "title": "Japanese Mushroom Rice - Just One Cookbook",
+          "url": "https://www.justonecookbook.com/japanese-mushroom-rice/"
+        }
+      ]
+    },
+    {
+      "key": "ochazuke",
+      "name": "Ochazuke",
+      "nameEn": "Green tea poured over rice",
+      "aliases": [
+        "chazuke",
+        "dashi chazuke",
+        "ume chazuke"
+      ],
+      "tiles": [
+        "Japanese",
+        "Fresh & light"
+      ],
+      "cuisine": "Japanese",
+      "region": "Kyoto",
+      "format": "rice_dish",
+      "protein": "grains",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 10,
+      "effort": "low",
+      "familiarity": 3,
+      "traditionalDiet": "pescatarian",
+      "versions": [
+        "pescatarian",
+        "vegan"
+      ],
+      "keyIngredients": [
+        "cooked rice",
+        "green tea",
+        "dashi",
+        "salted salmon",
+        "nori",
+        "umeboshi",
+        "wasabi",
+        "arare"
+      ],
+      "specialtyIngredients": [
+        "umeboshi",
+        "arare"
+      ],
+      "veganApproach": "Top the rice with umeboshi, nori and pickles and pour over green tea or kombu dashi instead of a fish-based broth.",
+      "technique": "Hot green tea or dashi is poured over a bowl of rice and savory toppings just before eating.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "quick",
+        "comfort"
+      ],
+      "sources": [
+        {
+          "title": "Ochazuke - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Ochazuke"
+        },
+        {
+          "title": "Ochazuke (Green Tea Rice Soup) - Just One Cookbook",
+          "url": "https://www.justonecookbook.com/ochazuke/"
+        }
+      ]
+    },
+    {
+      "key": "yudofu",
+      "name": "Yudofu",
+      "nameEn": "Kombu-simmered hot tofu",
+      "aliases": [
+        "yu dofu",
+        "hot tofu",
+        "tofu hot pot"
+      ],
+      "tiles": [
+        "Japanese",
+        "Fresh & light"
+      ],
+      "cuisine": "Japanese",
+      "region": "Kyoto",
+      "format": "soup",
+      "protein": "tofu",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 20,
+      "effort": "low",
+      "familiarity": 3,
+      "traditionalDiet": "vegan",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "silken tofu",
+        "kombu",
+        "soy sauce",
+        "mirin",
+        "scallions",
+        "yuzu",
+        "shichimi togarashi"
+      ],
+      "specialtyIngredients": [
+        "kombu",
+        "yuzu"
+      ],
+      "veganApproach": "A Kyoto temple dish that is vegan as long as the dipping sauce is made with kombu dashi rather than bonito.",
+      "technique": "Soft tofu is warmed gently in a kombu-scented broth at the table and dipped in a light soy sauce.",
+      "seasons": [
+        "winter"
+      ],
+      "occasions": [
+        "quick",
+        "comfort"
+      ],
+      "sources": [
+        {
+          "title": "Hot Tofu (Yudofu) - Just One Cookbook",
+          "url": "https://www.justonecookbook.com/hot-tofu-yudofu/"
+        },
+        {
+          "title": "Yudofu (Tofu Hot Pot) - RecipeTin Japan",
+          "url": "https://japan.recipetineats.com/yudofu-tofu-hot-pot/"
+        },
+        {
+          "title": "Yudofu (Hot Water Tofu) - Serious Eats",
+          "url": "https://www.seriouseats.com/yudofu-hot-water-tofu-japanese"
+        }
+      ]
+    },
+    {
+      "key": "yosenabe",
+      "name": "Yosenabe",
+      "nameEn": "Seafood and vegetable hot pot",
+      "aliases": [
+        "yose nabe",
+        "japanese hot pot"
+      ],
+      "tiles": [
+        "Japanese"
+      ],
+      "cuisine": "Japanese",
+      "region": "Nationwide",
+      "format": "soup",
+      "protein": "tofu",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 40,
+      "effort": "medium",
+      "familiarity": 3,
+      "traditionalDiet": "pescatarian",
+      "versions": [
+        "pescatarian",
+        "vegan"
+      ],
+      "keyIngredients": [
+        "dashi",
+        "napa cabbage",
+        "white fish fillets",
+        "shrimp",
+        "clams",
+        "tofu",
+        "shiitake",
+        "negi",
+        "soy sauce",
+        "mirin"
+      ],
+      "specialtyIngredients": [
+        "kombu",
+        "shungiku"
+      ],
+      "veganApproach": "Build a kombu-shiitake broth and load it with tofu, mushrooms, napa cabbage and udon instead of seafood.",
+      "technique": "Many ingredients are simmered together in a seasoned dashi in a clay pot at the table.",
+      "seasons": [
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "hosting",
+        "comfort"
+      ],
+      "sources": [
+        {
+          "title": "Yosenabe (Japanese Hot Pot) - Just One Cookbook",
+          "url": "https://www.justonecookbook.com/yosenabe/"
+        },
+        {
+          "title": "Yosenabe (Japanese Hot Pot) - RecipeTin Japan",
+          "url": "https://japan.recipetineats.com/yosenabe-japanese-hot-pot/"
+        }
+      ]
+    },
+    {
+      "key": "kenchin-jiru",
+      "name": "Kenchin-jiru",
+      "nameEn": "Buddhist temple vegetable and tofu soup",
+      "aliases": [
+        "kenchinjiru",
+        "kenchin soup"
+      ],
+      "tiles": [
+        "Japanese"
+      ],
+      "cuisine": "Japanese",
+      "region": "Kamakura",
+      "format": "soup",
+      "protein": "tofu",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 40,
+      "effort": "low",
+      "familiarity": 3,
+      "traditionalDiet": "vegan",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "firm tofu",
+        "daikon",
+        "carrot",
+        "burdock",
+        "taro",
+        "konnyaku",
+        "shiitake",
+        "kombu dashi",
+        "soy sauce",
+        "sesame oil"
+      ],
+      "specialtyIngredients": [
+        "gobo",
+        "satoimo",
+        "konnyaku"
+      ],
+      "veganApproach": "A shojin ryori temple soup that is vegan when made with kombu-shiitake dashi, as tradition intends.",
+      "technique": "Root vegetables and crumbled tofu are stir-fried in sesame oil, then simmered in dashi seasoned with soy sauce.",
+      "seasons": [
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "comfort",
+        "mealprep"
+      ],
+      "sources": [
+        {
+          "title": "Kenchin-jiru - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Kenchin-jiru"
+        },
+        {
+          "title": "Kenchinjiru - Just One Cookbook",
+          "url": "https://www.justonecookbook.com/kenchinjiru/"
+        },
+        {
+          "title": "Kenchinjiru, Japanese Zen Buddhist Vegetable Soup - Just Hungry",
+          "url": "https://www.justhungry.com/kenchinjiru-japanese-zen-buddhist-vegetable-soup"
+        }
+      ]
+    },
+    {
+      "key": "ganmodoki",
+      "name": "Ganmodoki",
+      "nameEn": "Fried tofu and vegetable patties",
+      "aliases": [
+        "ganmo",
+        "hiryozu"
+      ],
+      "tiles": [
+        "Japanese"
+      ],
+      "cuisine": "Japanese",
+      "region": "Kyoto",
+      "format": "fritters",
+      "protein": "tofu",
+      "method": "deep_fry",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 45,
+      "effort": "medium",
+      "familiarity": 3,
+      "traditionalDiet": "vegetarian",
+      "versions": [
+        "vegetarian",
+        "vegan"
+      ],
+      "keyIngredients": [
+        "firm tofu",
+        "nagaimo",
+        "egg",
+        "carrot",
+        "hijiki",
+        "edamame",
+        "potato starch",
+        "ginger",
+        "soy sauce"
+      ],
+      "specialtyIngredients": [
+        "nagaimo",
+        "hijiki"
+      ],
+      "veganApproach": "Bind the mashed tofu with grated nagaimo and starch instead of egg.",
+      "technique": "Drained tofu is mashed with vegetables and seaweed, shaped into patties and deep-fried, then often simmered in dashi.",
+      "seasons": [
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "comfort",
+        "mealprep"
+      ],
+      "sources": [
+        {
+          "title": "Ganmodoki - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Ganmodoki"
+        },
+        {
+          "title": "Ganmodoki - Just One Cookbook",
+          "url": "https://www.justonecookbook.com/ganmodoki/"
+        },
+        {
+          "title": "Fried Tofu Patties (Ganmodoki) - RecipeTin Japan",
+          "url": "https://japan.recipetineats.com/fried-tofu-patties-ganmodoki/"
+        }
+      ]
+    },
+    {
+      "key": "goya-champuru",
+      "name": "Goya champuru",
+      "nameEn": "Okinawan bitter melon and tofu stir-fry",
+      "aliases": [
+        "goya chanpuru",
+        "champuru"
+      ],
+      "tiles": [
+        "Japanese"
+      ],
+      "cuisine": "Japanese",
+      "region": "Okinawa",
+      "format": "stir_fry",
+      "protein": "tofu",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 20,
+      "effort": "low",
+      "familiarity": 3,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegetarian",
+        "vegan"
+      ],
+      "keyIngredients": [
+        "bitter melon",
+        "firm tofu",
+        "pork belly or spam",
+        "eggs",
+        "soy sauce",
+        "katsuobushi",
+        "sesame oil"
+      ],
+      "specialtyIngredients": [
+        "goya"
+      ],
+      "veganApproach": "Skip the pork, egg and bonito, using extra tofu and a splash of soy sauce and kombu dashi; vegetarians can keep the egg.",
+      "technique": "Salted bitter melon is stir-fried with tofu and pork and bound at the end with beaten egg.",
+      "seasons": [
+        "summer"
+      ],
+      "occasions": [
+        "everyday",
+        "quick"
+      ],
+      "sources": [
+        {
+          "title": "Goya champuru - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Goya_champuru"
+        },
+        {
+          "title": "Goya Champuru - MAFF Japan",
+          "url": "https://www.maff.go.jp/e/policies/market/k_ryouri/search_menu/3951/index.html"
+        },
+        {
+          "title": "Goya Chanpuru - Shrine Kitchen",
+          "url": "https://shrinekitchen.com/goya-chanpuru/"
+        }
+      ]
+    },
+    {
+      "key": "saba-misoni",
+      "name": "Saba no misoni",
+      "nameEn": "Mackerel simmered in miso",
+      "aliases": [
+        "saba misoni",
+        "saba miso"
+      ],
+      "tiles": [
+        "Japanese"
+      ],
+      "cuisine": "Japanese",
+      "region": "Nationwide",
+      "format": "other",
+      "protein": "fish",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 25,
+      "effort": "low",
+      "familiarity": 3,
+      "traditionalDiet": "pescatarian",
+      "versions": [
+        "pescatarian"
+      ],
+      "keyIngredients": [
+        "mackerel",
+        "miso",
+        "ginger",
+        "sake",
+        "mirin",
+        "sugar",
+        "scallions"
+      ],
+      "specialtyIngredients": [],
+      "veganApproach": null,
+      "technique": "Mackerel is simmered under a drop lid with ginger in sake and water, then miso is dissolved in and the sauce reduced to a glaze.",
+      "seasons": [
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "quick"
+      ],
+      "sources": [
+        {
+          "title": "Saba Misoni (Simmered Mackerel in Miso Sauce) - Just One Cookbook",
+          "url": "https://www.justonecookbook.com/saba-misoni-simmered-mackerel-in-miso-sauce/"
+        },
+        {
+          "title": "Simmered Mackerel in Miso - RecipeTin Japan",
+          "url": "https://japan.recipetineats.com/simmered-mackerel-in-miso/"
+        }
+      ]
+    },
+    {
+      "key": "mentaiko-pasta",
+      "name": "Mentaiko pasuta",
+      "nameEn": "Spicy cod roe spaghetti",
+      "aliases": [
+        "mentaiko pasta",
+        "mentaiko spaghetti",
+        "tarako pasta"
+      ],
+      "tiles": [
+        "Japanese"
+      ],
+      "cuisine": "Japanese",
+      "region": "Tokyo",
+      "format": "pasta",
+      "protein": "fish",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 15,
+      "effort": "low",
+      "familiarity": 3,
+      "traditionalDiet": "pescatarian",
+      "versions": [
+        "pescatarian"
+      ],
+      "keyIngredients": [
+        "spaghetti",
+        "mentaiko",
+        "butter",
+        "soy sauce",
+        "nori",
+        "shiso"
+      ],
+      "specialtyIngredients": [
+        "mentaiko",
+        "shiso"
+      ],
+      "veganApproach": null,
+      "technique": "Spicy cod roe is mixed with butter and a splash of soy sauce, then tossed with hot spaghetti off the heat so the roe stays creamy.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "quick",
+        "date"
+      ],
+      "sources": [
+        {
+          "title": "Classic Mentaiko Pasta - Just One Cookbook",
+          "url": "https://www.justonecookbook.com/classic-mentaiko-pasta/"
+        },
+        {
+          "title": "Mentaiko Spaghetti (Japanese Cod Roe Butter) - Serious Eats",
+          "url": "https://www.seriouseats.com/mentaiko-japanese-spaghetti-cod-roe-butter-recipe"
+        }
+      ]
+    }
+  ]
+}

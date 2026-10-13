@@ -1,0 +1,21 @@
+rules_version = '2';
+
+// Firebase Storage: l'app carica foto (menu, screenshot) solo nel
+// proprio spazio utente. Il backend legge con l'Admin SDK.
+service firebase.storage {
+  match /b/{bucket}/o {
+    match /users/{uid}/uploads/{fileName} {
+      // `request.resource` esiste solo in scrittura: usarlo anche in
+      // lettura faceva fallire downloadURL e getData, e la foto della
+      // ricetta spariva dopo il salvataggio.
+      allow write: if request.auth != null
+        && request.auth.uid == uid
+        && request.resource.size < 15 * 1024 * 1024;
+      allow read: if request.auth != null
+        && request.auth.uid == uid;
+    }
+    match /{allPaths=**} {
+      allow read, write: if false;
+    }
+  }
+}

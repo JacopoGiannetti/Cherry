@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Soldi · Vego Analytics</title>
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<script>document.documentElement.dataset.theme = localStorage.getItem('vego-theme') || 'dark';</script>
+<link rel="stylesheet" href="/styles.css">
+</head>
+<body data-page="money">
+<div class="shell">
+  <aside class="sidebar" id="side"></aside>
+  <div>
+    <main id="main" class="page" hidden>
+      <header class="topbar">
+        <div><p class="crumb">Soldi</p><h1>Quanto costa un pagante, quanto rende</h1></div>
+        <div class="right"><span class="stamp" id="windowLabel"></span><span class="stamp" id="stamp"></span><button id="refresh" class="btn" type="button">Aggiorna</button></div>
+      </header>
+
+      <div id="moneyHero"></div>
+
+      <div class="section"><h2>Costo per anzianità</h2><p class="hint">quanto ha speso in media un pagante nella sua n-esima settimana, mese, anno di vita</p></div>
+      <div class="grid">
+        <div class="panel c7">
+          <div class="panel-head"><div><h2>Settimana per settimana</h2><p class="hint" id="weeksHint"></p></div></div>
+          <div class="chart"><canvas id="weeksChart"></canvas></div>
+          <p class="read" id="weeksRead"></p>
+        </div>
+        <div class="panel c5">
+          <div class="panel-head"><div><h2>Mesi e anni</h2><p class="hint" id="monthsHint"></p></div></div>
+          <div class="chart"><canvas id="monthsChart"></canvas></div>
+          <p class="read" id="monthsRead"></p>
+        </div>
+      </div>
+      <div class="grid">
+        <div class="panel c7 flush">
+          <div class="panel-head"><div><h2>Le finestre, una per una</h2></div></div>
+          <div class="scroll"><table class="tbl" id="tenureTable"></table></div>
+        </div>
+        <div class="panel c5">
+          <div class="panel-head"><div><h2>Stima dell’anno <span class="tip" data-tip="Prendi una finestra già chiusa e portala a dodici mesi. Una settimana vale 52, un mese 12. Con una finestra parziale la stima è segnata in ambra: è solo quanto speso finora."></span></h2><p class="hint" id="tenureEstHint"></p></div></div>
+          <div class="form" id="tenureSim"></div>
+          <div class="strip" id="tenureEst" style="margin:16px 0 0"></div>
+        </div>
+      </div>
+
+      <div class="section"><h2>Margini</h2><p class="hint">prezzo a listino meno Apple, contro quanto costa quel pagante</p></div>
+      <div class="grid">
+        <div class="panel c4">
+          <div class="panel-head"><div><h2>Listino</h2><p class="hint">cambia e ricalcola</p></div></div>
+          <div class="form" id="sim"></div>
+        </div>
+        <div class="panel c8">
+          <div class="panel-head"><div><h2>Piano per piano</h2><p class="hint" id="marginHint"></p></div></div>
+          <div class="plans" id="plans"></div>
+        </div>
+      </div>
+
+      <div class="grid">
+        <div class="panel c6">
+          <div class="panel-head"><div><h2>LTV contro costo <span class="tip" data-tip="L’LTV lo scrivi tu, già netto Apple. Qui viene messo accanto al costo medio dell’anno stimato di un pagante."></span></h2><p class="hint" id="ltvHint"></p></div></div>
+          <div class="form" id="ltvForm"></div>
+          <div class="chart short" style="margin-top:14px"><canvas id="ltvChart"></canvas></div>
+          <p class="read" id="ltvRead"></p>
+        </div>
+        <div class="panel c6">
+          <div class="panel-head"><div><h2>Quale piano comprano</h2><p class="hint" id="plansHint"></p></div></div>
+          <div class="split" id="plansMix"></div>
+          <div class="bars" id="plansStats" style="margin-top:18px"></div>
+          <p class="read" id="plansRead"></p>
+        </div>
+      </div>
+
+      <div class="section"><h2>Spesa AI</h2></div>
+      <div class="grid">
+        <div class="panel c12">
+          <div class="panel-head"><div><h2>Al giorno</h2><p class="hint">Gemini, immagini, RapidAPI · ultimi 30 giorni</p></div><div class="right"><span class="big" id="spend30"></span></div></div>
+          <div class="chart"><canvas id="costDaily"></canvas></div>
+        </div>
+      </div>
+    </main>
+    <div id="state" class="state">Leggo Firestore…</div>
+  </div>
+</div>
+<div class="drawer-backdrop" id="drawerBackdrop"></div>
+<aside class="drawer" id="drawer" aria-hidden="true"></aside>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+<script src="/app.js"></script>
+</body>
+</html>

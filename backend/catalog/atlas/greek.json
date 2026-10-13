@@ -1,0 +1,3410 @@
+{
+  "tile": "Greek",
+  "generatedAt": "2026-10-05",
+  "dishes": [
+    {
+      "key": "fasolada",
+      "name": "Fasolada",
+      "nameEn": "Greek white bean soup",
+      "aliases": [
+        "fasoulada",
+        "fassolada",
+        "greek bean soup"
+      ],
+      "tiles": [
+        "Greek"
+      ],
+      "cuisine": "Greek",
+      "region": "Nationwide",
+      "format": "soup",
+      "protein": "beans",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 100,
+      "effort": "low",
+      "familiarity": 1,
+      "traditionalDiet": "vegan",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "dried white beans",
+        "onion",
+        "carrot",
+        "celery",
+        "tomato",
+        "tomato paste",
+        "extra virgin olive oil",
+        "bay leaf"
+      ],
+      "specialtyIngredients": [],
+      "veganApproach": "Naturally vegan; it is one of the classic nistisima (Orthodox fasting) dishes.",
+      "technique": "Soaked white beans simmer slowly with carrot, celery, onion and tomato, and a generous pour of olive oil turns the broth thick and silky.",
+      "seasons": [
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "mealprep",
+        "comfort"
+      ],
+      "sources": [
+        {
+          "title": "Fasolada - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Fasolada"
+        },
+        {
+          "title": "Traditional Greek bean soup (Fasolada) - My Greek Dish",
+          "url": "https://www.mygreekdish.com/recipe/traditional-greek-bean-soup-recipe-fasolada/"
+        },
+        {
+          "title": "Greek Bean Soup (Fasolada) - The Mediterranean Dish",
+          "url": "https://www.themediterraneandish.com/greek-bean-soup-fasolada/"
+        }
+      ]
+    },
+    {
+      "key": "fakes",
+      "name": "Fakes",
+      "nameEn": "Greek lentil soup",
+      "aliases": [
+        "fakes soupa",
+        "faki",
+        "greek lentil soup"
+      ],
+      "tiles": [
+        "Greek"
+      ],
+      "cuisine": "Greek",
+      "region": "Nationwide",
+      "format": "soup",
+      "protein": "lentils",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 50,
+      "effort": "low",
+      "familiarity": 1,
+      "traditionalDiet": "vegan",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "brown lentils",
+        "onion",
+        "garlic",
+        "carrot",
+        "tomato paste",
+        "bay leaf",
+        "extra virgin olive oil",
+        "red wine vinegar"
+      ],
+      "specialtyIngredients": [],
+      "veganApproach": "Naturally vegan; serve without the optional feta on the side.",
+      "technique": "Small brown lentils simmer with onion, garlic, bay and tomato until thick, then are finished with raw olive oil and a splash of vinegar.",
+      "seasons": [
+        "autumn",
+        "winter",
+        "spring"
+      ],
+      "occasions": [
+        "everyday",
+        "mealprep",
+        "comfort"
+      ],
+      "sources": [
+        {
+          "title": "Fakes soupa (lentil soup) - Akis Petretzikis",
+          "url": "https://akispetretzikis.com/en/recipe/3120/fakes-soypa"
+        },
+        {
+          "title": "Lentil soup (Fakes soupa) - My Greek Dish",
+          "url": "https://www.mygreekdish.com/recipe/lentil-soup-fakes-soupa/"
+        },
+        {
+          "title": "Greek Lentil Soup - Real Greek Recipes",
+          "url": "https://realgreekrecipes.com/greek-lentil-soup-recipe/"
+        }
+      ]
+    },
+    {
+      "key": "revithada",
+      "name": "Revithada",
+      "nameEn": "Sifnos clay-baked chickpea stew",
+      "aliases": [
+        "revythada",
+        "revithia sto fourno",
+        "sifnos chickpeas"
+      ],
+      "tiles": [
+        "Greek"
+      ],
+      "cuisine": "Greek",
+      "region": "Sifnos (Cyclades)",
+      "format": "stew",
+      "protein": "chickpeas",
+      "method": "oven",
+      "appliances": [
+        "oven"
+      ],
+      "cookMinutes": 300,
+      "effort": "low",
+      "familiarity": 3,
+      "traditionalDiet": "vegan",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "dried chickpeas",
+        "onions",
+        "extra virgin olive oil",
+        "bay leaf",
+        "lemon",
+        "salt"
+      ],
+      "specialtyIngredients": [],
+      "veganApproach": "Naturally vegan; a traditional fasting-day Sunday dish on Sifnos.",
+      "technique": "Soaked chickpeas are sealed in a clay pot with sliced onions, olive oil and water and slow-baked for many hours until creamy.",
+      "seasons": [
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "hosting",
+        "mealprep",
+        "comfort"
+      ],
+      "sources": [
+        {
+          "title": "Clay-baked chickpeas - Diane Kochilas",
+          "url": "https://www.dianekochilas.com/clay-baked-chick-peas/"
+        },
+        {
+          "title": "Original Sifnos chickpea stew (revithada) in a clay pot - Greece Is",
+          "url": "https://www.greece-is.com/recipe-original-sifnos-chickpea-stew-revithada-clay-pot/"
+        },
+        {
+          "title": "Original Sifnos chickpea stew (revithada) in a clay pot - eKathimerini",
+          "url": "https://www.ekathimerini.com/leisure/gastronomy/1266199/original-sifnos-chickpea-stew-revithada-in-a-clay-pot/"
+        }
+      ]
+    },
+    {
+      "key": "gigantes-plaki",
+      "name": "Gigantes plaki",
+      "nameEn": "Baked giant beans in tomato sauce",
+      "aliases": [
+        "gigantes",
+        "gigantes sto fourno",
+        "yigandes plaki",
+        "greek butter beans"
+      ],
+      "tiles": [
+        "Greek"
+      ],
+      "cuisine": "Greek",
+      "region": "Nationwide",
+      "format": "bake",
+      "protein": "beans",
+      "method": "oven",
+      "appliances": [
+        "stovetop",
+        "oven"
+      ],
+      "cookMinutes": 150,
+      "effort": "low",
+      "familiarity": 1,
+      "traditionalDiet": "vegan",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "giant white beans",
+        "tomatoes",
+        "onion",
+        "garlic",
+        "celery",
+        "carrot",
+        "dill",
+        "parsley",
+        "extra virgin olive oil"
+      ],
+      "specialtyIngredients": [
+        "gigantes beans"
+      ],
+      "veganApproach": "Naturally vegan; skip the optional feta crumbled on top.",
+      "technique": "Pre-boiled giant beans are baked in a herby tomato and olive oil sauce until the top caramelises and the sauce thickens.",
+      "seasons": [
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "mealprep",
+        "comfort"
+      ],
+      "sources": [
+        {
+          "title": "Gigantes plaki (Greek baked giant beans) - My Greek Dish",
+          "url": "https://www.mygreekdish.com/recipe/gigantes-plaki-greek-baked-giant-beans/"
+        },
+        {
+          "title": "Greek Butter Beans (Gigantes) - Real Greek Recipes",
+          "url": "https://realgreekrecipes.com/butter-beans-recipe/"
+        }
+      ]
+    },
+    {
+      "key": "gemista",
+      "name": "Gemista",
+      "nameEn": "Rice-stuffed tomatoes and peppers",
+      "aliases": [
+        "yemista",
+        "domates gemistes",
+        "greek stuffed vegetables"
+      ],
+      "tiles": [
+        "Greek"
+      ],
+      "cuisine": "Greek",
+      "region": "Nationwide",
+      "format": "stuffed",
+      "protein": "grains",
+      "method": "oven",
+      "appliances": [
+        "stovetop",
+        "oven"
+      ],
+      "cookMinutes": 105,
+      "effort": "medium",
+      "familiarity": 1,
+      "traditionalDiet": "vegan",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "tomatoes",
+        "bell peppers",
+        "rice",
+        "onion",
+        "potatoes",
+        "mint",
+        "parsley",
+        "extra virgin olive oil"
+      ],
+      "specialtyIngredients": [],
+      "veganApproach": "The classic ladera version is vegan; skip the optional feta and the minced-meat filling used in some regions.",
+      "technique": "Hollowed tomatoes and peppers are filled with rice mixed with the tomato pulp and herbs, then baked with potato wedges in olive oil until soft and caramelised.",
+      "seasons": [
+        "summer",
+        "autumn"
+      ],
+      "occasions": [
+        "everyday",
+        "hosting",
+        "mealprep"
+      ],
+      "sources": [
+        {
+          "title": "Gemista (Greek stuffed tomatoes and peppers) - The Greek Foodie",
+          "url": "https://thegreekfoodie.com/gemista-greek-stuffed-tomatoes-peppers/"
+        },
+        {
+          "title": "Gemista - Greek stuffed peppers and tomatoes - Vegan Recipe Club",
+          "url": "https://www.veganrecipeclub.org.uk/recipes/gemista-greek-stuffed-peppers-tomatoes/"
+        },
+        {
+          "title": "Gemista (Greek Stuffed Vegetables) - The Mediterranean Dish",
+          "url": "https://www.themediterraneandish.com/gemista-greek-stuffed-vegetables/"
+        }
+      ]
+    },
+    {
+      "key": "briam",
+      "name": "Briam",
+      "nameEn": "Greek roasted summer vegetables",
+      "aliases": [
+        "briami",
+        "mpriam",
+        "tourlou",
+        "greek ratatouille"
+      ],
+      "tiles": [
+        "Greek"
+      ],
+      "cuisine": "Greek",
+      "region": "Nationwide",
+      "format": "bake",
+      "protein": "vegetables",
+      "method": "oven",
+      "appliances": [
+        "oven"
+      ],
+      "cookMinutes": 90,
+      "effort": "low",
+      "familiarity": 2,
+      "traditionalDiet": "vegan",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "potatoes",
+        "zucchini",
+        "eggplant",
+        "tomatoes",
+        "onion",
+        "garlic",
+        "parsley",
+        "extra virgin olive oil"
+      ],
+      "specialtyIngredients": [],
+      "veganApproach": "Naturally vegan; serve with bread instead of the customary slab of feta.",
+      "technique": "Sliced vegetables are tossed with grated tomato, herbs and plenty of olive oil and baked slowly until meltingly soft and browned at the edges.",
+      "seasons": [
+        "summer",
+        "autumn"
+      ],
+      "occasions": [
+        "everyday",
+        "mealprep"
+      ],
+      "sources": [
+        {
+          "title": "Briam (Greek mixed roasted vegetables) - My Greek Dish",
+          "url": "https://www.mygreekdish.com/recipe/briam-recipe-greek-mixed-roasted-vegetables/"
+        },
+        {
+          "title": "Traditional briam - Akis Petretzikis",
+          "url": "https://akispetretzikis.com/en/recipe/5786/paradosiako-mpriam"
+        },
+        {
+          "title": "Greek Baked Vegetables (Briam) - NYT Cooking",
+          "url": "https://cooking.nytimes.com/recipes/1013296-greek-baked-vegetables-briam"
+        }
+      ]
+    },
+    {
+      "key": "fasolakia-lathera",
+      "name": "Fasolakia lathera",
+      "nameEn": "Green beans braised in tomato and olive oil",
+      "aliases": [
+        "fasolakia giahni",
+        "fasolakia yiahni",
+        "fasolakia"
+      ],
+      "tiles": [
+        "Greek"
+      ],
+      "cuisine": "Greek",
+      "region": "Nationwide",
+      "format": "stew",
+      "protein": "vegetables",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 60,
+      "effort": "low",
+      "familiarity": 2,
+      "traditionalDiet": "vegan",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "green beans",
+        "potatoes",
+        "tomatoes",
+        "onion",
+        "garlic",
+        "parsley",
+        "extra virgin olive oil"
+      ],
+      "specialtyIngredients": [],
+      "veganApproach": "Naturally vegan ladera dish; leave out the feta served alongside.",
+      "technique": "Green beans and potatoes braise slowly in grated tomato and olive oil until silky, and are eaten warm or at room temperature with bread.",
+      "seasons": [
+        "summer"
+      ],
+      "occasions": [
+        "everyday",
+        "mealprep"
+      ],
+      "sources": [
+        {
+          "title": "Traditional Greek Green Beans (Fasolakia Giahni) - My Greek Dish",
+          "url": "https://www.mygreekdish.com/recipe/greek-green-beans-recipe-fasolakia-giaxni/"
+        },
+        {
+          "title": "Fasolakia Yiahni (Green Beans in Tomato Sauce) - Diane Kochilas",
+          "url": "https://www.dianekochilas.com/fasolakia-yiahni-green-beans-in-tomato-sauce/"
+        },
+        {
+          "title": "Greek-style green beans (Fasolakia lathera) - Olive Tomato",
+          "url": "https://www.olivetomato.com/greek-style-green-beans-fasolakia-lathera/"
+        }
+      ]
+    },
+    {
+      "key": "spanakorizo",
+      "name": "Spanakorizo",
+      "nameEn": "Greek spinach rice",
+      "aliases": [
+        "spanakoryzo",
+        "spinach rice"
+      ],
+      "tiles": [
+        "Greek",
+        "Fresh & light"
+      ],
+      "cuisine": "Greek",
+      "region": "Nationwide",
+      "format": "rice_dish",
+      "protein": "vegetables",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 35,
+      "effort": "low",
+      "familiarity": 2,
+      "traditionalDiet": "vegan",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "spinach",
+        "rice",
+        "spring onions",
+        "onion",
+        "dill",
+        "lemon",
+        "extra virgin olive oil"
+      ],
+      "specialtyIngredients": [],
+      "veganApproach": "Naturally vegan; serve without the optional feta.",
+      "technique": "Spinach and spring onions are wilted in olive oil, then simmered with rice and dill until creamy and finished with lemon.",
+      "seasons": [
+        "spring",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "mealprep"
+      ],
+      "sources": [
+        {
+          "title": "Spanakorizo - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Spanakorizo"
+        },
+        {
+          "title": "Greek Spinach Rice (Spanakoryzo) - Real Greek Recipes",
+          "url": "https://realgreekrecipes.com/greek-spinach-rice-spanakoryzo/"
+        }
+      ]
+    },
+    {
+      "key": "prasorizo",
+      "name": "Prasorizo",
+      "nameEn": "Greek leeks with rice",
+      "aliases": [
+        "prasoryzo",
+        "leek rice"
+      ],
+      "tiles": [
+        "Greek"
+      ],
+      "cuisine": "Greek",
+      "region": "Nationwide",
+      "format": "rice_dish",
+      "protein": "vegetables",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 40,
+      "effort": "low",
+      "familiarity": 3,
+      "traditionalDiet": "vegan",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "leeks",
+        "rice",
+        "onion",
+        "carrot",
+        "lemon",
+        "dill",
+        "extra virgin olive oil"
+      ],
+      "specialtyIngredients": [],
+      "veganApproach": "Naturally vegan Lenten dish.",
+      "technique": "Sliced leeks are sweated in olive oil until sweet, then simmered with rice and finished with plenty of lemon juice.",
+      "seasons": [
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "comfort"
+      ],
+      "sources": [
+        {
+          "title": "Prasorizo (rice with leeks) - Real Greek Recipes",
+          "url": "https://realgreekrecipes.com/prasorizo-rice-with-leeks/"
+        },
+        {
+          "title": "Prasorizo - Argiro Barbarigou",
+          "url": "https://www.argiro.gr/recipe/prasoruzo/"
+        }
+      ]
+    },
+    {
+      "key": "lahanorizo",
+      "name": "Lahanorizo",
+      "nameEn": "Greek cabbage and rice",
+      "aliases": [
+        "lachanorizo",
+        "cabbage rice"
+      ],
+      "tiles": [
+        "Greek"
+      ],
+      "cuisine": "Greek",
+      "region": "Nationwide",
+      "format": "rice_dish",
+      "protein": "vegetables",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 45,
+      "effort": "low",
+      "familiarity": 3,
+      "traditionalDiet": "vegan",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "white cabbage",
+        "rice",
+        "onion",
+        "tomato",
+        "lemon",
+        "dill",
+        "extra virgin olive oil"
+      ],
+      "specialtyIngredients": [],
+      "veganApproach": "Naturally vegan winter ladera dish.",
+      "technique": "Shredded cabbage is wilted in olive oil with onion and tomato, then simmered with rice until the grains absorb the juices.",
+      "seasons": [
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "mealprep",
+        "comfort"
+      ],
+      "sources": [
+        {
+          "title": "Rice and Cabbage (Lahanorizo) - Real Greek Recipes",
+          "url": "https://realgreekrecipes.com/rice-and-cabbage/"
+        },
+        {
+          "title": "Lahanorizo, Greek cabbage and rice - Mia Kouppa",
+          "url": "https://miakouppa.com/lahanorizo-greek-cabbage-and-rice/"
+        }
+      ]
+    },
+    {
+      "key": "dolmades-yialantzi",
+      "name": "Dolmades yialantzi",
+      "nameEn": "Rice-stuffed vine leaves",
+      "aliases": [
+        "dolmadakia",
+        "dolmades",
+        "yalanji dolma",
+        "stuffed grape leaves"
+      ],
+      "tiles": [
+        "Greek"
+      ],
+      "cuisine": "Greek",
+      "region": "Nationwide",
+      "format": "stuffed",
+      "protein": "grains",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 100,
+      "effort": "high",
+      "familiarity": 1,
+      "traditionalDiet": "vegan",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "vine leaves",
+        "rice",
+        "onion",
+        "spring onions",
+        "dill",
+        "mint",
+        "lemon",
+        "extra virgin olive oil"
+      ],
+      "specialtyIngredients": [
+        "vine leaves"
+      ],
+      "veganApproach": "The yialantzi (meatless) version is naturally vegan.",
+      "technique": "Brined vine leaves are rolled tightly around herby rice, packed into a pot and simmered under a plate with lemon and olive oil.",
+      "seasons": [
+        "spring",
+        "summer"
+      ],
+      "occasions": [
+        "hosting",
+        "mealprep"
+      ],
+      "sources": [
+        {
+          "title": "Greek vegetarian stuffed grape leaves (Dolmades yialantzi) - Diane Kochilas",
+          "url": "https://www.dianekochilas.com/best-greek-vegetarian-stuffed-grape-leaves-dolmades-yialantzi/"
+        },
+        {
+          "title": "Greek Dolmades (stuffed vine leaves) - My Greek Dish",
+          "url": "https://www.mygreekdish.com/recipe/greek-dolmades-recipe-stuffed-vine-leaves/"
+        },
+        {
+          "title": "Dolmadakia gialantzi - Akis Petretzikis",
+          "url": "https://akispetretzikis.com/en/recipe/1404/ntolmadakia-gialantzi"
+        }
+      ]
+    },
+    {
+      "key": "arakas-me-aginares",
+      "name": "Arakas me aginares",
+      "nameEn": "Greek pea and artichoke stew",
+      "aliases": [
+        "arakas latheros",
+        "aginares me araka",
+        "araka"
+      ],
+      "tiles": [
+        "Greek"
+      ],
+      "cuisine": "Greek",
+      "region": "Nationwide",
+      "format": "stew",
+      "protein": "edamame_peas",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 50,
+      "effort": "low",
+      "familiarity": 2,
+      "traditionalDiet": "vegan",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "peas",
+        "artichokes",
+        "potatoes",
+        "carrots",
+        "onion",
+        "tomato",
+        "dill",
+        "extra virgin olive oil"
+      ],
+      "specialtyIngredients": [],
+      "veganApproach": "Naturally vegan ladera stew.",
+      "technique": "Peas, artichoke hearts, potatoes and carrots braise together in tomato, olive oil and dill until tender and saucy.",
+      "seasons": [
+        "spring"
+      ],
+      "occasions": [
+        "everyday",
+        "mealprep"
+      ],
+      "sources": [
+        {
+          "title": "Arakas, Greek pea stew kids love - Greece Is",
+          "url": "https://www.greece-is.com/recipe-arakas-greek-pea-stew-kids-love/"
+        },
+        {
+          "title": "Artichoke and pea stew (Araka) - Dimitra's Dishes",
+          "url": "https://www.dimitrasdishes.com/artichoke-pea-stew-araka/"
+        },
+        {
+          "title": "Aginares me araka kokkinisto - Mary's Kouzina",
+          "url": "https://www.maryskouzina.com/aginares-me-araka-kokkinisto-artichokes-peas-stewed-in-a-tomato-sauce/"
+        }
+      ]
+    },
+    {
+      "key": "anginares-a-la-polita",
+      "name": "Anginares a la polita",
+      "nameEn": "Constantinople-style artichokes with vegetables",
+      "aliases": [
+        "aginares a la polita",
+        "artichokes a la polita"
+      ],
+      "tiles": [
+        "Greek",
+        "Fresh & light"
+      ],
+      "cuisine": "Greek",
+      "region": "Constantinople Greek (Polita) tradition",
+      "format": "stew",
+      "protein": "vegetables",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 60,
+      "effort": "medium",
+      "familiarity": 3,
+      "traditionalDiet": "vegan",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "artichokes",
+        "potatoes",
+        "carrots",
+        "spring onions",
+        "dill",
+        "lemon",
+        "extra virgin olive oil"
+      ],
+      "specialtyIngredients": [],
+      "veganApproach": "Naturally vegan Lenten spring dish.",
+      "technique": "Artichoke hearts, potatoes and carrots are braised in olive oil and lemon with plenty of dill until tender in a light, cloudy sauce.",
+      "seasons": [
+        "spring"
+      ],
+      "occasions": [
+        "everyday",
+        "hosting"
+      ],
+      "sources": [
+        {
+          "title": "Anginares a la polita - Carol the Greek",
+          "url": "https://www.carolthegreek.com/greek-kitchen/anginares-a-la-polita"
+        },
+        {
+          "title": "Anginares Polita - NYT Cooking",
+          "url": "https://cooking.nytimes.com/recipes/5078-anginares-polita-developed-by-sotiris-kitrilakis"
+        },
+        {
+          "title": "Artichokes a la Polita (Constantinople style) - The Midwest Mediterranean",
+          "url": "https://themidwestmediterranean.com/artichokes-a-la-polita-constantinople-style/"
+        }
+      ]
+    },
+    {
+      "key": "koukia-me-aginares",
+      "name": "Koukia me aginares",
+      "nameEn": "Fresh fava beans with artichokes",
+      "aliases": [
+        "aginares me koukia",
+        "broad beans with artichokes"
+      ],
+      "tiles": [
+        "Greek",
+        "Fresh & light"
+      ],
+      "cuisine": "Greek",
+      "region": "Nationwide",
+      "format": "stew",
+      "protein": "beans",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 50,
+      "effort": "medium",
+      "familiarity": 3,
+      "traditionalDiet": "vegan",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "fresh fava beans",
+        "artichokes",
+        "spring onions",
+        "onion",
+        "dill",
+        "lemon",
+        "extra virgin olive oil"
+      ],
+      "specialtyIngredients": [],
+      "veganApproach": "Naturally vegan; a Lenten spring favourite.",
+      "technique": "Fresh fava beans and artichoke hearts braise in olive oil with spring onions and dill, and the sauce is thickened at the end with lemon.",
+      "seasons": [
+        "spring"
+      ],
+      "occasions": [
+        "everyday",
+        "hosting"
+      ],
+      "sources": [
+        {
+          "title": "Broad (fava) beans and artichoke hearts - Koukia me aginares - Greek Tastes",
+          "url": "https://www.greektastes.com/broad-fava-beans-artichoke-hearts-koukia-me-aginares/"
+        },
+        {
+          "title": "Lemon-braised artichokes with fava beans - To Vima",
+          "url": "https://www.tovima.com/food/greek-recipes/recipe-of-the-day-lemon-braised-artichokes-with-fava-beans/"
+        },
+        {
+          "title": "Greek artichokes with fava beans (Aginares me koukia) - Mia Kouppa",
+          "url": "https://miakouppa.com/greek-artichokes-with-fava-beans-aginares-me-koukia/"
+        }
+      ]
+    },
+    {
+      "key": "bamies-laderes",
+      "name": "Bamies laderes",
+      "nameEn": "Greek okra stewed in tomato",
+      "aliases": [
+        "bamies giahni",
+        "bamies",
+        "okra stew"
+      ],
+      "tiles": [
+        "Greek"
+      ],
+      "cuisine": "Greek",
+      "region": "Nationwide",
+      "format": "stew",
+      "protein": "vegetables",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 60,
+      "effort": "low",
+      "familiarity": 2,
+      "traditionalDiet": "vegan",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "okra",
+        "tomatoes",
+        "onion",
+        "garlic",
+        "parsley",
+        "red wine vinegar",
+        "extra virgin olive oil"
+      ],
+      "specialtyIngredients": [],
+      "veganApproach": "Naturally vegan ladera dish.",
+      "technique": "Okra is first tossed with vinegar and salt to limit sliminess, then braised gently in tomato and olive oil without stirring.",
+      "seasons": [
+        "summer"
+      ],
+      "occasions": [
+        "everyday",
+        "mealprep"
+      ],
+      "sources": [
+        {
+          "title": "Bamies laderes (Greek okra in tomato sauce) - Argiro Barbarigou",
+          "url": "https://www.argiro.gr/en/recipe/bamies-laderes-greek-okra-in-tomato-sauce/"
+        },
+        {
+          "title": "Greek okra stew with tomatoes (Bamies laderes) - My Greek Dish",
+          "url": "https://www.mygreekdish.com/recipe/greek-okra-stew-recipe-with-tomatoes-bamies-laderes/"
+        }
+      ]
+    },
+    {
+      "key": "manitaria-stifado",
+      "name": "Manitaria stifado",
+      "nameEn": "Mushroom and baby onion stew",
+      "aliases": [
+        "mushroom stifado",
+        "stifado me manitaria"
+      ],
+      "tiles": [
+        "Greek"
+      ],
+      "cuisine": "Greek",
+      "region": "Nationwide",
+      "format": "stew",
+      "protein": "mushrooms",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 60,
+      "effort": "medium",
+      "familiarity": 2,
+      "traditionalDiet": "vegan",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "mushrooms",
+        "pearl onions",
+        "tomato",
+        "red wine",
+        "red wine vinegar",
+        "cinnamon",
+        "allspice",
+        "bay leaf"
+      ],
+      "specialtyIngredients": [],
+      "veganApproach": "Naturally vegan Lenten take on the classic meat stifado.",
+      "technique": "Whole baby onions and mushrooms braise in red wine, vinegar and tomato with cinnamon and allspice until glossy and sweet-sour.",
+      "seasons": [
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "hosting",
+        "comfort"
+      ],
+      "sources": [
+        {
+          "title": "Manitaria stifado - BBC Food",
+          "url": "https://www.bbc.co.uk/food/recipes/manitaria_stifado_96775"
+        },
+        {
+          "title": "Mushroom stifado - The Greek Vegan",
+          "url": "https://thegreekvegan.com/mushroom-stifado-%ce%bc%ce%b1%ce%bd%ce%b9%cf%84%ce%ac%cf%81%ce%b9%ce%b1-%cf%83%cf%84%ce%b9%cf%86%ce%ac%ce%b4%ce%bf/"
+        },
+        {
+          "title": "Stifado me manitaria (mushroom onion stew) - Mary's Kouzina",
+          "url": "https://www.maryskouzina.com/stifado-me-manitaria-mushroom-stifado-mushroom-onion-stew/"
+        }
+      ]
+    },
+    {
+      "key": "kounoupidi-stifado",
+      "name": "Kounoupidi stifado",
+      "nameEn": "Cauliflower and baby onion stew",
+      "aliases": [
+        "kounoupithi stifado",
+        "cauliflower stifado"
+      ],
+      "tiles": [
+        "Greek"
+      ],
+      "cuisine": "Greek",
+      "region": "Nationwide",
+      "format": "stew",
+      "protein": "vegetables",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 60,
+      "effort": "low",
+      "familiarity": 3,
+      "traditionalDiet": "vegan",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "cauliflower",
+        "pearl onions",
+        "tomatoes",
+        "garlic",
+        "red wine vinegar",
+        "cinnamon",
+        "bay leaf",
+        "rosemary",
+        "extra virgin olive oil"
+      ],
+      "specialtyIngredients": [],
+      "veganApproach": "Naturally vegan fasting-period stifado.",
+      "technique": "Baby onions are softened in olive oil, then cauliflower florets simmer in a spiced tomato and vinegar sauce until tender and the sauce reduces.",
+      "seasons": [
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "comfort"
+      ],
+      "sources": [
+        {
+          "title": "Kounoupidi stifado - Greekouzina",
+          "url": "https://www.greekouzina.gr/kounoupidi-stifado"
+        },
+        {
+          "title": "Vegan stifado with cauliflower - Grandpa Tassos",
+          "url": "https://www.grandpatassos.com/recipes/MTOuNCx"
+        },
+        {
+          "title": "Kounoupidi stifado (vegan) - All About Vegans",
+          "url": "https://allaboutvegans.com/vegan-recipes/cauliflower-stew-vegan/"
+        }
+      ]
+    },
+    {
+      "key": "louvi-me-lahana",
+      "name": "Louvi me lahana",
+      "nameEn": "Cypriot black-eyed beans with chard",
+      "aliases": [
+        "louvia me lahana",
+        "louvi"
+      ],
+      "tiles": [
+        "Greek",
+        "Fresh & light"
+      ],
+      "cuisine": "Cypriot",
+      "region": "Cyprus",
+      "format": "stew",
+      "protein": "beans",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 45,
+      "effort": "low",
+      "familiarity": 3,
+      "traditionalDiet": "vegan",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "black-eyed beans",
+        "swiss chard",
+        "extra virgin olive oil",
+        "lemon",
+        "garlic",
+        "salt"
+      ],
+      "specialtyIngredients": [],
+      "veganApproach": "Naturally vegan Cypriot fasting dish.",
+      "technique": "Black-eyed beans are boiled with chopped chard until tender, drained and dressed generously with olive oil and lemon while warm.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn"
+      ],
+      "occasions": [
+        "everyday",
+        "mealprep"
+      ],
+      "sources": [
+        {
+          "title": "Louvi - black-eyed beans with swiss chards - Cyprus Food Museum",
+          "url": "https://www.cyprusfoodmuseum.com/en/sylloges/paradosiakes-syntages/louvi-black-eyed-beans-lahana-swiss-chards"
+        },
+        {
+          "title": "Louvi (black-eyed beans) - Kopiaste",
+          "url": "https://www.kopiaste.org/2010/05/louvi-black-eyed-beans/"
+        }
+      ]
+    },
+    {
+      "key": "moutzentra",
+      "name": "Moutzentra",
+      "nameEn": "Cypriot lentils and rice with fried onions",
+      "aliases": [
+        "fakes moutzentra",
+        "moujendra",
+        "mujaddara"
+      ],
+      "tiles": [
+        "Greek"
+      ],
+      "cuisine": "Cypriot",
+      "region": "Cyprus",
+      "format": "rice_dish",
+      "protein": "lentils",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 50,
+      "effort": "low",
+      "familiarity": 3,
+      "traditionalDiet": "vegan",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "brown lentils",
+        "rice",
+        "onions",
+        "extra virgin olive oil",
+        "salt"
+      ],
+      "specialtyIngredients": [],
+      "veganApproach": "Naturally vegan; serve with salad instead of the yogurt sometimes offered alongside.",
+      "technique": "Lentils and rice are cooked together until the water is absorbed and topped with onions fried slowly in olive oil until deep brown.",
+      "seasons": [
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "mealprep",
+        "comfort"
+      ],
+      "sources": [
+        {
+          "title": "Fakes moutzentra (lentils with rice) - Kopiaste",
+          "url": "https://www.kopiaste.org/2007/11/fakes-moutzentra-lentils-with-rice-cypriot/"
+        },
+        {
+          "title": "Moutzentra - Kalliopi's Kitchen",
+          "url": "https://www.kalliopiskitchen.com/recipes/moutzentra/"
+        }
+      ]
+    },
+    {
+      "key": "domatorizo",
+      "name": "Domatorizo",
+      "nameEn": "Greek tomato rice",
+      "aliases": [
+        "ntomatorizo",
+        "tomato rice"
+      ],
+      "tiles": [
+        "Greek"
+      ],
+      "cuisine": "Greek",
+      "region": "Nationwide",
+      "format": "rice_dish",
+      "protein": "grains",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 35,
+      "effort": "low",
+      "familiarity": 2,
+      "traditionalDiet": "vegan",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "rice",
+        "ripe tomatoes",
+        "onion",
+        "garlic",
+        "cinnamon",
+        "allspice",
+        "mint",
+        "basil",
+        "extra virgin olive oil"
+      ],
+      "specialtyIngredients": [],
+      "veganApproach": "Naturally vegan; skip the feta often crumbled on top.",
+      "technique": "Rice simmers in fresh tomatoes with warm spices until tender, then rests covered with chopped mint, parsley and basil.",
+      "seasons": [
+        "summer"
+      ],
+      "occasions": [
+        "everyday"
+      ],
+      "sources": [
+        {
+          "title": "Greek tomato rice (domatorizo) - SBS Greek",
+          "url": "https://www.sbs.com.au/language/greek/en/podcast-episode/greek-tomato-rice-domatorizo/9zp9zfs9e"
+        },
+        {
+          "title": "Greek Tomato Rice (Ntomatorizo) - Real Greek Recipes",
+          "url": "https://realgreekrecipes.com/greek-tomato-rice/"
+        }
+      ]
+    },
+    {
+      "key": "mavromatika-salata",
+      "name": "Mavromatika salata",
+      "nameEn": "Greek black-eyed pea salad",
+      "aliases": [
+        "fasolia mavromatika salata",
+        "black-eyed bean salad"
+      ],
+      "tiles": [
+        "Greek",
+        "Fresh & light"
+      ],
+      "cuisine": "Greek",
+      "region": "Nationwide",
+      "format": "salad",
+      "protein": "beans",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 45,
+      "effort": "low",
+      "familiarity": 2,
+      "traditionalDiet": "vegan",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "black-eyed peas",
+        "spring onions",
+        "onion",
+        "parsley",
+        "red pepper",
+        "extra virgin olive oil",
+        "red wine vinegar"
+      ],
+      "specialtyIngredients": [],
+      "veganApproach": "Naturally vegan; a must on Clean Monday and fasting days.",
+      "technique": "Boiled black-eyed peas are tossed while still warm with onion, herbs, olive oil and vinegar so they soak up the dressing.",
+      "seasons": [
+        "spring",
+        "summer"
+      ],
+      "occasions": [
+        "everyday",
+        "mealprep"
+      ],
+      "sources": [
+        {
+          "title": "Black-eyed peas vegan salad - Greek Cooking Made Easy",
+          "url": "https://www.greekcookingmadeeasy.com/allrecipes/black-eyed-peas-vegan-salad"
+        },
+        {
+          "title": "Black eyed bean salad / Mavromatika salata - Greek Home Cooking",
+          "url": "https://www.grhcooking.com/recipe/black-eyed-bean-salad-mavromatika-salata"
+        },
+        {
+          "title": "Mavromatika salata - Poupadou",
+          "url": "https://www.poupadou.com/blog/en/recipe-mavromatika-salata/"
+        }
+      ]
+    },
+    {
+      "key": "revithokeftedes",
+      "name": "Revithokeftedes",
+      "nameEn": "Greek chickpea fritters",
+      "aliases": [
+        "revithokeftedes sifnou",
+        "chickpea patties"
+      ],
+      "tiles": [
+        "Greek"
+      ],
+      "cuisine": "Greek",
+      "region": "Sifnos (Cyclades)",
+      "format": "fritters",
+      "protein": "chickpeas",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop",
+        "food_processor"
+      ],
+      "cookMinutes": 40,
+      "effort": "medium",
+      "familiarity": 2,
+      "traditionalDiet": "vegan",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "dried chickpeas",
+        "onion",
+        "parsley",
+        "mint",
+        "oregano",
+        "flour",
+        "olive oil"
+      ],
+      "specialtyIngredients": [],
+      "veganApproach": "Naturally vegan; serve with a lemon-tahini sauce instead of yogurt dips.",
+      "technique": "Soaked chickpeas are ground with onion and herbs, shaped into patties and pan-fried until crisp outside and soft within.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "hosting",
+        "mealprep"
+      ],
+      "sources": [
+        {
+          "title": "Legendary chickpea fritters from Sifnos - Greece Is",
+          "url": "https://www.greece-is.com/recipe-legendary-chickpea-fritters-sifnos/"
+        },
+        {
+          "title": "Chickpea fritters with a lemon tahini sauce - Mia Kouppa",
+          "url": "https://miakouppa.com/chickpea-fritters-with-a-lemon-tahini-sauce/"
+        }
+      ]
+    },
+    {
+      "key": "hortopita",
+      "name": "Hortopita",
+      "nameEn": "Greek wild greens pie",
+      "aliases": [
+        "horta pita",
+        "greens pie",
+        "pitarakia"
+      ],
+      "tiles": [
+        "Greek"
+      ],
+      "cuisine": "Greek",
+      "region": "Nationwide",
+      "format": "savory_pie",
+      "protein": "vegetables",
+      "method": "oven",
+      "appliances": [
+        "stovetop",
+        "oven"
+      ],
+      "cookMinutes": 75,
+      "effort": "medium",
+      "familiarity": 2,
+      "traditionalDiet": "vegetarian",
+      "versions": [
+        "vegan",
+        "vegetarian"
+      ],
+      "keyIngredients": [
+        "phyllo",
+        "mixed wild greens",
+        "leeks",
+        "spring onions",
+        "dill",
+        "fennel fronds",
+        "feta",
+        "extra virgin olive oil"
+      ],
+      "specialtyIngredients": [],
+      "veganApproach": "Make the Lenten version: omit feta and eggs and season the greens generously with leeks, herbs and olive oil.",
+      "technique": "Wilted, well-drained greens and herbs are layered between oiled sheets of phyllo and baked until crisp and golden.",
+      "seasons": [
+        "winter",
+        "spring"
+      ],
+      "occasions": [
+        "everyday",
+        "hosting",
+        "mealprep"
+      ],
+      "sources": [
+        {
+          "title": "Greens pie with whole wheat phyllo - Diane Kochilas",
+          "url": "https://www.dianekochilas.com/greens-pie-with-whole-wheat-phyllo/"
+        },
+        {
+          "title": "Ikarian pitarakia (longevity greens phyllo rolls) - Diane Kochilas",
+          "url": "https://www.dianekochilas.com/ikarian-pitarakia-aka-longevity-greens-fillo-rolls/"
+        },
+        {
+          "title": "Hortopita - NYT Cooking",
+          "url": "https://cooking.nytimes.com/recipes/1015958-hortopita"
+        }
+      ]
+    },
+    {
+      "key": "spanakopita",
+      "name": "Spanakopita",
+      "nameEn": "Greek spinach pie",
+      "aliases": [
+        "spanakotiropita",
+        "spinach pie",
+        "spanakopita nistisimi"
+      ],
+      "tiles": [
+        "Greek"
+      ],
+      "cuisine": "Greek",
+      "region": "Nationwide",
+      "format": "savory_pie",
+      "protein": "vegetables",
+      "method": "oven",
+      "appliances": [
+        "stovetop",
+        "oven"
+      ],
+      "cookMinutes": 75,
+      "effort": "medium",
+      "familiarity": 1,
+      "traditionalDiet": "vegetarian",
+      "versions": [
+        "vegan",
+        "vegetarian"
+      ],
+      "keyIngredients": [
+        "phyllo",
+        "spinach",
+        "feta",
+        "eggs",
+        "spring onions",
+        "dill",
+        "extra virgin olive oil"
+      ],
+      "specialtyIngredients": [],
+      "veganApproach": "Use the Lenten spanakopita nistisimi with extra herbs, leeks and olive oil and no feta or eggs, or add a vegan feta.",
+      "technique": "Wilted, well-drained spinach mixed with herbs and feta is layered between oiled sheets of phyllo and baked until crisp and golden.",
+      "seasons": [
+        "spring",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "hosting",
+        "mealprep"
+      ],
+      "sources": [
+        {
+          "title": "Savory spinach pie (Spanakopita) - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Savory_spinach_pie"
+        },
+        {
+          "title": "Vegan spanakopita - Mia Kouppa",
+          "url": "https://miakouppa.com/vegan-spanakopita/"
+        },
+        {
+          "title": "Spanakopita nistisimi (Lenten, Cyprus) - Kopiaste",
+          "url": "https://www.kopiaste.org/2008/04/spanakopita-nistisimi-lenten-cyprus/"
+        }
+      ]
+    },
+    {
+      "key": "tiropita",
+      "name": "Tiropita",
+      "nameEn": "Greek feta cheese pie",
+      "aliases": [
+        "tyropita",
+        "cheese pie"
+      ],
+      "tiles": [
+        "Greek"
+      ],
+      "cuisine": "Greek",
+      "region": "Nationwide",
+      "format": "savory_pie",
+      "protein": "cheese",
+      "method": "oven",
+      "appliances": [
+        "oven"
+      ],
+      "cookMinutes": 60,
+      "effort": "medium",
+      "familiarity": 1,
+      "traditionalDiet": "vegetarian",
+      "versions": [
+        "vegetarian"
+      ],
+      "keyIngredients": [
+        "phyllo",
+        "feta",
+        "eggs",
+        "butter",
+        "yogurt",
+        "black pepper"
+      ],
+      "specialtyIngredients": [],
+      "veganApproach": null,
+      "technique": "A feta, egg and yogurt filling is layered between buttered sheets of phyllo and baked until puffed and golden.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "hosting",
+        "mealprep"
+      ],
+      "sources": [
+        {
+          "title": "Tiropita - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Tiropita"
+        },
+        {
+          "title": "Tiropita (Greek feta cheese pie) - My Greek Dish",
+          "url": "https://www.mygreekdish.com/recipe/tiropita-greek-feta-cheese-pie/"
+        },
+        {
+          "title": "Traditional tiropita (Greek cheese pie) - Olive Tomato",
+          "url": "https://www.olivetomato.com/traditional-tiropita-greek-cheese-pie/"
+        }
+      ]
+    },
+    {
+      "key": "prasopita",
+      "name": "Prasopita",
+      "nameEn": "Greek leek pie",
+      "aliases": [
+        "leek pie",
+        "prasopita nistisimi"
+      ],
+      "tiles": [
+        "Greek"
+      ],
+      "cuisine": "Greek",
+      "region": "Nationwide",
+      "format": "savory_pie",
+      "protein": "vegetables",
+      "method": "oven",
+      "appliances": [
+        "stovetop",
+        "oven"
+      ],
+      "cookMinutes": 80,
+      "effort": "medium",
+      "familiarity": 2,
+      "traditionalDiet": "vegetarian",
+      "versions": [
+        "vegan",
+        "vegetarian"
+      ],
+      "keyIngredients": [
+        "phyllo",
+        "leeks",
+        "feta",
+        "eggs",
+        "spring onions",
+        "dill",
+        "olive oil"
+      ],
+      "specialtyIngredients": [],
+      "veganApproach": "Cook it the Lenten way with only leeks, herbs and olive oil in the filling, or bind with a vegan feta.",
+      "technique": "Leeks are slowly sweated until sweet, mixed with herbs and cheese, then baked between layers of phyllo.",
+      "seasons": [
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "hosting",
+        "mealprep"
+      ],
+      "sources": [
+        {
+          "title": "Traditional Greek leek pie (Prasopita) - My Greek Dish",
+          "url": "https://www.mygreekdish.com/recipe/traditional-greek-leek-pie-recipe-prasopita/"
+        },
+        {
+          "title": "Greek Leek Pie (Prasopita) - Real Greek Recipes",
+          "url": "https://realgreekrecipes.com/leek-pie-greek/"
+        }
+      ]
+    },
+    {
+      "key": "kolokithopita",
+      "name": "Kolokithopita",
+      "nameEn": "Greek zucchini and feta pie",
+      "aliases": [
+        "kolokythopita",
+        "zucchini pie"
+      ],
+      "tiles": [
+        "Greek"
+      ],
+      "cuisine": "Greek",
+      "region": "Nationwide",
+      "format": "savory_pie",
+      "protein": "cheese",
+      "method": "oven",
+      "appliances": [
+        "oven"
+      ],
+      "cookMinutes": 90,
+      "effort": "medium",
+      "familiarity": 2,
+      "traditionalDiet": "vegetarian",
+      "versions": [
+        "vegetarian"
+      ],
+      "keyIngredients": [
+        "zucchini",
+        "feta",
+        "eggs",
+        "phyllo",
+        "spring onions",
+        "mint",
+        "dill",
+        "olive oil"
+      ],
+      "specialtyIngredients": [],
+      "veganApproach": null,
+      "technique": "Grated zucchini is salted and squeezed dry, mixed with feta, eggs and herbs, and baked inside phyllo until set and crisp.",
+      "seasons": [
+        "summer"
+      ],
+      "occasions": [
+        "everyday",
+        "hosting",
+        "mealprep"
+      ],
+      "sources": [
+        {
+          "title": "Traditional kolokithopita with homemade phyllo - My Greek Dish",
+          "url": "https://www.mygreekdish.com/recipe/traditional-kolokithopita-recipe-with-homemade-phyllo-greek-zucchini-pie/"
+        },
+        {
+          "title": "Zucchini pie with feta cheese (Kolokithopita) - Argiro Barbarigou",
+          "url": "https://www.argiro.gr/en/recipe/zucchini-pie-with-feta-cheese-kolokithopita/"
+        }
+      ]
+    },
+    {
+      "key": "batzina",
+      "name": "Batzina",
+      "nameEn": "Thessalian crustless zucchini and feta pie",
+      "aliases": [
+        "mpatzina",
+        "patsina",
+        "crustless pie"
+      ],
+      "tiles": [
+        "Greek"
+      ],
+      "cuisine": "Greek",
+      "region": "Thessaly",
+      "format": "savory_pie",
+      "protein": "cheese",
+      "method": "oven",
+      "appliances": [
+        "oven"
+      ],
+      "cookMinutes": 60,
+      "effort": "low",
+      "familiarity": 3,
+      "traditionalDiet": "vegetarian",
+      "versions": [
+        "vegetarian"
+      ],
+      "keyIngredients": [
+        "zucchini or pumpkin",
+        "feta",
+        "eggs",
+        "flour",
+        "milk",
+        "olive oil"
+      ],
+      "specialtyIngredients": [],
+      "veganApproach": null,
+      "technique": "Grated zucchini or squash is stirred into a loose batter of flour, milk, eggs and feta and baked in an oiled pan with no phyllo until golden.",
+      "seasons": [
+        "summer",
+        "autumn"
+      ],
+      "occasions": [
+        "everyday",
+        "mealprep"
+      ],
+      "sources": [
+        {
+          "title": "Mpatzina pie - Enjoy Thessaly",
+          "url": "https://enjoythessaly.com/en/mpatzina-pie/"
+        },
+        {
+          "title": "Greek crustless butternut squash savory pie (Batzina) - Olive Tomato",
+          "url": "https://www.olivetomato.com/greek-crustless-butternut-squash-savory-pie-batzina/"
+        },
+        {
+          "title": "Crustless pumpkin pie with feta - Real Greek Recipes",
+          "url": "https://realgreekrecipes.com/crustless-pumpkin-pie-with-feta/"
+        }
+      ]
+    },
+    {
+      "key": "moussaka",
+      "name": "Moussaka",
+      "nameEn": "Eggplant and spiced meat sauce bake with béchamel",
+      "aliases": [
+        "mousaka",
+        "musaka"
+      ],
+      "tiles": [
+        "Greek",
+        "American"
+      ],
+      "cuisine": "Greek",
+      "region": "Nationwide",
+      "format": "bake",
+      "protein": "lentils",
+      "method": "oven",
+      "appliances": [
+        "stovetop",
+        "oven"
+      ],
+      "cookMinutes": 150,
+      "effort": "high",
+      "familiarity": 1,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegan",
+        "vegetarian"
+      ],
+      "keyIngredients": [
+        "eggplant",
+        "potatoes",
+        "ground lamb or beef",
+        "tomato",
+        "onion",
+        "cinnamon",
+        "béchamel",
+        "kefalotyri"
+      ],
+      "specialtyIngredients": [
+        "kefalotyri"
+      ],
+      "veganApproach": "Swap the meat for a cinnamon-spiced red or brown lentil ragù and top with an olive-oil and plant-milk béchamel; vegetarians can keep a dairy béchamel.",
+      "technique": "Fried or roasted eggplant and potato slices are layered with a cinnamon-scented meat sauce, covered with thick béchamel and baked until set and browned.",
+      "seasons": [
+        "autumn",
+        "winter",
+        "summer"
+      ],
+      "occasions": [
+        "hosting",
+        "comfort",
+        "mealprep"
+      ],
+      "sources": [
+        {
+          "title": "Moussaka - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Moussaka"
+        },
+        {
+          "title": "Moussaka with red lentil mince - Akis Petretzikis",
+          "url": "https://akispetretzikis.com/en/recipe/6424/moysakas-me-kima-kokkinhs-fakhs"
+        },
+        {
+          "title": "Vegan moussaka with lentils - My Greek Dish",
+          "url": "https://www.mygreekdish.com/recipe/vegan-moussaka-with-lentils/"
+        }
+      ]
+    },
+    {
+      "key": "pastitsio",
+      "name": "Pastitsio",
+      "nameEn": "Greek baked pasta with meat sauce and béchamel",
+      "aliases": [
+        "pastichio",
+        "greek lasagna"
+      ],
+      "tiles": [
+        "Greek",
+        "American"
+      ],
+      "cuisine": "Greek",
+      "region": "Nationwide",
+      "format": "bake",
+      "protein": "lentils",
+      "method": "oven",
+      "appliances": [
+        "stovetop",
+        "oven"
+      ],
+      "cookMinutes": 120,
+      "effort": "high",
+      "familiarity": 1,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegan",
+        "vegetarian"
+      ],
+      "keyIngredients": [
+        "thick tubular pasta",
+        "ground beef",
+        "tomato",
+        "onion",
+        "red wine",
+        "cinnamon",
+        "béchamel",
+        "kefalotyri"
+      ],
+      "specialtyIngredients": [
+        "pastitsio pasta",
+        "kefalotyri"
+      ],
+      "veganApproach": "Use a lentil and mushroom ragù spiced with cinnamon and clove and an oat-milk béchamel; vegetarians keep the cheese and dairy béchamel.",
+      "technique": "Long tubular pasta is layered with a spiced meat sauce and a thick béchamel, then baked until it can be cut into neat squares.",
+      "seasons": [
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "hosting",
+        "comfort",
+        "mealprep"
+      ],
+      "sources": [
+        {
+          "title": "Pastitsio - Wikipedia",
+          "url": "https://en.m.wikipedia.org/wiki/Pastitsio"
+        },
+        {
+          "title": "Vegan pastitsio (Greek lasagna) - Lazy Cat Kitchen",
+          "url": "https://www.lazycatkitchen.com/vegan-pastitsio-greek-lasagna/"
+        },
+        {
+          "title": "Pastitsio with lentil-mushroom sauce and oat milk béchamel - The Foodie Corner",
+          "url": "https://www.thefoodiecorner.gr/en/recipes/pastitsio-greek-pasta-bake-lentil-mushroom-sauce-oat-milk-bechamel-recipe/"
+        }
+      ]
+    },
+    {
+      "key": "gyros-pita",
+      "name": "Gyros pita",
+      "nameEn": "Greek gyros wrap",
+      "aliases": [
+        "gyros",
+        "gyro",
+        "pita gyros"
+      ],
+      "tiles": [
+        "Greek",
+        "American"
+      ],
+      "cuisine": "Greek",
+      "region": "Nationwide",
+      "format": "wrap",
+      "protein": "mushrooms",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 30,
+      "effort": "medium",
+      "familiarity": 1,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "pork",
+        "pita bread",
+        "tzatziki",
+        "tomato",
+        "red onion",
+        "fried potatoes",
+        "oregano",
+        "paprika"
+      ],
+      "specialtyIngredients": [],
+      "veganApproach": "Sear torn mushrooms (or shaved seitan) with gyros spices, soy sauce and tomato paste and serve with a dairy-free tzatziki.",
+      "technique": "Spiced, thinly sliced meat is crisped and wrapped in a warm pita with tomato, onion, fries and tzatziki.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "comfort"
+      ],
+      "sources": [
+        {
+          "title": "Gyros - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Gyros"
+        },
+        {
+          "title": "Best vegan gyros - Elavegan",
+          "url": "https://elavegan.com/vegan-gyros/"
+        },
+        {
+          "title": "Vegan gyros with tzatziki - My Pure Plants",
+          "url": "https://mypureplants.com/vegan-gyros-tzatziki/"
+        }
+      ]
+    },
+    {
+      "key": "souvlaki",
+      "name": "Souvlaki",
+      "nameEn": "Greek grilled skewers",
+      "aliases": [
+        "kalamaki",
+        "souvlaki pita"
+      ],
+      "tiles": [
+        "Greek"
+      ],
+      "cuisine": "Greek",
+      "region": "Nationwide",
+      "format": "skewers",
+      "protein": "tofu",
+      "method": "grill",
+      "appliances": [
+        "grill"
+      ],
+      "cookMinutes": 35,
+      "effort": "low",
+      "familiarity": 1,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "pork",
+        "olive oil",
+        "lemon",
+        "garlic",
+        "oregano",
+        "pita bread",
+        "tomato",
+        "tzatziki"
+      ],
+      "specialtyIngredients": [],
+      "veganApproach": "Marinate pressed extra-firm tofu in lemon, olive oil, garlic and oregano and grill it on skewers; serve with vegan tzatziki.",
+      "technique": "Cubes marinated in lemon, olive oil and oregano are threaded on skewers and charred over high heat, then served on pita or with salad.",
+      "seasons": [
+        "spring",
+        "summer"
+      ],
+      "occasions": [
+        "everyday",
+        "hosting"
+      ],
+      "sources": [
+        {
+          "title": "Souvlaki - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Souvlaki"
+        },
+        {
+          "title": "Vegan souvlaki (tofu skewers) - Plant Based Jess",
+          "url": "https://plantbasedjess.com/vegan-souvlaki-tofu-skewers/"
+        }
+      ]
+    },
+    {
+      "key": "giouvetsi",
+      "name": "Giouvetsi",
+      "nameEn": "Baked orzo with tomato and meat",
+      "aliases": [
+        "yiouvetsi",
+        "youvetsi",
+        "kritharaki giouvetsi"
+      ],
+      "tiles": [
+        "Greek",
+        "American"
+      ],
+      "cuisine": "Greek",
+      "region": "Nationwide",
+      "format": "bake",
+      "protein": "mushrooms",
+      "method": "oven",
+      "appliances": [
+        "stovetop",
+        "oven"
+      ],
+      "cookMinutes": 120,
+      "effort": "medium",
+      "familiarity": 2,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegan",
+        "vegetarian"
+      ],
+      "keyIngredients": [
+        "orzo",
+        "beef or lamb",
+        "tomato",
+        "onion",
+        "red wine",
+        "cinnamon",
+        "bay leaf",
+        "kefalotyri"
+      ],
+      "specialtyIngredients": [
+        "kefalotyri"
+      ],
+      "veganApproach": "Replace the meat with browned mushrooms and vegetable stock and skip the grated cheese; vegetarians can keep the cheese.",
+      "technique": "Meat is braised in tomato and wine, then orzo and hot stock go into the clay pot and bake until the pasta absorbs the sauce.",
+      "seasons": [
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "hosting",
+        "comfort"
+      ],
+      "sources": [
+        {
+          "title": "Giouvetsi - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Giouvetsi"
+        },
+        {
+          "title": "Vegetarian orzo yiouvetsi - Diane Kochilas",
+          "url": "https://www.dianekochilas.com/vegetarian-orzo-yiouvetsi/"
+        },
+        {
+          "title": "Mushroom youvetsi (Greek mushroom orzo stew) - Chef's Pencil",
+          "url": "https://www.chefspencil.com/mushroom-youvetsi-greek-mushroom-orzo-stew/"
+        }
+      ]
+    },
+    {
+      "key": "papoutsakia",
+      "name": "Papoutsakia",
+      "nameEn": "Stuffed eggplant 'little shoes' with béchamel",
+      "aliases": [
+        "melitzanes papoutsakia",
+        "eggplant papoutsaki"
+      ],
+      "tiles": [
+        "Greek"
+      ],
+      "cuisine": "Greek",
+      "region": "Nationwide",
+      "format": "stuffed",
+      "protein": "lentils",
+      "method": "oven",
+      "appliances": [
+        "stovetop",
+        "oven"
+      ],
+      "cookMinutes": 105,
+      "effort": "high",
+      "familiarity": 2,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegan",
+        "vegetarian"
+      ],
+      "keyIngredients": [
+        "eggplants",
+        "ground beef",
+        "tomato",
+        "onion",
+        "garlic",
+        "cinnamon",
+        "béchamel",
+        "kefalotyri"
+      ],
+      "specialtyIngredients": [
+        "kefalotyri"
+      ],
+      "veganApproach": "Fill the roasted eggplant halves with a tomato-lentil stew and top with olive-oil mashed potatoes instead of béchamel (papoutsakia nistisima).",
+      "technique": "Roasted eggplant halves are hollowed, filled with a spiced mince sauce, topped with béchamel and baked until golden.",
+      "seasons": [
+        "summer",
+        "autumn"
+      ],
+      "occasions": [
+        "hosting",
+        "comfort"
+      ],
+      "sources": [
+        {
+          "title": "Eggplant papoutsaki - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Eggplant_papoutsaki"
+        },
+        {
+          "title": "Vegan stuffed eggplant (Papoutsakia nistisima) - Mia Kouppa",
+          "url": "https://miakouppa.com/vegan-stuffed-eggplant/"
+        },
+        {
+          "title": "Stuffed eggplant (Papoutsakia) - SBS Food",
+          "url": "https://www.sbs.com.au/food/recipe/stuffed-eggplant-papoutsakia/z0r6eyvq2"
+        }
+      ]
+    },
+    {
+      "key": "horiatiki",
+      "name": "Horiatiki",
+      "nameEn": "Greek village salad",
+      "aliases": [
+        "horiatiki salata",
+        "greek salad",
+        "choriatiki"
+      ],
+      "tiles": [
+        "Greek",
+        "Fresh & light"
+      ],
+      "cuisine": "Greek",
+      "region": "Nationwide",
+      "format": "salad",
+      "protein": "tofu",
+      "method": "no_cook",
+      "appliances": [],
+      "cookMinutes": 15,
+      "effort": "low",
+      "familiarity": 1,
+      "traditionalDiet": "vegetarian",
+      "versions": [
+        "vegan",
+        "vegetarian"
+      ],
+      "keyIngredients": [
+        "tomatoes",
+        "cucumber",
+        "red onion",
+        "green bell pepper",
+        "kalamata olives",
+        "feta",
+        "dried oregano",
+        "extra virgin olive oil"
+      ],
+      "specialtyIngredients": [],
+      "veganApproach": "Replace the slab of feta with a tofu-based vegan feta, or simply add extra olives and capers.",
+      "technique": "Chunky tomatoes, cucumber, onion and pepper are dressed only with olive oil, salt and oregano and crowned with a slab of feta.",
+      "seasons": [
+        "summer"
+      ],
+      "occasions": [
+        "everyday",
+        "quick"
+      ],
+      "sources": [
+        {
+          "title": "Greek salad - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Greek_salad"
+        },
+        {
+          "title": "Greek Salad - NYT Cooking",
+          "url": "https://cooking.nytimes.com/recipes/1021079-greek-salad"
+        }
+      ]
+    },
+    {
+      "key": "dakos",
+      "name": "Dakos",
+      "nameEn": "Cretan barley rusk salad",
+      "aliases": [
+        "koukouvagia",
+        "ntakos",
+        "dakos kritikos"
+      ],
+      "tiles": [
+        "Greek",
+        "Fresh & light"
+      ],
+      "cuisine": "Greek",
+      "region": "Crete",
+      "format": "salad",
+      "protein": "vegetables",
+      "method": "no_cook",
+      "appliances": [],
+      "cookMinutes": 10,
+      "effort": "low",
+      "familiarity": 2,
+      "traditionalDiet": "vegetarian",
+      "versions": [
+        "vegan",
+        "vegetarian"
+      ],
+      "keyIngredients": [
+        "barley rusks",
+        "ripe tomatoes",
+        "mizithra",
+        "extra virgin olive oil",
+        "dried oregano",
+        "capers",
+        "olives"
+      ],
+      "specialtyIngredients": [
+        "barley rusks (paximadia)",
+        "mizithra"
+      ],
+      "veganApproach": "Skip the mizithra and pile on extra capers and olives, or crumble a vegan feta on top.",
+      "technique": "A dried barley rusk is lightly moistened, topped with grated ripe tomato, soft cheese, olive oil and oregano, and left to soften.",
+      "seasons": [
+        "summer"
+      ],
+      "occasions": [
+        "everyday",
+        "quick"
+      ],
+      "sources": [
+        {
+          "title": "Dakos - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Dakos"
+        },
+        {
+          "title": "Dakos Kritikos - The Greek Foodie",
+          "url": "https://thegreekfoodie.com/dakos-kritikos/"
+        }
+      ]
+    },
+    {
+      "key": "kolokithokeftedes",
+      "name": "Kolokithokeftedes",
+      "nameEn": "Greek zucchini and feta fritters",
+      "aliases": [
+        "kolokythokeftedes",
+        "zucchini fritters",
+        "zucchini balls"
+      ],
+      "tiles": [
+        "Greek"
+      ],
+      "cuisine": "Greek",
+      "region": "Nationwide",
+      "format": "fritters",
+      "protein": "vegetables",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 45,
+      "effort": "medium",
+      "familiarity": 2,
+      "traditionalDiet": "vegetarian",
+      "versions": [
+        "vegan",
+        "vegetarian"
+      ],
+      "keyIngredients": [
+        "zucchini",
+        "feta",
+        "spring onions",
+        "dill",
+        "mint",
+        "eggs",
+        "flour",
+        "breadcrumbs"
+      ],
+      "specialtyIngredients": [],
+      "veganApproach": "Bind the squeezed zucchini with chickpea flour instead of eggs and use a vegan feta or extra herbs.",
+      "technique": "Grated zucchini is salted and squeezed very dry, mixed with feta, herbs and egg, then shaped and shallow-fried until crisp.",
+      "seasons": [
+        "summer"
+      ],
+      "occasions": [
+        "everyday",
+        "hosting"
+      ],
+      "sources": [
+        {
+          "title": "Kolokithokeftedes (fried zucchini balls) - My Greek Dish",
+          "url": "https://www.mygreekdish.com/recipe/kolokithokeftedes-fried-zucchini-balls-or-courgette/"
+        },
+        {
+          "title": "Greek zucchini fritters - Serious Eats",
+          "url": "https://www.seriouseats.com/greek-zucchini-fritters-recipe-11765525"
+        }
+      ]
+    },
+    {
+      "key": "strapatsada",
+      "name": "Strapatsada",
+      "nameEn": "Greek scrambled eggs with tomato and feta",
+      "aliases": [
+        "kagianas",
+        "menemeni"
+      ],
+      "tiles": [
+        "Greek"
+      ],
+      "cuisine": "Greek",
+      "region": "Nationwide",
+      "format": "egg_dish",
+      "protein": "tofu",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 20,
+      "effort": "low",
+      "familiarity": 2,
+      "traditionalDiet": "vegetarian",
+      "versions": [
+        "vegan",
+        "vegetarian"
+      ],
+      "keyIngredients": [
+        "eggs",
+        "ripe tomatoes",
+        "feta",
+        "olive oil",
+        "dried oregano",
+        "black pepper"
+      ],
+      "specialtyIngredients": [],
+      "veganApproach": "Crumble firm tofu into the reduced tomato instead of eggs and finish with a vegan feta.",
+      "technique": "Grated ripe tomatoes are cooked down in olive oil until jammy, then eggs and feta are stirred through until softly set.",
+      "seasons": [
+        "summer",
+        "autumn"
+      ],
+      "occasions": [
+        "everyday",
+        "quick"
+      ],
+      "sources": [
+        {
+          "title": "Scrambled eggs with tomato (Strapatsada) - Real Greek Recipes",
+          "url": "https://realgreekrecipes.com/scrambled-eggs-with-tomato/"
+        },
+        {
+          "title": "Strapatsada - BBC Food",
+          "url": "https://www.bbc.co.uk/food/recipes/strapatsada_93222"
+        }
+      ]
+    },
+    {
+      "key": "makaronia-me-mizithra",
+      "name": "Makaronia me mizithra",
+      "nameEn": "Spaghetti with browned butter and aged mizithra",
+      "aliases": [
+        "makaronia me kafto voutyro",
+        "spaghetti with mizithra"
+      ],
+      "tiles": [
+        "Greek"
+      ],
+      "cuisine": "Greek",
+      "region": "Nationwide",
+      "format": "pasta",
+      "protein": "cheese",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 20,
+      "effort": "low",
+      "familiarity": 2,
+      "traditionalDiet": "vegetarian",
+      "versions": [
+        "vegetarian"
+      ],
+      "keyIngredients": [
+        "spaghetti",
+        "butter",
+        "aged mizithra",
+        "salt",
+        "black pepper"
+      ],
+      "specialtyIngredients": [
+        "aged mizithra"
+      ],
+      "veganApproach": null,
+      "technique": "Hot spaghetti is tossed with butter cooked until nutty brown and showered with grated salty aged mizithra.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "quick",
+        "comfort"
+      ],
+      "sources": [
+        {
+          "title": "Macaroni with mizithra - About Pasta",
+          "url": "https://www.aboutpasta.gr/macaroni-mizithra.html"
+        },
+        {
+          "title": "Spaghetti with browned butter and mizithra - Tara's Multicultural Table",
+          "url": "https://tarasmulticulturaltable.com/spaghetti-with-browned-butter-and-mizithra/"
+        }
+      ]
+    },
+    {
+      "key": "trahanas-soupa",
+      "name": "Trahanas soupa",
+      "nameEn": "Greek trahana soup",
+      "aliases": [
+        "trahanas",
+        "trachanas",
+        "trahana soup"
+      ],
+      "tiles": [
+        "Greek"
+      ],
+      "cuisine": "Greek",
+      "region": "Nationwide (especially Thrace and Macedonia)",
+      "format": "soup",
+      "protein": "grains",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 30,
+      "effort": "low",
+      "familiarity": 3,
+      "traditionalDiet": "vegetarian",
+      "versions": [
+        "vegan",
+        "vegetarian"
+      ],
+      "keyIngredients": [
+        "sour trahanas",
+        "water or stock",
+        "tomato",
+        "olive oil",
+        "feta",
+        "lemon"
+      ],
+      "specialtyIngredients": [
+        "trahanas"
+      ],
+      "veganApproach": "Use nistisimos (Lenten) trahanas made with flour and vegetables instead of the milk-based kind and skip the feta.",
+      "technique": "Crumbled dried trahanas pasta simmers in water or stock until it thickens into a tangy porridge-like soup, finished with olive oil and lemon.",
+      "seasons": [
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "comfort"
+      ],
+      "sources": [
+        {
+          "title": "Simple trahana soup with lemon and olive oil - NYT Cooking",
+          "url": "https://cooking.nytimes.com/recipes/1016877-simple-trahana-soup-with-lemon-and-olive-oil"
+        },
+        {
+          "title": "O apolytos paradosiakos trachanas - Gastronomos",
+          "url": "https://www.gastronomos.gr/syntagh/o-apolytos-paradosiakos-trachanas/246389/"
+        },
+        {
+          "title": "Paradosiakos nistisimos trachanas apo tin Thraki - Daddy-Cool",
+          "url": "https://www.daddy-cool.gr/sintages/paradosiakos-spitikos-nistisimos-trachanas-apo-tin-thraki-me-lachanika.html"
+        }
+      ]
+    },
+    {
+      "key": "kritharoto-me-manitaria",
+      "name": "Kritharoto me manitaria",
+      "nameEn": "Creamy mushroom orzo",
+      "aliases": [
+        "kritharoto",
+        "kritharotto",
+        "orzotto"
+      ],
+      "tiles": [
+        "Greek"
+      ],
+      "cuisine": "Greek",
+      "region": "Nationwide",
+      "format": "risotto",
+      "protein": "mushrooms",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 35,
+      "effort": "low",
+      "familiarity": 2,
+      "traditionalDiet": "vegetarian",
+      "versions": [
+        "vegan",
+        "vegetarian"
+      ],
+      "keyIngredients": [
+        "orzo",
+        "mushrooms",
+        "onion",
+        "garlic",
+        "white wine",
+        "vegetable stock",
+        "graviera or kefalotyri",
+        "olive oil"
+      ],
+      "specialtyIngredients": [
+        "graviera"
+      ],
+      "veganApproach": "Finish with olive oil and a cashew cream instead of the grated Greek cheese.",
+      "technique": "Orzo is toasted with sautéed mushrooms and onion, then cooked risotto-style with wine and hot stock added gradually until creamy.",
+      "seasons": [
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "date",
+        "comfort"
+      ],
+      "sources": [
+        {
+          "title": "Mushroom kritharoto with orzo - Diane Kochilas",
+          "url": "https://www.dianekochilas.com/mushroom-kritharoto-with-orzo/"
+        },
+        {
+          "title": "Mushroom kritharotto - Kalofagas",
+          "url": "https://www.kalofagas.ca/2024/02/16/mushroom-kritharotto/"
+        }
+      ]
+    },
+    {
+      "key": "lahanodolmades",
+      "name": "Lahanodolmades",
+      "nameEn": "Greek stuffed cabbage rolls",
+      "aliases": [
+        "lachanodolmades",
+        "lahanodolmathes",
+        "giaprakia"
+      ],
+      "tiles": [
+        "Greek"
+      ],
+      "cuisine": "Greek",
+      "region": "Nationwide (especially Northern Greece)",
+      "format": "stuffed",
+      "protein": "grains",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 120,
+      "effort": "high",
+      "familiarity": 2,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "cabbage",
+        "ground pork or beef",
+        "rice",
+        "onion",
+        "dill",
+        "parsley",
+        "eggs",
+        "lemon"
+      ],
+      "specialtyIngredients": [],
+      "veganApproach": "Use the Lenten filling of rice, onions and herbs and finish with a lemon and olive oil sauce instead of egg avgolemono.",
+      "technique": "Blanched cabbage leaves are rolled around a herby meat and rice filling, simmered under a plate, and the broth is thickened with egg-lemon.",
+      "seasons": [
+        "winter"
+      ],
+      "occasions": [
+        "hosting",
+        "comfort",
+        "mealprep"
+      ],
+      "sources": [
+        {
+          "title": "Lahanodolmades (stuffed cabbage rolls with avgolemono) - The Greek Foodie",
+          "url": "https://thegreekfoodie.com/greek-stuffed-cabbage-rolls-lahanodolmades-avgolemono/"
+        },
+        {
+          "title": "Vegan lachanodolmades - Giorgos Tsoulis",
+          "url": "https://www.giorgostsoulis.com/en/syntages/ospria-ladera/vegan-lachanodolmades"
+        },
+        {
+          "title": "How to make the perfect Greek stuffed cabbage rolls - The Guardian",
+          "url": "https://www.theguardian.com/food/2024/jan/05/how-to-make-the-perfect-greek-stuffed-cabbage-rolls-or-lahanodolmades-recipe"
+        }
+      ]
+    },
+    {
+      "key": "makaronia-me-kima",
+      "name": "Makaronia me kima",
+      "nameEn": "Greek spaghetti with cinnamon-spiced meat sauce",
+      "aliases": [
+        "vaporisia makaronia",
+        "greek spaghetti bolognese"
+      ],
+      "tiles": [
+        "Greek",
+        "American"
+      ],
+      "cuisine": "Greek",
+      "region": "Nationwide",
+      "format": "pasta",
+      "protein": "lentils",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 60,
+      "effort": "low",
+      "familiarity": 1,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "spaghetti",
+        "ground beef",
+        "onion",
+        "garlic",
+        "tomatoes",
+        "red wine",
+        "cinnamon",
+        "cloves",
+        "kefalotyri"
+      ],
+      "specialtyIngredients": [
+        "kefalotyri"
+      ],
+      "veganApproach": "Simmer small brown lentils with the same tomato, wine, cinnamon and allspice sauce and serve without the grated cheese.",
+      "technique": "Minced meat is browned with onion, then simmered with tomato, red wine and whole sweet spices and tossed with thick spaghetti.",
+      "seasons": [
+        "autumn",
+        "winter",
+        "spring"
+      ],
+      "occasions": [
+        "everyday",
+        "mealprep",
+        "comfort"
+      ],
+      "sources": [
+        {
+          "title": "Makaronia me kima (Greek spaghetti in meat sauce) - My Greek Dish",
+          "url": "https://www.mygreekdish.com/recipe/makaronia-me-kima-recipe-greek-style-spaghetti-in-meat-sauce/"
+        },
+        {
+          "title": "The ultimate Greek spaghetti with meat sauce - Olive Tomato",
+          "url": "https://www.olivetomato.com/the-ultimate-greek-spaghetti-with-meat-sauce-recipe-makaronia-me-kima/"
+        },
+        {
+          "title": "Ferry boat spaghetti with spiced lentils (Diane Kochilas) - The Epoch Times",
+          "url": "https://www.theepochtimes.com/bright/ferry-boat-spaghetti-with-spiced-lentils-5628212"
+        }
+      ]
+    },
+    {
+      "key": "avgolemono-soupa",
+      "name": "Avgolemono soupa",
+      "nameEn": "Greek egg-lemon soup",
+      "aliases": [
+        "avgolemono",
+        "kotosoupa avgolemono",
+        "greek lemon soup"
+      ],
+      "tiles": [
+        "Greek",
+        "American"
+      ],
+      "cuisine": "Greek",
+      "region": "Nationwide",
+      "format": "soup",
+      "protein": "chickpeas",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 50,
+      "effort": "medium",
+      "familiarity": 1,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegan",
+        "vegetarian"
+      ],
+      "keyIngredients": [
+        "chicken",
+        "chicken broth",
+        "rice or orzo",
+        "eggs",
+        "lemon",
+        "salt",
+        "black pepper"
+      ],
+      "specialtyIngredients": [],
+      "veganApproach": "Use vegetable stock with chickpeas and orzo and thicken with a lemon-tahini mix instead of eggs; vegetarians keep the eggs with vegetable broth.",
+      "technique": "Rice or orzo is cooked in broth, then beaten eggs and lemon are tempered with hot broth and stirred in off the heat to make it silky.",
+      "seasons": [
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "comfort"
+      ],
+      "sources": [
+        {
+          "title": "Avgolemono - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Avgolemono"
+        },
+        {
+          "title": "Avgolemono soup (Greek lemon-egg chicken soup) - Serious Eats",
+          "url": "https://www.seriouseats.com/avgolemono-soup-greek-lemon-egg-chicken-soup"
+        },
+        {
+          "title": "Vegan avgolemono soup - Vegan Cocotte",
+          "url": "https://vegancocotte.com/vegan-avgolemono-soup/"
+        }
+      ]
+    },
+    {
+      "key": "garides-saganaki",
+      "name": "Garides saganaki",
+      "nameEn": "Shrimp in tomato sauce with feta",
+      "aliases": [
+        "shrimp saganaki",
+        "garithes saganaki"
+      ],
+      "tiles": [
+        "Greek"
+      ],
+      "cuisine": "Greek",
+      "region": "Nationwide",
+      "format": "other",
+      "protein": "mushrooms",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 30,
+      "effort": "low",
+      "familiarity": 1,
+      "traditionalDiet": "pescatarian",
+      "versions": [
+        "vegan",
+        "pescatarian"
+      ],
+      "keyIngredients": [
+        "shrimp",
+        "tomatoes",
+        "feta",
+        "garlic",
+        "ouzo",
+        "olive oil",
+        "parsley",
+        "chili flakes"
+      ],
+      "specialtyIngredients": [
+        "ouzo"
+      ],
+      "veganApproach": "Sear thick slices of king oyster mushroom in place of the shrimp and finish the ouzo-tomato sauce with a vegan feta.",
+      "technique": "Shrimp are briefly cooked in a garlicky tomato sauce splashed with ouzo, then topped with crumbled feta until it softens.",
+      "seasons": [
+        "summer",
+        "spring"
+      ],
+      "occasions": [
+        "date",
+        "hosting",
+        "everyday"
+      ],
+      "sources": [
+        {
+          "title": "Greek shrimp and tomatoes with feta (Garides saganaki) - Diane Kochilas",
+          "url": "https://www.dianekochilas.com/greek-shrimp-and-tomatoes-with-feta-garides-saganaki/"
+        },
+        {
+          "title": "Shrimp saganaki with feta cheese - My Greek Dish",
+          "url": "https://www.mygreekdish.com/recipe/shrimp-saganaki-recipe-with-feta-cheese/"
+        }
+      ]
+    },
+    {
+      "key": "mydia-saganaki",
+      "name": "Mydia saganaki",
+      "nameEn": "Mussels in tomato sauce with feta",
+      "aliases": [
+        "midia saganaki",
+        "mussels saganaki"
+      ],
+      "tiles": [
+        "Greek"
+      ],
+      "cuisine": "Greek",
+      "region": "Nationwide (especially Thessaloniki and the coast)",
+      "format": "other",
+      "protein": "shellfish",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 25,
+      "effort": "low",
+      "familiarity": 2,
+      "traditionalDiet": "pescatarian",
+      "versions": [
+        "pescatarian"
+      ],
+      "keyIngredients": [
+        "mussels",
+        "tomatoes",
+        "feta",
+        "garlic",
+        "white wine",
+        "chili",
+        "parsley",
+        "olive oil"
+      ],
+      "specialtyIngredients": [],
+      "veganApproach": null,
+      "technique": "Cleaned mussels are steamed open in a quick garlicky tomato and wine sauce and finished with crumbled feta melting into the juices.",
+      "seasons": [
+        "summer",
+        "spring"
+      ],
+      "occasions": [
+        "date",
+        "quick",
+        "hosting"
+      ],
+      "sources": [
+        {
+          "title": "Mussels saganaki (Midia saganaki) - My Greek Dish",
+          "url": "https://www.mygreekdish.com/recipe/mussels-saganaki-midia-saganaki/"
+        },
+        {
+          "title": "Greek mussels in tomato and feta sauce (Mydia saganaki) - Kalliopi's Kitchen",
+          "url": "https://www.kalliopiskitchen.com/recipes/mydia-saganaki/"
+        },
+        {
+          "title": "Mussels saganaki with ouzo and feta - SBS Food",
+          "url": "https://www.sbs.com.au/food/recipe/mussels-saganaki-with-ouzo-and-feta/ximr9dtt9"
+        }
+      ]
+    },
+    {
+      "key": "garidomakaronada",
+      "name": "Garidomakaronada",
+      "nameEn": "Greek shrimp pasta in tomato sauce",
+      "aliases": [
+        "makaronada me garides",
+        "shrimp spaghetti"
+      ],
+      "tiles": [
+        "Greek"
+      ],
+      "cuisine": "Greek",
+      "region": "Aegean islands",
+      "format": "pasta",
+      "protein": "shellfish",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 35,
+      "effort": "medium",
+      "familiarity": 2,
+      "traditionalDiet": "pescatarian",
+      "versions": [
+        "pescatarian"
+      ],
+      "keyIngredients": [
+        "spaghetti or linguine",
+        "shrimp",
+        "tomatoes",
+        "garlic",
+        "ouzo",
+        "white wine",
+        "olive oil",
+        "parsley"
+      ],
+      "specialtyIngredients": [
+        "ouzo"
+      ],
+      "veganApproach": null,
+      "technique": "Whole shrimp are seared, flamed with ouzo and simmered in tomato to make a sweet shellfish sauce that coats the pasta.",
+      "seasons": [
+        "summer"
+      ],
+      "occasions": [
+        "date",
+        "hosting"
+      ],
+      "sources": [
+        {
+          "title": "Garidomakaronada in one pot - Akis Petretzikis",
+          "url": "https://akispetretzikis.com/en/recipe/8179/garidomakaronada-se-1-skevos"
+        },
+        {
+          "title": "Linguine with shrimp - Akis Petretzikis",
+          "url": "https://akispetretzikis.com/en/recipe/8943/ligouini-me-garides"
+        }
+      ]
+    },
+    {
+      "key": "garides-giouvetsi",
+      "name": "Garides giouvetsi",
+      "nameEn": "Shrimp with orzo in tomato sauce",
+      "aliases": [
+        "garides youvetsi",
+        "garithes yiouvetsi",
+        "shrimp youvetsi"
+      ],
+      "tiles": [
+        "Greek"
+      ],
+      "cuisine": "Greek",
+      "region": "Nationwide",
+      "format": "pasta",
+      "protein": "shellfish",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 45,
+      "effort": "medium",
+      "familiarity": 2,
+      "traditionalDiet": "pescatarian",
+      "versions": [
+        "pescatarian"
+      ],
+      "keyIngredients": [
+        "shrimp",
+        "orzo",
+        "tomatoes",
+        "onion",
+        "garlic",
+        "white wine",
+        "feta",
+        "olive oil"
+      ],
+      "specialtyIngredients": [],
+      "veganApproach": null,
+      "technique": "Orzo is cooked directly in a tomato sauce, then sautéed shrimp deglazed with wine are folded in and finished with feta.",
+      "seasons": [
+        "summer",
+        "spring",
+        "autumn"
+      ],
+      "occasions": [
+        "everyday",
+        "hosting",
+        "comfort"
+      ],
+      "sources": [
+        {
+          "title": "Garides youvetsi, Greek shrimp with orzo - Mia Kouppa",
+          "url": "https://miakouppa.com/garides-youvetsi-greek-shrimp-with-orzo/"
+        },
+        {
+          "title": "Greek-style shrimp and orzo stew (Yiouvetsi) - Akis Petretzikis",
+          "url": "https://akispetretzikis.com/en/recipe/5971/gioyvetsi-me-garides"
+        }
+      ]
+    },
+    {
+      "key": "htapodi-me-kofto-makaronaki",
+      "name": "Htapodi me kofto makaronaki",
+      "nameEn": "Octopus braised in red wine with short pasta",
+      "aliases": [
+        "htapodi makaronaki",
+        "htapothaki me kofto makaronaki",
+        "octopus with pasta"
+      ],
+      "tiles": [
+        "Greek"
+      ],
+      "cuisine": "Greek",
+      "region": "Aegean islands",
+      "format": "pasta",
+      "protein": "mushrooms",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 100,
+      "effort": "medium",
+      "familiarity": 2,
+      "traditionalDiet": "pescatarian",
+      "versions": [
+        "vegan",
+        "pescatarian"
+      ],
+      "keyIngredients": [
+        "octopus",
+        "short pasta",
+        "red wine",
+        "tomatoes",
+        "onion",
+        "garlic",
+        "bay leaf",
+        "olive oil"
+      ],
+      "specialtyIngredients": [],
+      "veganApproach": "Braise thick-cut king oyster mushrooms in the same red wine, tomato and bay sauce and cook the short pasta in it.",
+      "technique": "Octopus stews in its own juices with onion, red wine and tomato until tender, then short pasta is cooked directly in the sauce.",
+      "seasons": [
+        "autumn",
+        "winter",
+        "spring"
+      ],
+      "occasions": [
+        "hosting",
+        "comfort"
+      ],
+      "sources": [
+        {
+          "title": "Octopus with short pasta (Htapothaki me kofto makaronaki) - Diane Kochilas",
+          "url": "https://www.dianekochilas.com/octopus-with-short-pasta-htapothaki-me-kofto-makaronaki/"
+        },
+        {
+          "title": "Greek octopus with small pasta (Htapodi makaronaki) - Kalliopi's Kitchen",
+          "url": "https://www.kalliopiskitchen.com/recipes/htapodi-makaronaki/"
+        },
+        {
+          "title": "Htapodi me kofto makaronaki - Petros Syrigos",
+          "url": "https://petros-syrigos.com/xtapodi-me-kofto-makaronaki/"
+        }
+      ]
+    },
+    {
+      "key": "kalamarakia-gemista",
+      "name": "Kalamarakia gemista",
+      "nameEn": "Rice and herb stuffed squid",
+      "aliases": [
+        "kalamaria gemista",
+        "kalamaria yemista",
+        "stuffed squid"
+      ],
+      "tiles": [
+        "Greek"
+      ],
+      "cuisine": "Greek",
+      "region": "Aegean islands",
+      "format": "stuffed",
+      "protein": "shellfish",
+      "method": "oven",
+      "appliances": [
+        "stovetop",
+        "oven"
+      ],
+      "cookMinutes": 75,
+      "effort": "high",
+      "familiarity": 2,
+      "traditionalDiet": "pescatarian",
+      "versions": [
+        "pescatarian"
+      ],
+      "keyIngredients": [
+        "squid",
+        "rice",
+        "onion",
+        "dill",
+        "parsley",
+        "tomato",
+        "white wine",
+        "olive oil"
+      ],
+      "specialtyIngredients": [],
+      "veganApproach": null,
+      "technique": "Squid tubes are filled with rice cooked with the chopped tentacles, onion and herbs, then baked or braised in tomato and wine.",
+      "seasons": [
+        "spring",
+        "summer"
+      ],
+      "occasions": [
+        "hosting",
+        "date"
+      ],
+      "sources": [
+        {
+          "title": "Calamarakia yemista (Lenten stuffed squid) - Diane Kochilas",
+          "url": "https://www.dianekochilas.com/calamarakia-yemista-lenten-stuffed-squid/"
+        },
+        {
+          "title": "Kalamaria yemista - My Greek Kitchen",
+          "url": "https://mygreekitchen.gr/kalamaria-yemista/"
+        }
+      ]
+    },
+    {
+      "key": "soupies-me-spanaki",
+      "name": "Soupies me spanaki",
+      "nameEn": "Cuttlefish braised with spinach",
+      "aliases": [
+        "cuttlefish with spinach",
+        "soupies yiahni"
+      ],
+      "tiles": [
+        "Greek"
+      ],
+      "cuisine": "Greek",
+      "region": "Nationwide",
+      "format": "stew",
+      "protein": "shellfish",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 75,
+      "effort": "medium",
+      "familiarity": 3,
+      "traditionalDiet": "pescatarian",
+      "versions": [
+        "pescatarian"
+      ],
+      "keyIngredients": [
+        "cuttlefish",
+        "spinach",
+        "onion",
+        "white wine",
+        "tomato",
+        "dill",
+        "olive oil",
+        "lemon"
+      ],
+      "specialtyIngredients": [],
+      "veganApproach": null,
+      "technique": "Cuttlefish is sautéed with onion, deglazed with wine and simmered until tender, then large amounts of spinach and dill wilt into the sauce.",
+      "seasons": [
+        "spring",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "comfort"
+      ],
+      "sources": [
+        {
+          "title": "Cuttlefish with spinach: Soupies me spanaki - Greek Tastes",
+          "url": "https://www.greektastes.com/cuttlefish-with-spinach-soupies-me-spanaki/"
+        },
+        {
+          "title": "Soupies me spanaki - My Greek Kitchen",
+          "url": "https://mygreekitchen.gr/21330/"
+        }
+      ]
+    },
+    {
+      "key": "kakavia",
+      "name": "Kakavia",
+      "nameEn": "Greek fisherman's soup",
+      "aliases": [
+        "psarosoupa kakavia",
+        "fisherman's soup"
+      ],
+      "tiles": [
+        "Greek"
+      ],
+      "cuisine": "Greek",
+      "region": "Aegean islands",
+      "format": "soup",
+      "protein": "fish",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 60,
+      "effort": "medium",
+      "familiarity": 2,
+      "traditionalDiet": "pescatarian",
+      "versions": [
+        "pescatarian"
+      ],
+      "keyIngredients": [
+        "mixed white fish",
+        "potatoes",
+        "onion",
+        "celery",
+        "tomato",
+        "lemon",
+        "extra virgin olive oil"
+      ],
+      "specialtyIngredients": [],
+      "veganApproach": null,
+      "technique": "Small rockfish and potatoes simmer with onion and olive oil into a rich broth, served with the fish and a squeeze of lemon.",
+      "seasons": [
+        "autumn",
+        "winter",
+        "spring"
+      ],
+      "occasions": [
+        "hosting",
+        "comfort"
+      ],
+      "sources": [
+        {
+          "title": "Kakavia (soup) - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Kakavia_(soup)"
+        },
+        {
+          "title": "Kakavia - Diane Kochilas",
+          "url": "https://www.dianekochilas.com/kakavia/"
+        },
+        {
+          "title": "Greek fisherman's soup (Kakavia) - Argiro Barbarigou",
+          "url": "https://www.argiro.gr/en/recipe/greek-fishermans-soup-kakavia/"
+        }
+      ]
+    },
+    {
+      "key": "bakaliaros-skordalia",
+      "name": "Bakaliaros skordalia",
+      "nameEn": "Battered salt cod with garlic potato purée",
+      "aliases": [
+        "bakaliaros tiganitos me skordalia",
+        "cod fritters with skordalia"
+      ],
+      "tiles": [
+        "Greek"
+      ],
+      "cuisine": "Greek",
+      "region": "Nationwide",
+      "format": "fritters",
+      "protein": "fish",
+      "method": "deep_fry",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 60,
+      "effort": "medium",
+      "familiarity": 2,
+      "traditionalDiet": "pescatarian",
+      "versions": [
+        "pescatarian"
+      ],
+      "keyIngredients": [
+        "salt cod",
+        "flour",
+        "beer or sparkling water",
+        "potatoes",
+        "garlic",
+        "olive oil",
+        "lemon",
+        "vinegar"
+      ],
+      "specialtyIngredients": [
+        "salt cod"
+      ],
+      "veganApproach": null,
+      "technique": "Desalted cod is dipped in a light batter and deep-fried, then served with a pungent garlic and potato skordalia.",
+      "seasons": [
+        "spring",
+        "winter"
+      ],
+      "occasions": [
+        "hosting",
+        "comfort"
+      ],
+      "sources": [
+        {
+          "title": "Cod fritters with garlicky potato purée (Bakaliaros skordalia) - My Greek Dish",
+          "url": "https://www.mygreekdish.com/recipe/cod-fritters-garlicky-potato-puree-bakaliaros-skordalia/"
+        },
+        {
+          "title": "Bakaliaros skordalia - Eleni Saltas",
+          "url": "https://elenisaltas.com/2018/03/24/bakaliaros-skordalia-cod-garlic-dip/"
+        }
+      ]
+    },
+    {
+      "key": "psari-plaki",
+      "name": "Psari plaki",
+      "nameEn": "Greek baked fish with tomatoes and onions",
+      "aliases": [
+        "psari plaki sto fourno",
+        "fish plaki"
+      ],
+      "tiles": [
+        "Greek"
+      ],
+      "cuisine": "Greek",
+      "region": "Nationwide",
+      "format": "bake",
+      "protein": "fish",
+      "method": "oven",
+      "appliances": [
+        "oven"
+      ],
+      "cookMinutes": 60,
+      "effort": "low",
+      "familiarity": 2,
+      "traditionalDiet": "pescatarian",
+      "versions": [
+        "pescatarian"
+      ],
+      "keyIngredients": [
+        "white fish fillets",
+        "tomatoes",
+        "onions",
+        "garlic",
+        "parsley",
+        "white wine",
+        "extra virgin olive oil",
+        "lemon"
+      ],
+      "specialtyIngredients": [],
+      "veganApproach": null,
+      "technique": "Fish is baked on and under a bed of olive-oil-softened onions, garlic, tomatoes and parsley until flaky.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn"
+      ],
+      "occasions": [
+        "everyday",
+        "hosting"
+      ],
+      "sources": [
+        {
+          "title": "Baked Greek fish (Psari plaki) - The Mediterranean Dish",
+          "url": "https://www.themediterraneandish.com/baked-greek-fish-psari-plaki/"
+        },
+        {
+          "title": "Psari plaki (roasted fish) - BBC Food",
+          "url": "https://www.bbc.co.uk/food/recipes/psari_plaki_roasted_43483"
+        }
+      ]
+    },
+    {
+      "key": "bourdeto",
+      "name": "Bourdeto",
+      "nameEn": "Corfiot spicy paprika fish stew",
+      "aliases": [
+        "burdeto",
+        "bourdetto"
+      ],
+      "tiles": [
+        "Greek"
+      ],
+      "cuisine": "Greek",
+      "region": "Corfu (Ionian islands)",
+      "format": "stew",
+      "protein": "fish",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 40,
+      "effort": "low",
+      "familiarity": 3,
+      "traditionalDiet": "pescatarian",
+      "versions": [
+        "pescatarian"
+      ],
+      "keyIngredients": [
+        "scorpionfish or firm white fish",
+        "onions",
+        "sweet paprika",
+        "hot paprika",
+        "olive oil",
+        "lemon"
+      ],
+      "specialtyIngredients": [
+        "scorpionfish"
+      ],
+      "veganApproach": null,
+      "technique": "Onions are softened in olive oil with lots of sweet and hot paprika, then whole fish simmer in the red sauce until it reduces, finished with lemon.",
+      "seasons": [
+        "autumn",
+        "winter",
+        "spring"
+      ],
+      "occasions": [
+        "hosting",
+        "date"
+      ],
+      "sources": [
+        {
+          "title": "Bourdeto: a spicy fish recipe from Corfu - AtCorfu",
+          "url": "https://atcorfu.com/bourdeto-corfiot-fish-recipe/"
+        },
+        {
+          "title": "Bourdeto - recipe from Corfu - Greek Gastronomy Guide",
+          "url": "https://www.greekgastronomyguide.gr/en/item/bourdeto-edesma-kerkyra/"
+        },
+        {
+          "title": "Corfu spicy fish stew (Bourdeto) - Kalliopi's Kitchen",
+          "url": "https://www.kalliopiskitchen.com/recipes/bourdeto/"
+        }
+      ]
+    }
+  ]
+}

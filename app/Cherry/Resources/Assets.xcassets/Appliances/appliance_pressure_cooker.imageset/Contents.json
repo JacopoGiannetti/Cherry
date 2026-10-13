@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "appliance_pressure_cooker.png",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

@@ -1,0 +1,3531 @@
+{
+  "tile": "Fresh & light",
+  "generatedAt": "2026-10-05",
+  "dishes": [
+    {
+      "key": "goi-cuon",
+      "name": "Gỏi cuốn",
+      "nameEn": "Vietnamese fresh spring rolls",
+      "aliases": [
+        "summer rolls",
+        "goi cuon chay",
+        "salad rolls"
+      ],
+      "tiles": [
+        "Fresh & light"
+      ],
+      "cuisine": "Vietnamese",
+      "region": "Southern Vietnam",
+      "format": "wrap",
+      "protein": "tofu",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 30,
+      "effort": "medium",
+      "familiarity": 1,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "rice paper",
+        "rice vermicelli",
+        "tofu",
+        "lettuce",
+        "mint",
+        "thai basil",
+        "cucumber",
+        "peanut hoisin sauce"
+      ],
+      "specialtyIngredients": [
+        "rice paper"
+      ],
+      "veganApproach": "Replace the shrimp and pork with seared tofu and serve with a peanut-hoisin dip instead of fish sauce.",
+      "technique": "Soften rice paper briefly in warm water and roll it tightly around vermicelli, herbs and fillings.",
+      "seasons": [
+        "spring",
+        "summer"
+      ],
+      "occasions": [
+        "everyday",
+        "hosting"
+      ],
+      "sources": [
+        {
+          "title": "Gỏi cuốn - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/G%E1%BB%8Fi_cu%E1%BB%91n"
+        },
+        {
+          "title": "How to Make Gỏi Cuốn - Hungry Huy",
+          "url": "https://www.hungryhuy.com/how-to-make-goi-cuon-vietnamese-spring-rolls/"
+        },
+        {
+          "title": "Vegan Vietnamese Spring Rolls (Gỏi Cuốn) - Full of Plants",
+          "url": "https://fullofplants.com/vegan-vietnamese-spring-rolls-goi-cuon/"
+        }
+      ]
+    },
+    {
+      "key": "bun-chay",
+      "name": "Bún chay",
+      "nameEn": "Vietnamese vegan vermicelli noodle salad",
+      "aliases": [
+        "bun chay",
+        "vegan bun",
+        "vermicelli bowl"
+      ],
+      "tiles": [
+        "Fresh & light"
+      ],
+      "cuisine": "Vietnamese",
+      "region": "Vietnam",
+      "format": "noodles",
+      "protein": "tofu",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 30,
+      "effort": "low",
+      "familiarity": 1,
+      "traditionalDiet": "vegan",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "rice vermicelli",
+        "fried tofu",
+        "lettuce",
+        "cucumber",
+        "pickled carrot and daikon",
+        "mint",
+        "peanuts",
+        "soy lime dressing"
+      ],
+      "specialtyIngredients": [],
+      "veganApproach": "Naturally vegan.",
+      "technique": "Layer cool vermicelli over greens and herbs, top with crisp tofu and dress with a sweet-sour chay dipping sauce.",
+      "seasons": [
+        "spring",
+        "summer"
+      ],
+      "occasions": [
+        "everyday",
+        "mealprep"
+      ],
+      "sources": [
+        {
+          "title": "Bún Chay (Vegan Vermicelli Noodle Salad) - Heartful Table",
+          "url": "https://heartfultable.com/bun-chay/"
+        },
+        {
+          "title": "Vegan Bun Chay Vietnamese Noodle Salad - The Wanderlust Kitchen",
+          "url": "https://thewanderlustkitchen.com/vegan-bun-chay-vietnamese-noodle-salad/"
+        }
+      ]
+    },
+    {
+      "key": "bun-bo-hue-chay",
+      "name": "Bún bò Huế chay",
+      "nameEn": "Vegan Hue spicy lemongrass noodle soup",
+      "aliases": [
+        "bun bo hue chay",
+        "bun hue chay",
+        "vegan bun bo hue"
+      ],
+      "tiles": [
+        "Fresh & light"
+      ],
+      "cuisine": "Vietnamese",
+      "region": "Huế, Central Vietnam",
+      "format": "noodles",
+      "protein": "mushrooms",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 75,
+      "effort": "medium",
+      "familiarity": 2,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "thick rice noodles",
+        "lemongrass",
+        "chili sate",
+        "pineapple",
+        "oyster mushrooms",
+        "fried tofu",
+        "banana blossom",
+        "thai basil"
+      ],
+      "specialtyIngredients": [
+        "annatto seeds"
+      ],
+      "veganApproach": "Build the broth from lemongrass, pineapple and mushrooms and swap the beef and pork for mushrooms and fried tofu.",
+      "technique": "Simmer a lemongrass-pineapple vegetable broth and finish it with a chili-lemongrass sate for heat and colour.",
+      "seasons": [
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "comfort",
+        "hosting"
+      ],
+      "sources": [
+        {
+          "title": "Bún bò Huế - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/B%C3%BAn_b%C3%B2_Hu%E1%BA%BF"
+        },
+        {
+          "title": "Vegan Bun Bo Hue - Veggie Anh",
+          "url": "https://veggieanh.com/vegan-bun-bo-hue/"
+        },
+        {
+          "title": "Bun Bo Hue Chay - Wok and Kin",
+          "url": "https://www.wokandkin.com/bun-bo-hue-chay/"
+        }
+      ]
+    },
+    {
+      "key": "banh-mi",
+      "name": "Bánh mì",
+      "nameEn": "Vietnamese baguette sandwich",
+      "aliases": [
+        "banh mi chay",
+        "tofu banh mi",
+        "vietnamese sandwich"
+      ],
+      "tiles": [
+        "Fresh & light"
+      ],
+      "cuisine": "Vietnamese",
+      "region": "Saigon, Southern Vietnam",
+      "format": "sandwich",
+      "protein": "tofu",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 30,
+      "effort": "medium",
+      "familiarity": 1,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "baguette",
+        "lemongrass tofu",
+        "pickled carrot and daikon",
+        "cucumber",
+        "cilantro",
+        "chili",
+        "vegan mayonnaise",
+        "soy sauce"
+      ],
+      "specialtyIngredients": [],
+      "veganApproach": "Fill with lemongrass-marinated seared or grilled tofu and vegan mayo instead of pork, pâté and egg mayonnaise.",
+      "technique": "Quick-pickle carrot and daikon, sear marinated tofu and pack everything into a crackly baguette with fresh herbs.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn"
+      ],
+      "occasions": [
+        "everyday",
+        "mealprep"
+      ],
+      "sources": [
+        {
+          "title": "Bánh mì - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/B%C3%A1nh_m%C3%AC"
+        },
+        {
+          "title": "Grilled Lemongrass and Coriander Tofu Vietnamese Sandwich (Vegan) - Serious Eats",
+          "url": "https://www.seriouseats.com/grilled-lemongrass-coriander-marinated-tofu-vietnamese-sandwich-vegan-recipe"
+        },
+        {
+          "title": "Vegan Banh Mi Recipe - The Cinnamon Snail",
+          "url": "https://cinnamonsnail.com/vegan-banh-mi-recipe/"
+        }
+      ]
+    },
+    {
+      "key": "pho-chay",
+      "name": "Phở chay",
+      "nameEn": "Vegan pho",
+      "aliases": [
+        "vegetarian pho",
+        "pho chay",
+        "tofu pho"
+      ],
+      "tiles": [
+        "Fresh & light"
+      ],
+      "cuisine": "Vietnamese",
+      "region": "Vietnam",
+      "format": "noodles",
+      "protein": "tofu",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 75,
+      "effort": "medium",
+      "familiarity": 1,
+      "traditionalDiet": "vegan",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "flat rice noodles",
+        "charred onion",
+        "charred ginger",
+        "star anise",
+        "cinnamon",
+        "dried shiitake",
+        "tofu",
+        "bean sprouts",
+        "thai basil",
+        "lime"
+      ],
+      "specialtyIngredients": [],
+      "veganApproach": "Naturally vegan.",
+      "technique": "Char onion and ginger, toast whole spices and simmer them gently with dried shiitake for a clear, aromatic broth.",
+      "seasons": [
+        "spring",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "comfort",
+        "hosting"
+      ],
+      "sources": [
+        {
+          "title": "Pho - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Ph%E1%BB%9F"
+        },
+        {
+          "title": "Vegetarian Pho - Vicky Pham",
+          "url": "https://vickypham.com/blog/vegetarian-pho/"
+        },
+        {
+          "title": "Vegan Pho with Tofu and Mushroom (Phở Chay) - Veggie Anh",
+          "url": "https://veggieanh.com/vegan-pho/"
+        }
+      ]
+    },
+    {
+      "key": "banh-xeo",
+      "name": "Bánh xèo",
+      "nameEn": "Vietnamese sizzling crêpe",
+      "aliases": [
+        "sizzling pancake",
+        "banh xeo chay",
+        "vietnamese crepe"
+      ],
+      "tiles": [
+        "Fresh & light"
+      ],
+      "cuisine": "Vietnamese",
+      "region": "Southern Vietnam",
+      "format": "other",
+      "protein": "mushrooms",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 45,
+      "effort": "medium",
+      "familiarity": 1,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "rice flour",
+        "coconut milk",
+        "turmeric",
+        "bean sprouts",
+        "mushrooms",
+        "tofu",
+        "lettuce",
+        "fresh herbs"
+      ],
+      "specialtyIngredients": [],
+      "veganApproach": "The rice-flour, coconut and turmeric batter is already egg-free, so fill it with mushrooms, tofu and sprouts and serve with a vegan dipping sauce.",
+      "technique": "Swirl a thin turmeric-coconut batter in a very hot pan until lacy and crisp, then fold it over the filling.",
+      "seasons": [
+        "spring",
+        "summer"
+      ],
+      "occasions": [
+        "everyday",
+        "hosting"
+      ],
+      "sources": [
+        {
+          "title": "Bánh xèo - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/B%C3%A1nh_x%C3%A8o"
+        },
+        {
+          "title": "Vegan Banh Xeo - Veggie Anh",
+          "url": "https://veggieanh.com/vegan-banh-xeo/"
+        },
+        {
+          "title": "Vegan Bánh Xèo (Sizzling Vietnamese Crepes) - America's Test Kitchen",
+          "url": "https://www.americastestkitchen.com/recipes/11702-vegan-banh-xeo-sizzling-vietnamese-crepes"
+        }
+      ]
+    },
+    {
+      "key": "canh-chua",
+      "name": "Canh chua",
+      "nameEn": "Vietnamese sweet and sour tamarind soup",
+      "aliases": [
+        "canh chua chay",
+        "canh chua ca",
+        "vietnamese sour soup"
+      ],
+      "tiles": [
+        "Fresh & light"
+      ],
+      "cuisine": "Vietnamese",
+      "region": "Mekong Delta, Southern Vietnam",
+      "format": "soup",
+      "protein": "tofu",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 35,
+      "effort": "low",
+      "familiarity": 2,
+      "traditionalDiet": "pescatarian",
+      "versions": [
+        "vegan",
+        "pescatarian"
+      ],
+      "keyIngredients": [
+        "tamarind",
+        "pineapple",
+        "tomatoes",
+        "okra",
+        "bean sprouts",
+        "taro stem",
+        "tofu",
+        "rice paddy herb"
+      ],
+      "specialtyIngredients": [
+        "rice paddy herb (ngò om)",
+        "taro stem (bạc hà)"
+      ],
+      "veganApproach": "Replace the catfish with fried tofu and season with soy sauce or vegan fish sauce instead of fish sauce.",
+      "technique": "Simmer a light tamarind broth and add pineapple and quick-cooking vegetables at the end so they stay crisp.",
+      "seasons": [
+        "spring",
+        "summer"
+      ],
+      "occasions": [
+        "everyday",
+        "comfort"
+      ],
+      "sources": [
+        {
+          "title": "Vegan Vietnamese Tamarind Pineapple Soup (Canh Chua Chay) - The Viet Vegan",
+          "url": "https://thevietvegan.com/vegan-vietnamese-tamarind-pineapple-soup-canh-chua-chay/"
+        },
+        {
+          "title": "Vietnamese hot and sour soup (canh chua) - SBS Food",
+          "url": "https://www.sbs.com.au/food/recipe/vietnamese-hot-and-sour-soup-canh-chua/hcsxy4088"
+        },
+        {
+          "title": "Canh Chua Chay (Sweet and Sour Vegetable Soup) - PBS Food",
+          "url": "https://www.pbs.org/food/recipes/canh-chua-chay-sweet-sour-vegetable-soup"
+        }
+      ]
+    },
+    {
+      "key": "cha-ca-la-vong",
+      "name": "Chả cá Lã Vọng",
+      "nameEn": "Hanoi turmeric fish with dill and noodles",
+      "aliases": [
+        "cha ca ha noi",
+        "cha ca",
+        "turmeric dill fish"
+      ],
+      "tiles": [
+        "Fresh & light"
+      ],
+      "cuisine": "Vietnamese",
+      "region": "Hanoi, Northern Vietnam",
+      "format": "noodles",
+      "protein": "tofu",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 45,
+      "effort": "medium",
+      "familiarity": 2,
+      "traditionalDiet": "pescatarian",
+      "versions": [
+        "pescatarian",
+        "vegan"
+      ],
+      "keyIngredients": [
+        "white fish",
+        "firm tofu",
+        "turmeric",
+        "galangal",
+        "dill",
+        "spring onions",
+        "rice vermicelli",
+        "roasted peanuts"
+      ],
+      "specialtyIngredients": [
+        "mắm tôm (fermented shrimp paste)"
+      ],
+      "veganApproach": "Marinate pressed firm tofu in turmeric and galangal and serve it with a soy-lime sauce instead of shrimp paste.",
+      "technique": "Marinate the fish in turmeric and galangal, sear it, then toss it with heaps of dill and spring onion in the hot oil.",
+      "seasons": [
+        "spring",
+        "autumn"
+      ],
+      "occasions": [
+        "hosting",
+        "date"
+      ],
+      "sources": [
+        {
+          "title": "Chả cá Lã Vọng - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Ch%E1%BA%A3_c%C3%A1_L%C3%A3_V%E1%BB%8Dng"
+        },
+        {
+          "title": "Cha Ca: Seared Fish with Turmeric over Rice Noodles - Serious Eats",
+          "url": "https://www.seriouseats.com/seriously-asian-cha-ca-seared-fish-with-tumeric-over-rice-noodles-vietnamese-recipe"
+        },
+        {
+          "title": "How to cook Hanoi-style cha ca (turmeric fish with dill) - VnExpress",
+          "url": "https://e.vnexpress.net/news/food-recipes/how-to-cook-hanoi-style-cha-ca-turmeric-fish-with-dill-4724988.html"
+        }
+      ]
+    },
+    {
+      "key": "dau-sot-ca-chua",
+      "name": "Đậu sốt cà chua",
+      "nameEn": "Vietnamese fried tofu in tomato sauce",
+      "aliases": [
+        "dau phu sot ca chua",
+        "dau hu sot ca",
+        "tofu in tomato sauce"
+      ],
+      "tiles": [
+        "Fresh & light"
+      ],
+      "cuisine": "Vietnamese",
+      "region": "Northern Vietnam",
+      "format": "stew",
+      "protein": "tofu",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 25,
+      "effort": "low",
+      "familiarity": 2,
+      "traditionalDiet": "pescatarian",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "firm tofu",
+        "tomatoes",
+        "spring onions",
+        "garlic",
+        "soy sauce",
+        "sugar",
+        "black pepper"
+      ],
+      "specialtyIngredients": [],
+      "veganApproach": "Season the tomato sauce with soy sauce or vegan fish sauce instead of fish sauce.",
+      "technique": "Fry the tofu until golden, then simmer it briefly in a quick tomato and spring onion sauce.",
+      "seasons": [
+        "summer",
+        "autumn"
+      ],
+      "occasions": [
+        "everyday",
+        "quick",
+        "comfort"
+      ],
+      "sources": [
+        {
+          "title": "How to Make Đậu Sốt Cà (Vietnamese Tofu with Tomato Sauce) - Hungry Huy",
+          "url": "https://www.hungryhuy.com/how-to-make-dau-sot-ca-vietnamese-tofu-with-tomato-sauce/"
+        },
+        {
+          "title": "Crisp Tofu Cooked in Tomato Pepper Sauce (Dau Hu Sot Ca) - Food Network",
+          "url": "https://www.foodnetwork.com/recipes/crisp-tofu-cooked-in-tomato-pepper-sauce-dau-hu-sot-ca-2010703"
+        }
+      ]
+    },
+    {
+      "key": "dau-hu-chien-sa-ot",
+      "name": "Đậu hũ chiên sả ớt",
+      "nameEn": "Vietnamese lemongrass chili tofu",
+      "aliases": [
+        "dau hu xa ot",
+        "lemongrass tofu",
+        "tofu sa ot"
+      ],
+      "tiles": [
+        "Fresh & light"
+      ],
+      "cuisine": "Vietnamese",
+      "region": "Southern Vietnam",
+      "format": "stir_fry",
+      "protein": "tofu",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 25,
+      "effort": "low",
+      "familiarity": 3,
+      "traditionalDiet": "vegan",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "firm tofu",
+        "lemongrass",
+        "red chili",
+        "garlic",
+        "shallots",
+        "soy sauce",
+        "sugar",
+        "spring onions"
+      ],
+      "specialtyIngredients": [],
+      "veganApproach": "Naturally vegan.",
+      "technique": "Fry tofu cubes until crisp, then toss them with fried minced lemongrass, garlic and chili.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "quick"
+      ],
+      "sources": [
+        {
+          "title": "Vietnamese Lemongrass Chili Tofu - Delightful Plate",
+          "url": "https://delightfulplate.com/vietnamese-lemongrass-chili-tofu/"
+        },
+        {
+          "title": "Crisp Silken Tofu Crusted in Lemongrass and Chile (Dau Hu Xa Ot) - Food Network",
+          "url": "https://www.foodnetwork.com/recipes/crisp-silken-tofu-crusted-in-lemongrass-and-chile-dau-hu-xa-ot-2010099"
+        }
+      ]
+    },
+    {
+      "key": "banh-cuon",
+      "name": "Bánh cuốn",
+      "nameEn": "Vietnamese steamed rice rolls",
+      "aliases": [
+        "banh cuon chay",
+        "steamed rice rolls",
+        "rice sheet rolls"
+      ],
+      "tiles": [
+        "Fresh & light"
+      ],
+      "cuisine": "Vietnamese",
+      "region": "Northern Vietnam",
+      "format": "other",
+      "protein": "mushrooms",
+      "method": "steam",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 60,
+      "effort": "high",
+      "familiarity": 3,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "rice flour",
+        "tapioca starch",
+        "wood ear mushrooms",
+        "jicama",
+        "shallots",
+        "fried shallots",
+        "fresh herbs",
+        "vegan dipping sauce"
+      ],
+      "specialtyIngredients": [
+        "wood ear mushrooms"
+      ],
+      "veganApproach": "Fill the rice sheets with wood ear mushrooms, jicama and tofu instead of minced pork.",
+      "technique": "Steam paper-thin rice batter sheets over cloth or in a nonstick pan and roll them around the savoury filling.",
+      "seasons": [
+        "spring",
+        "autumn"
+      ],
+      "occasions": [
+        "hosting",
+        "comfort"
+      ],
+      "sources": [
+        {
+          "title": "Banh Cuon Chay - Veggie Anh",
+          "url": "https://veggieanh.com/banh-cuon-chay/"
+        },
+        {
+          "title": "Bánh Cuốn Chay (Vietnamese Vegetarian Steamed Rice Rolls) - The Viet Vegan",
+          "url": "https://thevietvegan.com/banh-cuon-chay-vietnamese-vegetarian-steamed-rice-rolls/"
+        },
+        {
+          "title": "Best Vegan Banh Cuon Recipe - Food52",
+          "url": "https://food52.com/recipes/87317-best-vegan-banh-cuon-recipe"
+        }
+      ]
+    },
+    {
+      "key": "gazpacho",
+      "name": "Gazpacho",
+      "nameEn": "Andalusian chilled tomato soup",
+      "aliases": [
+        "gazpacho andaluz",
+        "cold tomato soup"
+      ],
+      "tiles": [
+        "Fresh & light"
+      ],
+      "cuisine": "Spanish",
+      "region": "Andalusia",
+      "format": "soup",
+      "protein": "vegetables",
+      "method": "no_cook",
+      "appliances": [
+        "blender"
+      ],
+      "cookMinutes": 15,
+      "effort": "low",
+      "familiarity": 1,
+      "traditionalDiet": "vegan",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "ripe tomatoes",
+        "cucumber",
+        "green pepper",
+        "garlic",
+        "extra virgin olive oil",
+        "sherry vinegar",
+        "stale bread",
+        "salt"
+      ],
+      "specialtyIngredients": [
+        "sherry vinegar"
+      ],
+      "veganApproach": "Naturally vegan.",
+      "technique": "Blend raw vegetables with bread, olive oil and vinegar until emulsified, then chill well.",
+      "seasons": [
+        "summer"
+      ],
+      "occasions": [
+        "everyday",
+        "quick",
+        "mealprep"
+      ],
+      "sources": [
+        {
+          "title": "Gazpacho - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Gazpacho"
+        },
+        {
+          "title": "Cómo se hace el gazpacho perfecto según la Academia Andaluza del Gazpacho - El País",
+          "url": "https://elpais.com/gastronomia/2025-06-29/como-se-hace-el-gazpacho-perfecto-segun-la-academia-andaluza-del-gazpacho.html"
+        }
+      ]
+    },
+    {
+      "key": "salmorejo",
+      "name": "Salmorejo",
+      "nameEn": "Córdoba cold tomato and bread cream",
+      "aliases": [
+        "salmorejo cordobés"
+      ],
+      "tiles": [
+        "Fresh & light"
+      ],
+      "cuisine": "Spanish",
+      "region": "Córdoba, Andalusia",
+      "format": "soup",
+      "protein": "vegetables",
+      "method": "no_cook",
+      "appliances": [
+        "blender"
+      ],
+      "cookMinutes": 15,
+      "effort": "low",
+      "familiarity": 1,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegan",
+        "vegetarian"
+      ],
+      "keyIngredients": [
+        "ripe tomatoes",
+        "stale bread",
+        "garlic",
+        "extra virgin olive oil",
+        "salt",
+        "hard-boiled egg"
+      ],
+      "specialtyIngredients": [],
+      "veganApproach": "Skip the egg and jamón garnish and top with olives, toasted almonds or crispy chickpeas.",
+      "technique": "Blend tomatoes with plenty of bread and olive oil into a thick, smooth cream and serve it chilled.",
+      "seasons": [
+        "summer"
+      ],
+      "occasions": [
+        "everyday",
+        "quick",
+        "mealprep"
+      ],
+      "sources": [
+        {
+          "title": "Salmorejo - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Salmorejo"
+        },
+        {
+          "title": "Antonia's Salmorejo Recipe - Spanish Sabores",
+          "url": "https://spanishsabores.com/antonias-salmorejo-recipe/"
+        },
+        {
+          "title": "Salmorejo Recipe - Serious Eats",
+          "url": "https://www.seriouseats.com/salmorejo-recipe-12033589"
+        }
+      ]
+    },
+    {
+      "key": "ajoblanco",
+      "name": "Ajoblanco",
+      "nameEn": "Chilled almond and garlic soup",
+      "aliases": [
+        "ajo blanco",
+        "white gazpacho"
+      ],
+      "tiles": [
+        "Fresh & light"
+      ],
+      "cuisine": "Spanish",
+      "region": "Málaga, Andalusia",
+      "format": "soup",
+      "protein": "nuts_seeds",
+      "method": "no_cook",
+      "appliances": [
+        "blender"
+      ],
+      "cookMinutes": 15,
+      "effort": "low",
+      "familiarity": 2,
+      "traditionalDiet": "vegan",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "blanched almonds",
+        "stale bread",
+        "garlic",
+        "extra virgin olive oil",
+        "sherry vinegar",
+        "green grapes",
+        "salt"
+      ],
+      "specialtyIngredients": [
+        "sherry vinegar"
+      ],
+      "veganApproach": "Naturally vegan.",
+      "technique": "Blend soaked bread with almonds, garlic, oil and vinegar into a silky emulsion and serve it ice-cold with grapes.",
+      "seasons": [
+        "summer"
+      ],
+      "occasions": [
+        "everyday",
+        "quick",
+        "hosting"
+      ],
+      "sources": [
+        {
+          "title": "Ajoblanco - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Ajoblanco"
+        },
+        {
+          "title": "Ajo Blanco (Spanish Bread and Almond Cold Soup) - Serious Eats",
+          "url": "https://www.seriouseats.com/ajo-blanco-spanish-bread-almond-cold-soup-recipe"
+        },
+        {
+          "title": "Ajo blanco - Andalucia.com",
+          "url": "https://andalucia.com/taste/gazpacho/rec3.htm"
+        }
+      ]
+    },
+    {
+      "key": "pisto-manchego",
+      "name": "Pisto manchego",
+      "nameEn": "Spanish summer vegetable stew",
+      "aliases": [
+        "pisto",
+        "spanish ratatouille"
+      ],
+      "tiles": [
+        "Fresh & light"
+      ],
+      "cuisine": "Spanish",
+      "region": "La Mancha",
+      "format": "stew",
+      "protein": "vegetables",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 50,
+      "effort": "low",
+      "familiarity": 1,
+      "traditionalDiet": "vegetarian",
+      "versions": [
+        "vegan",
+        "vegetarian"
+      ],
+      "keyIngredients": [
+        "tomatoes",
+        "zucchini",
+        "green pepper",
+        "red pepper",
+        "onion",
+        "garlic",
+        "olive oil",
+        "fried egg"
+      ],
+      "specialtyIngredients": [],
+      "veganApproach": "Serve it without the fried egg, with crusty bread or white beans.",
+      "technique": "Slowly sauté peppers, onion and zucchini in olive oil, then cook them down with grated tomato until jammy.",
+      "seasons": [
+        "summer",
+        "autumn"
+      ],
+      "occasions": [
+        "everyday",
+        "mealprep",
+        "comfort"
+      ],
+      "sources": [
+        {
+          "title": "Pisto - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Pisto"
+        },
+        {
+          "title": "Spanish Ratatouille (Pisto Manchego) - Spain on a Fork",
+          "url": "https://spainonafork.com/spanish-ratatouille-pisto-manchego-recipe/"
+        },
+        {
+          "title": "Spanish Summer Vegetable Stew (Pisto Manchego) - Milk Street",
+          "url": "https://www.177milkstreet.com/recipes/spanish-summer-vegetable-stew-pisto-manchego"
+        }
+      ]
+    },
+    {
+      "key": "escalivada",
+      "name": "Escalivada",
+      "nameEn": "Catalan smoky roasted vegetables",
+      "aliases": [
+        "escalibada"
+      ],
+      "tiles": [
+        "Fresh & light"
+      ],
+      "cuisine": "Spanish",
+      "region": "Catalonia",
+      "format": "salad",
+      "protein": "vegetables",
+      "method": "oven",
+      "appliances": [
+        "oven"
+      ],
+      "cookMinutes": 60,
+      "effort": "low",
+      "familiarity": 2,
+      "traditionalDiet": "vegan",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "eggplant",
+        "red peppers",
+        "onion",
+        "tomatoes",
+        "garlic",
+        "extra virgin olive oil",
+        "sherry vinegar",
+        "toasted bread"
+      ],
+      "specialtyIngredients": [],
+      "veganApproach": "Naturally vegan.",
+      "technique": "Roast whole vegetables in embers or a very hot oven until collapsed, then peel, tear into strips and dress with olive oil.",
+      "seasons": [
+        "summer",
+        "autumn"
+      ],
+      "occasions": [
+        "everyday",
+        "mealprep",
+        "hosting"
+      ],
+      "sources": [
+        {
+          "title": "Escalivada - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Escalivada"
+        },
+        {
+          "title": "Catalan Ash-Roasted Vegetables (Escalivada) - Serious Eats",
+          "url": "https://www.seriouseats.com/catalan-ash-roasted-vegetables-escalivada-recipe"
+        },
+        {
+          "title": "Escalivada (Catalan Roasted Vegetables) - NYT Cooking",
+          "url": "https://cooking.nytimes.com/recipes/1025799-escalivada-catalan-roasted-vegetables"
+        }
+      ]
+    },
+    {
+      "key": "espinacas-con-garbanzos",
+      "name": "Espinacas con garbanzos",
+      "nameEn": "Sevillian spinach and chickpeas",
+      "aliases": [
+        "espinacas con garbanzos sevillanas",
+        "spinach with chickpeas"
+      ],
+      "tiles": [
+        "Fresh & light"
+      ],
+      "cuisine": "Spanish",
+      "region": "Seville, Andalusia",
+      "format": "stew",
+      "protein": "chickpeas",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 30,
+      "effort": "low",
+      "familiarity": 2,
+      "traditionalDiet": "vegan",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "spinach",
+        "chickpeas",
+        "garlic",
+        "bread",
+        "cumin",
+        "smoked paprika",
+        "sherry vinegar",
+        "olive oil"
+      ],
+      "specialtyIngredients": [
+        "pimentón de la Vera"
+      ],
+      "veganApproach": "Naturally vegan.",
+      "technique": "Pound fried bread, garlic and spices into a picada that thickens the spinach and chickpeas into a glossy stew.",
+      "seasons": [
+        "autumn",
+        "winter",
+        "spring"
+      ],
+      "occasions": [
+        "everyday",
+        "mealprep",
+        "comfort"
+      ],
+      "sources": [
+        {
+          "title": "Espinacas con garbanzos: auténtica receta sevillana paso a paso - ABC Gurmé",
+          "url": "https://www.abc.es/gurme/recetas/espinacas-garbanzos-autentica-receta-sevillana-paso-paso-20250313093553-nts.html"
+        },
+        {
+          "title": "Espinacas con garbanzos sevillanas - Tu Receta Tradicional",
+          "url": "https://www.turecetatradicional.com/recetas/espinacas-con-garbanzos-sevillanas/"
+        }
+      ]
+    },
+    {
+      "key": "empedrat",
+      "name": "Empedrat",
+      "nameEn": "Catalan salt cod and white bean salad",
+      "aliases": [
+        "empedrat de bacallà",
+        "white bean and salt cod salad"
+      ],
+      "tiles": [
+        "Fresh & light"
+      ],
+      "cuisine": "Spanish",
+      "region": "Catalonia",
+      "format": "salad",
+      "protein": "beans",
+      "method": "no_cook",
+      "appliances": [],
+      "cookMinutes": 20,
+      "effort": "low",
+      "familiarity": 3,
+      "traditionalDiet": "pescatarian",
+      "versions": [
+        "pescatarian",
+        "vegan"
+      ],
+      "keyIngredients": [
+        "white beans",
+        "salt cod",
+        "tomatoes",
+        "red pepper",
+        "onion",
+        "black olives",
+        "olive oil",
+        "vinegar"
+      ],
+      "specialtyIngredients": [
+        "salt cod (bacallà)"
+      ],
+      "veganApproach": "Leave out the cod and add capers, seaweed flakes or marinated artichokes for the briny note.",
+      "technique": "Toss cooked white beans with flaked desalted cod and finely diced vegetables in a sharp vinaigrette.",
+      "seasons": [
+        "spring",
+        "summer"
+      ],
+      "occasions": [
+        "everyday",
+        "quick",
+        "mealprep"
+      ],
+      "sources": [
+        {
+          "title": "Empedrat - Catalunya.com",
+          "url": "https://www.catalunya.com/en/continguts/article/empedrat-26-1-1"
+        },
+        {
+          "title": "White Bean and Salt Cod Salad - Brindisa",
+          "url": "https://brindisa.com/blogs/spanish-food-recipes/white-bean-and-salt-cod-salad"
+        }
+      ]
+    },
+    {
+      "key": "tortilla-de-patatas",
+      "name": "Tortilla de patatas",
+      "nameEn": "Spanish potato omelette",
+      "aliases": [
+        "tortilla española",
+        "spanish omelette",
+        "tortilla de papas"
+      ],
+      "tiles": [
+        "Fresh & light"
+      ],
+      "cuisine": "Spanish",
+      "region": "Spain",
+      "format": "egg_dish",
+      "protein": "chickpeas",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 45,
+      "effort": "medium",
+      "familiarity": 1,
+      "traditionalDiet": "vegetarian",
+      "versions": [
+        "vegetarian",
+        "vegan"
+      ],
+      "keyIngredients": [
+        "potatoes",
+        "eggs",
+        "onion",
+        "olive oil",
+        "salt",
+        "chickpea flour"
+      ],
+      "specialtyIngredients": [],
+      "veganApproach": "Bind the confited potatoes and onion with a chickpea-flour batter instead of eggs.",
+      "technique": "Slowly confit sliced potatoes and onion in olive oil, fold them into the batter and flip once in the pan.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "mealprep",
+        "hosting"
+      ],
+      "sources": [
+        {
+          "title": "Tortilla de patatas - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Tortilla_de_patatas"
+        },
+        {
+          "title": "Spanish Omelette (Vegan, GF) - Wallflower Kitchen",
+          "url": "https://wallflowerkitchen.com/spanish-omelette-vegan-gf/"
+        },
+        {
+          "title": "Tortilla Española (Spanish Omelette) - Veganuary",
+          "url": "https://veganuary.com/en-us/recipes/tortilla-espanola-spanish-omelette/"
+        }
+      ]
+    },
+    {
+      "key": "salade-nicoise",
+      "name": "Salade niçoise",
+      "nameEn": "Niçoise salad",
+      "aliases": [
+        "nicoise salad",
+        "salade nissarda"
+      ],
+      "tiles": [
+        "Fresh & light"
+      ],
+      "cuisine": "French",
+      "region": "Nice, Provence",
+      "format": "salad",
+      "protein": "chickpeas",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 25,
+      "effort": "low",
+      "familiarity": 1,
+      "traditionalDiet": "pescatarian",
+      "versions": [
+        "pescatarian",
+        "vegetarian",
+        "vegan"
+      ],
+      "keyIngredients": [
+        "tomatoes",
+        "green beans",
+        "black olives",
+        "hard-boiled eggs",
+        "tuna",
+        "anchovies",
+        "new potatoes",
+        "chickpeas"
+      ],
+      "specialtyIngredients": [
+        "niçoise olives"
+      ],
+      "veganApproach": "Swap the tuna, anchovies and eggs for marinated chickpeas and capers.",
+      "technique": "Arrange the components separately on a platter and dress them with a garlicky olive oil vinaigrette.",
+      "seasons": [
+        "spring",
+        "summer"
+      ],
+      "occasions": [
+        "everyday",
+        "quick",
+        "hosting"
+      ],
+      "sources": [
+        {
+          "title": "Salade niçoise - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Salade_ni%C3%A7oise"
+        },
+        {
+          "title": "Vegan Chickpea Salad Niçoise - Two Spoons",
+          "url": "https://www.twospoons.ca/vegan-chickpea-salad-nicoise/"
+        },
+        {
+          "title": "Chickpea Niçoise Salad - Taste of France",
+          "url": "https://tasteoffrancemag.com/recipes/chickpea-nicoise-salad/"
+        }
+      ]
+    },
+    {
+      "key": "ratatouille",
+      "name": "Ratatouille",
+      "nameEn": "Provençal vegetable stew",
+      "aliases": [
+        "ratatouille niçoise"
+      ],
+      "tiles": [
+        "Fresh & light"
+      ],
+      "cuisine": "French",
+      "region": "Nice, Provence",
+      "format": "stew",
+      "protein": "vegetables",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 75,
+      "effort": "medium",
+      "familiarity": 1,
+      "traditionalDiet": "vegan",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "eggplant",
+        "zucchini",
+        "bell peppers",
+        "tomatoes",
+        "onion",
+        "garlic",
+        "olive oil",
+        "herbes de provence"
+      ],
+      "specialtyIngredients": [],
+      "veganApproach": "Naturally vegan.",
+      "technique": "Cook each vegetable separately in olive oil before combining so they keep their own texture and flavour.",
+      "seasons": [
+        "summer",
+        "autumn"
+      ],
+      "occasions": [
+        "everyday",
+        "mealprep",
+        "comfort"
+      ],
+      "sources": [
+        {
+          "title": "Ratatouille - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Ratatouille"
+        },
+        {
+          "title": "Ratatouille (Provençal Vegetable Stew) - Serious Eats",
+          "url": "https://www.seriouseats.com/ratatouille-provence-vegetable-stew-recipe"
+        }
+      ]
+    },
+    {
+      "key": "soupe-au-pistou",
+      "name": "Soupe au pistou",
+      "nameEn": "Provençal vegetable and bean soup with pistou",
+      "aliases": [
+        "pistou soup"
+      ],
+      "tiles": [
+        "Fresh & light"
+      ],
+      "cuisine": "French",
+      "region": "Provence",
+      "format": "soup",
+      "protein": "beans",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 60,
+      "effort": "medium",
+      "familiarity": 1,
+      "traditionalDiet": "vegetarian",
+      "versions": [
+        "vegetarian",
+        "vegan"
+      ],
+      "keyIngredients": [
+        "white beans",
+        "green beans",
+        "zucchini",
+        "potatoes",
+        "carrots",
+        "small pasta",
+        "basil",
+        "garlic",
+        "olive oil",
+        "parmesan"
+      ],
+      "specialtyIngredients": [],
+      "veganApproach": "Make the pistou with just basil, garlic and olive oil, without cheese.",
+      "technique": "Simmer summer vegetables and beans, then stir a raw basil-garlic pistou into each bowl off the heat.",
+      "seasons": [
+        "summer",
+        "autumn"
+      ],
+      "occasions": [
+        "everyday",
+        "mealprep",
+        "comfort"
+      ],
+      "sources": [
+        {
+          "title": "Soupe au pistou - Wikipédia",
+          "url": "https://fr.wikipedia.org/wiki/Soupe_au_pistou"
+        },
+        {
+          "title": "Pistou - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Pistou"
+        },
+        {
+          "title": "Soupe au Pistou - Making Thyme for Health",
+          "url": "https://www.makingthymeforhealth.com/soupe-au-pistou/"
+        }
+      ]
+    },
+    {
+      "key": "pan-bagnat",
+      "name": "Pan bagnat",
+      "nameEn": "Niçoise pressed tuna sandwich",
+      "aliases": [
+        "pan bagna",
+        "pan banhat"
+      ],
+      "tiles": [
+        "Fresh & light"
+      ],
+      "cuisine": "French",
+      "region": "Nice, Provence",
+      "format": "sandwich",
+      "protein": "chickpeas",
+      "method": "no_cook",
+      "appliances": [],
+      "cookMinutes": 15,
+      "effort": "low",
+      "familiarity": 1,
+      "traditionalDiet": "pescatarian",
+      "versions": [
+        "pescatarian",
+        "vegan"
+      ],
+      "keyIngredients": [
+        "round bread roll",
+        "tomatoes",
+        "tuna",
+        "hard-boiled egg",
+        "radishes",
+        "black olives",
+        "green pepper",
+        "olive oil"
+      ],
+      "specialtyIngredients": [
+        "niçoise olives"
+      ],
+      "veganApproach": "Replace the tuna and egg with smashed marinated chickpeas or white beans and capers.",
+      "technique": "Soak the bread with olive oil and tomato juices, fill it generously and press it for at least an hour.",
+      "seasons": [
+        "summer"
+      ],
+      "occasions": [
+        "everyday",
+        "quick",
+        "mealprep"
+      ],
+      "sources": [
+        {
+          "title": "Pan bagnat - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Pan_bagnat"
+        },
+        {
+          "title": "Pan bagnat - Explore Nice Côte d'Azur",
+          "url": "https://www.explorenicecotedazur.com/en/explore/art-of-living/gastronomy-and-local-produce/nicoise-recipes/pan-bagnat/"
+        },
+        {
+          "title": "How to make the perfect pan bagnat - Felicity Cloake, The Guardian",
+          "url": "https://www.theguardian.com/food/article/2024/jul/17/how-to-make-the-perfect-pan-bagnat-recipe-felicity-cloake"
+        }
+      ]
+    },
+    {
+      "key": "piperade",
+      "name": "Piperade",
+      "nameEn": "Basque stewed peppers and tomatoes",
+      "aliases": [
+        "pipérade",
+        "eggs piperade"
+      ],
+      "tiles": [
+        "Fresh & light"
+      ],
+      "cuisine": "French",
+      "region": "French Basque Country",
+      "format": "stew",
+      "protein": "vegetables",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 40,
+      "effort": "low",
+      "familiarity": 2,
+      "traditionalDiet": "vegetarian",
+      "versions": [
+        "vegetarian",
+        "vegan"
+      ],
+      "keyIngredients": [
+        "green peppers",
+        "red peppers",
+        "tomatoes",
+        "onion",
+        "garlic",
+        "piment d'espelette",
+        "olive oil",
+        "eggs"
+      ],
+      "specialtyIngredients": [
+        "piment d'Espelette"
+      ],
+      "veganApproach": "Leave out the eggs and serve the peppers with white beans or crumbled tofu.",
+      "technique": "Stew peppers, onion and tomato slowly in olive oil, then fold in eggs at the end until just set.",
+      "seasons": [
+        "summer",
+        "autumn"
+      ],
+      "occasions": [
+        "everyday",
+        "comfort"
+      ],
+      "sources": [
+        {
+          "title": "Pipérade - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Pip%C3%A9rade"
+        },
+        {
+          "title": "Eggs Piperade - America's Test Kitchen",
+          "url": "https://www.americastestkitchen.com/recipes/9389-eggs-piperade"
+        },
+        {
+          "title": "Piperade - PBS Food",
+          "url": "https://www.pbs.org/food/recipes/piperade"
+        }
+      ]
+    },
+    {
+      "key": "salade-de-lentilles",
+      "name": "Salade de lentilles",
+      "nameEn": "French lentil salad",
+      "aliases": [
+        "lentilles vinaigrette",
+        "french lentil salad"
+      ],
+      "tiles": [
+        "Fresh & light"
+      ],
+      "cuisine": "French",
+      "region": "France",
+      "format": "salad",
+      "protein": "lentils",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 30,
+      "effort": "low",
+      "familiarity": 1,
+      "traditionalDiet": "vegan",
+      "versions": [
+        "vegan",
+        "vegetarian"
+      ],
+      "keyIngredients": [
+        "green lentils",
+        "shallots",
+        "dijon mustard",
+        "red wine vinegar",
+        "parsley",
+        "walnuts",
+        "carrots",
+        "goat cheese"
+      ],
+      "specialtyIngredients": [
+        "lentilles vertes du Puy"
+      ],
+      "veganApproach": "Naturally vegan.",
+      "technique": "Simmer lentils until just tender and dress them while warm in a mustardy vinaigrette so they absorb it.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "mealprep"
+      ],
+      "sources": [
+        {
+          "title": "French Lentil Salad with Goat Cheese and Walnuts - Serious Eats",
+          "url": "https://www.seriouseats.com/french-lentil-salad-with-goat-cheese-and-walnuts-from-my-paris-kitchen"
+        },
+        {
+          "title": "Classic French Lentil Salad - Pardon Your French",
+          "url": "https://www.pardonyourfrench.com/classic-french-lentil-salad/"
+        }
+      ]
+    },
+    {
+      "key": "salade-lyonnaise",
+      "name": "Salade lyonnaise",
+      "nameEn": "Lyon frisée salad with poached egg",
+      "aliases": [
+        "frisée aux lardons",
+        "french bistro salad"
+      ],
+      "tiles": [
+        "Fresh & light"
+      ],
+      "cuisine": "French",
+      "region": "Lyon",
+      "format": "salad",
+      "protein": "tofu",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 25,
+      "effort": "medium",
+      "familiarity": 1,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegetarian",
+        "vegan"
+      ],
+      "keyIngredients": [
+        "frisée",
+        "poached egg",
+        "croutons",
+        "shallots",
+        "dijon mustard",
+        "red wine vinegar",
+        "smoked tofu"
+      ],
+      "specialtyIngredients": [],
+      "veganApproach": "Replace the lardons and egg with crisp smoked tofu and garlicky croutons.",
+      "technique": "Dress bitter frisée in a warm mustard vinaigrette and top it with croutons and a runny poached egg.",
+      "seasons": [
+        "autumn",
+        "winter",
+        "spring"
+      ],
+      "occasions": [
+        "everyday",
+        "quick",
+        "date"
+      ],
+      "sources": [
+        {
+          "title": "French Bistro Salad - Serious Eats",
+          "url": "https://www.seriouseats.com/french-bistro-salad-recipe-8707601"
+        },
+        {
+          "title": "Cuisine lyonnaise - Wikipédia",
+          "url": "https://fr.wikipedia.org/wiki/Cuisine_lyonnaise"
+        },
+        {
+          "title": "Frisée Salad with Poached Eggs and Bacon - Saveur",
+          "url": "https://www.saveur.com/article/Recipes/Frisee-Salad-with-Poached-Eggs-and-Bacon/"
+        }
+      ]
+    },
+    {
+      "key": "galette-complete",
+      "name": "Galette complète",
+      "nameEn": "Breton buckwheat crêpe",
+      "aliases": [
+        "galette de sarrasin",
+        "galette bretonne",
+        "buckwheat galette"
+      ],
+      "tiles": [
+        "Fresh & light"
+      ],
+      "cuisine": "French",
+      "region": "Brittany",
+      "format": "other",
+      "protein": "mushrooms",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 30,
+      "effort": "medium",
+      "familiarity": 1,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegetarian",
+        "vegan"
+      ],
+      "keyIngredients": [
+        "buckwheat flour",
+        "water",
+        "salt",
+        "egg",
+        "emmental",
+        "mushrooms",
+        "spinach",
+        "butter"
+      ],
+      "specialtyIngredients": [
+        "buckwheat flour"
+      ],
+      "veganApproach": "The buckwheat batter is naturally egg-free, so fill it with sautéed mushrooms, spinach and vegan cheese instead of ham, egg and emmental.",
+      "technique": "Spread a thin buckwheat batter on a very hot pan, add the filling and fold the edges into a square.",
+      "seasons": [
+        "autumn",
+        "winter",
+        "spring"
+      ],
+      "occasions": [
+        "everyday",
+        "date",
+        "comfort"
+      ],
+      "sources": [
+        {
+          "title": "Galette - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Galette"
+        },
+        {
+          "title": "Galette de sarrasin (Haute-Bretagne) - Wikipédia",
+          "url": "https://fr.wikipedia.org/wiki/Galette_de_sarrasin_(Haute-Bretagne)"
+        },
+        {
+          "title": "Galette complète - The Gastrographer",
+          "url": "https://thegastrographer.com/recipe/galette-complete"
+        }
+      ]
+    },
+    {
+      "key": "ceviche",
+      "name": "Ceviche",
+      "nameEn": "Peruvian ceviche",
+      "aliases": [
+        "cebiche",
+        "seviche",
+        "mushroom ceviche"
+      ],
+      "tiles": [
+        "Fresh & light"
+      ],
+      "cuisine": "Peruvian",
+      "region": "Peruvian coast",
+      "format": "salad",
+      "protein": "mushrooms",
+      "method": "no_cook",
+      "appliances": [],
+      "cookMinutes": 20,
+      "effort": "low",
+      "familiarity": 1,
+      "traditionalDiet": "pescatarian",
+      "versions": [
+        "pescatarian",
+        "vegan"
+      ],
+      "keyIngredients": [
+        "white fish",
+        "lime juice",
+        "red onion",
+        "ají limo",
+        "cilantro",
+        "sweet potato",
+        "corn",
+        "salt"
+      ],
+      "specialtyIngredients": [
+        "ají limo",
+        "choclo (Andean corn)"
+      ],
+      "veganApproach": "Cure sliced mushrooms or hearts of palm in a fish-free leche de tigre.",
+      "technique": "Briefly cure raw fish in fresh lime juice with chili and onion, then serve it immediately.",
+      "seasons": [
+        "spring",
+        "summer"
+      ],
+      "occasions": [
+        "hosting",
+        "quick",
+        "date"
+      ],
+      "sources": [
+        {
+          "title": "Peruvian ceviche - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Peruvian_ceviche"
+        },
+        {
+          "title": "Ceviche - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Ceviche"
+        },
+        {
+          "title": "Vegan Mushroom Ceviche - Best Served Vegan",
+          "url": "https://bestservedvegan.com/vegan-mushroom-ceviche/"
+        }
+      ]
+    },
+    {
+      "key": "causa-limena",
+      "name": "Causa limeña",
+      "nameEn": "Peruvian layered potato causa",
+      "aliases": [
+        "causa",
+        "causa rellena"
+      ],
+      "tiles": [
+        "Fresh & light"
+      ],
+      "cuisine": "Peruvian",
+      "region": "Lima",
+      "format": "other",
+      "protein": "chickpeas",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 45,
+      "effort": "medium",
+      "familiarity": 2,
+      "traditionalDiet": "pescatarian",
+      "versions": [
+        "pescatarian",
+        "vegetarian",
+        "vegan"
+      ],
+      "keyIngredients": [
+        "yellow potatoes",
+        "ají amarillo",
+        "lime juice",
+        "avocado",
+        "hard-boiled egg",
+        "black olives",
+        "tuna",
+        "chickpeas"
+      ],
+      "specialtyIngredients": [
+        "ají amarillo paste"
+      ],
+      "veganApproach": "Fill it with a chickpea-avocado salad and use vegan mayo instead of tuna and egg.",
+      "technique": "Season mashed yellow potatoes with ají amarillo and lime, then layer them cold with the filling.",
+      "seasons": [
+        "spring",
+        "summer"
+      ],
+      "occasions": [
+        "hosting",
+        "mealprep"
+      ],
+      "sources": [
+        {
+          "title": "Causa limeña - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Causa_lime%c3%b1a"
+        },
+        {
+          "title": "Vegan Causa Limeña - TASTE",
+          "url": "https://tastecooking.com/recipes/vegan-causa-limena/"
+        },
+        {
+          "title": "Vegan Peruvian Causa - Some Vegan Couple",
+          "url": "https://somevegancouple.com/delicious-vegan-peruvian-causa-how-to-make-this-refreshing-cold-potato-dish/"
+        }
+      ]
+    },
+    {
+      "key": "solterito",
+      "name": "Solterito",
+      "nameEn": "Arequipa fava bean and fresh cheese salad",
+      "aliases": [
+        "soltero de queso",
+        "solterito arequipeño"
+      ],
+      "tiles": [
+        "Fresh & light"
+      ],
+      "cuisine": "Peruvian",
+      "region": "Arequipa",
+      "format": "salad",
+      "protein": "beans",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 25,
+      "effort": "low",
+      "familiarity": 3,
+      "traditionalDiet": "vegetarian",
+      "versions": [
+        "vegetarian",
+        "vegan"
+      ],
+      "keyIngredients": [
+        "fava beans",
+        "corn",
+        "queso fresco",
+        "tomatoes",
+        "red onion",
+        "rocoto",
+        "black olives",
+        "lime juice"
+      ],
+      "specialtyIngredients": [
+        "rocoto pepper",
+        "choclo (Andean corn)"
+      ],
+      "veganApproach": "Replace the queso fresco with avocado or marinated tofu cubes.",
+      "technique": "Toss blanched fava beans and corn with diced vegetables in a lime and oil dressing.",
+      "seasons": [
+        "spring",
+        "summer"
+      ],
+      "occasions": [
+        "everyday",
+        "quick",
+        "mealprep"
+      ],
+      "sources": [
+        {
+          "title": "Solterito - Eat Peru",
+          "url": "https://www.eatperu.com/solterito/"
+        },
+        {
+          "title": "Receta de soltero de queso, un clásico arequipeño - El Comercio",
+          "url": "https://elcomercio.pe/provecho/recetas/receta-de-soltero-de-queso-un-clasico-arequipeno-noticia/"
+        },
+        {
+          "title": "Solterito de queso - Culinariamente",
+          "url": "https://www.culinariamente.com/solterito-de-queso/"
+        }
+      ]
+    },
+    {
+      "key": "sopa-de-quinua",
+      "name": "Sopa de quinua",
+      "nameEn": "Andean quinoa vegetable soup",
+      "aliases": [
+        "quinoa soup",
+        "sopa de quinoa"
+      ],
+      "tiles": [
+        "Fresh & light"
+      ],
+      "cuisine": "Peruvian",
+      "region": "Peruvian Andes",
+      "format": "soup",
+      "protein": "grains",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 45,
+      "effort": "low",
+      "familiarity": 2,
+      "traditionalDiet": "vegetarian",
+      "versions": [
+        "vegetarian",
+        "vegan"
+      ],
+      "keyIngredients": [
+        "quinoa",
+        "potatoes",
+        "carrots",
+        "celery",
+        "onion",
+        "garlic",
+        "oregano",
+        "queso fresco"
+      ],
+      "specialtyIngredients": [],
+      "veganApproach": "Use vegetable stock and leave out the queso fresco or top the soup with avocado.",
+      "technique": "Toast the quinoa in the sofrito before simmering it with diced vegetables until the grains blossom.",
+      "seasons": [
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "comfort",
+        "mealprep"
+      ],
+      "sources": [
+        {
+          "title": "Sopa de Quinua - Peruvian Pot",
+          "url": "https://peruvianpot.com/recipe/sopa-de-quinua"
+        },
+        {
+          "title": "Sopa de Quinua - Andean Kitchen",
+          "url": "https://andeankitchen.com/sopa-de-quinua.html"
+        },
+        {
+          "title": "Peruvian Quinoa Soup (Sopa de Quinua) - Niko Douniko",
+          "url": "https://www.nikodouniko.com/post/peruvian-quinoa-soup-sopa-de-quinua"
+        }
+      ]
+    },
+    {
+      "key": "papa-a-la-huancaina",
+      "name": "Papa a la huancaína",
+      "nameEn": "Potatoes in creamy ají amarillo sauce",
+      "aliases": [
+        "papas a la huancaína",
+        "huancaina potatoes"
+      ],
+      "tiles": [
+        "Fresh & light"
+      ],
+      "cuisine": "Peruvian",
+      "region": "Peru",
+      "format": "other",
+      "protein": "nuts_seeds",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop",
+        "blender"
+      ],
+      "cookMinutes": 30,
+      "effort": "low",
+      "familiarity": 2,
+      "traditionalDiet": "vegetarian",
+      "versions": [
+        "vegetarian",
+        "vegan"
+      ],
+      "keyIngredients": [
+        "yellow potatoes",
+        "ají amarillo",
+        "queso fresco",
+        "evaporated milk",
+        "saltine crackers",
+        "lettuce",
+        "black olives",
+        "hard-boiled egg"
+      ],
+      "specialtyIngredients": [
+        "ají amarillo paste"
+      ],
+      "veganApproach": "Blend the ají amarillo sauce with cashews or silken tofu and plant milk instead of cheese and evaporated milk.",
+      "technique": "Blend ají amarillo with cheese, milk and crackers into a smooth sauce and pour it over cold boiled potatoes.",
+      "seasons": [
+        "spring",
+        "summer"
+      ],
+      "occasions": [
+        "everyday",
+        "hosting",
+        "mealprep"
+      ],
+      "sources": [
+        {
+          "title": "Papa a la huancaína - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Papa_a_la_huanca%C3%ADna"
+        },
+        {
+          "title": "Papa a la huancaína - Wikipedia (es)",
+          "url": "https://es.wikipedia.org/wiki/Papa_a_la_huanca%C3%ADna"
+        }
+      ]
+    },
+    {
+      "key": "poke",
+      "name": "Poke",
+      "nameEn": "Hawaiian poke bowl",
+      "aliases": [
+        "poké",
+        "poke bowl",
+        "tofu poke"
+      ],
+      "tiles": [
+        "Fresh & light"
+      ],
+      "cuisine": "Hawaiian",
+      "region": "Hawaii",
+      "format": "bowl",
+      "protein": "tofu",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 30,
+      "effort": "low",
+      "familiarity": 1,
+      "traditionalDiet": "pescatarian",
+      "versions": [
+        "pescatarian",
+        "vegan"
+      ],
+      "keyIngredients": [
+        "sushi rice",
+        "raw tuna",
+        "soy sauce",
+        "sesame oil",
+        "sweet onion",
+        "seaweed",
+        "avocado",
+        "cucumber",
+        "firm tofu"
+      ],
+      "specialtyIngredients": [
+        "limu or ogo seaweed"
+      ],
+      "veganApproach": "Marinate cubed firm tofu in the shoyu-sesame dressing instead of raw fish.",
+      "technique": "Cube raw fish and toss it with shoyu, sesame oil and onion just before serving over rice.",
+      "seasons": [
+        "spring",
+        "summer"
+      ],
+      "occasions": [
+        "everyday",
+        "mealprep",
+        "date"
+      ],
+      "sources": [
+        {
+          "title": "Poke (dish) - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Poke_(dish)"
+        },
+        {
+          "title": "The History of Poke in Hawaiʻi - Bishop Museum",
+          "url": "https://blog.bishopmuseum.org/history/the-history-of-poke-in-hawai%ca%bbi/"
+        },
+        {
+          "title": "Tofu Poke Bowl - The Simple Veganista",
+          "url": "https://simple-veganista.com/tofu-poke-bowl-recipe/"
+        }
+      ]
+    },
+    {
+      "key": "gado-gado",
+      "name": "Gado-gado",
+      "nameEn": "Indonesian vegetable salad with peanut sauce",
+      "aliases": [
+        "gado gado",
+        "lotek"
+      ],
+      "tiles": [
+        "Fresh & light"
+      ],
+      "cuisine": "Indonesian",
+      "region": "Jakarta, Java",
+      "format": "salad",
+      "protein": "tofu",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 40,
+      "effort": "medium",
+      "familiarity": 1,
+      "traditionalDiet": "vegetarian",
+      "versions": [
+        "vegetarian",
+        "vegan"
+      ],
+      "keyIngredients": [
+        "peanut sauce",
+        "tofu",
+        "tempeh",
+        "potatoes",
+        "green beans",
+        "cabbage",
+        "bean sprouts",
+        "hard-boiled egg",
+        "lontong",
+        "cucumber"
+      ],
+      "specialtyIngredients": [
+        "kecap manis"
+      ],
+      "veganApproach": "Skip the egg and shrimp crackers and make the peanut sauce without terasi.",
+      "technique": "Blanch vegetables briefly, arrange them with fried tofu and tempeh and smother everything in a thick peanut sauce.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "mealprep"
+      ],
+      "sources": [
+        {
+          "title": "Gado-gado - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Gado-gado"
+        },
+        {
+          "title": "Gado-Gado (Indonesian Salad With Peanut Sauce) - Serious Eats",
+          "url": "https://www.seriouseats.com/gado-gado-indonesian-salad-with-peanut-sauce-8646793"
+        },
+        {
+          "title": "Vegan Gado Gado - Heartful Table",
+          "url": "https://heartfultable.com/vegan-gado-gado/"
+        }
+      ]
+    },
+    {
+      "key": "ketoprak",
+      "name": "Ketoprak",
+      "nameEn": "Betawi tofu, rice cake and noodle salad with peanut sauce",
+      "aliases": [
+        "ketoprak jakarta"
+      ],
+      "tiles": [
+        "Fresh & light"
+      ],
+      "cuisine": "Indonesian",
+      "region": "Jakarta (Betawi)",
+      "format": "other",
+      "protein": "tofu",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 30,
+      "effort": "low",
+      "familiarity": 3,
+      "traditionalDiet": "vegetarian",
+      "versions": [
+        "vegetarian",
+        "vegan"
+      ],
+      "keyIngredients": [
+        "fried tofu",
+        "ketupat rice cakes",
+        "rice vermicelli",
+        "bean sprouts",
+        "peanut sauce",
+        "kecap manis",
+        "garlic",
+        "fried shallots"
+      ],
+      "specialtyIngredients": [
+        "kecap manis",
+        "ketupat"
+      ],
+      "veganApproach": "Leave out the egg and add tempeh or extra tofu.",
+      "technique": "Grind peanuts with garlic and chili into a sauce, then pour it over tofu, rice cake, vermicelli and sprouts.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday"
+      ],
+      "sources": [
+        {
+          "title": "Ketoprak (dish) - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Ketoprak_(dish)"
+        },
+        {
+          "title": "Resep Ketoprak Khas Betawi ala Kaki Lima - Kompas",
+          "url": "https://www.kompas.com/food/read/2024/07/26/210300675/resep-ketoprak-khas-betawi-ala-kaki-lima"
+        }
+      ]
+    },
+    {
+      "key": "nasi-pecel",
+      "name": "Nasi pecel",
+      "nameEn": "Javanese vegetables and rice with spicy peanut sauce",
+      "aliases": [
+        "pecel",
+        "pecel sayur"
+      ],
+      "tiles": [
+        "Fresh & light"
+      ],
+      "cuisine": "Indonesian",
+      "region": "East Java",
+      "format": "salad",
+      "protein": "nuts_seeds",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 30,
+      "effort": "low",
+      "familiarity": 2,
+      "traditionalDiet": "vegan",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "spinach",
+        "bean sprouts",
+        "long beans",
+        "cabbage",
+        "peanut sauce",
+        "kaffir lime leaves",
+        "palm sugar",
+        "tempeh"
+      ],
+      "specialtyIngredients": [
+        "kencur (aromatic ginger)"
+      ],
+      "veganApproach": "Naturally vegan.",
+      "technique": "Blanch leafy vegetables and dress them with a spicy peanut sauce fragrant with kencur and lime leaves.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "mealprep"
+      ],
+      "sources": [
+        {
+          "title": "Pecel - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Pecel"
+        },
+        {
+          "title": "Pecel Sayur (Vegetables in Javanese Peanut Sauce) - Cook Me Indonesian",
+          "url": "https://www.cookmeindonesian.com/pecel-sayur-vegetables-in-javanese-peanut-sauce-vegan/"
+        },
+        {
+          "title": "Nasi pecel - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Nasi_pecel"
+        }
+      ]
+    },
+    {
+      "key": "karedok",
+      "name": "Karedok",
+      "nameEn": "Sundanese raw vegetable salad with peanut sauce",
+      "aliases": [
+        "sundanese salad"
+      ],
+      "tiles": [
+        "Fresh & light"
+      ],
+      "cuisine": "Indonesian",
+      "region": "West Java (Sunda)",
+      "format": "salad",
+      "protein": "nuts_seeds",
+      "method": "no_cook",
+      "appliances": [],
+      "cookMinutes": 20,
+      "effort": "low",
+      "familiarity": 3,
+      "traditionalDiet": "pescatarian",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "cucumber",
+        "long beans",
+        "bean sprouts",
+        "cabbage",
+        "thai basil",
+        "eggplant",
+        "peanut sauce",
+        "kencur"
+      ],
+      "specialtyIngredients": [
+        "kencur (aromatic ginger)"
+      ],
+      "veganApproach": "Omit the terasi shrimp paste from the peanut dressing and add a little soy sauce instead.",
+      "technique": "Pound raw peanuts, chili and kencur into a dressing and toss it with crisp raw vegetables.",
+      "seasons": [
+        "spring",
+        "summer"
+      ],
+      "occasions": [
+        "everyday",
+        "quick"
+      ],
+      "sources": [
+        {
+          "title": "Resep Karedok Khas Sunda, Sayur Mentah Siram Bumbu Kacang - Kompas",
+          "url": "https://www.kompas.com/food/read/2023/11/29/140200675/resep-karedok-khas-sunda-sayur-mentah-siram-bumbu-kacang"
+        },
+        {
+          "title": "Sundanese Salad (Karedok) - Recipes Indonesia",
+          "url": "https://recipesindonesia.com/indonesian-vegetable-recipes/sundanese-salad/"
+        },
+        {
+          "title": "Karedok (West Javanese Vegetable Salad) - What To Cook Today",
+          "url": "https://whattocooktoday.com/karedok-west-javanese-vegetable-salad-with-sweet-and-sour-dressing.html"
+        }
+      ]
+    },
+    {
+      "key": "sayur-lodeh",
+      "name": "Sayur lodeh",
+      "nameEn": "Javanese vegetables in coconut broth",
+      "aliases": [
+        "lodeh",
+        "lontong sayur"
+      ],
+      "tiles": [
+        "Fresh & light"
+      ],
+      "cuisine": "Indonesian",
+      "region": "Java",
+      "format": "soup",
+      "protein": "tempeh",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 40,
+      "effort": "low",
+      "familiarity": 2,
+      "traditionalDiet": "vegan",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "coconut milk",
+        "chayote",
+        "long beans",
+        "eggplant",
+        "cabbage",
+        "tofu",
+        "tempeh",
+        "galangal",
+        "lemongrass"
+      ],
+      "specialtyIngredients": [
+        "salam leaves",
+        "candlenuts"
+      ],
+      "veganApproach": "Naturally vegan.",
+      "technique": "Simmer vegetables in a light coconut broth flavoured with a pounded shallot, garlic and candlenut paste.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "comfort",
+        "mealprep"
+      ],
+      "sources": [
+        {
+          "title": "Sayur lodeh - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Sayur_lodeh"
+        },
+        {
+          "title": "Sayur Lodeh (Mixed Vegetables in Coconut Milk Soup) - Cook Me Indonesian",
+          "url": "https://www.cookmeindonesian.com/sayur-lodeh-mixed-vegetables-in-coconut-milk-soup-vegan/"
+        },
+        {
+          "title": "Lontong Sayur Lodeh - The Cinnamon Snail",
+          "url": "https://cinnamonsnail.com/lontong-sayur-lodeh-indonesian-vegetable-stew-with-compressed-rice-cakes/"
+        }
+      ]
+    },
+    {
+      "key": "asam-laksa",
+      "name": "Asam laksa",
+      "nameEn": "Penang sour tamarind noodle soup",
+      "aliases": [
+        "assam laksa",
+        "penang laksa"
+      ],
+      "tiles": [
+        "Fresh & light"
+      ],
+      "cuisine": "Malaysian",
+      "region": "Penang",
+      "format": "noodles",
+      "protein": "tofu",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop",
+        "blender"
+      ],
+      "cookMinutes": 60,
+      "effort": "medium",
+      "familiarity": 2,
+      "traditionalDiet": "pescatarian",
+      "versions": [
+        "pescatarian",
+        "vegan"
+      ],
+      "keyIngredients": [
+        "thick rice noodles",
+        "tamarind",
+        "lemongrass",
+        "galangal",
+        "pineapple",
+        "cucumber",
+        "mint",
+        "mackerel",
+        "tofu puffs"
+      ],
+      "specialtyIngredients": [
+        "torch ginger flower (bunga kantan)",
+        "daun kesum (Vietnamese mint)",
+        "hae ko (prawn paste)"
+      ],
+      "veganApproach": "Swap the mackerel broth for a tamarind-vegetable broth with shredded tofu or oyster mushrooms and use miso instead of shrimp paste.",
+      "technique": "Blend a chili-lemongrass paste, simmer it with tamarind water into a sour broth and pour it over noodles and raw garnishes.",
+      "seasons": [
+        "summer",
+        "autumn"
+      ],
+      "occasions": [
+        "everyday",
+        "hosting"
+      ],
+      "sources": [
+        {
+          "title": "Laksa - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Laksa"
+        },
+        {
+          "title": "Authentic Penang Asam Laksa - New Malaysian Kitchen",
+          "url": "https://www.newmalaysiankitchen.com/authentic-penang-asam-laksa/"
+        },
+        {
+          "title": "Vegetarian Asam Laksa Recipe (also vegan!) - Mostly Amélie",
+          "url": "https://mostlyamelie.com/penang-asam-laksa-recipe/"
+        }
+      ]
+    },
+    {
+      "key": "nasi-kerabu",
+      "name": "Nasi kerabu",
+      "nameEn": "Kelantan blue herb rice",
+      "aliases": [
+        "blue rice",
+        "nasi kerabu biru"
+      ],
+      "tiles": [
+        "Fresh & light"
+      ],
+      "cuisine": "Malaysian",
+      "region": "Kelantan",
+      "format": "rice_dish",
+      "protein": "vegetables",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 60,
+      "effort": "medium",
+      "familiarity": 3,
+      "traditionalDiet": "pescatarian",
+      "versions": [
+        "pescatarian",
+        "vegan"
+      ],
+      "keyIngredients": [
+        "rice",
+        "butterfly pea flowers",
+        "bean sprouts",
+        "cucumber",
+        "long beans",
+        "fresh herbs",
+        "toasted coconut",
+        "fried fish"
+      ],
+      "specialtyIngredients": [
+        "butterfly pea flowers",
+        "budu (fermented anchovy sauce)"
+      ],
+      "veganApproach": "Serve the blue rice with crispy tofu and a tamarind-chili sambal instead of fish and budu.",
+      "technique": "Cook rice with butterfly pea flower water, then mix it at the table with shredded raw herbs, toasted coconut and sauce.",
+      "seasons": [
+        "spring",
+        "summer"
+      ],
+      "occasions": [
+        "hosting",
+        "everyday"
+      ],
+      "sources": [
+        {
+          "title": "Nasi kerabu - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Nasi_kerabu"
+        },
+        {
+          "title": "Nasi Kerabu - Pemetaan Budaya JKKN",
+          "url": "https://pemetaanbudaya.jkkn.gov.my/en/senibudaya/detail/1353"
+        }
+      ]
+    },
+    {
+      "key": "nasi-ulam",
+      "name": "Nasi ulam",
+      "nameEn": "Malaysian fresh herb rice salad",
+      "aliases": [
+        "nasi ulam nyonya",
+        "herbed rice"
+      ],
+      "tiles": [
+        "Fresh & light"
+      ],
+      "cuisine": "Malaysian",
+      "region": "Malaysia (Malay and Nyonya)",
+      "format": "rice_dish",
+      "protein": "vegetables",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 30,
+      "effort": "low",
+      "familiarity": 3,
+      "traditionalDiet": "pescatarian",
+      "versions": [
+        "pescatarian",
+        "vegan"
+      ],
+      "keyIngredients": [
+        "cooked rice",
+        "toasted coconut",
+        "lemongrass",
+        "shallots",
+        "kaffir lime leaves",
+        "mint",
+        "thai basil",
+        "dried shrimp"
+      ],
+      "specialtyIngredients": [
+        "daun kesum (Vietnamese mint)",
+        "wild betel leaves"
+      ],
+      "veganApproach": "Leave out the dried shrimp and salted fish and boost the umami with toasted peanuts and a little soy sauce.",
+      "technique": "Toss cooled rice with pounded toasted coconut and a big handful of very finely shredded raw herbs.",
+      "seasons": [
+        "spring",
+        "summer"
+      ],
+      "occasions": [
+        "everyday",
+        "mealprep"
+      ],
+      "sources": [
+        {
+          "title": "Herbed Rice (Nasi Ulam) - Rasa Malaysia",
+          "url": "https://rasamalaysia.com/nasi-ulam-recipe/"
+        },
+        {
+          "title": "Nasi Ulam (Nyonya Herb Rice) - Malaysian Chinese Kitchen",
+          "url": "https://www.malaysianchinesekitchen.com/nasi-ulam-nyonya-herb-rice/"
+        },
+        {
+          "title": "Herbed rice salad (Nasi ulam) - SBS Food",
+          "url": "https://www.sbs.com.au/food/recipe/herbed-rice-salad-nasi-ulam/ry42244v5"
+        }
+      ]
+    },
+    {
+      "key": "kinilaw",
+      "name": "Kinilaw",
+      "nameEn": "Filipino vinegar-cured raw fish",
+      "aliases": [
+        "kilawin",
+        "kinilaw na isda",
+        "filipino ceviche"
+      ],
+      "tiles": [
+        "Fresh & light"
+      ],
+      "cuisine": "Filipino",
+      "region": "Visayas",
+      "format": "salad",
+      "protein": "vegetables",
+      "method": "no_cook",
+      "appliances": [],
+      "cookMinutes": 20,
+      "effort": "low",
+      "familiarity": 2,
+      "traditionalDiet": "pescatarian",
+      "versions": [
+        "pescatarian",
+        "vegan"
+      ],
+      "keyIngredients": [
+        "raw tuna",
+        "coconut vinegar",
+        "calamansi",
+        "ginger",
+        "red onion",
+        "chili",
+        "coconut milk",
+        "cucumber"
+      ],
+      "specialtyIngredients": [
+        "coconut or cane vinegar",
+        "calamansi"
+      ],
+      "veganApproach": "Cure mushrooms, hearts of palm or green mango in the same vinegar-calamansi marinade instead of fish.",
+      "technique": "Rinse cubed raw fish in vinegar, dress it in vinegar, calamansi, ginger and chili and eat it within minutes.",
+      "seasons": [
+        "summer"
+      ],
+      "occasions": [
+        "quick",
+        "hosting"
+      ],
+      "sources": [
+        {
+          "title": "Kinilaw - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Kinilaw"
+        },
+        {
+          "title": "Kinilaw na Tuna (Filipino-Style Tuna Ceviche) - Pepper.ph",
+          "url": "https://www.pepper.ph/recipes/tuna-kinilaw"
+        },
+        {
+          "title": "Kilawing Tanigue Recipe - Delish.ph",
+          "url": "https://delish.ph/recipes/kilawing-tanigue-recipe-ceviche/"
+        }
+      ]
+    },
+    {
+      "key": "pinakbet",
+      "name": "Pinakbet",
+      "nameEn": "Ilocano mixed vegetable stew",
+      "aliases": [
+        "pakbet",
+        "vegan pinakbet"
+      ],
+      "tiles": [
+        "Fresh & light"
+      ],
+      "cuisine": "Filipino",
+      "region": "Ilocos, Northern Luzon",
+      "format": "stew",
+      "protein": "tofu",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 35,
+      "effort": "low",
+      "familiarity": 2,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "kabocha squash",
+        "bitter melon",
+        "eggplant",
+        "okra",
+        "long beans",
+        "tomatoes",
+        "garlic",
+        "ginger",
+        "tofu"
+      ],
+      "specialtyIngredients": [
+        "bitter melon (ampalaya)"
+      ],
+      "veganApproach": "Replace the bagoong and pork with soy sauce, miso or vegan shrimp paste and fried tofu or tempeh.",
+      "technique": "Layer the vegetables by cooking time and steam-stew them covered without stirring so they stay intact.",
+      "seasons": [
+        "summer",
+        "autumn"
+      ],
+      "occasions": [
+        "everyday",
+        "mealprep"
+      ],
+      "sources": [
+        {
+          "title": "Pinakbet - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/pinakbet"
+        },
+        {
+          "title": "Pinakbet (Filipino Vegetable Stew) - Foodwise",
+          "url": "https://foodwise.org/recipes/pinakbet-filipino-vegetable-stew/"
+        },
+        {
+          "title": "Plant-Based Pinakbet: Filipino Vegan Vegetable Stew - Vegan Philippines",
+          "url": "https://veganphilippines.com/plant-based-pinakbet-filipino-vegan-vegetable-stew/"
+        }
+      ]
+    },
+    {
+      "key": "lumpiang-sariwa",
+      "name": "Lumpiang sariwa",
+      "nameEn": "Filipino fresh lumpia",
+      "aliases": [
+        "fresh lumpia",
+        "lumpiang ubod"
+      ],
+      "tiles": [
+        "Fresh & light"
+      ],
+      "cuisine": "Filipino",
+      "region": "Philippines",
+      "format": "wrap",
+      "protein": "tofu",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 60,
+      "effort": "high",
+      "familiarity": 2,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegetarian",
+        "vegan"
+      ],
+      "keyIngredients": [
+        "crêpe wrappers",
+        "tofu",
+        "sweet potato",
+        "jicama",
+        "green beans",
+        "carrots",
+        "lettuce",
+        "garlic peanut sauce"
+      ],
+      "specialtyIngredients": [],
+      "veganApproach": "Fill with tofu and vegetables only, season with soy sauce instead of fish sauce and make egg-free wrappers.",
+      "technique": "Stir-fry the filling until tender-crisp, wrap it in soft crêpes with lettuce and top with a sweet garlic-peanut sauce.",
+      "seasons": [
+        "spring",
+        "summer"
+      ],
+      "occasions": [
+        "hosting",
+        "everyday"
+      ],
+      "sources": [
+        {
+          "title": "Lumpiang Sariwa with Fresh Lumpia Wrapper - Panlasang Pinoy",
+          "url": "https://panlasangpinoy.com/lumpiang-sariwa-with-fresh-lumpia-wrapper/"
+        },
+        {
+          "title": "Lumpiang Sariwa with Peanut Sauce - Kawaling Pinoy",
+          "url": "https://www.kawalingpinoy.com/lumpiang-sariwa/"
+        },
+        {
+          "title": "Lumpiang Sariwa Recipe - Cooking Pinoy",
+          "url": "https://cookingpinoy.com/lumpiang-sariwa-recipe-make-homemade-lumpia-wrapper-special-lumpia-sauce/"
+        }
+      ]
+    },
+    {
+      "key": "tortang-talong",
+      "name": "Tortang talong",
+      "nameEn": "Filipino grilled eggplant omelette",
+      "aliases": [
+        "eggplant omelette",
+        "tortalong"
+      ],
+      "tiles": [
+        "Fresh & light"
+      ],
+      "cuisine": "Filipino",
+      "region": "Philippines",
+      "format": "egg_dish",
+      "protein": "chickpeas",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 30,
+      "effort": "low",
+      "familiarity": 2,
+      "traditionalDiet": "vegetarian",
+      "versions": [
+        "vegetarian",
+        "vegan"
+      ],
+      "keyIngredients": [
+        "eggplants",
+        "eggs",
+        "garlic",
+        "onion",
+        "salt",
+        "black pepper",
+        "banana ketchup",
+        "rice"
+      ],
+      "specialtyIngredients": [
+        "banana ketchup"
+      ],
+      "veganApproach": "Dip the flattened eggplant in a seasoned chickpea-flour batter instead of beaten egg.",
+      "technique": "Char whole eggplants until soft, peel and flatten them with a fork, then pan-fry them dipped in egg until golden.",
+      "seasons": [
+        "summer",
+        "autumn"
+      ],
+      "occasions": [
+        "everyday",
+        "comfort"
+      ],
+      "sources": [
+        {
+          "title": "Tortang talong - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Tortang_talong"
+        },
+        {
+          "title": "Tortang Talong (Filipino Eggplant Omelette) - Serious Eats",
+          "url": "https://www.seriouseats.com/tortang-talong-eggplant-omelette-5189762"
+        },
+        {
+          "title": "Tortang Talong, or Egg-Dipped Eggplant - Epicurious",
+          "url": "https://www.epicurious.com/recipes-menus/this-egg-dipped-eggplant-is-my-new-favorite-meal-article"
+        }
+      ]
+    },
+    {
+      "key": "sinigang",
+      "name": "Sinigang",
+      "nameEn": "Filipino sour tamarind soup",
+      "aliases": [
+        "sinigang na hipon",
+        "sinigang sa sampalok",
+        "vegan sinigang"
+      ],
+      "tiles": [
+        "Fresh & light"
+      ],
+      "cuisine": "Filipino",
+      "region": "Tagalog region, Luzon",
+      "format": "soup",
+      "protein": "tofu",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 40,
+      "effort": "low",
+      "familiarity": 2,
+      "traditionalDiet": "meat",
+      "versions": [
+        "pescatarian",
+        "vegan"
+      ],
+      "keyIngredients": [
+        "tamarind",
+        "tomatoes",
+        "onion",
+        "daikon",
+        "okra",
+        "long beans",
+        "eggplant",
+        "water spinach",
+        "shrimp",
+        "tofu"
+      ],
+      "specialtyIngredients": [
+        "kangkong (water spinach)"
+      ],
+      "veganApproach": "Use vegetable stock, tofu and vegan fish sauce, adding torn nori for a seafood note.",
+      "technique": "Simmer vegetables in a sour tamarind broth and add shrimp or tofu and leafy greens only at the end.",
+      "seasons": [
+        "spring",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "comfort"
+      ],
+      "sources": [
+        {
+          "title": "Sinigang - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Sinigang"
+        },
+        {
+          "title": "Sinigang na Hipon Recipe - KusinaPH",
+          "url": "https://kusinaph.com/recipes/sinigang-na-hipon/"
+        },
+        {
+          "title": "Vegan Sinigang - The Vegan Planet Kitchen",
+          "url": "https://theveganplanetkitchen.com/vegan-sinigang/"
+        }
+      ]
+    },
+    {
+      "key": "smorrebrod",
+      "name": "Smørrebrød",
+      "nameEn": "Danish open-faced rye sandwich",
+      "aliases": [
+        "smorrebrod",
+        "smørbrød",
+        "smörgås"
+      ],
+      "tiles": [
+        "Fresh & light"
+      ],
+      "cuisine": "Nordic",
+      "region": "Denmark",
+      "format": "sandwich",
+      "protein": "vegetables",
+      "method": "no_cook",
+      "appliances": [],
+      "cookMinutes": 20,
+      "effort": "low",
+      "familiarity": 1,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegan",
+        "vegetarian",
+        "pescatarian"
+      ],
+      "keyIngredients": [
+        "rye bread",
+        "butter",
+        "boiled potatoes",
+        "pickled herring",
+        "boiled eggs",
+        "cucumber",
+        "red onion",
+        "dill"
+      ],
+      "specialtyIngredients": [
+        "rugbrød (Danish rye bread)"
+      ],
+      "veganApproach": "Top the rye with sliced potatoes, beetroot or carrot 'lox' and vegan remoulade instead of fish, meat and butter.",
+      "technique": "Spread dense rye with butter and layer the toppings neatly and generously, then eat it with knife and fork.",
+      "seasons": [
+        "spring",
+        "summer"
+      ],
+      "occasions": [
+        "everyday",
+        "quick",
+        "hosting"
+      ],
+      "sources": [
+        {
+          "title": "Smørrebrød - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Sm%C3%B8rrebr%C3%B8d"
+        },
+        {
+          "title": "Meet Smørrebrød, the Best Sandwich You're Not Eating - Serious Eats",
+          "url": "https://www.seriouseats.com/smorrebrod-introduction-danish-sandwich"
+        },
+        {
+          "title": "Vegan Smørrebrød with 4 Toppings - Zucker&Jagdwurst",
+          "url": "https://www.zuckerjagdwurst.com/en/recipes/vegan-smorrebrod"
+        }
+      ]
+    },
+    {
+      "key": "lohikeitto",
+      "name": "Lohikeitto",
+      "nameEn": "Finnish salmon soup",
+      "aliases": [
+        "laxsoppa",
+        "salmon chowder"
+      ],
+      "tiles": [
+        "Fresh & light"
+      ],
+      "cuisine": "Nordic",
+      "region": "Finland",
+      "format": "soup",
+      "protein": "tofu",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 35,
+      "effort": "low",
+      "familiarity": 1,
+      "traditionalDiet": "pescatarian",
+      "versions": [
+        "pescatarian",
+        "vegan"
+      ],
+      "keyIngredients": [
+        "salmon",
+        "potatoes",
+        "carrots",
+        "leek",
+        "dill",
+        "allspice",
+        "cream",
+        "fish stock"
+      ],
+      "specialtyIngredients": [],
+      "veganApproach": "Replace the salmon with smoked tofu or white beans and use vegetable stock with oat or coconut cream.",
+      "technique": "Simmer potatoes and leeks in stock, add the salmon only for the final minutes and finish with cream and dill.",
+      "seasons": [
+        "spring",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "comfort"
+      ],
+      "sources": [
+        {
+          "title": "Lohikeitto - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Lohikeitto"
+        },
+        {
+          "title": "Finnish Salmon Soup (Lohikeitto) - The View from Great Island",
+          "url": "https://theviewfromgreatisland.com/finnish-salmon-soup-lohikeitto-recipe/"
+        },
+        {
+          "title": "National Dish Finland: Lohikeitto - National Dish Recipes",
+          "url": "https://nationaldishrecipes.com/national-dish-finland-lohikeitto-recipe/"
+        }
+      ]
+    },
+    {
+      "key": "kesakeitto",
+      "name": "Kesäkeitto",
+      "nameEn": "Finnish summer vegetable soup",
+      "aliases": [
+        "kesakeitto",
+        "finnish summer soup"
+      ],
+      "tiles": [
+        "Fresh & light"
+      ],
+      "cuisine": "Nordic",
+      "region": "Finland",
+      "format": "soup",
+      "protein": "vegetables",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 35,
+      "effort": "low",
+      "familiarity": 3,
+      "traditionalDiet": "vegetarian",
+      "versions": [
+        "vegetarian",
+        "vegan"
+      ],
+      "keyIngredients": [
+        "new potatoes",
+        "carrots",
+        "cauliflower",
+        "peas",
+        "spinach",
+        "milk",
+        "butter",
+        "dill"
+      ],
+      "specialtyIngredients": [],
+      "veganApproach": "Thicken the broth with oat milk and flour and finish with plant butter instead of milk and butter.",
+      "technique": "Simmer young vegetables in order of firmness, then thicken the broth with a milk and flour slurry.",
+      "seasons": [
+        "summer"
+      ],
+      "occasions": [
+        "everyday",
+        "mealprep"
+      ],
+      "sources": [
+        {
+          "title": "Kesäkeitto - Valio",
+          "url": "https://www.valio.fi/reseptit/kesakeitto/"
+        },
+        {
+          "title": "Finnish Summer Vegetable Soup Recipe Kesäkeitto - SaimaaLife",
+          "url": "https://www.saimaalife.com/finnish-summer-vegetable-soup-recipe/"
+        },
+        {
+          "title": "Finnish Summer Vegetable Soup (Kesäkeitto) - Sisu Homemaker",
+          "url": "https://sisuhomemaker.com/finnish-summer-vegetable-soup-recipe-kesakeitto/"
+        }
+      ]
+    },
+    {
+      "key": "yetsom-beyaynetu",
+      "name": "Yetsom beyaynetu",
+      "nameEn": "Ethiopian fasting combination platter",
+      "aliases": [
+        "beyaynetu",
+        "ye'tsom beyaynetu",
+        "vegan combo platter"
+      ],
+      "tiles": [
+        "Fresh & light"
+      ],
+      "cuisine": "Ethiopian",
+      "region": "Ethiopia",
+      "format": "other",
+      "protein": "lentils",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 90,
+      "effort": "high",
+      "familiarity": 2,
+      "traditionalDiet": "vegan",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "injera",
+        "red lentils",
+        "split peas",
+        "collard greens",
+        "cabbage",
+        "carrots",
+        "berbere",
+        "tomatoes",
+        "onion"
+      ],
+      "specialtyIngredients": [
+        "injera (teff flatbread)",
+        "berbere"
+      ],
+      "veganApproach": "Naturally vegan.",
+      "technique": "Cook several small fasting stews and salads separately and arrange them in mounds on a large injera.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "hosting",
+        "mealprep"
+      ],
+      "sources": [
+        {
+          "title": "Beyaynetu - Taste Lab",
+          "url": "https://tastelab.food/encyclopedia/canon/beyaynetu"
+        },
+        {
+          "title": "Yetsom Beyaynetu (Ethiopian Combination Platter) - Petit World Citizen",
+          "url": "https://petitworldcitizen.com/2015/01/29/yetsom-beyaynetu-ethiopian-combination-platter/"
+        },
+        {
+          "title": "Ethiopian Fasting (Tsom) Vegan Tradition - Taste Lab",
+          "url": "https://tastelab.food/encyclopedia/cuisines/ethiopian-fasting-tsom-vegan-tradition"
+        }
+      ]
+    },
+    {
+      "key": "azifa",
+      "name": "Azifa",
+      "nameEn": "Ethiopian green lentil salad",
+      "aliases": [
+        "azifa salad",
+        "ethiopian lentil salad"
+      ],
+      "tiles": [
+        "Fresh & light"
+      ],
+      "cuisine": "Ethiopian",
+      "region": "Ethiopia",
+      "format": "salad",
+      "protein": "lentils",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 30,
+      "effort": "low",
+      "familiarity": 3,
+      "traditionalDiet": "vegan",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "green lentils",
+        "red onion",
+        "jalapeño",
+        "lemon juice",
+        "olive oil",
+        "mustard seeds",
+        "parsley"
+      ],
+      "specialtyIngredients": [
+        "senafich (Ethiopian mustard)"
+      ],
+      "veganApproach": "Naturally vegan.",
+      "technique": "Cook lentils until just tender, chill them and dress with lemon, raw onion, chili and pungent ground mustard.",
+      "seasons": [
+        "spring",
+        "summer"
+      ],
+      "occasions": [
+        "everyday",
+        "mealprep"
+      ],
+      "sources": [
+        {
+          "title": "Azifa (Ethiopian Lentil Salad) - Urban Farmie",
+          "url": "https://urbanfarmie.com/azifa-ethiopian-lentil-salad/"
+        },
+        {
+          "title": "Azifa, Ethiopian Lentil Spread - Eat Healthy and Cheap",
+          "url": "https://eathealthyandcheap.com/recipes/azifa/"
+        }
+      ]
+    },
+    {
+      "key": "timatim-fitfit",
+      "name": "Timatim fitfit",
+      "nameEn": "Ethiopian tomato and injera salad",
+      "aliases": [
+        "timatim fit fit",
+        "timatim firfir"
+      ],
+      "tiles": [
+        "Fresh & light"
+      ],
+      "cuisine": "Ethiopian",
+      "region": "Ethiopia and Eritrea",
+      "format": "salad",
+      "protein": "vegetables",
+      "method": "no_cook",
+      "appliances": [],
+      "cookMinutes": 15,
+      "effort": "low",
+      "familiarity": 3,
+      "traditionalDiet": "vegan",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "injera",
+        "tomatoes",
+        "red onion",
+        "jalapeño",
+        "garlic",
+        "lemon juice",
+        "olive oil",
+        "berbere"
+      ],
+      "specialtyIngredients": [
+        "injera (teff flatbread)",
+        "berbere"
+      ],
+      "veganApproach": "Naturally vegan.",
+      "technique": "Tear injera into a spicy tomato salad and let it soak up the dressing before serving it cool.",
+      "seasons": [
+        "summer"
+      ],
+      "occasions": [
+        "everyday",
+        "quick"
+      ],
+      "sources": [
+        {
+          "title": "Ethiopian Timatim Fit Fit - Veggie Turkeys",
+          "url": "https://veggieturkeys.com/ethiopian-timatim-fit-fit/"
+        },
+        {
+          "title": "Timatim Salad Recipe - Ethiopian Food",
+          "url": "https://ethiopian-food.org/timatim-salad-recipe/"
+        }
+      ]
+    },
+    {
+      "key": "atakilt-wat",
+      "name": "Atakilt wat",
+      "nameEn": "Ethiopian cabbage, carrot and potato stew",
+      "aliases": [
+        "atkilt wot",
+        "tikil gomen"
+      ],
+      "tiles": [
+        "Fresh & light"
+      ],
+      "cuisine": "Ethiopian",
+      "region": "Ethiopia",
+      "format": "stew",
+      "protein": "vegetables",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 35,
+      "effort": "low",
+      "familiarity": 2,
+      "traditionalDiet": "vegan",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "cabbage",
+        "carrots",
+        "potatoes",
+        "onion",
+        "garlic",
+        "ginger",
+        "turmeric",
+        "cumin"
+      ],
+      "specialtyIngredients": [],
+      "veganApproach": "Naturally vegan.",
+      "technique": "Sauté carrots and potatoes with turmeric and ginger, then add the cabbage and braise covered until tender.",
+      "seasons": [
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "mealprep",
+        "comfort"
+      ],
+      "sources": [
+        {
+          "title": "Atakilt Wat (Ethiopian Cabbage, Carrot, and Potato) - Spoons Of Flavor",
+          "url": "https://spoonsofflavor.com/atakilt-wat/"
+        },
+        {
+          "title": "Atakilt Wat (Ethiopian Cabbage and Potatoes) - Allrecipes",
+          "url": "https://www.allrecipes.com/recipe/236247/ethiopian-cabbage-and-potato-dish-atkilt/"
+        },
+        {
+          "title": "Atakilt Wat (Ethiopian Spiced Vegetable Stew) - Fork and Salt",
+          "url": "https://forkandsalt.com/recipes/ethiopian/yetsom-atakilt-wat"
+        }
+      ]
+    },
+    {
+      "key": "lahpet-thoke",
+      "name": "Lahpet thoke",
+      "nameEn": "Burmese fermented tea leaf salad",
+      "aliases": [
+        "laphet thoke",
+        "tea leaf salad"
+      ],
+      "tiles": [
+        "Fresh & light"
+      ],
+      "cuisine": "Burmese",
+      "region": "Myanmar (Shan State)",
+      "format": "salad",
+      "protein": "nuts_seeds",
+      "method": "no_cook",
+      "appliances": [],
+      "cookMinutes": 15,
+      "effort": "low",
+      "familiarity": 2,
+      "traditionalDiet": "pescatarian",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "fermented tea leaves",
+        "cabbage",
+        "tomatoes",
+        "fried split peas",
+        "peanuts",
+        "sesame seeds",
+        "fried garlic",
+        "lime",
+        "green chili"
+      ],
+      "specialtyIngredients": [
+        "lahpet (fermented tea leaves)"
+      ],
+      "veganApproach": "Leave out the dried shrimp and fish sauce and season with salt or soy sauce.",
+      "technique": "Dress fermented tea leaves with oil and lime, then toss them by hand with crunchy fried beans, nuts and fresh vegetables.",
+      "seasons": [
+        "spring",
+        "summer"
+      ],
+      "occasions": [
+        "quick",
+        "hosting"
+      ],
+      "sources": [
+        {
+          "title": "Burmese salads (Lahpet thoke) - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Lahpet_thoke"
+        },
+        {
+          "title": "Lahpet Thoke Recipe: Burmese Fermented Tea Leaf Salad - DishNomad",
+          "url": "https://dishnomad.com/recipe/lahpet-thoke"
+        },
+        {
+          "title": "Lahpet Thoke (Tea Leaf Salad) - The Southeast Asian Table",
+          "url": "https://thesoutheastasiantables.com/recipes/myanmar/lahpet-thoke-tea-leaf-salad"
+        }
+      ]
+    },
+    {
+      "key": "buddha-bowl",
+      "name": "Buddha bowl",
+      "nameEn": "Buddha bowl",
+      "aliases": [
+        "grain bowl",
+        "nourish bowl",
+        "macro bowl"
+      ],
+      "tiles": [
+        "Fresh & light"
+      ],
+      "cuisine": "Californian",
+      "region": "United States (West Coast)",
+      "format": "bowl",
+      "protein": "chickpeas",
+      "method": "oven",
+      "appliances": [
+        "oven",
+        "stovetop"
+      ],
+      "cookMinutes": 40,
+      "effort": "low",
+      "familiarity": 1,
+      "traditionalDiet": "vegan",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "quinoa",
+        "brown rice",
+        "chickpeas",
+        "sweet potato",
+        "avocado",
+        "leafy greens",
+        "tahini dressing",
+        "seeds"
+      ],
+      "specialtyIngredients": [],
+      "veganApproach": "Naturally vegan.",
+      "technique": "Arrange separate portions of grain, plant protein, and roasted and raw vegetables in one bowl, then finish with a dressing.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "mealprep"
+      ],
+      "sources": [
+        {
+          "title": "Buddha bowl - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Buddha_bowl"
+        },
+        {
+          "title": "What Is a Buddha Bowl? - The Kitchn",
+          "url": "https://www.thekitchn.com/what-is-a-buddha-bowl-251091"
+        },
+        {
+          "title": "Why Do We Keep Calling It a Buddha Bowl? - Bon Appétit",
+          "url": "https://www.bonappetit.com/story/what-is-buddha-bowl"
+        }
+      ]
+    }
+  ]
+}

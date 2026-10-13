@@ -1,0 +1,115 @@
+/* Contabilità. Shell, pannelli, form e tabelle vengono da styles.css;
+   qui solo quello che è di questa pagina. */
+
+.lg-bar { display: flex; align-items: center; gap: 10px; margin-bottom: 14px; flex-wrap: wrap; }
+.lg-bar select { width: auto; min-width: 150px; }
+.lg-bar .spacer { flex: 1; }
+.section .right { margin-left: auto; }
+/* Tabelle larghe e opzioni lunghe dei select fanno la larghezza minima del
+   contenuto: senza min-width: 0 allargano la pagina sugli schermi stretti,
+   invece di scorrere dentro il proprio riquadro. */
+[data-page="ledger"] .shell > div, [data-page="ledger"] .grid > *, [data-page="ledger"] .form .field { min-width: 0; }
+[data-page="ledger"] .form select { max-width: 100%; }
+
+.lg-alert { border-radius: 12px; padding: 12px 16px; margin-bottom: 16px; font-size: 13px; background: var(--amber-soft); color: var(--ink); }
+.lg-alert a { color: inherit; font-weight: 600; }
+
+.save-state { font-size: 11.5px; color: var(--muted); }
+.save-state.ok { color: var(--green); }
+.save-state.bad { color: var(--red); }
+.field input.invalid, .field select.invalid { outline: 2px solid var(--red); border-color: transparent; }
+.form .note { min-height: 1.2em; font-size: 12.5px; color: var(--ink-2); margin: 8px 0 0; }
+
+.drop {
+  border: 1.5px dashed rgba(128, 128, 128, .35);
+  border-radius: 16px;
+  padding: 36px 20px;
+  text-align: center;
+  font-size: 14px;
+  color: var(--ink-2);
+  margin-bottom: 18px;
+  transition: background .15s, border-color .15s;
+}
+.drop p { margin: 0 0 12px; line-height: 1.6; }
+.drop.over { background: var(--surface-2); border-color: var(--green); }
+.drop.busy { opacity: .6; pointer-events: none; }
+
+.lg-summary { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-bottom: 14px; font-size: 13.5px; }
+.lg-summary strong { font-size: 15px; margin-right: 6px; }
+
+.lg-group { background: var(--surface); border: 1px solid var(--line); border-radius: 16px; margin-bottom: 14px; overflow: hidden; }
+.lg-group > .head { display: flex; align-items: center; gap: 12px; padding: 14px 18px; flex-wrap: wrap; }
+.lg-group > .head .who { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.lg-group > .head .who strong { font-size: 14.5px; }
+.lg-group > .head select { width: auto; min-width: 220px; }
+.lg-group > .head .facts { margin-left: auto; display: flex; gap: 16px; font-size: 12.5px; color: var(--muted); font-variant-numeric: tabular-nums; }
+.lg-group > .head .facts b { color: var(--ink); font-weight: 600; }
+.lg-group .newparty { padding: 4px 18px 16px; border-top: 1px solid var(--line); }
+.lg-group .newparty .hint { font-size: 12px; color: var(--muted); margin: 10px 0; }
+.lg-group .newparty .form { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.lg-group .newparty .field.wide { grid-column: span 2; }
+
+.pill { display: inline-block; padding: 2px 8px; border-radius: 999px; font-size: 11.5px; font-weight: 500; background: var(--surface-2); color: var(--ink-2); white-space: nowrap; }
+.pill.ok { background: var(--green-soft); color: var(--green); }
+.pill.warn { background: var(--amber-soft); color: var(--amber); }
+.pill.bad { background: var(--red-soft); color: var(--red); }
+.pill.in { background: var(--green-soft); color: var(--green); }
+.pill.out { background: var(--surface-3); color: var(--ink-2); }
+
+table.lg-rows td { vertical-align: top; }
+table.lg-rows td.file { max-width: 200px; overflow: hidden; text-overflow: ellipsis; color: var(--muted); font-size: 12px; }
+table.lg-rows input[type="text"], table.lg-rows input[type="date"], table.lg-rows input[type="number"] { padding: 5px 8px; font-size: 12.5px; width: 100%; }
+table.lg-rows input.num { font-family: var(--mono); min-width: 190px; text-align: left; }
+table.lg-rows input[type="date"] { min-width: 140px; }
+table.lg-rows input[type="number"] { min-width: 92px; text-align: right; }
+table.lg-rows input.invalid { outline: 2px solid var(--red); border-color: transparent; }
+table.lg-rows .msgs { margin-top: 6px; font-size: 11.5px; line-height: 1.45; text-align: left; white-space: normal; max-width: 360px; }
+table.lg-rows .msgs .b { color: var(--red); }
+table.lg-rows .msgs .w { color: var(--amber); }
+table.lg-rows .msgs label { display: flex; gap: 6px; align-items: center; color: var(--ink-2); margin-top: 4px; cursor: pointer; }
+table.lg-rows td.state { min-width: 220px; text-align: left; white-space: normal; }
+table.lg-rows td.acts, table.tbl td.acts { text-align: right; white-space: nowrap; }
+table.tbl td.acts .btn { margin-left: 4px; }
+table.tbl td.num { font-family: var(--mono); font-size: 12px; }
+table.tbl td.left, table.tbl th.left { text-align: left; }
+table.tbl tr.muted td { color: var(--muted); }
+
+.lg-actions { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: 6px; flex-wrap: wrap; }
+.lg-actions .right { display: flex; gap: 8px; }
+#batchProblems { white-space: pre-line; }
+#batchProblems:empty { display: none; }
+
+.lg-modal { position: fixed; inset: 0; background: rgba(0, 0, 0, .45); display: flex; align-items: center; justify-content: center; z-index: 60; padding: 24px; }
+.lg-modal[hidden] { display: none; }
+.lg-modal .box { background: var(--surface); border: 1px solid var(--line); border-radius: 16px; width: min(720px, 100%); max-height: 90vh; overflow: auto; padding: 18px 20px; }
+.lg-modal .head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px; }
+.lg-modal .foot { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-top: 16px; font-size: 12.5px; }
+
+@media (max-width: 900px) {
+  .lg-group .newparty .form { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+.lg-rows .fx { font-size: 11px; color: var(--muted); margin-top: 4px; line-height: 1.4; white-space: nowrap; }
+.lg-rows .fx b { color: var(--ink); font-weight: 600; }
+.lg-rows .fx .warn { color: var(--amber); }
+.lg-rows .fx .bad { color: var(--red); }
+.fx-mark { color: var(--amber); cursor: help; }
+
+/* Binario: colori fissi per riconoscerlo a colpo d'occhio. TD17 in
+   ambra (c'è da fare), IVA già pagata in rosso (niente TD17). */
+.lg-rows td.treat { min-width: 280px; text-align: left; }
+.lg-rows td.treat select { width: 100%; font-size: 12.5px; padding: 5px 8px; }
+.lg-rows td.treat select.t-reverse { border-left: 3px solid var(--amber); }
+.lg-rows td.treat select.t-foreignVat { border-left: 3px solid var(--red); }
+.lg-rows td.treat select.t-domestic, .lg-rows td.treat select.t-noVat { border-left: 3px solid var(--ink-2); }
+.lg-rows td.treat select.t-income { border-left: 3px solid var(--green); }
+.lg-rows td.treat select.invalid { outline: 2px solid var(--red); border-color: transparent; }
+.lg-rows td.treat .fx { white-space: normal; }
+.lg-rows .calc { padding: 5px 8px; font-size: 12.5px; text-align: right; font-variant-numeric: tabular-nums; color: var(--ink-2); }
+.lg-group > .head .bulk { display: flex; align-items: center; gap: 6px; font-size: 12px; color: var(--muted); }
+.lg-group > .head .bulk select { min-width: 250px; }
+.lg-summary .sep { width: 1px; height: 18px; background: var(--line); margin: 0 4px; }
+.lg-summary .tcount { display: inline-flex; align-items: center; gap: 4px; font-size: 12.5px; color: var(--ink-2); }
+
+.lg-checks { margin: 0; padding: 0 0 0 18px; font-size: 13px; line-height: 1.7; }
+.lg-checks li.ok { list-style: none; margin-left: -18px; color: var(--green); }

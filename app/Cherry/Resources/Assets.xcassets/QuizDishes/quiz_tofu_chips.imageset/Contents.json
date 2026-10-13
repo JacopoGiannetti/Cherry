@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "quiz_tofu_chips.png",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

@@ -1,0 +1,3839 @@
+{
+  "tile": "Thai",
+  "generatedAt": "2026-10-05",
+  "dishes": [
+    {
+      "key": "phat-thai",
+      "name": "Phat thai",
+      "nameEn": "Stir-fried rice noodles with tamarind",
+      "aliases": [
+        "pad thai",
+        "phad thai"
+      ],
+      "tiles": [
+        "Thai"
+      ],
+      "cuisine": "Thai",
+      "region": "Central Thailand",
+      "format": "noodles",
+      "protein": "tofu",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 35,
+      "effort": "medium",
+      "familiarity": 1,
+      "traditionalDiet": "pescatarian",
+      "versions": [
+        "vegan",
+        "vegetarian",
+        "pescatarian"
+      ],
+      "keyIngredients": [
+        "rice noodles",
+        "tamarind",
+        "palm sugar",
+        "fish sauce",
+        "pressed tofu",
+        "dried shrimp",
+        "eggs",
+        "bean sprouts",
+        "garlic chives",
+        "peanuts"
+      ],
+      "specialtyIngredients": [
+        "tamarind paste",
+        "dried shrimp",
+        "garlic chives",
+        "pressed tofu"
+      ],
+      "veganApproach": "Fish sauce is replaced with soy sauce or fermented soybean paste, dried shrimp with shiitake, and the egg is omitted (kept for the vegetarian version) while the tamarind–palm sugar balance stays intact.",
+      "technique": "Soaked rice noodles are stir-fried in a hot wok until they absorb a tamarind, palm sugar and fish sauce mixture, then tossed with tofu, egg, bean sprouts and chives.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "date"
+      ],
+      "sources": [
+        {
+          "title": "Pad thai - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Pad_thai"
+        },
+        {
+          "title": "Best Pad Thai - Hot Thai Kitchen",
+          "url": "https://hot-thai-kitchen.com/best-pad-thai/"
+        },
+        {
+          "title": "Authentic vegan pad thai - Messy Vegan Cook",
+          "url": "https://messyvegancook.com/vegan-authentic-pad-thai-recipe/"
+        }
+      ]
+    },
+    {
+      "key": "kaeng-khiao-wan",
+      "name": "Kaeng khiao wan",
+      "nameEn": "Thai green curry",
+      "aliases": [
+        "green curry",
+        "gaeng keow wan",
+        "gaeng khiao wan"
+      ],
+      "tiles": [
+        "Thai"
+      ],
+      "cuisine": "Thai",
+      "region": "Central Thailand",
+      "format": "curry",
+      "protein": "tofu",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 40,
+      "effort": "medium",
+      "familiarity": 1,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "green curry paste",
+        "coconut milk",
+        "chicken",
+        "thai eggplant",
+        "thai basil",
+        "makrut lime leaves",
+        "fish sauce",
+        "palm sugar"
+      ],
+      "specialtyIngredients": [
+        "thai eggplant",
+        "makrut lime leaves",
+        "thai basil"
+      ],
+      "veganApproach": "Use a green curry paste without shrimp paste (a little miso restores the umami), tofu and chewy vegetables instead of chicken, and soy sauce or vegan fish sauce instead of fish sauce.",
+      "technique": "Green curry paste is fried in reduced coconut cream until fragrant, then simmered with coconut milk, protein and eggplant and finished with Thai basil.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "hosting",
+        "mealprep"
+      ],
+      "sources": [
+        {
+          "title": "Green curry - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Green_curry"
+        },
+        {
+          "title": "Thai Green Curry - Hot Thai Kitchen",
+          "url": "https://hot-thai-kitchen.com/green-curry-new-2/"
+        },
+        {
+          "title": "Vegan Thai Green Curry - Hot Thai Kitchen",
+          "url": "https://hot-thai-kitchen.com/vegan-green-curry/"
+        }
+      ]
+    },
+    {
+      "key": "kaeng-phet",
+      "name": "Kaeng phet",
+      "nameEn": "Thai red curry",
+      "aliases": [
+        "red curry",
+        "gaeng phed",
+        "gaeng daeng"
+      ],
+      "tiles": [
+        "Thai"
+      ],
+      "cuisine": "Thai",
+      "region": "Central Thailand",
+      "format": "curry",
+      "protein": "tofu",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 35,
+      "effort": "low",
+      "familiarity": 1,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "red curry paste",
+        "coconut milk",
+        "chicken or pork",
+        "bamboo shoots",
+        "thai eggplant",
+        "makrut lime leaves",
+        "thai basil",
+        "fish sauce"
+      ],
+      "specialtyIngredients": [
+        "makrut lime leaves",
+        "thai basil",
+        "thai eggplant"
+      ],
+      "veganApproach": "Shiitake soaking water and soy or seasoning sauce build the umami usually given by fish sauce and shrimp paste, with tofu, shiitake and bamboo shoots as the filling.",
+      "technique": "Dried-chili red curry paste is fried in coconut cream until the oil separates, then simmered with coconut milk, protein and vegetables and finished with basil.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "mealprep"
+      ],
+      "sources": [
+        {
+          "title": "Red curry - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Red_curry"
+        },
+        {
+          "title": "Red Curry with Chicken & Squash - Hot Thai Kitchen",
+          "url": "https://hot-thai-kitchen.com/red-curry-chicken-squash/"
+        },
+        {
+          "title": "Vegan Red Curry - Hot Thai Kitchen",
+          "url": "https://hot-thai-kitchen.com/vegan-red-curry/"
+        }
+      ]
+    },
+    {
+      "key": "kaeng-matsaman",
+      "name": "Kaeng matsaman",
+      "nameEn": "Massaman curry",
+      "aliases": [
+        "massaman curry",
+        "gaeng massaman",
+        "matsaman curry"
+      ],
+      "tiles": [
+        "Thai",
+        "American"
+      ],
+      "cuisine": "Thai",
+      "region": "Southern Thailand",
+      "format": "curry",
+      "protein": "tofu",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 60,
+      "effort": "medium",
+      "familiarity": 1,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "massaman curry paste",
+        "coconut milk",
+        "beef or chicken",
+        "potatoes",
+        "onion",
+        "roasted peanuts",
+        "tamarind",
+        "palm sugar",
+        "cardamom",
+        "cinnamon"
+      ],
+      "specialtyIngredients": [
+        "massaman curry paste",
+        "tamarind paste"
+      ],
+      "veganApproach": "Fried tofu replaces the beef or chicken, a shrimp-free massaman paste is used and soy sauce stands in for fish sauce, keeping the potatoes, peanuts, tamarind and warm spices.",
+      "technique": "A mildly spiced paste with roasted dry spices is fried in coconut cream, then the protein and potatoes are slowly simmered with tamarind, palm sugar and peanuts.",
+      "seasons": [
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "comfort",
+        "hosting",
+        "mealprep"
+      ],
+      "sources": [
+        {
+          "title": "Massaman curry - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Massaman_curry"
+        },
+        {
+          "title": "Massaman Curry - Hot Thai Kitchen",
+          "url": "https://hot-thai-kitchen.com/massaman-curry/"
+        },
+        {
+          "title": "Easy Massaman Curry with Tofu - Sweet Simple Vegan",
+          "url": "https://sweetsimplevegan.com/easy-massaman-curry/"
+        }
+      ]
+    },
+    {
+      "key": "phanaeng",
+      "name": "Phanaeng",
+      "nameEn": "Panang curry",
+      "aliases": [
+        "panang curry",
+        "kaeng phanaeng",
+        "penang curry"
+      ],
+      "tiles": [
+        "Thai"
+      ],
+      "cuisine": "Thai",
+      "region": "Central Thailand",
+      "format": "curry",
+      "protein": "tofu",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 30,
+      "effort": "low",
+      "familiarity": 1,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "phanaeng curry paste",
+        "coconut cream",
+        "beef",
+        "makrut lime leaves",
+        "thai basil",
+        "peanuts",
+        "palm sugar",
+        "fish sauce"
+      ],
+      "specialtyIngredients": [
+        "phanaeng curry paste",
+        "makrut lime leaves"
+      ],
+      "veganApproach": "Tofu replaces the beef and soy sauce replaces fish sauce, with a paste made without shrimp paste.",
+      "technique": "A thick, dry-style curry: the peanut-rich paste is fried in reduced coconut cream and the protein simmered briefly so the sauce clings, finished with shredded makrut lime leaves.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "date"
+      ],
+      "sources": [
+        {
+          "title": "Phanaeng - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Phanaeng"
+        },
+        {
+          "title": "Panang Curry - Hot Thai Kitchen",
+          "url": "https://hot-thai-kitchen.com/panang-curry/"
+        },
+        {
+          "title": "Vegan panang curry - Messy Vegan Cook",
+          "url": "https://messyvegancook.com/vegan-panang-curry-recipe/"
+        }
+      ]
+    },
+    {
+      "key": "kaeng-kari",
+      "name": "Kaeng kari",
+      "nameEn": "Thai yellow curry",
+      "aliases": [
+        "yellow curry",
+        "gaeng karee",
+        "gang kari"
+      ],
+      "tiles": [
+        "Thai",
+        "American"
+      ],
+      "cuisine": "Thai",
+      "region": "Southern Thailand",
+      "format": "curry",
+      "protein": "tofu",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 40,
+      "effort": "low",
+      "familiarity": 1,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "yellow curry paste",
+        "coconut milk",
+        "chicken",
+        "potatoes",
+        "onion",
+        "curry powder",
+        "fish sauce",
+        "palm sugar"
+      ],
+      "specialtyIngredients": [
+        "yellow curry paste"
+      ],
+      "veganApproach": "Fried tofu replaces the chicken alongside the potatoes, with a shrimp-free paste and salt or soy sauce instead of fish sauce.",
+      "technique": "Turmeric- and curry-powder-scented paste is fried in coconut cream, then potatoes and protein are simmered in coconut milk until tender.",
+      "seasons": [
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "comfort",
+        "mealprep"
+      ],
+      "sources": [
+        {
+          "title": "Yellow curry - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Yellow_curry"
+        },
+        {
+          "title": "Yellow Curry Chicken - Hot Thai Kitchen",
+          "url": "https://hot-thai-kitchen.com/yellow-curry-chicken/"
+        },
+        {
+          "title": "Vegan Yellow Curry Recipe - Hungry in Thailand",
+          "url": "https://hungryinthailand.com/vegan-yellow-curry-recipe/"
+        }
+      ]
+    },
+    {
+      "key": "tom-yam",
+      "name": "Tom yam",
+      "nameEn": "Hot and sour lemongrass soup",
+      "aliases": [
+        "tom yum",
+        "tom yum goong",
+        "tom yam kung",
+        "tom yam het"
+      ],
+      "tiles": [
+        "Thai",
+        "Fresh & light"
+      ],
+      "cuisine": "Thai",
+      "region": "Central Thailand",
+      "format": "soup",
+      "protein": "mushrooms",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 25,
+      "effort": "low",
+      "familiarity": 1,
+      "traditionalDiet": "pescatarian",
+      "versions": [
+        "vegan",
+        "pescatarian"
+      ],
+      "keyIngredients": [
+        "lemongrass",
+        "galangal",
+        "makrut lime leaves",
+        "shrimp",
+        "mushrooms",
+        "bird's eye chilies",
+        "lime juice",
+        "fish sauce",
+        "nam prik pao"
+      ],
+      "specialtyIngredients": [
+        "galangal",
+        "makrut lime leaves",
+        "nam prik pao"
+      ],
+      "veganApproach": "Mixed Asian mushrooms replace the prawns, vegetable stock and soy sauce replace stock and fish sauce, and a shrimp-free chili paste is used.",
+      "technique": "Bruised lemongrass, galangal and makrut lime leaves are infused into a simmering broth, the protein is poached briefly and the soup is soured with lime juice off the heat.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "quick",
+        "comfort"
+      ],
+      "sources": [
+        {
+          "title": "Tom yum - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Tom_yum"
+        },
+        {
+          "title": "Tom Yum Goong - Hot Thai Kitchen",
+          "url": "https://hot-thai-kitchen.com/tom-yum-goong/"
+        },
+        {
+          "title": "Vegetarian Mushroom Tom Yum Soup - Hot Thai Kitchen",
+          "url": "https://hot-thai-kitchen.com/mushroom-tom-yum/"
+        }
+      ]
+    },
+    {
+      "key": "tom-kha",
+      "name": "Tom kha",
+      "nameEn": "Coconut galangal soup",
+      "aliases": [
+        "tom kha kai",
+        "tom kha gai",
+        "tom kha het"
+      ],
+      "tiles": [
+        "Thai"
+      ],
+      "cuisine": "Thai",
+      "region": "Central Thailand",
+      "format": "soup",
+      "protein": "mushrooms",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 30,
+      "effort": "low",
+      "familiarity": 1,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "coconut milk",
+        "galangal",
+        "lemongrass",
+        "makrut lime leaves",
+        "chicken",
+        "mushrooms",
+        "lime juice",
+        "fish sauce",
+        "bird's eye chilies"
+      ],
+      "specialtyIngredients": [
+        "galangal",
+        "makrut lime leaves"
+      ],
+      "veganApproach": "Mushrooms (and optionally tofu) replace the chicken, with vegetable stock and soy sauce or salt in place of chicken stock and fish sauce.",
+      "technique": "A galangal-heavy aromatic base is simmered in coconut milk and stock, the protein and mushrooms are poached, then the soup is seasoned with lime and salt off the heat.",
+      "seasons": [
+        "autumn",
+        "winter",
+        "spring"
+      ],
+      "occasions": [
+        "everyday",
+        "comfort",
+        "date"
+      ],
+      "sources": [
+        {
+          "title": "Tom kha kai - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Tom_kha_kai"
+        },
+        {
+          "title": "Tom Kha Gai - Hot Thai Kitchen",
+          "url": "https://hot-thai-kitchen.com/tom-ka-gai/"
+        },
+        {
+          "title": "Authentic tom kha soup (vegan) - Messy Vegan Cook",
+          "url": "https://messyvegancook.com/authentic-tom-kha-soup-recipe-vegan/"
+        }
+      ]
+    },
+    {
+      "key": "som-tam",
+      "name": "Som tam",
+      "nameEn": "Green papaya salad",
+      "aliases": [
+        "som tum",
+        "tam som",
+        "papaya salad",
+        "som tam thai"
+      ],
+      "tiles": [
+        "Thai",
+        "Fresh & light"
+      ],
+      "cuisine": "Thai",
+      "region": "Northeastern Thailand (Isan)",
+      "format": "salad",
+      "protein": "nuts_seeds",
+      "method": "no_cook",
+      "appliances": [],
+      "cookMinutes": 20,
+      "effort": "low",
+      "familiarity": 1,
+      "traditionalDiet": "pescatarian",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "green papaya",
+        "garlic",
+        "bird's eye chilies",
+        "long beans",
+        "cherry tomatoes",
+        "roasted peanuts",
+        "dried shrimp",
+        "lime juice",
+        "palm sugar",
+        "fish sauce"
+      ],
+      "specialtyIngredients": [
+        "green papaya",
+        "long beans",
+        "dried shrimp"
+      ],
+      "veganApproach": "Dried shrimp is left out and fish sauce is swapped for soy sauce, coconut aminos or vegan fish sauce, with tamarind adding depth.",
+      "technique": "Garlic and chilies are bruised in a clay mortar, then shredded green papaya, beans and tomatoes are lightly pounded with lime, palm sugar and fish sauce.",
+      "seasons": [
+        "spring",
+        "summer"
+      ],
+      "occasions": [
+        "everyday",
+        "quick"
+      ],
+      "sources": [
+        {
+          "title": "Green papaya salad - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Green_papaya_salad"
+        },
+        {
+          "title": "Papaya Salad - Hot Thai Kitchen",
+          "url": "https://hot-thai-kitchen.com/papaya-salad-v3/"
+        },
+        {
+          "title": "Vegan Green Papaya Salad (Som Tum) - Watcharee's",
+          "url": "https://watcharees.com/blogs/all-recipes/vegan-green-papaya-salad-som-tum-with-coconut-aminos"
+        }
+      ]
+    },
+    {
+      "key": "lap",
+      "name": "Lap",
+      "nameEn": "Minced herb salad with toasted rice",
+      "aliases": [
+        "larb",
+        "laab",
+        "lap isan",
+        "laab tofu",
+        "lap het"
+      ],
+      "tiles": [
+        "Thai",
+        "Fresh & light"
+      ],
+      "cuisine": "Thai",
+      "region": "Northeastern Thailand (Isan)",
+      "format": "salad",
+      "protein": "tofu",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 25,
+      "effort": "low",
+      "familiarity": 1,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "minced pork or chicken",
+        "toasted rice powder",
+        "lime juice",
+        "fish sauce",
+        "shallots",
+        "mint",
+        "cilantro",
+        "roasted chili flakes"
+      ],
+      "specialtyIngredients": [
+        "toasted rice powder"
+      ],
+      "veganApproach": "Crumbled pressed tofu with corn or mushrooms takes the place of minced meat, seasoned with soy sauce instead of fish sauce while keeping the toasted rice powder, lime and herbs.",
+      "technique": "The minced protein is quickly cooked with a splash of liquid, then dressed warm with lime juice, chili flakes, toasted rice powder and handfuls of fresh herbs.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn"
+      ],
+      "occasions": [
+        "everyday",
+        "quick",
+        "mealprep"
+      ],
+      "sources": [
+        {
+          "title": "Larb - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Larb"
+        },
+        {
+          "title": "Vegan Laab with Tofu & Corn - Hot Thai Kitchen",
+          "url": "https://hot-thai-kitchen.com/vegan-laab/"
+        }
+      ]
+    },
+    {
+      "key": "khao-phat",
+      "name": "Khao phat",
+      "nameEn": "Thai fried rice",
+      "aliases": [
+        "khao pad",
+        "kao pad",
+        "thai fried rice"
+      ],
+      "tiles": [
+        "Thai"
+      ],
+      "cuisine": "Thai",
+      "region": "Central Thailand",
+      "format": "rice_dish",
+      "protein": "tofu",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 20,
+      "effort": "low",
+      "familiarity": 1,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegan",
+        "vegetarian"
+      ],
+      "keyIngredients": [
+        "day-old jasmine rice",
+        "eggs",
+        "garlic",
+        "onion",
+        "tomato",
+        "soy sauce",
+        "fish sauce",
+        "lime",
+        "cucumber"
+      ],
+      "specialtyIngredients": [],
+      "veganApproach": "Fry the rice with tofu and vegetables and season with soy or mushroom sauce instead of fish sauce; keep the egg for the vegetarian version.",
+      "technique": "Day-old jasmine rice is stir-fried over very high heat with garlic and egg, seasoned lightly and served with lime, cucumber and chilies in sauce on the side.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "quick"
+      ],
+      "sources": [
+        {
+          "title": "Thai fried rice - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Thai_fried_rice"
+        },
+        {
+          "title": "Khao Pad (Vegan Thai Fried Rice) - The Cinnamon Snail",
+          "url": "https://cinnamonsnail.com/vegan-khao-pad/"
+        }
+      ]
+    },
+    {
+      "key": "phat-kaphrao",
+      "name": "Phat kaphrao",
+      "nameEn": "Holy basil stir-fry over rice",
+      "aliases": [
+        "pad kra pao",
+        "pad krapow",
+        "pad gaprao",
+        "khao kaphrao"
+      ],
+      "tiles": [
+        "Thai"
+      ],
+      "cuisine": "Thai",
+      "region": "Central Thailand",
+      "format": "stir_fry",
+      "protein": "tofu",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 20,
+      "effort": "low",
+      "familiarity": 1,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegan",
+        "vegetarian"
+      ],
+      "keyIngredients": [
+        "holy basil",
+        "minced pork or chicken",
+        "garlic",
+        "bird's eye chilies",
+        "oyster sauce",
+        "soy sauce",
+        "fish sauce",
+        "fried egg",
+        "jasmine rice"
+      ],
+      "specialtyIngredients": [
+        "holy basil"
+      ],
+      "veganApproach": "Crumbled firm tofu or soy mince is stir-fried with garlic, chilies and holy basil using soy and mushroom-based oyster sauce; the crispy fried egg on top makes the vegetarian version.",
+      "technique": "Pounded garlic and chilies are flash-fried, the protein is seared in a very hot wok with a salty-sweet sauce and holy basil is wilted in at the end, served over rice with a crispy fried egg.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "quick"
+      ],
+      "sources": [
+        {
+          "title": "Phat kaphrao - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Phat_kaphrao"
+        },
+        {
+          "title": "Holy Basil Stir-Fry - Hot Thai Kitchen",
+          "url": "https://hot-thai-kitchen.com/holy-basil-stir-fry/"
+        },
+        {
+          "title": "Vegan pad gaprao - Messy Vegan Cook",
+          "url": "https://messyvegancook.com/vegan-pad-gaprao-pat-kaphrao-recipe/"
+        }
+      ]
+    },
+    {
+      "key": "phat-si-io",
+      "name": "Phat si-io",
+      "nameEn": "Wide rice noodles stir-fried with soy sauce",
+      "aliases": [
+        "pad see ew",
+        "pad siew",
+        "pad si ew"
+      ],
+      "tiles": [
+        "Thai",
+        "American"
+      ],
+      "cuisine": "Thai",
+      "region": "Central Thailand",
+      "format": "noodles",
+      "protein": "tofu",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 25,
+      "effort": "low",
+      "familiarity": 1,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegan",
+        "vegetarian"
+      ],
+      "keyIngredients": [
+        "fresh wide rice noodles",
+        "chinese broccoli",
+        "eggs",
+        "garlic",
+        "dark soy sauce",
+        "light soy sauce",
+        "oyster sauce",
+        "chicken or pork",
+        "white pepper"
+      ],
+      "specialtyIngredients": [
+        "fresh wide rice noodles",
+        "chinese broccoli (gai lan)",
+        "thai dark soy sauce"
+      ],
+      "veganApproach": "Fried tofu replaces the meat and a mushroom-based vegetarian oyster sauce replaces oyster sauce; keep the egg for the vegetarian version.",
+      "technique": "Wide rice noodles are seared in a very hot wok with sweet dark soy until charred in spots, with egg and Chinese broccoli tossed through.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "quick",
+        "comfort"
+      ],
+      "sources": [
+        {
+          "title": "Pad see ew - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Pad_see_ew"
+        },
+        {
+          "title": "Pad See Ew - Hot Thai Kitchen",
+          "url": "https://hot-thai-kitchen.com/pad-see-ew-new/"
+        },
+        {
+          "title": "Vegan pad see ew - Messy Vegan Cook",
+          "url": "https://messyvegancook.com/vegan-pad-see-ew-recipe/"
+        }
+      ]
+    },
+    {
+      "key": "phat-khi-mao",
+      "name": "Phat khi mao",
+      "nameEn": "Drunken noodles",
+      "aliases": [
+        "pad kee mao",
+        "drunken noodles",
+        "kuai-tiao phat khi mao"
+      ],
+      "tiles": [
+        "Thai"
+      ],
+      "cuisine": "Thai",
+      "region": "Central Thailand",
+      "format": "noodles",
+      "protein": "tofu",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 25,
+      "effort": "low",
+      "familiarity": 1,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "fresh wide rice noodles",
+        "holy basil",
+        "garlic",
+        "bird's eye chilies",
+        "oyster sauce",
+        "soy sauce",
+        "fish sauce",
+        "chicken",
+        "bell pepper"
+      ],
+      "specialtyIngredients": [
+        "holy basil",
+        "fresh wide rice noodles"
+      ],
+      "veganApproach": "Tofu and vegetables replace the chicken, with soy and mushroom-based oyster sauce instead of fish and oyster sauce.",
+      "technique": "Wide noodles are stir-fried over high heat with a pounded garlic-chili paste, a salty-sweet sauce and a big handful of holy basil.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "quick"
+      ],
+      "sources": [
+        {
+          "title": "Drunken noodles - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Drunken_noodles"
+        },
+        {
+          "title": "Pad Kee Mao - Hot Thai Kitchen",
+          "url": "https://hot-thai-kitchen.com/pad-kee-mao-2/"
+        },
+        {
+          "title": "Vegan drunken noodles - Messy Vegan Cook",
+          "url": "https://messyvegancook.com/vegan-drunken-noodles-recipe-kway-teow-pad-kee-mao/"
+        }
+      ]
+    },
+    {
+      "key": "khao-soi",
+      "name": "Khao soi",
+      "nameEn": "Northern Thai coconut curry noodle soup",
+      "aliases": [
+        "khao soi kai",
+        "khao soy",
+        "khao soi gai"
+      ],
+      "tiles": [
+        "Thai",
+        "American"
+      ],
+      "cuisine": "Thai",
+      "region": "Northern Thailand (Chiang Mai)",
+      "format": "noodles",
+      "protein": "tofu",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 50,
+      "effort": "medium",
+      "familiarity": 1,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegan",
+        "vegetarian"
+      ],
+      "keyIngredients": [
+        "egg noodles",
+        "khao soi curry paste",
+        "coconut milk",
+        "chicken drumsticks",
+        "pickled mustard greens",
+        "shallots",
+        "lime",
+        "chili oil",
+        "crispy fried noodles"
+      ],
+      "specialtyIngredients": [
+        "pickled mustard greens",
+        "black cardamom",
+        "fresh egg noodles"
+      ],
+      "veganApproach": "Tofu replaces the chicken and wheat noodles replace egg noodles, with soy sauce instead of fish sauce and a shrimp-free paste; egg noodles keep it vegetarian.",
+      "technique": "A spiced, roasted curry paste is fried and simmered with coconut milk, poured over boiled noodles and topped with crispy fried noodles, pickles and shallots.",
+      "seasons": [
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "comfort",
+        "hosting"
+      ],
+      "sources": [
+        {
+          "title": "Khao soi - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Khao_soi"
+        },
+        {
+          "title": "Khao Soi - Hot Thai Kitchen",
+          "url": "https://hot-thai-kitchen.com/kao-soi/"
+        },
+        {
+          "title": "Vegan khao soi - Messy Vegan Cook",
+          "url": "https://messyvegancook.com/vegan-khao-soi-recipe/"
+        }
+      ]
+    },
+    {
+      "key": "phat-met-mamuang-himmaphan",
+      "name": "Phat met mamuang himmaphan",
+      "nameEn": "Thai cashew nut stir-fry",
+      "aliases": [
+        "kai phat met mamuang himmaphan",
+        "gai pad med mamuang",
+        "cashew chicken"
+      ],
+      "tiles": [
+        "Thai"
+      ],
+      "cuisine": "Thai",
+      "region": "Central Thailand",
+      "format": "stir_fry",
+      "protein": "tofu",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 25,
+      "effort": "low",
+      "familiarity": 1,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "cashews",
+        "dried chilies",
+        "chicken",
+        "onion",
+        "spring onion",
+        "bell pepper",
+        "oyster sauce",
+        "soy sauce",
+        "nam prik pao"
+      ],
+      "specialtyIngredients": [
+        "nam prik pao"
+      ],
+      "veganApproach": "Crisp-fried tofu replaces the chicken, with vegetarian oyster sauce and soy sauce, and a chili paste made without shrimp.",
+      "technique": "Battered, fried protein and toasted cashews are tossed in a hot wok with fried dried chilies, onions and a sweet-savory chili-paste sauce.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "quick"
+      ],
+      "sources": [
+        {
+          "title": "List of Thai dishes - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/List_of_Thai_dishes"
+        },
+        {
+          "title": "Cashew Chicken - Hot Thai Kitchen",
+          "url": "https://hot-thai-kitchen.com/cashew-chicken/"
+        },
+        {
+          "title": "Thai Cashew Stir Fry - Vegan Punks",
+          "url": "https://veganpunks.com/thai-cashew-stir-fry/"
+        }
+      ]
+    },
+    {
+      "key": "khao-phat-sapparot",
+      "name": "Khao phat sapparot",
+      "nameEn": "Pineapple fried rice",
+      "aliases": [
+        "pineapple fried rice",
+        "khao pad sapparod"
+      ],
+      "tiles": [
+        "Thai"
+      ],
+      "cuisine": "Thai",
+      "region": null,
+      "format": "rice_dish",
+      "protein": "tofu",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 30,
+      "effort": "low",
+      "familiarity": 1,
+      "traditionalDiet": "pescatarian",
+      "versions": [
+        "vegan",
+        "vegetarian",
+        "pescatarian"
+      ],
+      "keyIngredients": [
+        "jasmine rice",
+        "pineapple",
+        "shrimp",
+        "eggs",
+        "cashews",
+        "raisins",
+        "curry powder",
+        "onion",
+        "fish sauce"
+      ],
+      "specialtyIngredients": [],
+      "veganApproach": "Tofu replaces the shrimp and egg, and soy sauce replaces fish sauce, keeping the curry powder, pineapple and cashews; add egg back for the vegetarian version.",
+      "technique": "Day-old rice is stir-fried with curry powder, seared pineapple and cashews, often served in a hollowed pineapple half.",
+      "seasons": [
+        "spring",
+        "summer"
+      ],
+      "occasions": [
+        "everyday",
+        "hosting",
+        "date"
+      ],
+      "sources": [
+        {
+          "title": "Pineapple Fried Rice - Hot Thai Kitchen",
+          "url": "https://hot-thai-kitchen.com/pineapple-fried-rice/"
+        },
+        {
+          "title": "Thai pineapple fried rice - Messy Vegan Cook",
+          "url": "https://messyvegancook.com/thai-pineapple-fried-rice/"
+        }
+      ]
+    },
+    {
+      "key": "sate",
+      "name": "Sate",
+      "nameEn": "Satay skewers with peanut sauce",
+      "aliases": [
+        "satay",
+        "moo satay",
+        "tofu satay"
+      ],
+      "tiles": [
+        "Thai"
+      ],
+      "cuisine": "Thai",
+      "region": "Southern Thailand",
+      "format": "skewers",
+      "protein": "tofu",
+      "method": "grill",
+      "appliances": [
+        "grill"
+      ],
+      "cookMinutes": 50,
+      "effort": "medium",
+      "familiarity": 1,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "pork or chicken",
+        "coconut milk",
+        "turmeric",
+        "coriander seed",
+        "lemongrass",
+        "peanuts",
+        "red curry paste",
+        "cucumber relish"
+      ],
+      "specialtyIngredients": [
+        "lemongrass"
+      ],
+      "veganApproach": "Pressed tofu is marinated in the same coconut-turmeric marinade with soy sauce instead of fish sauce, and served with a peanut sauce made from a shrimp-free curry paste.",
+      "technique": "Thin strips marinated in coconut milk and turmeric are threaded onto skewers and grilled, then served with a red-curry peanut sauce and cucumber relish.",
+      "seasons": [
+        "spring",
+        "summer"
+      ],
+      "occasions": [
+        "hosting",
+        "date"
+      ],
+      "sources": [
+        {
+          "title": "Satay - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Satay"
+        },
+        {
+          "title": "Satay and Peanut Sauce - Hot Thai Kitchen",
+          "url": "https://hot-thai-kitchen.com/satay-and-peanut-sauce/"
+        },
+        {
+          "title": "Tofu Satay with Vegan Peanut Sauce - Vegan on Board",
+          "url": "https://veganonboard.com/tofu-satay-with-vegan-peanut-sauce/"
+        }
+      ]
+    },
+    {
+      "key": "phat-phak-ruam",
+      "name": "Phat phak ruam",
+      "nameEn": "Stir-fried mixed vegetables",
+      "aliases": [
+        "pad pak ruam",
+        "phat phak ruam mit"
+      ],
+      "tiles": [
+        "Thai"
+      ],
+      "cuisine": "Thai",
+      "region": null,
+      "format": "stir_fry",
+      "protein": "vegetables",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 15,
+      "effort": "low",
+      "familiarity": 1,
+      "traditionalDiet": "pescatarian",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "chinese broccoli",
+        "carrot",
+        "baby corn",
+        "mushrooms",
+        "cabbage",
+        "garlic",
+        "oyster sauce",
+        "soy sauce"
+      ],
+      "specialtyIngredients": [
+        "chinese broccoli (gai lan)"
+      ],
+      "veganApproach": "A mushroom-based vegetarian oyster sauce and soy sauce replace oyster sauce and fish sauce; tofu can be added for protein.",
+      "technique": "Garlic is sizzled and vegetables are stir-fried hard and fast in a very hot wok with a splash of water and oyster sauce so they stay crisp.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "quick"
+      ],
+      "sources": [
+        {
+          "title": "List of Thai dishes - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/List_of_Thai_dishes"
+        },
+        {
+          "title": "Mixed Veg Stir-Fry - Hot Thai Kitchen",
+          "url": "https://hot-thai-kitchen.com/mixed-veg-stir-fry/"
+        }
+      ]
+    },
+    {
+      "key": "phat-priao-wan",
+      "name": "Phat priao wan",
+      "nameEn": "Thai sweet and sour stir-fry",
+      "aliases": [
+        "pad priew wan",
+        "pad preaw wan"
+      ],
+      "tiles": [
+        "Thai"
+      ],
+      "cuisine": "Thai",
+      "region": null,
+      "format": "stir_fry",
+      "protein": "tofu",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 25,
+      "effort": "low",
+      "familiarity": 1,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "pineapple",
+        "cucumber",
+        "tomato",
+        "onion",
+        "bell pepper",
+        "spring onion",
+        "ketchup",
+        "vinegar",
+        "sugar",
+        "chicken or pork"
+      ],
+      "specialtyIngredients": [],
+      "veganApproach": "Fried tofu replaces the meat and soy or mushroom sauce replaces fish and oyster sauce.",
+      "technique": "Protein and chunky vegetables with pineapple are stir-fried quickly and glazed in a light, tangy ketchup-vinegar sauce.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "quick"
+      ],
+      "sources": [
+        {
+          "title": "Sweet and Sour Stir-Fry - Hot Thai Kitchen",
+          "url": "https://hot-thai-kitchen.com/sweet-and-sour/"
+        },
+        {
+          "title": "Thai Sweet and Sour Tofu - My Thai Cooking",
+          "url": "https://www.mythaicooking.com/thai-sweet-and-sour-tofu/"
+        }
+      ]
+    },
+    {
+      "key": "khao-man-kai",
+      "name": "Khao man kai",
+      "nameEn": "Thai chicken rice",
+      "aliases": [
+        "khao man gai",
+        "hainanese chicken rice"
+      ],
+      "tiles": [
+        "Thai",
+        "American"
+      ],
+      "cuisine": "Thai-Chinese",
+      "region": null,
+      "format": "rice_dish",
+      "protein": "tofu",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 60,
+      "effort": "medium",
+      "familiarity": 1,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "chicken",
+        "jasmine rice",
+        "garlic",
+        "ginger",
+        "pandan leaves",
+        "chicken stock",
+        "fermented soybean sauce",
+        "cucumber",
+        "cilantro"
+      ],
+      "specialtyIngredients": [
+        "pandan leaves",
+        "tao jiew (fermented soybean paste)"
+      ],
+      "veganApproach": "Layered tofu skin (yuba) replaces the poached chicken, rice is cooked in garlic-ginger oil with vegetable stock, and the fermented soybean–ginger sauce is made without fish sauce.",
+      "technique": "Rice is fried in garlic and ginger fat then cooked in the poaching stock, served with sliced poached protein, a clear broth and a pungent soybean-ginger-chili sauce.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "comfort",
+        "everyday",
+        "mealprep"
+      ],
+      "sources": [
+        {
+          "title": "Hainanese chicken rice - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Hainanese_chicken_rice"
+        },
+        {
+          "title": "Hainanese Chicken Rice (Khao Man Gai) - Hot Thai Kitchen",
+          "url": "https://hot-thai-kitchen.com/hainanese-chicken-rice/"
+        },
+        {
+          "title": "Thai style vegan chicken rice - Messy Vegan Cook",
+          "url": "https://messyvegancook.com/thai-style-vegan-chicken-rice-khao-man-gai/"
+        }
+      ]
+    },
+    {
+      "key": "yam-wun-sen",
+      "name": "Yam wun sen",
+      "nameEn": "Spicy glass noodle salad",
+      "aliases": [
+        "yum woon sen",
+        "glass noodle salad"
+      ],
+      "tiles": [
+        "Thai",
+        "Fresh & light"
+      ],
+      "cuisine": "Thai",
+      "region": null,
+      "format": "salad",
+      "protein": "mushrooms",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 20,
+      "effort": "low",
+      "familiarity": 2,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "glass noodles",
+        "minced pork",
+        "shrimp",
+        "wood ear mushrooms",
+        "shallots",
+        "chinese celery",
+        "lime juice",
+        "fish sauce",
+        "bird's eye chilies",
+        "peanuts"
+      ],
+      "specialtyIngredients": [
+        "glass noodles",
+        "wood ear mushrooms",
+        "chinese celery"
+      ],
+      "veganApproach": "Mushrooms, tofu or edamame replace the pork and shrimp, and the lime-chili dressing uses soy sauce or vegan fish sauce.",
+      "technique": "Briefly boiled glass noodles are tossed warm with the protein, herbs and a sharp lime-chili-fish sauce dressing so they soak it up.",
+      "seasons": [
+        "spring",
+        "summer"
+      ],
+      "occasions": [
+        "everyday",
+        "quick"
+      ],
+      "sources": [
+        {
+          "title": "List of Thai dishes - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/List_of_Thai_dishes"
+        },
+        {
+          "title": "Glass Noodle Salad - Hot Thai Kitchen",
+          "url": "https://hot-thai-kitchen.com/glass-noodle-salad/"
+        },
+        {
+          "title": "Thai Glass Noodle Salad (Yum Woon Sen) - Elavegan",
+          "url": "https://elavegan.com/glass-noodle-salad/"
+        }
+      ]
+    },
+    {
+      "key": "phat-phrik-khing",
+      "name": "Phat phrik khing",
+      "nameEn": "Dry red curry stir-fry with long beans",
+      "aliases": [
+        "pad prik king",
+        "pad prik khing"
+      ],
+      "tiles": [
+        "Thai"
+      ],
+      "cuisine": "Thai",
+      "region": "Central Thailand",
+      "format": "stir_fry",
+      "protein": "tofu",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 25,
+      "effort": "low",
+      "familiarity": 1,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "red curry paste",
+        "long beans",
+        "pork or chicken",
+        "makrut lime leaves",
+        "palm sugar",
+        "fish sauce"
+      ],
+      "specialtyIngredients": [
+        "long beans",
+        "makrut lime leaves"
+      ],
+      "veganApproach": "Tofu replaces the meat, the curry paste is made without shrimp paste and soy sauce replaces fish sauce.",
+      "technique": "Curry paste is fried in oil without coconut milk until fragrant and caramelised with palm sugar, then coats the protein and long beans like a dry curry.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "quick"
+      ],
+      "sources": [
+        {
+          "title": "Phat phrik khing - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Phat_phrik_khing"
+        },
+        {
+          "title": "Pad Prik King - Hot Thai Kitchen",
+          "url": "https://hot-thai-kitchen.com/gai-pad-prik-king2/"
+        },
+        {
+          "title": "How to make vegan pad prik king - Messy Vegan Cook",
+          "url": "https://messyvegancook.com/how-to-make-vegan-pad-prik-king-recipe/"
+        }
+      ]
+    },
+    {
+      "key": "kaeng-pa",
+      "name": "Kaeng pa",
+      "nameEn": "Jungle curry",
+      "aliases": [
+        "gaeng pa",
+        "jungle curry"
+      ],
+      "tiles": [
+        "Thai"
+      ],
+      "cuisine": "Thai",
+      "region": "Northern Thailand",
+      "format": "curry",
+      "protein": "mushrooms",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 35,
+      "effort": "low",
+      "familiarity": 2,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "red curry paste",
+        "pork or chicken",
+        "thai eggplant",
+        "bamboo shoots",
+        "long beans",
+        "fingerroot",
+        "holy basil",
+        "makrut lime leaves",
+        "fish sauce"
+      ],
+      "specialtyIngredients": [
+        "fingerroot (krachai)",
+        "thai eggplant",
+        "pea eggplant",
+        "holy basil"
+      ],
+      "veganApproach": "Mushrooms, tofu and extra vegetables replace the meat, with fermented soybean paste and salt or soy sauce instead of shrimp paste and fish sauce.",
+      "technique": "A fiery, coconut-milk-free curry: paste is fried in oil, simmered in water with crunchy vegetables and herbs and finished with holy basil.",
+      "seasons": [
+        "autumn",
+        "winter",
+        "spring"
+      ],
+      "occasions": [
+        "everyday",
+        "comfort"
+      ],
+      "sources": [
+        {
+          "title": "Kaeng pa - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Kaeng_pa"
+        },
+        {
+          "title": "Jungle Curry - Hot Thai Kitchen",
+          "url": "https://hot-thai-kitchen.com/jungle-curry/"
+        },
+        {
+          "title": "Gaeng Pa (plant-based) - Thaifooding",
+          "url": "https://thaifooding.com/2020/05/31/jungle-curry-gaeng-pa/"
+        }
+      ]
+    },
+    {
+      "key": "rat-na",
+      "name": "Rat na",
+      "nameEn": "Wide rice noodles in gravy",
+      "aliases": [
+        "rad na",
+        "lad na",
+        "kuai-tiao rat na"
+      ],
+      "tiles": [
+        "Thai",
+        "American"
+      ],
+      "cuisine": "Thai-Chinese",
+      "region": "Central Thailand",
+      "format": "noodles",
+      "protein": "tofu",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 30,
+      "effort": "medium",
+      "familiarity": 2,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "fresh wide rice noodles",
+        "chinese broccoli",
+        "pork or chicken",
+        "fermented soybean paste",
+        "garlic",
+        "dark soy sauce",
+        "tapioca starch",
+        "white pepper",
+        "pickled chilies in vinegar"
+      ],
+      "specialtyIngredients": [
+        "fresh wide rice noodles",
+        "chinese broccoli (gai lan)",
+        "tao jiew (fermented soybean paste)"
+      ],
+      "veganApproach": "Marinated, pan-fried tofu replaces the meat and vegetarian oyster sauce and vegetable stock make the gravy.",
+      "technique": "Noodles are seared with dark soy until smoky, then smothered in a glossy starch-thickened gravy of yellow bean sauce, Chinese broccoli and protein.",
+      "seasons": [
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "comfort",
+        "everyday"
+      ],
+      "sources": [
+        {
+          "title": "Rat na - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Rat_na"
+        },
+        {
+          "title": "Rad Na - Hot Thai Kitchen",
+          "url": "https://hot-thai-kitchen.com/rad-na/"
+        },
+        {
+          "title": "How to Make Vegan Rad Na - WoonHeng",
+          "url": "https://woonheng.com/vegan-rad-na/"
+        }
+      ]
+    },
+    {
+      "key": "kuai-tiao-ruea",
+      "name": "Kuai-tiao ruea",
+      "nameEn": "Boat noodles",
+      "aliases": [
+        "boat noodles",
+        "kuay teow reua",
+        "guay tiew ruea"
+      ],
+      "tiles": [
+        "Thai"
+      ],
+      "cuisine": "Thai",
+      "region": "Central Thailand",
+      "format": "noodles",
+      "protein": "tofu",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 75,
+      "effort": "high",
+      "familiarity": 2,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "rice noodles",
+        "beef or pork",
+        "beef or pork blood",
+        "star anise",
+        "cinnamon",
+        "fermented red bean curd",
+        "dark soy sauce",
+        "morning glory",
+        "bean sprouts",
+        "thai basil"
+      ],
+      "specialtyIngredients": [
+        "fermented red bean curd",
+        "morning glory",
+        "pickled garlic"
+      ],
+      "veganApproach": "A spiced shiitake, pickled garlic and soy broth replaces the bone broth and blood, with fried tofu or soy protein instead of meat.",
+      "technique": "A dark, deeply spiced broth with star anise, cinnamon and fermented bean curd is ladled over small portions of noodles and toppings, traditionally thickened with blood.",
+      "seasons": [
+        "autumn",
+        "winter",
+        "spring",
+        "summer"
+      ],
+      "occasions": [
+        "comfort",
+        "hosting"
+      ],
+      "sources": [
+        {
+          "title": "Boat noodles - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Boat_noodles"
+        },
+        {
+          "title": "Boat Noodles - Hot Thai Kitchen",
+          "url": "https://hot-thai-kitchen.com/boat-noodles/"
+        },
+        {
+          "title": "Thai Boat Noodles (Vegan) - Holistic Chef Academy",
+          "url": "https://holisticchefacademy.com/thai-boat-noodles-vegan/"
+        }
+      ]
+    },
+    {
+      "key": "chok",
+      "name": "Chok",
+      "nameEn": "Thai rice congee",
+      "aliases": [
+        "jok",
+        "joke",
+        "Thai congee"
+      ],
+      "tiles": [
+        "Thai",
+        "American"
+      ],
+      "cuisine": "Thai-Chinese",
+      "region": null,
+      "format": "rice_dish",
+      "protein": "mushrooms",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 45,
+      "effort": "low",
+      "familiarity": 2,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegan",
+        "vegetarian"
+      ],
+      "keyIngredients": [
+        "broken jasmine rice",
+        "minced pork",
+        "ginger",
+        "egg",
+        "garlic oil",
+        "spring onion",
+        "white pepper",
+        "soy sauce"
+      ],
+      "specialtyIngredients": [
+        "broken jasmine rice"
+      ],
+      "veganApproach": "Mushrooms or tofu replace the pork meatballs and the porridge is cooked in vegetable stock and seasoned with soy sauce; an egg stirred in keeps it vegetarian.",
+      "technique": "Rice is simmered until it breaks down into a smooth porridge, then served with poached toppings, julienned ginger, white pepper and garlic oil.",
+      "seasons": [
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "comfort",
+        "everyday"
+      ],
+      "sources": [
+        {
+          "title": "Congee - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Congee"
+        },
+        {
+          "title": "Breakfast Congee - Hot Thai Kitchen",
+          "url": "https://hot-thai-kitchen.com/breakfast-congee/"
+        },
+        {
+          "title": "Vegan jok (Thai congee) - Messy Vegan Cook",
+          "url": "https://messyvegancook.com/vegan-jok-thai-congee-recipe/"
+        }
+      ]
+    },
+    {
+      "key": "phat-wun-sen",
+      "name": "Phat wun sen",
+      "nameEn": "Stir-fried glass noodles",
+      "aliases": [
+        "pad woon sen",
+        "pad woonsen"
+      ],
+      "tiles": [
+        "Thai"
+      ],
+      "cuisine": "Thai",
+      "region": null,
+      "format": "noodles",
+      "protein": "tofu",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 20,
+      "effort": "low",
+      "familiarity": 2,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegan",
+        "vegetarian"
+      ],
+      "keyIngredients": [
+        "glass noodles",
+        "eggs",
+        "cabbage",
+        "carrot",
+        "onion",
+        "tomato",
+        "oyster sauce",
+        "soy sauce",
+        "pork"
+      ],
+      "specialtyIngredients": [
+        "glass noodles"
+      ],
+      "veganApproach": "Tofu and extra vegetables replace the pork, with soy and mushroom sauce instead of oyster and fish sauce; keep the egg for the vegetarian version.",
+      "technique": "Soaked glass noodles are stir-fried with scrambled egg and vegetables until they turn glossy and absorb the sauce.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "quick"
+      ],
+      "sources": [
+        {
+          "title": "List of Thai dishes - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/List_of_Thai_dishes"
+        },
+        {
+          "title": "Glass Noodle Stir-Fry (Pad Woon Sen) - Hot Thai Kitchen",
+          "url": "https://hot-thai-kitchen.com/glass-noodle-stir-fry/"
+        }
+      ]
+    },
+    {
+      "key": "khai-luk-khoei",
+      "name": "Khai luk khoei",
+      "nameEn": "Son-in-law eggs",
+      "aliases": [
+        "son-in-law eggs",
+        "kai look keuy"
+      ],
+      "tiles": [
+        "Thai"
+      ],
+      "cuisine": "Thai",
+      "region": "Central Thailand",
+      "format": "egg_dish",
+      "protein": "tofu",
+      "method": "deep_fry",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 30,
+      "effort": "medium",
+      "familiarity": 2,
+      "traditionalDiet": "vegetarian",
+      "versions": [
+        "vegetarian",
+        "vegan"
+      ],
+      "keyIngredients": [
+        "eggs",
+        "tamarind",
+        "palm sugar",
+        "fish sauce",
+        "fried shallots",
+        "dried chilies",
+        "cilantro"
+      ],
+      "specialtyIngredients": [
+        "tamarind paste",
+        "fried shallots"
+      ],
+      "veganApproach": "Deep-fried cubes of extra-firm tofu take the place of the eggs under the same caramelised tamarind sauce, seasoned with Thai soy sauce instead of fish sauce.",
+      "technique": "Boiled eggs are deep-fried until blistered and crisp, halved and drenched in a sticky tamarind-palm sugar sauce with fried shallots and chilies.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "hosting"
+      ],
+      "sources": [
+        {
+          "title": "Deep-fried egg - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Deep-fried_egg"
+        },
+        {
+          "title": "Son-in-Law Eggs - Hot Thai Kitchen",
+          "url": "https://hot-thai-kitchen.com/son-in-law-eggs/"
+        },
+        {
+          "title": "It's son-in-law eggless - Messy Vegan Cook",
+          "url": "https://messyvegancook.com/its-son-in-law-eggless/"
+        }
+      ]
+    },
+    {
+      "key": "khai-chiao",
+      "name": "Khai chiao",
+      "nameEn": "Thai omelette over rice",
+      "aliases": [
+        "kai jeow",
+        "khao khai chiao",
+        "thai omelette"
+      ],
+      "tiles": [
+        "Thai"
+      ],
+      "cuisine": "Thai",
+      "region": null,
+      "format": "egg_dish",
+      "protein": "eggs",
+      "method": "deep_fry",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 10,
+      "effort": "low",
+      "familiarity": 2,
+      "traditionalDiet": "vegetarian",
+      "versions": [
+        "vegetarian"
+      ],
+      "keyIngredients": [
+        "eggs",
+        "fish sauce",
+        "lime juice",
+        "vegetable oil",
+        "jasmine rice",
+        "sriracha"
+      ],
+      "specialtyIngredients": [],
+      "veganApproach": null,
+      "technique": "Eggs beaten with a little seasoning are poured from a height into very hot oil in a wok so they puff into a crisp-edged, fluffy omelette, served over rice with chili sauce; soy sauce replaces fish sauce for vegetarians.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "quick",
+        "comfort"
+      ],
+      "sources": [
+        {
+          "title": "Omelette (Thailand) - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Omelette"
+        },
+        {
+          "title": "Thai Omelette - Hot Thai Kitchen",
+          "url": "https://hot-thai-kitchen.com/thai-omelette/"
+        }
+      ]
+    },
+    {
+      "key": "phat-khing",
+      "name": "Phat khing",
+      "nameEn": "Ginger stir-fry",
+      "aliases": [
+        "pad khing",
+        "kai phat khing",
+        "gai pad king"
+      ],
+      "tiles": [
+        "Thai"
+      ],
+      "cuisine": "Thai",
+      "region": "Central Thailand",
+      "format": "stir_fry",
+      "protein": "tofu",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 20,
+      "effort": "low",
+      "familiarity": 2,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "fresh ginger",
+        "chicken",
+        "mushrooms",
+        "onion",
+        "spring onion",
+        "fermented soybean paste",
+        "oyster sauce",
+        "soy sauce"
+      ],
+      "specialtyIngredients": [
+        "wood ear mushrooms",
+        "tao jiew (fermented soybean paste)"
+      ],
+      "veganApproach": "Fried tofu replaces the chicken, with tamari, mushroom stir-fry sauce and fermented soybean paste in place of oyster and fish sauce.",
+      "technique": "Plenty of julienned young ginger is stir-fried with the protein, mushrooms and onions in a savoury soybean-based sauce.",
+      "seasons": [
+        "autumn",
+        "winter",
+        "spring"
+      ],
+      "occasions": [
+        "everyday",
+        "quick"
+      ],
+      "sources": [
+        {
+          "title": "Phat khing - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Phat_khing"
+        },
+        {
+          "title": "Gai Pad King (Ginger Chicken) - Hot Thai Kitchen",
+          "url": "https://hot-thai-kitchen.com/gai-pad-king/"
+        },
+        {
+          "title": "Ginger Tofu (Pad Khing) - One Green Planet",
+          "url": "https://www.onegreenplanet.org/vegan-recipe/ginger-tofu-pad-khing-vegan/"
+        }
+      ]
+    },
+    {
+      "key": "kaeng-som",
+      "name": "Kaeng som",
+      "nameEn": "Central Thai sour tamarind curry",
+      "aliases": [
+        "gaeng som",
+        "kaeng som pla",
+        "kaeng som kung"
+      ],
+      "tiles": [
+        "Thai",
+        "Fresh & light"
+      ],
+      "cuisine": "Thai",
+      "region": "Central Thailand",
+      "format": "curry",
+      "protein": "tofu",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 35,
+      "effort": "medium",
+      "familiarity": 2,
+      "traditionalDiet": "pescatarian",
+      "versions": [
+        "pescatarian",
+        "vegan"
+      ],
+      "keyIngredients": [
+        "tamarind",
+        "dried chilies",
+        "shallots",
+        "shrimp paste",
+        "fish",
+        "shrimp",
+        "green papaya",
+        "napa cabbage",
+        "long beans",
+        "fish sauce"
+      ],
+      "specialtyIngredients": [
+        "shrimp paste",
+        "fingerroot (krachai)",
+        "green papaya",
+        "tamarind paste"
+      ],
+      "veganApproach": "Fermented soybean paste replaces shrimp paste, soy or mushroom sauce replaces fish sauce, tofu or mushrooms replace the shrimp and rice flour stands in for the pounded fish that thickens the broth.",
+      "technique": "A coconut-milk-free curry: a chili-shallot paste is dissolved in stock thickened with pounded fish, soured with tamarind and simmered with vegetables and shrimp.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn"
+      ],
+      "occasions": [
+        "everyday"
+      ],
+      "sources": [
+        {
+          "title": "Kaeng som - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Kaeng_som"
+        },
+        {
+          "title": "Thai Sour Curry with Shrimp (Gaeng Som) - Hot Thai Kitchen",
+          "url": "https://hot-thai-kitchen.com/gaeng-som/"
+        },
+        {
+          "title": "Gaeng Som (with vegan adaptation) - Open Spice Box",
+          "url": "https://openspicebox.com/recipes/gaeng-som"
+        }
+      ]
+    },
+    {
+      "key": "ho-mok-pla",
+      "name": "Ho mok pla",
+      "nameEn": "Steamed red curry fish custard",
+      "aliases": [
+        "haw mok",
+        "hor mok",
+        "ho mok"
+      ],
+      "tiles": [
+        "Thai"
+      ],
+      "cuisine": "Thai",
+      "region": "Central Thailand",
+      "format": "other",
+      "protein": "tofu",
+      "method": "steam",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 50,
+      "effort": "medium",
+      "familiarity": 2,
+      "traditionalDiet": "pescatarian",
+      "versions": [
+        "pescatarian",
+        "vegetarian",
+        "vegan"
+      ],
+      "keyIngredients": [
+        "white fish fillet",
+        "red curry paste",
+        "coconut milk",
+        "eggs",
+        "thai basil",
+        "cabbage",
+        "makrut lime leaves",
+        "banana leaves",
+        "fish sauce"
+      ],
+      "specialtyIngredients": [
+        "banana leaves",
+        "makrut lime leaves",
+        "thai basil"
+      ],
+      "veganApproach": "Blended tofu bound with rice flour and coconut cream replaces the fish-and-egg custard, seasoned with soy sauce and a shrimp-free curry paste; tofu with egg makes the vegetarian version.",
+      "technique": "A red curry, coconut milk and egg custard with the protein is spooned into banana-leaf cups over basil and cabbage, steamed until set and topped with thick coconut cream.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "hosting",
+        "date"
+      ],
+      "sources": [
+        {
+          "title": "Steamed curry - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Steamed_curry"
+        },
+        {
+          "title": "Haw Mok Thai Steamed Red Curry - Hot Thai Kitchen",
+          "url": "https://hot-thai-kitchen.com/haw-mok-red-curry-custard/"
+        },
+        {
+          "title": "Steamed Tofu Fish Custard (Hor Mok) - V for Veganista",
+          "url": "https://www.vforveganista.com/recipes/steamed-tofu-fish-custard-hor-mok/"
+        }
+      ]
+    },
+    {
+      "key": "pla-sam-rot",
+      "name": "Pla sam rot",
+      "nameEn": "Crispy fish with three-flavour tamarind sauce",
+      "aliases": [
+        "pla sam rod",
+        "three-flavour fish"
+      ],
+      "tiles": [
+        "Thai"
+      ],
+      "cuisine": "Thai",
+      "region": "Central Thailand",
+      "format": "other",
+      "protein": "fish",
+      "method": "deep_fry",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 35,
+      "effort": "medium",
+      "familiarity": 2,
+      "traditionalDiet": "pescatarian",
+      "versions": [
+        "pescatarian"
+      ],
+      "keyIngredients": [
+        "whole snapper or tilapia",
+        "tamarind paste",
+        "palm sugar",
+        "fish sauce",
+        "garlic",
+        "thai chilies",
+        "thai basil",
+        "shallots"
+      ],
+      "specialtyIngredients": [
+        "tamarind paste",
+        "thai basil"
+      ],
+      "veganApproach": null,
+      "technique": "A scored whole fish is deep-fried until shatteringly crisp, then covered with a sweet, sour and spicy sauce of tamarind, palm sugar, garlic and chilies.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "hosting",
+        "date"
+      ],
+      "sources": [
+        {
+          "title": "List of Thai dishes - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/List_of_Thai_dishes"
+        },
+        {
+          "title": "Thai Three-Flavor Fish (Pla Sam Rot) - Sauce Magazine",
+          "url": "https://www.saucemagazine.com/recipes/thai-three-flavor-fish-pla-sam-rot-17369405/"
+        }
+      ]
+    },
+    {
+      "key": "pla-nueng-manao",
+      "name": "Pla nueng manao",
+      "nameEn": "Steamed fish with lime, garlic and chili",
+      "aliases": [
+        "pla kaphong nueng manao",
+        "pla gapong neung manao"
+      ],
+      "tiles": [
+        "Thai",
+        "Fresh & light"
+      ],
+      "cuisine": "Thai",
+      "region": "Central Thailand",
+      "format": "other",
+      "protein": "fish",
+      "method": "steam",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 30,
+      "effort": "low",
+      "familiarity": 2,
+      "traditionalDiet": "pescatarian",
+      "versions": [
+        "pescatarian"
+      ],
+      "keyIngredients": [
+        "whole barramundi",
+        "lime juice",
+        "garlic",
+        "bird's eye chilies",
+        "fish sauce",
+        "cilantro",
+        "lemongrass",
+        "chinese celery"
+      ],
+      "specialtyIngredients": [
+        "chinese celery"
+      ],
+      "veganApproach": null,
+      "technique": "A whole fish is steamed over aromatics, then drenched in a hot, sharp dressing of lime juice, raw garlic, chilies and fish sauce.",
+      "seasons": [
+        "spring",
+        "summer"
+      ],
+      "occasions": [
+        "everyday",
+        "hosting",
+        "date"
+      ],
+      "sources": [
+        {
+          "title": "List of Thai dishes - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/List_of_Thai_dishes"
+        },
+        {
+          "title": "Steamed Fish with Lime (Pla Gapong Neung Manao) - Hot Thai Kitchen",
+          "url": "https://hot-thai-kitchen.com/mark-wiens-pla-gapong-neung-manao/"
+        }
+      ]
+    },
+    {
+      "key": "pu-phat-phong-kari",
+      "name": "Pu phat phong kari",
+      "nameEn": "Crab stir-fried in curry powder and egg",
+      "aliases": [
+        "poo pad pong karee",
+        "phat phong kari",
+        "curry crab"
+      ],
+      "tiles": [
+        "Thai"
+      ],
+      "cuisine": "Thai-Chinese",
+      "region": "Central Thailand",
+      "format": "stir_fry",
+      "protein": "tofu",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 30,
+      "effort": "medium",
+      "familiarity": 2,
+      "traditionalDiet": "pescatarian",
+      "versions": [
+        "pescatarian",
+        "vegetarian",
+        "vegan"
+      ],
+      "keyIngredients": [
+        "crab",
+        "curry powder",
+        "eggs",
+        "milk",
+        "chinese celery",
+        "onion",
+        "spring onion",
+        "oyster sauce",
+        "nam prik pao"
+      ],
+      "specialtyIngredients": [
+        "chinese celery",
+        "nam prik pao"
+      ],
+      "veganApproach": "Tofu replaces the crab in the same curry-powder stir-fry, with soy seasoning instead of oyster and fish sauce and no egg; tofu with egg keeps it vegetarian.",
+      "technique": "Crab (or tofu) is stir-fried with curry powder and aromatics, then bound in a silky, barely-set egg and milk sauce.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "hosting",
+        "date"
+      ],
+      "sources": [
+        {
+          "title": "List of Thai dishes - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/List_of_Thai_dishes"
+        },
+        {
+          "title": "Curry Crab - Hot Thai Kitchen",
+          "url": "https://hot-thai-kitchen.com/curry-crab/"
+        },
+        {
+          "title": "Vegan pad pong karee - Messy Vegan Cook",
+          "url": "https://messyvegancook.com/vegan-pad-pong-karee/"
+        }
+      ]
+    },
+    {
+      "key": "kung-op-wun-sen",
+      "name": "Kung op wun sen",
+      "nameEn": "Clay pot prawns with glass noodles",
+      "aliases": [
+        "goong ob woon sen",
+        "goong op woonsen",
+        "claypot glass noodles"
+      ],
+      "tiles": [
+        "Thai"
+      ],
+      "cuisine": "Thai-Chinese",
+      "region": null,
+      "format": "noodles",
+      "protein": "mushrooms",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 35,
+      "effort": "medium",
+      "familiarity": 2,
+      "traditionalDiet": "pescatarian",
+      "versions": [
+        "pescatarian",
+        "vegan"
+      ],
+      "keyIngredients": [
+        "prawns",
+        "glass noodles",
+        "ginger",
+        "garlic",
+        "cilantro root",
+        "white peppercorns",
+        "oyster sauce",
+        "soy sauce",
+        "sesame oil",
+        "chinese celery"
+      ],
+      "specialtyIngredients": [
+        "glass noodles",
+        "cilantro root",
+        "chinese celery"
+      ],
+      "veganApproach": "Mixed mushrooms and pressed tofu replace the prawns, with dried shiitake and vegetarian oyster sauce giving the noodles their savoury depth.",
+      "technique": "Glass noodles are layered over pounded garlic, cilantro root and pepper with the protein in a covered clay pot and cooked until they absorb the soy-sesame sauce.",
+      "seasons": [
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "hosting",
+        "comfort"
+      ],
+      "sources": [
+        {
+          "title": "Goong Ob Woonsen - Hot Thai Kitchen",
+          "url": "https://hot-thai-kitchen.com/goong-ob-woonsen/"
+        },
+        {
+          "title": "Vegan Claypot Glass Noodles - Hot Thai Kitchen",
+          "url": "https://hot-thai-kitchen.com/claypot-glass-noodles-vegan/"
+        }
+      ]
+    },
+    {
+      "key": "yam-som-o",
+      "name": "Yam som-o",
+      "nameEn": "Pomelo salad",
+      "aliases": [
+        "yum som o",
+        "pomelo salad"
+      ],
+      "tiles": [
+        "Thai",
+        "Fresh & light"
+      ],
+      "cuisine": "Thai",
+      "region": null,
+      "format": "salad",
+      "protein": "nuts_seeds",
+      "method": "no_cook",
+      "appliances": [],
+      "cookMinutes": 25,
+      "effort": "low",
+      "familiarity": 2,
+      "traditionalDiet": "pescatarian",
+      "versions": [
+        "pescatarian",
+        "vegan"
+      ],
+      "keyIngredients": [
+        "pomelo",
+        "shrimp",
+        "toasted coconut",
+        "fried shallots",
+        "peanuts",
+        "lime juice",
+        "palm sugar",
+        "fish sauce",
+        "nam prik pao",
+        "mint"
+      ],
+      "specialtyIngredients": [
+        "pomelo",
+        "nam prik pao",
+        "fried shallots"
+      ],
+      "veganApproach": "The shrimp is left out and the dressing uses soy sauce and a shrimp-free chili jam, with toasted coconut and peanuts carrying the richness.",
+      "technique": "Separated pomelo segments are tossed gently with toasted coconut, fried shallots, peanuts and a sweet-sour chili jam dressing.",
+      "seasons": [
+        "winter",
+        "spring",
+        "summer"
+      ],
+      "occasions": [
+        "hosting",
+        "quick",
+        "date"
+      ],
+      "sources": [
+        {
+          "title": "List of Thai dishes - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/List_of_Thai_dishes"
+        },
+        {
+          "title": "Yum Som-O (Pomelo Salad) - Hot Thai Kitchen",
+          "url": "https://hot-thai-kitchen.com/yum-som-o/"
+        },
+        {
+          "title": "Yum som-o pomelo salad - Messy Vegan Cook",
+          "url": "https://messyvegancook.com/yum-som-o-pomelo-salad/"
+        }
+      ]
+    },
+    {
+      "key": "khao-tom",
+      "name": "Khao tom",
+      "nameEn": "Thai rice soup",
+      "aliases": [
+        "khao tom kung",
+        "khao tom pla",
+        "kao tom"
+      ],
+      "tiles": [
+        "Thai",
+        "American"
+      ],
+      "cuisine": "Thai",
+      "region": null,
+      "format": "soup",
+      "protein": "tofu",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 30,
+      "effort": "low",
+      "familiarity": 2,
+      "traditionalDiet": "pescatarian",
+      "versions": [
+        "pescatarian",
+        "vegan"
+      ],
+      "keyIngredients": [
+        "cooked jasmine rice",
+        "stock",
+        "shrimp or fish",
+        "garlic oil",
+        "ginger",
+        "chinese celery",
+        "cilantro",
+        "spring onion",
+        "white pepper",
+        "fish sauce"
+      ],
+      "specialtyIngredients": [
+        "chinese celery"
+      ],
+      "veganApproach": "Tofu and vegetables replace the shrimp or fish, simmered in vegetable stock seasoned with soy sauce and finished with garlic oil and white pepper.",
+      "technique": "Cooked rice is simmered briefly in a seasoned clear broth with the protein so the grains stay whole, then topped with fried garlic, herbs and pepper.",
+      "seasons": [
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "comfort",
+        "everyday"
+      ],
+      "sources": [
+        {
+          "title": "List of Thai dishes - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/List_of_Thai_dishes"
+        },
+        {
+          "title": "Khao Tom Goong (Shrimp Rice Soup) - Hot Thai Kitchen",
+          "url": "https://hot-thai-kitchen.com/kao-tom-goong/"
+        },
+        {
+          "title": "Kitchen sink vegan khao tom - Messy Vegan Cook",
+          "url": "https://messyvegancook.com/kitchen-sink-vegan-khao-tom-recipe/"
+        }
+      ]
+    },
+    {
+      "key": "khai-yat-sai",
+      "name": "Khai yat sai",
+      "nameEn": "Stuffed Thai omelette",
+      "aliases": [
+        "kai yat sai",
+        "stuffed omelette"
+      ],
+      "tiles": [
+        "Thai"
+      ],
+      "cuisine": "Thai",
+      "region": null,
+      "format": "egg_dish",
+      "protein": "eggs",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 30,
+      "effort": "medium",
+      "familiarity": 2,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegetarian"
+      ],
+      "keyIngredients": [
+        "eggs",
+        "minced pork",
+        "tomato",
+        "onion",
+        "peas",
+        "carrot",
+        "ketchup",
+        "oyster sauce",
+        "fish sauce"
+      ],
+      "specialtyIngredients": [],
+      "veganApproach": null,
+      "technique": "A thin omelette is set in a wide pan, filled with a sweet-savoury tomato filling (tofu and vegetables for vegetarians) and folded into a neat square parcel.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "comfort"
+      ],
+      "sources": [
+        {
+          "title": "Khai yat sai - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Khai_yat_sai"
+        },
+        {
+          "title": "Stuffed Omelette - Hot Thai Kitchen",
+          "url": "https://hot-thai-kitchen.com/stuffed-omelette/"
+        }
+      ]
+    },
+    {
+      "key": "hoi-thot",
+      "name": "Hoi thot",
+      "nameEn": "Crispy mussel or oyster omelette",
+      "aliases": [
+        "hoy tod",
+        "hoi tod",
+        "or suan"
+      ],
+      "tiles": [
+        "Thai"
+      ],
+      "cuisine": "Thai-Chinese",
+      "region": "Central Thailand",
+      "format": "egg_dish",
+      "protein": "shellfish",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 20,
+      "effort": "medium",
+      "familiarity": 2,
+      "traditionalDiet": "pescatarian",
+      "versions": [
+        "pescatarian"
+      ],
+      "keyIngredients": [
+        "mussels or oysters",
+        "rice flour",
+        "tapioca starch",
+        "eggs",
+        "bean sprouts",
+        "garlic",
+        "spring onion",
+        "sriracha"
+      ],
+      "specialtyIngredients": [
+        "tapioca starch"
+      ],
+      "veganApproach": null,
+      "technique": "A thin starch batter with shellfish is fried in plenty of oil on a flat pan until crisp, eggs are cracked over it, and it is served on wilted bean sprouts with chili sauce.",
+      "seasons": [
+        "autumn",
+        "winter",
+        "spring"
+      ],
+      "occasions": [
+        "quick",
+        "everyday"
+      ],
+      "sources": [
+        {
+          "title": "Oyster omelette - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Oyster_omelette"
+        },
+        {
+          "title": "Easy Thai Fried Mussels (Hoi Tod) - Hungry in Thailand",
+          "url": "https://hungryinthailand.com/fried-mussels-recipe-hoi-tod/"
+        }
+      ]
+    },
+    {
+      "key": "phat-makhuea-yao",
+      "name": "Phat makhuea yao",
+      "nameEn": "Stir-fried eggplant with Thai basil",
+      "aliases": [
+        "pad makua yao",
+        "pad makhuea",
+        "eggplant stir-fry"
+      ],
+      "tiles": [
+        "Thai"
+      ],
+      "cuisine": "Thai",
+      "region": null,
+      "format": "stir_fry",
+      "protein": "vegetables",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 25,
+      "effort": "low",
+      "familiarity": 2,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "long eggplant",
+        "thai basil",
+        "garlic",
+        "bird's eye chilies",
+        "fermented soybean paste",
+        "oyster sauce",
+        "fish sauce",
+        "minced pork"
+      ],
+      "specialtyIngredients": [
+        "thai basil",
+        "tao jiew (fermented soybean paste)"
+      ],
+      "veganApproach": "Made without the minced pork (or with tofu), seasoned with soy sauce, fermented soybean paste and vegetarian oyster sauce.",
+      "technique": "Long eggplant is stir-fried with garlic and chilies and a splash of water until silky, seasoned with soybean paste and finished with a handful of Thai basil.",
+      "seasons": [
+        "summer",
+        "autumn"
+      ],
+      "occasions": [
+        "everyday",
+        "quick"
+      ],
+      "sources": [
+        {
+          "title": "Thai Eggplant Stir-fry with Thai Basil - Hot Thai Kitchen",
+          "url": "https://hot-thai-kitchen.com/eggplant-chili-paste-stir-fry/"
+        },
+        {
+          "title": "Vegetarian Stir-fried Eggplant with Sweet Basil - Thai Cookbook TV",
+          "url": "https://www.thaicookbook.tv/thai-recipes/side-dishes/vegetarian-stir-fried-eggplant-with-sweet-basil/"
+        }
+      ]
+    },
+    {
+      "key": "kaeng-lueang",
+      "name": "Kaeng lueang",
+      "nameEn": "Southern Thai turmeric sour fish curry",
+      "aliases": [
+        "gaeng leung",
+        "kaeng som pak tai",
+        "southern gaeng som"
+      ],
+      "tiles": [
+        "Thai"
+      ],
+      "cuisine": "Thai",
+      "region": "Southern Thailand",
+      "format": "curry",
+      "protein": "fish",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop",
+        "blender"
+      ],
+      "cookMinutes": 40,
+      "effort": "medium",
+      "familiarity": 3,
+      "traditionalDiet": "pescatarian",
+      "versions": [
+        "pescatarian"
+      ],
+      "keyIngredients": [
+        "white fish",
+        "fresh turmeric",
+        "bird's eye chilies",
+        "garlic",
+        "shrimp paste",
+        "green papaya",
+        "bamboo shoots",
+        "lime juice",
+        "fish sauce"
+      ],
+      "specialtyIngredients": [
+        "fresh turmeric",
+        "shrimp paste",
+        "green papaya"
+      ],
+      "veganApproach": null,
+      "technique": "A fiery, coconut-free broth built on fresh turmeric, chilies and shrimp paste is simmered with green papaya or bamboo, then fish is added and left unstirred until just cooked.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn"
+      ],
+      "occasions": [
+        "everyday"
+      ],
+      "sources": [
+        {
+          "title": "Kaeng som (variants) - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Kaeng_som"
+        },
+        {
+          "title": "Southern Thai Gaeng Som Recipe - Eating Thai Food",
+          "url": "https://www.eatingthaifood.com/thai-gaeng-som-recipe/"
+        },
+        {
+          "title": "Gaeng Som Pla Gapohng Daeng (Southern Thai Sour Curry) - Serious Eats",
+          "url": "https://www.seriouseats.com/gaeng-som-pla-gapohng-daeng-southern-thai-sour-curry-with-red-snapper-and-green-papaya-5194607"
+        }
+      ]
+    },
+    {
+      "key": "chuchi-pla",
+      "name": "Chuchi pla",
+      "nameEn": "Fish in thick red curry sauce",
+      "aliases": [
+        "choo chee pla",
+        "chu chee fish",
+        "chuchi pla thu"
+      ],
+      "tiles": [
+        "Thai"
+      ],
+      "cuisine": "Thai",
+      "region": "Central Thailand",
+      "format": "curry",
+      "protein": "fish",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 30,
+      "effort": "medium",
+      "familiarity": 3,
+      "traditionalDiet": "pescatarian",
+      "versions": [
+        "pescatarian"
+      ],
+      "keyIngredients": [
+        "mackerel or snapper",
+        "red curry paste",
+        "coconut cream",
+        "makrut lime leaves",
+        "palm sugar",
+        "fish sauce",
+        "thai basil"
+      ],
+      "specialtyIngredients": [
+        "makrut lime leaves",
+        "thai basil"
+      ],
+      "veganApproach": null,
+      "technique": "Pan-fried or deep-fried fish is coated in a reduced, almost dry red curry and coconut cream sauce topped with slivered makrut lime leaves.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "hosting",
+        "date"
+      ],
+      "sources": [
+        {
+          "title": "List of Thai dishes - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/List_of_Thai_dishes"
+        },
+        {
+          "title": "Choo Chee Mackerel - Hot Thai Kitchen",
+          "url": "https://hot-thai-kitchen.com/choo-chee-mackerel/"
+        }
+      ]
+    },
+    {
+      "key": "tom-chuet",
+      "name": "Tom chuet",
+      "nameEn": "Clear soup with tofu and glass noodles",
+      "aliases": [
+        "kaeng chuet",
+        "gaeng jued",
+        "gaeng jued woon sen",
+        "kaeng chuet tao hu"
+      ],
+      "tiles": [
+        "Thai",
+        "Fresh & light"
+      ],
+      "cuisine": "Thai",
+      "region": null,
+      "format": "soup",
+      "protein": "tofu",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 30,
+      "effort": "low",
+      "familiarity": 2,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "pork broth",
+        "minced pork",
+        "glass noodles",
+        "soft or egg tofu",
+        "napa cabbage",
+        "garlic",
+        "white pepper",
+        "soy sauce",
+        "cilantro"
+      ],
+      "specialtyIngredients": [
+        "glass noodles",
+        "egg tofu"
+      ],
+      "veganApproach": "A shiitake soaking-liquid broth replaces the pork stock and plain soft tofu replaces the pork balls and egg tofu, seasoned with soy sauce and white pepper.",
+      "technique": "A mild clear broth is simmered with napa cabbage, then tofu and soaked glass noodles are added just before serving and finished with garlic oil and white pepper.",
+      "seasons": [
+        "autumn",
+        "winter",
+        "spring"
+      ],
+      "occasions": [
+        "everyday",
+        "comfort"
+      ],
+      "sources": [
+        {
+          "title": "List of Thai dishes - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/List_of_Thai_dishes"
+        },
+        {
+          "title": "Thai Glass Noodle Soup (Gaeng Jued) - Hot Thai Kitchen",
+          "url": "https://hot-thai-kitchen.com/gaeng-jued/"
+        },
+        {
+          "title": "Gaeng Jued Tao Hu - Eat Healthy and Cheap",
+          "url": "https://eathealthyandcheap.com/recipes/gaeng-jued-tao-hu/"
+        }
+      ]
+    },
+    {
+      "key": "khanom-chin-nam-ya",
+      "name": "Khanom chin nam ya",
+      "nameEn": "Fermented rice noodles with fish curry",
+      "aliases": [
+        "kanom jeen nam ya",
+        "khanom jeen nam yaa"
+      ],
+      "tiles": [
+        "Thai"
+      ],
+      "cuisine": "Thai",
+      "region": "Central and Southern Thailand",
+      "format": "noodles",
+      "protein": "mushrooms",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop",
+        "blender"
+      ],
+      "cookMinutes": 60,
+      "effort": "medium",
+      "familiarity": 3,
+      "traditionalDiet": "pescatarian",
+      "versions": [
+        "pescatarian",
+        "vegan"
+      ],
+      "keyIngredients": [
+        "khanom chin rice noodles",
+        "fish",
+        "fingerroot",
+        "lemongrass",
+        "dried chilies",
+        "shrimp paste",
+        "coconut milk",
+        "fish sauce",
+        "fresh vegetables"
+      ],
+      "specialtyIngredients": [
+        "khanom chin noodles",
+        "fingerroot (krachai)",
+        "shrimp paste"
+      ],
+      "veganApproach": "Mushrooms are pounded into the curry in place of fish, and shrimp paste and fish sauce are replaced with fermented soybean and soy seasoning.",
+      "technique": "Fish poached with a fingerroot-heavy paste is pounded and simmered with coconut milk into a thick curry, ladled over fresh rice noodles with raw vegetables on the side.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "hosting",
+        "mealprep"
+      ],
+      "sources": [
+        {
+          "title": "Khanom chin - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Khanom_chin"
+        },
+        {
+          "title": "Kanom Jeen Namya - Hot Thai Kitchen",
+          "url": "https://hot-thai-kitchen.com/kanom-jeen-namya/"
+        },
+        {
+          "title": "Vegan kanom jeen nam ya - Messy Vegan Cook",
+          "url": "https://messyvegancook.com/vegan-kanom-jeen-nam-ya-southern-thai-mushroom-curry-noodles/"
+        }
+      ]
+    },
+    {
+      "key": "khanom-chin-nam-ngiao",
+      "name": "Khanom chin nam ngiao",
+      "nameEn": "Northern Thai tomato curry noodle soup",
+      "aliases": [
+        "nam ngiao",
+        "kanom jeen nam ngiew",
+        "khanom jeen nam ngeow"
+      ],
+      "tiles": [
+        "Thai"
+      ],
+      "cuisine": "Thai",
+      "region": "Northern Thailand",
+      "format": "noodles",
+      "protein": "tofu",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop",
+        "blender"
+      ],
+      "cookMinutes": 90,
+      "effort": "medium",
+      "familiarity": 3,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "rice vermicelli",
+        "pork ribs",
+        "minced pork",
+        "cherry tomatoes",
+        "dried kapok flowers",
+        "fermented soybean",
+        "dried chilies",
+        "blood tofu",
+        "shrimp paste"
+      ],
+      "specialtyIngredients": [
+        "dried kapok flowers",
+        "thua nao (fermented soybean)",
+        "blood tofu"
+      ],
+      "veganApproach": "Mashed tofu or tempeh and mushrooms replace the pork and blood tofu, while fermented soybean paste or miso supplies the umami usually given by shrimp paste.",
+      "technique": "A chili and fermented-soybean paste is fried and simmered with tomatoes and kapok flowers into a tangy broth, poured over rice noodles with pickled greens and crispy garlic.",
+      "seasons": [
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "comfort",
+        "mealprep"
+      ],
+      "sources": [
+        {
+          "title": "Nam ngiao - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Nam_ngiao"
+        },
+        {
+          "title": "Kanom Jeen Nam Ngiew - Hot Thai Kitchen",
+          "url": "https://hot-thai-kitchen.com/nam-ngiew/"
+        },
+        {
+          "title": "Kanum Jean Nam Ngiao (plant-based) - Thai Veggie B",
+          "url": "https://thaiveggieb.com/2017/06/07/kanum-jean-nam-ngiao-curry-noodle-soup/"
+        }
+      ]
+    },
+    {
+      "key": "khao-yam",
+      "name": "Khao yam",
+      "nameEn": "Southern Thai herb and rice salad",
+      "aliases": [
+        "khao yum",
+        "kao yum",
+        "rainbow rice salad"
+      ],
+      "tiles": [
+        "Thai",
+        "Fresh & light"
+      ],
+      "cuisine": "Thai",
+      "region": "Southern Thailand",
+      "format": "salad",
+      "protein": "grains",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 40,
+      "effort": "medium",
+      "familiarity": 3,
+      "traditionalDiet": "pescatarian",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "jasmine rice",
+        "budu fermented fish sauce",
+        "toasted coconut",
+        "pomelo or green mango",
+        "lemongrass",
+        "makrut lime leaves",
+        "bean sprouts",
+        "long beans",
+        "dried shrimp"
+      ],
+      "specialtyIngredients": [
+        "budu",
+        "makrut lime leaves",
+        "butterfly pea flowers"
+      ],
+      "veganApproach": "The budu dressing is rebuilt from tamarind, palm sugar, lemongrass and Thai light soy sauce, and the dried shrimp is left out.",
+      "technique": "Rice is arranged with finely sliced raw herbs, vegetables, sour fruit and toasted coconut, then mixed at the table with a thick, sweet-salty simmered dressing.",
+      "seasons": [
+        "spring",
+        "summer"
+      ],
+      "occasions": [
+        "hosting",
+        "mealprep"
+      ],
+      "sources": [
+        {
+          "title": "List of Thai dishes - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/List_of_Thai_dishes"
+        },
+        {
+          "title": "Khao Yum - Hot Thai Kitchen",
+          "url": "https://hot-thai-kitchen.com/kao-yum/"
+        },
+        {
+          "title": "How to Make Khao Yum (vegan, chef Pim Techamuanvivit) - The Hungry Hutch",
+          "url": "https://www.thehungryhutch.com/khao-yum-vegan-pim-techamuanvivit/"
+        }
+      ]
+    },
+    {
+      "key": "yam-thua-phu",
+      "name": "Yam thua phu",
+      "nameEn": "Wing bean salad",
+      "aliases": [
+        "yum tua plu",
+        "yam tua pu",
+        "wing bean salad"
+      ],
+      "tiles": [
+        "Thai",
+        "Fresh & light"
+      ],
+      "cuisine": "Thai",
+      "region": "Central Thailand",
+      "format": "salad",
+      "protein": "beans",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 25,
+      "effort": "low",
+      "familiarity": 3,
+      "traditionalDiet": "pescatarian",
+      "versions": [
+        "pescatarian",
+        "vegan"
+      ],
+      "keyIngredients": [
+        "wing beans",
+        "shrimp",
+        "toasted coconut",
+        "nam prik pao",
+        "coconut cream",
+        "shallots",
+        "lime juice",
+        "fish sauce",
+        "peanuts"
+      ],
+      "specialtyIngredients": [
+        "wing beans",
+        "nam prik pao"
+      ],
+      "veganApproach": "The shrimp is omitted and the coconut cream–chili jam dressing is seasoned with Thai thin soy sauce instead of fish sauce.",
+      "technique": "Briefly blanched sliced wing beans are tossed with a creamy dressing of coconut cream, roasted chili paste and lime, topped with peanuts and fried shallots.",
+      "seasons": [
+        "summer",
+        "autumn"
+      ],
+      "occasions": [
+        "everyday",
+        "quick"
+      ],
+      "sources": [
+        {
+          "title": "List of Thai dishes - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/List_of_Thai_dishes"
+        },
+        {
+          "title": "Wing Bean Salad - Hot Thai Kitchen",
+          "url": "https://hot-thai-kitchen.com/wing-bean-salad/"
+        },
+        {
+          "title": "Thai winged bean salad (yam tua pu) - Messy Vegan Cook",
+          "url": "https://messyvegancook.com/thai-winged-bean-salad-yam-tua-pu/"
+        }
+      ]
+    },
+    {
+      "key": "kaeng-hang-le",
+      "name": "Kaeng hang le",
+      "nameEn": "Northern Thai Burmese-style braised curry",
+      "aliases": [
+        "gaeng hung lay",
+        "hang lay curry",
+        "kaeng hangle"
+      ],
+      "tiles": [
+        "Thai",
+        "American"
+      ],
+      "cuisine": "Thai",
+      "region": "Northern Thailand",
+      "format": "curry",
+      "protein": "mushrooms",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 120,
+      "effort": "medium",
+      "familiarity": 3,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "pork belly",
+        "hang le curry powder",
+        "dried chilies",
+        "tamarind",
+        "ginger",
+        "garlic",
+        "palm sugar",
+        "shrimp paste",
+        "peanuts"
+      ],
+      "specialtyIngredients": [
+        "hang le curry powder",
+        "shrimp paste",
+        "pickled garlic"
+      ],
+      "veganApproach": "Root vegetables, mushrooms or fried tofu are braised in the same tamarind, ginger and hang le spice base, with kelp-shiitake stock and soy sauce instead of shrimp paste and fish sauce.",
+      "technique": "Protein is marinated in curry paste and dry spices, then slowly braised in water (no coconut milk) with tamarind and palm sugar, finished with fresh ginger and garlic.",
+      "seasons": [
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "hosting",
+        "comfort",
+        "mealprep"
+      ],
+      "sources": [
+        {
+          "title": "Kaeng hang le - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Kaeng_hang_le"
+        },
+        {
+          "title": "Gaeng Hung Lay - Hot Thai Kitchen",
+          "url": "https://hot-thai-kitchen.com/gaeng-hung-lay/"
+        },
+        {
+          "title": "Gaeng Hang Le (plant-based) - Thaifooding",
+          "url": "https://thaifooding.com/2020/01/08/gaeng-hang-lae/"
+        }
+      ]
+    },
+    {
+      "key": "kaeng-khae",
+      "name": "Kaeng khae",
+      "nameEn": "Northern Thai mixed vegetable and herb curry",
+      "aliases": [
+        "gaeng khae",
+        "kaeng khae kai"
+      ],
+      "tiles": [
+        "Thai"
+      ],
+      "cuisine": "Thai",
+      "region": "Northern Thailand",
+      "format": "curry",
+      "protein": "vegetables",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 40,
+      "effort": "medium",
+      "familiarity": 3,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "wild betel leaves",
+        "cha-om",
+        "ivy gourd",
+        "long beans",
+        "eggplant",
+        "chili paste",
+        "shrimp paste",
+        "chicken",
+        "lemongrass",
+        "mushrooms"
+      ],
+      "specialtyIngredients": [
+        "wild betel leaves",
+        "cha-om",
+        "ivy gourd"
+      ],
+      "veganApproach": "Already vegetable-led: the chicken is omitted in favour of extra mushrooms, and shrimp paste and fermented fish are replaced with miso or soy sauce.",
+      "technique": "A pounded chili-lemongrass paste is fried, then simmered in water with a large mix of foraged greens and vegetables added from toughest to most tender.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn"
+      ],
+      "occasions": [
+        "everyday",
+        "comfort"
+      ],
+      "sources": [
+        {
+          "title": "Kaeng khae - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Kaeng_khae"
+        },
+        {
+          "title": "Kaeng khae kai - Lanna Food, Chiang Mai University Library",
+          "url": "https://lannainfo.library.cmu.ac.th/en_lannafood/detail_lannafood.php?id_food=19"
+        }
+      ]
+    },
+    {
+      "key": "kaeng-liang",
+      "name": "Kaeng liang",
+      "nameEn": "Peppery Thai vegetable soup",
+      "aliases": [
+        "gaeng liang",
+        "kaeng lieng"
+      ],
+      "tiles": [
+        "Thai",
+        "Fresh & light"
+      ],
+      "cuisine": "Thai",
+      "region": "Central Thailand",
+      "format": "soup",
+      "protein": "vegetables",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 30,
+      "effort": "low",
+      "familiarity": 3,
+      "traditionalDiet": "pescatarian",
+      "versions": [
+        "vegan",
+        "pescatarian"
+      ],
+      "keyIngredients": [
+        "kabocha squash",
+        "angled luffa",
+        "baby corn",
+        "lemon basil",
+        "white peppercorns",
+        "shallots",
+        "shrimp paste",
+        "dried shrimp",
+        "fish sauce"
+      ],
+      "specialtyIngredients": [
+        "lemon basil",
+        "angled luffa",
+        "shrimp paste"
+      ],
+      "veganApproach": "The pounded paste of shallots and white pepper is made without shrimp paste and dried shrimp, using fermented soybean or soy sauce for umami.",
+      "technique": "A paste of shallots, white peppercorns and shrimp paste is dissolved in water and simmered with tender vegetables, finished with lemon basil.",
+      "seasons": [
+        "summer",
+        "autumn"
+      ],
+      "occasions": [
+        "everyday",
+        "comfort"
+      ],
+      "sources": [
+        {
+          "title": "Kaeng Liang - Hot Thai Kitchen",
+          "url": "https://hot-thai-kitchen.com/kaeng-liang/"
+        },
+        {
+          "title": "Thai vegan kaeng liang - Messy Vegan Cook",
+          "url": "https://messyvegancook.com/thai-vegan-kaeng-liang-recipe/"
+        }
+      ]
+    },
+    {
+      "key": "khua-kling",
+      "name": "Khua kling",
+      "nameEn": "Southern Thai dry-fried curry",
+      "aliases": [
+        "kua gling",
+        "gaeng kua kling",
+        "khua kling mu"
+      ],
+      "tiles": [
+        "Thai"
+      ],
+      "cuisine": "Thai",
+      "region": "Southern Thailand",
+      "format": "stir_fry",
+      "protein": "tofu",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 30,
+      "effort": "low",
+      "familiarity": 3,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "minced pork or beef",
+        "southern red curry paste",
+        "fresh turmeric",
+        "makrut lime leaves",
+        "bird's eye chilies",
+        "black pepper",
+        "fish sauce",
+        "palm sugar"
+      ],
+      "specialtyIngredients": [
+        "fresh turmeric",
+        "makrut lime leaves",
+        "shrimp paste"
+      ],
+      "veganApproach": "Crumbled tofu takes the place of minced meat, dry-fried with a shrimp-free southern curry paste and seasoned with soy sauce.",
+      "technique": "Minced protein is dry-fried with a fiery turmeric-rich paste and no coconut milk until each crumb is coated, then finished with shredded makrut lime leaves.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "mealprep"
+      ],
+      "sources": [
+        {
+          "title": "Khua kling - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Khua_kling"
+        },
+        {
+          "title": "Kua Gling - Hot Thai Kitchen",
+          "url": "https://hot-thai-kitchen.com/kua-gling/"
+        },
+        {
+          "title": "Vegan gaeng kua kling with tofu - Messy Vegan Cook",
+          "url": "https://messyvegancook.com/vegan-thai-curry-gaeng-kua-kling-recipe/"
+        }
+      ]
+    },
+    {
+      "key": "yentafo",
+      "name": "Yentafo",
+      "nameEn": "Pink fermented bean curd noodle soup",
+      "aliases": [
+        "yen ta fo",
+        "yen ta four",
+        "kuai-tiao yentafo"
+      ],
+      "tiles": [
+        "Thai"
+      ],
+      "cuisine": "Thai-Chinese",
+      "region": null,
+      "format": "noodles",
+      "protein": "tofu",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 40,
+      "effort": "medium",
+      "familiarity": 2,
+      "traditionalDiet": "pescatarian",
+      "versions": [
+        "vegan",
+        "pescatarian"
+      ],
+      "keyIngredients": [
+        "wide rice noodles",
+        "red fermented bean curd sauce",
+        "fish balls",
+        "squid",
+        "fried tofu",
+        "morning glory",
+        "broth",
+        "crispy wonton strips"
+      ],
+      "specialtyIngredients": [
+        "red fermented bean curd",
+        "morning glory"
+      ],
+      "veganApproach": "Fried tofu and mushrooms replace the fish balls and squid in a vegetable broth, keeping the sweet-sour pink fermented bean curd sauce that defines the dish.",
+      "technique": "Noodles and toppings are blanched and dressed with a pink sauce of red fermented bean curd, then covered with hot broth and crisp wonton strips.",
+      "seasons": [
+        "autumn",
+        "winter",
+        "spring"
+      ],
+      "occasions": [
+        "comfort",
+        "everyday"
+      ],
+      "sources": [
+        {
+          "title": "Yong tau foo - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Yong_tau_foo"
+        },
+        {
+          "title": "Yen Ta Fo - Hot Thai Kitchen",
+          "url": "https://hot-thai-kitchen.com/yen-ta-fo/"
+        },
+        {
+          "title": "Pink vegan Thai soup noodles (yentafo) - Messy Vegan Cook",
+          "url": "https://messyvegancook.com/pink-vegan-thai-soup-noodles-yentafo-recipe/"
+        }
+      ]
+    },
+    {
+      "key": "yam-khai-dao",
+      "name": "Yam khai dao",
+      "nameEn": "Crispy fried egg salad",
+      "aliases": [
+        "yum kai dao",
+        "fried egg salad"
+      ],
+      "tiles": [
+        "Thai",
+        "Fresh & light"
+      ],
+      "cuisine": "Thai",
+      "region": null,
+      "format": "salad",
+      "protein": "eggs",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 20,
+      "effort": "low",
+      "familiarity": 3,
+      "traditionalDiet": "vegetarian",
+      "versions": [
+        "vegetarian"
+      ],
+      "keyIngredients": [
+        "eggs",
+        "shallots",
+        "chinese celery",
+        "tomato",
+        "bird's eye chilies",
+        "lime juice",
+        "fish sauce",
+        "sugar"
+      ],
+      "specialtyIngredients": [
+        "chinese celery"
+      ],
+      "veganApproach": null,
+      "technique": "Eggs are fried in hot oil until the whites are blistered and crisp, cut up and tossed with herbs and a sharp lime-chili dressing (soy sauce in place of fish sauce for vegetarians).",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "quick"
+      ],
+      "sources": [
+        {
+          "title": "Yam khai dao - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Yam_khai_dao"
+        },
+        {
+          "title": "Fried Egg Salad - Hot Thai Kitchen",
+          "url": "https://hot-thai-kitchen.com/fried-egg-salad/"
+        }
+      ]
+    },
+    {
+      "key": "yam-naem-khao-thot",
+      "name": "Yam naem khao thot",
+      "nameEn": "Crispy curried rice salad",
+      "aliases": [
+        "nam khao tod",
+        "yum naem khao tod",
+        "nam khao"
+      ],
+      "tiles": [
+        "Thai"
+      ],
+      "cuisine": "Thai",
+      "region": "Northeastern Thailand (Isan)",
+      "format": "salad",
+      "protein": "mushrooms",
+      "method": "deep_fry",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 60,
+      "effort": "high",
+      "familiarity": 3,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "cooked jasmine rice",
+        "red curry paste",
+        "grated coconut",
+        "naem fermented pork",
+        "peanuts",
+        "lime juice",
+        "shallots",
+        "fish sauce",
+        "ginger",
+        "dried chilies"
+      ],
+      "specialtyIngredients": [
+        "naem (fermented pork)",
+        "red curry paste"
+      ],
+      "veganApproach": "Fermented mushroom 'naem het' replaces the fermented pork, and the lime dressing is seasoned with thin soy sauce instead of fish sauce.",
+      "technique": "Rice mixed with curry paste and coconut is formed into balls and deep-fried until crunchy, then broken up and tossed with sour fermented naem, herbs, peanuts and lime.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn"
+      ],
+      "occasions": [
+        "hosting"
+      ],
+      "sources": [
+        {
+          "title": "List of Thai dishes - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/List_of_Thai_dishes"
+        },
+        {
+          "title": "Yum Naem Khao Tod (Crispy Rice Salad) - Hot Thai Kitchen",
+          "url": "https://hot-thai-kitchen.com/yum_naem_kao_tod/"
+        },
+        {
+          "title": "Vegan yam naem khao tod - Messy Vegan Cook",
+          "url": "https://messyvegancook.com/vegan-yam-naem-khao-tod-recipe/"
+        }
+      ]
+    },
+    {
+      "key": "pla-pao",
+      "name": "Pla pao",
+      "nameEn": "Salt-crusted grilled fish with herbs",
+      "aliases": [
+        "pla pao kluea",
+        "salt-crusted fish"
+      ],
+      "tiles": [
+        "Thai"
+      ],
+      "cuisine": "Thai",
+      "region": "Northeastern Thailand (Isan)",
+      "format": "other",
+      "protein": "fish",
+      "method": "oven",
+      "appliances": [
+        "oven"
+      ],
+      "cookMinutes": 60,
+      "effort": "medium",
+      "familiarity": 3,
+      "traditionalDiet": "pescatarian",
+      "versions": [
+        "pescatarian"
+      ],
+      "keyIngredients": [
+        "whole white fish",
+        "coarse salt",
+        "lemongrass",
+        "galangal",
+        "makrut lime leaves",
+        "pandan leaves",
+        "garlic",
+        "seafood dipping sauce"
+      ],
+      "specialtyIngredients": [
+        "galangal",
+        "pandan leaves",
+        "makrut lime leaves"
+      ],
+      "veganApproach": null,
+      "technique": "A whole fish stuffed with lemongrass, galangal and pandan is crusted in salt and cooked whole (traditionally over charcoal), then flaked and eaten with herbs and a spicy lime dipping sauce.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn"
+      ],
+      "occasions": [
+        "hosting"
+      ],
+      "sources": [
+        {
+          "title": "Salt-Crusted Fish (Pla Pao) - Hot Thai Kitchen",
+          "url": "https://hot-thai-kitchen.com/salt-crusted-fish/"
+        }
+      ]
+    }
+  ]
+}

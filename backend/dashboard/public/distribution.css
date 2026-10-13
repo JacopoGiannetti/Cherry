@@ -1,0 +1,584 @@
+/* Distribution: la tela a nodi.
+   I colori e i caratteri arrivano da styles.css, che resta la sorgente
+   unica del tema. Qui c'è solo quello che l'analytics non ha: la tela, i
+   nodi, i fili e i pannelli laterali. */
+
+:root {
+  --node-w: 260px;
+  --tint-teal: #2dd4bf;
+  --tint-violet: #a78bfa;
+  --tint-amber: #fbbf24;
+  --tint-green: #34d399;
+  --tint-slate: #94a3b8;
+  --wire: rgba(148, 163, 184, .45);
+  --wire-live: var(--green);
+  --dot: rgba(255, 255, 255, .07);
+}
+
+[data-theme="light"] {
+  --wire: rgba(71, 85, 105, .35);
+  --dot: rgba(17, 20, 24, .08);
+}
+
+body.dist { overflow: hidden; }
+
+/* In colonna e non a griglia: la barra di avviso di ffmpeg compare solo
+   a volte, e con le righe fisse la tela si sfalserebbe quando c'è. */
+.dist {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+/* ------------------------------------------------------------------ */
+/* Barra in alto                                                       */
+/* ------------------------------------------------------------------ */
+
+.dist-top {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 0 14px;
+  height: 52px;
+  flex: none;
+  background: var(--surface);
+  border-bottom: 1px solid var(--line);
+  z-index: 30;
+}
+
+/* Il ritorno all'analytics: piccolo, a sinistra, sempre lì. */
+.back {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 11px 5px 8px;
+  border-radius: 999px;
+  background: var(--surface-2);
+  color: var(--ink-2);
+  font-size: 12.5px;
+  font-weight: 500;
+  flex: none;
+}
+.back:hover { background: var(--surface-3); color: var(--ink); }
+.back svg { width: 14px; height: 14px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+
+.dist-top .sep { width: 1px; height: 22px; background: var(--line-2); flex: none; }
+.dist-top .name {
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: var(--radius-s);
+  padding: 5px 9px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--ink);
+  min-width: 150px;
+}
+.dist-top .name:hover { border-color: var(--line-2); }
+.dist-top .name:focus { outline: none; border-color: var(--focus); background: var(--surface-2); }
+.dist-top .spacer { flex: 1; }
+/* Dice se quello che vedi sulla tela è già su Firestore o solo nel
+   browser: senza, rinominare e salvare sembrano la stessa cosa. */
+.dist-top .state { font-size: 11.5px; color: var(--ink-2); white-space: nowrap; }
+.dist-top .state.off { color: var(--amber); }
+.dist-top .state:empty { display: none; }
+.dist-top .cost { font-size: 12.5px; color: var(--ink-2); font-variant-numeric: tabular-nums; }
+.dist-top .cost b { color: var(--ink); font-weight: 600; }
+.dist-top .cost.warn b { color: var(--amber); }
+
+/* ------------------------------------------------------------------ */
+/* Impianto a tre colonne                                              */
+/* ------------------------------------------------------------------ */
+
+.dist-body {
+  display: grid;
+  grid-template-columns: 216px 1fr 0;
+  flex: 1;
+  min-height: 0;
+  transition: grid-template-columns .18s ease;
+}
+.dist-body.with-panel { grid-template-columns: 216px 1fr 320px; }
+
+/* --- palette ------------------------------------------------------ */
+
+.palette {
+  background: var(--surface);
+  border-right: 1px solid var(--line);
+  overflow-y: auto;
+  padding: 12px 10px 24px;
+}
+.palette h3 {
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: .09em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin: 14px 6px 7px;
+}
+.palette h3:first-child { margin-top: 2px; }
+
+.pal-item {
+  display: flex;
+  gap: 9px;
+  align-items: flex-start;
+  padding: 8px;
+  border-radius: 10px;
+  cursor: grab;
+  user-select: none;
+}
+.pal-item:hover { background: var(--surface-2); }
+.pal-item:active { cursor: grabbing; }
+.pal-item .ico { flex: none; }
+.pal-item strong { display: block; font-size: 13px; font-weight: 550; line-height: 1.25; }
+.pal-item span { display: block; font-size: 11px; color: var(--muted); line-height: 1.35; margin-top: 1px; }
+
+.ico {
+  width: 26px;
+  height: 26px;
+  border-radius: 7px;
+  display: grid;
+  place-items: center;
+  background: var(--surface-3);
+  color: var(--tint-slate);
+}
+.ico svg { width: 14px; height: 14px; stroke: currentColor; fill: none; stroke-width: 1.9; stroke-linecap: round; stroke-linejoin: round; }
+.ico.teal { background: color-mix(in srgb, var(--tint-teal) 16%, transparent); color: var(--tint-teal); }
+.ico.violet { background: color-mix(in srgb, var(--tint-violet) 16%, transparent); color: var(--tint-violet); }
+.ico.amber { background: color-mix(in srgb, var(--tint-amber) 16%, transparent); color: var(--tint-amber); }
+.ico.green { background: color-mix(in srgb, var(--tint-green) 16%, transparent); color: var(--tint-green); }
+.ico.slate { background: color-mix(in srgb, var(--tint-slate) 18%, transparent); color: var(--tint-slate); }
+
+.palette .foot { margin: 18px 6px 0; font-size: 11px; color: var(--muted); line-height: 1.5; }
+
+/* --- tela --------------------------------------------------------- */
+
+.canvas {
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 1px 1px, var(--dot) 1px, transparent 0) 0 0 / 22px 22px,
+    var(--bg);
+  cursor: grab;
+  /* Senza, il browser interpreta il trascinamento come scorrimento o
+     pizzicata e i pointer event si interrompono a metà gesto. */
+  touch-action: none;
+}
+.canvas.panning { cursor: grabbing; }
+.canvas.linking { cursor: crosshair; }
+
+.world { position: absolute; inset: 0; transform-origin: 0 0; }
+.wires { position: absolute; inset: 0; overflow: visible; pointer-events: none; }
+.wires path { fill: none; }
+
+/* Il tracciato che si vede. */
+.wires .wire { stroke: var(--wire); stroke-width: 2; pointer-events: none; }
+.wires .wire.live { stroke: var(--wire-live); stroke-dasharray: 5 4; animation: flow .7s linear infinite; }
+.wires .wire.hot { stroke: var(--green); }
+.wires .wire.draft { stroke: var(--green); stroke-width: 2.4; stroke-dasharray: 6 5; animation: flow .7s linear infinite; }
+
+/* Quello che raccoglie il puntatore: invisibile e largo, perché un filo
+   da due pixel non si prende col mouse. */
+.wires .grab { stroke: transparent; stroke-width: 15; pointer-events: stroke; cursor: pointer; }
+
+/* Sopra un filo si capisce che il click lo taglia. */
+.wires .wire.hover { stroke: var(--red); stroke-width: 2.6; stroke-dasharray: none; animation: none; }
+@keyframes flow { to { stroke-dashoffset: -18px; } }
+
+.wires .count {
+  fill: var(--muted);
+  font-size: 10px;
+  font-weight: 600;
+  text-anchor: middle;
+  paint-order: stroke;
+  stroke: var(--bg);
+  stroke-width: 4px;
+}
+
+/* --- nodo --------------------------------------------------------- */
+
+.node {
+  position: absolute;
+  width: var(--node-w);
+  background: var(--surface);
+  border: 1px solid var(--line-2);
+  border-radius: 13px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, .22);
+  user-select: none;
+  touch-action: none;
+  /* Si afferra da tutta la scheda, non solo dall'intestazione. */
+  cursor: grab;
+}
+[data-theme="light"] .node { box-shadow: 0 4px 14px rgba(17, 20, 24, .09); }
+.node.sel { border-color: var(--green); box-shadow: 0 0 0 3px var(--green-soft), 0 8px 24px rgba(0, 0, 0, .26); }
+.node.running { border-color: var(--green); }
+.node.error { border-color: var(--red); }
+.node.waiting { border-color: var(--amber); }
+
+/* Mentre la sposti si stacca dal fondo, così si vede cosa hai in mano. */
+.node.dragging {
+  cursor: grabbing;
+  box-shadow: 0 18px 44px rgba(0, 0, 0, .38);
+  border-color: var(--green);
+}
+
+/* La scheda su cui il filo sta per atterrare. */
+.node.target { border-color: var(--green); box-shadow: 0 0 0 3px var(--green-soft); }
+
+.node .head {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 10px 11px;
+}
+.node .head strong { flex: 1; font-size: 13.5px; font-weight: 600; letter-spacing: -.01em; }
+.node .head .kind { font-size: 10.5px; color: var(--muted); }
+
+/* Impostazioni ed elimina: si vedono quando la scheda è sotto il mouse o
+   selezionata, così a riposo la tela resta pulita. */
+.node .head .act {
+  display: grid; place-items: center;
+  width: 22px; height: 22px; flex: none;
+  padding: 0; border: 0; border-radius: 6px;
+  background: transparent; color: var(--muted); cursor: pointer;
+  opacity: 0; transition: opacity .12s ease, background .12s ease, color .12s ease;
+}
+.node:hover .head .act, .node.sel .head .act { opacity: 1; }
+.node .head .act:hover { background: var(--surface-3); color: var(--ink); }
+.node .head .act.kill:hover { background: var(--red-soft); color: var(--red); }
+.node .head .act.on { opacity: 1; background: var(--surface-3); color: var(--ink); }
+.node .head .act svg { width: 14px; height: 14px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; }
+/* Toccando lo schermo non esiste il passaggio del mouse: là restano. */
+@media (hover: none) { .node .head .act { opacity: 1; } }
+
+.node .body { padding: 0 12px 11px; font-size: 11.5px; color: var(--ink-2); line-height: 1.45; }
+.node .body .line { display: flex; gap: 6px; align-items: baseline; }
+.node .body .line em { font-style: normal; color: var(--muted); flex: none; }
+.node .body .line b { font-weight: 550; color: var(--ink); }
+
+.node .status {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 8px;
+  padding-top: 8px;
+  border-top: 1px solid var(--line);
+  font-size: 11px;
+  color: var(--muted);
+}
+.node .status.ok { color: var(--green); }
+.node .status.bad { color: var(--red); }
+.node .status.wait { color: var(--amber); }
+.node .status svg { width: 12px; height: 12px; stroke: currentColor; fill: none; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
+
+.node .bar { height: 3px; border-radius: 2px; background: var(--surface-3); overflow: hidden; margin-top: 7px; }
+.node .bar i { display: block; height: 100%; background: var(--green); transition: width .3s ease; }
+
+.node .thumbs { display: flex; gap: 4px; margin-top: 8px; flex-wrap: wrap; }
+.node .thumbs img {
+  width: 34px; height: 46px; object-fit: cover;
+  border-radius: 5px; background: var(--surface-3);
+}
+.node .thumbs .more {
+  width: 34px; height: 46px; border-radius: 5px; background: var(--surface-3);
+  display: grid; place-items: center; font-size: 10px; color: var(--muted);
+}
+
+/* attacchi */
+
+/* Livello a sé: riscrivere il corpo della scheda non deve portarsi via le
+   porte mentre ci stai tirando un filo. */
+.node .ports { position: absolute; inset: 0; pointer-events: none; }
+
+.port {
+  position: absolute;
+  width: 13px; height: 13px;
+  margin-top: -6.5px; /* il centro del pallino sulla quota del filo */
+  border-radius: 50%;
+  background: var(--surface);
+  border: 2px solid var(--grey-2);
+  cursor: crosshair;
+  pointer-events: auto;
+  z-index: 2;
+}
+
+/* Area di presa più larga del pallino: 31px invece di 13. */
+.port::after { content: ''; position: absolute; inset: -9px; border-radius: 50%; }
+
+.port:hover, .port.armed { border-color: var(--green); background: var(--green-soft); transform: scale(1.3); }
+.port.armed { box-shadow: 0 0 0 5px var(--green-soft); }
+.port.in { left: -7px; }
+.port.out { right: -7px; }
+/* Il nome della porta è un'etichetta a comparsa, non una scritta fissa:
+   appare passandoci sopra e mentre tiri un filo, quando ti serve sapere
+   dove stai per attaccarlo. */
+.port .tag {
+  position: absolute; top: -9px; white-space: nowrap;
+  padding: 2px 7px; border-radius: 6px;
+  background: var(--tooltip-bg); color: var(--tooltip-ink);
+  font-size: 10px; line-height: 1.4; pointer-events: none;
+  opacity: 0; transform: scale(.94); transition: opacity .12s ease, transform .12s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, .3);
+}
+.port.in .tag { right: 20px; transform-origin: right center; }
+.port.out .tag { left: 20px; transform-origin: left center; }
+.port:hover .tag, .port.armed .tag { opacity: 1; transform: scale(1); }
+/* Mentre un filo è in volo si accendono gli attacchi dove può atterrare. */
+.canvas.linking .port.in .tag { opacity: 1; transform: scale(1); }
+
+/* --- pannello di configurazione ------------------------------------ */
+
+.panel-side {
+  background: var(--surface);
+  border-left: 1px solid var(--line);
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+.panel-side .ph {
+  display: flex; align-items: center; gap: 9px;
+  padding: 13px 14px;
+  border-bottom: 1px solid var(--line);
+  position: sticky; top: 0; background: var(--surface); z-index: 2;
+}
+.panel-side .ph strong { flex: 1; font-size: 14px; }
+.panel-side .ph .btn svg { width: 14px; height: 14px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; display: block; }
+.panel-side .pb { padding: 14px; display: flex; flex-direction: column; gap: 15px; }
+.panel-side .summary { font-size: 11.5px; color: var(--muted); line-height: 1.5; }
+
+.f { display: flex; flex-direction: column; gap: 6px; }
+.f > label { font-size: 11.5px; font-weight: 550; color: var(--ink-2); }
+.f .help { font-size: 10.5px; color: var(--muted); line-height: 1.45; }
+.f input[type="text"], .f input[type="number"], .f textarea, .f select {
+  width: 100%;
+  background: var(--surface-2);
+  border: 1px solid var(--line-2);
+  border-radius: var(--radius-s);
+  color: var(--ink);
+  font: inherit;
+  font-size: 13px;
+  padding: 7px 9px;
+}
+.f textarea { resize: vertical; min-height: 56px; line-height: 1.45; }
+.f input:focus, .f textarea:focus, .f select:focus { outline: none; border-color: var(--focus); }
+.f input[type="range"] { width: 100%; accent-color: var(--green); }
+.f .rangeval { font-size: 11px; color: var(--muted); font-variant-numeric: tabular-nums; }
+
+.segbox { display: flex; background: var(--surface-2); border-radius: 9px; padding: 3px; gap: 2px; }
+.segbox button {
+  flex: 1; border: 0; background: transparent; border-radius: 7px;
+  padding: 6px 4px; font-size: 11.5px; font-weight: 550; color: var(--muted);
+}
+.segbox button.on { background: var(--surface); color: var(--ink); box-shadow: 0 1px 2px rgba(0,0,0,.2); }
+
+.chipbox { display: flex; flex-wrap: wrap; gap: 5px; }
+.chipbox button {
+  border: 1px solid var(--line-2); background: transparent; border-radius: 999px;
+  padding: 4px 10px; font-size: 11.5px; color: var(--ink-2);
+}
+.chipbox button.on { background: var(--green-soft); border-color: transparent; color: var(--green); }
+
+.toggle { display: flex; align-items: flex-start; gap: 9px; cursor: pointer; }
+.toggle input { margin-top: 2px; accent-color: var(--green); width: 15px; height: 15px; }
+.toggle .t { font-size: 12px; font-weight: 550; color: var(--ink-2); }
+
+/* scelta contenuti nel nodo Source */
+.picked { display: flex; flex-wrap: wrap; gap: 6px; }
+.picked .it { position: relative; }
+.picked img { width: 46px; height: 62px; object-fit: cover; border-radius: 6px; background: var(--surface-3); display: block; }
+.picked .x {
+  position: absolute; top: -5px; right: -5px; width: 17px; height: 17px;
+  border-radius: 50%; border: 0; background: var(--red); color: #fff;
+  font-size: 11px; line-height: 1; display: grid; place-items: center;
+}
+
+/* anteprima della didascalia */
+.cap-preview { position: relative; border-radius: 10px; overflow: hidden; background: var(--surface-3); }
+.cap-preview img { display: block; width: 100%; }
+.cap-preview .zone { position: absolute; left: 0; right: 0; background: repeating-linear-gradient(45deg, rgba(248,113,113,.14) 0 6px, transparent 6px 12px); pointer-events: none; }
+.cap-preview .lbl { position: absolute; left: 5px; font-size: 9px; color: var(--red); }
+
+/* ------------------------------------------------------------------ */
+/* Storage                                                             */
+/* ------------------------------------------------------------------ */
+
+.sheet {
+  position: fixed; inset: 0; z-index: 60;
+  background: rgba(3, 5, 8, .55);
+  display: grid; place-items: center;
+  padding: 3vh 3vw;
+}
+.sheet[hidden] { display: none; }
+.sheet .win {
+  background: var(--bg);
+  border: 1px solid var(--line-2);
+  border-radius: 16px;
+  width: min(1180px, 100%);
+  height: min(760px, 94vh);
+  display: grid; grid-template-rows: auto 1fr;
+  overflow: hidden;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, .5);
+}
+.sheet .wh {
+  display: flex; align-items: center; gap: 10px;
+  padding: 13px 16px; border-bottom: 1px solid var(--line); background: var(--surface);
+}
+.sheet .wh strong { flex: 1; font-size: 15px; }
+.sheet .wb { display: grid; grid-template-columns: 236px 1fr; min-height: 0; }
+
+.tree { border-right: 1px solid var(--line); overflow-y: auto; padding: 10px 8px; background: var(--surface); }
+.tree .row {
+  display: flex; align-items: center; gap: 7px;
+  padding: 6px 8px; border-radius: 8px; font-size: 12.5px; cursor: pointer; color: var(--ink-2);
+}
+.tree .row:hover { background: var(--surface-2); color: var(--ink); }
+.tree .row.on { background: var(--surface-2); color: var(--ink); font-weight: 550; }
+.tree .row.drop { background: var(--green-soft); color: var(--green); }
+.tree .row svg { width: 14px; height: 14px; flex: none; stroke: currentColor; fill: none; stroke-width: 1.8; opacity: .75; }
+.tree .row .n { flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.tree .row .c { font-size: 10.5px; color: var(--muted); }
+.tree .row .act { opacity: 0; border: 0; background: transparent; color: var(--muted); font-size: 12px; padding: 0 3px; }
+.tree .row:hover .act { opacity: 1; }
+.tree .row .act:hover { color: var(--red); }
+
+.grid-files { overflow-y: auto; padding: 14px; display: grid; grid-template-columns: repeat(auto-fill, minmax(124px, 1fr)); gap: 12px; align-content: start; }
+.tile { border-radius: 10px; overflow: hidden; background: var(--surface); border: 1px solid var(--line); cursor: pointer; }
+.tile:hover { border-color: var(--line-2); }
+.tile.on { border-color: var(--green); box-shadow: 0 0 0 2px var(--green-soft); }
+.tile .ph { position: relative; aspect-ratio: 9/16; background: var(--surface-3); }
+.tile .ph img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.tile .ph .badge {
+  position: absolute; left: 5px; top: 5px;
+  background: rgba(0,0,0,.6); color: #fff; border-radius: 5px;
+  font-size: 9.5px; padding: 2px 5px; font-weight: 600;
+}
+.tile .ph .pick {
+  position: absolute; right: 5px; top: 5px; width: 19px; height: 19px; border-radius: 50%;
+  background: var(--green); color: var(--green-ink); display: none; place-items: center; font-size: 11px; font-weight: 700;
+}
+.tile.on .ph .pick { display: grid; }
+.tile .nm { padding: 6px 7px; font-size: 10.5px; line-height: 1.3; color: var(--ink-2); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+.drop-hint {
+  grid-column: 1 / -1;
+  border: 1.5px dashed var(--line-2);
+  border-radius: 12px; padding: 26px; text-align: center;
+  color: var(--muted); font-size: 12.5px;
+}
+.grid-files.dragging .drop-hint { border-color: var(--green); color: var(--green); }
+
+/* ------------------------------------------------------------------ */
+/* Approvazione delle ancore                                           */
+/* ------------------------------------------------------------------ */
+
+.gate { max-width: 980px; }
+.gate .anchors { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 12px; padding: 14px; overflow-y: auto; }
+.gate .an { border: 2px solid var(--line-2); border-radius: 11px; overflow: hidden; cursor: pointer; background: var(--surface); }
+.gate .an.on { border-color: var(--green); }
+.gate .an img { width: 100%; aspect-ratio: 9/16; object-fit: cover; display: block; background: var(--surface-3); }
+.gate .an .cap { padding: 7px 8px; font-size: 11px; line-height: 1.35; }
+.gate .an .cap b { display: block; font-size: 12px; color: var(--ink); }
+.gate .an .cap span { color: var(--muted); }
+.gate .wf { display: flex; align-items: center; gap: 10px; padding: 12px 16px; border-top: 1px solid var(--line); background: var(--surface); }
+.gate .wf .spacer { flex: 1; }
+
+/* ------------------------------------------------------------------ */
+/* Vari                                                               */
+/* ------------------------------------------------------------------ */
+
+.zoom {
+  position: absolute; left: 14px; bottom: 14px; z-index: 10;
+  display: flex; gap: 2px; background: var(--surface); border: 1px solid var(--line-2);
+  border-radius: 9px; padding: 3px; box-shadow: 0 3px 12px rgba(0,0,0,.2);
+}
+.zoom button { border: 0; background: transparent; color: var(--ink-2); width: 27px; height: 25px; border-radius: 6px; font-size: 14px; line-height: 1; }
+.zoom button:hover { background: var(--surface-2); color: var(--ink); }
+.zoom .lvl { display: grid; place-items: center; min-width: 42px; font-size: 11px; color: var(--muted); font-variant-numeric: tabular-nums; }
+
+.blank {
+  position: absolute; inset: 0; display: grid; place-content: center; justify-items: center;
+  gap: 8px; text-align: center; color: var(--muted); pointer-events: none;
+}
+/* Il `display` qui sopra batte quello del foglio del browser, quindi
+   l'attributo hidden da solo non nasconde niente e la scritta resta
+   stampata sopra ai nodi. */
+.blank[hidden] { display: none; }
+.blank h2 { font-size: 15px; color: var(--ink-2); }
+.blank p { font-size: 12.5px; max-width: 320px; line-height: 1.5; }
+
+.toast {
+  position: fixed; left: 50%; bottom: 24px; transform: translateX(-50%);
+  background: var(--tooltip-bg); color: var(--tooltip-ink);
+  padding: 9px 15px; border-radius: 10px; font-size: 12.5px; z-index: 90;
+  box-shadow: 0 8px 26px rgba(0,0,0,.4); max-width: 70vw;
+}
+.toast.bad { background: var(--red); color: #fff; }
+
+.warnbar {
+  display: flex; align-items: center; gap: 8px; flex: none;
+  padding: 7px 14px; background: var(--amber-soft); color: var(--amber);
+  font-size: 12px; border-bottom: 1px solid var(--line);
+}
+.warnbar svg { width: 14px; height: 14px; flex: none; stroke: currentColor; fill: none; stroke-width: 2; }
+
+/* --- il diario della run ------------------------------------------- */
+/* Non è un pannello modale: mentre una run gira si continua a lavorare
+   sulla tela, quindi vive in un angolo e si può ridurre a barra. */
+.console {
+  position: fixed; right: 16px; bottom: 16px; z-index: 70;
+  width: min(460px, calc(100vw - 32px));
+  max-height: min(560px, 70vh);
+  display: grid; grid-template-rows: auto auto 1fr;
+  background: var(--bg); border: 1px solid var(--line-2); border-radius: 14px;
+  box-shadow: 0 24px 60px rgba(0,0,0,.45); overflow: hidden;
+}
+.console[hidden] { display: none; }
+.console.fold { max-height: none; grid-template-rows: auto; }
+.console.fold .steps, .console.fold .log { display: none; }
+
+.console .ch {
+  display: flex; align-items: center; gap: 9px;
+  padding: 10px 12px; border-bottom: 1px solid var(--line); background: var(--surface);
+}
+.console .ch strong { font-size: 13px; }
+.console .ch .clock { font-size: 12px; color: var(--ink-2); font-variant-numeric: tabular-nums; }
+.console .ch .dim { font-size: 11.5px; color: var(--ink-3, var(--ink-2)); }
+.console .ch .spacer { flex: 1; }
+.console .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--ink-2); flex: none; }
+.console .dot.run { background: var(--green); animation: pulse 1.4s ease-in-out infinite; }
+.console .dot.wait { background: var(--amber); }
+.console .dot.bad { background: var(--red); }
+@keyframes pulse { 50% { opacity: .25; } }
+
+/* I contatori per categoria: quanti lavori e quanto tempo se ne va
+   in ciascuno. È così che si scopre che il 90% del tempo è fal. */
+.console .steps {
+  display: flex; flex-wrap: wrap; gap: 6px;
+  padding: 9px 12px; border-bottom: 1px solid var(--line);
+}
+.console .steps:empty { display: none; }
+.console .chip {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 3px 8px; border-radius: 999px; font-size: 11px;
+  background: var(--surface-2); color: var(--ink-2); border: 1px solid transparent;
+}
+.console .chip.on { border-color: var(--green); color: var(--green); }
+.console .chip b { color: var(--ink); font-weight: 600; }
+.console .chip.on b { color: var(--green); }
+.console .chip .t { font-variant-numeric: tabular-nums; opacity: .8; }
+
+.console .log { overflow-y: auto; padding: 6px 0; margin: 0; list-style: none; }
+.console .log li {
+  display: grid; grid-template-columns: 1fr auto; gap: 4px 10px;
+  padding: 6px 12px; font-size: 12px; border-bottom: 1px solid var(--line);
+}
+.console .log li:last-child { border-bottom: 0; }
+.console .log .what { color: var(--ink); overflow-wrap: anywhere; }
+.console .log .sub { grid-column: 1; font-size: 11px; color: var(--ink-2); }
+.console .log .t { font-variant-numeric: tabular-nums; font-size: 11px; color: var(--ink-2); white-space: nowrap; }
+.console .log li.live { background: var(--surface); }
+.console .log li.live .t { color: var(--green); }
+.console .log li.bad .what { color: var(--red); }
+.console .log .tag {
+  display: inline-block; margin-right: 6px; padding: 1px 6px; border-radius: 5px;
+  font-size: 10px; letter-spacing: .02em; background: var(--surface-2); color: var(--ink-2);
+}
+.console .log .empty { padding: 14px 12px; color: var(--ink-2); font-size: 12px; }
+.btn.danger { color: var(--red); border-color: var(--red); }

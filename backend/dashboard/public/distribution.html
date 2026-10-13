@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Distribution · Vego</title>
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<script>document.documentElement.dataset.theme = localStorage.getItem('vego-theme') || 'dark';</script>
+<link rel="stylesheet" href="/styles.css">
+<link rel="stylesheet" href="/distribution.css">
+</head>
+<body class="dist" data-page="distribution">
+
+<div class="dist">
+  <header class="dist-top">
+    <a class="back" href="/" title="Torna alla dashboard">
+      <svg viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6"/></svg>
+      Torna a analytics
+    </a>
+    <span class="sep"></span>
+    <select id="flowPick" class="btn small" style="max-width:200px" aria-label="Flussi salvati"></select>
+    <input class="name" id="flowName" value="Flusso senza nome" spellcheck="false" aria-label="Nome del flusso">
+    <span class="state" id="flowState"></span>
+    <button class="btn small" id="newFlow" type="button" title="Parti da una tela nuova">Nuovo</button>
+    <button class="btn small" id="dupFlow" type="button" title="Salva una copia con questo nome, senza toccare l’originale">Duplica</button>
+    <button class="btn small ghost" id="delFlow" type="button" title="Elimina il flusso aperto">Elimina</button>
+
+    <span class="spacer"></span>
+
+    <span class="cost" id="cost"></span>
+    <button class="btn" id="openStorage" type="button">Storage</button>
+    <button class="btn" id="save" type="button">Salva</button>
+    <button class="btn primary" id="run" type="button">Run</button>
+  </header>
+
+  <div class="dist-body" id="body">
+    <aside class="palette" id="palette"></aside>
+
+    <div class="canvas" id="canvas">
+      <div class="world" id="world">
+        <svg class="wires" id="wires"></svg>
+        <div id="nodes"></div>
+      </div>
+
+      <div class="blank" id="blank">
+        <h2>Tela vuota</h2>
+        <p>Trascina un blocco da sinistra. Si parte sempre da un Source e si finisce con un Save.</p>
+      </div>
+
+      <div class="zoom">
+        <button type="button" id="zoomOut" title="Riduci">−</button>
+        <span class="lvl" id="zoomLvl">100%</span>
+        <button type="button" id="zoomIn" title="Ingrandisci">+</button>
+        <button type="button" id="zoomFit" title="Inquadra tutto">⤢</button>
+      </div>
+    </div>
+
+    <aside class="panel-side" id="panel" hidden></aside>
+  </div>
+</div>
+
+<!-- Storage: cartelle a sinistra, contenuti a destra. Serve sia a
+     gestire i file sia a sceglierli per un nodo Source. -->
+<div class="sheet" id="storage" hidden>
+  <div class="win">
+    <div class="wh">
+      <strong id="storageTitle">Storage</strong>
+      <span class="dim" id="storageCount"></span>
+      <button class="btn small" id="newFolder" type="button">Nuova cartella</button>
+      <button class="btn small" id="uploadBtn" type="button">Carica</button>
+      <button class="btn small primary" id="storageDone" type="button" hidden>Usa i selezionati</button>
+      <button class="btn small ghost" id="storageClose" type="button">Chiudi</button>
+      <input type="file" id="uploadInput" accept="image/jpeg,image/png,image/webp,video/mp4,video/quicktime,video/webm" multiple hidden>
+    </div>
+    <div class="wb">
+      <div class="tree" id="tree"></div>
+      <div class="grid-files" id="files"></div>
+    </div>
+  </div>
+</div>
+
+<!-- La pausa del flusso ad ancora: i fotogrammi modificati, da approvare
+     prima che partano i secondi di video. -->
+<div class="sheet" id="gate" hidden>
+  <div class="win gate">
+    <div class="wh">
+      <strong>Approva i fotogrammi</strong>
+      <span class="dim" id="gateHint"></span>
+    </div>
+    <div class="anchors" id="gateList"></div>
+    <div class="wf">
+      <button class="btn small" id="gateAll" type="button">Seleziona tutti</button>
+      <span class="dim" id="gateCost"></span>
+      <span class="spacer"></span>
+      <button class="btn" id="gateStop" type="button">Ferma la run</button>
+      <button class="btn primary" id="gateGo" type="button">Genera i video</button>
+    </div>
+  </div>
+</div>
+
+<!-- Il diario della run. Si apre da solo quando parte: dice cosa sta
+     girando in questo momento, da quanto, quanto ha preso ogni tipo di
+     lavoro, e ha lo stop sempre a portata di pollice. -->
+<section class="console" id="console" hidden>
+  <header class="ch">
+    <span class="dot" id="consoleDot"></span>
+    <strong id="consoleTitle">Run</strong>
+    <span class="clock" id="consoleClock">0s</span>
+    <span class="dim" id="consoleSpent"></span>
+    <span class="spacer"></span>
+    <button class="btn small danger" id="consoleStop" type="button">Stop</button>
+    <button class="btn small ghost" id="consoleFold" type="button" title="Riduci">–</button>
+  </header>
+  <div class="steps" id="consoleSteps"></div>
+  <ol class="log" id="consoleLog"></ol>
+</section>
+
+<script src="/distribution.js"></script>
+</body>
+</html>

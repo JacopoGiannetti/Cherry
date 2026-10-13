@@ -1,0 +1,26 @@
+{
+  "name": "vego-backend",
+  "version": "1.0.0",
+  "description": "Vego backend — fire-and-forget jobs, writes to Firestore",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js",
+    "check:firebase": "node scripts/check-firebase.js",
+    "check:ai": "node scripts/check-ai.js",
+    "check:apns": "node scripts/check-apns.js",
+    "deploy:rules": "node scripts/deploy-rules.js",
+    "inspect:run": "node scripts/inspect-run.js",
+    "usage:report": "node scripts/usage-report.js",
+    "dashboard": "node dashboard/server.js"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "axios": "^1.8.4",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "firebase-admin": "^12.7.0"
+  }
+}

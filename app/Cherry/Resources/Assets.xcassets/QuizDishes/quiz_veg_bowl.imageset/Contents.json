@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "quiz_veg_bowl.png",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

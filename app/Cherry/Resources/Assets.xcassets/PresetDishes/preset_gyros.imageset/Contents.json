@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "preset_gyros.jpg",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

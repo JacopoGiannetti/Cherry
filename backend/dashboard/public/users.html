@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Utenti · Vego Analytics</title>
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<script>document.documentElement.dataset.theme = localStorage.getItem('vego-theme') || 'dark';</script>
+<link rel="stylesheet" href="/styles.css">
+</head>
+<body data-page="users">
+<div class="shell">
+  <aside class="sidebar" id="side"></aside>
+  <div>
+    <main id="main" class="page" hidden>
+      <header class="topbar">
+        <div><p class="crumb">Utenti</p><h1>Uno per uno</h1></div>
+        <div class="right"><span class="stamp" id="windowLabel"></span><span class="stamp" id="stamp"></span><button id="refresh" class="btn" type="button">Aggiorna</button></div>
+      </header>
+
+      <div class="toolbar">
+        <input type="search" id="userSearch" placeholder="nome, uid, oppure dieta:vegan canale:instagram stato:pagante blocco:cost">
+        <span class="dim" id="userCount"></span>
+      </div>
+      <div class="chips" id="userFilters" style="margin-bottom:14px"></div>
+
+      <div class="panel c12 flush">
+        <div class="scroll"><table class="tbl" id="userTable"></table></div>
+      </div>
+    </main>
+    <div id="state" class="state">Leggo Firestore…</div>
+  </div>
+</div>
+<div class="drawer-backdrop" id="drawerBackdrop"></div>
+<aside class="drawer" id="drawer" aria-hidden="true"></aside>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+<script src="/app.js"></script>
+</body>
+</html>

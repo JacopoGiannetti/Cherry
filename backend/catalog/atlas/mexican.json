@@ -1,0 +1,3796 @@
+{
+  "tile": "Mexican",
+  "generatedAt": "2026-10-05",
+  "dishes": [
+    {
+      "key": "tacos-al-pastor",
+      "name": "Tacos al pastor",
+      "nameEn": "Shepherd-style spit-roasted tacos",
+      "aliases": [
+        "al pastor",
+        "tacos de trompo",
+        "tacos de adobada"
+      ],
+      "tiles": [
+        "Mexican"
+      ],
+      "cuisine": "Mexican",
+      "region": "Mexico City",
+      "format": "tacos",
+      "protein": "mushrooms",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop",
+        "blender"
+      ],
+      "cookMinutes": 50,
+      "effort": "medium",
+      "familiarity": 1,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "pork shoulder",
+        "guajillo chiles",
+        "achiote paste",
+        "pineapple",
+        "white onion",
+        "cilantro",
+        "corn tortillas"
+      ],
+      "specialtyIngredients": [
+        "guajillo chiles",
+        "achiote paste"
+      ],
+      "veganApproach": "Marinate oyster or portobello mushrooms in the same guajillo-achiote adobo and sear them hard with pineapple instead of spit-roasting pork.",
+      "technique": "Meat marinated in a dried-chile and achiote adobo is roasted on a vertical spit (trompo) and shaved thin onto tortillas with pineapple, a method inherited from Lebanese shawarma.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "hosting"
+      ],
+      "sources": [
+        {
+          "title": "Al pastor - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Al_pastor"
+        },
+        {
+          "title": "Mushroom Al Pastor Tacos - Masienda",
+          "url": "https://masienda.com/blogs/learn/mushroom-al-pastor-tacos"
+        },
+        {
+          "title": "Vegan Al Pastor Tacos - Crowded Kitchen",
+          "url": "https://www.crowdedkitchen.com/vegan-al-pastor-tacos/"
+        }
+      ]
+    },
+    {
+      "key": "carnitas",
+      "name": "Carnitas",
+      "nameEn": "Michoacán-style confit pork tacos",
+      "aliases": [
+        "carnitas michoacanas",
+        "tacos de carnitas"
+      ],
+      "tiles": [
+        "Mexican",
+        "American"
+      ],
+      "cuisine": "Mexican",
+      "region": "Michoacán",
+      "format": "tacos",
+      "protein": "jackfruit",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 45,
+      "effort": "medium",
+      "familiarity": 1,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "pork shoulder",
+        "lard",
+        "orange",
+        "garlic",
+        "mexican oregano",
+        "corn tortillas",
+        "white onion",
+        "cilantro"
+      ],
+      "specialtyIngredients": [
+        "mexican oregano"
+      ],
+      "veganApproach": "Simmer young green jackfruit with orange, garlic and oregano until tender, then shred it and crisp it in a hot pan to mimic confit pork.",
+      "technique": "Pork is slowly confited in its own lard in a copper cazo until tender, then the heat is raised so the edges turn crisp and caramelized.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "hosting",
+        "mealprep"
+      ],
+      "sources": [
+        {
+          "title": "Carnitas - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Carnitas"
+        },
+        {
+          "title": "Vegan jackfruit carnitas tacos - Los Angeles Times",
+          "url": "https://www.latimes.com/recipe/vegan-jackfruit-carnitas-tacos"
+        },
+        {
+          "title": "Jackfruit Carnitas - Allrecipes",
+          "url": "https://www.allrecipes.com/recipe/275558/jackfruit-carnitas/"
+        }
+      ]
+    },
+    {
+      "key": "birria",
+      "name": "Birria",
+      "nameEn": "Jalisco chile-braised stew with consommé",
+      "aliases": [
+        "birria de res",
+        "birria tacos",
+        "quesabirria",
+        "tacos de birria"
+      ],
+      "tiles": [
+        "Mexican",
+        "American"
+      ],
+      "cuisine": "Mexican",
+      "region": "Jalisco",
+      "format": "stew",
+      "protein": "mushrooms",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop",
+        "blender"
+      ],
+      "cookMinutes": 75,
+      "effort": "medium",
+      "familiarity": 1,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "goat or beef",
+        "guajillo chiles",
+        "ancho chiles",
+        "tomatoes",
+        "garlic",
+        "cumin",
+        "cloves",
+        "corn tortillas"
+      ],
+      "specialtyIngredients": [
+        "guajillo chiles",
+        "ancho chiles"
+      ],
+      "veganApproach": "Shredded oyster or king oyster mushrooms are simmered in the guajillo consommé, and tortillas are dipped in the red broth and griddled into tacos.",
+      "technique": "Meat is marinated in a dried-chile adobo and slowly braised in a sealed pot until it yields a rich consommé served alongside for dipping.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "hosting",
+        "comfort"
+      ],
+      "sources": [
+        {
+          "title": "Birria - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Birria"
+        },
+        {
+          "title": "Vegan Birria - Mexican Made Meatless",
+          "url": "https://mexicanmademeatless.com/vegan-birria/"
+        },
+        {
+          "title": "Vegan Birria Tacos - Ale Cooks",
+          "url": "https://www.alecooks.com/vegan-birria-tacos/"
+        }
+      ]
+    },
+    {
+      "key": "barbacoa",
+      "name": "Barbacoa",
+      "nameEn": "Pit-cooked lamb tacos",
+      "aliases": [
+        "barbacoa de borrego",
+        "tacos de barbacoa",
+        "barbacoa de hongos"
+      ],
+      "tiles": [
+        "Mexican",
+        "American"
+      ],
+      "cuisine": "Mexican",
+      "region": "Hidalgo",
+      "format": "tacos",
+      "protein": "mushrooms",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop",
+        "blender"
+      ],
+      "cookMinutes": 60,
+      "effort": "medium",
+      "familiarity": 1,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "lamb",
+        "maguey leaves",
+        "guajillo chiles",
+        "garlic",
+        "cumin",
+        "white onion",
+        "cilantro",
+        "corn tortillas"
+      ],
+      "specialtyIngredients": [
+        "maguey leaves",
+        "guajillo chiles"
+      ],
+      "veganApproach": "Braise shredded oyster or maitake mushrooms in a guajillo-ancho adobo until tender and juicy, then serve in tortillas with onion and cilantro.",
+      "technique": "Lamb wrapped in maguey leaves is slow-cooked overnight in an underground pit oven, yielding meltingly tender meat and a broth (consomé).",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "hosting",
+        "comfort"
+      ],
+      "sources": [
+        {
+          "title": "Barbacoa - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Barbacoa"
+        },
+        {
+          "title": "Mushroom Barbacoa - Recetas Mexas",
+          "url": "https://recetasmexas.com/en-us/recipe/mushroom-barbacoa"
+        },
+        {
+          "title": "Vegan Barbacoa Mushroom Tacos - Vegan Richa",
+          "url": "https://www.veganricha.com/vegan-barbacoa-mushroom-tacos/"
+        }
+      ]
+    },
+    {
+      "key": "tacos-dorados-de-papa",
+      "name": "Tacos dorados de papa",
+      "nameEn": "Crispy rolled potato tacos",
+      "aliases": [
+        "flautas de papa",
+        "taquitos de papa",
+        "flautas",
+        "taquitos"
+      ],
+      "tiles": [
+        "Mexican",
+        "American"
+      ],
+      "cuisine": "Mexican",
+      "region": null,
+      "format": "tacos",
+      "protein": "vegetables",
+      "method": "deep_fry",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 40,
+      "effort": "medium",
+      "familiarity": 1,
+      "traditionalDiet": "vegetarian",
+      "versions": [
+        "vegan",
+        "vegetarian"
+      ],
+      "keyIngredients": [
+        "corn tortillas",
+        "potatoes",
+        "white onion",
+        "garlic",
+        "tomato salsa",
+        "lettuce",
+        "mexican crema",
+        "queso fresco"
+      ],
+      "specialtyIngredients": [
+        "mexican crema",
+        "queso fresco"
+      ],
+      "veganApproach": "The mashed potato filling is already vegan; top with a cashew crema and a plant-based crumbled cheese instead of dairy.",
+      "technique": "Tortillas are rolled tightly around a seasoned potato mash, secured and fried until shatteringly crisp, then topped with salsa, lettuce and crema.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "comfort"
+      ],
+      "sources": [
+        {
+          "title": "Taquito - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Taquito"
+        },
+        {
+          "title": "Potato Taquitos (Tacos Dorados de Papa) - Cuerna Kitchen",
+          "url": "https://cuernakitchen.com/potato-taquitos-tacos-dorados-de-papa/"
+        },
+        {
+          "title": "Crispy Potato Tacos - Ale Cooks",
+          "url": "https://www.alecooks.com/crispy-potato-tacos/"
+        }
+      ]
+    },
+    {
+      "key": "tacos-de-pescado",
+      "name": "Tacos de pescado",
+      "nameEn": "Baja-style battered fish tacos",
+      "aliases": [
+        "baja fish tacos",
+        "tacos de pescado estilo Ensenada",
+        "fish tacos"
+      ],
+      "tiles": [
+        "Mexican",
+        "Fresh & light"
+      ],
+      "cuisine": "Mexican",
+      "region": "Baja California",
+      "format": "tacos",
+      "protein": "tofu",
+      "method": "deep_fry",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 40,
+      "effort": "medium",
+      "familiarity": 1,
+      "traditionalDiet": "pescatarian",
+      "versions": [
+        "vegan",
+        "pescatarian"
+      ],
+      "keyIngredients": [
+        "white fish",
+        "flour",
+        "beer",
+        "corn tortillas",
+        "cabbage",
+        "mayonnaise",
+        "mexican crema",
+        "lime"
+      ],
+      "specialtyIngredients": [
+        "mexican crema"
+      ],
+      "veganApproach": "Beer-batter strips of extra-firm tofu and serve them with shredded cabbage, salsa and an eggless lime crema.",
+      "technique": "Strips of white fish are dipped in a light beer batter and deep-fried, then served on corn tortillas with shredded cabbage, crema and salsa.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn"
+      ],
+      "occasions": [
+        "everyday",
+        "hosting"
+      ],
+      "sources": [
+        {
+          "title": "Fish taco - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Fish_taco"
+        },
+        {
+          "title": "Classic Ensenada Fish Tacos - Rick Bayless",
+          "url": "https://www.rickbayless.com/recipe/classic-ensenada-fish-tacos/"
+        },
+        {
+          "title": "Baja Tofu Tacos - The Curious Chickpea",
+          "url": "https://www.thecuriouschickpea.com/baja-tofu-tacos/"
+        }
+      ]
+    },
+    {
+      "key": "tinga",
+      "name": "Tinga",
+      "nameEn": "Chipotle-tomato shredded stew on tostadas",
+      "aliases": [
+        "tinga de pollo",
+        "tinga poblana",
+        "tostadas de tinga"
+      ],
+      "tiles": [
+        "Mexican"
+      ],
+      "cuisine": "Mexican",
+      "region": "Puebla",
+      "format": "tacos",
+      "protein": "mushrooms",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop",
+        "blender"
+      ],
+      "cookMinutes": 45,
+      "effort": "low",
+      "familiarity": 1,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "chicken",
+        "tomatoes",
+        "chipotles in adobo",
+        "white onion",
+        "garlic",
+        "tostadas",
+        "refried beans",
+        "mexican crema"
+      ],
+      "specialtyIngredients": [
+        "chipotles in adobo",
+        "mexican crema"
+      ],
+      "veganApproach": "Shredded oyster mushrooms (or jackfruit or soy curls) and cabbage are simmered in the chipotle-tomato salsa and served with vegan crema and cotija.",
+      "technique": "Shredded meat and plenty of sliced onion are simmered in a blended tomato-chipotle salsa until thick, then piled on bean-smeared tostadas.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "mealprep"
+      ],
+      "sources": [
+        {
+          "title": "Tinga (dish) - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Tinga_(dish)"
+        },
+        {
+          "title": "Best Vegan Tinga - Mexican Made Meatless",
+          "url": "https://mexicanmademeatless.com/best-vegan-tinga-recipe/"
+        },
+        {
+          "title": "Vegan Mushroom Tinga - No Frills Kitchen",
+          "url": "https://nofrillskitchen.com/vegan-mushroom-tinga/"
+        }
+      ]
+    },
+    {
+      "key": "tacos-de-canasta",
+      "name": "Tacos de canasta",
+      "nameEn": "Steamed basket tacos",
+      "aliases": [
+        "tacos sudados",
+        "tacos al vapor",
+        "tacos de canasta de frijol y papa"
+      ],
+      "tiles": [
+        "Mexican"
+      ],
+      "cuisine": "Mexican",
+      "region": "Mexico City",
+      "format": "tacos",
+      "protein": "beans",
+      "method": "steam",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 60,
+      "effort": "medium",
+      "familiarity": 2,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "corn tortillas",
+        "refried beans",
+        "potatoes",
+        "guajillo chiles",
+        "vegetable oil",
+        "white onion",
+        "salsa verde"
+      ],
+      "specialtyIngredients": [
+        "guajillo chiles"
+      ],
+      "veganApproach": "Stick to the classic bean and potato-chile fillings and brush the tortillas with chile-infused oil instead of lard.",
+      "technique": "Filled tacos are dipped in hot chile oil and packed tightly in a cloth-lined basket so they steam in their own heat and turn soft and glossy.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "mealprep",
+        "hosting"
+      ],
+      "sources": [
+        {
+          "title": "Tacos de canasta - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Tacos_de_canasta"
+        },
+        {
+          "title": "Tacos de Canasta - Broke Bank Vegan",
+          "url": "https://brokebankvegan.com/tacos-de-canasta/"
+        },
+        {
+          "title": "Tacos de canasta, receta fácil - Directo al Paladar",
+          "url": "https://www.directoalpaladar.com.mx/comida-mexicana/tacos-canasta-receta-facil"
+        }
+      ]
+    },
+    {
+      "key": "quesadillas-de-flor-de-calabaza",
+      "name": "Quesadillas de flor de calabaza",
+      "nameEn": "Squash blossom quesadillas",
+      "aliases": [
+        "quesadillas",
+        "quesadilla de flor de calabaza",
+        "quesadillas de comal"
+      ],
+      "tiles": [
+        "Mexican"
+      ],
+      "cuisine": "Mexican",
+      "region": "Central Mexico",
+      "format": "wrap",
+      "protein": "cheese",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 25,
+      "effort": "low",
+      "familiarity": 1,
+      "traditionalDiet": "vegetarian",
+      "versions": [
+        "vegetarian"
+      ],
+      "keyIngredients": [
+        "corn masa",
+        "squash blossoms",
+        "quesillo",
+        "white onion",
+        "garlic",
+        "epazote",
+        "poblano chile"
+      ],
+      "specialtyIngredients": [
+        "squash blossoms",
+        "quesillo",
+        "epazote"
+      ],
+      "veganApproach": null,
+      "technique": "Fresh masa tortillas are griddled on a comal and folded around sautéed squash blossoms and melting quesillo until crisp at the edges.",
+      "seasons": [
+        "summer",
+        "autumn"
+      ],
+      "occasions": [
+        "everyday",
+        "quick",
+        "date"
+      ],
+      "sources": [
+        {
+          "title": "Quesadilla - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Quesadilla"
+        },
+        {
+          "title": "Quesadillas de Flor de Calabaza - Masienda",
+          "url": "https://masienda.com/blogs/learn/quesadillas-de-flor-de-calabaza"
+        },
+        {
+          "title": "Quesadillas de flor de calabaza - Pati Jinich",
+          "url": "https://patijinich.com/pati_2020/es/quesadillas-de-flor-de-calabaza/"
+        }
+      ]
+    },
+    {
+      "key": "sopes",
+      "name": "Sopes",
+      "nameEn": "Thick masa cakes with beans and toppings",
+      "aliases": [
+        "sope",
+        "picadas"
+      ],
+      "tiles": [
+        "Mexican"
+      ],
+      "cuisine": "Mexican",
+      "region": null,
+      "format": "flatbread",
+      "protein": "beans",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 45,
+      "effort": "medium",
+      "familiarity": 1,
+      "traditionalDiet": "vegetarian",
+      "versions": [
+        "vegan",
+        "vegetarian"
+      ],
+      "keyIngredients": [
+        "masa harina",
+        "refried beans",
+        "salsa verde",
+        "lettuce",
+        "queso fresco",
+        "mexican crema",
+        "white onion"
+      ],
+      "specialtyIngredients": [
+        "masa harina",
+        "queso fresco",
+        "mexican crema"
+      ],
+      "veganApproach": "Top with refried beans cooked in oil, salsa verde, avocado and a cashew crema instead of cheese and cream.",
+      "technique": "Thick masa discs are griddled, their edges pinched up into a rim, then crisped in a little oil and loaded with beans and salsa.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "hosting"
+      ],
+      "sources": [
+        {
+          "title": "Sope - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Sope"
+        },
+        {
+          "title": "Easy Sopes Recipe - Broke Bank Vegan",
+          "url": "https://brokebankvegan.com/easy-sopes-recipe/"
+        },
+        {
+          "title": "Vegan Sopes With Refried Beans and Salsa Verde - Serious Eats",
+          "url": "https://www.seriouseats.com/vegan-sopes-with-refried-beans-salsa-verde-recipe"
+        }
+      ]
+    },
+    {
+      "key": "gorditas",
+      "name": "Gorditas",
+      "nameEn": "Stuffed masa pockets",
+      "aliases": [
+        "gordita",
+        "gorditas de frijol"
+      ],
+      "tiles": [
+        "Mexican"
+      ],
+      "cuisine": "Mexican",
+      "region": null,
+      "format": "flatbread",
+      "protein": "beans",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 45,
+      "effort": "medium",
+      "familiarity": 2,
+      "traditionalDiet": "vegetarian",
+      "versions": [
+        "vegan",
+        "vegetarian"
+      ],
+      "keyIngredients": [
+        "masa harina",
+        "refried beans",
+        "queso fresco",
+        "salsa",
+        "lettuce",
+        "white onion"
+      ],
+      "specialtyIngredients": [
+        "masa harina",
+        "queso fresco"
+      ],
+      "veganApproach": "Fill the pockets with refried pinto beans, salsa and vegetables, leaving out the cheese or using a vegan one.",
+      "technique": "Thick masa cakes are cooked on a comal until they puff, then split open like a pita and stuffed with a guisado.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "mealprep"
+      ],
+      "sources": [
+        {
+          "title": "Gordita - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Gordita"
+        },
+        {
+          "title": "Bean Gorditas - Thrift and Spice",
+          "url": "https://thriftandspice.com/bean-gorditas/"
+        },
+        {
+          "title": "Vegan Gorditas With Refried Pinto Beans - VegNews",
+          "url": "https://vegnews.com/recipes/vegan-gorditas-with-refried-pinto-beans"
+        }
+      ]
+    },
+    {
+      "key": "huaraches",
+      "name": "Huaraches",
+      "nameEn": "Sandal-shaped masa flatbreads",
+      "aliases": [
+        "huarache",
+        "huaraches con nopales"
+      ],
+      "tiles": [
+        "Mexican"
+      ],
+      "cuisine": "Mexican",
+      "region": "Mexico City",
+      "format": "flatbread",
+      "protein": "beans",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 50,
+      "effort": "medium",
+      "familiarity": 2,
+      "traditionalDiet": "vegetarian",
+      "versions": [
+        "vegan",
+        "vegetarian"
+      ],
+      "keyIngredients": [
+        "masa harina",
+        "refried beans",
+        "salsa verde",
+        "salsa roja",
+        "nopales",
+        "queso fresco",
+        "white onion"
+      ],
+      "specialtyIngredients": [
+        "masa harina",
+        "nopales",
+        "queso fresco"
+      ],
+      "veganApproach": "Top with beans, sautéed nopales and both salsas, and skip the cheese or use a plant-based crumble.",
+      "technique": "Masa is stuffed with refried beans and flattened into a long sandal-shaped oval before being griddled and topped.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "hosting"
+      ],
+      "sources": [
+        {
+          "title": "Huarache (food) - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Huarache_(food)"
+        },
+        {
+          "title": "Huaraches Recipe - Hola Jalapeño",
+          "url": "https://www.holajalapeno.com/huaraches-recipe/"
+        },
+        {
+          "title": "Huaraches con Nopales y Frijoles de Olla - Culture Cheese Magazine",
+          "url": "https://culturecheesemag.com/recipes/huaraches-con-nopales-y-frijoles-de-olla-sandal-shaped-masa-cakes-diced-cactus-paddles-beans/"
+        }
+      ]
+    },
+    {
+      "key": "tlacoyos",
+      "name": "Tlacoyos",
+      "nameEn": "Bean-filled blue corn masa ovals",
+      "aliases": [
+        "tlacoyo",
+        "tlacoyos de haba",
+        "tlayoyos"
+      ],
+      "tiles": [
+        "Mexican"
+      ],
+      "cuisine": "Mexican",
+      "region": "Central Mexico",
+      "format": "flatbread",
+      "protein": "beans",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 50,
+      "effort": "medium",
+      "familiarity": 3,
+      "traditionalDiet": "vegetarian",
+      "versions": [
+        "vegan",
+        "vegetarian"
+      ],
+      "keyIngredients": [
+        "blue corn masa",
+        "fava beans",
+        "nopales",
+        "salsa verde",
+        "white onion",
+        "cilantro",
+        "queso fresco"
+      ],
+      "specialtyIngredients": [
+        "blue corn masa",
+        "nopales",
+        "queso fresco"
+      ],
+      "veganApproach": "Naturally vegan when topped only with nopales, salsa, onion and cilantro; simply skip the cheese.",
+      "technique": "Masa is wrapped around a seasoned fava bean or bean paste, shaped into a pointed oval and cooked on a dry comal.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "hosting"
+      ],
+      "sources": [
+        {
+          "title": "Tlacoyo - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Tlacoyo"
+        },
+        {
+          "title": "Tlacoyos de masa azul de haba con huevo y nopales - Pati Jinich",
+          "url": "https://patijinich.com/tlacoyos-de-masa-azul-de-haba-con-huevo-y-nopales/"
+        },
+        {
+          "title": "Tlacoyos de haba - Cocina Vital",
+          "url": "https://www.cocinavital.mx/recetas/desayunos/tlacoyos-de-haba/2017/08/"
+        }
+      ]
+    },
+    {
+      "key": "tlayudas",
+      "name": "Tlayudas",
+      "nameEn": "Oaxacan giant crisp tortillas",
+      "aliases": [
+        "tlayuda",
+        "clayuda",
+        "Oaxacan pizza"
+      ],
+      "tiles": [
+        "Mexican"
+      ],
+      "cuisine": "Mexican",
+      "region": "Oaxaca",
+      "format": "flatbread",
+      "protein": "beans",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 30,
+      "effort": "low",
+      "familiarity": 2,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegan",
+        "vegetarian"
+      ],
+      "keyIngredients": [
+        "tlayuda tortillas",
+        "black beans",
+        "asiento",
+        "quesillo",
+        "cabbage",
+        "tomato",
+        "avocado"
+      ],
+      "specialtyIngredients": [
+        "tlayuda tortillas",
+        "asiento",
+        "quesillo"
+      ],
+      "veganApproach": "Spread the tortilla with black beans fried in oil instead of asiento and top with avocado, cabbage, mushrooms and salsa instead of quesillo.",
+      "technique": "A large, thin, semi-dried tortilla is smeared with asiento and black bean paste, topped, folded and toasted over charcoal until crisp.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "hosting"
+      ],
+      "sources": [
+        {
+          "title": "Tlayuda - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Tlayuda"
+        },
+        {
+          "title": "Prepared Tlayudas, Vegetarian and With Tasajo - My Slice of Mexico",
+          "url": "https://mysliceofmexico.ca/2020/06/10/prepared-tlayudas-vegetarian-and-with-tasajo/"
+        },
+        {
+          "title": "Tlayudas de Oaxaca - Feasting at Home",
+          "url": "https://www.feastingathome.com/tlayudas-de-oaxaca/"
+        }
+      ]
+    },
+    {
+      "key": "burrito",
+      "name": "Burrito",
+      "nameEn": "Ciudad Juárez-style burrito",
+      "aliases": [
+        "burritos",
+        "burrito de frijoles",
+        "burrito juarense"
+      ],
+      "tiles": [
+        "Mexican",
+        "American"
+      ],
+      "cuisine": "Mexican",
+      "region": "Chihuahua",
+      "format": "wrap",
+      "protein": "beans",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 25,
+      "effort": "low",
+      "familiarity": 1,
+      "traditionalDiet": "vegetarian",
+      "versions": [
+        "vegan",
+        "vegetarian"
+      ],
+      "keyIngredients": [
+        "flour tortillas",
+        "refried beans",
+        "asadero cheese",
+        "chile colorado",
+        "white onion",
+        "salsa"
+      ],
+      "specialtyIngredients": [
+        "asadero cheese"
+      ],
+      "veganApproach": "Fill the flour tortillas with oil-fried refried beans and a vegetable or soy guisado, leaving out the cheese.",
+      "technique": "Large flour tortillas are warmed on the comal and rolled tightly around a single guisado, border-style, without rice.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "quick",
+        "mealprep"
+      ],
+      "sources": [
+        {
+          "title": "Burrito - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Burrito"
+        },
+        {
+          "title": "El burrito, icono de la frontera de Ciudad Juárez - El Diario de Juárez",
+          "url": "https://edjuarez.com/destacado/el-burrito-icono-de-la-frontera-de-ciudad-juarez/"
+        },
+        {
+          "title": "Mexico: Burritos - 196 Flavors",
+          "url": "https://www.196flavors.com/mexico-burritos/"
+        }
+      ]
+    },
+    {
+      "key": "enchiladas-verdes",
+      "name": "Enchiladas verdes",
+      "nameEn": "Green tomatillo enchiladas",
+      "aliases": [
+        "enchiladas de salsa verde",
+        "green enchiladas"
+      ],
+      "tiles": [
+        "Mexican",
+        "American"
+      ],
+      "cuisine": "Mexican",
+      "region": null,
+      "format": "wrap",
+      "protein": "jackfruit",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop",
+        "blender"
+      ],
+      "cookMinutes": 45,
+      "effort": "medium",
+      "familiarity": 1,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegan",
+        "vegetarian"
+      ],
+      "keyIngredients": [
+        "corn tortillas",
+        "tomatillos",
+        "serrano chiles",
+        "chicken",
+        "mexican crema",
+        "queso fresco",
+        "white onion",
+        "cilantro"
+      ],
+      "specialtyIngredients": [
+        "tomatillos",
+        "mexican crema",
+        "queso fresco"
+      ],
+      "veganApproach": "Fill with shredded jackfruit or beans and potatoes, and finish with a cashew crema instead of dairy.",
+      "technique": "Tortillas are briefly fried, dipped in a cooked tomatillo-serrano salsa, rolled around the filling and topped with crema, cheese and raw onion.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "hosting",
+        "comfort"
+      ],
+      "sources": [
+        {
+          "title": "Enchilada - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Enchilada"
+        },
+        {
+          "title": "Enchiladas Verdes with Oaxaca Cheese and Poblano - Mexican Made Meatless",
+          "url": "https://mexicanmademeatless.com/enchiladas-verdes-with-stringy-oaxaca-cheese-and-fire-roasted-poblano-pepper/"
+        },
+        {
+          "title": "Vegan Enchiladas Verdes with Jackfruit - Daily Dose of Vegan",
+          "url": "https://www.dailydoseofvegan.com/2024/09/vegan-enchiladas-verdes-with-jackfruit.html"
+        }
+      ]
+    },
+    {
+      "key": "enchiladas-rojas",
+      "name": "Enchiladas rojas",
+      "nameEn": "Red chile enchiladas",
+      "aliases": [
+        "enchiladas de chile rojo",
+        "red enchiladas"
+      ],
+      "tiles": [
+        "Mexican",
+        "American"
+      ],
+      "cuisine": "Mexican",
+      "region": null,
+      "format": "wrap",
+      "protein": "vegetables",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop",
+        "blender"
+      ],
+      "cookMinutes": 45,
+      "effort": "medium",
+      "familiarity": 1,
+      "traditionalDiet": "vegetarian",
+      "versions": [
+        "vegan",
+        "vegetarian"
+      ],
+      "keyIngredients": [
+        "corn tortillas",
+        "guajillo chiles",
+        "ancho chiles",
+        "garlic",
+        "queso fresco",
+        "white onion",
+        "potatoes",
+        "carrots"
+      ],
+      "specialtyIngredients": [
+        "guajillo chiles",
+        "ancho chiles",
+        "queso fresco"
+      ],
+      "veganApproach": "Fill with sautéed potatoes and carrots or beans and top with a plant-based queso fresco.",
+      "technique": "Tortillas are dipped in a smooth sauce of rehydrated guajillo and ancho chiles, flash-fried and rolled around the filling.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "hosting",
+        "comfort"
+      ],
+      "sources": [
+        {
+          "title": "Enchilada - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Enchilada"
+        },
+        {
+          "title": "Enchiladas Rojas - Vegan Mexican Food",
+          "url": "https://veganmexicanfood.com/recipe/enchiladas-rojas/"
+        },
+        {
+          "title": "Enchiladas Rojas - Broke Bank Vegan",
+          "url": "https://brokebankvegan.com/enchiladas-rojas/"
+        }
+      ]
+    },
+    {
+      "key": "enchiladas-suizas",
+      "name": "Enchiladas suizas",
+      "nameEn": "Creamy baked tomatillo enchiladas",
+      "aliases": [
+        "enchiladas verdes suizas",
+        "Swiss enchiladas"
+      ],
+      "tiles": [
+        "Mexican",
+        "American"
+      ],
+      "cuisine": "Mexican",
+      "region": "Mexico City",
+      "format": "bake",
+      "protein": "chickpeas",
+      "method": "oven",
+      "appliances": [
+        "stovetop",
+        "oven",
+        "blender"
+      ],
+      "cookMinutes": 55,
+      "effort": "medium",
+      "familiarity": 2,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegan",
+        "vegetarian"
+      ],
+      "keyIngredients": [
+        "corn tortillas",
+        "tomatillos",
+        "heavy cream",
+        "chicken",
+        "melting cheese",
+        "poblano chile",
+        "white onion"
+      ],
+      "specialtyIngredients": [
+        "tomatillos"
+      ],
+      "veganApproach": "Fill with mashed chickpeas and mushrooms and blend silken tofu into the roasted tomatillo sauce for creaminess.",
+      "technique": "Chicken enchiladas are bathed in a cream-enriched tomatillo sauce, covered with cheese and gratinéed in the oven, a Sanborns café creation.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "hosting",
+        "comfort"
+      ],
+      "sources": [
+        {
+          "title": "Sanborns and the Enchiladas Suizas - Saveur",
+          "url": "https://www.saveur.com/article/Travels/Mexico-City-Sanborns/"
+        },
+        {
+          "title": "Las enchiladas suizas se inventaron en Sanborns - El Financiero",
+          "url": "https://www.elfinanciero.com.mx/food-and-drink/2024/07/10/las-enchiladas-suizas-se-inventaron-en-sanborns-esto-sabemos/"
+        },
+        {
+          "title": "Vegan Enchiladas Verdes Suizas - Healthy Simple Yum",
+          "url": "https://healthysimpleyum.com/vegan-enchiladas-verdes/"
+        }
+      ]
+    },
+    {
+      "key": "enchiladas-potosinas",
+      "name": "Enchiladas potosinas",
+      "nameEn": "San Luis Potosí red-masa cheese enchiladas",
+      "aliases": [
+        "enchiladas rojas potosinas"
+      ],
+      "tiles": [
+        "Mexican"
+      ],
+      "cuisine": "Mexican",
+      "region": "San Luis Potosí",
+      "format": "other",
+      "protein": "cheese",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop",
+        "blender"
+      ],
+      "cookMinutes": 60,
+      "effort": "high",
+      "familiarity": 3,
+      "traditionalDiet": "vegetarian",
+      "versions": [
+        "vegetarian"
+      ],
+      "keyIngredients": [
+        "masa harina",
+        "ancho chiles",
+        "guajillo chiles",
+        "queso fresco",
+        "white onion",
+        "lettuce"
+      ],
+      "specialtyIngredients": [
+        "masa harina",
+        "ancho chiles",
+        "queso fresco"
+      ],
+      "veganApproach": null,
+      "technique": "Masa kneaded with red chile purée is pressed into small tortillas, filled with cheese and onion, folded into half-moons and griddled or fried.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "hosting"
+      ],
+      "sources": [
+        {
+          "title": "Enchiladas Potosinas (Red Chile Tortilla Cheese Enchiladas) - Piña en la Cocina",
+          "url": "https://pinaenlacocina.com/enchiladas-potosinas-red-chile-tortilla-cheese-enchiladas/"
+        },
+        {
+          "title": "Enchiladas Potosinas - Mexican Food Journal",
+          "url": "https://mexicanfoodjournal.com/enchiladas-potosinas/"
+        }
+      ]
+    },
+    {
+      "key": "enfrijoladas",
+      "name": "Enfrijoladas",
+      "nameEn": "Tortillas in black bean sauce",
+      "aliases": [
+        "enfrijolada"
+      ],
+      "tiles": [
+        "Mexican"
+      ],
+      "cuisine": "Mexican",
+      "region": "Oaxaca",
+      "format": "wrap",
+      "protein": "beans",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop",
+        "blender"
+      ],
+      "cookMinutes": 25,
+      "effort": "low",
+      "familiarity": 2,
+      "traditionalDiet": "vegetarian",
+      "versions": [
+        "vegan",
+        "vegetarian"
+      ],
+      "keyIngredients": [
+        "corn tortillas",
+        "black beans",
+        "chipotle chiles",
+        "white onion",
+        "garlic",
+        "queso fresco",
+        "mexican crema"
+      ],
+      "specialtyIngredients": [
+        "queso fresco",
+        "mexican crema"
+      ],
+      "veganApproach": "The bean sauce is naturally vegan; finish with avocado, onion and a plant-based crema instead of cheese.",
+      "technique": "Warm tortillas are dipped in a silky purée of black beans and chile, folded into quarters or rolled, and garnished.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "quick",
+        "comfort"
+      ],
+      "sources": [
+        {
+          "title": "Enfrijoladas - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Enfrijoladas"
+        },
+        {
+          "title": "Enfrijoladas with Black Beans - Simply Recipes",
+          "url": "https://www.simplyrecipes.com/enfrijoladas-with-black-beans-8778481"
+        },
+        {
+          "title": "Enfrijoladas (Vegan Mexican Recipe) - Ale Cooks",
+          "url": "https://www.alecooks.com/enfrijoladas-vegan-mexican-recipe/"
+        }
+      ]
+    },
+    {
+      "key": "chilaquiles",
+      "name": "Chilaquiles",
+      "nameEn": "Tortilla chips simmered in salsa",
+      "aliases": [
+        "chilaquiles verdes",
+        "chilaquiles rojos"
+      ],
+      "tiles": [
+        "Mexican",
+        "American"
+      ],
+      "cuisine": "Mexican",
+      "region": null,
+      "format": "other",
+      "protein": "beans",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop",
+        "blender"
+      ],
+      "cookMinutes": 30,
+      "effort": "low",
+      "familiarity": 1,
+      "traditionalDiet": "vegetarian",
+      "versions": [
+        "vegan",
+        "vegetarian"
+      ],
+      "keyIngredients": [
+        "corn tortillas",
+        "tomatillos",
+        "serrano chiles",
+        "mexican crema",
+        "queso fresco",
+        "white onion",
+        "eggs",
+        "cilantro"
+      ],
+      "specialtyIngredients": [
+        "tomatillos",
+        "mexican crema",
+        "queso fresco"
+      ],
+      "veganApproach": "Toss crisp tortilla chips in salsa verde and top with cashew crema, avocado and refried beans or a tofu scramble.",
+      "technique": "Day-old tortillas are cut into wedges, fried crisp, then simmered briefly in salsa so they soften at the edges but keep some bite.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "comfort"
+      ],
+      "sources": [
+        {
+          "title": "Chilaquiles - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Chilaquiles"
+        },
+        {
+          "title": "Vegan Chilaquiles Verdes - Dora's Table",
+          "url": "https://dorastable.com/vegan-chilaquiles-verdes/"
+        },
+        {
+          "title": "Chilaquiles Verdes - Broke Bank Vegan",
+          "url": "https://brokebankvegan.com/chilaquiles-verdes/"
+        }
+      ]
+    },
+    {
+      "key": "papadzules",
+      "name": "Papadzules",
+      "nameEn": "Yucatecan egg enchiladas in pumpkin-seed sauce",
+      "aliases": [
+        "papadzul"
+      ],
+      "tiles": [
+        "Mexican"
+      ],
+      "cuisine": "Mexican",
+      "region": "Yucatán",
+      "format": "wrap",
+      "protein": "eggs",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop",
+        "blender"
+      ],
+      "cookMinutes": 50,
+      "effort": "medium",
+      "familiarity": 3,
+      "traditionalDiet": "vegetarian",
+      "versions": [
+        "vegetarian"
+      ],
+      "keyIngredients": [
+        "corn tortillas",
+        "hard-boiled eggs",
+        "pumpkin seeds",
+        "epazote",
+        "tomatoes",
+        "habanero chile",
+        "white onion"
+      ],
+      "specialtyIngredients": [
+        "epazote"
+      ],
+      "veganApproach": null,
+      "technique": "Tortillas are dipped in a pale-green sauce of toasted ground pumpkin seeds and epazote, rolled around chopped egg and topped with a tomato-habanero sauce.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "hosting"
+      ],
+      "sources": [
+        {
+          "title": "Papadzules - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Papadzules"
+        },
+        {
+          "title": "Papadzules - Rick Bayless",
+          "url": "https://www.rickbayless.com/recipe/papadzules/"
+        },
+        {
+          "title": "Papadzules From Yucatán - Serious Eats",
+          "url": "https://www.seriouseats.com/papadzules-from-yucatan"
+        }
+      ]
+    },
+    {
+      "key": "pastel-azteca",
+      "name": "Pastel azteca",
+      "nameEn": "Layered tortilla and poblano casserole",
+      "aliases": [
+        "budín azteca",
+        "Aztec casserole",
+        "Mexican tortilla lasagna"
+      ],
+      "tiles": [
+        "Mexican",
+        "American"
+      ],
+      "cuisine": "Mexican",
+      "region": "Mexico City",
+      "format": "bake",
+      "protein": "cheese",
+      "method": "oven",
+      "appliances": [
+        "stovetop",
+        "oven",
+        "blender"
+      ],
+      "cookMinutes": 75,
+      "effort": "medium",
+      "familiarity": 3,
+      "traditionalDiet": "vegetarian",
+      "versions": [
+        "vegetarian"
+      ],
+      "keyIngredients": [
+        "corn tortillas",
+        "poblano chiles",
+        "tomatillos",
+        "mexican crema",
+        "chihuahua cheese",
+        "corn",
+        "white onion"
+      ],
+      "specialtyIngredients": [
+        "poblano chiles",
+        "tomatillos",
+        "mexican crema"
+      ],
+      "veganApproach": null,
+      "technique": "Lightly fried tortillas are layered like lasagna with salsa verde, roasted poblano rajas, cream and cheese, then baked until bubbling.",
+      "seasons": [
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "hosting",
+        "comfort",
+        "mealprep"
+      ],
+      "sources": [
+        {
+          "title": "Pastel azteca - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Pastel_azteca"
+        },
+        {
+          "title": "Pastel Azteca of Roasted Poblano Rajas, Salsa Verde and Two Cheeses - Rick Bayless",
+          "url": "https://www.rickbayless.com/recipe/pastel-azteca-of-roasted-poblano-rajas-salsa-verde-and-two-cheeses/"
+        }
+      ]
+    },
+    {
+      "key": "huevos-rancheros",
+      "name": "Huevos rancheros",
+      "nameEn": "Ranch-style eggs with salsa",
+      "aliases": [
+        "rancheros",
+        "tofu rancheros"
+      ],
+      "tiles": [
+        "Mexican",
+        "American"
+      ],
+      "cuisine": "Mexican",
+      "region": null,
+      "format": "egg_dish",
+      "protein": "tofu",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop",
+        "blender"
+      ],
+      "cookMinutes": 25,
+      "effort": "low",
+      "familiarity": 1,
+      "traditionalDiet": "vegetarian",
+      "versions": [
+        "vegan",
+        "vegetarian"
+      ],
+      "keyIngredients": [
+        "eggs",
+        "corn tortillas",
+        "tomatoes",
+        "serrano chiles",
+        "white onion",
+        "garlic",
+        "refried beans"
+      ],
+      "specialtyIngredients": [],
+      "veganApproach": "Replace the fried eggs with seared tofu slices or a tofu scramble set over the tortillas and salsa ranchera.",
+      "technique": "Fried eggs sit on lightly fried corn tortillas and are smothered with a cooked tomato-chile salsa ranchera, with beans on the side.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "quick",
+        "comfort"
+      ],
+      "sources": [
+        {
+          "title": "Huevos rancheros - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Huevos_rancheros"
+        },
+        {
+          "title": "Vegan Huevos Rancheros - Sweet Simple Vegan",
+          "url": "https://sweetsimplevegan.com/vegan-huevos-rancheros/"
+        },
+        {
+          "title": "Vegan Tofu Rancheros - America's Test Kitchen",
+          "url": "https://www.americastestkitchen.com/recipes/12057-vegan-tofu-rancheros"
+        }
+      ]
+    },
+    {
+      "key": "huevos-a-la-mexicana",
+      "name": "Huevos a la mexicana",
+      "nameEn": "Mexican-style scrambled eggs",
+      "aliases": [
+        "tofu a la mexicana",
+        "Mexican scrambled eggs"
+      ],
+      "tiles": [
+        "Mexican"
+      ],
+      "cuisine": "Mexican",
+      "region": null,
+      "format": "egg_dish",
+      "protein": "tofu",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 15,
+      "effort": "low",
+      "familiarity": 2,
+      "traditionalDiet": "vegetarian",
+      "versions": [
+        "vegan",
+        "vegetarian"
+      ],
+      "keyIngredients": [
+        "eggs",
+        "tomatoes",
+        "white onion",
+        "serrano chiles",
+        "corn tortillas",
+        "refried beans"
+      ],
+      "specialtyIngredients": [],
+      "veganApproach": "Crumble and season firm tofu and scramble it with the same sautéed tomato, onion and serrano.",
+      "technique": "Onion, tomato and serrano, the colors of the Mexican flag, are sautéed first and the eggs are scrambled into the vegetables.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "quick"
+      ],
+      "sources": [
+        {
+          "title": "Huevos a la Mexicana (Mexican Tofu Scramble) - Mexican Made Meatless",
+          "url": "https://mexicanmademeatless.com/huevos-a-la-mexicana-mexican-tofu-scramble/"
+        },
+        {
+          "title": "Tofu a la mexicana - Piloncillo y Vainilla",
+          "url": "https://www.piloncilloyvainilla.com/tofu-a-la-mexicana/"
+        }
+      ]
+    },
+    {
+      "key": "huevos-motulenos",
+      "name": "Huevos motuleños",
+      "nameEn": "Motul-style eggs on crisp tortillas",
+      "aliases": [
+        "huevos motulenos",
+        "eggs Motul style"
+      ],
+      "tiles": [
+        "Mexican"
+      ],
+      "cuisine": "Mexican",
+      "region": "Yucatán",
+      "format": "egg_dish",
+      "protein": "eggs",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop",
+        "blender"
+      ],
+      "cookMinutes": 30,
+      "effort": "medium",
+      "familiarity": 3,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegetarian"
+      ],
+      "keyIngredients": [
+        "eggs",
+        "corn tortillas",
+        "black beans",
+        "tomato sauce",
+        "peas",
+        "ham",
+        "plantains",
+        "queso fresco"
+      ],
+      "specialtyIngredients": [
+        "queso fresco"
+      ],
+      "veganApproach": null,
+      "technique": "Fried eggs on bean-smeared crisp tortillas are covered with a habanero-tomato sauce and garnished with peas, diced ham, cheese and fried plantain.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "comfort"
+      ],
+      "sources": [
+        {
+          "title": "Huevos motuleños - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Huevos_motule%C3%B1os"
+        },
+        {
+          "title": "Huevos Motuleños (Eggs Motul Style) - Mexico in My Kitchen",
+          "url": "https://www.mexicoinmykitchen.com/huevos-motulenos-eggs-motul-style-recipe/"
+        },
+        {
+          "title": "Motuleño eggs (huevos motuleños) - SBS Food",
+          "url": "https://www.sbs.com.au/food/recipe/motuleno-eggs-huevos-motulenos/ozu9moiok"
+        }
+      ]
+    },
+    {
+      "key": "chiles-rellenos",
+      "name": "Chiles rellenos",
+      "nameEn": "Batter-fried stuffed poblano peppers",
+      "aliases": [
+        "chile relleno",
+        "chiles rellenos de queso"
+      ],
+      "tiles": [
+        "Mexican",
+        "American"
+      ],
+      "cuisine": "Mexican",
+      "region": "Puebla",
+      "format": "stuffed",
+      "protein": "beans",
+      "method": "deep_fry",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 60,
+      "effort": "high",
+      "familiarity": 1,
+      "traditionalDiet": "vegetarian",
+      "versions": [
+        "vegan",
+        "vegetarian"
+      ],
+      "keyIngredients": [
+        "poblano chiles",
+        "cheese",
+        "eggs",
+        "flour",
+        "tomatoes",
+        "white onion",
+        "garlic"
+      ],
+      "specialtyIngredients": [
+        "poblano chiles"
+      ],
+      "veganApproach": "Stuff roasted poblanos with black beans, potatoes or vegan cheese and bake them instead of coating them in egg batter.",
+      "technique": "Roasted, peeled poblanos are stuffed with cheese, coated in whipped egg batter (capeado) and fried, then served in a light tomato broth.",
+      "seasons": [
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "hosting",
+        "comfort"
+      ],
+      "sources": [
+        {
+          "title": "Chile relleno - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Chile_relleno"
+        },
+        {
+          "title": "Vegan Chiles Rellenos - Mexican Made Meatless",
+          "url": "https://mexicanmademeatless.com/vegan-chiles-rellenos-recipe/"
+        },
+        {
+          "title": "Roasted Chile Rellenos with Black Beans - Feasting at Home",
+          "url": "https://www.feastingathome.com/roasted-chile-rellenos-with-black-beans/"
+        }
+      ]
+    },
+    {
+      "key": "chiles-en-nogada",
+      "name": "Chiles en nogada",
+      "nameEn": "Stuffed poblanos in walnut sauce",
+      "aliases": [
+        "chile en nogada"
+      ],
+      "tiles": [
+        "Mexican"
+      ],
+      "cuisine": "Mexican",
+      "region": "Puebla",
+      "format": "stuffed",
+      "protein": "nuts_seeds",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop",
+        "blender"
+      ],
+      "cookMinutes": 120,
+      "effort": "high",
+      "familiarity": 2,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegan",
+        "vegetarian"
+      ],
+      "keyIngredients": [
+        "poblano chiles",
+        "ground meat",
+        "apples",
+        "peaches",
+        "plantain",
+        "fresh walnuts",
+        "pomegranate seeds",
+        "parsley"
+      ],
+      "specialtyIngredients": [
+        "poblano chiles"
+      ],
+      "veganApproach": "Fill the chiles with a fruit-studded plant-based picadillo and make the nogada from walnuts blended with plant milk instead of cream and cheese.",
+      "technique": "Roasted poblanos filled with a sweet-savory fruit and meat picadillo are covered with a cold walnut cream and pomegranate, echoing the flag's colors.",
+      "seasons": [
+        "summer",
+        "autumn"
+      ],
+      "occasions": [
+        "hosting",
+        "date"
+      ],
+      "sources": [
+        {
+          "title": "Chiles en nogada - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Chiles_en_nogada"
+        },
+        {
+          "title": "Vegan Chiles en Nogada - Dora's Table",
+          "url": "https://dorastable.com/vegan-chiles-en-nogada/"
+        },
+        {
+          "title": "Chiles en Nogada Vegetarianos - Mexican Made Meatless",
+          "url": "https://mexicanmademeatless.com/chiles-en-nogada-vegetarianos-vegetarian-poblano-peppers-in-walnut-sauce/"
+        }
+      ]
+    },
+    {
+      "key": "tamales",
+      "name": "Tamales",
+      "nameEn": "Steamed filled masa parcels",
+      "aliases": [
+        "tamal",
+        "tamales rojos",
+        "tamales de rajas con queso"
+      ],
+      "tiles": [
+        "Mexican",
+        "American"
+      ],
+      "cuisine": "Mexican",
+      "region": null,
+      "format": "other",
+      "protein": "vegetables",
+      "method": "steam",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 150,
+      "effort": "high",
+      "familiarity": 1,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegan",
+        "vegetarian"
+      ],
+      "keyIngredients": [
+        "masa harina",
+        "lard",
+        "corn husks",
+        "guajillo chiles",
+        "pork",
+        "broth",
+        "baking powder"
+      ],
+      "specialtyIngredients": [
+        "masa harina",
+        "corn husks",
+        "guajillo chiles"
+      ],
+      "veganApproach": "Beat the masa with vegetable shortening or oil instead of lard and fill it with red-chile-simmered vegetables, beans or jackfruit.",
+      "technique": "Masa whipped with fat and broth is spread on soaked corn husks, filled, folded and steamed upright until it pulls cleanly from the husk.",
+      "seasons": [
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "hosting",
+        "mealprep",
+        "comfort"
+      ],
+      "sources": [
+        {
+          "title": "Tamale - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Tamale"
+        },
+        {
+          "title": "Vegan Tamales Rojos - Mexican Made Meatless",
+          "url": "https://mexicanmademeatless.com/vegan-tamales-recipe-tamales-rojos/"
+        }
+      ]
+    },
+    {
+      "key": "molletes",
+      "name": "Molletes",
+      "nameEn": "Open-faced bean and cheese rolls",
+      "aliases": [
+        "mollete"
+      ],
+      "tiles": [
+        "Mexican",
+        "American"
+      ],
+      "cuisine": "Mexican",
+      "region": null,
+      "format": "sandwich",
+      "protein": "beans",
+      "method": "oven",
+      "appliances": [
+        "oven"
+      ],
+      "cookMinutes": 20,
+      "effort": "low",
+      "familiarity": 2,
+      "traditionalDiet": "vegetarian",
+      "versions": [
+        "vegetarian"
+      ],
+      "keyIngredients": [
+        "bolillo rolls",
+        "refried beans",
+        "chihuahua cheese",
+        "pico de gallo",
+        "butter"
+      ],
+      "specialtyIngredients": [
+        "bolillo rolls"
+      ],
+      "veganApproach": null,
+      "technique": "Split bolillos are buttered, spread with refried beans, topped with melting cheese and broiled, then finished with fresh pico de gallo.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "quick",
+        "comfort"
+      ],
+      "sources": [
+        {
+          "title": "Mollete - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Mollete"
+        },
+        {
+          "title": "Molletes Recipe - The Kitchn",
+          "url": "https://www.thekitchn.com/molletes-recipe-23672816"
+        },
+        {
+          "title": "Molletes (Refried Bean and Cheese Melts) - The Washington Post",
+          "url": "https://www.washingtonpost.com/recipes/molletes-refried-bean-and-cheese-melts/"
+        }
+      ]
+    },
+    {
+      "key": "torta-ahogada",
+      "name": "Torta ahogada",
+      "nameEn": "Guadalajara drowned sandwich",
+      "aliases": [
+        "tortas ahogadas"
+      ],
+      "tiles": [
+        "Mexican",
+        "American"
+      ],
+      "cuisine": "Mexican",
+      "region": "Jalisco",
+      "format": "sandwich",
+      "protein": "beans",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop",
+        "blender"
+      ],
+      "cookMinutes": 45,
+      "effort": "medium",
+      "familiarity": 2,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "birote salado",
+        "pork carnitas",
+        "tomatoes",
+        "chile de árbol",
+        "white onion",
+        "lime",
+        "refried beans"
+      ],
+      "specialtyIngredients": [
+        "birote salado",
+        "chile de árbol"
+      ],
+      "veganApproach": "Fill the crusty roll with refried beans or plant-based carnitas and drown it in the same tomato and chile de árbol sauces.",
+      "technique": "A crusty, salty birote roll stuffed with carnitas is drowned in a mild tomato sauce and a fiery chile de árbol sauce.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "comfort",
+        "hosting"
+      ],
+      "sources": [
+        {
+          "title": "Torta ahogada - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Torta_ahogada"
+        },
+        {
+          "title": "Torta Ahogada Recipe (Vegan Mexico Cookbook) - Dora's Table",
+          "url": "https://dorastable.com/torta-ahogada-recipe-vegan-mexico-cookbook/"
+        },
+        {
+          "title": "Torta ahogada vegana - Mmmole",
+          "url": "https://mmmole.com/torta-ahogada-vegana/"
+        }
+      ]
+    },
+    {
+      "key": "espagueti-verde",
+      "name": "Espagueti verde",
+      "nameEn": "Creamy roasted poblano spaghetti",
+      "aliases": [
+        "green spaghetti",
+        "espagueti verde con poblano"
+      ],
+      "tiles": [
+        "Mexican",
+        "American"
+      ],
+      "cuisine": "Mexican",
+      "region": null,
+      "format": "pasta",
+      "protein": "cheese",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop",
+        "blender"
+      ],
+      "cookMinutes": 35,
+      "effort": "low",
+      "familiarity": 2,
+      "traditionalDiet": "vegetarian",
+      "versions": [
+        "vegetarian"
+      ],
+      "keyIngredients": [
+        "spaghetti",
+        "poblano chiles",
+        "mexican crema",
+        "cream cheese",
+        "garlic",
+        "white onion",
+        "cilantro",
+        "queso fresco"
+      ],
+      "specialtyIngredients": [
+        "poblano chiles",
+        "mexican crema"
+      ],
+      "veganApproach": null,
+      "technique": "Charred, peeled poblanos are blended with crema, cheese and cilantro into a pale-green sauce that coats the spaghetti.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "comfort"
+      ],
+      "sources": [
+        {
+          "title": "Green spaghetti - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Green_spaghetti"
+        },
+        {
+          "title": "Espagueti Verde (Creamy Roasted Poblano Pasta) - NYT Cooking",
+          "url": "https://cooking.nytimes.com/recipes/1025909-espagueti-verde-creamy-roasted-poblano-pasta"
+        },
+        {
+          "title": "Espagueti Verde (Creamy Poblano Spaghetti) - Mexican Made Meatless",
+          "url": "https://mexicanmademeatless.com/espagueti-verde-creamy-poblano-spaghetti/"
+        }
+      ]
+    },
+    {
+      "key": "mole-poblano",
+      "name": "Mole poblano",
+      "nameEn": "Puebla chile and chocolate mole",
+      "aliases": [
+        "mole",
+        "enmoladas",
+        "mole de Puebla"
+      ],
+      "tiles": [
+        "Mexican"
+      ],
+      "cuisine": "Mexican",
+      "region": "Puebla",
+      "format": "stew",
+      "protein": "mushrooms",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop",
+        "blender"
+      ],
+      "cookMinutes": 150,
+      "effort": "high",
+      "familiarity": 1,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "ancho chiles",
+        "mulato chiles",
+        "pasilla chiles",
+        "mexican chocolate",
+        "sesame seeds",
+        "almonds",
+        "plantain",
+        "turkey"
+      ],
+      "specialtyIngredients": [
+        "mulato chiles",
+        "pasilla chiles",
+        "mexican chocolate"
+      ],
+      "veganApproach": "The sauce is naturally vegan when made with oil and vegetable stock; serve it in mushroom enmoladas or over potatoes, chayote and zucchini.",
+      "technique": "Toasted dried chiles, nuts, seeds, spices, fruit, bread and chocolate are fried, ground and slowly cooked into a dark, glossy sauce.",
+      "seasons": [
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "hosting",
+        "mealprep"
+      ],
+      "sources": [
+        {
+          "title": "Mole poblano - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Mole_poblano"
+        },
+        {
+          "title": "How to Make Authentic Mole Poblano From Scratch - Dora's Table",
+          "url": "https://dorastable.com/vegan-mole-poblano-recipe/"
+        },
+        {
+          "title": "Mole Poblano - Broke Bank Vegan",
+          "url": "https://brokebankvegan.com/mole-poblano/"
+        }
+      ]
+    },
+    {
+      "key": "mole-negro",
+      "name": "Mole negro",
+      "nameEn": "Oaxacan black mole",
+      "aliases": [
+        "mole negro oaxaqueño",
+        "black mole"
+      ],
+      "tiles": [
+        "Mexican"
+      ],
+      "cuisine": "Mexican",
+      "region": "Oaxaca",
+      "format": "stew",
+      "protein": "mushrooms",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop",
+        "blender"
+      ],
+      "cookMinutes": 180,
+      "effort": "high",
+      "familiarity": 2,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "chilhuacle negro chiles",
+        "pasilla chiles",
+        "mulato chiles",
+        "mexican chocolate",
+        "sesame seeds",
+        "plantain",
+        "hoja santa",
+        "tomatillos"
+      ],
+      "specialtyIngredients": [
+        "chilhuacle negro chiles",
+        "hoja santa",
+        "mexican chocolate"
+      ],
+      "veganApproach": "Cook the mole with oil and vegetable broth and serve it with roasted vegetables or mushrooms instead of chicken.",
+      "technique": "Chiles and their seeds are toasted until nearly black, then ground with charred aromatics, spices and chocolate into Oaxaca's darkest mole.",
+      "seasons": [
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "hosting"
+      ],
+      "sources": [
+        {
+          "title": "Mole (sauce) - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Mole_(sauce)"
+        },
+        {
+          "title": "Oaxacan Mole Negro - Dora's Table",
+          "url": "https://dorastable.com/oaxacan-mole-negro/"
+        },
+        {
+          "title": "Oaxacan Black Mole Sauce - Saveur",
+          "url": "https://www.saveur.com/story/recipes/oaxacan-black-mole-sauce/"
+        }
+      ]
+    },
+    {
+      "key": "mole-amarillo",
+      "name": "Mole amarillo",
+      "nameEn": "Oaxacan yellow mole with vegetables",
+      "aliases": [
+        "amarillito",
+        "yellow mole"
+      ],
+      "tiles": [
+        "Mexican"
+      ],
+      "cuisine": "Mexican",
+      "region": "Oaxaca",
+      "format": "stew",
+      "protein": "vegetables",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop",
+        "blender"
+      ],
+      "cookMinutes": 75,
+      "effort": "medium",
+      "familiarity": 3,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "chilcostle chiles",
+        "guajillo chiles",
+        "masa",
+        "tomatillos",
+        "hoja santa",
+        "green beans",
+        "chayote",
+        "potatoes"
+      ],
+      "specialtyIngredients": [
+        "chilcostle chiles",
+        "hoja santa",
+        "masa harina"
+      ],
+      "veganApproach": "A traditional meatless version simmers green beans, chayote and potatoes in the masa-thickened chile sauce, often with chochoyote masa dumplings.",
+      "technique": "A sauce of chiles and tomatillos is thickened with fresh masa and perfumed with hoja santa, then used to simmer meat or vegetables.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "hosting",
+        "comfort"
+      ],
+      "sources": [
+        {
+          "title": "Mole (sauce) - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Mole_(sauce)"
+        },
+        {
+          "title": "Mole Amarillo Recipe - Mexico in My Kitchen",
+          "url": "https://www.mexicoinmykitchen.com/mole-amarillo-recipe/"
+        },
+        {
+          "title": "Mole Amarillo with Roasted Veggies and Corn Masa Dumplings - Lemon Vinaigrette",
+          "url": "https://lemonvinaigrette.com/2017/02/01/mole-amarillo-yellow-mole-with-roasted-veggies-and-corn-masa-dumplings/"
+        }
+      ]
+    },
+    {
+      "key": "pipian-verde",
+      "name": "Pipián verde",
+      "nameEn": "Green pumpkin-seed sauce stew",
+      "aliases": [
+        "pipián",
+        "mole verde de pepita",
+        "pipian verde"
+      ],
+      "tiles": [
+        "Mexican"
+      ],
+      "cuisine": "Mexican",
+      "region": "Central Mexico",
+      "format": "stew",
+      "protein": "nuts_seeds",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop",
+        "blender"
+      ],
+      "cookMinutes": 50,
+      "effort": "medium",
+      "familiarity": 3,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "pumpkin seeds",
+        "tomatillos",
+        "serrano chiles",
+        "romaine lettuce",
+        "cilantro",
+        "epazote",
+        "chicken",
+        "white onion"
+      ],
+      "specialtyIngredients": [
+        "tomatillos",
+        "epazote"
+      ],
+      "veganApproach": "Simmer seasonal vegetables such as zucchini, chayote and green beans in the pumpkin-seed sauce made with vegetable broth.",
+      "technique": "Toasted pumpkin seeds are ground with tomatillos, fresh chiles and green herbs, then fried and thinned into a velvety green sauce.",
+      "seasons": [
+        "spring",
+        "summer"
+      ],
+      "occasions": [
+        "everyday",
+        "hosting"
+      ],
+      "sources": [
+        {
+          "title": "Pipián (sauce) - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Pipi%C3%A1n_(sauce)"
+        },
+        {
+          "title": "Pipián Verde con Verduras - Pati Jinich",
+          "url": "https://patijinich.com/pipian-verde-con-verduras/"
+        },
+        {
+          "title": "Mole Verde (Pipián) - Healthy Simple Yum",
+          "url": "https://healthysimpleyum.com/mole-verde-pipian/"
+        }
+      ]
+    },
+    {
+      "key": "cochinita-pibil",
+      "name": "Cochinita pibil",
+      "nameEn": "Yucatecan achiote pit-roasted pork",
+      "aliases": [
+        "pibil",
+        "tacos de cochinita",
+        "jackfruit pibil"
+      ],
+      "tiles": [
+        "Mexican"
+      ],
+      "cuisine": "Mexican",
+      "region": "Yucatán",
+      "format": "tacos",
+      "protein": "jackfruit",
+      "method": "oven",
+      "appliances": [
+        "stovetop",
+        "oven"
+      ],
+      "cookMinutes": 75,
+      "effort": "medium",
+      "familiarity": 2,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "pork shoulder",
+        "achiote paste",
+        "sour orange",
+        "banana leaves",
+        "garlic",
+        "habanero chile",
+        "pickled red onion",
+        "corn tortillas"
+      ],
+      "specialtyIngredients": [
+        "achiote paste",
+        "sour orange",
+        "banana leaves"
+      ],
+      "veganApproach": "Marinate young green jackfruit in achiote and citrus, wrap it in banana leaves and roast until it shreds like pulled pork.",
+      "technique": "Pork marinated in achiote and sour orange is wrapped in banana leaves and slow-roasted in an underground pib oven.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "hosting",
+        "mealprep"
+      ],
+      "sources": [
+        {
+          "title": "Cochinita pibil - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Cochinita_pibil"
+        },
+        {
+          "title": "Jackfruit Pibil Tacos - Taco Guy",
+          "url": "https://www.tacoguy.com.au/recipe/jackfruit-pibil-tacos/"
+        },
+        {
+          "title": "Jackfruit Cochinita Pibil - Fueled Naturally",
+          "url": "https://fuelednaturally.net/recipes/jackfruit-cochinita-pibil"
+        }
+      ]
+    },
+    {
+      "key": "puerco-en-salsa-verde",
+      "name": "Puerco en salsa verde",
+      "nameEn": "Stew in tomatillo green salsa",
+      "aliases": [
+        "chile verde",
+        "guisado de puerco en salsa verde",
+        "carne de puerco en salsa verde",
+        "guisado en salsa verde"
+      ],
+      "tiles": [
+        "Mexican",
+        "American"
+      ],
+      "cuisine": "Mexican",
+      "region": null,
+      "format": "stew",
+      "protein": "soy_mince",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop",
+        "blender"
+      ],
+      "cookMinutes": 45,
+      "effort": "low",
+      "familiarity": 2,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "pork shoulder",
+        "tomatillos",
+        "serrano chiles",
+        "white onion",
+        "garlic",
+        "cilantro",
+        "potatoes"
+      ],
+      "specialtyIngredients": [
+        "tomatillos"
+      ],
+      "veganApproach": "Use rehydrated soy curls or TVP simmered with potatoes and Mexican zucchini in the tomatillo-serrano salsa.",
+      "technique": "Browned or simmered pork is stewed in a boiled-and-blended tomatillo and green chile salsa until tender.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "mealprep",
+        "comfort"
+      ],
+      "sources": [
+        {
+          "title": "Puerco en Salsa Verde (Pork in a Green Sauce) - Mexican Food Memories",
+          "url": "https://mexicanfoodmemories.com/puerco-en-salsa-verde-pork-in-a-green-sauce/"
+        },
+        {
+          "title": "Pork and Greens in Salsa Verde (Pati Jinich) - Mexico Rico",
+          "url": "https://mexicorico.com/recipes/pork-and-greens-in-salsa-verde"
+        },
+        {
+          "title": "Vegan Chile Verde (Guisado en Salsa Verde) - Dora's Table",
+          "url": "https://dorastable.com/vegan-chile-verde-guisado-en-salsa-verde/"
+        }
+      ]
+    },
+    {
+      "key": "rajas-con-crema",
+      "name": "Rajas con crema",
+      "nameEn": "Roasted poblano strips in cream",
+      "aliases": [
+        "rajas poblanas",
+        "tacos de rajas",
+        "rajas con elote"
+      ],
+      "tiles": [
+        "Mexican"
+      ],
+      "cuisine": "Mexican",
+      "region": "Puebla",
+      "format": "tacos",
+      "protein": "vegetables",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 35,
+      "effort": "low",
+      "familiarity": 2,
+      "traditionalDiet": "vegetarian",
+      "versions": [
+        "vegan",
+        "vegetarian"
+      ],
+      "keyIngredients": [
+        "poblano chiles",
+        "mexican crema",
+        "corn",
+        "white onion",
+        "garlic",
+        "queso fresco",
+        "corn tortillas"
+      ],
+      "specialtyIngredients": [
+        "poblano chiles",
+        "mexican crema"
+      ],
+      "veganApproach": "Simmer the roasted poblano strips and corn in a blended plant-based cream, such as cashew, instead of Mexican crema.",
+      "technique": "Poblanos are charred, sweated, peeled and cut into strips (rajas), then simmered with onion, corn and crema.",
+      "seasons": [
+        "summer",
+        "autumn"
+      ],
+      "occasions": [
+        "everyday",
+        "comfort"
+      ],
+      "sources": [
+        {
+          "title": "Rajas con crema - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Rajas_con_crema"
+        },
+        {
+          "title": "Vegan Rajas con Crema - Ale Cooks",
+          "url": "https://www.alecooks.com/vegan-rajas-con-crema-roasted-poblano-peppers-in-crema/"
+        },
+        {
+          "title": "Creamy Poblano and Corn Tacos (Rajas con Crema) - Forks Over Knives",
+          "url": "https://www.forksoverknives.com/recipes/vegan-burgers-wraps/creamy-poblano-and-corn-tacos-rajas-con-crema/"
+        }
+      ]
+    },
+    {
+      "key": "picadillo",
+      "name": "Picadillo",
+      "nameEn": "Mexican minced meat and vegetable hash",
+      "aliases": [
+        "picadillo mexicano",
+        "picadillo de lentejas"
+      ],
+      "tiles": [
+        "Mexican",
+        "American"
+      ],
+      "cuisine": "Mexican",
+      "region": null,
+      "format": "stew",
+      "protein": "lentils",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 40,
+      "effort": "low",
+      "familiarity": 2,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "ground beef",
+        "potatoes",
+        "carrots",
+        "tomatoes",
+        "white onion",
+        "garlic",
+        "peas",
+        "cumin"
+      ],
+      "specialtyIngredients": [],
+      "veganApproach": "Brown lentils simmered with the diced potatoes, carrots and tomato sauce replace the ground beef.",
+      "technique": "Ground meat is browned with onion and garlic, then simmered with diced potatoes, carrots and a light tomato sauce until thick.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "mealprep",
+        "comfort"
+      ],
+      "sources": [
+        {
+          "title": "Picadillo - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Picadillo"
+        },
+        {
+          "title": "Picadillo de Lentejas (Lentil Picadillo) - Dora's Table",
+          "url": "https://dorastable.com/picadillo-de-lentejas-lentil-picadillo/"
+        },
+        {
+          "title": "Lentil Picadillo Tacos - Ale Cooks",
+          "url": "https://www.alecooks.com/lentil-picadillo-tacos/"
+        }
+      ]
+    },
+    {
+      "key": "frijoles-charros",
+      "name": "Frijoles charros",
+      "nameEn": "Cowboy-style brothy pinto beans",
+      "aliases": [
+        "charro beans",
+        "frijoles a la charra"
+      ],
+      "tiles": [
+        "Mexican",
+        "American"
+      ],
+      "cuisine": "Mexican",
+      "region": "Northern Mexico",
+      "format": "soup",
+      "protein": "beans",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 45,
+      "effort": "low",
+      "familiarity": 2,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "pinto beans",
+        "bacon",
+        "chorizo",
+        "tomatoes",
+        "jalapeños",
+        "white onion",
+        "cilantro"
+      ],
+      "specialtyIngredients": [],
+      "veganApproach": "Simmer pinto beans with vegan chorizo or smoked paprika and plenty of tomato and jalapeño instead of bacon.",
+      "technique": "Pinto beans are simmered in their broth with fried pork, tomato, onion and chiles until smoky and soupy.",
+      "seasons": [
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "mealprep",
+        "comfort"
+      ],
+      "sources": [
+        {
+          "title": "Frijoles charros - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Frijoles_charros"
+        },
+        {
+          "title": "Vegan Frijoles Charros (Mexican Cowboy Beans) - Dora's Table",
+          "url": "https://dorastable.com/vegan-frijoles-charros-recipe-mexican-cowboy-beans/"
+        },
+        {
+          "title": "Frijoles Charros (Charro Beans) - Mexican Made Meatless",
+          "url": "https://mexicanmademeatless.com/frijoles-charros-charro-beans-recipe/"
+        }
+      ]
+    },
+    {
+      "key": "pozole-rojo",
+      "name": "Pozole rojo",
+      "nameEn": "Red chile hominy stew",
+      "aliases": [
+        "pozole",
+        "posole",
+        "pozole rojo de Jalisco"
+      ],
+      "tiles": [
+        "Mexican",
+        "American"
+      ],
+      "cuisine": "Mexican",
+      "region": "Jalisco",
+      "format": "soup",
+      "protein": "beans",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop",
+        "blender"
+      ],
+      "cookMinutes": 65,
+      "effort": "medium",
+      "familiarity": 1,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "hominy",
+        "pork shoulder",
+        "guajillo chiles",
+        "ancho chiles",
+        "garlic",
+        "cabbage",
+        "radishes",
+        "mexican oregano"
+      ],
+      "specialtyIngredients": [
+        "hominy",
+        "guajillo chiles"
+      ],
+      "veganApproach": "Use hearty black and pinto beans, or jackfruit, instead of pork in the guajillo broth with hominy.",
+      "technique": "Nixtamalized corn kernels are simmered until they bloom, then combined with a red chile broth and served with crisp raw garnishes.",
+      "seasons": [
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "hosting",
+        "comfort",
+        "mealprep"
+      ],
+      "sources": [
+        {
+          "title": "Pozole - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Pozole"
+        },
+        {
+          "title": "Vegan Pozole Rojo - Connoisseurus Veg",
+          "url": "https://www.connoisseurusveg.com/vegan-posole/"
+        }
+      ]
+    },
+    {
+      "key": "pozole-verde",
+      "name": "Pozole verde",
+      "nameEn": "Green pumpkin-seed hominy stew",
+      "aliases": [
+        "pozole verde de Guerrero",
+        "green pozole"
+      ],
+      "tiles": [
+        "Mexican",
+        "American"
+      ],
+      "cuisine": "Mexican",
+      "region": "Guerrero",
+      "format": "soup",
+      "protein": "beans",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop",
+        "blender"
+      ],
+      "cookMinutes": 75,
+      "effort": "medium",
+      "familiarity": 2,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "hominy",
+        "chicken",
+        "tomatillos",
+        "pumpkin seeds",
+        "poblano chiles",
+        "epazote",
+        "radishes",
+        "cabbage"
+      ],
+      "specialtyIngredients": [
+        "hominy",
+        "tomatillos",
+        "epazote"
+      ],
+      "veganApproach": "Simmer hominy with white beans and mushrooms in the pumpkin-seed and tomatillo broth built on vegetable stock.",
+      "technique": "The broth gets its color and body from a blended sauce of tomatillos, green chiles, herbs and toasted pumpkin seeds.",
+      "seasons": [
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "hosting",
+        "comfort"
+      ],
+      "sources": [
+        {
+          "title": "Pozole - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Pozole"
+        },
+        {
+          "title": "Pozole Verde - Pati Jinich (Epicurious)",
+          "url": "https://www.epicurious.com/recipes-menus/pozole-verde-pati-jinich-article"
+        }
+      ]
+    },
+    {
+      "key": "sopa-de-tortilla",
+      "name": "Sopa de tortilla",
+      "nameEn": "Tortilla soup",
+      "aliases": [
+        "sopa azteca",
+        "tortilla soup"
+      ],
+      "tiles": [
+        "Mexican",
+        "American"
+      ],
+      "cuisine": "Mexican",
+      "region": "Mexico City",
+      "format": "soup",
+      "protein": "vegetables",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop",
+        "blender"
+      ],
+      "cookMinutes": 40,
+      "effort": "low",
+      "familiarity": 1,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegan",
+        "vegetarian"
+      ],
+      "keyIngredients": [
+        "corn tortillas",
+        "tomatoes",
+        "pasilla chiles",
+        "white onion",
+        "garlic",
+        "epazote",
+        "avocado",
+        "queso fresco"
+      ],
+      "specialtyIngredients": [
+        "pasilla chiles",
+        "epazote",
+        "queso fresco"
+      ],
+      "veganApproach": "Build the tomato-pasilla broth on vegetable stock and garnish with avocado and a cashew crema instead of cheese and cream.",
+      "technique": "A tomato and chile purée is fried and simmered in broth, then poured over crisp fried tortilla strips with avocado, cheese and crumbled pasilla.",
+      "seasons": [
+        "spring",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "comfort"
+      ],
+      "sources": [
+        {
+          "title": "Tortilla soup - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Tortilla_soup"
+        },
+        {
+          "title": "Authentic Mexican Tortilla Soup - Mexican Made Meatless",
+          "url": "https://mexicanmademeatless.com/authentic-mexican-tortilla-soup/"
+        },
+        {
+          "title": "Vegan Tortilla Soup - America's Test Kitchen",
+          "url": "https://www.americastestkitchen.com/recipes/12078-vegan-tortilla-soup"
+        }
+      ]
+    },
+    {
+      "key": "sopa-de-fideo",
+      "name": "Sopa de fideo",
+      "nameEn": "Mexican tomato noodle soup",
+      "aliases": [
+        "fideo",
+        "sopa de fideos"
+      ],
+      "tiles": [
+        "Mexican",
+        "American"
+      ],
+      "cuisine": "Mexican",
+      "region": null,
+      "format": "soup",
+      "protein": "grains",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop",
+        "blender"
+      ],
+      "cookMinutes": 25,
+      "effort": "low",
+      "familiarity": 2,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "fideo noodles",
+        "tomatoes",
+        "white onion",
+        "garlic",
+        "chicken stock",
+        "cilantro",
+        "lime"
+      ],
+      "specialtyIngredients": [],
+      "veganApproach": "Toast the fideo in oil and simmer it in a tomato broth made with vegetable stock.",
+      "technique": "Thin fideo noodles are toasted golden in oil before being simmered in a blended tomato, onion and garlic broth.",
+      "seasons": [
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "quick",
+        "comfort"
+      ],
+      "sources": [
+        {
+          "title": "Sopa de fideo - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Sopa_de_fideo"
+        },
+        {
+          "title": "Sopa de Fideo (Mexican Noodle Soup) - Dora's Table",
+          "url": "https://dorastable.com/sopa-de-fideo-mexican-noodle-soup/"
+        },
+        {
+          "title": "Sopa de Fideo - Mexican Made Meatless",
+          "url": "https://mexicanmademeatless.com/sopa-de-fideo/"
+        }
+      ]
+    },
+    {
+      "key": "caldo-tlalpeno",
+      "name": "Caldo tlalpeño",
+      "nameEn": "Smoky chipotle chickpea and vegetable soup",
+      "aliases": [
+        "caldo tlalpeno",
+        "sopa tlalpeña"
+      ],
+      "tiles": [
+        "Mexican",
+        "American"
+      ],
+      "cuisine": "Mexican",
+      "region": "Mexico City",
+      "format": "soup",
+      "protein": "chickpeas",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 50,
+      "effort": "low",
+      "familiarity": 3,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "chicken",
+        "chickpeas",
+        "carrots",
+        "zucchini",
+        "green beans",
+        "chipotles in adobo",
+        "epazote",
+        "avocado"
+      ],
+      "specialtyIngredients": [
+        "chipotles in adobo",
+        "epazote"
+      ],
+      "veganApproach": "Use vegetable broth and let the chickpeas and vegetables carry the smoky chipotle soup without chicken.",
+      "technique": "A broth is simmered with chickpeas and vegetables, flavored with chipotle and epazote, and served with avocado and lime.",
+      "seasons": [
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "comfort",
+        "mealprep"
+      ],
+      "sources": [
+        {
+          "title": "Caldo tlalpeño - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Caldo_tlalpe%C3%B1o"
+        },
+        {
+          "title": "Vegetarian Caldo Tlalpeño - Rancho Gordo",
+          "url": "https://www.ranchogordo.com/blogs/recipes/vegetarian-caldo-tlalpeno"
+        },
+        {
+          "title": "Caldo tlalpeño estilo vegetariano con garbanzos y chipotle - Cocina Delirante",
+          "url": "https://www.cocinadelirante.com/recetas/caldo-tlalpeno-estilo-vegetariano-con-garbanzos-y-chile-chipotle"
+        }
+      ]
+    },
+    {
+      "key": "sopa-tarasca",
+      "name": "Sopa tarasca",
+      "nameEn": "Purépecha bean and tortilla soup",
+      "aliases": [
+        "sopa purépecha"
+      ],
+      "tiles": [
+        "Mexican",
+        "American"
+      ],
+      "cuisine": "Mexican",
+      "region": "Michoacán",
+      "format": "soup",
+      "protein": "beans",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop",
+        "blender"
+      ],
+      "cookMinutes": 40,
+      "effort": "low",
+      "familiarity": 3,
+      "traditionalDiet": "vegetarian",
+      "versions": [
+        "vegan",
+        "vegetarian"
+      ],
+      "keyIngredients": [
+        "pinto beans",
+        "tomatoes",
+        "ancho chiles",
+        "white onion",
+        "garlic",
+        "corn tortillas",
+        "queso fresco",
+        "mexican crema"
+      ],
+      "specialtyIngredients": [
+        "ancho chiles",
+        "queso fresco",
+        "mexican crema"
+      ],
+      "veganApproach": "Blend the beans with vegetable broth and finish with avocado and a dairy-free crema instead of cheese and cream.",
+      "technique": "Cooked beans are puréed with roasted tomato and ancho chile into a creamy soup topped with fried tortilla strips and crisp chile.",
+      "seasons": [
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "comfort"
+      ],
+      "sources": [
+        {
+          "title": "Sopa Tarasca - PBS Food",
+          "url": "https://www.pbs.org/food/recipes/sopa-tarasca"
+        },
+        {
+          "title": "Sopa Tarasca - EatingWell",
+          "url": "https://www.eatingwell.com/recipe/268172/sopa-tarasca/"
+        }
+      ]
+    },
+    {
+      "key": "ceviche-de-pescado",
+      "name": "Ceviche de pescado",
+      "nameEn": "Mexican lime-cured fish ceviche tostadas",
+      "aliases": [
+        "ceviche",
+        "tostadas de ceviche",
+        "ceviche mexicano"
+      ],
+      "tiles": [
+        "Mexican",
+        "Fresh & light"
+      ],
+      "cuisine": "Mexican",
+      "region": "Pacific coast",
+      "format": "salad",
+      "protein": "vegetables",
+      "method": "no_cook",
+      "appliances": [],
+      "cookMinutes": 40,
+      "effort": "low",
+      "familiarity": 1,
+      "traditionalDiet": "pescatarian",
+      "versions": [
+        "vegan",
+        "pescatarian"
+      ],
+      "keyIngredients": [
+        "white fish",
+        "lime juice",
+        "tomatoes",
+        "white onion",
+        "serrano chiles",
+        "cilantro",
+        "cucumber",
+        "tostadas"
+      ],
+      "specialtyIngredients": [],
+      "veganApproach": "Marinate chopped hearts of palm or cauliflower with the same lime, tomato, onion, cucumber and chile and serve on tostadas.",
+      "technique": "Diced raw fish is cured in lime juice, then mixed with tomato, onion, chile and herbs and piled on crisp tostadas.",
+      "seasons": [
+        "spring",
+        "summer"
+      ],
+      "occasions": [
+        "hosting",
+        "date"
+      ],
+      "sources": [
+        {
+          "title": "Puerto Vallarta Ceviche Tostadas - Pati Jinich",
+          "url": "https://patijinich.com/ceviche-tostadas-puerto-vallarta/"
+        },
+        {
+          "title": "Mexican Ceviche de Pescado - Maricruz Avalos",
+          "url": "https://www.maricruzavalos.com/mexican-ceviche-de-pescado/"
+        },
+        {
+          "title": "Vegan Baja Ceviche Tostadas - Dora's Table",
+          "url": "https://dorastable.com/vegan-baja-ceviche-tostadas/"
+        }
+      ]
+    },
+    {
+      "key": "aguachile",
+      "name": "Aguachile",
+      "nameEn": "Sinaloan chile-lime raw shrimp",
+      "aliases": [
+        "aguachile verde",
+        "aguachile de camarón"
+      ],
+      "tiles": [
+        "Mexican",
+        "Fresh & light"
+      ],
+      "cuisine": "Mexican",
+      "region": "Sinaloa",
+      "format": "salad",
+      "protein": "shellfish",
+      "method": "no_cook",
+      "appliances": [
+        "blender"
+      ],
+      "cookMinutes": 25,
+      "effort": "low",
+      "familiarity": 2,
+      "traditionalDiet": "pescatarian",
+      "versions": [
+        "pescatarian"
+      ],
+      "keyIngredients": [
+        "raw shrimp",
+        "lime juice",
+        "serrano chiles",
+        "cilantro",
+        "cucumber",
+        "red onion",
+        "tostadas"
+      ],
+      "specialtyIngredients": [],
+      "veganApproach": null,
+      "technique": "Butterflied raw shrimp are drowned in a blended lime, chile and cilantro liquid just before serving so they barely cure.",
+      "seasons": [
+        "spring",
+        "summer"
+      ],
+      "occasions": [
+        "quick",
+        "date",
+        "hosting"
+      ],
+      "sources": [
+        {
+          "title": "Aguachile - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Aguachile"
+        },
+        {
+          "title": "Aguachile Verde - Masienda",
+          "url": "https://masienda.com/blogs/learn/aguachile-verde"
+        },
+        {
+          "title": "Aguachile de camarón estilo Sinaloa - Marco Beteta",
+          "url": "https://mbmarcobeteta.com/recetas/receta-aguachile-camaron-sinaloa/"
+        }
+      ]
+    },
+    {
+      "key": "coctel-de-camaron",
+      "name": "Cóctel de camarón",
+      "nameEn": "Mexican shrimp cocktail",
+      "aliases": [
+        "coctel de camaron",
+        "campechana",
+        "Mexican shrimp cocktail"
+      ],
+      "tiles": [
+        "Mexican",
+        "Fresh & light"
+      ],
+      "cuisine": "Mexican",
+      "region": null,
+      "format": "other",
+      "protein": "shellfish",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 30,
+      "effort": "low",
+      "familiarity": 2,
+      "traditionalDiet": "pescatarian",
+      "versions": [
+        "pescatarian"
+      ],
+      "keyIngredients": [
+        "shrimp",
+        "ketchup",
+        "lime juice",
+        "tomato juice",
+        "avocado",
+        "cucumber",
+        "white onion",
+        "cilantro"
+      ],
+      "specialtyIngredients": [],
+      "veganApproach": null,
+      "technique": "Poached shrimp are served chilled in a tangy tomato, lime and ketchup broth with avocado, cucumber and onion, with saltines on the side.",
+      "seasons": [
+        "spring",
+        "summer"
+      ],
+      "occasions": [
+        "hosting",
+        "date"
+      ],
+      "sources": [
+        {
+          "title": "Mexican Shrimp Cocktail (Cóctel de Camarón) - America's Test Kitchen",
+          "url": "https://www.americastestkitchen.com/recipes/11905-mexican-shrimp-cocktail-coctel-de-camaron"
+        },
+        {
+          "title": "Mexican Shrimp Cocktail - Simply Recipes",
+          "url": "https://www.simplyrecipes.com/recipes/mexican_shrimp_cocktail/"
+        }
+      ]
+    },
+    {
+      "key": "camarones-a-la-diabla",
+      "name": "Camarones a la diabla",
+      "nameEn": "Deviled shrimp in fiery red chile sauce",
+      "aliases": [
+        "shrimp a la diabla",
+        "camarones enchilados"
+      ],
+      "tiles": [
+        "Mexican"
+      ],
+      "cuisine": "Mexican",
+      "region": null,
+      "format": "stew",
+      "protein": "shellfish",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop",
+        "blender"
+      ],
+      "cookMinutes": 25,
+      "effort": "low",
+      "familiarity": 2,
+      "traditionalDiet": "pescatarian",
+      "versions": [
+        "pescatarian"
+      ],
+      "keyIngredients": [
+        "shrimp",
+        "guajillo chiles",
+        "chiles de árbol",
+        "chipotles in adobo",
+        "tomatoes",
+        "garlic",
+        "butter",
+        "white onion"
+      ],
+      "specialtyIngredients": [
+        "guajillo chiles",
+        "chiles de árbol"
+      ],
+      "veganApproach": null,
+      "technique": "Shrimp are quickly seared and then simmered in a fiery blended sauce of dried red chiles and tomato.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "quick",
+        "date"
+      ],
+      "sources": [
+        {
+          "title": "Camarones a la Diabla - Isabel Eats",
+          "url": "https://www.isabeleats.com/camarones-a-la-diabla/"
+        },
+        {
+          "title": "Camarones a la Diabla Recipe - The Kitchn",
+          "url": "https://www.thekitchn.com/camarones-a-la-diabla-recipe-23735936"
+        }
+      ]
+    },
+    {
+      "key": "camarones-al-mojo-de-ajo",
+      "name": "Camarones al mojo de ajo",
+      "nameEn": "Shrimp in toasty garlic oil",
+      "aliases": [
+        "shrimp al mojo de ajo",
+        "garlic shrimp"
+      ],
+      "tiles": [
+        "Mexican"
+      ],
+      "cuisine": "Mexican",
+      "region": null,
+      "format": "other",
+      "protein": "shellfish",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 25,
+      "effort": "low",
+      "familiarity": 2,
+      "traditionalDiet": "pescatarian",
+      "versions": [
+        "pescatarian"
+      ],
+      "keyIngredients": [
+        "shrimp",
+        "garlic",
+        "olive oil",
+        "butter",
+        "lime",
+        "guajillo chile",
+        "parsley"
+      ],
+      "specialtyIngredients": [],
+      "veganApproach": null,
+      "technique": "Garlic is slowly cooked in oil until sweet and golden (mojo de ajo), then shrimp are flash-cooked in it and finished with lime.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "quick",
+        "date"
+      ],
+      "sources": [
+        {
+          "title": "Quick-Fried Shrimp with Sweet Toasty Garlic (Camarones al Mojo de Ajo) - Rick Bayless, Food Network",
+          "url": "https://www.foodnetwork.com/recipes/quick-fried-shrimp-with-sweet-toasty-garlic-camarones-al-mojo-de-ajo-recipe-2009706"
+        },
+        {
+          "title": "Camarones al Mojo de Ajo - Isabel Eats",
+          "url": "https://www.isabeleats.com/camarones-al-mojo-de-ajo/"
+        }
+      ]
+    },
+    {
+      "key": "pescado-a-la-veracruzana",
+      "name": "Pescado a la veracruzana",
+      "nameEn": "Veracruz-style fish with olives and capers",
+      "aliases": [
+        "huachinango a la veracruzana",
+        "fish Veracruz style"
+      ],
+      "tiles": [
+        "Mexican",
+        "Fresh & light"
+      ],
+      "cuisine": "Mexican",
+      "region": "Veracruz",
+      "format": "stew",
+      "protein": "fish",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 40,
+      "effort": "low",
+      "familiarity": 2,
+      "traditionalDiet": "pescatarian",
+      "versions": [
+        "pescatarian"
+      ],
+      "keyIngredients": [
+        "red snapper",
+        "tomatoes",
+        "green olives",
+        "capers",
+        "pickled jalapeños",
+        "white onion",
+        "garlic",
+        "bay leaves"
+      ],
+      "specialtyIngredients": [],
+      "veganApproach": null,
+      "technique": "Fish is gently simmered or baked in a tomato sauce studded with olives, capers and pickled jalapeños, a Spanish-Mexican blend.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "hosting",
+        "date"
+      ],
+      "sources": [
+        {
+          "title": "Huachinango a la Veracruzana - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Huachinango_a_la_veracruzana"
+        },
+        {
+          "title": "Mahi Mahi a la Veracruzana - Rick Bayless",
+          "url": "https://www.rickbayless.com/recipe/mahi-mahi-a-la-veracruzana/"
+        },
+        {
+          "title": "Fish Veracruz-Style - Saveur",
+          "url": "https://www.saveur.com/article/Recipes/Fish-Veracruz-Style/"
+        }
+      ]
+    },
+    {
+      "key": "pescado-zarandeado",
+      "name": "Pescado zarandeado",
+      "nameEn": "Nayarit chile-basted grilled whole fish",
+      "aliases": [
+        "pescado sarandeado",
+        "zarandeado"
+      ],
+      "tiles": [
+        "Mexican"
+      ],
+      "cuisine": "Mexican",
+      "region": "Nayarit",
+      "format": "other",
+      "protein": "fish",
+      "method": "grill",
+      "appliances": [
+        "grill"
+      ],
+      "cookMinutes": 50,
+      "effort": "medium",
+      "familiarity": 3,
+      "traditionalDiet": "pescatarian",
+      "versions": [
+        "pescatarian"
+      ],
+      "keyIngredients": [
+        "whole snapper",
+        "guajillo chiles",
+        "garlic",
+        "soy sauce",
+        "worcestershire sauce",
+        "lime",
+        "mayonnaise",
+        "corn tortillas"
+      ],
+      "specialtyIngredients": [
+        "guajillo chiles"
+      ],
+      "veganApproach": null,
+      "technique": "A whole butterflied fish is brushed with a chile-citrus adobo and grilled in a hinged basket that is shaken (zarandeado) over the coals.",
+      "seasons": [
+        "spring",
+        "summer"
+      ],
+      "occasions": [
+        "hosting"
+      ],
+      "sources": [
+        {
+          "title": "Pescado Zarandeado (Grilled Fish With Chile-Citrus Sauce) - NYT Cooking",
+          "url": "https://cooking.nytimes.com/recipes/1023500-pescado-zarandeado-grilled-fish-with-chile-citrus-sauce"
+        },
+        {
+          "title": "Pescado sarandeado estilo Nayarit - Marco Beteta",
+          "url": "https://mbmarcobeteta.com/recetas/pescado-sarandeado-estilo-nayarit/"
+        }
+      ]
+    },
+    {
+      "key": "tikin-xic",
+      "name": "Tikin xic",
+      "nameEn": "Mayan achiote fish in banana leaf",
+      "aliases": [
+        "tikin xik",
+        "pescado tikin xic"
+      ],
+      "tiles": [
+        "Mexican"
+      ],
+      "cuisine": "Mexican",
+      "region": "Yucatán",
+      "format": "other",
+      "protein": "fish",
+      "method": "oven",
+      "appliances": [
+        "oven"
+      ],
+      "cookMinutes": 60,
+      "effort": "medium",
+      "familiarity": 3,
+      "traditionalDiet": "pescatarian",
+      "versions": [
+        "pescatarian"
+      ],
+      "keyIngredients": [
+        "white fish",
+        "achiote paste",
+        "sour orange",
+        "banana leaves",
+        "garlic",
+        "tomato",
+        "white onion",
+        "habanero chile"
+      ],
+      "specialtyIngredients": [
+        "achiote paste",
+        "sour orange",
+        "banana leaves"
+      ],
+      "veganApproach": null,
+      "technique": "Fish marinated in achiote and sour orange is wrapped in banana leaves with tomato and onion and grilled or roasted, Mayan style.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "hosting",
+        "date"
+      ],
+      "sources": [
+        {
+          "title": "Tikin Xic - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Tikin_Xic"
+        },
+        {
+          "title": "Achiote Grilled Fish - Rick Bayless",
+          "url": "https://www.rickbayless.com/recipe/achiote-grilled-fish/"
+        },
+        {
+          "title": "Citrusy Black Cod Roasted in Banana Leaves (Tikin Xic) - Food & Wine",
+          "url": "https://www.foodandwine.com/recipes/citrusy-black-cod-roasted-in-banana-leaves-tikin-xic"
+        }
+      ]
+    },
+    {
+      "key": "arroz-a-la-tumbada",
+      "name": "Arroz a la tumbada",
+      "nameEn": "Veracruz soupy seafood rice",
+      "aliases": [
+        "arroz a la tumbada veracruzano"
+      ],
+      "tiles": [
+        "Mexican"
+      ],
+      "cuisine": "Mexican",
+      "region": "Veracruz",
+      "format": "rice_dish",
+      "protein": "shellfish",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 50,
+      "effort": "medium",
+      "familiarity": 3,
+      "traditionalDiet": "pescatarian",
+      "versions": [
+        "pescatarian"
+      ],
+      "keyIngredients": [
+        "rice",
+        "shrimp",
+        "clams",
+        "white fish",
+        "tomatoes",
+        "epazote",
+        "white onion",
+        "garlic"
+      ],
+      "specialtyIngredients": [
+        "epazote"
+      ],
+      "veganApproach": null,
+      "technique": "Rice is fried, then cooked loose and soupy in a tomato-seafood broth with epazote, wetter than a paella.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "hosting",
+        "comfort"
+      ],
+      "sources": [
+        {
+          "title": "Arroz a la tumbada - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Arroz_a_la_tumbada"
+        },
+        {
+          "title": "Veracruz-Style Seafood and Rice (Arroz a la Tumbada) - MexConnect",
+          "url": "https://www.mexconnect.com/articles/2298-veracruz-style-seafood-and-rice-arroz-a-la-tumbada/"
+        }
+      ]
+    },
+    {
+      "key": "caldo-de-siete-mares",
+      "name": "Caldo de siete mares",
+      "nameEn": "Seven seas seafood soup",
+      "aliases": [
+        "siete mares",
+        "sopa de mariscos"
+      ],
+      "tiles": [
+        "Mexican",
+        "American"
+      ],
+      "cuisine": "Mexican",
+      "region": "Pacific coast",
+      "format": "soup",
+      "protein": "shellfish",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop",
+        "blender"
+      ],
+      "cookMinutes": 60,
+      "effort": "medium",
+      "familiarity": 3,
+      "traditionalDiet": "pescatarian",
+      "versions": [
+        "pescatarian"
+      ],
+      "keyIngredients": [
+        "shrimp",
+        "white fish",
+        "crab",
+        "clams",
+        "octopus",
+        "guajillo chiles",
+        "tomatoes",
+        "carrots"
+      ],
+      "specialtyIngredients": [
+        "guajillo chiles"
+      ],
+      "veganApproach": null,
+      "technique": "A chile-tomato broth built on seafood stock is loaded with several kinds of fish and shellfish, said to represent the seven seas.",
+      "seasons": [
+        "spring",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "hosting",
+        "comfort"
+      ],
+      "sources": [
+        {
+          "title": "Caldo de siete mares - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Caldo_de_siete_mares"
+        },
+        {
+          "title": "Caldo de Siete Mares (Soup of the Seven Seas) - America's Test Kitchen",
+          "url": "https://www.americastestkitchen.com/recipes/15807-caldo-de-siete-mares-soup-of-the-seven-seas"
+        },
+        {
+          "title": "Caldo de Siete Mares - Mama Maggie's Kitchen",
+          "url": "https://inmamamaggieskitchen.com/caldo-de-siete-mares/"
+        }
+      ]
+    }
+  ]
+}

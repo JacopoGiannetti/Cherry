@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "preset_butternut_mac.jpg",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

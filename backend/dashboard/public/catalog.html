@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ricettario · Vego Analytics</title>
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<script>document.documentElement.dataset.theme = localStorage.getItem('vego-theme') || 'dark';</script>
+<link rel="stylesheet" href="/styles.css">
+<link rel="stylesheet" href="/catalog.css">
+</head>
+<body data-page="catalog">
+<div class="shell">
+  <aside class="sidebar" id="side"></aside>
+  <div>
+    <main id="main" class="page" hidden>
+      <header class="topbar">
+        <div><p class="crumb">Ricettario</p><h1>Le ricette condivise</h1></div>
+        <div class="right">
+          <label class="rc-live"><input type="checkbox" id="live" checked> dal vivo</label>
+          <span class="stamp" id="stamp"></span>
+          <button id="refresh" class="btn" type="button">Aggiorna</button>
+        </div>
+      </header>
+
+      <div class="strip" id="kpis"></div>
+
+      <div class="rc-bar">
+        <div class="seg" id="tabs">
+          <button type="button" data-tab="ranked" class="on">Classifica</button>
+          <button type="button" data-tab="candidate">Candidate</button>
+          <button type="button" data-tab="seed_review">Da approvare</button>
+          <button type="button" data-tab="rejected">Scartate</button>
+          <button type="button" data-tab="retired">Ritirate</button>
+          <button type="button" data-tab="coverage">Cucine</button>
+          <button type="button" data-tab="params">Parametri</button>
+        </div>
+        <span class="spacer"></span>
+        <div class="rc-filters" id="filters">
+          <input type="search" id="q" placeholder="cerca titolo o piatto">
+          <select id="fDiet" aria-label="Dieta">
+            <option value="">tutte le diete</option>
+            <option value="vegan">vegane</option>
+            <option value="vegetarian">vegetariane</option>
+            <option value="pescatarian">pescetariane</option>
+          </select>
+          <select id="fTile" aria-label="Cucina"><option value="">tutte le cucine</option></select>
+          <select id="fSort" aria-label="Ordine">
+            <option value="score">per punteggio</option>
+            <option value="views">per visualizzazioni</option>
+            <option value="keepRate">per % tenute</option>
+            <option value="stars">per stelle</option>
+            <option value="new">più recenti</option>
+          </select>
+        </div>
+      </div>
+
+      <section id="listView">
+        <p class="hint rc-hint" id="listHint"></p>
+        <div class="rc-grid" id="grid"></div>
+      </section>
+
+      <section id="coverageView" hidden>
+        <div class="panel c12 flush">
+          <div class="panel-head"><div><h2>Cucine</h2><p class="hint">piatti dell’atlante e ricette già in classifica · “Crea di partenza” scrive ricette di piatti famosi, le passa dal critico e le mette in “Da approvare”</p></div></div>
+          <div class="scroll"><table class="tbl" id="coverageTable"></table></div>
+        </div>
+      </section>
+
+      <section id="paramsView" hidden>
+        <div class="grid">
+          <div class="panel c7">
+            <div class="panel-head"><div><h2>Punteggio e mazzo</h2><p class="hint">valgono per tutti dal prossimo mazzo (entro un minuto)</p></div><div class="right"><span class="save-state" id="paramsState"></span></div></div>
+            <form class="rc-form" id="paramsForm" autocomplete="off"></form>
+          </div>
+          <div class="panel c5">
+            <div class="panel-head"><div><h2>Come si calcola</h2></div></div>
+            <div class="rc-explain">
+              <p><strong>Punteggio</strong> = la quota di tenute di cui siamo sicuri, da 0 a 1. Con poche viste resta bassa anche al 100%; più viste ha una ricetta, più si avvicina alla sua quota vera. Così 2 su 2 batte 1 su 1, e 670 su 1000 batte 68 su 100.</p>
+              <p>Stelle e riusi contano come tenute in più (mezza ciascuno di base), fino al 100%. La <strong>prudenza</strong> decide quanto pesano le viste. Ora il ricettario viene tenuto in media il <span id="meanNow">–</span> delle volte.</p>
+              <p>Con almeno <em>visualizzazioni minime per gruppo</em> di persone della stessa dieta, si usa il punteggio di quel gruppo.</p>
+              <p>Una visualizzazione è una carta tenuta o scartata. Le carte mai raggiunte non contano.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <div id="state" class="state">Leggo il ricettario…</div>
+  </div>
+</div>
+<div class="drawer-backdrop" id="drawerBackdrop"></div>
+<aside class="drawer rc-drawer" id="drawer" aria-hidden="true"></aside>
+<script src="/app.js"></script>
+<script src="/catalog.js"></script>
+</body>
+</html>

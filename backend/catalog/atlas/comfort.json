@@ -1,0 +1,3764 @@
+{
+  "tile": "American",
+  "generatedAt": "2026-10-05",
+  "dishes": [
+    {
+      "key": "macaroni-and-cheese",
+      "name": "Macaroni and cheese",
+      "nameEn": "Macaroni and cheese",
+      "aliases": [
+        "mac and cheese",
+        "mac 'n' cheese",
+        "macaroni cheese",
+        "baked mac and cheese"
+      ],
+      "tiles": [
+        "American"
+      ],
+      "cuisine": "American",
+      "region": "United States",
+      "format": "pasta",
+      "protein": "cheese",
+      "method": "oven",
+      "appliances": [
+        "stovetop",
+        "oven"
+      ],
+      "cookMinutes": 45,
+      "effort": "medium",
+      "familiarity": 1,
+      "traditionalDiet": "vegetarian",
+      "versions": [
+        "vegan",
+        "vegetarian"
+      ],
+      "keyIngredients": [
+        "elbow macaroni",
+        "cheddar",
+        "milk",
+        "butter",
+        "flour",
+        "mustard powder",
+        "breadcrumbs"
+      ],
+      "specialtyIngredients": [],
+      "veganApproach": "Make the sauce from a roux with vegan butter and plant milk plus plant-based cheddar, or blend a potato, carrot or cashew sauce with nutritional yeast.",
+      "technique": "A roux-based cheddar sauce is stirred through al dente elbow macaroni, then baked under a buttered crumb topping until bubbling.",
+      "seasons": [
+        "spring",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "comfort",
+        "hosting"
+      ],
+      "sources": [
+        {
+          "title": "Macaroni and cheese - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Macaroni_and_cheese"
+        },
+        {
+          "title": "Crispy Baked Vegan Mac and Cheese - Rainbow Plant Life",
+          "url": "https://rainbowplantlife.com/crispy-baked-vegan-mac-and-cheese/"
+        },
+        {
+          "title": "20-Minute Vegan Mac and Cheese - Minimalist Baker",
+          "url": "https://minimalistbaker.com/20-minute-mac-and-cheese-vegan/"
+        }
+      ]
+    },
+    {
+      "key": "chili-con-carne",
+      "name": "Chili con carne",
+      "nameEn": "Chili",
+      "aliases": [
+        "chili",
+        "chilli",
+        "texas chili",
+        "bean chili",
+        "vegan chili"
+      ],
+      "tiles": [
+        "American"
+      ],
+      "cuisine": "American (Texan)",
+      "region": "Texas",
+      "format": "stew",
+      "protein": "beans",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 60,
+      "effort": "low",
+      "familiarity": 1,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegan",
+        "vegetarian"
+      ],
+      "keyIngredients": [
+        "ground beef",
+        "kidney beans",
+        "tomatoes",
+        "onion",
+        "chili powder",
+        "cumin",
+        "garlic",
+        "bell pepper"
+      ],
+      "specialtyIngredients": [
+        "ancho chili powder"
+      ],
+      "veganApproach": "Replace the beef with extra beans, lentils or soy mince; the spiced tomato base stays the same.",
+      "technique": "Onion, garlic and dried chili spices are bloomed in oil, then meat or beans and tomatoes simmer slowly into a thick, spicy stew.",
+      "seasons": [
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "mealprep",
+        "comfort",
+        "hosting"
+      ],
+      "sources": [
+        {
+          "title": "Chili con carne - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Chili_Con_Carne"
+        },
+        {
+          "title": "Ultimate Vegan Chili - Nora Cooks",
+          "url": "https://www.noracooks.com/ultimate-vegan-chili/"
+        },
+        {
+          "title": "Lentil Chili - Nora Cooks",
+          "url": "https://www.noracooks.com/lentil-chili/"
+        }
+      ]
+    },
+    {
+      "key": "cincinnati-chili",
+      "name": "Cincinnati chili",
+      "nameEn": "Cincinnati-style chili spaghetti",
+      "aliases": [
+        "chili spaghetti",
+        "three-way chili",
+        "cincinnati 3-way"
+      ],
+      "tiles": [
+        "American"
+      ],
+      "cuisine": "American",
+      "region": "Ohio (Cincinnati)",
+      "format": "pasta",
+      "protein": "lentils",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 75,
+      "effort": "medium",
+      "familiarity": 3,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegan",
+        "vegetarian"
+      ],
+      "keyIngredients": [
+        "ground beef",
+        "spaghetti",
+        "tomato paste",
+        "cinnamon",
+        "allspice",
+        "cumin",
+        "cocoa",
+        "onion",
+        "cheddar",
+        "kidney beans"
+      ],
+      "specialtyIngredients": [],
+      "veganApproach": "Simmer lentils or plant-based mince in the warmly spiced tomato sauce and finish with plant-based cheddar.",
+      "technique": "A thin, warmly spiced meat sauce with cinnamon, allspice and cocoa is ladled over spaghetti and stacked with cheddar, onions or beans as 'ways'.",
+      "seasons": [
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "comfort",
+        "mealprep"
+      ],
+      "sources": [
+        {
+          "title": "Cincinnati chili - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Cincinnati_chili"
+        },
+        {
+          "title": "Vegetarian Cincinnati Chili - Simply Recipes",
+          "url": "https://www.simplyrecipes.com/vegetarian-cincinnati-chili-recipe-6891596"
+        },
+        {
+          "title": "Vegan Cincinnati Chili - Connoisseurus Veg",
+          "url": "https://www.connoisseurusveg.com/vegan-cincinnati-chili/"
+        }
+      ]
+    },
+    {
+      "key": "chicken-pot-pie",
+      "name": "Chicken pot pie",
+      "nameEn": "Chicken pot pie",
+      "aliases": [
+        "pot pie",
+        "vegetable pot pie",
+        "veggie pot pie",
+        "vegan pot pie"
+      ],
+      "tiles": [
+        "American"
+      ],
+      "cuisine": "American",
+      "region": "United States",
+      "format": "savory_pie",
+      "protein": "vegetables",
+      "method": "oven",
+      "appliances": [
+        "stovetop",
+        "oven"
+      ],
+      "cookMinutes": 75,
+      "effort": "medium",
+      "familiarity": 1,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegan",
+        "vegetarian"
+      ],
+      "keyIngredients": [
+        "chicken",
+        "pie crust",
+        "carrots",
+        "peas",
+        "celery",
+        "onion",
+        "butter",
+        "flour",
+        "chicken stock",
+        "milk"
+      ],
+      "specialtyIngredients": [],
+      "veganApproach": "Fill with vegetables plus chickpeas or white beans in a plant-milk gravy and top with a dairy-free crust or vegan puff pastry.",
+      "technique": "A creamy roux-thickened filling of chicken and vegetables is sealed under pastry and baked until golden.",
+      "seasons": [
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "comfort",
+        "hosting"
+      ],
+      "sources": [
+        {
+          "title": "Pot pie - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Pot_pie"
+        },
+        {
+          "title": "Vegan Pot Pie - Nora Cooks",
+          "url": "https://www.noracooks.com/vegan-pot-pie/"
+        },
+        {
+          "title": "1-Hour Vegan Pot Pies - Minimalist Baker",
+          "url": "https://minimalistbaker.com/1-hour-vegan-pot-pies/"
+        }
+      ]
+    },
+    {
+      "key": "sloppy-joe",
+      "name": "Sloppy joe",
+      "nameEn": "Sloppy joe",
+      "aliases": [
+        "sloppy joes",
+        "lentil sloppy joes"
+      ],
+      "tiles": [
+        "American"
+      ],
+      "cuisine": "American",
+      "region": "United States",
+      "format": "sandwich",
+      "protein": "lentils",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 30,
+      "effort": "low",
+      "familiarity": 1,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "ground beef",
+        "hamburger buns",
+        "ketchup",
+        "tomato sauce",
+        "onion",
+        "green bell pepper",
+        "worcestershire sauce",
+        "brown sugar",
+        "mustard"
+      ],
+      "specialtyIngredients": [],
+      "veganApproach": "Use cooked lentils or soy mince in the sweet and tangy tomato sauce, with a vegan Worcestershire sauce.",
+      "technique": "Ground meat is browned with onion and pepper, simmered in a sweet, tangy tomato sauce and spooned onto soft buns.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "mealprep",
+        "comfort"
+      ],
+      "sources": [
+        {
+          "title": "Sloppy joe - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Sloppy_Joe"
+        },
+        {
+          "title": "Lentil Sloppy Joes - A Couple Cooks",
+          "url": "https://www.acouplecooks.com/lentil-sloppy-joes/"
+        }
+      ]
+    },
+    {
+      "key": "veggie-burger",
+      "name": "Veggie burger",
+      "nameEn": "Veggie burger",
+      "aliases": [
+        "black bean burger",
+        "bean burger",
+        "vegan burger",
+        "plant-based burger"
+      ],
+      "tiles": [
+        "American"
+      ],
+      "cuisine": "American",
+      "region": "United States",
+      "format": "sandwich",
+      "protein": "beans",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop",
+        "food_processor"
+      ],
+      "cookMinutes": 40,
+      "effort": "medium",
+      "familiarity": 1,
+      "traditionalDiet": "vegetarian",
+      "versions": [
+        "vegan",
+        "vegetarian"
+      ],
+      "keyIngredients": [
+        "black beans",
+        "burger buns",
+        "breadcrumbs",
+        "onion",
+        "egg",
+        "cheese",
+        "lettuce",
+        "tomato",
+        "pickles"
+      ],
+      "specialtyIngredients": [],
+      "veganApproach": "Bind the patties with flax, aquafaba or starch instead of egg and top with vegan cheese and mayo.",
+      "technique": "Mashed beans, grains and browned vegetables are bound into patties, seared until crusty and served in a bun with classic burger toppings.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "mealprep",
+        "hosting"
+      ],
+      "sources": [
+        {
+          "title": "Veggie burger - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Veggie_burger"
+        },
+        {
+          "title": "The Best Black Bean Burger - Serious Eats",
+          "url": "https://www.seriouseats.com/the-best-black-bean-burger-recipe"
+        },
+        {
+          "title": "Homemade Veggie Burgers That Don't Suck - Serious Eats",
+          "url": "https://www.seriouseats.com/homemade-veggie-vegan-burgers-that-dont-suck-recipe"
+        }
+      ]
+    },
+    {
+      "key": "meatloaf",
+      "name": "Meatloaf",
+      "nameEn": "Meatloaf",
+      "aliases": [
+        "meat loaf",
+        "lentil loaf",
+        "vegan meatloaf"
+      ],
+      "tiles": [
+        "American"
+      ],
+      "cuisine": "American",
+      "region": "United States",
+      "format": "bake",
+      "protein": "lentils",
+      "method": "oven",
+      "appliances": [
+        "stovetop",
+        "oven"
+      ],
+      "cookMinutes": 75,
+      "effort": "medium",
+      "familiarity": 1,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegan",
+        "vegetarian"
+      ],
+      "keyIngredients": [
+        "ground beef",
+        "breadcrumbs",
+        "egg",
+        "onion",
+        "ketchup",
+        "worcestershire sauce",
+        "milk",
+        "garlic"
+      ],
+      "specialtyIngredients": [],
+      "veganApproach": "Shape a loaf from lentils, oats, walnuts and sautéed vegetables bound with flax, then glaze it with ketchup as usual.",
+      "technique": "Seasoned ground meat bound with egg and breadcrumbs is shaped into a loaf, glazed with ketchup, baked and served in thick slices.",
+      "seasons": [
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "comfort",
+        "mealprep"
+      ],
+      "sources": [
+        {
+          "title": "Meatloaf - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Meatloaf"
+        },
+        {
+          "title": "Lentil Loaf - Nora Cooks",
+          "url": "https://www.noracooks.com/lentil-loaf/"
+        },
+        {
+          "title": "Vegan Meatloaf - Isa Chandra (The PPK)",
+          "url": "https://www.theppk.com/2020/10/members-only-vegan-meatloaf/"
+        }
+      ]
+    },
+    {
+      "key": "tuna-noodle-casserole",
+      "name": "Tuna noodle casserole",
+      "nameEn": "Tuna noodle casserole",
+      "aliases": [
+        "tuna casserole",
+        "tuna bake",
+        "chickpea tuna casserole"
+      ],
+      "tiles": [
+        "American"
+      ],
+      "cuisine": "American",
+      "region": "United States (Midwest)",
+      "format": "bake",
+      "protein": "chickpeas",
+      "method": "oven",
+      "appliances": [
+        "stovetop",
+        "oven"
+      ],
+      "cookMinutes": 50,
+      "effort": "low",
+      "familiarity": 2,
+      "traditionalDiet": "pescatarian",
+      "versions": [
+        "vegan",
+        "pescatarian"
+      ],
+      "keyIngredients": [
+        "egg noodles",
+        "canned tuna",
+        "cream of mushroom soup",
+        "peas",
+        "cheddar",
+        "onion",
+        "breadcrumbs"
+      ],
+      "specialtyIngredients": [],
+      "veganApproach": "Swap the tuna for mashed chickpeas seasoned with nori and Old Bay, folded into a plant-milk mushroom sauce with egg-free pasta.",
+      "technique": "Noodles, flaked tuna and peas are folded into a creamy mushroom sauce, topped with crumbs or crushed crackers and baked until bubbling.",
+      "seasons": [
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "mealprep",
+        "comfort"
+      ],
+      "sources": [
+        {
+          "title": "Tuna casserole - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Tuna_casserole"
+        },
+        {
+          "title": "Vegan Chickpea 'Tuna' Casserole - Bragg",
+          "url": "https://www.bragg.com/blogs/recipe/vegan-chickpea-tuna-casserole"
+        },
+        {
+          "title": "Vegan Chickpea Tuna Casserole - The Viet Vegan",
+          "url": "https://thevietvegan.com/vegan-chickpea-tuna-casserole/"
+        }
+      ]
+    },
+    {
+      "key": "tater-tot-hotdish",
+      "name": "Tater tot hotdish",
+      "nameEn": "Tater tot casserole",
+      "aliases": [
+        "hotdish",
+        "tater tot casserole",
+        "vegan hotdish"
+      ],
+      "tiles": [
+        "American"
+      ],
+      "cuisine": "American",
+      "region": "Minnesota",
+      "format": "bake",
+      "protein": "soy_mince",
+      "method": "oven",
+      "appliances": [
+        "stovetop",
+        "oven"
+      ],
+      "cookMinutes": 60,
+      "effort": "low",
+      "familiarity": 3,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegan",
+        "vegetarian"
+      ],
+      "keyIngredients": [
+        "ground beef",
+        "tater tots",
+        "cream of mushroom soup",
+        "green beans",
+        "corn",
+        "onion",
+        "cheddar"
+      ],
+      "specialtyIngredients": [
+        "tater tots"
+      ],
+      "veganApproach": "Use plant-based ground or seitan with a homemade mushroom sauce thickened with flour and plant milk.",
+      "technique": "Browned meat and vegetables bound in creamy mushroom soup are covered with rows of frozen tater tots and baked until crisp.",
+      "seasons": [
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "comfort",
+        "mealprep",
+        "hosting"
+      ],
+      "sources": [
+        {
+          "title": "Hotdish - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Hotdish"
+        },
+        {
+          "title": "Vegan Tater Tot Hotdish - MN Veg Head",
+          "url": "https://mnveghead.com/vegan-tater-tot-hotdish/"
+        },
+        {
+          "title": "Vegan Hotdish - The Vegan Atlas",
+          "url": "https://theveganatlas.com/vegan-hotdish-a-minnesota-casserole-turned-plant-based/"
+        }
+      ]
+    },
+    {
+      "key": "american-goulash",
+      "name": "American goulash",
+      "nameEn": "American goulash",
+      "aliases": [
+        "american chop suey",
+        "goulash",
+        "macaroni and beef"
+      ],
+      "tiles": [
+        "American"
+      ],
+      "cuisine": "American",
+      "region": "United States (Midwest and New England)",
+      "format": "pasta",
+      "protein": "lentils",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 40,
+      "effort": "low",
+      "familiarity": 3,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "elbow macaroni",
+        "ground beef",
+        "tomatoes",
+        "tomato sauce",
+        "onion",
+        "green bell pepper",
+        "paprika",
+        "garlic"
+      ],
+      "specialtyIngredients": [],
+      "veganApproach": "Replace the beef with lentils, mushrooms or TVP; the one-pot tomato and macaroni base is otherwise unchanged.",
+      "technique": "Ground beef, onion and tomatoes simmer in one pot with paprika, and the uncooked macaroni cooks directly in the sauce.",
+      "seasons": [
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "mealprep",
+        "comfort"
+      ],
+      "sources": [
+        {
+          "title": "American goulash - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/American_goulash"
+        },
+        {
+          "title": "Vegan Goulash (American Version) - Keeping the Peas",
+          "url": "https://www.keepingthepeas.com/vegan-goulash/"
+        },
+        {
+          "title": "Vegan Goulash (American-Style) - Connoisseurus Veg",
+          "url": "https://www.connoisseurusveg.com/vegan-american-goulash/"
+        }
+      ]
+    },
+    {
+      "key": "new-england-clam-chowder",
+      "name": "New England clam chowder",
+      "nameEn": "New England clam chowder",
+      "aliases": [
+        "clam chowder",
+        "boston clam chowder",
+        "vegan clam chowder"
+      ],
+      "tiles": [
+        "American"
+      ],
+      "cuisine": "American",
+      "region": "New England",
+      "format": "soup",
+      "protein": "mushrooms",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 45,
+      "effort": "medium",
+      "familiarity": 1,
+      "traditionalDiet": "pescatarian",
+      "versions": [
+        "vegan",
+        "pescatarian"
+      ],
+      "keyIngredients": [
+        "clams",
+        "potatoes",
+        "onion",
+        "salt pork",
+        "milk",
+        "cream",
+        "butter",
+        "celery",
+        "oyster crackers"
+      ],
+      "specialtyIngredients": [
+        "oyster crackers"
+      ],
+      "veganApproach": "Use oyster or king oyster mushrooms with seaweed for briny depth, smoked paprika in place of the pork and a cashew or plant-milk base.",
+      "technique": "Rendered salt pork and onion form the base, potatoes simmer in clam broth, and chopped clams and cream go in at the end.",
+      "seasons": [
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "comfort",
+        "hosting"
+      ],
+      "sources": [
+        {
+          "title": "Clam chowder - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/clam_chowder"
+        },
+        {
+          "title": "Vegan Clam Chowder - Connoisseurus Veg",
+          "url": "https://www.connoisseurusveg.com/vegan-clam-chowder/"
+        },
+        {
+          "title": "Vegan New England Clam Chowder - Catskill Animal Sanctuary",
+          "url": "https://casanctuary.org/vegan-new-england-clam-chowder/"
+        }
+      ]
+    },
+    {
+      "key": "corn-chowder",
+      "name": "Corn chowder",
+      "nameEn": "Corn chowder",
+      "aliases": [
+        "sweet corn chowder",
+        "vegan corn chowder"
+      ],
+      "tiles": [
+        "American"
+      ],
+      "cuisine": "American",
+      "region": "New England",
+      "format": "soup",
+      "protein": "vegetables",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop",
+        "blender"
+      ],
+      "cookMinutes": 40,
+      "effort": "low",
+      "familiarity": 2,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegan",
+        "vegetarian"
+      ],
+      "keyIngredients": [
+        "sweet corn",
+        "potatoes",
+        "onion",
+        "celery",
+        "milk",
+        "butter",
+        "bacon"
+      ],
+      "specialtyIngredients": [],
+      "veganApproach": "Leave out the bacon, add smoked paprika, and make it creamy with coconut milk, cashews or part of the soup blended.",
+      "technique": "Corn and diced potatoes simmer in stock and milk, then part of the soup is blended for a thick but chunky chowder.",
+      "seasons": [
+        "summer",
+        "autumn"
+      ],
+      "occasions": [
+        "everyday",
+        "comfort"
+      ],
+      "sources": [
+        {
+          "title": "Corn chowder - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/corn_chowder"
+        },
+        {
+          "title": "Vegan Corn Chowder - Bakerita",
+          "url": "https://www.bakerita.com/vegan-corn-chowder/"
+        },
+        {
+          "title": "Creamy Vegan Corn Chowder - A Couple Cooks",
+          "url": "https://www.acouplecooks.com/vegan-corn-chowder/"
+        }
+      ]
+    },
+    {
+      "key": "grilled-cheese-sandwich",
+      "name": "Grilled cheese sandwich",
+      "nameEn": "Grilled cheese sandwich",
+      "aliases": [
+        "grilled cheese",
+        "cheese toastie",
+        "grilled cheese and tomato soup"
+      ],
+      "tiles": [
+        "American"
+      ],
+      "cuisine": "American",
+      "region": "United States",
+      "format": "sandwich",
+      "protein": "cheese",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 10,
+      "effort": "low",
+      "familiarity": 1,
+      "traditionalDiet": "vegetarian",
+      "versions": [
+        "vegan",
+        "vegetarian"
+      ],
+      "keyIngredients": [
+        "white bread",
+        "cheddar",
+        "american cheese",
+        "butter"
+      ],
+      "specialtyIngredients": [],
+      "veganApproach": "Use a plant-based cheese that melts well and vegan butter; the classic tomato soup on the side is easily vegan too.",
+      "technique": "Buttered bread is griddled slowly in a pan so the outside crisps while the cheese inside melts.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "quick",
+        "comfort"
+      ],
+      "sources": [
+        {
+          "title": "Cheese sandwich - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Grilled_cheese"
+        }
+      ]
+    },
+    {
+      "key": "blt",
+      "name": "BLT",
+      "nameEn": "Bacon, lettuce and tomato sandwich",
+      "aliases": [
+        "blt sandwich",
+        "tempeh blt",
+        "tlt"
+      ],
+      "tiles": [
+        "American"
+      ],
+      "cuisine": "American",
+      "region": "United States",
+      "format": "sandwich",
+      "protein": "tempeh",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 20,
+      "effort": "low",
+      "familiarity": 1,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "bacon",
+        "lettuce",
+        "tomato",
+        "mayonnaise",
+        "toasted bread"
+      ],
+      "specialtyIngredients": [],
+      "veganApproach": "Replace the bacon with smoky marinated tempeh or tofu strips and use vegan mayonnaise.",
+      "technique": "Crisp-fried bacon is layered with ripe tomato and lettuce on toasted bread spread with mayonnaise.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn"
+      ],
+      "occasions": [
+        "everyday",
+        "quick"
+      ],
+      "sources": [
+        {
+          "title": "BLT - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/BLT_sandwich"
+        },
+        {
+          "title": "Vegan Tempeh BLT Sandwich - Bakerita",
+          "url": "https://www.bakerita.com/vegan-tempeh-blt-sandwich/"
+        }
+      ]
+    },
+    {
+      "key": "philly-cheesesteak",
+      "name": "Philly cheesesteak",
+      "nameEn": "Philadelphia cheesesteak",
+      "aliases": [
+        "cheesesteak",
+        "philly cheese steak",
+        "vegan cheesesteak"
+      ],
+      "tiles": [
+        "American"
+      ],
+      "cuisine": "American",
+      "region": "Pennsylvania (Philadelphia)",
+      "format": "sandwich",
+      "protein": "seitan",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 30,
+      "effort": "low",
+      "familiarity": 1,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegan",
+        "vegetarian"
+      ],
+      "keyIngredients": [
+        "thinly sliced ribeye",
+        "hoagie roll",
+        "provolone",
+        "cheese sauce",
+        "onion",
+        "green bell pepper"
+      ],
+      "specialtyIngredients": [],
+      "veganApproach": "Sear thinly sliced seitan or portobello mushrooms hard with onions and peppers, then top with a plant-based cheese sauce.",
+      "technique": "Paper-thin steak is chopped on a hot griddle with onions, covered with melting cheese and scooped into a long roll.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "comfort"
+      ],
+      "sources": [
+        {
+          "title": "Cheesesteak - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Cheesesteak"
+        },
+        {
+          "title": "Portobello Seitan Vegan Philly Cheesesteak - The Vegan Atlas",
+          "url": "https://theveganatlas.com/portobello-seitan-vegan-philly-cheesesteak-sandwiches/"
+        },
+        {
+          "title": "Vegan Philly Cheesesteak - At Elizabeth's Table",
+          "url": "https://atelizabethstable.com/vegan-philly-cheesesteak/"
+        }
+      ]
+    },
+    {
+      "key": "reuben-sandwich",
+      "name": "Reuben sandwich",
+      "nameEn": "Reuben sandwich",
+      "aliases": [
+        "reuben",
+        "tempeh reuben"
+      ],
+      "tiles": [
+        "American"
+      ],
+      "cuisine": "American",
+      "region": "United States (Nebraska / New York)",
+      "format": "sandwich",
+      "protein": "tempeh",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 25,
+      "effort": "low",
+      "familiarity": 1,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "corned beef",
+        "rye bread",
+        "sauerkraut",
+        "swiss cheese",
+        "russian dressing",
+        "butter"
+      ],
+      "specialtyIngredients": [],
+      "veganApproach": "Marinated, pan-seared tempeh replaces the corned beef, with plant-based Swiss and a vegan Russian dressing.",
+      "technique": "Corned beef, Swiss cheese, sauerkraut and Russian dressing are stacked on rye and griddled in butter until the cheese melts.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "quick"
+      ],
+      "sources": [
+        {
+          "title": "Reuben sandwich - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Reuben_sandwich"
+        },
+        {
+          "title": "Vegan Tempeh Reuben - My Darling Vegan",
+          "url": "https://www.mydarlingvegan.com/vegan-tempeh-reuben/"
+        }
+      ]
+    },
+    {
+      "key": "lobster-roll",
+      "name": "Lobster roll",
+      "nameEn": "Lobster roll",
+      "aliases": [
+        "maine lobster roll",
+        "connecticut lobster roll",
+        "vegan lobster roll"
+      ],
+      "tiles": [
+        "American"
+      ],
+      "cuisine": "American",
+      "region": "New England (Maine)",
+      "format": "sandwich",
+      "protein": "vegetables",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 30,
+      "effort": "medium",
+      "familiarity": 2,
+      "traditionalDiet": "pescatarian",
+      "versions": [
+        "vegan",
+        "pescatarian"
+      ],
+      "keyIngredients": [
+        "lobster",
+        "split-top bun",
+        "mayonnaise",
+        "butter",
+        "celery",
+        "lemon",
+        "chives"
+      ],
+      "specialtyIngredients": [
+        "split-top hot dog buns"
+      ],
+      "veganApproach": "Hearts of palm, sautéed in vegan butter and dressed with vegan mayo, Old Bay, dill and lemon, stand in for the lobster.",
+      "technique": "Cooked lobster meat is dressed cold with mayonnaise (Maine style) or warmed in butter (Connecticut style) and piled into a toasted, buttered bun.",
+      "seasons": [
+        "summer"
+      ],
+      "occasions": [
+        "date",
+        "hosting"
+      ],
+      "sources": [
+        {
+          "title": "Lobster roll - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Lobster_roll"
+        },
+        {
+          "title": "Easy Vegan Lobster Rolls - Live Eat Learn",
+          "url": "https://www.liveeatlearn.com/vegan-lobster-rolls/"
+        },
+        {
+          "title": "Easy Vegan Lobster Rolls With Hearts of Palm - VegNews",
+          "url": "https://vegnews.com/recipes/vegan-lobster-rolls"
+        }
+      ]
+    },
+    {
+      "key": "crab-cakes",
+      "name": "Crab cakes",
+      "nameEn": "Crab cakes",
+      "aliases": [
+        "crab cake",
+        "maryland crab cakes",
+        "vegan crab cakes"
+      ],
+      "tiles": [
+        "American"
+      ],
+      "cuisine": "American",
+      "region": "Maryland (Chesapeake Bay)",
+      "format": "fritters",
+      "protein": "vegetables",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 30,
+      "effort": "medium",
+      "familiarity": 1,
+      "traditionalDiet": "pescatarian",
+      "versions": [
+        "vegan",
+        "pescatarian"
+      ],
+      "keyIngredients": [
+        "lump crab meat",
+        "breadcrumbs",
+        "mayonnaise",
+        "egg",
+        "old bay seasoning",
+        "mustard",
+        "worcestershire sauce",
+        "lemon"
+      ],
+      "specialtyIngredients": [
+        "old bay seasoning"
+      ],
+      "veganApproach": "Flaked hearts of palm or chickpeas seasoned with Old Bay and seaweed are bound with vegan mayo and breadcrumbs, then pan-fried.",
+      "technique": "Lump crab is bound with as little filler as possible, chilled to firm up and pan-fried or broiled until golden.",
+      "seasons": [
+        "spring",
+        "summer"
+      ],
+      "occasions": [
+        "hosting",
+        "date"
+      ],
+      "sources": [
+        {
+          "title": "Crab cake - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Crab_cake"
+        },
+        {
+          "title": "Vegan Crab Cakes - Loving It Vegan",
+          "url": "https://lovingitvegan.com/vegan-crab-cakes/"
+        },
+        {
+          "title": "Vegan Crab Cakes - Crowded Kitchen",
+          "url": "https://www.crowdedkitchen.com/vegan-crab-cakes/"
+        }
+      ]
+    },
+    {
+      "key": "cobb-salad",
+      "name": "Cobb salad",
+      "nameEn": "Cobb salad",
+      "aliases": [
+        "cobb",
+        "vegan cobb salad"
+      ],
+      "tiles": [
+        "American",
+        "Fresh & light"
+      ],
+      "cuisine": "American",
+      "region": "California (Los Angeles)",
+      "format": "salad",
+      "protein": "tempeh",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 30,
+      "effort": "low",
+      "familiarity": 1,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegan",
+        "vegetarian"
+      ],
+      "keyIngredients": [
+        "romaine lettuce",
+        "chicken breast",
+        "bacon",
+        "hard-boiled eggs",
+        "avocado",
+        "tomatoes",
+        "blue cheese",
+        "chives",
+        "red wine vinaigrette"
+      ],
+      "specialtyIngredients": [],
+      "veganApproach": "Swap the chicken, bacon and eggs for smoky tempeh 'bacon' and chickpeas, and use a vegan cheese or simply more avocado.",
+      "technique": "Chopped greens are topped with neat rows of chicken, bacon, egg, avocado, tomato and blue cheese, then dressed with a red wine vinaigrette.",
+      "seasons": [
+        "spring",
+        "summer"
+      ],
+      "occasions": [
+        "everyday",
+        "mealprep"
+      ],
+      "sources": [
+        {
+          "title": "Cobb salad - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Cobb_salad"
+        },
+        {
+          "title": "Vegan Cobb Salad - Nora Cooks",
+          "url": "https://www.noracooks.com/vegan-cobb-salad/"
+        },
+        {
+          "title": "Vegan Cobb Salad with Tempeh Bacon - Simply Quinoa",
+          "url": "https://www.simplyquinoa.com/vegan-cobb-salad/"
+        }
+      ]
+    },
+    {
+      "key": "loaded-baked-potato",
+      "name": "Baked potato",
+      "nameEn": "Loaded baked potato",
+      "aliases": [
+        "loaded baked potato",
+        "jacket potato",
+        "stuffed baked potato"
+      ],
+      "tiles": [
+        "American"
+      ],
+      "cuisine": "American",
+      "region": "United States",
+      "format": "stuffed",
+      "protein": "vegetables",
+      "method": "oven",
+      "appliances": [
+        "oven"
+      ],
+      "cookMinutes": 70,
+      "effort": "low",
+      "familiarity": 1,
+      "traditionalDiet": "vegetarian",
+      "versions": [
+        "vegan",
+        "vegetarian"
+      ],
+      "keyIngredients": [
+        "russet potatoes",
+        "butter",
+        "sour cream",
+        "cheddar",
+        "chives",
+        "salt"
+      ],
+      "specialtyIngredients": [],
+      "veganApproach": "Top with vegan butter, cashew sour cream, chili or beans and plant-based cheese.",
+      "technique": "Large floury potatoes are baked slowly until the skin is crisp and the flesh fluffy, then split open and loaded with toppings.",
+      "seasons": [
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "comfort"
+      ],
+      "sources": [
+        {
+          "title": "Baked potato - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Baked_potato"
+        }
+      ]
+    },
+    {
+      "key": "split-pea-soup",
+      "name": "Split pea soup",
+      "nameEn": "Split pea soup",
+      "aliases": [
+        "pea soup",
+        "soupe aux pois",
+        "pea and ham soup",
+        "vegan split pea soup"
+      ],
+      "tiles": [
+        "American"
+      ],
+      "cuisine": "American and Canadian",
+      "region": "United States / Québec",
+      "format": "soup",
+      "protein": "edamame_peas",
+      "method": "slow_cook",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 105,
+      "effort": "low",
+      "familiarity": 2,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "dried split peas",
+        "ham hock",
+        "onion",
+        "carrots",
+        "celery",
+        "bay leaf",
+        "thyme"
+      ],
+      "specialtyIngredients": [],
+      "veganApproach": "Leave out the ham hock and add smoked paprika or a few drops of liquid smoke for the smoky depth.",
+      "technique": "Dried split peas simmer slowly with a ham bone and aromatics until they collapse into a thick, smoky purée.",
+      "seasons": [
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "mealprep",
+        "comfort"
+      ],
+      "sources": [
+        {
+          "title": "Pea soup - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Pea_soup"
+        },
+        {
+          "title": "Smoky Vegan Split Pea Soup - Vegan with Gusto",
+          "url": "https://veganwithgusto.com/smoky-split-pea-soup/"
+        },
+        {
+          "title": "Smoky Vegetarian Split Pea Soup - Connoisseurus Veg",
+          "url": "https://www.connoisseurusveg.com/vegetarian-split-pea-soup/"
+        }
+      ]
+    },
+    {
+      "key": "chicken-noodle-soup",
+      "name": "Chicken noodle soup",
+      "nameEn": "Chicken noodle soup",
+      "aliases": [
+        "chicken soup",
+        "chickpea noodle soup",
+        "vegan chicken noodle soup"
+      ],
+      "tiles": [
+        "American"
+      ],
+      "cuisine": "American",
+      "region": "United States",
+      "format": "soup",
+      "protein": "chickpeas",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 45,
+      "effort": "low",
+      "familiarity": 1,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "chicken",
+        "egg noodles",
+        "carrots",
+        "celery",
+        "onion",
+        "garlic",
+        "thyme",
+        "bay leaf",
+        "parsley"
+      ],
+      "specialtyIngredients": [],
+      "veganApproach": "Chickpeas replace the chicken, and nutritional yeast with thyme and sautéed aromatics gives the vegetable broth its savory depth.",
+      "technique": "Chicken simmers with root vegetables into a clear broth, then the meat is shredded back in with egg noodles.",
+      "seasons": [
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "comfort",
+        "mealprep"
+      ],
+      "sources": [
+        {
+          "title": "Chicken soup - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Chicken_soup"
+        },
+        {
+          "title": "Vegan Chickpea Noodle Soup - America's Test Kitchen",
+          "url": "https://www.americastestkitchen.com/recipes/12072-vegan-chickpea-noodle-soup"
+        },
+        {
+          "title": "Chickpea Noodle Soup - NYT Cooking",
+          "url": "https://cooking.nytimes.com/recipes/1025743-chickpea-noodle-soup"
+        }
+      ]
+    },
+    {
+      "key": "gumbo",
+      "name": "Gumbo",
+      "nameEn": "Gumbo",
+      "aliases": [
+        "seafood gumbo",
+        "gumbo z'herbes",
+        "okra gumbo",
+        "vegan gumbo"
+      ],
+      "tiles": [
+        "American"
+      ],
+      "cuisine": "Louisiana Creole and Cajun",
+      "region": "Louisiana",
+      "format": "stew",
+      "protein": "vegetables",
+      "method": "slow_cook",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 120,
+      "effort": "high",
+      "familiarity": 1,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegan",
+        "pescatarian"
+      ],
+      "keyIngredients": [
+        "dark roux",
+        "okra",
+        "onion",
+        "celery",
+        "green bell pepper",
+        "andouille sausage",
+        "shrimp",
+        "chicken",
+        "filé powder",
+        "white rice"
+      ],
+      "specialtyIngredients": [
+        "filé powder",
+        "andouille sausage"
+      ],
+      "veganApproach": "Make the dark roux with oil and use okra, mushrooms, beans or vegan andouille; gumbo z'herbes is a traditional meatless greens version.",
+      "technique": "Flour and fat are stirred patiently into a dark roux, then the onion, celery and pepper 'holy trinity', stock, okra and proteins simmer into a thick stew served over rice.",
+      "seasons": [
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "hosting",
+        "comfort",
+        "mealprep"
+      ],
+      "sources": [
+        {
+          "title": "Gumbo - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Gumbo"
+        },
+        {
+          "title": "Vegan Gumbo (Louisiana Style) - Dances with Knives",
+          "url": "https://www.danceswithknives.com/vegan-gumbo-louisiana-style/"
+        },
+        {
+          "title": "Vegan Gumbo - Live Eat Learn",
+          "url": "https://www.liveeatlearn.com/vegan-gumbo/"
+        }
+      ]
+    },
+    {
+      "key": "jambalaya",
+      "name": "Jambalaya",
+      "nameEn": "Jambalaya",
+      "aliases": [
+        "creole jambalaya",
+        "cajun jambalaya",
+        "shrimp jambalaya",
+        "vegan jambalaya"
+      ],
+      "tiles": [
+        "American"
+      ],
+      "cuisine": "Louisiana Creole and Cajun",
+      "region": "Louisiana",
+      "format": "rice_dish",
+      "protein": "beans",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 60,
+      "effort": "medium",
+      "familiarity": 1,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegan",
+        "pescatarian"
+      ],
+      "keyIngredients": [
+        "long-grain rice",
+        "andouille sausage",
+        "chicken",
+        "shrimp",
+        "onion",
+        "celery",
+        "green bell pepper",
+        "tomatoes",
+        "creole seasoning"
+      ],
+      "specialtyIngredients": [
+        "andouille sausage",
+        "creole seasoning"
+      ],
+      "veganApproach": "Use kidney beans, mushrooms or vegan sausage with smoked paprika and Creole spices in place of the meats.",
+      "technique": "Rice cooks in the same pot as browned sausage, the holy trinity, tomatoes (Creole style) and stock until it absorbs all the seasoned liquid.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "hosting",
+        "mealprep"
+      ],
+      "sources": [
+        {
+          "title": "Jambalaya - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Jambalaya"
+        },
+        {
+          "title": "Vegan Jambalaya - The Simple Veganista",
+          "url": "https://simple-veganista.com/vegan-jambalaya/"
+        },
+        {
+          "title": "Vegan Jambalaya - EatingWell",
+          "url": "https://www.eatingwell.com/recipe/277665/vegan-jambalaya/"
+        }
+      ]
+    },
+    {
+      "key": "red-beans-and-rice",
+      "name": "Red beans and rice",
+      "nameEn": "Red beans and rice",
+      "aliases": [
+        "new orleans red beans",
+        "red beans & rice",
+        "monday red beans"
+      ],
+      "tiles": [
+        "American"
+      ],
+      "cuisine": "Louisiana Creole",
+      "region": "Louisiana (New Orleans)",
+      "format": "stew",
+      "protein": "beans",
+      "method": "slow_cook",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 150,
+      "effort": "low",
+      "familiarity": 2,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "red kidney beans",
+        "white rice",
+        "ham hock",
+        "andouille sausage",
+        "onion",
+        "celery",
+        "green bell pepper",
+        "garlic",
+        "bay leaf"
+      ],
+      "specialtyIngredients": [
+        "andouille sausage"
+      ],
+      "veganApproach": "Skip the ham hock and sausage; smoked paprika, liquid smoke or vegan sausage bring the smokiness, and mashing some beans makes it creamy.",
+      "technique": "Dried red beans simmer for hours with the holy trinity and smoked pork until creamy, traditionally on Mondays, and are served over white rice.",
+      "seasons": [
+        "spring",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "mealprep",
+        "comfort"
+      ],
+      "sources": [
+        {
+          "title": "Red beans and rice - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Red_beans_&_rice"
+        },
+        {
+          "title": "New Orleans-Style Vegan Red Beans & Rice - Camellia Brand",
+          "url": "https://www.camelliabrand.com/recipes/new-orleans-style-vegan-red-beans-rice/"
+        },
+        {
+          "title": "Vegan Slow-Cooker Red Beans and Rice - NYT Cooking",
+          "url": "https://cooking.nytimes.com/recipes/1020816-vegan-slow-cooker-red-beans-and-rice"
+        }
+      ]
+    },
+    {
+      "key": "crawfish-etouffee",
+      "name": "Crawfish étouffée",
+      "nameEn": "Crawfish étouffée",
+      "aliases": [
+        "étouffée",
+        "etouffee",
+        "shrimp étouffée",
+        "mushroom étouffée"
+      ],
+      "tiles": [
+        "American"
+      ],
+      "cuisine": "Cajun",
+      "region": "Louisiana (Acadiana)",
+      "format": "stew",
+      "protein": "mushrooms",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 50,
+      "effort": "medium",
+      "familiarity": 2,
+      "traditionalDiet": "pescatarian",
+      "versions": [
+        "vegan",
+        "pescatarian"
+      ],
+      "keyIngredients": [
+        "crawfish tails",
+        "butter",
+        "flour",
+        "onion",
+        "celery",
+        "green bell pepper",
+        "garlic",
+        "cajun seasoning",
+        "white rice",
+        "green onions"
+      ],
+      "specialtyIngredients": [
+        "crawfish tails"
+      ],
+      "veganApproach": "Oyster mushrooms replace the crawfish in an oil-based blond roux seasoned with Creole spice, Old Bay and a little dulse for a sea-like note.",
+      "technique": "A blond roux and the holy trinity form a thick, rich sauce in which crawfish tails are briefly 'smothered', then spooned over rice.",
+      "seasons": [
+        "spring",
+        "summer"
+      ],
+      "occasions": [
+        "hosting",
+        "comfort",
+        "date"
+      ],
+      "sources": [
+        {
+          "title": "Étouffée - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Etouffee"
+        },
+        {
+          "title": "Vegan Mushroom Étouffée - NYT Cooking",
+          "url": "https://cooking.nytimes.com/recipes/1018977-vegan-mushroom-etouffee"
+        },
+        {
+          "title": "Mushroom Étouffée - Sweet Potato Soul",
+          "url": "https://sweetpotatosoul.com/mushroom-etouffee/"
+        }
+      ]
+    },
+    {
+      "key": "shrimp-and-grits",
+      "name": "Shrimp and grits",
+      "nameEn": "Shrimp and grits",
+      "aliases": [
+        "shrimp 'n' grits",
+        "breakfast shrimp",
+        "lowcountry shrimp and grits"
+      ],
+      "tiles": [
+        "American"
+      ],
+      "cuisine": "Southern American (Lowcountry)",
+      "region": "South Carolina (Lowcountry)",
+      "format": "bowl",
+      "protein": "shellfish",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 50,
+      "effort": "medium",
+      "familiarity": 2,
+      "traditionalDiet": "pescatarian",
+      "versions": [
+        "pescatarian"
+      ],
+      "keyIngredients": [
+        "shrimp",
+        "stone-ground grits",
+        "bacon",
+        "cheddar",
+        "butter",
+        "mushrooms",
+        "garlic",
+        "scallions",
+        "lemon",
+        "hot sauce"
+      ],
+      "specialtyIngredients": [
+        "stone-ground grits"
+      ],
+      "veganApproach": null,
+      "technique": "Stone-ground grits are simmered slowly until creamy and enriched with butter and cheese, then topped with shrimp quickly sautéed with mushrooms, garlic and lemon.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "hosting",
+        "date",
+        "comfort"
+      ],
+      "sources": [
+        {
+          "title": "Shrimp and grits - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Shrimp_and_grits"
+        },
+        {
+          "title": "Lowcountry Shrimp and Grits - Southern Living",
+          "url": "https://www.southernliving.com/recipes/lowcountry-shrimp-and-grits"
+        },
+        {
+          "title": "Shrimp and Grits - Serious Eats",
+          "url": "https://www.seriouseats.com/shrimp-and-grits-recipe"
+        }
+      ]
+    },
+    {
+      "key": "po-boy",
+      "name": "Po' boy",
+      "nameEn": "Po' boy sandwich",
+      "aliases": [
+        "po-boy",
+        "poor boy",
+        "shrimp po' boy",
+        "oyster po' boy",
+        "oyster mushroom po' boy"
+      ],
+      "tiles": [
+        "American"
+      ],
+      "cuisine": "Louisiana Creole",
+      "region": "Louisiana (New Orleans)",
+      "format": "sandwich",
+      "protein": "mushrooms",
+      "method": "deep_fry",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 35,
+      "effort": "medium",
+      "familiarity": 2,
+      "traditionalDiet": "pescatarian",
+      "versions": [
+        "vegan",
+        "pescatarian"
+      ],
+      "keyIngredients": [
+        "french bread",
+        "fried shrimp",
+        "cornmeal",
+        "lettuce",
+        "tomato",
+        "pickles",
+        "remoulade",
+        "hot sauce"
+      ],
+      "specialtyIngredients": [
+        "new orleans french bread"
+      ],
+      "veganApproach": "Battered and fried oyster mushrooms or cornmeal-crusted tofu replace the seafood, dressed with a vegan rémoulade.",
+      "technique": "Seafood is dredged in seasoned cornmeal, fried crisp and piled into airy New Orleans French bread 'dressed' with lettuce, tomato, pickles and rémoulade.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "hosting",
+        "comfort"
+      ],
+      "sources": [
+        {
+          "title": "Po' boy - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Po%27_boy"
+        },
+        {
+          "title": "Vegan Oyster Mushroom Po' Boy - Hot for Food",
+          "url": "https://www.hotforfoodblog.com/recipes/2016/09/20/vegan-oyster-mushroom-po-boy/"
+        },
+        {
+          "title": "Vegan Po' Boy with Cornmeal Crusted Tofu - Connoisseurus Veg",
+          "url": "https://www.connoisseurusveg.com/vegan-po-boy/"
+        }
+      ]
+    },
+    {
+      "key": "hoppin-john",
+      "name": "Hoppin' John",
+      "nameEn": "Black-eyed peas and rice",
+      "aliases": [
+        "hopping john",
+        "carolina peas and rice",
+        "vegan hoppin' john"
+      ],
+      "tiles": [
+        "American"
+      ],
+      "cuisine": "Southern American (Lowcountry)",
+      "region": "South Carolina",
+      "format": "rice_dish",
+      "protein": "beans",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 60,
+      "effort": "low",
+      "familiarity": 2,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "black-eyed peas",
+        "long-grain rice",
+        "smoked ham hock",
+        "bacon",
+        "onion",
+        "celery",
+        "garlic",
+        "red pepper flakes"
+      ],
+      "specialtyIngredients": [
+        "carolina gold rice"
+      ],
+      "veganApproach": "Cook the peas with onion, smoked paprika and a touch of liquid smoke instead of the ham hock and bacon.",
+      "technique": "Black-eyed peas simmer with smoked pork and aromatics, then rice cooks in the pot liquor; traditionally eaten on New Year's Day with greens.",
+      "seasons": [
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "mealprep",
+        "hosting"
+      ],
+      "sources": [
+        {
+          "title": "Hoppin' John - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Hoppin_John"
+        },
+        {
+          "title": "Vegan Hoppin' John - Food & Wine",
+          "url": "https://www.foodandwine.com/vegan-hoppin-john-7092462"
+        },
+        {
+          "title": "Vegan Hoppin' John - Holy Cow Vegan",
+          "url": "https://holycowvegan.net/vegan-hoppin-john/"
+        }
+      ]
+    },
+    {
+      "key": "southern-fried-chicken",
+      "name": "Southern fried chicken",
+      "nameEn": "Southern fried chicken",
+      "aliases": [
+        "fried chicken",
+        "buttermilk fried chicken",
+        "vegan fried chicken"
+      ],
+      "tiles": [
+        "American"
+      ],
+      "cuisine": "Southern American",
+      "region": "Southern United States",
+      "format": "other",
+      "protein": "seitan",
+      "method": "deep_fry",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 60,
+      "effort": "high",
+      "familiarity": 1,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "chicken",
+        "buttermilk",
+        "flour",
+        "paprika",
+        "garlic powder",
+        "cayenne",
+        "black pepper",
+        "frying oil"
+      ],
+      "specialtyIngredients": [],
+      "veganApproach": "Seitan, pressed tofu or oyster mushrooms are soaked in a spiced plant-milk 'buttermilk', dredged in seasoned flour and fried.",
+      "technique": "Chicken pieces soaked in seasoned buttermilk are dredged in spiced flour and fried in hot oil until shatteringly crisp.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "hosting",
+        "comfort"
+      ],
+      "sources": [
+        {
+          "title": "Fried chicken - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Fried_Chicken"
+        },
+        {
+          "title": "The Best Southern Vegan Fried Chicken - Veganosity",
+          "url": "https://www.veganosity.com/the-best-southern-vegan-fried-chicken/"
+        },
+        {
+          "title": "Vegan Fried Chicken - Broke Bank Vegan",
+          "url": "https://brokebankvegan.com/vegan-fried-chicken/"
+        }
+      ]
+    },
+    {
+      "key": "chicken-and-dumplings",
+      "name": "Chicken and dumplings",
+      "nameEn": "Chicken and dumplings",
+      "aliases": [
+        "chicken 'n' dumplings",
+        "chickpea and dumplings",
+        "vegan chicken and dumplings"
+      ],
+      "tiles": [
+        "American"
+      ],
+      "cuisine": "Southern American",
+      "region": "Southern United States",
+      "format": "stew",
+      "protein": "chickpeas",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 60,
+      "effort": "medium",
+      "familiarity": 2,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "chicken",
+        "flour",
+        "butter",
+        "milk",
+        "carrots",
+        "celery",
+        "onion",
+        "chicken stock",
+        "thyme"
+      ],
+      "specialtyIngredients": [],
+      "veganApproach": "Use chickpeas or seitan in a creamy vegetable broth, and make the dumplings with plant milk and vegan butter.",
+      "technique": "Chicken simmers in a thickened broth, then soft biscuit-style or rolled dumplings are dropped in and steamed under a lid.",
+      "seasons": [
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "comfort"
+      ],
+      "sources": [
+        {
+          "title": "Chicken and dumplings - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Chicken_and_dumplings"
+        },
+        {
+          "title": "Vegan Chicken and Dumplings - Nora Cooks",
+          "url": "https://www.noracooks.com/vegan-chicken-and-dumplings/"
+        },
+        {
+          "title": "Vegan Chicken and Dumplings - Live Eat Learn",
+          "url": "https://www.liveeatlearn.com/vegan-chicken-and-dumplings/"
+        }
+      ]
+    },
+    {
+      "key": "brunswick-stew",
+      "name": "Brunswick stew",
+      "nameEn": "Brunswick stew",
+      "aliases": [
+        "vegan brunswick stew"
+      ],
+      "tiles": [
+        "American"
+      ],
+      "cuisine": "Southern American",
+      "region": "Virginia / Georgia / North Carolina",
+      "format": "stew",
+      "protein": "jackfruit",
+      "method": "slow_cook",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 120,
+      "effort": "medium",
+      "familiarity": 3,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "chicken",
+        "pulled pork",
+        "lima beans",
+        "corn",
+        "tomatoes",
+        "potatoes",
+        "onion",
+        "barbecue sauce",
+        "worcestershire sauce"
+      ],
+      "specialtyIngredients": [],
+      "veganApproach": "Shredded young jackfruit or vegan crumbles simmer with lima beans, corn and tomatoes in a smoky, tangy barbecue-sauce base.",
+      "technique": "Smoked or stewed meats simmer for hours with lima beans, corn and tomatoes until the stew is thick enough for a spoon to stand up in it.",
+      "seasons": [
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "hosting",
+        "mealprep",
+        "comfort"
+      ],
+      "sources": [
+        {
+          "title": "Brunswick stew - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Brunswick_stew"
+        },
+        {
+          "title": "Brunswick Stew - Mississippi Vegan",
+          "url": "https://www.mississippivegan.com/vegan-brunswick-stew/"
+        },
+        {
+          "title": "Southern Brunswick Stew - PlantPure Nation",
+          "url": "https://www.plantpurenation.com/blogs/recipes/southern-brunswick-stew"
+        }
+      ]
+    },
+    {
+      "key": "pulled-pork-sandwich",
+      "name": "Pulled pork sandwich",
+      "nameEn": "Pulled pork sandwich",
+      "aliases": [
+        "pulled pork",
+        "bbq pulled jackfruit",
+        "pulled jackfruit sandwich"
+      ],
+      "tiles": [
+        "American"
+      ],
+      "cuisine": "Southern American (barbecue)",
+      "region": "The Carolinas / Southern United States",
+      "format": "sandwich",
+      "protein": "jackfruit",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 45,
+      "effort": "low",
+      "familiarity": 1,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "pork shoulder",
+        "barbecue sauce",
+        "dry rub",
+        "cider vinegar",
+        "hamburger buns",
+        "coleslaw"
+      ],
+      "specialtyIngredients": [
+        "young green jackfruit"
+      ],
+      "veganApproach": "Young green jackfruit is shredded and simmered in barbecue sauce until sticky, then served with a crunchy slaw.",
+      "technique": "Traditionally, pork shoulder is slow-smoked or slow-roasted until it pulls apart, tossed with tangy sauce and piled on buns with coleslaw.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn"
+      ],
+      "occasions": [
+        "hosting",
+        "mealprep",
+        "comfort"
+      ],
+      "sources": [
+        {
+          "title": "Pulled pork - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Pulled_pork"
+        },
+        {
+          "title": "BBQ Jackfruit Sandwiches with Avocado Slaw - Minimalist Baker",
+          "url": "https://minimalistbaker.com/bbq-jackfruit-sandwiches-with-avocado-slaw/"
+        },
+        {
+          "title": "BBQ Pulled Jackfruit Sandwiches - Food Network",
+          "url": "https://www.foodnetwork.com/recipes/food-network-kitchen/bbq-pulled-jackfruit-sandwiches-3686824"
+        }
+      ]
+    },
+    {
+      "key": "fried-catfish",
+      "name": "Fried catfish",
+      "nameEn": "Southern fried catfish",
+      "aliases": [
+        "southern fried catfish",
+        "cornmeal-crusted catfish"
+      ],
+      "tiles": [
+        "American"
+      ],
+      "cuisine": "Southern American",
+      "region": "Mississippi Delta",
+      "format": "other",
+      "protein": "fish",
+      "method": "deep_fry",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 30,
+      "effort": "medium",
+      "familiarity": 3,
+      "traditionalDiet": "pescatarian",
+      "versions": [
+        "pescatarian"
+      ],
+      "keyIngredients": [
+        "catfish fillets",
+        "cornmeal",
+        "buttermilk",
+        "flour",
+        "cayenne",
+        "paprika",
+        "garlic powder",
+        "hot sauce",
+        "lemon"
+      ],
+      "specialtyIngredients": [],
+      "veganApproach": null,
+      "technique": "Catfish fillets soaked in buttermilk are dredged in seasoned cornmeal and fried until golden, often served with hush puppies and coleslaw.",
+      "seasons": [
+        "spring",
+        "summer"
+      ],
+      "occasions": [
+        "everyday",
+        "hosting"
+      ],
+      "sources": [
+        {
+          "title": "Classic Fried Catfish - Southern Living",
+          "url": "https://www.southernliving.com/recipes/fried-catfish"
+        },
+        {
+          "title": "Fried Catfish - America's Test Kitchen",
+          "url": "https://www.americastestkitchen.com/recipes/7806-fried-catfish"
+        },
+        {
+          "title": "Cuisine of the Southern United States - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Cuisine_of_the_Southern_United_States"
+        }
+      ]
+    },
+    {
+      "key": "lowcountry-boil",
+      "name": "Lowcountry boil",
+      "nameEn": "Lowcountry boil",
+      "aliases": [
+        "frogmore stew",
+        "beaufort stew",
+        "shrimp boil"
+      ],
+      "tiles": [
+        "American"
+      ],
+      "cuisine": "Southern American (Lowcountry)",
+      "region": "South Carolina",
+      "format": "other",
+      "protein": "shellfish",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 40,
+      "effort": "low",
+      "familiarity": 3,
+      "traditionalDiet": "meat",
+      "versions": [
+        "pescatarian"
+      ],
+      "keyIngredients": [
+        "shrimp",
+        "smoked sausage",
+        "corn on the cob",
+        "new potatoes",
+        "onion",
+        "old bay seasoning",
+        "lemon"
+      ],
+      "specialtyIngredients": [
+        "old bay seasoning"
+      ],
+      "veganApproach": null,
+      "technique": "Potatoes, sausage, corn and finally shell-on shrimp go in stages into a big pot of seasoned boiling water, then everything is drained and tipped out to share.",
+      "seasons": [
+        "summer"
+      ],
+      "occasions": [
+        "hosting"
+      ],
+      "sources": [
+        {
+          "title": "Seafood boil - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Seafood_boil"
+        },
+        {
+          "title": "Frogmore Stew (Lowcountry Boil) - South Carolina Living",
+          "url": "https://scliving.coop/food/recipes/frogmore-stew-lowcountry-boil_1/"
+        },
+        {
+          "title": "Frogmore Stew - NYT Cooking",
+          "url": "https://cooking.nytimes.com/recipes/1017498-frogmore-stew"
+        }
+      ]
+    },
+    {
+      "key": "shepherds-pie",
+      "name": "Shepherd's pie",
+      "nameEn": "Shepherd's pie",
+      "aliases": [
+        "cottage pie",
+        "lentil shepherd's pie",
+        "vegan shepherd's pie"
+      ],
+      "tiles": [
+        "American"
+      ],
+      "cuisine": "British",
+      "region": "United Kingdom",
+      "format": "bake",
+      "protein": "lentils",
+      "method": "oven",
+      "appliances": [
+        "stovetop",
+        "oven"
+      ],
+      "cookMinutes": 75,
+      "effort": "medium",
+      "familiarity": 1,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegan",
+        "vegetarian"
+      ],
+      "keyIngredients": [
+        "minced lamb",
+        "potatoes",
+        "butter",
+        "milk",
+        "onion",
+        "carrots",
+        "peas",
+        "worcestershire sauce",
+        "stock"
+      ],
+      "specialtyIngredients": [],
+      "veganApproach": "Lentils and mushrooms in a rich gravy replace the lamb, under a mash made with plant milk and vegan butter.",
+      "technique": "Minced lamb is simmered in a thick gravy with vegetables, covered with mashed potato and baked until the ridged top is crisp and golden.",
+      "seasons": [
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "comfort",
+        "mealprep"
+      ],
+      "sources": [
+        {
+          "title": "Shepherd's pie - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Shepherd%27s_pie"
+        },
+        {
+          "title": "Healthy Vegan Lentil Shepherd's Pie - Rainbow Plant Life",
+          "url": "https://rainbowplantlife.com/healthy-vegan-lentil-shepherds-pie/"
+        },
+        {
+          "title": "Vegan shepherd's pie - BBC Good Food",
+          "url": "https://www.bbcgoodfood.com/recipes/vegan-shepherds-pie"
+        }
+      ]
+    },
+    {
+      "key": "fish-and-chips",
+      "name": "Fish and chips",
+      "nameEn": "Fish and chips",
+      "aliases": [
+        "fish 'n' chips",
+        "chippy tea",
+        "tofish and chips",
+        "banana blossom fish and chips"
+      ],
+      "tiles": [
+        "American"
+      ],
+      "cuisine": "British",
+      "region": "England",
+      "format": "other",
+      "protein": "tofu",
+      "method": "deep_fry",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 45,
+      "effort": "high",
+      "familiarity": 1,
+      "traditionalDiet": "pescatarian",
+      "versions": [
+        "vegan",
+        "pescatarian"
+      ],
+      "keyIngredients": [
+        "cod",
+        "haddock",
+        "flour",
+        "beer",
+        "potatoes",
+        "malt vinegar",
+        "salt",
+        "mushy peas"
+      ],
+      "specialtyIngredients": [
+        "malt vinegar"
+      ],
+      "veganApproach": "Nori-wrapped tofu or banana blossom is dipped in beer batter and fried, served with chips and mushy peas.",
+      "technique": "White fish fillets are dipped in cold beer batter and deep-fried, alongside thick-cut chips that are fried twice.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "comfort"
+      ],
+      "sources": [
+        {
+          "title": "Fish and chips - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Fish_and_chips"
+        },
+        {
+          "title": "Tofish & chips - The Vegan Society",
+          "url": "https://www.vegansociety.com/lifestyle/recipes/tofish-chips"
+        },
+        {
+          "title": "Vegan Banana Blossom Fish - The Veg Space",
+          "url": "https://www.thevegspace.co.uk/recipe-vegan-banana-blossom-fish/"
+        }
+      ]
+    },
+    {
+      "key": "fish-pie",
+      "name": "Fish pie",
+      "nameEn": "Fish pie",
+      "aliases": [
+        "fisherman's pie",
+        "ocean pie"
+      ],
+      "tiles": [
+        "American"
+      ],
+      "cuisine": "British",
+      "region": "United Kingdom",
+      "format": "bake",
+      "protein": "fish",
+      "method": "oven",
+      "appliances": [
+        "stovetop",
+        "oven"
+      ],
+      "cookMinutes": 75,
+      "effort": "medium",
+      "familiarity": 2,
+      "traditionalDiet": "pescatarian",
+      "versions": [
+        "pescatarian"
+      ],
+      "keyIngredients": [
+        "smoked haddock",
+        "cod",
+        "prawns",
+        "potatoes",
+        "milk",
+        "butter",
+        "flour",
+        "parsley",
+        "hard-boiled eggs",
+        "peas"
+      ],
+      "specialtyIngredients": [
+        "undyed smoked haddock"
+      ],
+      "veganApproach": null,
+      "technique": "White and smoked fish are poached in milk that becomes a parsley white sauce, then the pie is topped with mash and baked.",
+      "seasons": [
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "hosting",
+        "comfort",
+        "mealprep"
+      ],
+      "sources": [
+        {
+          "title": "Fish pie - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Fish_pie"
+        },
+        {
+          "title": "Classic fish pie with peas - BBC Food",
+          "url": "https://www.bbc.co.uk/food/recipes/classic_fish_pie_with_86482"
+        },
+        {
+          "title": "Rick Stein's fish pie - BBC Food",
+          "url": "https://www.bbc.co.uk/food/recipes/fish_pie_42376"
+        }
+      ]
+    },
+    {
+      "key": "cornish-pasty",
+      "name": "Cornish pasty",
+      "nameEn": "Cornish pasty",
+      "aliases": [
+        "pasty",
+        "vegan pasty",
+        "vegetable pasty"
+      ],
+      "tiles": [
+        "American"
+      ],
+      "cuisine": "English (Cornish)",
+      "region": "Cornwall",
+      "format": "savory_pie",
+      "protein": "vegetables",
+      "method": "oven",
+      "appliances": [
+        "oven"
+      ],
+      "cookMinutes": 80,
+      "effort": "high",
+      "familiarity": 2,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegan",
+        "vegetarian"
+      ],
+      "keyIngredients": [
+        "beef skirt",
+        "potatoes",
+        "swede",
+        "onion",
+        "shortcrust pastry",
+        "black pepper",
+        "salt"
+      ],
+      "specialtyIngredients": [
+        "swede"
+      ],
+      "veganApproach": "Fill with potato, swede and onion plus lentils or mushrooms, and make the pastry with vegan butter or vegetable shortening.",
+      "technique": "Raw diced beef, potato, swede and onion are sealed in a D-shaped shortcrust with a crimped edge and baked so the filling steams in its own juices.",
+      "seasons": [
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "mealprep",
+        "everyday"
+      ],
+      "sources": [
+        {
+          "title": "Pasty - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Pasty"
+        },
+        {
+          "title": "Vegan Cornish Pasties - Connoisseurus Veg",
+          "url": "https://www.connoisseurusveg.com/vegan-cornish-pasties/"
+        },
+        {
+          "title": "Vegan Cornish Pasty - Supper in the Suburbs",
+          "url": "https://supperinthesuburbs.com/2020/10/26/vegan-cornish-pasty/"
+        }
+      ]
+    },
+    {
+      "key": "bangers-and-mash",
+      "name": "Bangers and mash",
+      "nameEn": "Sausages and mash",
+      "aliases": [
+        "sausage and mash",
+        "bangers and mash with onion gravy"
+      ],
+      "tiles": [
+        "American"
+      ],
+      "cuisine": "British",
+      "region": "United Kingdom",
+      "format": "other",
+      "protein": "seitan",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 45,
+      "effort": "low",
+      "familiarity": 1,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegan",
+        "vegetarian"
+      ],
+      "keyIngredients": [
+        "pork sausages",
+        "potatoes",
+        "butter",
+        "milk",
+        "onions",
+        "beef stock",
+        "flour"
+      ],
+      "specialtyIngredients": [],
+      "veganApproach": "Use plant-based or homemade seitan sausages, mash with plant milk and vegan butter, and make the onion gravy with vegetable stock.",
+      "technique": "Sausages are fried until browned and served on creamy mashed potato with a slow-cooked onion gravy.",
+      "seasons": [
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "comfort"
+      ],
+      "sources": [
+        {
+          "title": "Bangers and mash - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Bangers_and_mash"
+        },
+        {
+          "title": "Vegan Bangers, Mash and Gravy from Scratch - Exceedingly Vegan",
+          "url": "https://www.exceedinglyvegan.com/vegan-recipes/mains/vegan-bangers-mash-and-vegan-gravy-scratch"
+        }
+      ]
+    },
+    {
+      "key": "toad-in-the-hole",
+      "name": "Toad in the hole",
+      "nameEn": "Sausages baked in Yorkshire pudding batter",
+      "aliases": [
+        "sausage toad",
+        "vegan toad in the hole"
+      ],
+      "tiles": [
+        "American"
+      ],
+      "cuisine": "English",
+      "region": "England",
+      "format": "bake",
+      "protein": "seitan",
+      "method": "oven",
+      "appliances": [
+        "oven"
+      ],
+      "cookMinutes": 45,
+      "effort": "medium",
+      "familiarity": 2,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegan",
+        "vegetarian"
+      ],
+      "keyIngredients": [
+        "pork sausages",
+        "flour",
+        "eggs",
+        "milk",
+        "beef dripping",
+        "onion gravy"
+      ],
+      "specialtyIngredients": [],
+      "veganApproach": "Bake plant-based sausages in an egg-free batter made with plant milk, and serve with a red onion gravy.",
+      "technique": "Sausages are roasted in very hot fat, then Yorkshire pudding batter is poured around them and baked until puffed and crisp.",
+      "seasons": [
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "comfort"
+      ],
+      "sources": [
+        {
+          "title": "Toad in the hole - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Toad_in_the_hole"
+        },
+        {
+          "title": "Vegan toad-in-the-hole with red onion & balsamic gravy - BBC Good Food",
+          "url": "https://www.bbcgoodfood.com/recipes/vegan-toad-in-the-hole-with-red-onion-balsamic-gravy"
+        },
+        {
+          "title": "Vegan toad-in-the-hole - BBC Food",
+          "url": "https://www.bbc.co.uk/food/recipes/vegan_toad-in-the-hole_56207"
+        }
+      ]
+    },
+    {
+      "key": "welsh-rarebit",
+      "name": "Welsh rarebit",
+      "nameEn": "Welsh rarebit",
+      "aliases": [
+        "welsh rabbit",
+        "rarebit",
+        "cheese on toast"
+      ],
+      "tiles": [
+        "American"
+      ],
+      "cuisine": "Welsh",
+      "region": "Wales",
+      "format": "other",
+      "protein": "cheese",
+      "method": "oven",
+      "appliances": [
+        "stovetop",
+        "oven"
+      ],
+      "cookMinutes": 20,
+      "effort": "low",
+      "familiarity": 2,
+      "traditionalDiet": "vegetarian",
+      "versions": [
+        "vegan",
+        "vegetarian"
+      ],
+      "keyIngredients": [
+        "cheddar",
+        "bread",
+        "ale",
+        "english mustard",
+        "worcestershire sauce",
+        "butter",
+        "flour",
+        "milk"
+      ],
+      "specialtyIngredients": [],
+      "veganApproach": "Melt plant-based cheddar into a roux with ale, plant milk, mustard and a vegan Worcestershire-style sauce.",
+      "technique": "A thick savoury sauce of melted cheese, ale and mustard is spread over toast and grilled until bubbling and blistered.",
+      "seasons": [
+        "spring",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "quick",
+        "everyday",
+        "comfort"
+      ],
+      "sources": [
+        {
+          "title": "Welsh rarebit - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Welsh_rarebit"
+        },
+        {
+          "title": "Vegan Welsh Rarebit - Vegan Food & Living",
+          "url": "https://www.veganfoodandliving.com/vegan-recipes/vegan-welsh-rarebit/"
+        }
+      ]
+    },
+    {
+      "key": "cauliflower-cheese",
+      "name": "Cauliflower cheese",
+      "nameEn": "Cauliflower cheese",
+      "aliases": [
+        "cauliflower gratin",
+        "vegan cauliflower cheese"
+      ],
+      "tiles": [
+        "American"
+      ],
+      "cuisine": "British",
+      "region": "United Kingdom",
+      "format": "bake",
+      "protein": "vegetables",
+      "method": "oven",
+      "appliances": [
+        "stovetop",
+        "oven"
+      ],
+      "cookMinutes": 45,
+      "effort": "low",
+      "familiarity": 2,
+      "traditionalDiet": "vegetarian",
+      "versions": [
+        "vegan",
+        "vegetarian"
+      ],
+      "keyIngredients": [
+        "cauliflower",
+        "cheddar",
+        "milk",
+        "butter",
+        "flour",
+        "mustard",
+        "breadcrumbs"
+      ],
+      "specialtyIngredients": [],
+      "veganApproach": "Coat roasted cauliflower in a soya-milk béchamel seasoned with nutritional yeast and mustard, topped with vegan cheddar crumbs.",
+      "technique": "Par-cooked cauliflower is smothered in a cheddar béchamel, scattered with cheese and crumbs and baked until bubbling.",
+      "seasons": [
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "comfort"
+      ],
+      "sources": [
+        {
+          "title": "Cauliflower cheese - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Cauliflower_cheese"
+        },
+        {
+          "title": "Vegan cauliflower cheese - BBC Good Food",
+          "url": "https://www.bbcgoodfood.com/recipes/vegan-cauliflower-cheese"
+        },
+        {
+          "title": "Cauliflower cheese - BBC Good Food",
+          "url": "https://www.bbcgoodfood.com/recipes/cauliflower-cheese-0"
+        }
+      ]
+    },
+    {
+      "key": "irish-stew",
+      "name": "Irish stew",
+      "nameEn": "Irish stew",
+      "aliases": [
+        "stobhach",
+        "vegan irish stew"
+      ],
+      "tiles": [
+        "American"
+      ],
+      "cuisine": "Irish",
+      "region": "Ireland",
+      "format": "stew",
+      "protein": "vegetables",
+      "method": "slow_cook",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 120,
+      "effort": "low",
+      "familiarity": 1,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "lamb neck",
+        "potatoes",
+        "onions",
+        "carrots",
+        "parsley",
+        "thyme",
+        "stock"
+      ],
+      "specialtyIngredients": [],
+      "veganApproach": "Replace the lamb with mushrooms, lentils or white beans and simmer the root vegetables in vegetable stock, optionally with stout.",
+      "technique": "Mutton or lamb is layered with potatoes and onions and simmered gently for hours until the potatoes break down and thicken the broth.",
+      "seasons": [
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "comfort",
+        "mealprep",
+        "everyday"
+      ],
+      "sources": [
+        {
+          "title": "Irish stew - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Irish_stew"
+        },
+        {
+          "title": "Vegan Irish Stew - The Simple Veganista",
+          "url": "https://simple-veganista.com/vegan-irish-stew/"
+        },
+        {
+          "title": "Easy Vegan Irish Stew - The Fiery Vegetarian",
+          "url": "https://www.thefieryvegetarian.com/easy-vegan-irish-stew/"
+        }
+      ]
+    },
+    {
+      "key": "bubble-and-squeak",
+      "name": "Bubble and squeak",
+      "nameEn": "Bubble and squeak",
+      "aliases": [
+        "bubble 'n' squeak",
+        "potato and cabbage hash"
+      ],
+      "tiles": [
+        "American"
+      ],
+      "cuisine": "English",
+      "region": "England",
+      "format": "fritters",
+      "protein": "vegetables",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 25,
+      "effort": "low",
+      "familiarity": 2,
+      "traditionalDiet": "vegetarian",
+      "versions": [
+        "vegan",
+        "vegetarian"
+      ],
+      "keyIngredients": [
+        "potatoes",
+        "cabbage",
+        "brussels sprouts",
+        "onion",
+        "butter",
+        "fried egg"
+      ],
+      "specialtyIngredients": [],
+      "veganApproach": "Fry in oil or vegan butter and skip the fried egg on top.",
+      "technique": "Leftover mashed potato and cooked cabbage or sprouts are mixed, pressed into a hot pan and fried until a deep golden crust forms.",
+      "seasons": [
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "quick",
+        "everyday",
+        "comfort"
+      ],
+      "sources": [
+        {
+          "title": "Bubble and squeak - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Bubble_and_squeak?wprov=sfla1"
+        },
+        {
+          "title": "Bubble and squeak - BBC Food",
+          "url": "https://www.bbc.co.uk/food/recipes/bubble_and_squeak_with_29950"
+        }
+      ]
+    },
+    {
+      "key": "kedgeree",
+      "name": "Kedgeree",
+      "nameEn": "Kedgeree",
+      "aliases": [
+        "smoked haddock kedgeree",
+        "kedgaree"
+      ],
+      "tiles": [
+        "American"
+      ],
+      "cuisine": "British (Anglo-Indian)",
+      "region": "United Kingdom",
+      "format": "rice_dish",
+      "protein": "fish",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 40,
+      "effort": "medium",
+      "familiarity": 3,
+      "traditionalDiet": "pescatarian",
+      "versions": [
+        "pescatarian"
+      ],
+      "keyIngredients": [
+        "smoked haddock",
+        "basmati rice",
+        "eggs",
+        "butter",
+        "onion",
+        "curry powder",
+        "parsley",
+        "lemon",
+        "cream"
+      ],
+      "specialtyIngredients": [
+        "undyed smoked haddock"
+      ],
+      "veganApproach": null,
+      "technique": "Smoked haddock is poached, its liquor used to cook basmati rice, then flaked through the curried, buttery rice with quartered boiled eggs and parsley.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "hosting"
+      ],
+      "sources": [
+        {
+          "title": "Kedgeree - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Kedgeree"
+        },
+        {
+          "title": "Kedgeree - BBC Food",
+          "url": "https://www.bbc.co.uk/food/recipes/really_good_kedgeree_75198"
+        },
+        {
+          "title": "Smoked haddock kedgeree - BBC Good Food",
+          "url": "https://www.bbcgoodfood.com/recipes/smoked-haddock-kedgeree"
+        }
+      ]
+    },
+    {
+      "key": "beef-wellington",
+      "name": "Beef Wellington",
+      "nameEn": "Beef Wellington",
+      "aliases": [
+        "wellington",
+        "mushroom wellington",
+        "vegan wellington"
+      ],
+      "tiles": [
+        "American"
+      ],
+      "cuisine": "English",
+      "region": "England",
+      "format": "savory_pie",
+      "protein": "mushrooms",
+      "method": "oven",
+      "appliances": [
+        "stovetop",
+        "oven"
+      ],
+      "cookMinutes": 120,
+      "effort": "high",
+      "familiarity": 1,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegan",
+        "vegetarian"
+      ],
+      "keyIngredients": [
+        "beef fillet",
+        "puff pastry",
+        "mushrooms",
+        "shallots",
+        "prosciutto",
+        "english mustard",
+        "egg yolk",
+        "thyme"
+      ],
+      "specialtyIngredients": [],
+      "veganApproach": "A filling of mushrooms with chestnuts or sweet potato is wrapped in vegan puff pastry and glazed with plant milk instead of egg.",
+      "technique": "Seared beef fillet is wrapped in mushroom duxelles and ham, encased in puff pastry and baked until the pastry is golden and the meat pink.",
+      "seasons": [
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "hosting",
+        "date"
+      ],
+      "sources": [
+        {
+          "title": "Beef Wellington - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Beef_wellington"
+        },
+        {
+          "title": "Mushroom & sweet potato wellington - BBC Good Food",
+          "url": "https://www.bbcgoodfood.com/recipes/mushroom-sweet-potato-wellington"
+        },
+        {
+          "title": "Mushroom wellington - BBC Food",
+          "url": "https://www.bbc.co.uk/food/recipes/mushroom_wellington_32741"
+        }
+      ]
+    },
+    {
+      "key": "steak-and-ale-pie",
+      "name": "Steak and ale pie",
+      "nameEn": "Steak and ale pie",
+      "aliases": [
+        "beef and ale pie",
+        "mushroom and ale pie",
+        "vegan steak and ale pie"
+      ],
+      "tiles": [
+        "American"
+      ],
+      "cuisine": "English",
+      "region": "England",
+      "format": "savory_pie",
+      "protein": "mushrooms",
+      "method": "oven",
+      "appliances": [
+        "stovetop",
+        "oven"
+      ],
+      "cookMinutes": 150,
+      "effort": "high",
+      "familiarity": 2,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegan",
+        "vegetarian"
+      ],
+      "keyIngredients": [
+        "braising steak",
+        "ale",
+        "onions",
+        "mushrooms",
+        "beef stock",
+        "flour",
+        "puff pastry",
+        "thyme"
+      ],
+      "specialtyIngredients": [],
+      "veganApproach": "Mixed mushrooms, sometimes with seitan, are braised in a vegan ale and stock and baked under vegan pastry.",
+      "technique": "Beef is braised slowly with onions and dark ale until tender and the gravy thick, then capped with pastry and baked.",
+      "seasons": [
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "hosting",
+        "comfort"
+      ],
+      "sources": [
+        {
+          "title": "Mushroom and ale pie - BBC Food",
+          "url": "https://www.bbc.co.uk/food/recipes/mushroom_ale_pie_90722"
+        },
+        {
+          "title": "Ale and mushroom puff pastry pie with champ - Vegetarian Society",
+          "url": "https://vegsoc.org/recipes/ale-and-mushroom-puff-pastry-pie-with-champ/"
+        },
+        {
+          "title": "Vegan steak and ale pie - Vegan Recipe Club",
+          "url": "https://www.veganrecipeclub.org.uk/recipes/vegan-steak-ale-pie/"
+        }
+      ]
+    },
+    {
+      "key": "nut-roast",
+      "name": "Nut roast",
+      "nameEn": "Nut roast",
+      "aliases": [
+        "nut loaf",
+        "vegan nut roast"
+      ],
+      "tiles": [
+        "American"
+      ],
+      "cuisine": "British",
+      "region": "United Kingdom",
+      "format": "bake",
+      "protein": "nuts_seeds",
+      "method": "oven",
+      "appliances": [
+        "stovetop",
+        "oven"
+      ],
+      "cookMinutes": 75,
+      "effort": "medium",
+      "familiarity": 2,
+      "traditionalDiet": "vegetarian",
+      "versions": [
+        "vegan",
+        "vegetarian"
+      ],
+      "keyIngredients": [
+        "mixed nuts",
+        "breadcrumbs",
+        "onion",
+        "mushrooms",
+        "chestnuts",
+        "eggs",
+        "cheese",
+        "herbs"
+      ],
+      "specialtyIngredients": [],
+      "veganApproach": "Bind with flax, chickpeas or mashed vegetables instead of egg and cheese.",
+      "technique": "Chopped nuts, breadcrumbs and sautéed vegetables are bound, packed into a loaf tin and baked, then sliced like a roast and served with gravy.",
+      "seasons": [
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "hosting",
+        "mealprep"
+      ],
+      "sources": [
+        {
+          "title": "Nut roast - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Nut_roast"
+        },
+        {
+          "title": "Easy vegan nut roast - BBC Good Food",
+          "url": "https://www.bbcgoodfood.com/recipes/easy-vegan-nut-roast"
+        },
+        {
+          "title": "Nut loaf - BBC Good Food",
+          "url": "https://www.bbcgoodfood.com/recipes/nut-loaf"
+        }
+      ]
+    },
+    {
+      "key": "glamorgan-sausages",
+      "name": "Glamorgan sausages",
+      "nameEn": "Glamorgan sausages",
+      "aliases": [
+        "selsig morgannwg",
+        "glamorgan sausage"
+      ],
+      "tiles": [
+        "American"
+      ],
+      "cuisine": "Welsh",
+      "region": "Wales (Glamorgan)",
+      "format": "fritters",
+      "protein": "cheese",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 30,
+      "effort": "medium",
+      "familiarity": 3,
+      "traditionalDiet": "vegetarian",
+      "versions": [
+        "vegan",
+        "vegetarian"
+      ],
+      "keyIngredients": [
+        "caerphilly cheese",
+        "leeks",
+        "breadcrumbs",
+        "eggs",
+        "mustard",
+        "thyme",
+        "parsley"
+      ],
+      "specialtyIngredients": [
+        "caerphilly cheese"
+      ],
+      "veganApproach": "Use a crumbly plant-based cheese and bind the mixture with flax or aquafaba instead of egg.",
+      "technique": "Cheese, leeks and breadcrumbs are bound with egg, rolled into sausage shapes, coated in crumbs and shallow-fried.",
+      "seasons": [
+        "spring",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "hosting"
+      ],
+      "sources": [
+        {
+          "title": "Glamorgan sausage - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Glamorgan_sausage"
+        },
+        {
+          "title": "Glamorgan sausages - BBC Good Food",
+          "url": "https://www.bbcgoodfood.com/recipes/glamorgan-sausages"
+        },
+        {
+          "title": "How to make Glamorgan sausages - Felicity Cloake, The Guardian",
+          "url": "https://www.theguardian.com/food/2023/mar/22/how-to-make-glamorgan-sausages-recipe-felicity-cloake"
+        }
+      ]
+    },
+    {
+      "key": "scouse",
+      "name": "Scouse",
+      "nameEn": "Liverpool stew",
+      "aliases": [
+        "lobscouse",
+        "blind scouse"
+      ],
+      "tiles": [
+        "American"
+      ],
+      "cuisine": "English",
+      "region": "Liverpool",
+      "format": "stew",
+      "protein": "vegetables",
+      "method": "slow_cook",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 150,
+      "effort": "low",
+      "familiarity": 3,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "lamb neck",
+        "beef brisket",
+        "potatoes",
+        "carrots",
+        "onions",
+        "stock",
+        "worcestershire sauce",
+        "pickled red cabbage"
+      ],
+      "specialtyIngredients": [],
+      "veganApproach": "'Blind scouse' is the traditional meatless version: a thick stew of potatoes and root vegetables, sometimes with lentils.",
+      "technique": "Meat and potatoes simmer slowly until some of the potato collapses and thickens the stew, served with pickled red cabbage and crusty bread.",
+      "seasons": [
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "comfort",
+        "mealprep",
+        "everyday"
+      ],
+      "sources": [
+        {
+          "title": "Scouse (food) - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Scouse_(food)"
+        },
+        {
+          "title": "Blind scouse - Vegetarian Society",
+          "url": "https://vegsoc.org/recipes/blind-scouse/"
+        },
+        {
+          "title": "Blind scouse and red cabbage - BBC Food",
+          "url": "https://www.bbc.co.uk/food/recipes/blind_scouse_and_red_93522"
+        }
+      ]
+    },
+    {
+      "key": "lancashire-hotpot",
+      "name": "Lancashire hotpot",
+      "nameEn": "Lancashire hotpot",
+      "aliases": [
+        "hotpot",
+        "vegan hotpot"
+      ],
+      "tiles": [
+        "American"
+      ],
+      "cuisine": "English",
+      "region": "Lancashire",
+      "format": "bake",
+      "protein": "lentils",
+      "method": "oven",
+      "appliances": [
+        "stovetop",
+        "oven"
+      ],
+      "cookMinutes": 150,
+      "effort": "medium",
+      "familiarity": 2,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegan",
+        "vegetarian"
+      ],
+      "keyIngredients": [
+        "lamb neck",
+        "potatoes",
+        "onions",
+        "lamb kidneys",
+        "stock",
+        "butter",
+        "thyme",
+        "flour"
+      ],
+      "specialtyIngredients": [],
+      "veganApproach": "Lentils and mushrooms in a dark gravy replace the lamb under the layer of sliced potatoes, brushed with oil or vegan butter.",
+      "technique": "Lamb and onions are layered in a deep pot, topped with overlapping potato slices and baked slowly, lid off at the end so the top crisps.",
+      "seasons": [
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "comfort",
+        "hosting",
+        "mealprep"
+      ],
+      "sources": [
+        {
+          "title": "Lancashire hotpot - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Lancashire_hotpot"
+        },
+        {
+          "title": "Vegan hotpot with lentils and mushrooms - Lazy Cat Kitchen",
+          "url": "https://www.lazycatkitchen.com/vegan-hotpot-lentils-mushrooms/"
+        },
+        {
+          "title": "Vegetarian Lancashire hotpot - BBC Food",
+          "url": "https://www.bbc.co.uk/food/recipes/vegetarian_lancashire_22533"
+        }
+      ]
+    },
+    {
+      "key": "cullen-skink",
+      "name": "Cullen skink",
+      "nameEn": "Smoked haddock and potato soup",
+      "aliases": [
+        "smoked haddock chowder"
+      ],
+      "tiles": [
+        "American"
+      ],
+      "cuisine": "Scottish",
+      "region": "Moray (Cullen)",
+      "format": "soup",
+      "protein": "fish",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 35,
+      "effort": "low",
+      "familiarity": 3,
+      "traditionalDiet": "pescatarian",
+      "versions": [
+        "pescatarian"
+      ],
+      "keyIngredients": [
+        "smoked haddock",
+        "potatoes",
+        "onion",
+        "milk",
+        "butter",
+        "parsley"
+      ],
+      "specialtyIngredients": [
+        "finnan haddie"
+      ],
+      "veganApproach": null,
+      "technique": "Smoked haddock is poached in milk, then flaked into a soup of onions and potatoes cooked in the smoky milk.",
+      "seasons": [
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "comfort"
+      ],
+      "sources": [
+        {
+          "title": "Cullen skink - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Cullen_skink"
+        },
+        {
+          "title": "Cullen skink - BBC Good Food",
+          "url": "https://www.bbcgoodfood.com/recipes/cullen-skink"
+        },
+        {
+          "title": "Cullen skink - BBC Food",
+          "url": "https://www.bbc.co.uk/food/recipes/cullenskink_92467"
+        }
+      ]
+    },
+    {
+      "key": "haggis-neeps-and-tatties",
+      "name": "Haggis, neeps and tatties",
+      "nameEn": "Haggis with mashed swede and potatoes",
+      "aliases": [
+        "haggis",
+        "vegetarian haggis",
+        "vegan haggis"
+      ],
+      "tiles": [
+        "American"
+      ],
+      "cuisine": "Scottish",
+      "region": "Scotland",
+      "format": "other",
+      "protein": "lentils",
+      "method": "oven",
+      "appliances": [
+        "stovetop",
+        "oven"
+      ],
+      "cookMinutes": 90,
+      "effort": "medium",
+      "familiarity": 2,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegan",
+        "vegetarian"
+      ],
+      "keyIngredients": [
+        "sheep's offal",
+        "oatmeal",
+        "suet",
+        "onion",
+        "black pepper",
+        "swede",
+        "potatoes",
+        "butter"
+      ],
+      "specialtyIngredients": [
+        "pinhead oatmeal"
+      ],
+      "veganApproach": "Vegetarian and vegan haggis use oatmeal, lentils, beans, mushrooms and nuts with the same peppery spicing; mash the neeps and tatties with vegan butter.",
+      "technique": "Minced offal, oatmeal, suet and onion are seasoned with pepper and spices, cooked in a casing and served with mashed swede and potatoes.",
+      "seasons": [
+        "winter"
+      ],
+      "occasions": [
+        "hosting",
+        "comfort"
+      ],
+      "sources": [
+        {
+          "title": "Haggis - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Haggis"
+        },
+        {
+          "title": "Vegetarian haggis - BBC Food",
+          "url": "https://www.bbc.co.uk/food/recipes/vegetarian_haggis_94965"
+        },
+        {
+          "title": "Haggis, neeps & tatties - BBC Good Food",
+          "url": "https://www.bbcgoodfood.com/recipes/haggis-neeps-tatties"
+        }
+      ]
+    },
+    {
+      "key": "leek-and-potato-soup",
+      "name": "Leek and potato soup",
+      "nameEn": "Leek and potato soup",
+      "aliases": [
+        "potato and leek soup",
+        "leek soup",
+        "vegan leek and potato soup"
+      ],
+      "tiles": [
+        "American"
+      ],
+      "cuisine": "British",
+      "region": "United Kingdom",
+      "format": "soup",
+      "protein": "vegetables",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop",
+        "blender"
+      ],
+      "cookMinutes": 35,
+      "effort": "low",
+      "familiarity": 2,
+      "traditionalDiet": "vegetarian",
+      "versions": [
+        "vegan",
+        "vegetarian"
+      ],
+      "keyIngredients": [
+        "leeks",
+        "potatoes",
+        "onion",
+        "butter",
+        "vegetable stock",
+        "cream",
+        "chives"
+      ],
+      "specialtyIngredients": [],
+      "veganApproach": "Sweat the leeks in oil and finish with unsweetened plant milk instead of butter and cream.",
+      "technique": "Leeks and potatoes are sweated gently in butter, simmered in stock and blended smooth or left slightly chunky.",
+      "seasons": [
+        "spring",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "mealprep",
+        "comfort"
+      ],
+      "sources": [
+        {
+          "title": "Leek soup - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Leek_soup"
+        },
+        {
+          "title": "Vegan leek & potato soup - BBC Good Food",
+          "url": "https://www.bbcgoodfood.com/recipes/vegan-leek-potato-soup"
+        },
+        {
+          "title": "Leek & potato soup - BBC Good Food",
+          "url": "https://www.bbcgoodfood.com/recipes/leek-potato-soup"
+        }
+      ]
+    },
+    {
+      "key": "poutine",
+      "name": "Poutine",
+      "nameEn": "Fries with cheese curds and gravy",
+      "aliases": [
+        "vegan poutine",
+        "québec poutine"
+      ],
+      "tiles": [
+        "American"
+      ],
+      "cuisine": "Canadian (Québécois)",
+      "region": "Québec",
+      "format": "other",
+      "protein": "vegetables",
+      "method": "deep_fry",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 45,
+      "effort": "medium",
+      "familiarity": 1,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegan",
+        "vegetarian"
+      ],
+      "keyIngredients": [
+        "potatoes",
+        "cheese curds",
+        "brown gravy",
+        "beef stock",
+        "butter",
+        "flour"
+      ],
+      "specialtyIngredients": [
+        "fresh cheese curds"
+      ],
+      "veganApproach": "Serve crisp fries with a mushroom or vegetable-stock gravy and plant-based mozzarella or cashew 'curds'.",
+      "technique": "Twice-fried potatoes are topped with squeaky fresh cheese curds and drenched in hot gravy so the curds just begin to melt.",
+      "seasons": [
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "comfort",
+        "hosting"
+      ],
+      "sources": [
+        {
+          "title": "Poutine - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Poutine"
+        },
+        {
+          "title": "History of Poutine - The Canadian Encyclopedia",
+          "url": "https://thecanadianencyclopedia.ca/en/article/history-of-poutine"
+        },
+        {
+          "title": "Easy Vegan Poutine - Vancouver with Love",
+          "url": "https://vancouverwithlove.com/easy-vegan-poutine/"
+        }
+      ]
+    },
+    {
+      "key": "tourtiere",
+      "name": "Tourtière",
+      "nameEn": "Québec spiced meat pie",
+      "aliases": [
+        "tourtiere",
+        "québec meat pie",
+        "vegan tourtière"
+      ],
+      "tiles": [
+        "American"
+      ],
+      "cuisine": "Canadian (Québécois)",
+      "region": "Québec",
+      "format": "savory_pie",
+      "protein": "lentils",
+      "method": "oven",
+      "appliances": [
+        "stovetop",
+        "oven"
+      ],
+      "cookMinutes": 90,
+      "effort": "high",
+      "familiarity": 3,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "ground pork",
+        "ground beef",
+        "potatoes",
+        "onion",
+        "cinnamon",
+        "cloves",
+        "allspice",
+        "savory",
+        "pie pastry"
+      ],
+      "specialtyIngredients": [
+        "summer savory"
+      ],
+      "veganApproach": "Lentils, mushrooms or plant-based mince replace the pork, keeping the clove and cinnamon spicing in a vegan double crust.",
+      "technique": "Minced pork with onion and warm spices is cooked down, sometimes thickened with mashed potato, and baked in a double-crust pie; a Christmas Eve tradition.",
+      "seasons": [
+        "winter"
+      ],
+      "occasions": [
+        "hosting",
+        "comfort"
+      ],
+      "sources": [
+        {
+          "title": "Tourtière - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Tourti%C3%A8re"
+        },
+        {
+          "title": "Vegan Tourtière - Connoisseurus Veg",
+          "url": "https://www.connoisseurusveg.com/vegan-tourtiere/"
+        },
+        {
+          "title": "Tourtière - Britannica",
+          "url": "https://www.britannica.com/topic/tourtiere"
+        }
+      ]
+    },
+    {
+      "key": "pate-chinois",
+      "name": "Pâté chinois",
+      "nameEn": "Québec shepherd's pie with corn",
+      "aliases": [
+        "pate chinois",
+        "chinese pie",
+        "pâté chinois aux lentilles"
+      ],
+      "tiles": [
+        "American"
+      ],
+      "cuisine": "Canadian (Québécois)",
+      "region": "Québec",
+      "format": "bake",
+      "protein": "lentils",
+      "method": "oven",
+      "appliances": [
+        "stovetop",
+        "oven"
+      ],
+      "cookMinutes": 60,
+      "effort": "low",
+      "familiarity": 3,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegan",
+        "vegetarian"
+      ],
+      "keyIngredients": [
+        "ground beef",
+        "creamed corn",
+        "corn kernels",
+        "potatoes",
+        "onion",
+        "butter",
+        "milk"
+      ],
+      "specialtyIngredients": [
+        "creamed corn"
+      ],
+      "veganApproach": "Lentils and textured vegetable protein replace the beef, under creamed corn and a mash made with plant milk and margarine.",
+      "technique": "Layers of seasoned ground beef, creamed corn and mashed potato ('steak, blé d'Inde, patates') are baked until the top is golden.",
+      "seasons": [
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "comfort",
+        "mealprep"
+      ],
+      "sources": [
+        {
+          "title": "Pâté chinois - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/P%C3%A2t%C3%A9_chinois"
+        },
+        {
+          "title": "Pâté chinois aux lentilles et PVT - Graceful Nutrition",
+          "url": "https://gracefulnutrition.ca/plats-principaux/pate-chinois-aux-lentilles-et-pvt"
+        },
+        {
+          "title": "Pâté chinois aux lentilles - Fondation Olo",
+          "url": "https://fondationolo.ca/fr/recettes/pate-chinois-aux-lentilles/"
+        }
+      ]
+    }
+  ]
+}

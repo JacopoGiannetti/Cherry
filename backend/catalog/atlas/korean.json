@@ -1,0 +1,3231 @@
+{
+  "tile": "Korean",
+  "generatedAt": "2026-10-05",
+  "dishes": [
+    {
+      "key": "bibimbap",
+      "name": "Bibimbap",
+      "nameEn": "Mixed rice with seasoned vegetables",
+      "aliases": [
+        "bibimbab",
+        "bibimbop",
+        "korean mixed rice"
+      ],
+      "tiles": [
+        "Korean"
+      ],
+      "cuisine": "Korean",
+      "region": null,
+      "format": "bowl",
+      "protein": "tofu",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 50,
+      "effort": "medium",
+      "familiarity": 1,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegan",
+        "vegetarian"
+      ],
+      "keyIngredients": [
+        "short-grain rice",
+        "soybean sprouts",
+        "spinach",
+        "carrot",
+        "zucchini",
+        "fernbrake",
+        "beef",
+        "egg",
+        "gochujang",
+        "toasted sesame oil"
+      ],
+      "specialtyIngredients": [
+        "gochujang",
+        "gosari (fernbrake)",
+        "doraji (bellflower root)"
+      ],
+      "veganApproach": "The seasoned beef is replaced with pan-fried or marinated tofu and the egg is omitted (or kept for the vegetarian version).",
+      "technique": "Each vegetable is blanched or sautéed and seasoned separately as namul, then arranged over warm rice with gochujang and mixed together at the table.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "hosting",
+        "mealprep"
+      ],
+      "sources": [
+        {
+          "title": "Bibimbap - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Bibimbap"
+        },
+        {
+          "title": "Bibimbap (Mixed rice with vegetables) - Maangchi",
+          "url": "https://www.maangchi.com/recipe/bibimbap"
+        },
+        {
+          "title": "Vegan Bibimbap - Cheap Lazy Vegan",
+          "url": "https://thecheaplazyvegan.com/vegan-bibimbap/"
+        }
+      ]
+    },
+    {
+      "key": "kimchi-jjigae",
+      "name": "Kimchi jjigae",
+      "nameEn": "Kimchi stew",
+      "aliases": [
+        "kimchi chigae",
+        "kimchi stew",
+        "kimchi-jjigae"
+      ],
+      "tiles": [
+        "Korean"
+      ],
+      "cuisine": "Korean",
+      "region": null,
+      "format": "stew",
+      "protein": "tofu",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 30,
+      "effort": "low",
+      "familiarity": 1,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "fermented napa cabbage kimchi",
+        "pork belly",
+        "tofu",
+        "onion",
+        "green onion",
+        "gochugaru",
+        "gochujang",
+        "anchovy stock"
+      ],
+      "specialtyIngredients": [
+        "vegan kimchi",
+        "gochugaru",
+        "gochujang"
+      ],
+      "veganApproach": "Uses vegan kimchi (standard kimchi contains fish sauce or salted shrimp), a kelp-shiitake broth instead of anchovy stock, and tofu or mushrooms instead of pork.",
+      "technique": "Well-fermented sour kimchi is sautéed with aromatics, then simmered in stock with chili paste and tofu until the broth is deeply savory.",
+      "seasons": [
+        "autumn",
+        "winter",
+        "spring"
+      ],
+      "occasions": [
+        "everyday",
+        "comfort"
+      ],
+      "sources": [
+        {
+          "title": "Kimchi-jjigae - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Kimchi-jjigae"
+        },
+        {
+          "title": "Kimchi jjigae (Kimchi stew) - Maangchi",
+          "url": "https://www.maangchi.com/recipe/kimchi-jjigae"
+        },
+        {
+          "title": "Vegan Kimchi Jjigae - The Korean Vegan",
+          "url": "https://thekoreanvegan.com/vegan-kimchi-jjigae-reigns-supreme/"
+        }
+      ]
+    },
+    {
+      "key": "sundubu-jjigae",
+      "name": "Sundubu jjigae",
+      "nameEn": "Spicy soft tofu stew",
+      "aliases": [
+        "soondubu jjigae",
+        "soondooboo chigae",
+        "soft tofu stew",
+        "haemul sundubu"
+      ],
+      "tiles": [
+        "Korean"
+      ],
+      "cuisine": "Korean",
+      "region": null,
+      "format": "stew",
+      "protein": "tofu",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 25,
+      "effort": "low",
+      "familiarity": 1,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegan",
+        "vegetarian",
+        "pescatarian"
+      ],
+      "keyIngredients": [
+        "extra soft tofu (sundubu)",
+        "gochugaru",
+        "garlic",
+        "onion",
+        "zucchini",
+        "green onion",
+        "pork or seafood",
+        "egg",
+        "anchovy stock"
+      ],
+      "specialtyIngredients": [
+        "sundubu (extra soft tofu)",
+        "gochugaru"
+      ],
+      "veganApproach": "A chili oil base is built with mushrooms and vegetable or kelp broth, the meat and egg are left out, and silky soft tofu becomes the whole protein.",
+      "technique": "Gochugaru is bloomed in oil with garlic to make a spicy base, then stock and spoonfuls of silken tofu are added and boiled hard in an earthenware pot; an egg is cracked in at the end.",
+      "seasons": [
+        "autumn",
+        "winter",
+        "spring"
+      ],
+      "occasions": [
+        "everyday",
+        "quick",
+        "comfort"
+      ],
+      "sources": [
+        {
+          "title": "Sundubu jjigae (Spicy soft tofu stew) - Maangchi",
+          "url": "https://www.maangchi.com/recipe/sundubu-jjigae"
+        },
+        {
+          "title": "Haemul sundubu jjigae (Seafood soft tofu stew) - Maangchi",
+          "url": "https://www.maangchi.com/recipe/haemul-sundubu-jjigae"
+        },
+        {
+          "title": "Sundubu Jjigae (Vegan Recipe) - The Foodie Takes Flight",
+          "url": "https://thefoodietakesflight.com/sundubu-jjigae-or-korean-soft-tofu-stew-vegan-recipe/"
+        }
+      ]
+    },
+    {
+      "key": "doenjang-jjigae",
+      "name": "Doenjang jjigae",
+      "nameEn": "Soybean paste stew",
+      "aliases": [
+        "doenjang chigae",
+        "korean soybean paste stew",
+        "dwenjang jjigae"
+      ],
+      "tiles": [
+        "Korean"
+      ],
+      "cuisine": "Korean",
+      "region": null,
+      "format": "stew",
+      "protein": "tofu",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 30,
+      "effort": "low",
+      "familiarity": 1,
+      "traditionalDiet": "pescatarian",
+      "versions": [
+        "vegan",
+        "pescatarian"
+      ],
+      "keyIngredients": [
+        "doenjang",
+        "tofu",
+        "zucchini",
+        "potato",
+        "onion",
+        "mushrooms",
+        "green chili",
+        "anchovy stock"
+      ],
+      "specialtyIngredients": [
+        "doenjang"
+      ],
+      "veganApproach": "The anchovy stock is replaced with a kelp and dried shiitake broth, which keeps the deep umami of the fermented soybean paste.",
+      "technique": "Doenjang is dissolved in stock and simmered with diced potato, zucchini, onion and tofu until the vegetables are tender and the broth is rich and earthy.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "comfort"
+      ],
+      "sources": [
+        {
+          "title": "Doenjang-jjigae - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Doenjang-jjigae"
+        },
+        {
+          "title": "Doenjang jjigae (Fermented soybean paste stew) - Maangchi",
+          "url": "https://www.maangchi.com/recipe/doenjang-jjigae"
+        },
+        {
+          "title": "Vegan Doenjang Jjigae (Korean Soybean Paste Stew) - Veggie Anh",
+          "url": "https://veggieanh.com/vegan-doenjang-jjigae-korean-soybean-paste-stew/"
+        }
+      ]
+    },
+    {
+      "key": "japchae",
+      "name": "Japchae",
+      "nameEn": "Stir-fried glass noodles with vegetables",
+      "aliases": [
+        "chapchae",
+        "jap chae",
+        "korean glass noodles"
+      ],
+      "tiles": [
+        "Korean"
+      ],
+      "cuisine": "Korean",
+      "region": null,
+      "format": "noodles",
+      "protein": "mushrooms",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 45,
+      "effort": "medium",
+      "familiarity": 1,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegan",
+        "vegetarian"
+      ],
+      "keyIngredients": [
+        "dangmyeon (sweet potato starch noodles)",
+        "spinach",
+        "carrot",
+        "onion",
+        "shiitake mushrooms",
+        "beef",
+        "egg",
+        "soy sauce",
+        "toasted sesame oil"
+      ],
+      "specialtyIngredients": [
+        "dangmyeon (sweet potato starch noodles)"
+      ],
+      "veganApproach": "The beef is left out and shiitake mushrooms carry the savory flavor, with the egg garnish skipped for vegan or kept for vegetarian.",
+      "technique": "Each vegetable is stir-fried separately to keep its color, then tossed with the boiled glass noodles in a sweet soy and sesame oil seasoning.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "hosting",
+        "everyday",
+        "mealprep"
+      ],
+      "sources": [
+        {
+          "title": "Japchae - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Japchae"
+        },
+        {
+          "title": "Japchae (Stir-fried noodles with vegetables) - Maangchi",
+          "url": "https://www.maangchi.com/recipe/japchae"
+        },
+        {
+          "title": "Vegan Japchae - Cheap Lazy Vegan",
+          "url": "https://thecheaplazyvegan.com/vegan-japchae/"
+        }
+      ]
+    },
+    {
+      "key": "tteokbokki",
+      "name": "Tteokbokki",
+      "nameEn": "Spicy stir-fried rice cakes",
+      "aliases": [
+        "tteok-bokki",
+        "ddukbokki",
+        "topokki",
+        "spicy rice cakes"
+      ],
+      "tiles": [
+        "Korean"
+      ],
+      "cuisine": "Korean",
+      "region": null,
+      "format": "other",
+      "protein": "grains",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 25,
+      "effort": "low",
+      "familiarity": 1,
+      "traditionalDiet": "pescatarian",
+      "versions": [
+        "vegan",
+        "vegetarian"
+      ],
+      "keyIngredients": [
+        "garae-tteok (cylinder rice cakes)",
+        "gochujang",
+        "gochugaru",
+        "fish cakes",
+        "green onion",
+        "anchovy stock",
+        "sugar",
+        "boiled eggs"
+      ],
+      "specialtyIngredients": [
+        "tteok (rice cakes)",
+        "gochujang",
+        "gochugaru"
+      ],
+      "veganApproach": "Fish cakes and anchovy stock are replaced with kelp broth and cabbage or tofu puffs; boiled eggs can stay for the vegetarian version.",
+      "technique": "Chewy rice cakes are simmered in a sweet-spicy gochujang broth until the sauce reduces to a thick, glossy coating.",
+      "seasons": [
+        "autumn",
+        "winter",
+        "spring"
+      ],
+      "occasions": [
+        "quick",
+        "comfort",
+        "everyday"
+      ],
+      "sources": [
+        {
+          "title": "Tteok-bokki - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Tteok-bokki"
+        },
+        {
+          "title": "Tteokbokki (Hot and spicy rice cakes) - Maangchi",
+          "url": "https://www.maangchi.com/recipe/tteokbokki"
+        },
+        {
+          "title": "Vegan Tteokbokki - Cheap Lazy Vegan",
+          "url": "https://thecheaplazyvegan.com/vegan-tteokbokki/"
+        }
+      ]
+    },
+    {
+      "key": "kimchi-bokkeumbap",
+      "name": "Kimchi bokkeumbap",
+      "nameEn": "Kimchi fried rice",
+      "aliases": [
+        "kimchi fried rice",
+        "kimchi bokkeum-bap"
+      ],
+      "tiles": [
+        "Korean"
+      ],
+      "cuisine": "Korean",
+      "region": null,
+      "format": "rice_dish",
+      "protein": "grains",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 15,
+      "effort": "low",
+      "familiarity": 1,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegan",
+        "vegetarian"
+      ],
+      "keyIngredients": [
+        "cooked rice",
+        "fermented kimchi",
+        "kimchi brine",
+        "pork or spam",
+        "onion",
+        "gochujang",
+        "toasted sesame oil",
+        "fried egg"
+      ],
+      "specialtyIngredients": [
+        "vegan kimchi",
+        "gochujang"
+      ],
+      "veganApproach": "Made with vegan kimchi and no meat, optionally with tofu or mushrooms; the fried egg on top is kept only for the vegetarian version.",
+      "technique": "Sour kimchi is fried in oil until caramelized, then day-old rice is added and tossed over high heat with kimchi juice and sesame oil.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "quick",
+        "everyday",
+        "comfort"
+      ],
+      "sources": [
+        {
+          "title": "Kimchi fried rice - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Kimchi_fried_rice"
+        },
+        {
+          "title": "Vegan Kimchi Fried Rice - The Korean Vegan",
+          "url": "https://thekoreanvegan.com/vegan-kimchi-fried-rice/"
+        },
+        {
+          "title": "Kimchi Fried Rice 101 - My Eclectic Bites",
+          "url": "https://www.myeclecticbites.com/kimchi-fried-rice-101-everything-you-need-to-know/"
+        }
+      ]
+    },
+    {
+      "key": "bulgogi",
+      "name": "Bulgogi",
+      "nameEn": "Korean marinated barbecue (vegan mushroom bulgogi)",
+      "aliases": [
+        "mushroom bulgogi",
+        "beoseot bulgogi",
+        "korean bbq"
+      ],
+      "tiles": [
+        "Korean"
+      ],
+      "cuisine": "Korean",
+      "region": null,
+      "format": "stir_fry",
+      "protein": "mushrooms",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 25,
+      "effort": "low",
+      "familiarity": 1,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "thinly sliced beef",
+        "korean pear",
+        "onion",
+        "garlic",
+        "ginger",
+        "soy sauce",
+        "brown sugar",
+        "toasted sesame oil",
+        "green onion"
+      ],
+      "specialtyIngredients": [
+        "korean pear (nashi)"
+      ],
+      "veganApproach": "King oyster or shiitake mushrooms are sliced thin and soaked in the same pear, soy and garlic marinade, then seared in a hot skillet.",
+      "technique": "Thin slices are marinated in a sweet pear-soy marinade and cooked fast over high heat on a grill or skillet, then wrapped in lettuce with rice and ssamjang.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "hosting",
+        "quick"
+      ],
+      "sources": [
+        {
+          "title": "Bulgogi - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Bulgogi"
+        },
+        {
+          "title": "Bulgogi (Korean beef BBQ) - Maangchi",
+          "url": "https://www.maangchi.com/recipe/bulgogi"
+        },
+        {
+          "title": "Vegan Korean Bulgogi Mushrooms - VegNews",
+          "url": "https://vegnews.com/recipes/vegan-korean-bulgogi-mushrooms"
+        }
+      ]
+    },
+    {
+      "key": "gimbap",
+      "name": "Gimbap",
+      "nameEn": "Seaweed rice rolls",
+      "aliases": [
+        "kimbap",
+        "gimbab",
+        "korean seaweed rolls"
+      ],
+      "tiles": [
+        "Korean"
+      ],
+      "cuisine": "Korean",
+      "region": null,
+      "format": "rice_dish",
+      "protein": "tofu",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 60,
+      "effort": "medium",
+      "familiarity": 1,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegan",
+        "vegetarian"
+      ],
+      "keyIngredients": [
+        "gim (seaweed sheets)",
+        "short-grain rice",
+        "spinach",
+        "carrot",
+        "danmuji (yellow pickled radish)",
+        "egg",
+        "beef",
+        "toasted sesame oil"
+      ],
+      "specialtyIngredients": [
+        "gim (seaweed sheets)",
+        "danmuji (yellow pickled radish)"
+      ],
+      "veganApproach": "The beef and egg strips are replaced with soy-braised or pan-fried tofu, as in Buddhist temple-style gimbap.",
+      "technique": "Sesame-seasoned rice is spread thinly on seaweed, lined with colorful seasoned fillings, rolled tightly with a bamboo mat and sliced into rounds.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "mealprep",
+        "hosting",
+        "everyday"
+      ],
+      "sources": [
+        {
+          "title": "Gimbap - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Gimbap"
+        },
+        {
+          "title": "Classic gimbap - Maangchi",
+          "url": "https://www.maangchi.com/recipe/gimbap"
+        },
+        {
+          "title": "Tofu Gimbap (Vegan Temple Gimbap) - Korean Bapsang",
+          "url": "https://www.koreanbapsang.com/tofu-gimbap/"
+        }
+      ]
+    },
+    {
+      "key": "pajeon",
+      "name": "Pajeon",
+      "nameEn": "Green onion pancake",
+      "aliases": [
+        "korean scallion pancake",
+        "pa-jeon",
+        "buchimgae"
+      ],
+      "tiles": [
+        "Korean"
+      ],
+      "cuisine": "Korean",
+      "region": null,
+      "format": "fritters",
+      "protein": "vegetables",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 20,
+      "effort": "low",
+      "familiarity": 1,
+      "traditionalDiet": "vegan",
+      "versions": [
+        "vegan",
+        "vegetarian"
+      ],
+      "keyIngredients": [
+        "green onions",
+        "all-purpose flour",
+        "water",
+        "doenjang",
+        "vegetable oil",
+        "soy sauce",
+        "vinegar"
+      ],
+      "specialtyIngredients": [],
+      "veganApproach": "Naturally vegan when the batter is made with just flour, water and a little soybean paste; vegetarian versions add egg to the batter.",
+      "technique": "Long green onions are laid side by side in a hot oiled skillet, covered with a thin batter and pressed and flipped until crisp and golden on both sides.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "quick",
+        "everyday",
+        "hosting"
+      ],
+      "sources": [
+        {
+          "title": "Pajeon - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Pajeon"
+        },
+        {
+          "title": "Pajeon (Green onion pancake) - Maangchi",
+          "url": "https://www.maangchi.com/recipe/pajeon"
+        },
+        {
+          "title": "Korean Scallion Pancakes (Pajeon) - The Foodie Takes Flight",
+          "url": "https://thefoodietakesflight.com/korean-scallion-pancakes-pajeon/"
+        }
+      ]
+    },
+    {
+      "key": "haemul-pajeon",
+      "name": "Haemul pajeon",
+      "nameEn": "Seafood green onion pancake",
+      "aliases": [
+        "seafood pajeon",
+        "seafood scallion pancake",
+        "haemul-pajeon"
+      ],
+      "tiles": [
+        "Korean"
+      ],
+      "cuisine": "Korean",
+      "region": null,
+      "format": "fritters",
+      "protein": "shellfish",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 30,
+      "effort": "medium",
+      "familiarity": 1,
+      "traditionalDiet": "pescatarian",
+      "versions": [
+        "pescatarian"
+      ],
+      "keyIngredients": [
+        "green onions",
+        "squid",
+        "shrimp",
+        "clams",
+        "all-purpose flour",
+        "potato starch",
+        "egg",
+        "red chili"
+      ],
+      "specialtyIngredients": [],
+      "veganApproach": null,
+      "technique": "Battered green onions are laid in the pan, topped with chopped seafood and a drizzle of beaten egg, then fried in generous oil until crisp on both sides.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "hosting",
+        "everyday",
+        "date"
+      ],
+      "sources": [
+        {
+          "title": "Seafood green onion pancake (Haemul-pajeon) - Maangchi",
+          "url": "https://www.maangchi.com/recipe/haemul-pajeon"
+        },
+        {
+          "title": "Haemul Pajeon (Seafood Scallion Pancake) - Korean Bapsang",
+          "url": "https://www.koreanbapsang.com/haemul-pajeon/"
+        }
+      ]
+    },
+    {
+      "key": "kimchijeon",
+      "name": "Kimchijeon",
+      "nameEn": "Kimchi pancake",
+      "aliases": [
+        "kimchi pancake",
+        "kimchi buchimgae",
+        "kimchi-jeon"
+      ],
+      "tiles": [
+        "Korean"
+      ],
+      "cuisine": "Korean",
+      "region": null,
+      "format": "fritters",
+      "protein": "vegetables",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 20,
+      "effort": "low",
+      "familiarity": 1,
+      "traditionalDiet": "pescatarian",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "fermented napa cabbage kimchi",
+        "kimchi brine",
+        "scallions",
+        "all-purpose flour",
+        "water",
+        "sugar",
+        "vegetable oil"
+      ],
+      "specialtyIngredients": [
+        "vegan kimchi"
+      ],
+      "veganApproach": "The batter is already egg-free, so using vegan kimchi (no fish sauce or salted shrimp) makes the pancake fully vegan.",
+      "technique": "Chopped sour kimchi and its brine are mixed into a loose flour batter and fried thin in plenty of oil until the edges are lacy and crisp.",
+      "seasons": [
+        "autumn",
+        "winter",
+        "spring"
+      ],
+      "occasions": [
+        "quick",
+        "everyday",
+        "comfort"
+      ],
+      "sources": [
+        {
+          "title": "Kimchijeon - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Kimchijeon"
+        },
+        {
+          "title": "Kimchi pancake (Kimchijeon) - Maangchi",
+          "url": "https://www.maangchi.com/recipe/kimchijeon"
+        },
+        {
+          "title": "Easy Crispy Korean Kimchi Pancakes - The Korean Vegan",
+          "url": "https://thekoreanvegan.com/easy-crispy-korean-kimchi-pancakes-recipe/"
+        }
+      ]
+    },
+    {
+      "key": "yangnyeom-chicken",
+      "name": "Yangnyeom chicken",
+      "nameEn": "Korean fried chicken in sweet-spicy glaze (vegan tofu version)",
+      "aliases": [
+        "korean fried chicken",
+        "yangnyeom tongdak",
+        "vegan korean fried chicken"
+      ],
+      "tiles": [
+        "Korean",
+        "American"
+      ],
+      "cuisine": "Korean",
+      "region": null,
+      "format": "other",
+      "protein": "tofu",
+      "method": "deep_fry",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 45,
+      "effort": "medium",
+      "familiarity": 1,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "chicken",
+        "potato starch",
+        "flour",
+        "gochujang",
+        "garlic",
+        "rice syrup",
+        "soy sauce",
+        "sesame seeds"
+      ],
+      "specialtyIngredients": [
+        "gochujang",
+        "rice syrup (jocheong)"
+      ],
+      "veganApproach": "Pressed tofu (or cauliflower) is coated in a starchy batter, double-fried and tossed in the same sticky gochujang-garlic glaze.",
+      "technique": "Pieces are coated in a thin starch batter and double-fried for a shatteringly crisp crust, then tossed in a sweet, spicy and garlicky sauce.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "hosting",
+        "comfort"
+      ],
+      "sources": [
+        {
+          "title": "Yangnyeom chicken - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Yangnyeom_chicken"
+        },
+        {
+          "title": "Vegan Korean Fried Chicken - Cheap Lazy Vegan",
+          "url": "https://thecheaplazyvegan.com/vegan-korean-fried-chicken/"
+        },
+        {
+          "title": "Tofu Korean Fried Chicken - Blonde Kimchi",
+          "url": "https://www.blondekimchi.com/tofu-korean-fried-chicken/"
+        }
+      ]
+    },
+    {
+      "key": "mandu",
+      "name": "Mandu",
+      "nameEn": "Korean dumplings",
+      "aliases": [
+        "korean dumplings",
+        "kimchi mandu",
+        "gun mandu",
+        "jjin mandu"
+      ],
+      "tiles": [
+        "Korean"
+      ],
+      "cuisine": "Korean",
+      "region": null,
+      "format": "dumplings",
+      "protein": "tofu",
+      "method": "steam",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 90,
+      "effort": "high",
+      "familiarity": 1,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "mandu wrappers",
+        "ground pork",
+        "tofu",
+        "dangmyeon (sweet potato starch noodles)",
+        "asian chives",
+        "mung bean sprouts",
+        "zucchini",
+        "garlic",
+        "toasted sesame oil"
+      ],
+      "specialtyIngredients": [
+        "dangmyeon (sweet potato starch noodles)",
+        "buchu (asian chives)"
+      ],
+      "veganApproach": "The pork is replaced with extra crumbled tofu, mushrooms and glass noodles, often with chopped vegan kimchi for kimchi mandu.",
+      "technique": "A drained, well-seasoned filling of tofu, noodles and vegetables is folded into thin wrappers, then steamed, pan-fried or dropped into soup.",
+      "seasons": [
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "mealprep",
+        "hosting",
+        "comfort"
+      ],
+      "sources": [
+        {
+          "title": "Mandu (food) - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Mandu_(food)"
+        },
+        {
+          "title": "Mandu (Dumplings) - Maangchi",
+          "url": "https://www.maangchi.com/recipe/mandu"
+        },
+        {
+          "title": "Homemade Vegan Dumplings (Kimchi Mandu) - The Korean Vegan",
+          "url": "https://thekoreanvegan.com/homemade-vegan-dumplings-recipe-kimchi-mandu/"
+        }
+      ]
+    },
+    {
+      "key": "jjajangmyeon",
+      "name": "Jjajangmyeon",
+      "nameEn": "Noodles in black bean sauce",
+      "aliases": [
+        "jajangmyeon",
+        "jajangmyun",
+        "black bean noodles",
+        "jjajangbap"
+      ],
+      "tiles": [
+        "Korean"
+      ],
+      "cuisine": "Korean-Chinese",
+      "region": "Incheon",
+      "format": "noodles",
+      "protein": "mushrooms",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 40,
+      "effort": "medium",
+      "familiarity": 1,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "jjajangmyeon wheat noodles",
+        "chunjang (black bean paste)",
+        "pork belly",
+        "onion",
+        "potato",
+        "zucchini",
+        "korean radish",
+        "potato starch",
+        "cucumber"
+      ],
+      "specialtyIngredients": [
+        "chunjang (korean black bean paste)"
+      ],
+      "veganApproach": "Pork belly is swapped for mushrooms or tofu cubes, and the black bean sauce itself stays the same.",
+      "technique": "Black bean paste is fried in oil to remove its bitterness, then simmered with diced vegetables and thickened with starch into a glossy sauce over chewy noodles.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "comfort"
+      ],
+      "sources": [
+        {
+          "title": "Jajangmyeon - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Jajangmyeon"
+        },
+        {
+          "title": "Jjajangmyeon (Noodles in blackbean sauce) - Maangchi",
+          "url": "https://www.maangchi.com/recipe/jjajangmyeon"
+        },
+        {
+          "title": "Jjajangmyeon (Korean Black Bean Noodles) - The Korean Vegan",
+          "url": "https://thekoreanvegan.com/jjajangmyeon-recipe-korean-black-bean-noodles/"
+        }
+      ]
+    },
+    {
+      "key": "budae-jjigae",
+      "name": "Budae jjigae",
+      "nameEn": "Army base stew",
+      "aliases": [
+        "army stew",
+        "army base stew",
+        "budae-jjigae"
+      ],
+      "tiles": [
+        "Korean",
+        "American"
+      ],
+      "cuisine": "Korean",
+      "region": "Uijeongbu",
+      "format": "stew",
+      "protein": "tofu",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 30,
+      "effort": "low",
+      "familiarity": 1,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "spam",
+        "sausage",
+        "fermented kimchi",
+        "instant ramen noodles",
+        "tofu",
+        "gochujang",
+        "gochugaru",
+        "baked beans",
+        "american cheese"
+      ],
+      "specialtyIngredients": [
+        "vegan kimchi",
+        "gochugaru",
+        "gochujang"
+      ],
+      "veganApproach": "Spam and sausage are replaced with plant-based sausages and tofu, the cheese is skipped or made vegan, and vegan kimchi and egg-free ramen are used.",
+      "technique": "Everything is arranged raw in a shallow pot, topped with a spicy seasoning paste and stock, then boiled at the table until the noodles soften.",
+      "seasons": [
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "hosting",
+        "comfort"
+      ],
+      "sources": [
+        {
+          "title": "Budae-jjigae - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Budae-jjigae"
+        },
+        {
+          "title": "Budae-jjigae (Army Base Stew) - Maangchi",
+          "url": "https://www.maangchi.com/recipe/budae-jjigae"
+        },
+        {
+          "title": "Vegan Budae Jjigae - Cheap Lazy Vegan",
+          "url": "https://thecheaplazyvegan.com/vegan-budae-jjigae/"
+        }
+      ]
+    },
+    {
+      "key": "mul-naengmyeon",
+      "name": "Mul-naengmyeon",
+      "nameEn": "Cold buckwheat noodles in chilled broth",
+      "aliases": [
+        "naengmyeon",
+        "naengmyun",
+        "korean cold noodles",
+        "pyongyang naengmyeon"
+      ],
+      "tiles": [
+        "Korean",
+        "Fresh & light"
+      ],
+      "cuisine": "Korean",
+      "region": "Pyongyang",
+      "format": "noodles",
+      "protein": "grains",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop",
+        "freezer"
+      ],
+      "cookMinutes": 30,
+      "effort": "medium",
+      "familiarity": 1,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegan",
+        "vegetarian"
+      ],
+      "keyIngredients": [
+        "buckwheat naengmyeon noodles",
+        "beef broth",
+        "dongchimi (radish water kimchi) brine",
+        "cucumber",
+        "korean pear",
+        "hard-boiled egg",
+        "vinegar",
+        "korean mustard"
+      ],
+      "specialtyIngredients": [
+        "naengmyeon noodles",
+        "dongchimi brine",
+        "korean hot mustard"
+      ],
+      "veganApproach": "The beef broth is replaced with a chilled broth of kelp, shiitake and radish water kimchi brine, without the beef slices; the egg can stay for vegetarian.",
+      "technique": "Chewy buckwheat noodles are boiled briefly, shocked in ice water and served in a slushy, tangy broth with pear, cucumber and mustard.",
+      "seasons": [
+        "summer"
+      ],
+      "occasions": [
+        "everyday",
+        "date"
+      ],
+      "sources": [
+        {
+          "title": "Naengmyeon - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Naengmyeon"
+        },
+        {
+          "title": "Mul-naengmyeon (Korean cold noodles in chilled broth) - Maangchi",
+          "url": "https://www.maangchi.com/recipe/naengmyeon"
+        },
+        {
+          "title": "Mul Naengmyeon (Korean Cold Noodle Soup) Vegan - Gastroplant",
+          "url": "https://gastroplant.com/mul-naengmyeon-korean-cold-noodle-soup-vegan/"
+        }
+      ]
+    },
+    {
+      "key": "jjamppong",
+      "name": "Jjamppong",
+      "nameEn": "Spicy seafood noodle soup",
+      "aliases": [
+        "champon",
+        "jjambbong",
+        "korean spicy seafood noodles"
+      ],
+      "tiles": [
+        "Korean"
+      ],
+      "cuisine": "Korean-Chinese",
+      "region": "Incheon",
+      "format": "noodles",
+      "protein": "shellfish",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 40,
+      "effort": "medium",
+      "familiarity": 1,
+      "traditionalDiet": "meat",
+      "versions": [
+        "pescatarian"
+      ],
+      "keyIngredients": [
+        "wheat noodles",
+        "squid",
+        "shrimp",
+        "mussels",
+        "gochugaru",
+        "cabbage",
+        "onion",
+        "zucchini",
+        "garlic"
+      ],
+      "specialtyIngredients": [
+        "gochugaru"
+      ],
+      "veganApproach": null,
+      "technique": "Vegetables and seafood are flash-fried in wok oil with chili flakes to make a smoky, fiery broth, which is poured over thick wheat noodles.",
+      "seasons": [
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "comfort",
+        "everyday"
+      ],
+      "sources": [
+        {
+          "title": "Jjamppong - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Jjamppong"
+        },
+        {
+          "title": "Jjamppong (Spicy seafood noodle soup) - Maangchi",
+          "url": "https://www.maangchi.com/recipe/jjamppong"
+        },
+        {
+          "title": "Korean Spicy Seafood Noodle Soup (Jjamppong) - My Korean Kitchen",
+          "url": "https://mykoreankitchen.com/korean-spicy-seafood-noodle-soup/"
+        }
+      ]
+    },
+    {
+      "key": "bibim-guksu",
+      "name": "Bibim guksu",
+      "nameEn": "Spicy cold mixed noodles",
+      "aliases": [
+        "bibim-guksu",
+        "bibim noodles",
+        "spicy cold noodles"
+      ],
+      "tiles": [
+        "Korean",
+        "Fresh & light"
+      ],
+      "cuisine": "Korean",
+      "region": null,
+      "format": "noodles",
+      "protein": "grains",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 20,
+      "effort": "low",
+      "familiarity": 2,
+      "traditionalDiet": "vegetarian",
+      "versions": [
+        "vegan",
+        "vegetarian"
+      ],
+      "keyIngredients": [
+        "somyeon (thin wheat noodles)",
+        "gochujang",
+        "vinegar",
+        "sugar",
+        "toasted sesame oil",
+        "kimchi",
+        "cucumber",
+        "hard-boiled egg"
+      ],
+      "specialtyIngredients": [
+        "somyeon noodles",
+        "gochujang",
+        "vegan kimchi"
+      ],
+      "veganApproach": "Skip the boiled egg and use vegan kimchi (or none); the sweet-sour gochujang dressing is already plant-based.",
+      "technique": "Thin wheat noodles are boiled, rinsed ice-cold and tossed with a sweet, sour and spicy gochujang dressing, then topped with crunchy vegetables.",
+      "seasons": [
+        "summer",
+        "spring"
+      ],
+      "occasions": [
+        "quick",
+        "everyday"
+      ],
+      "sources": [
+        {
+          "title": "Bibim-guksu - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Bibim-guksu"
+        },
+        {
+          "title": "Bibim Guksu (Korean Spicy Cold Noodles) - Korean Bapsang",
+          "url": "https://www.koreanbapsang.com/bibim-guksu-korean-spicy-cold-noodles/"
+        },
+        {
+          "title": "Bibim-guksu - Maangchi",
+          "url": "https://www.maangchi.com/recipe/bibim-guksu"
+        }
+      ]
+    },
+    {
+      "key": "kalguksu",
+      "name": "Kalguksu",
+      "nameEn": "Knife-cut noodle soup",
+      "aliases": [
+        "bajirak kalguksu",
+        "clam knife-cut noodles",
+        "kal-guksu"
+      ],
+      "tiles": [
+        "Korean"
+      ],
+      "cuisine": "Korean",
+      "region": null,
+      "format": "noodles",
+      "protein": "grains",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 50,
+      "effort": "medium",
+      "familiarity": 2,
+      "traditionalDiet": "pescatarian",
+      "versions": [
+        "pescatarian",
+        "vegan"
+      ],
+      "keyIngredients": [
+        "knife-cut wheat noodles",
+        "manila clams",
+        "anchovy kelp stock",
+        "zucchini",
+        "potato",
+        "onion",
+        "garlic",
+        "green onion"
+      ],
+      "specialtyIngredients": [
+        "dried kelp (dasima)"
+      ],
+      "veganApproach": "The clams and anchovy stock are replaced with a kelp and shiitake broth, with extra zucchini and potato.",
+      "technique": "A simple wheat dough is rolled and cut into thick noodles that cook directly in the broth, so their starch gives the soup a silky body.",
+      "seasons": [
+        "autumn",
+        "winter",
+        "summer"
+      ],
+      "occasions": [
+        "comfort",
+        "everyday"
+      ],
+      "sources": [
+        {
+          "title": "Kalguksu - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Kalguksu"
+        },
+        {
+          "title": "Kalguksu (Korean Noodle Soup with Clams) - My Korean Kitchen",
+          "url": "https://mykoreankitchen.com/kalguksu/"
+        }
+      ]
+    },
+    {
+      "key": "dubu-jorim",
+      "name": "Dubu jorim",
+      "nameEn": "Soy-braised tofu",
+      "aliases": [
+        "dubu-jorim",
+        "korean braised tofu",
+        "spicy braised tofu"
+      ],
+      "tiles": [
+        "Korean"
+      ],
+      "cuisine": "Korean",
+      "region": null,
+      "format": "other",
+      "protein": "tofu",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 20,
+      "effort": "low",
+      "familiarity": 2,
+      "traditionalDiet": "vegan",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "firm tofu",
+        "soy sauce",
+        "gochugaru",
+        "garlic",
+        "green onion",
+        "sugar",
+        "toasted sesame oil",
+        "sesame seeds"
+      ],
+      "specialtyIngredients": [
+        "gochugaru"
+      ],
+      "veganApproach": "Naturally vegan: pan-fried tofu braised in a soy, chili and garlic sauce.",
+      "technique": "Slabs of tofu are pan-fried until golden, then simmered in a soy-chili sauce until it reduces to a sticky glaze.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "quick",
+        "everyday",
+        "mealprep"
+      ],
+      "sources": [
+        {
+          "title": "Dubu Jorim (Korean Braised Tofu) - Korean Bapsang",
+          "url": "https://www.koreanbapsang.com/dubu-jorim-korean-braised-tofu/"
+        },
+        {
+          "title": "Dubu-jorim (Braised tofu) - Maangchi",
+          "url": "https://www.maangchi.com/recipe/dubu-jorim"
+        },
+        {
+          "title": "Korean Braised Tofu - Beyond Kimchee",
+          "url": "https://www.beyondkimchee.com/braised-tofu/"
+        }
+      ]
+    },
+    {
+      "key": "tteokguk",
+      "name": "Tteokguk",
+      "nameEn": "Rice cake soup",
+      "aliases": [
+        "ddeokguk",
+        "korean new year rice cake soup",
+        "tteok-guk"
+      ],
+      "tiles": [
+        "Korean"
+      ],
+      "cuisine": "Korean",
+      "region": null,
+      "format": "soup",
+      "protein": "grains",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 30,
+      "effort": "low",
+      "familiarity": 2,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegan",
+        "vegetarian"
+      ],
+      "keyIngredients": [
+        "sliced rice cakes (tteok)",
+        "beef brisket",
+        "garlic",
+        "green onion",
+        "eggs",
+        "soup soy sauce",
+        "gim (seaweed)",
+        "toasted sesame oil"
+      ],
+      "specialtyIngredients": [
+        "tteok (oval rice cakes)",
+        "soup soy sauce (guk-ganjang)"
+      ],
+      "veganApproach": "The beef broth is replaced with a kelp, shiitake and radish broth; the egg garnish is dropped for vegan or kept for vegetarian.",
+      "technique": "Oval rice cake slices simmer in a clear, savory broth until soft and floating, then are garnished with egg ribbons and crushed seaweed.",
+      "seasons": [
+        "winter"
+      ],
+      "occasions": [
+        "comfort",
+        "hosting"
+      ],
+      "sources": [
+        {
+          "title": "Tteokguk - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Tteokguk"
+        },
+        {
+          "title": "Rice cake soup (Tteokguk) - Maangchi",
+          "url": "https://www.maangchi.com/recipe/tteokguk"
+        },
+        {
+          "title": "Vegan Tteokguk - Cheap Lazy Vegan",
+          "url": "https://thecheaplazyvegan.com/tteokguk/"
+        }
+      ]
+    },
+    {
+      "key": "gamjajeon",
+      "name": "Gamjajeon",
+      "nameEn": "Korean potato pancake",
+      "aliases": [
+        "gamja-jeon",
+        "potato pancake",
+        "gamja buchim"
+      ],
+      "tiles": [
+        "Korean"
+      ],
+      "cuisine": "Korean",
+      "region": "Gangwon",
+      "format": "fritters",
+      "protein": "vegetables",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 30,
+      "effort": "low",
+      "familiarity": 2,
+      "traditionalDiet": "vegan",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "potatoes",
+        "salt",
+        "potato starch",
+        "green chili",
+        "onion",
+        "vegetable oil",
+        "soy sauce"
+      ],
+      "specialtyIngredients": [],
+      "veganApproach": "Naturally vegan: grated potato and its own starch bind the pancake with no egg or flour needed.",
+      "technique": "Potatoes are finely grated, the liquid is drained and the settled starch is mixed back in, then the batter is fried thin until crisp and chewy.",
+      "seasons": [
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "comfort"
+      ],
+      "sources": [
+        {
+          "title": "Gamja-jeon - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Gamja-jeon"
+        },
+        {
+          "title": "Gamjajeon (Potato pancake) - Maangchi",
+          "url": "https://www.maangchi.com/recipe/gamjajeon"
+        },
+        {
+          "title": "Gamjajeon (Potato Pancakes) - Korean Bapsang",
+          "url": "https://www.koreanbapsang.com/gamjajeon-potato-pancakes/"
+        }
+      ]
+    },
+    {
+      "key": "yachaejeon",
+      "name": "Yachaejeon",
+      "nameEn": "Korean vegetable pancake",
+      "aliases": [
+        "yachae-jeon",
+        "vegetable pancake",
+        "yachae buchimgae"
+      ],
+      "tiles": [
+        "Korean"
+      ],
+      "cuisine": "Korean",
+      "region": null,
+      "format": "fritters",
+      "protein": "vegetables",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 25,
+      "effort": "low",
+      "familiarity": 2,
+      "traditionalDiet": "vegetarian",
+      "versions": [
+        "vegan",
+        "vegetarian"
+      ],
+      "keyIngredients": [
+        "zucchini",
+        "carrot",
+        "onion",
+        "potato",
+        "green onion",
+        "all-purpose flour",
+        "egg",
+        "vegetable oil"
+      ],
+      "specialtyIngredients": [],
+      "veganApproach": "The egg is left out of the batter and a little potato or rice starch is added for crispness.",
+      "technique": "Julienned vegetables are bound with just enough batter to hold together and pan-fried into thin, crisp pancakes served with soy-vinegar dip.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "quick",
+        "everyday",
+        "mealprep"
+      ],
+      "sources": [
+        {
+          "title": "Yachaejeon (Vegetable pancake) - Maangchi",
+          "url": "https://www.maangchi.com/recipe/yachaejeon"
+        },
+        {
+          "title": "Korean Vegetable Pancake (Yachae Jeon) - The Foodie Takes Flight",
+          "url": "https://thefoodietakesflight.com/korean-vegetable-pancake-yachae-jeon/"
+        },
+        {
+          "title": "Korean Vegetable Pancakes (Yachaejeon) - Beyond Kimchee",
+          "url": "https://www.beyondkimchee.com/korean-vegetable-pancakes-yachaejeon/"
+        }
+      ]
+    },
+    {
+      "key": "ojingeo-bokkeum",
+      "name": "Ojingeo bokkeum",
+      "nameEn": "Spicy stir-fried squid",
+      "aliases": [
+        "ojingeo-bokkeum",
+        "spicy squid stir-fry",
+        "ojingeo deopbap"
+      ],
+      "tiles": [
+        "Korean"
+      ],
+      "cuisine": "Korean",
+      "region": null,
+      "format": "stir_fry",
+      "protein": "shellfish",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 25,
+      "effort": "low",
+      "familiarity": 2,
+      "traditionalDiet": "pescatarian",
+      "versions": [
+        "pescatarian"
+      ],
+      "keyIngredients": [
+        "squid",
+        "onion",
+        "carrot",
+        "cabbage",
+        "green onion",
+        "gochujang",
+        "gochugaru",
+        "garlic",
+        "soy sauce"
+      ],
+      "specialtyIngredients": [
+        "gochujang",
+        "gochugaru"
+      ],
+      "veganApproach": null,
+      "technique": "Scored squid and vegetables are stir-fried quickly over high heat in a spicy gochujang sauce so the squid stays tender, then served over rice.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "quick",
+        "everyday"
+      ],
+      "sources": [
+        {
+          "title": "Ojingeo Bokkeum (Korean Spicy Stir-fried Squid) - Korean Bapsang",
+          "url": "https://www.koreanbapsang.com/ojingeo-bokkeum-korean-spicy-stir-fried/"
+        },
+        {
+          "title": "Ojingeo-bokkeum (Spicy stir-fried squid) - Maangchi",
+          "url": "https://www.maangchi.com/recipe/ojingeo-bokkeum"
+        }
+      ]
+    },
+    {
+      "key": "dubu-kimchi",
+      "name": "Dubu kimchi",
+      "nameEn": "Tofu with stir-fried kimchi",
+      "aliases": [
+        "dubu-kimchi",
+        "tofu kimchi",
+        "kimchi tofu"
+      ],
+      "tiles": [
+        "Korean"
+      ],
+      "cuisine": "Korean",
+      "region": null,
+      "format": "stir_fry",
+      "protein": "tofu",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 20,
+      "effort": "low",
+      "familiarity": 2,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "firm tofu",
+        "fermented kimchi",
+        "pork belly",
+        "onion",
+        "green onion",
+        "gochugaru",
+        "sugar",
+        "toasted sesame oil"
+      ],
+      "specialtyIngredients": [
+        "vegan kimchi",
+        "gochugaru"
+      ],
+      "veganApproach": "The pork is left out (or replaced with mushrooms) and vegan kimchi is stir-fried and served with warm blanched tofu.",
+      "technique": "Sour kimchi is stir-fried with onion and a little sugar until caramelized, then served next to slices of warm blanched or pan-fried tofu.",
+      "seasons": [
+        "autumn",
+        "winter",
+        "spring"
+      ],
+      "occasions": [
+        "quick",
+        "everyday",
+        "hosting"
+      ],
+      "sources": [
+        {
+          "title": "Dubu-kimchi - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Dubu-kimchi"
+        },
+        {
+          "title": "Dubu Kimchi (Tofu with Stir-fried Kimchi) - Korean Bapsang",
+          "url": "https://www.koreanbapsang.com/dubu-kimchi-tofu-with-stir-fried-kimchi/"
+        },
+        {
+          "title": "Tofu Kimchi - Forkful Daily",
+          "url": "https://www.forkfuldaily.com/tofu-kimchi/"
+        }
+      ]
+    },
+    {
+      "key": "rabokki",
+      "name": "Rabokki",
+      "nameEn": "Spicy rice cakes with ramen noodles",
+      "aliases": [
+        "ra-bokki",
+        "ramen tteokbokki",
+        "rapokki"
+      ],
+      "tiles": [
+        "Korean"
+      ],
+      "cuisine": "Korean",
+      "region": null,
+      "format": "noodles",
+      "protein": "grains",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 20,
+      "effort": "low",
+      "familiarity": 2,
+      "traditionalDiet": "pescatarian",
+      "versions": [
+        "vegan",
+        "vegetarian"
+      ],
+      "keyIngredients": [
+        "rice cakes (tteok)",
+        "instant ramen noodles",
+        "gochujang",
+        "gochugaru",
+        "fish cakes",
+        "cabbage",
+        "green onion",
+        "boiled eggs"
+      ],
+      "specialtyIngredients": [
+        "tteok (rice cakes)",
+        "gochujang"
+      ],
+      "veganApproach": "Fish cakes and anchovy stock are skipped in favor of kelp broth and cabbage, using egg-free ramen; boiled eggs stay for vegetarian.",
+      "technique": "Rice cakes simmer in a sweet-spicy gochujang broth and instant ramen is added at the end to soak up the sauce.",
+      "seasons": [
+        "autumn",
+        "winter",
+        "spring"
+      ],
+      "occasions": [
+        "quick",
+        "comfort"
+      ],
+      "sources": [
+        {
+          "title": "Rabokki - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Rabokki"
+        },
+        {
+          "title": "Rabokki (Ramen Tteokbokki) - My Korean Kitchen",
+          "url": "https://mykoreankitchen.com/rabokki/"
+        },
+        {
+          "title": "Rabokki - Chef Chris Cho",
+          "url": "https://chefchrischo.com/rabokki/"
+        }
+      ]
+    },
+    {
+      "key": "jeyuk-bokkeum",
+      "name": "Jeyuk bokkeum",
+      "nameEn": "Spicy stir-fry (vegan mushroom version)",
+      "aliases": [
+        "jeyuk-bokkeum",
+        "dwaeji bulgogi",
+        "spicy pork bulgogi",
+        "vegan jeyuk bokkeum"
+      ],
+      "tiles": [
+        "Korean"
+      ],
+      "cuisine": "Korean",
+      "region": null,
+      "format": "stir_fry",
+      "protein": "mushrooms",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 25,
+      "effort": "low",
+      "familiarity": 2,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "pork shoulder or belly",
+        "gochujang",
+        "gochugaru",
+        "onion",
+        "green onion",
+        "garlic",
+        "ginger",
+        "soy sauce",
+        "sugar"
+      ],
+      "specialtyIngredients": [
+        "gochujang",
+        "gochugaru"
+      ],
+      "veganApproach": "Torn oyster or king oyster mushrooms replace the pork and are stir-fried in the same fiery gochujang marinade.",
+      "technique": "Thin slices are coated in a garlicky gochujang marinade and stir-fried over high heat with onion until charred at the edges, then eaten with rice and lettuce.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "quick",
+        "everyday"
+      ],
+      "sources": [
+        {
+          "title": "Korean Spicy Pork Stir-Fry (Vegan) - The Foodie Takes Flight",
+          "url": "https://thefoodietakesflight.com/korean-spicy-pork-stir-fry/"
+        },
+        {
+          "title": "Vegan Jeyuk Bokkeum (Spicy Korean Stir-Fried Mushrooms) - The Vegan Planet Kitchen",
+          "url": "https://theveganplanetkitchen.com/vegan-jeyuk-bokkeum-spicy-korean-stir-fried-mushrooms/"
+        }
+      ]
+    },
+    {
+      "key": "miyeokguk",
+      "name": "Miyeokguk",
+      "nameEn": "Seaweed soup",
+      "aliases": [
+        "miyeok-guk",
+        "birthday soup",
+        "korean seaweed soup"
+      ],
+      "tiles": [
+        "Korean"
+      ],
+      "cuisine": "Korean",
+      "region": null,
+      "format": "soup",
+      "protein": "vegetables",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 35,
+      "effort": "low",
+      "familiarity": 2,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "dried miyeok (sea mustard)",
+        "beef brisket",
+        "garlic",
+        "soup soy sauce",
+        "toasted sesame oil",
+        "salt"
+      ],
+      "specialtyIngredients": [
+        "dried miyeok (wakame)",
+        "soup soy sauce (guk-ganjang)"
+      ],
+      "veganApproach": "The beef is replaced with shiitake or other mushrooms sautéed in sesame oil, with a kelp-based broth.",
+      "technique": "Rehydrated seaweed is sautéed in sesame oil with garlic, then simmered for a long time until the broth turns milky and deeply savory.",
+      "seasons": [
+        "spring",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "comfort",
+        "everyday"
+      ],
+      "sources": [
+        {
+          "title": "Miyeok-guk - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Miyeok-guk"
+        },
+        {
+          "title": "Vegan Korean Seaweed Soup - Cheap Lazy Vegan",
+          "url": "https://thecheaplazyvegan.com/vegan-korean-seaweed-soup/"
+        },
+        {
+          "title": "Korean Seaweed Soup (Miyeok Guk) - Kreamy Vegan",
+          "url": "https://kreamyvegan.com/korean-seaweed-soup-miyeok-guk/"
+        }
+      ]
+    },
+    {
+      "key": "kongguksu",
+      "name": "Kongguksu",
+      "nameEn": "Cold soy milk noodle soup",
+      "aliases": [
+        "kong-guksu",
+        "cold soybean noodle soup",
+        "soy milk noodles"
+      ],
+      "tiles": [
+        "Korean",
+        "Fresh & light"
+      ],
+      "cuisine": "Korean",
+      "region": null,
+      "format": "noodles",
+      "protein": "beans",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop",
+        "blender"
+      ],
+      "cookMinutes": 35,
+      "effort": "low",
+      "familiarity": 2,
+      "traditionalDiet": "vegetarian",
+      "versions": [
+        "vegan",
+        "vegetarian"
+      ],
+      "keyIngredients": [
+        "dried soybeans",
+        "somyeon (thin wheat noodles)",
+        "toasted sesame seeds",
+        "pine nuts",
+        "cucumber",
+        "tomato",
+        "hard-boiled egg",
+        "salt"
+      ],
+      "specialtyIngredients": [
+        "somyeon noodles"
+      ],
+      "veganApproach": "Naturally plant-based apart from the optional boiled egg garnish, which is simply omitted.",
+      "technique": "Soaked soybeans are briefly boiled and blended with sesame and pine nuts into a thick, nutty chilled soy milk, poured over cold thin noodles.",
+      "seasons": [
+        "summer"
+      ],
+      "occasions": [
+        "everyday",
+        "mealprep"
+      ],
+      "sources": [
+        {
+          "title": "Kongguksu - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Kongguksu"
+        },
+        {
+          "title": "Soy milk noodle soup (Kongguksu) - Maangchi",
+          "url": "https://www.maangchi.com/recipe/kongguksu"
+        },
+        {
+          "title": "Easy and Delicious Cold Kong Guksu - The Korean Vegan",
+          "url": "https://thekoreanvegan.com/easy-and-delicious-cold-kong-guksu-recipe/"
+        }
+      ]
+    },
+    {
+      "key": "bindaetteok",
+      "name": "Bindaetteok",
+      "nameEn": "Mung bean pancake",
+      "aliases": [
+        "bindae-tteok",
+        "nokdu-jeon",
+        "mung bean pancake"
+      ],
+      "tiles": [
+        "Korean"
+      ],
+      "cuisine": "Korean",
+      "region": null,
+      "format": "fritters",
+      "protein": "beans",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop",
+        "blender"
+      ],
+      "cookMinutes": 40,
+      "effort": "medium",
+      "familiarity": 2,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "split mung beans",
+        "ground pork",
+        "kimchi",
+        "mung bean sprouts",
+        "fernbrake",
+        "green onion",
+        "garlic",
+        "vegetable oil"
+      ],
+      "specialtyIngredients": [
+        "peeled split mung beans",
+        "vegan kimchi",
+        "gosari (fernbrake)"
+      ],
+      "veganApproach": "The pork is replaced with mushrooms or simply omitted, and vegan kimchi is used; the ground mung bean batter needs no egg or flour.",
+      "technique": "Soaked mung beans are ground into a thick batter, mixed with kimchi and vegetables, and shallow-fried in plenty of oil until crunchy outside.",
+      "seasons": [
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "hosting",
+        "comfort"
+      ],
+      "sources": [
+        {
+          "title": "Bindae-tteok - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Bindae-tteok"
+        },
+        {
+          "title": "Bindaetteok (Mung bean pancakes) - Maangchi",
+          "url": "https://www.maangchi.com/recipe/bindaetteok"
+        },
+        {
+          "title": "Bindaetteok (Mung Bean Pancakes) - NYT Cooking",
+          "url": "https://cooking.nytimes.com/recipes/1014483-bindaetteok-mung-bean-pancakes"
+        }
+      ]
+    },
+    {
+      "key": "janchi-guksu",
+      "name": "Janchi guksu",
+      "nameEn": "Banquet noodle soup",
+      "aliases": [
+        "janchi-guksu",
+        "party noodles",
+        "somyeon noodle soup",
+        "guksu"
+      ],
+      "tiles": [
+        "Korean"
+      ],
+      "cuisine": "Korean",
+      "region": null,
+      "format": "noodles",
+      "protein": "grains",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 30,
+      "effort": "low",
+      "familiarity": 2,
+      "traditionalDiet": "pescatarian",
+      "versions": [
+        "vegan",
+        "vegetarian"
+      ],
+      "keyIngredients": [
+        "somyeon (thin wheat noodles)",
+        "anchovy kelp stock",
+        "zucchini",
+        "carrot",
+        "egg",
+        "gim (seaweed)",
+        "soup soy sauce",
+        "green onion"
+      ],
+      "specialtyIngredients": [
+        "somyeon noodles",
+        "soup soy sauce (guk-ganjang)"
+      ],
+      "veganApproach": "The anchovy stock is replaced with a kelp and shiitake broth and the egg garnish is skipped (or kept for vegetarian).",
+      "technique": "Thin wheat noodles are cooked separately, rinsed and served in a light clear broth topped with sautéed zucchini, carrot, egg ribbons and seaweed.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "hosting"
+      ],
+      "sources": [
+        {
+          "title": "Janchi-guksu - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Janchi-guksu"
+        },
+        {
+          "title": "Janchi Guksu (Somyeon) - Korean Bapsang",
+          "url": "https://www.koreanbapsang.com/janchi-guksu-somyeon/"
+        },
+        {
+          "title": "Guksu (Noodle soup) - Maangchi",
+          "url": "https://www.maangchi.com/recipe/guksu"
+        }
+      ]
+    },
+    {
+      "key": "sujebi",
+      "name": "Sujebi",
+      "nameEn": "Hand-torn noodle soup",
+      "aliases": [
+        "hand-torn noodle soup",
+        "kimchi sujebi",
+        "gamja sujebi"
+      ],
+      "tiles": [
+        "Korean"
+      ],
+      "cuisine": "Korean",
+      "region": null,
+      "format": "soup",
+      "protein": "grains",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 50,
+      "effort": "medium",
+      "familiarity": 2,
+      "traditionalDiet": "pescatarian",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "all-purpose flour",
+        "potatoes",
+        "zucchini",
+        "onion",
+        "carrot",
+        "dried anchovies",
+        "dried kelp",
+        "soup soy sauce",
+        "garlic"
+      ],
+      "specialtyIngredients": [
+        "dried kelp (dasima)",
+        "soup soy sauce (guk-ganjang)"
+      ],
+      "veganApproach": "A kelp and shiitake broth replaces the anchovy stock, as in Buddhist temple versions with potato and courgette.",
+      "technique": "A rested flour dough is stretched paper-thin with wet fingers and torn straight into a simmering potato broth.",
+      "seasons": [
+        "autumn",
+        "winter",
+        "spring"
+      ],
+      "occasions": [
+        "comfort",
+        "everyday"
+      ],
+      "sources": [
+        {
+          "title": "Sujebi - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Sujebi"
+        },
+        {
+          "title": "Sujebi (Hand-torn noodle soup) - Maangchi",
+          "url": "https://www.maangchi.com/recipe/sujebi"
+        },
+        {
+          "title": "Courgette & Potato Sujebi (Pulled Noodles) - Veganuary",
+          "url": "https://veganuary.com/recipes/courgette-potato-sujebi-pulled-noodles/"
+        }
+      ]
+    },
+    {
+      "key": "yukgaejang",
+      "name": "Yukgaejang",
+      "nameEn": "Spicy shredded beef soup (vegan mushroom version)",
+      "aliases": [
+        "yukgae-jang",
+        "spicy beef soup",
+        "vegan yukgaejang"
+      ],
+      "tiles": [
+        "Korean"
+      ],
+      "cuisine": "Korean",
+      "region": null,
+      "format": "soup",
+      "protein": "mushrooms",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 60,
+      "effort": "medium",
+      "familiarity": 2,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "beef brisket",
+        "fernbrake (gosari)",
+        "mung bean sprouts",
+        "green onions",
+        "gochugaru",
+        "garlic",
+        "soup soy sauce",
+        "toasted sesame oil"
+      ],
+      "specialtyIngredients": [
+        "gosari (fernbrake)",
+        "gochugaru",
+        "soup soy sauce (guk-ganjang)"
+      ],
+      "veganApproach": "Shredded oyster or king oyster mushrooms replace the brisket in a kelp and shiitake broth seasoned with chili oil.",
+      "technique": "Shredded protein, fernbrake and lots of green onion are seasoned with chili flakes and sesame oil, then simmered into a fiery red soup.",
+      "seasons": [
+        "autumn",
+        "winter",
+        "summer"
+      ],
+      "occasions": [
+        "comfort",
+        "mealprep"
+      ],
+      "sources": [
+        {
+          "title": "Yukgaejang - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Yukgaejang"
+        },
+        {
+          "title": "Vegan Yukgaejang - Seonkyoung Longest",
+          "url": "https://seonkyounglongest.com/vegan-yukgaejang/"
+        },
+        {
+          "title": "Vegan Yukgaejang with Mushroom - My Eclectic Bites",
+          "url": "https://www.myeclecticbites.com/vegan-yukgaejang-with-mushroom/"
+        }
+      ]
+    },
+    {
+      "key": "hoe-deopbap",
+      "name": "Hoe-deopbap",
+      "nameEn": "Raw fish rice bowl",
+      "aliases": [
+        "hoedeopbap",
+        "hwe dup bap",
+        "sashimi bibimbap"
+      ],
+      "tiles": [
+        "Korean",
+        "Fresh & light"
+      ],
+      "cuisine": "Korean",
+      "region": null,
+      "format": "bowl",
+      "protein": "fish",
+      "method": "no_cook",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 30,
+      "effort": "low",
+      "familiarity": 2,
+      "traditionalDiet": "pescatarian",
+      "versions": [
+        "pescatarian"
+      ],
+      "keyIngredients": [
+        "sashimi-grade raw fish",
+        "short-grain rice",
+        "lettuce",
+        "cucumber",
+        "perilla leaves",
+        "gochujang",
+        "vinegar",
+        "toasted sesame oil"
+      ],
+      "specialtyIngredients": [
+        "sashimi-grade fish",
+        "chogochujang (vinegared gochujang)",
+        "perilla leaves"
+      ],
+      "veganApproach": null,
+      "technique": "Cubes of fresh raw fish are piled on rice with crisp shredded greens and mixed with a sweet-sour vinegared gochujang sauce.",
+      "seasons": [
+        "spring",
+        "summer"
+      ],
+      "occasions": [
+        "date",
+        "everyday"
+      ],
+      "sources": [
+        {
+          "title": "Hoe-deopbap - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Hoe-deopbap"
+        },
+        {
+          "title": "Hoe-deopbap (Spicy raw fish bibimbap) - Maangchi",
+          "url": "https://www.maangchi.com/recipe/hoe-deopbap"
+        }
+      ]
+    },
+    {
+      "key": "jjolmyeon",
+      "name": "Jjolmyeon",
+      "nameEn": "Spicy chewy cold noodles",
+      "aliases": [
+        "jjol-myeon",
+        "chewy noodles",
+        "spicy chewy noodles"
+      ],
+      "tiles": [
+        "Korean",
+        "Fresh & light"
+      ],
+      "cuisine": "Korean",
+      "region": "Incheon",
+      "format": "noodles",
+      "protein": "grains",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 20,
+      "effort": "low",
+      "familiarity": 2,
+      "traditionalDiet": "vegetarian",
+      "versions": [
+        "vegan",
+        "vegetarian"
+      ],
+      "keyIngredients": [
+        "jjolmyeon noodles",
+        "gochujang",
+        "vinegar",
+        "sugar",
+        "cabbage",
+        "cucumber",
+        "bean sprouts",
+        "hard-boiled egg"
+      ],
+      "specialtyIngredients": [
+        "jjolmyeon noodles",
+        "gochujang"
+      ],
+      "veganApproach": "Simply omit the hard-boiled egg; the noodles and the sweet-sour gochujang sauce are plant-based.",
+      "technique": "Very chewy wheat-starch noodles are boiled, rinsed icy cold and mixed with crunchy vegetables in a tangy, spicy gochujang dressing.",
+      "seasons": [
+        "summer",
+        "spring"
+      ],
+      "occasions": [
+        "quick",
+        "everyday"
+      ],
+      "sources": [
+        {
+          "title": "Jjolmyeon - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Jjolmyeon"
+        },
+        {
+          "title": "Jjolmyeon (Spicy chewy noodles) - Maangchi",
+          "url": "https://www.maangchi.com/recipe/jjolmyeon"
+        },
+        {
+          "title": "Jjolmyeon (Spicy Chewy Noodles) - Korean Bapsang",
+          "url": "https://www.koreanbapsang.com/jjolmyeon-spicy-chewy-noodles/"
+        }
+      ]
+    },
+    {
+      "key": "godeungeo-jorim",
+      "name": "Godeungeo jorim",
+      "nameEn": "Braised mackerel with radish",
+      "aliases": [
+        "godeungeo-jorim",
+        "braised mackerel",
+        "spicy braised mackerel"
+      ],
+      "tiles": [
+        "Korean"
+      ],
+      "cuisine": "Korean",
+      "region": null,
+      "format": "stew",
+      "protein": "fish",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 40,
+      "effort": "low",
+      "familiarity": 2,
+      "traditionalDiet": "pescatarian",
+      "versions": [
+        "pescatarian"
+      ],
+      "keyIngredients": [
+        "mackerel",
+        "korean radish",
+        "onion",
+        "gochugaru",
+        "soy sauce",
+        "garlic",
+        "ginger",
+        "green chili",
+        "green onion"
+      ],
+      "specialtyIngredients": [
+        "gochugaru",
+        "korean radish (mu)"
+      ],
+      "veganApproach": null,
+      "technique": "Mackerel pieces are laid over thick slices of radish and braised in a spicy soy-chili sauce until the radish is soft and saturated with the fish juices.",
+      "seasons": [
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "comfort"
+      ],
+      "sources": [
+        {
+          "title": "Godeungeo-jorim (Braised mackerel) - Maangchi",
+          "url": "https://www.maangchi.com/recipe/godeungeo-jorim"
+        },
+        {
+          "title": "Braised Korean Mackerel - Beyond Kimchee",
+          "url": "https://www.beyondkimchee.com/braised-korean-mackerel/"
+        },
+        {
+          "title": "Jorim - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Jorim"
+        }
+      ]
+    },
+    {
+      "key": "sanchae-bibimbap",
+      "name": "Sanchae bibimbap",
+      "nameEn": "Mountain vegetable bibimbap",
+      "aliases": [
+        "sanchae-bibimbap",
+        "temple bibimbap",
+        "wild greens bibimbap"
+      ],
+      "tiles": [
+        "Korean"
+      ],
+      "cuisine": "Korean",
+      "region": null,
+      "format": "bowl",
+      "protein": "vegetables",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 50,
+      "effort": "medium",
+      "familiarity": 3,
+      "traditionalDiet": "vegan",
+      "versions": [
+        "vegan",
+        "vegetarian"
+      ],
+      "keyIngredients": [
+        "short-grain rice",
+        "dried mountain greens (namul)",
+        "fernbrake",
+        "bellflower root",
+        "shiitake mushrooms",
+        "doenjang or gochujang",
+        "toasted sesame oil",
+        "soup soy sauce"
+      ],
+      "specialtyIngredients": [
+        "dried mountain greens (chwinamul, gondre)",
+        "gosari (fernbrake)",
+        "doraji (bellflower root)"
+      ],
+      "veganApproach": "Naturally vegan in its temple form, built entirely on foraged mountain greens; some restaurants add an egg (vegetarian).",
+      "technique": "Rehydrated wild mountain greens are each simmered and sautéed with soup soy sauce and sesame oil, then arranged over rice and mixed with chili or soybean paste.",
+      "seasons": [
+        "spring",
+        "autumn"
+      ],
+      "occasions": [
+        "everyday",
+        "hosting"
+      ],
+      "sources": [
+        {
+          "title": "Sanchae-bibimbap - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Sanchae-bibimbap"
+        },
+        {
+          "title": "Sanchae Bibimbap - K-RoastMySoul",
+          "url": "https://k-roastmysoul.com/en/foods/sanchae-bibimbap"
+        },
+        {
+          "title": "A Korean feast that honours Buddha's birth - BBC Travel",
+          "url": "https://www.bbc.com/travel/article/20240514-a-korean-feast-that-honours-buddhas-birth"
+        }
+      ]
+    },
+    {
+      "key": "yeonnipbap",
+      "name": "Yeonnipbap",
+      "nameEn": "Lotus leaf rice",
+      "aliases": [
+        "yeonip-bap",
+        "lotus leaf wrapped rice",
+        "temple lotus rice"
+      ],
+      "tiles": [
+        "Korean"
+      ],
+      "cuisine": "Korean",
+      "region": null,
+      "format": "rice_dish",
+      "protein": "nuts_seeds",
+      "method": "steam",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 60,
+      "effort": "medium",
+      "familiarity": 3,
+      "traditionalDiet": "vegan",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "glutinous rice",
+        "short-grain rice",
+        "lotus leaves",
+        "jujubes",
+        "chestnuts",
+        "ginkgo nuts",
+        "pine nuts",
+        "black beans"
+      ],
+      "specialtyIngredients": [
+        "lotus leaves",
+        "jujubes",
+        "ginkgo nuts"
+      ],
+      "veganApproach": "Naturally vegan Buddhist temple dish of rice, nuts and grains.",
+      "technique": "Glutinous rice mixed with chestnuts, jujubes, beans and nuts is wrapped in a lotus leaf and steamed so it takes on the leaf's fragrance.",
+      "seasons": [
+        "summer",
+        "autumn"
+      ],
+      "occasions": [
+        "hosting",
+        "date"
+      ],
+      "sources": [
+        {
+          "title": "Yeonnipbap (Lotus Leaf Rice) - VisitKorea",
+          "url": "https://english.visitkorea.or.kr/svc/contents/contentsView.do?vcontsId=178082"
+        },
+        {
+          "title": "Lotus leaf dish contains the power of prayer - Korea JoongAng Daily",
+          "url": "https://www.koreajoongangdaily.com/korea/lotus-leaf-dish-contains-the-power-of-prayer/10163926"
+        },
+        {
+          "title": "Korean temple cuisine - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Korean_temple_cuisine"
+        }
+      ]
+    },
+    {
+      "key": "kongbiji-jjigae",
+      "name": "Kongbiji jjigae",
+      "nameEn": "Ground soybean stew",
+      "aliases": [
+        "kongbiji-jjigae",
+        "okara stew",
+        "ground soybean stew"
+      ],
+      "tiles": [
+        "Korean"
+      ],
+      "cuisine": "Korean",
+      "region": null,
+      "format": "stew",
+      "protein": "beans",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop",
+        "blender"
+      ],
+      "cookMinutes": 30,
+      "effort": "low",
+      "familiarity": 3,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "soaked soybeans",
+        "pork",
+        "fermented kimchi",
+        "onion",
+        "garlic",
+        "green onion",
+        "salted shrimp",
+        "toasted sesame oil"
+      ],
+      "specialtyIngredients": [
+        "vegan kimchi",
+        "okara (kongbiji)"
+      ],
+      "veganApproach": "The pork and salted shrimp are left out, mushrooms add depth, and vegan kimchi is used with ground soybeans or okara.",
+      "technique": "Soaked soybeans are ground into a coarse purée and simmered with sautéed kimchi until it forms a creamy, curd-like stew.",
+      "seasons": [
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "comfort",
+        "everyday"
+      ],
+      "sources": [
+        {
+          "title": "Kongbiji-jjigae (Ground soybean stew) - Maangchi",
+          "url": "https://www.maangchi.com/recipe/kongbiji-jjigae"
+        },
+        {
+          "title": "Kongbiji Jjigae (Ground Soybean Stew) - Korean Bapsang",
+          "url": "https://www.koreanbapsang.com/kongbiji-jjigae-ground-soybean-stew/"
+        },
+        {
+          "title": "Kongbiji Jjigae (Okara Stew) - Earth to Veg",
+          "url": "https://earthtoveg.com/kongbiji-jjigae-okara-stew/"
+        }
+      ]
+    },
+    {
+      "key": "beoseot-jeongol",
+      "name": "Beoseot jeongol",
+      "nameEn": "Mushroom hot pot",
+      "aliases": [
+        "beoseot-jeongol",
+        "mushroom hot pot",
+        "mushroom jeongol"
+      ],
+      "tiles": [
+        "Korean"
+      ],
+      "cuisine": "Korean",
+      "region": null,
+      "format": "stew",
+      "protein": "mushrooms",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 30,
+      "effort": "low",
+      "familiarity": 3,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "assorted mushrooms",
+        "beef",
+        "napa cabbage",
+        "onion",
+        "tofu",
+        "green onion",
+        "gochugaru",
+        "soup soy sauce",
+        "anchovy kelp stock"
+      ],
+      "specialtyIngredients": [
+        "enoki and king oyster mushrooms",
+        "soup soy sauce (guk-ganjang)"
+      ],
+      "veganApproach": "The beef is left out and a kelp-shiitake broth is used, letting the many kinds of mushrooms and tofu carry the hot pot.",
+      "technique": "Mushrooms, vegetables and tofu are arranged in neat sections in a wide shallow pot, then covered with seasoned broth and simmered at the table.",
+      "seasons": [
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "hosting",
+        "comfort"
+      ],
+      "sources": [
+        {
+          "title": "Beoseot Jeongol (Mushroom Hot Pot) - Korean Bapsang",
+          "url": "https://www.koreanbapsang.com/beoseot-jeongol-mushroom-hot-pot/"
+        },
+        {
+          "title": "Jeongol - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Jeongol"
+        }
+      ]
+    },
+    {
+      "key": "kongnamul-gukbap",
+      "name": "Kongnamul gukbap",
+      "nameEn": "Soybean sprout rice soup",
+      "aliases": [
+        "kongnamul-gukbap",
+        "jeonju kongnamul gukbap",
+        "bean sprout soup with rice"
+      ],
+      "tiles": [
+        "Korean"
+      ],
+      "cuisine": "Korean",
+      "region": "Jeonju",
+      "format": "soup",
+      "protein": "vegetables",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 30,
+      "effort": "low",
+      "familiarity": 3,
+      "traditionalDiet": "pescatarian",
+      "versions": [
+        "vegan",
+        "vegetarian"
+      ],
+      "keyIngredients": [
+        "soybean sprouts",
+        "cooked rice",
+        "anchovy kelp stock",
+        "garlic",
+        "green onion",
+        "gochugaru",
+        "salted shrimp",
+        "egg"
+      ],
+      "specialtyIngredients": [
+        "kongnamul (soybean sprouts)",
+        "dried kelp (dasima)"
+      ],
+      "veganApproach": "A kelp and shiitake stock replaces the anchovies, salted shrimp is replaced with salt or soup soy sauce, and the egg is omitted (or kept for vegetarian).",
+      "technique": "Soybean sprouts are boiled in stock with the lid closed to avoid a raw smell, then the clear, refreshing soup is poured over rice in a hot earthenware bowl.",
+      "seasons": [
+        "autumn",
+        "winter",
+        "spring"
+      ],
+      "occasions": [
+        "comfort",
+        "everyday"
+      ],
+      "sources": [
+        {
+          "title": "Kongnamul-gukbap (Soybean sprout soup with rice) - Maangchi",
+          "url": "https://www.maangchi.com/recipe/kongnamul-gukbap"
+        },
+        {
+          "title": "Gukbap - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Gukbap"
+        }
+      ]
+    },
+    {
+      "key": "gungjung-tteokbokki",
+      "name": "Gungjung tteokbokki",
+      "nameEn": "Royal court soy-sauce rice cakes",
+      "aliases": [
+        "gungjung-tteokbokki",
+        "ganjang tteokbokki",
+        "royal court tteokbokki"
+      ],
+      "tiles": [
+        "Korean"
+      ],
+      "cuisine": "Korean",
+      "region": "Seoul",
+      "format": "stir_fry",
+      "protein": "mushrooms",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 30,
+      "effort": "low",
+      "familiarity": 3,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "rice cakes (tteok)",
+        "beef",
+        "shiitake mushrooms",
+        "onion",
+        "carrot",
+        "bell pepper",
+        "soy sauce",
+        "sugar",
+        "toasted sesame oil"
+      ],
+      "specialtyIngredients": [
+        "tteok (rice cakes)"
+      ],
+      "veganApproach": "The beef is replaced with extra shiitake mushrooms in the same sweet soy and sesame sauce.",
+      "technique": "Rice cakes are blanched and stir-fried with julienned vegetables and mushrooms in a mild, sweet soy glaze, the royal court's non-spicy original.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "hosting"
+      ],
+      "sources": [
+        {
+          "title": "Gungjung Tteokbokki (Korean Royal Court Rice Cakes) - NYT Cooking",
+          "url": "https://cooking.nytimes.com/recipes/1022114-gungjung-tteokbokki-korean-royal-court-rice-cakes"
+        },
+        {
+          "title": "Gungjung Tteokbokki - Veggiekins",
+          "url": "https://veggiekinsblog.com/2023/01/11/gungjung-tteokbokki/"
+        },
+        {
+          "title": "Korean Tteokbokki (Vegan) - One Green Planet",
+          "url": "https://www.onegreenplanet.org/vegan-recipe/korean-tteokbokki-vegan/"
+        }
+      ]
+    },
+    {
+      "key": "makguksu",
+      "name": "Makguksu",
+      "nameEn": "Chuncheon cold buckwheat noodles",
+      "aliases": [
+        "chuncheon makguksu",
+        "mak-guksu",
+        "buckwheat cold noodles"
+      ],
+      "tiles": [
+        "Korean",
+        "Fresh & light"
+      ],
+      "cuisine": "Korean",
+      "region": "Gangwon",
+      "format": "noodles",
+      "protein": "grains",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 20,
+      "effort": "low",
+      "familiarity": 3,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegan",
+        "vegetarian"
+      ],
+      "keyIngredients": [
+        "buckwheat noodles",
+        "dongchimi brine",
+        "gochujang",
+        "cucumber",
+        "radish kimchi",
+        "toasted sesame seeds",
+        "gim (seaweed)",
+        "hard-boiled egg"
+      ],
+      "specialtyIngredients": [
+        "buckwheat noodles",
+        "dongchimi brine"
+      ],
+      "veganApproach": "Served with a chilled radish water kimchi and kelp broth instead of beef broth, and without the boiled egg for vegan.",
+      "technique": "Rustic buckwheat noodles are boiled, chilled and served with a spicy seasoning and a splash of cold tangy broth poured in at the table.",
+      "seasons": [
+        "summer"
+      ],
+      "occasions": [
+        "quick",
+        "everyday"
+      ],
+      "sources": [
+        {
+          "title": "Makguksu - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Makguksu"
+        },
+        {
+          "title": "Chuncheon Makguksu - Korea Herald",
+          "url": "https://www.koreaherald.com/article/10340486"
+        },
+        {
+          "title": "Recipe: Chuncheon Makguksu - Noodle Planet",
+          "url": "https://noodleplanet.co.kr/en/Recipe-Chuncheon-Makguksu/"
+        }
+      ]
+    },
+    {
+      "key": "galchi-jorim",
+      "name": "Galchi jorim",
+      "nameEn": "Braised hairtail fish",
+      "aliases": [
+        "galchi-jorim",
+        "braised beltfish",
+        "spicy braised hairtail"
+      ],
+      "tiles": [
+        "Korean"
+      ],
+      "cuisine": "Korean",
+      "region": "Jeju",
+      "format": "stew",
+      "protein": "fish",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 40,
+      "effort": "low",
+      "familiarity": 3,
+      "traditionalDiet": "pescatarian",
+      "versions": [
+        "pescatarian"
+      ],
+      "keyIngredients": [
+        "hairtail (beltfish)",
+        "korean radish",
+        "potato",
+        "onion",
+        "gochugaru",
+        "soy sauce",
+        "garlic",
+        "green chili"
+      ],
+      "specialtyIngredients": [
+        "hairtail (galchi)",
+        "gochugaru"
+      ],
+      "veganApproach": null,
+      "technique": "Pieces of silvery hairtail are braised on a bed of radish and potato in a spicy soy-chili sauce until the sauce thickens.",
+      "seasons": [
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "comfort"
+      ],
+      "sources": [
+        {
+          "title": "Galchi-jorim (Braised hairtail fish) - Maangchi",
+          "url": "https://www.maangchi.com/recipe/galchi-jorim"
+        },
+        {
+          "title": "Galchi Jorim - Seonkyoung Longest",
+          "url": "https://seonkyounglongest.com/galchi-jorim/"
+        }
+      ]
+    },
+    {
+      "key": "maeuntang",
+      "name": "Maeuntang",
+      "nameEn": "Spicy fish stew",
+      "aliases": [
+        "maeun-tang",
+        "spicy fish soup",
+        "maeuntang jjigae"
+      ],
+      "tiles": [
+        "Korean"
+      ],
+      "cuisine": "Korean",
+      "region": null,
+      "format": "soup",
+      "protein": "fish",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 45,
+      "effort": "medium",
+      "familiarity": 3,
+      "traditionalDiet": "pescatarian",
+      "versions": [
+        "pescatarian"
+      ],
+      "keyIngredients": [
+        "white fish (cod, whiting or pollock)",
+        "korean radish",
+        "zucchini",
+        "tofu",
+        "gochugaru",
+        "gochujang",
+        "garlic",
+        "crown daisy",
+        "green onion"
+      ],
+      "specialtyIngredients": [
+        "gochugaru",
+        "ssukgat (crown daisy)"
+      ],
+      "veganApproach": null,
+      "technique": "A whole cut-up fish, including the head and bones, is simmered with radish in a chili-spiked broth, then finished with fresh greens.",
+      "seasons": [
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "hosting",
+        "comfort"
+      ],
+      "sources": [
+        {
+          "title": "Maeuntang - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Maeuntang"
+        },
+        {
+          "title": "Maeuntang (Spicy fish stew) - Maangchi",
+          "url": "https://www.maangchi.com/recipe/maeuntang"
+        },
+        {
+          "title": "Whiting maeuntang - Maangchi",
+          "url": "https://www.maangchi.com/recipe/whiting-maeuntang"
+        }
+      ]
+    },
+    {
+      "key": "agujjim",
+      "name": "Agujjim",
+      "nameEn": "Spicy braised monkfish",
+      "aliases": [
+        "agu-jjim",
+        "ageujjim",
+        "spicy monkfish with bean sprouts"
+      ],
+      "tiles": [
+        "Korean"
+      ],
+      "cuisine": "Korean",
+      "region": "Masan",
+      "format": "stew",
+      "protein": "fish",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 45,
+      "effort": "medium",
+      "familiarity": 3,
+      "traditionalDiet": "pescatarian",
+      "versions": [
+        "pescatarian"
+      ],
+      "keyIngredients": [
+        "monkfish",
+        "soybean sprouts",
+        "minari (water dropwort)",
+        "gochugaru",
+        "garlic",
+        "soy sauce",
+        "potato starch",
+        "green onion"
+      ],
+      "specialtyIngredients": [
+        "monkfish",
+        "minari (water dropwort)",
+        "gochugaru"
+      ],
+      "veganApproach": null,
+      "technique": "Monkfish is steamed over a mound of soybean sprouts, then tossed in a fiery chili sauce thickened with starch.",
+      "seasons": [
+        "winter",
+        "spring"
+      ],
+      "occasions": [
+        "hosting"
+      ],
+      "sources": [
+        {
+          "title": "Agujjim - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Agujjim"
+        },
+        {
+          "title": "Agujjim (Spicy Braised Monkfish) - Korean Bapsang",
+          "url": "https://www.koreanbapsang.com/agujjim-spicy-braised-monkfish-with/"
+        }
+      ]
+    },
+    {
+      "key": "jeonbokjuk",
+      "name": "Jeonbokjuk",
+      "nameEn": "Abalone rice porridge",
+      "aliases": [
+        "jeonbok-juk",
+        "abalone porridge",
+        "abalone juk"
+      ],
+      "tiles": [
+        "Korean"
+      ],
+      "cuisine": "Korean",
+      "region": "Jeju",
+      "format": "rice_dish",
+      "protein": "shellfish",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 40,
+      "effort": "medium",
+      "familiarity": 3,
+      "traditionalDiet": "pescatarian",
+      "versions": [
+        "pescatarian"
+      ],
+      "keyIngredients": [
+        "abalone",
+        "short-grain rice",
+        "abalone guts",
+        "toasted sesame oil",
+        "garlic",
+        "soup soy sauce",
+        "salt",
+        "water"
+      ],
+      "specialtyIngredients": [
+        "fresh abalone"
+      ],
+      "veganApproach": null,
+      "technique": "Soaked rice and sliced abalone are sautéed in sesame oil with the abalone innards, then slowly simmered and stirred into a creamy, savory porridge.",
+      "seasons": [
+        "autumn",
+        "winter",
+        "spring"
+      ],
+      "occasions": [
+        "comfort",
+        "date"
+      ],
+      "sources": [
+        {
+          "title": "Jeonbok-juk - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Jeonbok-juk"
+        },
+        {
+          "title": "Jeonbokjuk (Abalone Porridge) - Korean Bapsang",
+          "url": "https://www.koreanbapsang.com/jeonbokjuk-abalone-porridge/"
+        },
+        {
+          "title": "Jeonbokjuk (Abalone porridge) - Maangchi",
+          "url": "https://www.maangchi.com/recipe/jeonbokjuk"
+        }
+      ]
+    }
+  ]
+}

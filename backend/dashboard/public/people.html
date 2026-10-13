@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Persone · Vego Analytics</title>
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<script>document.documentElement.dataset.theme = localStorage.getItem('vego-theme') || 'dark';</script>
+<link rel="stylesheet" href="/styles.css">
+</head>
+<body data-page="people">
+<div class="shell">
+  <aside class="sidebar" id="side"></aside>
+  <div>
+    <main id="main" class="page" hidden>
+      <header class="topbar">
+        <div><p class="crumb">Persone</p><h1>Chi paga, chi torna, chi resta a guardare</h1></div>
+        <div class="right"><span class="stamp" id="windowLabel"></span><span class="stamp" id="stamp"></span><button id="refresh" class="btn" type="button">Aggiorna</button></div>
+      </header>
+
+      <div id="peopleHero"></div>
+
+      <!-- Paganti e non paganti stanno in due sezioni separate perché
+           rispondono a domande diverse: dei primi conta se restano, dei
+           secondi quante volte tornano prima di decidere. Mischiati, la
+           retention diventa il tasso di conversione scritto al rovescio. -->
+      <div class="section"><h2>Chi ha pagato</h2><p class="hint">contato dal giorno dell’acquisto: prima di quello tornano tutti, è l’onboarding</p></div>
+      <div class="grid">
+        <div class="panel c7">
+          <div class="panel-head"><div><h2>Torna, settimana per settimana <span class="tip" data-tip="Su cento paganti che hanno già compiuto quella settimana, quanti hanno aperto l’app almeno una volta dentro quei sette giorni. Chi la sta ancora attraversando non viene contato."></span></h2><p class="hint" id="paidWeeksHint">dopo l’acquisto</p></div></div>
+          <div class="chart"><canvas id="paidWeeksChart"></canvas></div>
+          <p class="read" id="paidWeeksRead"></p>
+        </div>
+        <div class="panel c5">
+          <div class="panel-head"><div><h2>Quanti giorni torna <span class="tip" data-tip="Giorni distinti in cui ha aperto l’app dopo il giorno dell’acquisto. “Mai più” è chi ha pagato e non si è più visto."></span></h2><p class="hint" id="paidDaysHint"></p></div></div>
+          <div class="chart"><canvas id="paidDaysChart"></canvas></div>
+          <p class="read" id="paidDaysRead"></p>
+        </div>
+      </div>
+      <div class="strip" id="paidStrip"></div>
+      <p class="read" id="paidNote"></p>
+
+      <div class="section"><h2>Chi non ha pagato</h2><p class="hint">quante volte riapre prima di decidere · le aperture si contano da quando l’app le manda</p></div>
+      <div class="grid">
+        <div class="panel c6">
+          <div class="panel-head"><div><h2>Quante volte riaprono <span class="tip" data-tip="Aperture dell’app di chi non ha (ancora) pagato. Due aperture a meno di cinque minuti contano come una: uscire per un messaggio e rientrare non è tornare."></span></h2><p class="hint" id="freeOpensHint"></p></div></div>
+          <div class="chart"><canvas id="freeOpensChart"></canvas></div>
+          <p class="read" id="freeOpensRead"></p>
+        </div>
+        <div class="panel c6">
+          <div class="panel-head"><div><h2>A quale apertura compra <span class="tip" data-tip="Verde: a quante aperture era chi ha pagato, congelato al momento dell’acquisto. Grigio: quanti non paganti sono fermi a quel numero adesso. Dove il grigio è alto c’è gente che torna e non ha ancora deciso."></span></h2><p class="hint" id="buyMomentHint"></p></div></div>
+          <div class="chart"><canvas id="buyMomentChart"></canvas></div>
+          <p class="read" id="buyMomentRead"></p>
+        </div>
+      </div>
+
+      <div class="section"><h2>Ogni giorno</h2></div>
+      <div class="grid">
+        <div class="panel c12">
+          <div class="panel-head"><div><h2>Chi apre, chi usa, chi arriva <span class="tip" data-tip="Aprono: hanno lanciato l’app. Usano: hanno fatto qualcosa dentro, non solo aperto. Il primo numero esiste solo per le versioni dell’app che mandano il ping dell’apertura."></span></h2><p class="hint">ultimi 30 giorni</p></div></div>
+          <div class="chart"><canvas id="peopleDaily"></canvas></div>
+        </div>
+      </div>
+      <div class="grid">
+        <div class="panel c12">
+          <div class="panel-head"><div><h2>Paganti per settimana di arrivo <span class="tip" data-tip="Ogni riga è chi è arrivato quella settimana. Le colonne di retention sono contate solo sui paganti di quella coorte: sugli altri misurerebbero il paywall, non il prodotto."></span></h2><p class="hint">ultime 12 settimane</p></div></div>
+          <div class="scroll"><table class="cohort" id="cohortTable"></table></div>
+          <p class="read" id="cohortRead"></p>
+        </div>
+      </div>
+
+      <div class="section"><h2>Da dove arrivano</h2></div>
+      <div class="grid">
+        <div class="panel c7">
+          <div class="panel-head"><div><h2>Quale fonte porta chi paga <span class="tip" data-tip="Per ogni fonte dichiarata all’onboarding, quanti hanno poi pagato. Il tasso compare solo dalle 5 persone in su."></span></h2><p class="hint" id="sourceConvHint"></p></div></div>
+          <div class="chart"><canvas id="sourceConvChart"></canvas></div>
+          <p class="read" id="sourceConvRead"></p>
+        </div>
+        <div class="panel c5">
+          <div class="panel-head"><div><h2>Quanti da ogni fonte</h2><p class="hint">quota su chi è arrivato</p></div></div>
+          <div class="bars" id="referralStats"></div>
+        </div>
+      </div>
+
+      <div class="section"><h2>Il permesso di tracciamento</h2><p class="hint">chiesto sulla slide delle promesse · conta solo chi ha visto il prompt</p></div>
+      <div class="grid">
+        <div class="panel c7">
+          <div class="panel-head"><div><h2>Chi dice sì <span class="tip" data-tip="La risposta al prompt ATT di iOS. “Sì” dà a Meta l’identificativo pubblicitario e l’attribuzione precisa; “no” resta sull’attribuzione aggregata. “Deciso dal sistema” è chi non ha potuto scegliere: interruttore spento nelle impostazioni, restrizioni, o iOS che non ha mostrato l’alert."></span></h2><p class="hint" id="trackingHint"></p></div></div>
+          <div class="split" id="trackingSplit"></div>
+          <p class="read" id="trackingRead"></p>
+        </div>
+        <div class="panel c5">
+          <div class="panel-head"><div><h2>Giorno per giorno</h2><p class="hint">a quanti è stato chiesto, e quanti sì</p></div></div>
+          <div class="bars" id="trackingDays"></div>
+        </div>
+      </div>
+
+      <div class="section"><h2>Chi sono</h2></div>
+      <div class="grid">
+        <div class="panel c4">
+          <div class="panel-head"><div><h2>Uomini e donne <span class="tip" data-tip="Il genere non lo chiediamo. Un modello lo deduce dal nome; “incerto” è una risposta valida. Gira solo quando premi."></span></h2><p class="hint" id="genderHint">stima dai nomi</p></div><div class="right"><button class="btn small" id="genderRun" type="button">Stima</button></div></div>
+          <div class="split" id="genderSplit"></div>
+          <p class="read" id="genderRead"></p>
+        </div>
+        <div class="panel c4">
+          <div class="panel-head"><div><h2>Come mangiano</h2><p class="hint">dieta dichiarata all’ultima slide</p></div></div>
+          <div class="split" id="dietSplit"></div>
+        </div>
+        <div class="panel c4">
+          <div class="panel-head"><div><h2>Lingua</h2></div></div>
+          <div class="bars" id="langStats"></div>
+        </div>
+      </div>
+    </main>
+    <div id="state" class="state">Leggo Firestore…</div>
+  </div>
+</div>
+<div class="drawer-backdrop" id="drawerBackdrop"></div>
+<aside class="drawer" id="drawer" aria-hidden="true"></aside>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+<script src="/app.js"></script>
+</body>
+</html>

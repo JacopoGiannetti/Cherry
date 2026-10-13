@@ -1,0 +1,3792 @@
+{
+  "tile": "Indian",
+  "generatedAt": "2026-10-05",
+  "dishes": [
+    {
+      "key": "chana-masala",
+      "name": "Chana masala",
+      "nameEn": "Spiced chickpea curry",
+      "aliases": [
+        "chole",
+        "chole masala",
+        "punjabi chole",
+        "chickpea curry"
+      ],
+      "tiles": [
+        "Indian"
+      ],
+      "cuisine": "Indian",
+      "region": "Punjab",
+      "format": "curry",
+      "protein": "chickpeas",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 50,
+      "effort": "low",
+      "familiarity": 1,
+      "traditionalDiet": "vegan",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "chickpeas",
+        "onion",
+        "tomatoes",
+        "ginger",
+        "garlic",
+        "green chili",
+        "chana masala spice blend",
+        "amchur"
+      ],
+      "specialtyIngredients": [
+        "chana masala spice blend",
+        "amchur"
+      ],
+      "veganApproach": "Naturally vegan when cooked in oil, as most home-style versions are.",
+      "technique": "Onion, ginger, garlic and tomato are fried down into a thick masala with ground spices, then cooked chickpeas simmer in it until the sauce clings and some chickpeas are mashed to thicken.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "mealprep",
+        "comfort"
+      ],
+      "sources": [
+        {
+          "title": "Chana masala - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Chana_masala"
+        },
+        {
+          "title": "Chana Masala (Chole) Chickpea Curry - Vegan Richa",
+          "url": "https://www.veganricha.com/chana-masalachole-chickpea-curry-vegan/"
+        },
+        {
+          "title": "Punjabi Chole - Vegan Richa",
+          "url": "https://www.veganricha.com/punjabi-chole/"
+        }
+      ]
+    },
+    {
+      "key": "dal-makhani",
+      "name": "Dal makhani",
+      "nameEn": "Creamy buttered black lentils",
+      "aliases": [
+        "daal makhani",
+        "maa ki dal",
+        "dal makhni"
+      ],
+      "tiles": [
+        "Indian",
+        "American"
+      ],
+      "cuisine": "Indian",
+      "region": "Punjab",
+      "format": "curry",
+      "protein": "lentils",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 120,
+      "effort": "medium",
+      "familiarity": 1,
+      "traditionalDiet": "vegetarian",
+      "versions": [
+        "vegan",
+        "vegetarian"
+      ],
+      "keyIngredients": [
+        "whole black urad dal",
+        "kidney beans",
+        "butter",
+        "cream",
+        "tomatoes",
+        "ginger",
+        "garlic",
+        "kasuri methi"
+      ],
+      "specialtyIngredients": [
+        "whole black urad dal",
+        "kasuri methi"
+      ],
+      "veganApproach": "Replace the butter and cream with vegan butter and cashew or another non-dairy cream.",
+      "technique": "Whole black lentils and kidney beans are cooked until very soft, then simmered slowly in a buttery spiced tomato base until thick and creamy.",
+      "seasons": [
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "hosting",
+        "comfort",
+        "mealprep"
+      ],
+      "sources": [
+        {
+          "title": "Dal makhani - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Dal_makhani"
+        },
+        {
+          "title": "Restaurant-Style Dal Makhani - Vegan Richa",
+          "url": "https://www.veganricha.com/restaurant-style-dal-makhani/"
+        }
+      ]
+    },
+    {
+      "key": "palak-paneer",
+      "name": "Palak paneer",
+      "nameEn": "Paneer in spiced spinach sauce",
+      "aliases": [
+        "saag paneer",
+        "palak tofu"
+      ],
+      "tiles": [
+        "Indian"
+      ],
+      "cuisine": "Indian",
+      "region": "Punjab",
+      "format": "curry",
+      "protein": "tofu",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop",
+        "blender"
+      ],
+      "cookMinutes": 40,
+      "effort": "medium",
+      "familiarity": 1,
+      "traditionalDiet": "vegetarian",
+      "versions": [
+        "vegan",
+        "vegetarian"
+      ],
+      "keyIngredients": [
+        "paneer",
+        "spinach",
+        "onion",
+        "tomatoes",
+        "ginger",
+        "garlic",
+        "green chili",
+        "cream",
+        "garam masala"
+      ],
+      "specialtyIngredients": [
+        "paneer"
+      ],
+      "veganApproach": "Use pressed firm tofu instead of paneer and finish with cashew or coconut cream.",
+      "technique": "Spinach is blanched and puréed, then simmered with a spiced onion-tomato base before cubes of paneer are folded in.",
+      "seasons": [
+        "spring",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "hosting"
+      ],
+      "sources": [
+        {
+          "title": "Palak paneer - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Palak_paneer"
+        },
+        {
+          "title": "Palak Tofu - Tofu in Spinach Curry - Vegan Richa",
+          "url": "https://www.veganricha.com/palak-tofu-tofu-in-spinach-curry-vegan/"
+        }
+      ]
+    },
+    {
+      "key": "aloo-gobi",
+      "name": "Aloo gobi",
+      "nameEn": "Spiced potatoes and cauliflower",
+      "aliases": [
+        "aloo gobhi",
+        "gobi aloo",
+        "aloo gobi masala"
+      ],
+      "tiles": [
+        "Indian"
+      ],
+      "cuisine": "Indian",
+      "region": "Punjab",
+      "format": "curry",
+      "protein": "vegetables",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 35,
+      "effort": "low",
+      "familiarity": 1,
+      "traditionalDiet": "vegan",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "potatoes",
+        "cauliflower",
+        "onion",
+        "tomatoes",
+        "ginger",
+        "garlic",
+        "turmeric",
+        "cumin seeds",
+        "garam masala"
+      ],
+      "specialtyIngredients": [],
+      "veganApproach": "Naturally vegan when cooked in oil rather than ghee.",
+      "technique": "Potato and cauliflower pieces are cooked covered with cumin, turmeric and ground spices until tender and lightly browned at the edges.",
+      "seasons": [
+        "spring",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "mealprep"
+      ],
+      "sources": [
+        {
+          "title": "Aloo gobi - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Aloo_gobhi"
+        },
+        {
+          "title": "Restaurant Style Aloo Gobi - Vegan Richa",
+          "url": "https://www.veganricha.com/restaurant-style-aloo-gobi/"
+        },
+        {
+          "title": "Aloo Gobi - NYT Cooking",
+          "url": "https://cooking.nytimes.com/recipes/1024646-aloo-gobi"
+        }
+      ]
+    },
+    {
+      "key": "dal-tadka",
+      "name": "Dal tadka",
+      "nameEn": "Yellow lentils with sizzling spice tempering",
+      "aliases": [
+        "dal tarka",
+        "tadka dal",
+        "dal fry"
+      ],
+      "tiles": [
+        "Indian"
+      ],
+      "cuisine": "Indian",
+      "region": "North India",
+      "format": "stew",
+      "protein": "lentils",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 45,
+      "effort": "low",
+      "familiarity": 1,
+      "traditionalDiet": "vegetarian",
+      "versions": [
+        "vegan",
+        "vegetarian"
+      ],
+      "keyIngredients": [
+        "toor dal",
+        "onion",
+        "tomatoes",
+        "garlic",
+        "cumin seeds",
+        "dried red chili",
+        "ghee",
+        "turmeric",
+        "asafoetida"
+      ],
+      "specialtyIngredients": [
+        "toor dal",
+        "asafoetida"
+      ],
+      "veganApproach": "Make the tadka with oil instead of ghee.",
+      "technique": "Lentils are boiled soft, simmered with an onion-tomato masala and finished with a sizzling tempering of whole spices and garlic poured on top.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "comfort",
+        "mealprep"
+      ],
+      "sources": [
+        {
+          "title": "Dal - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Dal"
+        },
+        {
+          "title": "Dal Tadka Recipe - Swasthi's Recipes",
+          "url": "https://www.indianhealthyrecipes.com/dal-tadka/"
+        },
+        {
+          "title": "Daal Tadka - Serious Eats",
+          "url": "https://www.seriouseats.com/daal-tadka-indian-recipe"
+        }
+      ]
+    },
+    {
+      "key": "vegetable-biryani",
+      "name": "Vegetable biryani",
+      "nameEn": "Layered spiced rice with vegetables",
+      "aliases": [
+        "veg biryani",
+        "veg dum biryani",
+        "hyderabadi veg biryani"
+      ],
+      "tiles": [
+        "Indian"
+      ],
+      "cuisine": "Indian",
+      "region": "Hyderabad",
+      "format": "rice_dish",
+      "protein": "vegetables",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 75,
+      "effort": "high",
+      "familiarity": 1,
+      "traditionalDiet": "vegetarian",
+      "versions": [
+        "vegan",
+        "vegetarian"
+      ],
+      "keyIngredients": [
+        "basmati rice",
+        "mixed vegetables",
+        "yogurt",
+        "fried onions",
+        "ghee",
+        "mint",
+        "saffron",
+        "biryani spices"
+      ],
+      "specialtyIngredients": [
+        "saffron",
+        "shahi jeera"
+      ],
+      "veganApproach": "Marinate the vegetables in plant yogurt and use oil or vegan butter instead of ghee.",
+      "technique": "Spiced, yogurt-marinated vegetables are layered with par-cooked basmati rice, herbs and fried onions, then sealed and cooked on low heat (dum).",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "hosting",
+        "comfort"
+      ],
+      "sources": [
+        {
+          "title": "Biryani - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Biryani"
+        },
+        {
+          "title": "Veg Biryani - Swasthi's Recipes",
+          "url": "https://www.indianhealthyrecipes.com/veg-biryani/"
+        },
+        {
+          "title": "Hyderabadi Vegetable Dum Biryani - Swasthi's Recipes",
+          "url": "https://www.indianhealthyrecipes.com/hyderabadi-vegetable-dum-biryani-recipe/"
+        }
+      ]
+    },
+    {
+      "key": "masala-dosa",
+      "name": "Masala dosa",
+      "nameEn": "Crisp fermented rice crêpe with spiced potato filling",
+      "aliases": [
+        "masale dose",
+        "dosa"
+      ],
+      "tiles": [
+        "Indian"
+      ],
+      "cuisine": "Indian",
+      "region": "Karnataka",
+      "format": "stuffed",
+      "protein": "vegetables",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop",
+        "blender"
+      ],
+      "cookMinutes": 60,
+      "effort": "high",
+      "familiarity": 1,
+      "traditionalDiet": "vegan",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "rice",
+        "urad dal",
+        "potatoes",
+        "onion",
+        "mustard seeds",
+        "curry leaves",
+        "turmeric",
+        "green chili"
+      ],
+      "specialtyIngredients": [
+        "urad dal",
+        "curry leaves"
+      ],
+      "veganApproach": "Naturally vegan when the dosa is cooked with oil rather than ghee.",
+      "technique": "A fermented rice and urad dal batter is spread thin on a hot griddle until crisp, then filled with a tempered, turmeric-spiced potato mash.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "hosting"
+      ],
+      "sources": [
+        {
+          "title": "Masala dosa - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Masala_dosa"
+        }
+      ]
+    },
+    {
+      "key": "paneer-butter-masala",
+      "name": "Paneer butter masala",
+      "nameEn": "Paneer in buttery tomato-cashew sauce",
+      "aliases": [
+        "paneer makhani",
+        "paneer makhanwala",
+        "butter paneer",
+        "butter tofu"
+      ],
+      "tiles": [
+        "Indian",
+        "American"
+      ],
+      "cuisine": "Indian",
+      "region": "Delhi",
+      "format": "curry",
+      "protein": "tofu",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop",
+        "blender"
+      ],
+      "cookMinutes": 40,
+      "effort": "medium",
+      "familiarity": 1,
+      "traditionalDiet": "vegetarian",
+      "versions": [
+        "vegan",
+        "vegetarian"
+      ],
+      "keyIngredients": [
+        "paneer",
+        "tomatoes",
+        "butter",
+        "cream",
+        "cashews",
+        "ginger",
+        "garlic",
+        "kashmiri chili",
+        "kasuri methi"
+      ],
+      "specialtyIngredients": [
+        "paneer",
+        "kasuri methi",
+        "kashmiri chili"
+      ],
+      "veganApproach": "Swap the paneer for pressed tofu and use vegan butter and cashew cream.",
+      "technique": "Tomatoes and cashews are simmered and blended into a silky sauce enriched with butter and cream, and paneer cubes are warmed through at the end.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "hosting",
+        "comfort",
+        "date"
+      ],
+      "sources": [
+        {
+          "title": "Paneer makhani - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Paneer_makhani"
+        },
+        {
+          "title": "Paneer Makhani (Paneer Makhanwala) - Swasthi's Recipes",
+          "url": "https://www.indianhealthyrecipes.com/paneer-makhani-paneer-makhanwala-recipe/"
+        },
+        {
+          "title": "Butter Tofu (Paneer Tofu Butter Masala) - Vegan Richa",
+          "url": "https://www.veganricha.com/butter-tofu-paneer-tofu-butter-masala-recipe/"
+        }
+      ]
+    },
+    {
+      "key": "malai-kofta",
+      "name": "Malai kofta",
+      "nameEn": "Fried paneer-potato dumplings in creamy gravy",
+      "aliases": [
+        "malai kofta curry",
+        "vegan malai kofta"
+      ],
+      "tiles": [
+        "Indian"
+      ],
+      "cuisine": "Indian",
+      "region": "North India",
+      "format": "curry",
+      "protein": "vegetables",
+      "method": "deep_fry",
+      "appliances": [
+        "stovetop",
+        "blender"
+      ],
+      "cookMinutes": 75,
+      "effort": "high",
+      "familiarity": 1,
+      "traditionalDiet": "vegetarian",
+      "versions": [
+        "vegan",
+        "vegetarian"
+      ],
+      "keyIngredients": [
+        "paneer",
+        "potatoes",
+        "cashews",
+        "cream",
+        "tomatoes",
+        "onion",
+        "raisins",
+        "garam masala"
+      ],
+      "specialtyIngredients": [
+        "paneer"
+      ],
+      "veganApproach": "Bind the koftas with potato and chickpea flour or tofu instead of paneer and finish the gravy with cashew cream.",
+      "technique": "Paneer and potato dumplings are fried golden and served in a smooth, mildly sweet tomato-cashew cream gravy.",
+      "seasons": [
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "hosting",
+        "date",
+        "comfort"
+      ],
+      "sources": [
+        {
+          "title": "Malai Kofta - Dassana's Veg Recipes",
+          "url": "https://www.vegrecipesofindia.com/malai-kofta/"
+        },
+        {
+          "title": "Vegan Malai Kofta - Vegan Richa",
+          "url": "https://www.veganricha.com/vegan-malai-kofta-recipe/"
+        }
+      ]
+    },
+    {
+      "key": "baingan-bharta",
+      "name": "Baingan bharta",
+      "nameEn": "Smoky mashed eggplant curry",
+      "aliases": [
+        "baingan ka bharta",
+        "begun bhorta",
+        "vangyache bharit"
+      ],
+      "tiles": [
+        "Indian"
+      ],
+      "cuisine": "Indian",
+      "region": "Punjab",
+      "format": "curry",
+      "protein": "vegetables",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 45,
+      "effort": "low",
+      "familiarity": 1,
+      "traditionalDiet": "vegan",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "eggplant",
+        "onion",
+        "tomatoes",
+        "garlic",
+        "ginger",
+        "green chili",
+        "mustard oil",
+        "cumin seeds"
+      ],
+      "specialtyIngredients": [
+        "mustard oil"
+      ],
+      "veganApproach": "Naturally vegan when cooked in oil without a finishing knob of ghee or cream.",
+      "technique": "Whole eggplants are charred directly over a flame until smoky and soft, then peeled, mashed and fried with onion, tomato and spices.",
+      "seasons": [
+        "summer",
+        "autumn"
+      ],
+      "occasions": [
+        "everyday"
+      ],
+      "sources": [
+        {
+          "title": "Baingan bharta - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Baingan_bharta"
+        },
+        {
+          "title": "Baingan Bharta - Swasthi's Recipes",
+          "url": "https://www.indianhealthyrecipes.com/baingan-bharta/"
+        }
+      ]
+    },
+    {
+      "key": "matar-paneer",
+      "name": "Matar paneer",
+      "nameEn": "Peas and paneer in tomato gravy",
+      "aliases": [
+        "mutter paneer",
+        "matar tofu"
+      ],
+      "tiles": [
+        "Indian"
+      ],
+      "cuisine": "Indian",
+      "region": "North India",
+      "format": "curry",
+      "protein": "tofu",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop",
+        "blender"
+      ],
+      "cookMinutes": 35,
+      "effort": "low",
+      "familiarity": 1,
+      "traditionalDiet": "vegetarian",
+      "versions": [
+        "vegan",
+        "vegetarian"
+      ],
+      "keyIngredients": [
+        "paneer",
+        "green peas",
+        "onion",
+        "tomatoes",
+        "ginger",
+        "garlic",
+        "garam masala",
+        "cream"
+      ],
+      "specialtyIngredients": [
+        "paneer"
+      ],
+      "veganApproach": "Use firm tofu in place of paneer and skip the cream or replace it with cashew cream.",
+      "technique": "Peas and paneer cubes simmer in a spiced onion-tomato gravy until the peas are tender.",
+      "seasons": [
+        "winter",
+        "spring"
+      ],
+      "occasions": [
+        "everyday",
+        "mealprep"
+      ],
+      "sources": [
+        {
+          "title": "Matar paneer - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Matar_paneer"
+        },
+        {
+          "title": "Vegan Matar Tofu - Vegan Richa",
+          "url": "https://www.veganricha.com/vegan-matar-tofu/"
+        }
+      ]
+    },
+    {
+      "key": "navratan-korma",
+      "name": "Navratan korma",
+      "nameEn": "Mixed vegetable korma in mild cashew sauce",
+      "aliases": [
+        "vegetable korma",
+        "veg korma",
+        "navratna korma"
+      ],
+      "tiles": [
+        "Indian"
+      ],
+      "cuisine": "Indian",
+      "region": "North India (Mughlai)",
+      "format": "curry",
+      "protein": "vegetables",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop",
+        "blender"
+      ],
+      "cookMinutes": 50,
+      "effort": "medium",
+      "familiarity": 1,
+      "traditionalDiet": "vegetarian",
+      "versions": [
+        "vegan",
+        "vegetarian"
+      ],
+      "keyIngredients": [
+        "mixed vegetables",
+        "paneer",
+        "cashews",
+        "cream",
+        "yogurt",
+        "onion",
+        "cardamom",
+        "pineapple"
+      ],
+      "specialtyIngredients": [
+        "paneer"
+      ],
+      "veganApproach": "Leave out the paneer (or use tofu) and make the creamy base with cashews and plant milk.",
+      "technique": "Nine kinds of vegetables, fruit and paneer are simmered in a mild, aromatic cashew and cream sauce.",
+      "seasons": [
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "hosting",
+        "comfort"
+      ],
+      "sources": [
+        {
+          "title": "Korma - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Korma"
+        },
+        {
+          "title": "Navratan Korma - Dassana's Veg Recipes",
+          "url": "https://www.vegrecipesofindia.com/navratan-korma-recipe-navratan-korma/"
+        },
+        {
+          "title": "Vegan Navratan Korma - Vegan Richa",
+          "url": "https://www.veganricha.com/vegan-navratan-korma/"
+        }
+      ]
+    },
+    {
+      "key": "paneer-tikka",
+      "name": "Paneer tikka",
+      "nameEn": "Tandoori-spiced paneer skewers",
+      "aliases": [
+        "tofu tikka",
+        "paneer tikka kebab"
+      ],
+      "tiles": [
+        "Indian"
+      ],
+      "cuisine": "Indian",
+      "region": "Punjab",
+      "format": "skewers",
+      "protein": "tofu",
+      "method": "oven",
+      "appliances": [
+        "oven"
+      ],
+      "cookMinutes": 45,
+      "effort": "medium",
+      "familiarity": 1,
+      "traditionalDiet": "vegetarian",
+      "versions": [
+        "vegan",
+        "vegetarian"
+      ],
+      "keyIngredients": [
+        "paneer",
+        "yogurt",
+        "bell peppers",
+        "onion",
+        "ginger",
+        "garlic",
+        "kashmiri chili",
+        "garam masala",
+        "lemon"
+      ],
+      "specialtyIngredients": [
+        "paneer",
+        "kashmiri chili"
+      ],
+      "veganApproach": "Marinate pressed tofu in plant yogurt with the same spices and roast or grill it on skewers.",
+      "technique": "Paneer and vegetables are marinated in spiced thick yogurt, skewered and charred in a tandoor or very hot oven.",
+      "seasons": [
+        "spring",
+        "summer"
+      ],
+      "occasions": [
+        "hosting",
+        "date"
+      ],
+      "sources": [
+        {
+          "title": "Paneer tikka - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Paneer_tikka"
+        },
+        {
+          "title": "Tofu tikka skewers - BBC Food",
+          "url": "https://www.bbc.co.uk/food/recipes/tofu_tikka_skewers_96956"
+        }
+      ]
+    },
+    {
+      "key": "vegetable-jalfrezi",
+      "name": "Vegetable jalfrezi",
+      "nameEn": "Stir-fried vegetables in thick spiced sauce",
+      "aliases": [
+        "veg jalfrezi",
+        "jalfrezi"
+      ],
+      "tiles": [
+        "Indian"
+      ],
+      "cuisine": "Indian",
+      "region": "Bengal",
+      "format": "stir_fry",
+      "protein": "vegetables",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 30,
+      "effort": "low",
+      "familiarity": 1,
+      "traditionalDiet": "vegan",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "bell peppers",
+        "onion",
+        "carrots",
+        "green beans",
+        "tomatoes",
+        "green chili",
+        "cumin seeds",
+        "garam masala"
+      ],
+      "specialtyIngredients": [],
+      "veganApproach": "Naturally vegan when the vegetables are stir-fried in oil.",
+      "technique": "Strips of pepper, onion and vegetables are stir-fried on high heat with spices and a little tomato so they stay crisp in a thick coating.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "mealprep"
+      ],
+      "sources": [
+        {
+          "title": "Jalfrezi - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Jalfrezi"
+        },
+        {
+          "title": "Vegetable Jalfrezi - Swasthi's Recipes",
+          "url": "https://www.indianhealthyrecipes.com/vegetable-jalfrezi/"
+        },
+        {
+          "title": "Veg Jalfrezi Recipe - Hebbars Kitchen",
+          "url": "https://hebbarskitchen.com/veg-jalfrezi-recipe-vegetable-jalfrezi/"
+        }
+      ]
+    },
+    {
+      "key": "vindaloo",
+      "name": "Vindaloo",
+      "nameEn": "Goan chili-vinegar curry",
+      "aliases": [
+        "vindalho",
+        "tofu vindaloo",
+        "potato vindaloo"
+      ],
+      "tiles": [
+        "Indian"
+      ],
+      "cuisine": "Indian",
+      "region": "Goa",
+      "format": "curry",
+      "protein": "tofu",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop",
+        "blender"
+      ],
+      "cookMinutes": 60,
+      "effort": "medium",
+      "familiarity": 1,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "pork",
+        "vinegar",
+        "kashmiri chili",
+        "garlic",
+        "ginger",
+        "cumin",
+        "cloves",
+        "cinnamon"
+      ],
+      "specialtyIngredients": [
+        "kashmiri chili"
+      ],
+      "veganApproach": "Replace the pork with tofu and potatoes simmered in the same garlicky chili-vinegar paste.",
+      "technique": "A paste of dried chilies, garlic, whole spices and vinegar is used to marinate and then braise the main ingredient into a hot, tangy curry.",
+      "seasons": [
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "mealprep"
+      ],
+      "sources": [
+        {
+          "title": "Vindaloo - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Vindaloo"
+        },
+        {
+          "title": "Tofu Vindaloo - Vegan Richa",
+          "url": "https://www.veganricha.com/tofu-vindaloo-recipe/"
+        }
+      ]
+    },
+    {
+      "key": "saag-aloo",
+      "name": "Saag aloo",
+      "nameEn": "Spiced potatoes with spinach",
+      "aliases": [
+        "aloo palak",
+        "palak aloo"
+      ],
+      "tiles": [
+        "Indian"
+      ],
+      "cuisine": "Indian",
+      "region": "Punjab",
+      "format": "curry",
+      "protein": "vegetables",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 35,
+      "effort": "low",
+      "familiarity": 1,
+      "traditionalDiet": "vegan",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "potatoes",
+        "spinach",
+        "onion",
+        "garlic",
+        "ginger",
+        "green chili",
+        "cumin seeds",
+        "garam masala"
+      ],
+      "specialtyIngredients": [],
+      "veganApproach": "Naturally vegan when cooked in oil instead of ghee.",
+      "technique": "Par-cooked potatoes are fried with cumin and aromatics and then tossed with wilted, spiced spinach.",
+      "seasons": [
+        "spring",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "mealprep"
+      ],
+      "sources": [
+        {
+          "title": "Saag Aloo - Swasthi's Recipes",
+          "url": "https://www.indianhealthyrecipes.com/saag-aloo/"
+        },
+        {
+          "title": "Saag Aloo - Vegan Richa",
+          "url": "https://www.veganricha.com/saag-aloo/"
+        }
+      ]
+    },
+    {
+      "key": "vegetable-pulao",
+      "name": "Vegetable pulao",
+      "nameEn": "Fragrant basmati rice with vegetables and whole spices",
+      "aliases": [
+        "veg pulao",
+        "pulav",
+        "pilaf"
+      ],
+      "tiles": [
+        "Indian"
+      ],
+      "cuisine": "Indian",
+      "region": "North India",
+      "format": "rice_dish",
+      "protein": "vegetables",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 40,
+      "effort": "low",
+      "familiarity": 1,
+      "traditionalDiet": "vegetarian",
+      "versions": [
+        "vegan",
+        "vegetarian"
+      ],
+      "keyIngredients": [
+        "basmati rice",
+        "mixed vegetables",
+        "ghee",
+        "bay leaf",
+        "cumin seeds",
+        "cardamom",
+        "cloves",
+        "mint"
+      ],
+      "specialtyIngredients": [],
+      "veganApproach": "Fry the whole spices in oil instead of ghee.",
+      "technique": "Rice is toasted with whole spices and vegetables, then cooked in a measured amount of water so the grains stay separate.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "mealprep"
+      ],
+      "sources": [
+        {
+          "title": "Veg Pulao Recipe - Swasthi's Recipes",
+          "url": "https://www.indianhealthyrecipes.com/pulao-recipe-veg-pulao-recipe/"
+        },
+        {
+          "title": "Vegetable Pulao - Dassana's Veg Recipes",
+          "url": "https://www.vegrecipesofindia.com/vegetable-pulao-recipe-veg-pulao/"
+        }
+      ]
+    },
+    {
+      "key": "aloo-matar",
+      "name": "Aloo matar",
+      "nameEn": "Potato and pea curry",
+      "aliases": [
+        "aloo mutter",
+        "matar aloo"
+      ],
+      "tiles": [
+        "Indian"
+      ],
+      "cuisine": "Indian",
+      "region": "North India",
+      "format": "curry",
+      "protein": "vegetables",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 35,
+      "effort": "low",
+      "familiarity": 1,
+      "traditionalDiet": "vegan",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "potatoes",
+        "green peas",
+        "onion",
+        "tomatoes",
+        "ginger",
+        "garlic",
+        "cumin seeds",
+        "garam masala"
+      ],
+      "specialtyIngredients": [],
+      "veganApproach": "Naturally vegan when cooked in oil.",
+      "technique": "Potatoes and peas simmer in a thin, spiced onion-tomato gravy until the potatoes begin to break down.",
+      "seasons": [
+        "winter",
+        "spring"
+      ],
+      "occasions": [
+        "everyday",
+        "comfort",
+        "mealprep"
+      ],
+      "sources": [
+        {
+          "title": "Aloo Matar Recipe - Swasthi's Recipes",
+          "url": "https://www.indianhealthyrecipes.com/aloo-matar-recipe-aloo-mutter-recipe/"
+        },
+        {
+          "title": "Aloo Matar Recipe - Hebbars Kitchen",
+          "url": "https://hebbarskitchen.com/aloo-matar-recipe-aloo-mutter-recipe/"
+        }
+      ]
+    },
+    {
+      "key": "masoor-dal",
+      "name": "Masoor dal",
+      "nameEn": "Red lentil dal",
+      "aliases": [
+        "red lentil dal",
+        "masoor ki dal",
+        "dal"
+      ],
+      "tiles": [
+        "Indian"
+      ],
+      "cuisine": "Indian",
+      "region": "North India",
+      "format": "soup",
+      "protein": "lentils",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 25,
+      "effort": "low",
+      "familiarity": 1,
+      "traditionalDiet": "vegan",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "red lentils",
+        "onion",
+        "tomatoes",
+        "garlic",
+        "ginger",
+        "turmeric",
+        "cumin seeds",
+        "green chili"
+      ],
+      "specialtyIngredients": [],
+      "veganApproach": "Naturally vegan when the tempering is done in oil rather than ghee.",
+      "technique": "Quick-cooking split red lentils are simmered until they collapse, then finished with a tempering of cumin, garlic and chili.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "quick",
+        "comfort",
+        "mealprep"
+      ],
+      "sources": [
+        {
+          "title": "Masoor Dal Recipe - Swasthi's Recipes",
+          "url": "https://www.indianhealthyrecipes.com/masoor-dal-recipe/"
+        },
+        {
+          "title": "Dal - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Dal"
+        }
+      ]
+    },
+    {
+      "key": "kadai-paneer",
+      "name": "Kadai paneer",
+      "nameEn": "Paneer and peppers with fresh-ground kadai spices",
+      "aliases": [
+        "karahi paneer",
+        "kadhai paneer",
+        "kadai tofu"
+      ],
+      "tiles": [
+        "Indian"
+      ],
+      "cuisine": "Indian",
+      "region": "Punjab",
+      "format": "curry",
+      "protein": "tofu",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 35,
+      "effort": "medium",
+      "familiarity": 1,
+      "traditionalDiet": "vegetarian",
+      "versions": [
+        "vegan",
+        "vegetarian"
+      ],
+      "keyIngredients": [
+        "paneer",
+        "bell peppers",
+        "onion",
+        "tomatoes",
+        "coriander seeds",
+        "dried red chili",
+        "ginger",
+        "garlic",
+        "kasuri methi"
+      ],
+      "specialtyIngredients": [
+        "paneer",
+        "kasuri methi"
+      ],
+      "veganApproach": "Use firm tofu instead of paneer and skip the cream or butter finish.",
+      "technique": "Freshly roasted and crushed coriander seeds and chilies flavor a thick tomato masala in which paneer and peppers are tossed in a kadai.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "hosting"
+      ],
+      "sources": [
+        {
+          "title": "Kadai paneer - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Kadai_paneer"
+        },
+        {
+          "title": "Kadai Paneer Gravy - Swasthi's Recipes",
+          "url": "https://www.indianhealthyrecipes.com/kadai-paneer-gravy-recipe/"
+        }
+      ]
+    },
+    {
+      "key": "egg-curry",
+      "name": "Egg curry",
+      "nameEn": "Boiled eggs in spiced onion-tomato gravy",
+      "aliases": [
+        "anda curry",
+        "egg masala",
+        "mutta curry"
+      ],
+      "tiles": [
+        "Indian"
+      ],
+      "cuisine": "Indian",
+      "region": "North India",
+      "format": "egg_dish",
+      "protein": "eggs",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 35,
+      "effort": "low",
+      "familiarity": 1,
+      "traditionalDiet": "vegetarian",
+      "versions": [
+        "vegetarian"
+      ],
+      "keyIngredients": [
+        "eggs",
+        "onion",
+        "tomatoes",
+        "ginger",
+        "garlic",
+        "garam masala",
+        "kashmiri chili",
+        "coriander leaves"
+      ],
+      "specialtyIngredients": [],
+      "veganApproach": null,
+      "technique": "Hard-boiled eggs are lightly fried and then simmered in a dhaba-style spiced onion-tomato gravy.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "comfort"
+      ],
+      "sources": [
+        {
+          "title": "Punjabi Egg Curry (Anda Curry) - Swasthi's Recipes",
+          "url": "https://www.indianhealthyrecipes.com/punjabi-egg-curry-anda-curry-dhaba-style/"
+        }
+      ]
+    },
+    {
+      "key": "prawn-biryani",
+      "name": "Prawn biryani",
+      "nameEn": "Layered spiced rice with prawns",
+      "aliases": [
+        "shrimp biryani",
+        "chemmeen biryani",
+        "jhinga biryani"
+      ],
+      "tiles": [
+        "Indian"
+      ],
+      "cuisine": "Indian",
+      "region": "Coastal South India",
+      "format": "rice_dish",
+      "protein": "shellfish",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 70,
+      "effort": "high",
+      "familiarity": 1,
+      "traditionalDiet": "pescatarian",
+      "versions": [
+        "pescatarian"
+      ],
+      "keyIngredients": [
+        "prawns",
+        "basmati rice",
+        "yogurt",
+        "fried onions",
+        "ghee",
+        "mint",
+        "tomatoes",
+        "biryani spices"
+      ],
+      "specialtyIngredients": [],
+      "veganApproach": null,
+      "technique": "Prawns are cooked briefly in a spiced masala, layered with par-boiled basmati rice and herbs, then steamed together on low heat.",
+      "seasons": [
+        "summer",
+        "autumn"
+      ],
+      "occasions": [
+        "hosting"
+      ],
+      "sources": [
+        {
+          "title": "Prawn Biryani - Swasthi's Recipes",
+          "url": "https://www.indianhealthyrecipes.com/prawn-biryani-recipe-prawn-recipes/"
+        },
+        {
+          "title": "Prawn Biryani - Sanjeev Kapoor",
+          "url": "https://www.sanjeevkapoor.com/Recipe/prawn-biryani-7590717"
+        }
+      ]
+    },
+    {
+      "key": "rajma",
+      "name": "Rajma",
+      "nameEn": "Punjabi kidney bean curry",
+      "aliases": [
+        "rajma masala",
+        "rajma chawal"
+      ],
+      "tiles": [
+        "Indian"
+      ],
+      "cuisine": "Indian",
+      "region": "Punjab",
+      "format": "curry",
+      "protein": "beans",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 75,
+      "effort": "low",
+      "familiarity": 2,
+      "traditionalDiet": "vegetarian",
+      "versions": [
+        "vegan",
+        "vegetarian"
+      ],
+      "keyIngredients": [
+        "red kidney beans",
+        "onion",
+        "tomatoes",
+        "ginger",
+        "garlic",
+        "garam masala",
+        "cumin seeds",
+        "butter"
+      ],
+      "specialtyIngredients": [],
+      "veganApproach": "Cook in oil and skip the final butter and cream, or use non-dairy yogurt as in dhaba-style vegan versions.",
+      "technique": "Soaked kidney beans are simmered until creamy in a slow-cooked onion-tomato masala, with some beans mashed to thicken the gravy.",
+      "seasons": [
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "comfort",
+        "mealprep"
+      ],
+      "sources": [
+        {
+          "title": "Rajma - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Rajma"
+        },
+        {
+          "title": "Rajma Masala (Restaurant Style) - Dassana's Veg Recipes",
+          "url": "https://www.vegrecipesofindia.com/rajma-masala-recipe-restaurant-style/"
+        },
+        {
+          "title": "Dhaba Style Rajma - Vegan Richa",
+          "url": "https://www.veganricha.com/dhaba-style-rajma-recipe/"
+        }
+      ]
+    },
+    {
+      "key": "idli-sambar",
+      "name": "Idli sambar",
+      "nameEn": "Steamed rice-lentil cakes with lentil-vegetable stew",
+      "aliases": [
+        "idli",
+        "idly sambar",
+        "sambar idli"
+      ],
+      "tiles": [
+        "Indian",
+        "Fresh & light"
+      ],
+      "cuisine": "Indian",
+      "region": "Tamil Nadu",
+      "format": "other",
+      "protein": "lentils",
+      "method": "steam",
+      "appliances": [
+        "stovetop",
+        "blender"
+      ],
+      "cookMinutes": 60,
+      "effort": "high",
+      "familiarity": 2,
+      "traditionalDiet": "vegan",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "rice",
+        "urad dal",
+        "toor dal",
+        "tamarind",
+        "sambar powder",
+        "drumsticks",
+        "shallots",
+        "curry leaves"
+      ],
+      "specialtyIngredients": [
+        "urad dal",
+        "sambar powder",
+        "tamarind",
+        "drumsticks"
+      ],
+      "veganApproach": "Naturally vegan; just skip any ghee drizzle on the idli.",
+      "technique": "A fermented rice and urad dal batter is steamed into soft cakes and served with a tamarind-soured lentil and vegetable stew.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "mealprep"
+      ],
+      "sources": [
+        {
+          "title": "Idli - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Idli"
+        },
+        {
+          "title": "Sambar (dish) - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Sambar_(dish)"
+        },
+        {
+          "title": "Tiffin Sambar - Dassana's Veg Recipes",
+          "url": "https://www.vegrecipesofindia.com/tiffin-sambar-recipe-sambar-recipes/"
+        }
+      ]
+    },
+    {
+      "key": "uttapam",
+      "name": "Uttapam",
+      "nameEn": "Thick fermented rice pancake topped with vegetables",
+      "aliases": [
+        "uthappam",
+        "onion uttapam",
+        "oothappam"
+      ],
+      "tiles": [
+        "Indian"
+      ],
+      "cuisine": "Indian",
+      "region": "Tamil Nadu",
+      "format": "flatbread",
+      "protein": "grains",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop",
+        "blender"
+      ],
+      "cookMinutes": 30,
+      "effort": "medium",
+      "familiarity": 2,
+      "traditionalDiet": "vegan",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "rice",
+        "urad dal",
+        "onion",
+        "tomatoes",
+        "green chili",
+        "coriander leaves",
+        "carrot"
+      ],
+      "specialtyIngredients": [
+        "urad dal"
+      ],
+      "veganApproach": "Naturally vegan when cooked with oil.",
+      "technique": "Thick fermented dosa batter is poured onto a griddle, topped with chopped vegetables and cooked slowly until crisp underneath.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday"
+      ],
+      "sources": [
+        {
+          "title": "Uttapam - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Uttapam"
+        },
+        {
+          "title": "Uttapam Recipe - Swasthi's Recipes",
+          "url": "https://www.indianhealthyrecipes.com/uttapam-recipe-uthappam/"
+        }
+      ]
+    },
+    {
+      "key": "upma",
+      "name": "Upma",
+      "nameEn": "Savory tempered semolina",
+      "aliases": [
+        "rava upma",
+        "uppittu",
+        "sooji upma"
+      ],
+      "tiles": [
+        "Indian"
+      ],
+      "cuisine": "Indian",
+      "region": "South India",
+      "format": "other",
+      "protein": "grains",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 20,
+      "effort": "low",
+      "familiarity": 2,
+      "traditionalDiet": "vegan",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "semolina",
+        "onion",
+        "mustard seeds",
+        "urad dal",
+        "curry leaves",
+        "green chili",
+        "ginger",
+        "cashews"
+      ],
+      "specialtyIngredients": [
+        "curry leaves",
+        "urad dal"
+      ],
+      "veganApproach": "Naturally vegan when tempered in oil instead of ghee.",
+      "technique": "Dry-roasted semolina is stirred into boiling water seasoned with a tempering of mustard seeds, lentils, curry leaves and vegetables until it thickens.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "quick"
+      ],
+      "sources": [
+        {
+          "title": "Upma - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Upma"
+        }
+      ]
+    },
+    {
+      "key": "kanda-poha",
+      "name": "Kanda poha",
+      "nameEn": "Tempered flattened rice with onions and peanuts",
+      "aliases": [
+        "poha",
+        "pohe",
+        "aloo poha"
+      ],
+      "tiles": [
+        "Indian",
+        "Fresh & light"
+      ],
+      "cuisine": "Indian",
+      "region": "Maharashtra",
+      "format": "rice_dish",
+      "protein": "grains",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 20,
+      "effort": "low",
+      "familiarity": 2,
+      "traditionalDiet": "vegan",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "flattened rice",
+        "onion",
+        "peanuts",
+        "potatoes",
+        "mustard seeds",
+        "curry leaves",
+        "turmeric",
+        "lemon"
+      ],
+      "specialtyIngredients": [
+        "flattened rice",
+        "curry leaves"
+      ],
+      "veganApproach": "Naturally vegan.",
+      "technique": "Rinsed flattened rice is tossed with tempered mustard seeds, onions, peanuts and turmeric and steamed briefly until soft, then finished with lemon and coriander.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "quick"
+      ],
+      "sources": [
+        {
+          "title": "Flattened rice - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Poha_(rice)"
+        },
+        {
+          "title": "Maharashtrian Kanda Poha - Archana's Kitchen",
+          "url": "https://www.archanaskitchen.com/recipe/maharashtrian-kanda-poha"
+        },
+        {
+          "title": "Kanda Poha - Tarla Dalal",
+          "url": "https://www.tarladalal.com/kanda-poha/"
+        }
+      ]
+    },
+    {
+      "key": "lemon-rice",
+      "name": "Lemon rice",
+      "nameEn": "South Indian tempered lemon rice",
+      "aliases": [
+        "chitranna",
+        "elumichai sadam",
+        "nimmakaya pulihora"
+      ],
+      "tiles": [
+        "Indian",
+        "Fresh & light"
+      ],
+      "cuisine": "Indian",
+      "region": "Karnataka",
+      "format": "rice_dish",
+      "protein": "grains",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 30,
+      "effort": "low",
+      "familiarity": 2,
+      "traditionalDiet": "vegan",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "rice",
+        "lemon",
+        "peanuts",
+        "chana dal",
+        "mustard seeds",
+        "curry leaves",
+        "turmeric",
+        "green chili"
+      ],
+      "specialtyIngredients": [
+        "curry leaves",
+        "chana dal"
+      ],
+      "veganApproach": "Naturally vegan when tempered in oil.",
+      "technique": "Cooked rice is tossed with a tempering of mustard seeds, lentils, peanuts, curry leaves and turmeric, then brightened with fresh lemon juice.",
+      "seasons": [
+        "spring",
+        "summer"
+      ],
+      "occasions": [
+        "everyday",
+        "mealprep"
+      ],
+      "sources": [
+        {
+          "title": "Lemon Rice Recipe - Swasthi's Recipes",
+          "url": "https://www.indianhealthyrecipes.com/lemon-rice-recipe/"
+        },
+        {
+          "title": "Lemon Rice (Chitranna) - Hebbars Kitchen",
+          "url": "https://hebbarskitchen.com/lemon-rice-recipe-chitranna-recipe/"
+        }
+      ]
+    },
+    {
+      "key": "khichdi",
+      "name": "Khichdi",
+      "nameEn": "Rice and lentil porridge",
+      "aliases": [
+        "kitchari",
+        "khichri",
+        "moong dal khichdi"
+      ],
+      "tiles": [
+        "Indian",
+        "American"
+      ],
+      "cuisine": "Indian",
+      "region": "Pan-Indian",
+      "format": "rice_dish",
+      "protein": "lentils",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 35,
+      "effort": "low",
+      "familiarity": 2,
+      "traditionalDiet": "vegetarian",
+      "versions": [
+        "vegan",
+        "vegetarian"
+      ],
+      "keyIngredients": [
+        "rice",
+        "moong dal",
+        "ghee",
+        "cumin seeds",
+        "turmeric",
+        "ginger",
+        "asafoetida"
+      ],
+      "specialtyIngredients": [
+        "moong dal",
+        "asafoetida"
+      ],
+      "veganApproach": "Use oil instead of ghee for the tempering.",
+      "technique": "Rice and split lentils are simmered together with turmeric into a soft porridge and finished with a ghee and cumin tempering.",
+      "seasons": [
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "comfort",
+        "mealprep"
+      ],
+      "sources": [
+        {
+          "title": "Khichdi - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Khichdi"
+        },
+        {
+          "title": "Instant Pot Kitchari - Vegan Richa",
+          "url": "https://www.veganricha.com/instant-pot-kitchari/"
+        }
+      ]
+    },
+    {
+      "key": "chole-bhature",
+      "name": "Chole bhature",
+      "nameEn": "Spiced chickpeas with puffed fried bread",
+      "aliases": [
+        "chana bhatura",
+        "chole bhatura"
+      ],
+      "tiles": [
+        "Indian",
+        "American"
+      ],
+      "cuisine": "Indian",
+      "region": "Punjab",
+      "format": "curry",
+      "protein": "chickpeas",
+      "method": "deep_fry",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 90,
+      "effort": "high",
+      "familiarity": 2,
+      "traditionalDiet": "vegetarian",
+      "versions": [
+        "vegan",
+        "vegetarian"
+      ],
+      "keyIngredients": [
+        "chickpeas",
+        "onion",
+        "tomatoes",
+        "ginger",
+        "garlic",
+        "chole masala",
+        "all-purpose flour",
+        "yogurt"
+      ],
+      "specialtyIngredients": [
+        "chole masala",
+        "amchur"
+      ],
+      "veganApproach": "Make the bhature dough with plant yogurt; the chole are already vegan when cooked in oil.",
+      "technique": "Dark, tangy spiced chickpeas are served with large puffy fried breads made from a yogurt-leavened dough.",
+      "seasons": [
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "hosting",
+        "comfort"
+      ],
+      "sources": [
+        {
+          "title": "Chole bhature - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Chole_bhature"
+        },
+        {
+          "title": "Punjabi Chole - Vegan Richa",
+          "url": "https://www.veganricha.com/punjabi-chole/"
+        }
+      ]
+    },
+    {
+      "key": "pav-bhaji",
+      "name": "Pav bhaji",
+      "nameEn": "Spiced buttery vegetable mash with toasted rolls",
+      "aliases": [
+        "paav bhaji",
+        "mumbai pav bhaji"
+      ],
+      "tiles": [
+        "Indian",
+        "American"
+      ],
+      "cuisine": "Indian",
+      "region": "Mumbai",
+      "format": "other",
+      "protein": "vegetables",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 45,
+      "effort": "medium",
+      "familiarity": 2,
+      "traditionalDiet": "vegetarian",
+      "versions": [
+        "vegan",
+        "vegetarian"
+      ],
+      "keyIngredients": [
+        "potatoes",
+        "cauliflower",
+        "green peas",
+        "bell peppers",
+        "tomatoes",
+        "onion",
+        "butter",
+        "pav bhaji masala",
+        "bread rolls"
+      ],
+      "specialtyIngredients": [
+        "pav bhaji masala"
+      ],
+      "veganApproach": "Cook the bhaji in oil and vegan butter and choose dairy-free bread rolls.",
+      "technique": "Boiled vegetables are mashed into a spicy tomato and butter masala on a flat pan and served with butter-toasted soft rolls, raw onion and lemon.",
+      "seasons": [
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "comfort",
+        "hosting"
+      ],
+      "sources": [
+        {
+          "title": "Pav bhaji - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Pav_bhaji"
+        },
+        {
+          "title": "Pav Bhaji Recipe (Mumbai Street Style) - Swasthi's Recipes",
+          "url": "https://www.indianhealthyrecipes.com/pav-bhaji-recipe-how-to-make-pav-bhaji-step-by-step-pictures/"
+        }
+      ]
+    },
+    {
+      "key": "kadhi-pakora",
+      "name": "Kadhi pakora",
+      "nameEn": "Tangy yogurt-gram flour curry with fritters",
+      "aliases": [
+        "punjabi kadhi",
+        "kadhi pakoda",
+        "karhi"
+      ],
+      "tiles": [
+        "Indian"
+      ],
+      "cuisine": "Indian",
+      "region": "Punjab",
+      "format": "curry",
+      "protein": "chickpeas",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 60,
+      "effort": "medium",
+      "familiarity": 2,
+      "traditionalDiet": "vegetarian",
+      "versions": [
+        "vegan",
+        "vegetarian"
+      ],
+      "keyIngredients": [
+        "yogurt",
+        "gram flour",
+        "onion",
+        "fenugreek seeds",
+        "cumin seeds",
+        "turmeric",
+        "dried red chili",
+        "asafoetida"
+      ],
+      "specialtyIngredients": [
+        "gram flour",
+        "asafoetida"
+      ],
+      "veganApproach": "Use a sour, unsweetened plant yogurt for the kadhi and fry or bake the gram flour pakoras as usual.",
+      "technique": "Sour yogurt whisked with gram flour is simmered slowly into a tangy curry and finished with onion fritters and a spiced tempering.",
+      "seasons": [
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "comfort",
+        "everyday"
+      ],
+      "sources": [
+        {
+          "title": "Kadhi - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Kadhi"
+        },
+        {
+          "title": "Punjabi Kadhi Pakora - Dassana's Veg Recipes",
+          "url": "https://www.vegrecipesofindia.com/punjabi-kadhi-recipe-punjabi-kadhi-pakora/"
+        },
+        {
+          "title": "Punjabi Kadhi Pakora - Vegan Richa",
+          "url": "https://www.veganricha.com/spiced-yogurt-gravy-with-baked-broccoli/"
+        }
+      ]
+    },
+    {
+      "key": "kashmiri-dum-aloo",
+      "name": "Kashmiri dum aloo",
+      "nameEn": "Slow-cooked baby potatoes in Kashmiri chili-yogurt gravy",
+      "aliases": [
+        "dum aloo",
+        "dum olav",
+        "kashmiri dum olav"
+      ],
+      "tiles": [
+        "Indian"
+      ],
+      "cuisine": "Indian",
+      "region": "Kashmir",
+      "format": "curry",
+      "protein": "vegetables",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 50,
+      "effort": "medium",
+      "familiarity": 2,
+      "traditionalDiet": "vegetarian",
+      "versions": [
+        "vegan",
+        "vegetarian"
+      ],
+      "keyIngredients": [
+        "baby potatoes",
+        "yogurt",
+        "kashmiri chili",
+        "fennel powder",
+        "dry ginger powder",
+        "mustard oil",
+        "cloves",
+        "cardamom"
+      ],
+      "specialtyIngredients": [
+        "kashmiri chili",
+        "dry ginger powder",
+        "mustard oil"
+      ],
+      "veganApproach": "Replace the yogurt with a thick unsweetened plant yogurt.",
+      "technique": "Fried baby potatoes are slow-cooked, covered, in a yogurt gravy flavored with Kashmiri chili, fennel and dry ginger.",
+      "seasons": [
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "hosting",
+        "comfort"
+      ],
+      "sources": [
+        {
+          "title": "Dum aloo - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Dum_Aloo"
+        },
+        {
+          "title": "Kashmiri Dum Aloo - Dassana's Veg Recipes",
+          "url": "https://www.vegrecipesofindia.com/kashmiri-dum-aloo/"
+        },
+        {
+          "title": "Authentic Kashmiri Dum Aloo - Hebbars Kitchen",
+          "url": "https://hebbarskitchen.com/authentic-kashmiri-dum-aloo-recipe/"
+        }
+      ]
+    },
+    {
+      "key": "shahi-paneer",
+      "name": "Shahi paneer",
+      "nameEn": "Paneer in royal nut and yogurt gravy",
+      "aliases": [
+        "mughlai paneer",
+        "shahi tofu"
+      ],
+      "tiles": [
+        "Indian"
+      ],
+      "cuisine": "Indian",
+      "region": "Delhi (Mughlai)",
+      "format": "curry",
+      "protein": "tofu",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop",
+        "blender"
+      ],
+      "cookMinutes": 40,
+      "effort": "medium",
+      "familiarity": 2,
+      "traditionalDiet": "vegetarian",
+      "versions": [
+        "vegan",
+        "vegetarian"
+      ],
+      "keyIngredients": [
+        "paneer",
+        "cashews",
+        "almonds",
+        "onion",
+        "yogurt",
+        "cream",
+        "cardamom",
+        "saffron"
+      ],
+      "specialtyIngredients": [
+        "paneer",
+        "saffron",
+        "kewra water"
+      ],
+      "veganApproach": "Swap the paneer for tofu and use plant yogurt and cashew cream in the gravy.",
+      "technique": "Paneer is simmered in a rich, mildly spiced gravy of puréed onion, nuts and yogurt scented with cardamom and saffron.",
+      "seasons": [
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "hosting",
+        "date"
+      ],
+      "sources": [
+        {
+          "title": "Shahi paneer - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Paneer_butter_masala"
+        },
+        {
+          "title": "Shahi Paneer Recipe (Restaurant Style) - Swasthi's Recipes",
+          "url": "https://www.indianhealthyrecipes.com/shahi-paneer-recipe/"
+        },
+        {
+          "title": "Shahi Paneer (Mughlai Restaurant Style) - Dassana's Veg Recipes",
+          "url": "https://www.vegrecipesofindia.com/shahi-paneer/"
+        }
+      ]
+    },
+    {
+      "key": "bhindi-masala",
+      "name": "Bhindi masala",
+      "nameEn": "Spiced stir-fried okra",
+      "aliases": [
+        "bhindi do pyaza",
+        "okra masala",
+        "bhindi sabzi"
+      ],
+      "tiles": [
+        "Indian"
+      ],
+      "cuisine": "Indian",
+      "region": "North India",
+      "format": "stir_fry",
+      "protein": "vegetables",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 30,
+      "effort": "low",
+      "familiarity": 2,
+      "traditionalDiet": "vegan",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "okra",
+        "onion",
+        "tomatoes",
+        "ginger",
+        "garlic",
+        "amchur",
+        "coriander powder",
+        "cumin seeds"
+      ],
+      "specialtyIngredients": [
+        "amchur"
+      ],
+      "veganApproach": "Naturally vegan.",
+      "technique": "Well-dried okra is pan-fried until no longer slimy and then tossed with sautéed onion, tomato and dry spices.",
+      "seasons": [
+        "summer"
+      ],
+      "occasions": [
+        "everyday"
+      ],
+      "sources": [
+        {
+          "title": "Bhindi Masala Recipe - Swasthi's Recipes",
+          "url": "https://www.indianhealthyrecipes.com/bhindi-masala-recipe/"
+        },
+        {
+          "title": "Bhindi Masala - Dassana's Veg Recipes",
+          "url": "https://www.vegrecipesofindia.com/bhindi-masala/"
+        }
+      ]
+    },
+    {
+      "key": "sarson-ka-saag",
+      "name": "Sarson ka saag",
+      "nameEn": "Slow-cooked Punjabi mustard greens",
+      "aliases": [
+        "sarson da saag",
+        "saag",
+        "makki di roti te sarson da saag"
+      ],
+      "tiles": [
+        "Indian"
+      ],
+      "cuisine": "Indian",
+      "region": "Punjab",
+      "format": "curry",
+      "protein": "vegetables",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop",
+        "blender"
+      ],
+      "cookMinutes": 75,
+      "effort": "medium",
+      "familiarity": 2,
+      "traditionalDiet": "vegetarian",
+      "versions": [
+        "vegan",
+        "vegetarian"
+      ],
+      "keyIngredients": [
+        "mustard greens",
+        "spinach",
+        "bathua",
+        "maize flour",
+        "ginger",
+        "garlic",
+        "green chili",
+        "ghee",
+        "butter"
+      ],
+      "specialtyIngredients": [
+        "mustard greens",
+        "bathua",
+        "maize flour"
+      ],
+      "veganApproach": "Finish with oil or vegan butter instead of ghee and white butter.",
+      "technique": "Mustard greens and spinach are slow-cooked, coarsely mashed and thickened with maize flour, then finished with a garlicky ghee tempering.",
+      "seasons": [
+        "winter"
+      ],
+      "occasions": [
+        "comfort",
+        "hosting"
+      ],
+      "sources": [
+        {
+          "title": "Sarson ka saag - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Sarson_ka_saag"
+        },
+        {
+          "title": "Sarson ka Saag - Piping Pot Curry",
+          "url": "https://pipingpotcurry.com/sarson-ka-saag/"
+        }
+      ]
+    },
+    {
+      "key": "matar-mushroom",
+      "name": "Matar mushroom",
+      "nameEn": "Mushroom and pea curry",
+      "aliases": [
+        "mushroom matar",
+        "mushroom masala",
+        "mushroom curry"
+      ],
+      "tiles": [
+        "Indian"
+      ],
+      "cuisine": "Indian",
+      "region": "North India",
+      "format": "curry",
+      "protein": "mushrooms",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 30,
+      "effort": "low",
+      "familiarity": 2,
+      "traditionalDiet": "vegan",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "mushrooms",
+        "green peas",
+        "onion",
+        "tomatoes",
+        "ginger",
+        "garlic",
+        "garam masala",
+        "kasuri methi"
+      ],
+      "specialtyIngredients": [
+        "kasuri methi"
+      ],
+      "veganApproach": "Naturally vegan when cooked in oil and without a cream finish.",
+      "technique": "Mushrooms and peas are simmered in a spiced onion-tomato gravy until the mushrooms release their juices and the sauce thickens.",
+      "seasons": [
+        "spring",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "mealprep"
+      ],
+      "sources": [
+        {
+          "title": "Matar Mushroom (Mushroom Curry) - Swasthi's Recipes",
+          "url": "https://www.indianhealthyrecipes.com/matar-mushroom-recipe-mushroom-curry/"
+        },
+        {
+          "title": "Matar Mushroom - Dassana's Veg Recipes",
+          "url": "https://www.vegrecipesofindia.com/matar-mushroom-recipe/"
+        }
+      ]
+    },
+    {
+      "key": "goan-fish-curry",
+      "name": "Goan fish curry",
+      "nameEn": "Goan coconut and red chili fish curry",
+      "aliases": [
+        "xitt kodi",
+        "fish curry rice",
+        "goan xitt kodi"
+      ],
+      "tiles": [
+        "Indian"
+      ],
+      "cuisine": "Indian",
+      "region": "Goa",
+      "format": "curry",
+      "protein": "fish",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop",
+        "blender"
+      ],
+      "cookMinutes": 40,
+      "effort": "medium",
+      "familiarity": 2,
+      "traditionalDiet": "pescatarian",
+      "versions": [
+        "pescatarian"
+      ],
+      "keyIngredients": [
+        "fish",
+        "coconut",
+        "kashmiri chili",
+        "tamarind",
+        "coriander seeds",
+        "turmeric",
+        "garlic",
+        "onion"
+      ],
+      "specialtyIngredients": [
+        "kokum",
+        "kashmiri chili"
+      ],
+      "veganApproach": null,
+      "technique": "Fresh coconut is ground with red chilies and spices into a vivid paste, simmered with tamarind or kokum, and the fish is poached in it briefly.",
+      "seasons": [
+        "summer",
+        "autumn"
+      ],
+      "occasions": [
+        "everyday",
+        "hosting"
+      ],
+      "sources": [
+        {
+          "title": "Goan cuisine - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Goan_cuisine"
+        },
+        {
+          "title": "Goan Fish Curry - Goan Food Recipes",
+          "url": "https://www.goanfoodrecipes.com/2009/04/goan-fish-curry.html"
+        },
+        {
+          "title": "Goan Fish Curry - Serious Eats",
+          "url": "https://www.seriouseats.com/goan-fish-curry-recipe"
+        }
+      ]
+    },
+    {
+      "key": "meen-curry",
+      "name": "Meen curry",
+      "nameEn": "Kerala red fish curry with kudampuli",
+      "aliases": [
+        "kerala fish curry",
+        "meen mulakittathu",
+        "kottayam fish curry"
+      ],
+      "tiles": [
+        "Indian"
+      ],
+      "cuisine": "Indian",
+      "region": "Kerala",
+      "format": "curry",
+      "protein": "fish",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 40,
+      "effort": "medium",
+      "familiarity": 2,
+      "traditionalDiet": "pescatarian",
+      "versions": [
+        "pescatarian"
+      ],
+      "keyIngredients": [
+        "fish",
+        "kudampuli",
+        "kashmiri chili",
+        "coconut oil",
+        "shallots",
+        "ginger",
+        "garlic",
+        "curry leaves",
+        "fenugreek seeds"
+      ],
+      "specialtyIngredients": [
+        "kudampuli",
+        "coconut oil",
+        "curry leaves"
+      ],
+      "veganApproach": null,
+      "technique": "Fish is simmered in a clay pot in a fiery red chili paste soured with kudampuli (Malabar tamarind), and the curry tastes best after resting.",
+      "seasons": [
+        "summer",
+        "autumn"
+      ],
+      "occasions": [
+        "everyday"
+      ],
+      "sources": [
+        {
+          "title": "Kerala Red Fish Curry (Meen Curry) - Cooking and Me",
+          "url": "https://www.cookingandme.com/kerala-red-fish-curry-recipe-meen-curry/"
+        },
+        {
+          "title": "Kottayam Fish Curry - The Spice Adventuress",
+          "url": "https://thespiceadventuress.com/2015/05/22/kottayam-fish-curry/"
+        }
+      ]
+    },
+    {
+      "key": "kathi-roll",
+      "name": "Kathi roll",
+      "nameEn": "Kolkata paratha wrap with spiced filling",
+      "aliases": [
+        "kati roll",
+        "frankie",
+        "paneer kathi roll"
+      ],
+      "tiles": [
+        "Indian"
+      ],
+      "cuisine": "Indian",
+      "region": "Kolkata",
+      "format": "wrap",
+      "protein": "tofu",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 45,
+      "effort": "medium",
+      "familiarity": 2,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegan",
+        "vegetarian"
+      ],
+      "keyIngredients": [
+        "paratha",
+        "chicken tikka",
+        "eggs",
+        "onion",
+        "green chili",
+        "lime",
+        "chaat masala",
+        "green chutney"
+      ],
+      "specialtyIngredients": [
+        "chaat masala"
+      ],
+      "veganApproach": "Fill an eggless paratha with spiced pan-fried tofu or potatoes and peppers instead of kebab meat; paneer makes the vegetarian version.",
+      "technique": "A skewer-cooked or pan-fried spiced filling is rolled in a flaky paratha with sliced onions, chutney, chili and lime.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn"
+      ],
+      "occasions": [
+        "everyday",
+        "hosting"
+      ],
+      "sources": [
+        {
+          "title": "Kati roll - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Kati_roll"
+        },
+        {
+          "title": "Paneer Kathi Roll Recipe - Swasthi's Recipes",
+          "url": "https://www.indianhealthyrecipes.com/paneer-kathi-roll/"
+        },
+        {
+          "title": "Kathi Roll Recipe (Veg Kathi Roll) - Dassana's Veg Recipes",
+          "url": "https://www.vegrecipesofindia.com/veg-kathi-roll-recipe/"
+        }
+      ]
+    },
+    {
+      "key": "misal-pav",
+      "name": "Misal pav",
+      "nameEn": "Spicy sprouted bean curry with crunchy topping and rolls",
+      "aliases": [
+        "misal",
+        "puneri misal",
+        "kolhapuri misal"
+      ],
+      "tiles": [
+        "Indian"
+      ],
+      "cuisine": "Indian",
+      "region": "Maharashtra",
+      "format": "curry",
+      "protein": "beans",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop",
+        "blender"
+      ],
+      "cookMinutes": 50,
+      "effort": "medium",
+      "familiarity": 2,
+      "traditionalDiet": "vegan",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "sprouted moth beans",
+        "onion",
+        "tomatoes",
+        "coconut",
+        "misal masala",
+        "farsan",
+        "bread rolls",
+        "lemon"
+      ],
+      "specialtyIngredients": [
+        "moth beans",
+        "farsan",
+        "misal masala"
+      ],
+      "veganApproach": "Naturally vegan; choose dairy-free bread rolls.",
+      "technique": "Sprouted beans are cooked in a fiery coconut-onion gravy and topped with crunchy farsan, raw onion and lemon, served with soft pav.",
+      "seasons": [
+        "spring",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "hosting"
+      ],
+      "sources": [
+        {
+          "title": "Misal pav - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Misal_Pav"
+        },
+        {
+          "title": "Misal - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Misal"
+        }
+      ]
+    },
+    {
+      "key": "kerala-vegetable-stew",
+      "name": "Kerala vegetable stew",
+      "nameEn": "Mild coconut milk vegetable stew",
+      "aliases": [
+        "ishtu",
+        "veg stew",
+        "kerala ishtu"
+      ],
+      "tiles": [
+        "Indian",
+        "Fresh & light"
+      ],
+      "cuisine": "Indian",
+      "region": "Kerala",
+      "format": "stew",
+      "protein": "vegetables",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 35,
+      "effort": "low",
+      "familiarity": 2,
+      "traditionalDiet": "vegan",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "coconut milk",
+        "potatoes",
+        "carrots",
+        "green beans",
+        "green peas",
+        "onion",
+        "ginger",
+        "green chili",
+        "curry leaves"
+      ],
+      "specialtyIngredients": [
+        "curry leaves"
+      ],
+      "veganApproach": "Naturally vegan; the creaminess comes from coconut milk.",
+      "technique": "Vegetables are gently simmered in thin coconut milk with whole spices, ginger and green chili, then finished with thick coconut milk off the boil.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "comfort"
+      ],
+      "sources": [
+        {
+          "title": "Kerala Vegetable Stew - Dassana's Veg Recipes",
+          "url": "https://www.vegrecipesofindia.com/kerala-vegetable-stew-recipe/"
+        },
+        {
+          "title": "Kerala Vegetable Stew (Ishtu) - Masalakorb",
+          "url": "https://www.masalakorb.com/kerala-vegetable-stew-recipe-ishtu/"
+        }
+      ]
+    },
+    {
+      "key": "ven-pongal",
+      "name": "Ven pongal",
+      "nameEn": "Peppery rice and moong dal porridge",
+      "aliases": [
+        "khara pongal",
+        "pongal",
+        "ghee pongal"
+      ],
+      "tiles": [
+        "Indian"
+      ],
+      "cuisine": "Indian",
+      "region": "Tamil Nadu",
+      "format": "rice_dish",
+      "protein": "lentils",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 35,
+      "effort": "low",
+      "familiarity": 2,
+      "traditionalDiet": "vegetarian",
+      "versions": [
+        "vegan",
+        "vegetarian"
+      ],
+      "keyIngredients": [
+        "rice",
+        "moong dal",
+        "ghee",
+        "black pepper",
+        "cumin seeds",
+        "ginger",
+        "curry leaves",
+        "cashews"
+      ],
+      "specialtyIngredients": [
+        "moong dal",
+        "curry leaves"
+      ],
+      "veganApproach": "Use oil or vegan butter instead of ghee for cooking and tempering.",
+      "technique": "Rice and moong dal are cooked to a soft, porridge-like consistency and finished with a ghee tempering of black pepper, cumin, ginger and cashews.",
+      "seasons": [
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "comfort"
+      ],
+      "sources": [
+        {
+          "title": "Pongal (dish) - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Pongal_(dish)"
+        },
+        {
+          "title": "Ven Pongal (Khara Pongal) - Dassana's Veg Recipes",
+          "url": "https://www.vegrecipesofindia.com/ven-pongal-recipe-khara-pongal-recipe/"
+        }
+      ]
+    },
+    {
+      "key": "paneer-bhurji",
+      "name": "Paneer bhurji",
+      "nameEn": "Spiced scrambled paneer",
+      "aliases": [
+        "tofu bhurji",
+        "paneer scramble",
+        "vegan bhurji"
+      ],
+      "tiles": [
+        "Indian"
+      ],
+      "cuisine": "Indian",
+      "region": "Punjab",
+      "format": "other",
+      "protein": "tofu",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 20,
+      "effort": "low",
+      "familiarity": 2,
+      "traditionalDiet": "vegetarian",
+      "versions": [
+        "vegan",
+        "vegetarian"
+      ],
+      "keyIngredients": [
+        "paneer",
+        "onion",
+        "tomatoes",
+        "green chili",
+        "ginger",
+        "garlic",
+        "turmeric",
+        "garam masala",
+        "coriander leaves"
+      ],
+      "specialtyIngredients": [
+        "paneer"
+      ],
+      "veganApproach": "Crumble firm tofu instead of paneer and add a pinch of kala namak.",
+      "technique": "Crumbled paneer is stirred briefly into a spiced onion-tomato masala so it stays soft and moist.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "quick"
+      ],
+      "sources": [
+        {
+          "title": "Paneer Bhurji Recipe - Swasthi's Recipes",
+          "url": "https://www.indianhealthyrecipes.com/paneer-bhurji-recipe/"
+        },
+        {
+          "title": "Tofu Bhurji - Vegan Bhurji (Indian Breakfast Scramble) - Vegan Richa",
+          "url": "https://www.veganricha.com/tofu-bhurji-vegan-bhurji-indian/"
+        }
+      ]
+    },
+    {
+      "key": "bisi-bele-bath",
+      "name": "Bisi bele bath",
+      "nameEn": "Hot lentil rice with tamarind and vegetables",
+      "aliases": [
+        "bisibelebath",
+        "bisi bele huliyanna"
+      ],
+      "tiles": [
+        "Indian"
+      ],
+      "cuisine": "Indian",
+      "region": "Karnataka",
+      "format": "rice_dish",
+      "protein": "lentils",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 60,
+      "effort": "medium",
+      "familiarity": 3,
+      "traditionalDiet": "vegetarian",
+      "versions": [
+        "vegan",
+        "vegetarian"
+      ],
+      "keyIngredients": [
+        "rice",
+        "toor dal",
+        "tamarind",
+        "mixed vegetables",
+        "bisi bele bath powder",
+        "ghee",
+        "cashews",
+        "curry leaves"
+      ],
+      "specialtyIngredients": [
+        "bisi bele bath powder",
+        "tamarind",
+        "toor dal"
+      ],
+      "veganApproach": "Temper with oil instead of ghee.",
+      "technique": "Rice, lentils and vegetables are cooked together with tamarind and a freshly roasted spice powder into a hot, tangy porridge-like dish.",
+      "seasons": [
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "comfort",
+        "mealprep"
+      ],
+      "sources": [
+        {
+          "title": "Bisi bele bath - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Bisi_bele_bath"
+        }
+      ]
+    },
+    {
+      "key": "avial",
+      "name": "Avial",
+      "nameEn": "Kerala mixed vegetables in coconut and yogurt",
+      "aliases": [
+        "aviyal",
+        "avail"
+      ],
+      "tiles": [
+        "Indian",
+        "Fresh & light"
+      ],
+      "cuisine": "Indian",
+      "region": "Kerala",
+      "format": "stew",
+      "protein": "vegetables",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop",
+        "blender"
+      ],
+      "cookMinutes": 40,
+      "effort": "medium",
+      "familiarity": 3,
+      "traditionalDiet": "vegetarian",
+      "versions": [
+        "vegan",
+        "vegetarian"
+      ],
+      "keyIngredients": [
+        "mixed vegetables",
+        "coconut",
+        "yogurt",
+        "green chili",
+        "cumin seeds",
+        "coconut oil",
+        "curry leaves",
+        "drumsticks"
+      ],
+      "specialtyIngredients": [
+        "drumsticks",
+        "coconut oil",
+        "curry leaves"
+      ],
+      "veganApproach": "Use raw mango or tamarind for the sourness instead of yogurt, as some traditional versions do.",
+      "technique": "Long-cut vegetables are cooked until just tender and folded with a coarse paste of coconut, chili and cumin, soured and finished with raw coconut oil and curry leaves.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn"
+      ],
+      "occasions": [
+        "hosting",
+        "everyday"
+      ],
+      "sources": [
+        {
+          "title": "Avial - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Avial"
+        },
+        {
+          "title": "Avial (Kerala Avial) - Dassana's Veg Recipes",
+          "url": "https://www.vegrecipesofindia.com/avial-recipe-kerala-avial-recipe/"
+        }
+      ]
+    },
+    {
+      "key": "undhiyu",
+      "name": "Undhiyu",
+      "nameEn": "Gujarati slow-cooked winter vegetable medley",
+      "aliases": [
+        "oondhiyu",
+        "surti undhiyu"
+      ],
+      "tiles": [
+        "Indian"
+      ],
+      "cuisine": "Indian",
+      "region": "Gujarat",
+      "format": "stew",
+      "protein": "vegetables",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 90,
+      "effort": "high",
+      "familiarity": 3,
+      "traditionalDiet": "vegan",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "surti papdi beans",
+        "purple yam",
+        "sweet potato",
+        "baby potatoes",
+        "small eggplants",
+        "fenugreek leaves",
+        "gram flour",
+        "coconut",
+        "green garlic"
+      ],
+      "specialtyIngredients": [
+        "surti papdi",
+        "purple yam",
+        "green garlic"
+      ],
+      "veganApproach": "Naturally vegan when the methi muthia dumplings and vegetables are cooked in oil.",
+      "technique": "Winter vegetables and fenugreek-gram flour dumplings are stuffed or coated with a green coconut-herb masala and slow-cooked in layers in a covered pot.",
+      "seasons": [
+        "winter"
+      ],
+      "occasions": [
+        "hosting"
+      ],
+      "sources": [
+        {
+          "title": "Undhiyu - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Undhiyu"
+        },
+        {
+          "title": "Undhiyu - Sanjeev Kapoor",
+          "url": "https://www.sanjeevkapoor.com/Recipe/undhiyu-10678556"
+        }
+      ]
+    },
+    {
+      "key": "dal-dhokli",
+      "name": "Dal dhokli",
+      "nameEn": "Spiced wheat dumplings in sweet-sour lentils",
+      "aliases": [
+        "daal dhokli",
+        "varan phal",
+        "chakolya"
+      ],
+      "tiles": [
+        "Indian"
+      ],
+      "cuisine": "Indian",
+      "region": "Gujarat",
+      "format": "dumplings",
+      "protein": "lentils",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 60,
+      "effort": "medium",
+      "familiarity": 3,
+      "traditionalDiet": "vegetarian",
+      "versions": [
+        "vegan",
+        "vegetarian"
+      ],
+      "keyIngredients": [
+        "toor dal",
+        "whole wheat flour",
+        "gram flour",
+        "jaggery",
+        "kokum",
+        "peanuts",
+        "ghee",
+        "mustard seeds"
+      ],
+      "specialtyIngredients": [
+        "kokum",
+        "toor dal"
+      ],
+      "veganApproach": "Do the tempering in oil instead of ghee.",
+      "technique": "Spiced wheat flour dough is rolled out, cut into diamonds and simmered in a sweet-sour Gujarati toor dal until tender.",
+      "seasons": [
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "comfort",
+        "everyday"
+      ],
+      "sources": [
+        {
+          "title": "Dal dhokli - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Dal_dhokli"
+        }
+      ]
+    },
+    {
+      "key": "dal-bati-churma",
+      "name": "Dal bati churma",
+      "nameEn": "Baked wheat dumplings with five-lentil dal and sweet crumble",
+      "aliases": [
+        "dal baati",
+        "dal baati churma",
+        "dal bati"
+      ],
+      "tiles": [
+        "Indian"
+      ],
+      "cuisine": "Indian",
+      "region": "Rajasthan",
+      "format": "bake",
+      "protein": "lentils",
+      "method": "oven",
+      "appliances": [
+        "oven",
+        "stovetop"
+      ],
+      "cookMinutes": 90,
+      "effort": "high",
+      "familiarity": 3,
+      "traditionalDiet": "vegetarian",
+      "versions": [
+        "vegan",
+        "vegetarian"
+      ],
+      "keyIngredients": [
+        "whole wheat flour",
+        "semolina",
+        "ghee",
+        "panchmel dal",
+        "jaggery",
+        "cumin seeds",
+        "asafoetida",
+        "dried red chili"
+      ],
+      "specialtyIngredients": [
+        "panchmel dal",
+        "asafoetida"
+      ],
+      "veganApproach": "Make the bati dough and churma with oil or vegan butter and skip dunking the bati in ghee.",
+      "technique": "Stiff wheat dough balls are baked until hard and crusty, then cracked open and served with a five-lentil dal and sweet crumbled churma.",
+      "seasons": [
+        "winter"
+      ],
+      "occasions": [
+        "hosting"
+      ],
+      "sources": [
+        {
+          "title": "Dal bati churma - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Dal_bati_churma"
+        },
+        {
+          "title": "Dal bati - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Dal_baati"
+        },
+        {
+          "title": "Dal Baati Churma Recipe - Tarla Dalal",
+          "url": "https://www.tarladalal.com/dal-baati-churma-3645r"
+        }
+      ]
+    },
+    {
+      "key": "dalma",
+      "name": "Dalma",
+      "nameEn": "Odia lentils cooked with vegetables",
+      "aliases": [
+        "oriya dalma",
+        "dalma tarkari"
+      ],
+      "tiles": [
+        "Indian"
+      ],
+      "cuisine": "Indian",
+      "region": "Odisha",
+      "format": "stew",
+      "protein": "lentils",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 50,
+      "effort": "low",
+      "familiarity": 3,
+      "traditionalDiet": "vegetarian",
+      "versions": [
+        "vegan",
+        "vegetarian"
+      ],
+      "keyIngredients": [
+        "toor dal",
+        "raw banana",
+        "green papaya",
+        "eggplant",
+        "pumpkin",
+        "panch phoron",
+        "coconut",
+        "turmeric"
+      ],
+      "specialtyIngredients": [
+        "panch phoron",
+        "raw banana"
+      ],
+      "veganApproach": "Temper with oil instead of ghee; temple-style versions are cooked without fat at all.",
+      "technique": "Toor dal is cooked with chunky vegetables and turmeric, then tempered with panch phoron and roasted cumin and topped with grated coconut.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "comfort",
+        "mealprep"
+      ],
+      "sources": [
+        {
+          "title": "Cuisine of Odisha - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Cuisine_of_Odisha"
+        },
+        {
+          "title": "Oriya Special Dalma Recipe - Archana's Kitchen",
+          "url": "https://www.archanaskitchen.com/recipe/oriya-special-dalma-recipe-oriya-dal-tarkari"
+        },
+        {
+          "title": "Dalma: A Dish from the Distant Past - Swarajya",
+          "url": "https://swarajyamag.com/culture/dalma-a-dish-from-the-distant-past"
+        }
+      ]
+    },
+    {
+      "key": "litti-chokha",
+      "name": "Litti chokha",
+      "nameEn": "Sattu-stuffed baked dough balls with smoky vegetable mash",
+      "aliases": [
+        "litti",
+        "litti choka"
+      ],
+      "tiles": [
+        "Indian"
+      ],
+      "cuisine": "Indian",
+      "region": "Bihar",
+      "format": "stuffed",
+      "protein": "chickpeas",
+      "method": "oven",
+      "appliances": [
+        "oven",
+        "stovetop"
+      ],
+      "cookMinutes": 75,
+      "effort": "high",
+      "familiarity": 3,
+      "traditionalDiet": "vegetarian",
+      "versions": [
+        "vegan",
+        "vegetarian"
+      ],
+      "keyIngredients": [
+        "whole wheat flour",
+        "sattu",
+        "mustard oil",
+        "eggplant",
+        "tomatoes",
+        "potatoes",
+        "garlic",
+        "ghee"
+      ],
+      "specialtyIngredients": [
+        "sattu",
+        "mustard oil",
+        "nigella seeds"
+      ],
+      "veganApproach": "Serve the litti brushed with mustard oil instead of dipped in ghee.",
+      "technique": "Wheat dough balls stuffed with spiced roasted gram flour are baked over coals or in an oven and served with chokha, a smoky mash of fire-roasted eggplant, tomato and potato.",
+      "seasons": [
+        "winter"
+      ],
+      "occasions": [
+        "hosting",
+        "comfort"
+      ],
+      "sources": [
+        {
+          "title": "Litti (dish) - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Litti_(dish)"
+        },
+        {
+          "title": "History and origins of litti chokha - The Indian Express",
+          "url": "https://indianexpress.com/article/lifestyle/food-wine/history-origins-of-siddhant-chaturvedi-litti-chokha-recipe-10071311/"
+        }
+      ]
+    },
+    {
+      "key": "pesarattu",
+      "name": "Pesarattu",
+      "nameEn": "Andhra green moong crêpe",
+      "aliases": [
+        "moong dal dosa",
+        "pesara dosa",
+        "green gram dosa"
+      ],
+      "tiles": [
+        "Indian",
+        "Fresh & light"
+      ],
+      "cuisine": "Indian",
+      "region": "Andhra Pradesh",
+      "format": "flatbread",
+      "protein": "lentils",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop",
+        "blender"
+      ],
+      "cookMinutes": 30,
+      "effort": "low",
+      "familiarity": 3,
+      "traditionalDiet": "vegan",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "whole green moong",
+        "rice",
+        "ginger",
+        "green chili",
+        "cumin seeds",
+        "onion"
+      ],
+      "specialtyIngredients": [
+        "whole green moong"
+      ],
+      "veganApproach": "Naturally vegan when cooked with oil.",
+      "technique": "Soaked whole mung beans are ground with ginger and chili into an unfermented batter and spread thin on a hot griddle until crisp.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday"
+      ],
+      "sources": [
+        {
+          "title": "Pesarattu - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Pesarattu"
+        },
+        {
+          "title": "Pesarattu (Green Gram Dosa) - Dassana's Veg Recipes",
+          "url": "https://www.vegrecipesofindia.com/moong-dal-dosa-pesarattu-a-cripsy-dosa-made-from-moong-dal/"
+        }
+      ]
+    },
+    {
+      "key": "fish-molee",
+      "name": "Fish molee",
+      "nameEn": "Kerala fish stew in coconut milk",
+      "aliases": [
+        "meen moilee",
+        "fish moilee",
+        "fish moolie"
+      ],
+      "tiles": [
+        "Indian"
+      ],
+      "cuisine": "Indian",
+      "region": "Kerala",
+      "format": "stew",
+      "protein": "fish",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 35,
+      "effort": "low",
+      "familiarity": 3,
+      "traditionalDiet": "pescatarian",
+      "versions": [
+        "pescatarian"
+      ],
+      "keyIngredients": [
+        "fish",
+        "coconut milk",
+        "onion",
+        "ginger",
+        "garlic",
+        "green chili",
+        "curry leaves",
+        "turmeric",
+        "vinegar"
+      ],
+      "specialtyIngredients": [
+        "curry leaves",
+        "coconut oil"
+      ],
+      "veganApproach": null,
+      "technique": "Lightly fried fish is simmered in thin coconut milk with ginger, chili and curry leaves, then finished with thick coconut milk and a dash of vinegar without boiling.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "hosting",
+        "date"
+      ],
+      "sources": [
+        {
+          "title": "Fish moolie - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Fish_moolie"
+        },
+        {
+          "title": "Fish Molee (Kerala Fish Stew) - Nish Kitchen",
+          "url": "https://nishkitchen.com/fish-molee-recipe-kerala-fish-stew/"
+        },
+        {
+          "title": "Fish Molee Recipe - Great British Chefs",
+          "url": "https://www.greatbritishchefs.com/recipes/fish-molee-recipe"
+        }
+      ]
+    },
+    {
+      "key": "machher-jhol",
+      "name": "Machher jhol",
+      "nameEn": "Bengali light fish curry with potatoes",
+      "aliases": [
+        "macher jhol",
+        "machha jhola",
+        "maacher jhol"
+      ],
+      "tiles": [
+        "Indian"
+      ],
+      "cuisine": "Indian",
+      "region": "Bengal",
+      "format": "curry",
+      "protein": "fish",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 40,
+      "effort": "low",
+      "familiarity": 3,
+      "traditionalDiet": "pescatarian",
+      "versions": [
+        "pescatarian"
+      ],
+      "keyIngredients": [
+        "rohu fish",
+        "potatoes",
+        "mustard oil",
+        "turmeric",
+        "cumin",
+        "ginger",
+        "tomatoes",
+        "green chili",
+        "nigella seeds"
+      ],
+      "specialtyIngredients": [
+        "mustard oil",
+        "nigella seeds"
+      ],
+      "veganApproach": null,
+      "technique": "Fish steaks are rubbed with turmeric and fried in mustard oil, then simmered briefly in a thin, light gravy with potatoes and ground spices.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "comfort"
+      ],
+      "sources": [
+        {
+          "title": "Machher jhol - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Machher_jhol"
+        },
+        {
+          "title": "Jeere Diye Machher Jhol - NDTV Food",
+          "url": "https://food.ndtv.com/food-drinks/maacher-jhol-recipe-all-you-need-to-know-about-the-staple-fish-curry-of-bengal-2374044"
+        }
+      ]
+    },
+    {
+      "key": "shorshe-ilish",
+      "name": "Shorshe ilish",
+      "nameEn": "Hilsa in mustard sauce",
+      "aliases": [
+        "sorshe ilish",
+        "ilish shorshe",
+        "hilsa mustard curry"
+      ],
+      "tiles": [
+        "Indian"
+      ],
+      "cuisine": "Indian",
+      "region": "Bengal",
+      "format": "curry",
+      "protein": "fish",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop",
+        "blender"
+      ],
+      "cookMinutes": 35,
+      "effort": "medium",
+      "familiarity": 3,
+      "traditionalDiet": "pescatarian",
+      "versions": [
+        "pescatarian"
+      ],
+      "keyIngredients": [
+        "hilsa",
+        "black mustard seeds",
+        "yellow mustard seeds",
+        "mustard oil",
+        "green chili",
+        "turmeric",
+        "nigella seeds"
+      ],
+      "specialtyIngredients": [
+        "hilsa",
+        "mustard oil"
+      ],
+      "veganApproach": null,
+      "technique": "Hilsa pieces are simmered or steamed in a pungent paste of soaked, ground mustard seeds and green chili and finished with raw mustard oil.",
+      "seasons": [
+        "summer",
+        "autumn"
+      ],
+      "occasions": [
+        "hosting"
+      ],
+      "sources": [
+        {
+          "title": "Shorshe ilish - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Shorshe_Ilish"
+        },
+        {
+          "title": "Shorshe Ilish - NDTV Food",
+          "url": "https://food.ndtv.com/food-drinks/shorshe-ilish-the-one-bengali-fish-recipe-you-need-to-learn-2574392"
+        }
+      ]
+    },
+    {
+      "key": "chingri-malai-curry",
+      "name": "Chingri malai curry",
+      "nameEn": "Bengali prawns in coconut milk",
+      "aliases": [
+        "malai chingri",
+        "prawn malai curry"
+      ],
+      "tiles": [
+        "Indian"
+      ],
+      "cuisine": "Indian",
+      "region": "Bengal",
+      "format": "curry",
+      "protein": "shellfish",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 40,
+      "effort": "medium",
+      "familiarity": 3,
+      "traditionalDiet": "pescatarian",
+      "versions": [
+        "pescatarian"
+      ],
+      "keyIngredients": [
+        "prawns",
+        "coconut milk",
+        "onion",
+        "ginger",
+        "garlic",
+        "turmeric",
+        "garam masala",
+        "ghee",
+        "green chili"
+      ],
+      "specialtyIngredients": [],
+      "veganApproach": null,
+      "technique": "Large prawns are lightly fried and then simmered in a mildly sweet, spiced coconut milk gravy.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "hosting",
+        "date"
+      ],
+      "sources": [
+        {
+          "title": "Chingri malai curry - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Chingri_malai_curry"
+        },
+        {
+          "title": "Chingri Malai Curry origins - The Indian Express",
+          "url": "https://indianexpress.com/article/lifestyle/food-wine/tasteatlas-picks-chingri-malai-curry-among-best-shrimp-dishes-in-the-world-we-trace-its-origins-10723482/"
+        }
+      ]
+    },
+    {
+      "key": "prawn-balchao",
+      "name": "Prawn balchão",
+      "nameEn": "Goan prawns in fiery chili-vinegar masala",
+      "aliases": [
+        "balchao",
+        "balichow",
+        "mushroom balchao"
+      ],
+      "tiles": [
+        "Indian"
+      ],
+      "cuisine": "Indian",
+      "region": "Goa",
+      "format": "curry",
+      "protein": "mushrooms",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop",
+        "blender"
+      ],
+      "cookMinutes": 45,
+      "effort": "medium",
+      "familiarity": 3,
+      "traditionalDiet": "pescatarian",
+      "versions": [
+        "vegan",
+        "pescatarian"
+      ],
+      "keyIngredients": [
+        "prawns",
+        "dried red chilies",
+        "vinegar",
+        "garlic",
+        "ginger",
+        "onion",
+        "tomatoes",
+        "cumin seeds",
+        "sugar"
+      ],
+      "specialtyIngredients": [
+        "toddy vinegar",
+        "kashmiri chili"
+      ],
+      "veganApproach": "Use mushrooms, topped with crisp roasted white beans for protein, in the same chili-vinegar masala.",
+      "technique": "Prawns are fried and then cooked in a sweet, sour and fiery masala of ground chilies, garlic and vinegar, almost like a pickle.",
+      "seasons": [
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "hosting",
+        "mealprep"
+      ],
+      "sources": [
+        {
+          "title": "Balchão - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Balch%C3%A3o"
+        },
+        {
+          "title": "Goan Prawn Balchão - The Spruce Eats",
+          "url": "https://www.thespruceeats.com/goan-prawn-balchao-1957451"
+        },
+        {
+          "title": "Balchao Mushrooms with Crispy White Beans - Vegan Richa",
+          "url": "https://www.veganricha.com/balchao-mushrooms-indian-goan-curry/"
+        }
+      ]
+    },
+    {
+      "key": "ghugni",
+      "name": "Ghugni",
+      "nameEn": "Bengali dried pea curry",
+      "aliases": [
+        "guguni",
+        "ghughni",
+        "motor ghugni"
+      ],
+      "tiles": [
+        "Indian"
+      ],
+      "cuisine": "Indian",
+      "region": "Bengal & Odisha",
+      "format": "curry",
+      "protein": "edamame_peas",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 60,
+      "effort": "low",
+      "familiarity": 3,
+      "traditionalDiet": "vegan",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "dried white peas",
+        "potatoes",
+        "onion",
+        "ginger",
+        "tomatoes",
+        "coconut",
+        "tamarind",
+        "cumin",
+        "mustard oil"
+      ],
+      "specialtyIngredients": [
+        "dried white peas",
+        "mustard oil"
+      ],
+      "veganApproach": "Naturally vegan in its everyday vegetable form; just avoid meat-based variations.",
+      "technique": "Soaked dried peas are boiled soft and simmered in a thick, spiced onion-ginger gravy, then topped with raw onion, coconut and roasted spice.",
+      "seasons": [
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "mealprep"
+      ],
+      "sources": [
+        {
+          "title": "Ghugni - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Ghugni"
+        },
+        {
+          "title": "Bengali Ghughni - Dried White Peas Curry - Saffron Trail",
+          "url": "https://www.saffrontrail.com/bengali-ghughni-dried-white-peas-curry/"
+        }
+      ]
+    },
+    {
+      "key": "patra-ni-machhi",
+      "name": "Patra ni machhi",
+      "nameEn": "Parsi fish steamed in banana leaf with green chutney",
+      "aliases": [
+        "patrani machhi",
+        "patra fish",
+        "patra ni machi"
+      ],
+      "tiles": [
+        "Indian",
+        "Fresh & light"
+      ],
+      "cuisine": "Indian",
+      "region": "Parsi (Gujarat & Mumbai)",
+      "format": "other",
+      "protein": "fish",
+      "method": "steam",
+      "appliances": [
+        "stovetop",
+        "blender"
+      ],
+      "cookMinutes": 45,
+      "effort": "medium",
+      "familiarity": 3,
+      "traditionalDiet": "pescatarian",
+      "versions": [
+        "pescatarian"
+      ],
+      "keyIngredients": [
+        "pomfret",
+        "banana leaves",
+        "coconut",
+        "coriander leaves",
+        "mint",
+        "green chili",
+        "lemon",
+        "cumin"
+      ],
+      "specialtyIngredients": [
+        "banana leaves",
+        "pomfret"
+      ],
+      "veganApproach": null,
+      "technique": "Fish fillets are coated with a sweet-sour green coconut chutney, wrapped in banana leaves and steamed.",
+      "seasons": [
+        "spring",
+        "summer"
+      ],
+      "occasions": [
+        "hosting",
+        "date"
+      ],
+      "sources": [
+        {
+          "title": "Patra-ni-machhi is a symbol of Parsi heritage - The Hindu BusinessLine",
+          "url": "https://www.thehindubusinessline.com/blink/takeaway/patra-ni-machhi-is-a-symbol-of-parsi-heritage/article32408854.ece"
+        },
+        {
+          "title": "Patra Fish - ParsiCuisine.com",
+          "url": "https://www.parsicuisine.com/fish/"
+        }
+      ]
+    }
+  ]
+}
