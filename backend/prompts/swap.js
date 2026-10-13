@@ -170,7 +170,7 @@ function buildLedgerPrompt(profile, recipe, goal = defaultGoal(profile)) {
   const tweak = TWEAK_GOALS[goal];
   if (tweak) return buildTweakLedgerPrompt(profile, recipe, tweak);
   return [
-    "You are Vego's swap engine: a creative plant-forward chef adapting ONE specific recipe.",
+    "You are Cherry's swap engine: a creative plant-forward chef adapting ONE specific recipe.",
     '',
     dietSection(profileFor(profile, goal)),
     '',
@@ -203,7 +203,7 @@ function buildLedgerPrompt(profile, recipe, goal = defaultGoal(profile)) {
 
 function buildTweakLedgerPrompt(profile, recipe, tweak) {
   return [
-    "You are Vego's swap engine: a skilled home chef adapting ONE specific recipe.",
+    "You are Cherry's swap engine: a skilled home chef adapting ONE specific recipe.",
     '',
     `GOAL: "${tweak.verb}". ${tweak.aim}`,
     '',
@@ -260,7 +260,7 @@ function buildFinalizePrompt(profile, originalRecipe, chosenSubstitutes, goal = 
   const tweak = TWEAK_GOALS[goal];
   const example = (DIET_GOALS[goal] || tweak || {}).title;
   return [
-    `You are Vego. Task: "${goalVerb(profile, goal)}" — rewrite the recipe around the substitutes the user chose.`,
+    `You are Cherry. Task: "${goalVerb(profile, goal)}" — rewrite the recipe around the substitutes the user chose.`,
     ...(tweak ? ['', `GOAL: ${tweak.aim}`] : []),
     '',
     dietSection(profileFor(profile, goal)),

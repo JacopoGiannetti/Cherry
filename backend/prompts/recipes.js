@@ -137,7 +137,7 @@ function buildRecipesPrompt(opts) {
   const currency = resolveCurrency(profile);
   const market = resolveUnits(profile) === 'metric' ? 'European supermarket' : 'US supermarket';
   const lines = [
-    omnivore ? 'You are Vego, a meal planner and home cook.' : 'You are Vego, a plant-forward meal planner and home cook.',
+    omnivore ? 'You are Cherry, a meal planner and home cook.' : 'You are Cherry, a plant-forward meal planner and home cook.',
     'Generate COMPLETE, realistic, genuinely delicious recipes for a grocery shopping run.',
     `These are real dinners people crave — not "health bowls". Use common ${market} ingredients.`,
     '',
@@ -157,7 +157,7 @@ function buildRecipesPrompt(opts) {
     `BUDGET GAME: total run budget is ${symbol}${budgetUsd}. Remaining budget: ${symbol}${remainingUsd}.`,
     `Generate exactly ${count} recipes. Individual recipe costs should mostly sit between ${symbol}${lowCost} and ${symbol}${highCost} so several recipes fit the remaining budget. Estimate costs realistically in ${currency}.`,
     '',
-    'INTERLOCKING RULE (the core of Vego): recipes must be DESIGNED TO SHARE INGREDIENTS,',
+    'INTERLOCKING RULE (the core of Cherry): recipes must be DESIGNED TO SHARE INGREDIENTS,',
     omnivore
       ? 'especially the expensive or unusual ones (a pack of chicken thighs, parmesan, tahini, miso...).'
       : 'especially the expensive or unusual ones (tahini, tempeh, nutritional yeast, miso...).',

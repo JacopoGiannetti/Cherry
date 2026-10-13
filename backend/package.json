@@ -1,7 +1,7 @@
 {
-  "name": "vego-backend",
+  "name": "cherry-backend",
   "version": "1.0.0",
-  "description": "Vego backend — fire-and-forget jobs, writes to Firestore",
+  "description": "Cherry backend — fire-and-forget jobs, writes to Firestore",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",

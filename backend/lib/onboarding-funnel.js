@@ -24,9 +24,9 @@ const COMPLETE_EVENT = 'onboarding.complete';
 const COMPLETE_STEP = { id: 'complete', label: 'Onboarding fatto', caption: 'Profilo salvato: da qui parte il paywall', event: COMPLETE_EVENT };
 
 const V1_SEQUENCE = [
-  { id: 'welcome', label: 'Welcome', caption: 'Logo Vego, “Swipe up to enter”' },
+  { id: 'welcome', label: 'Welcome', caption: 'Logo Cherry, “Swipe up to enter”' },
   { id: 'promise', label: 'La promessa', caption: '“Eating plant-based is hard → easy”, poi “Let’s go”' },
-  { id: 'problems.intro', label: 'Tre momenti', caption: '“Vego makes plant-based simple”: spesa, ristorante, ricette' },
+  { id: 'problems.intro', label: 'Tre momenti', caption: '“Cherry makes eating well simple”: spesa, ristorante, ricette' },
   { id: 'problems.grocery', label: 'Problema 1 · spesa', caption: '“What do I even buy?” con il deck che gira' },
   { id: 'problems.menu', label: 'Problema 2 · menu', caption: '“What can I order here?” con la scansione' },
   { id: 'problems.swap', label: 'Problema 3 · swap', caption: '“Every good recipe has meat in it”' },
@@ -41,7 +41,7 @@ const V1_SEQUENCE = [
   { id: 'profile.ready', label: 'Profilo pronto', caption: '“Your taste profile is ready”' },
   { id: 'blockers', label: 'Cosa deleghi', caption: '“Which of these feel familiar?”: sette fastidi, se ne sceglie più di uno' },
   { id: 'outcome', label: 'Il grafico', caption: '“84% go back”: la curva vera dell’abbandono e la risposta al suo blocco' },
-  { id: 'audience', label: 'Per chi è', caption: '“Who is Vego for?”: chi taglia la carne, chi vuole ricette, chi c’è già' },
+  { id: 'audience', label: 'Per chi è', caption: '“Who is Cherry for?”: chi taglia la carne, chi vuole ricette, chi c’è già' },
   { id: 'voices', label: 'Le voci', caption: 'Undici citazioni famose e nove dati di ricerca, su due colonne che scorrono' },
   { id: 'reviews', label: 'I primi utenti', caption: 'Cinque messaggi veri dei primi utenti — e qui chiediamo la recensione' },
   { id: 'movement', label: 'Movimento', caption: '“You’re not doing this alone”, poi “Count me in”' },
@@ -54,7 +54,7 @@ const V1_SEQUENCE = [
 // blockers (quindi contate per posizione, non per argomento); c'è il
 // quarto problema, il barcode.
 const V2_SEQUENCE = [
-  { id: 'welcome', label: 'Welcome', caption: 'Logo Vego, “Swipe up to enter”' },
+  { id: 'welcome', label: 'Welcome', caption: 'Logo Cherry, “Swipe up to enter”' },
   { id: 'promise', label: 'La promessa', caption: '“Eating plant-based is hard → easy”, poi “Let’s go”' },
   { id: 'founder', label: 'Founder', caption: 'La missione, firmata: plant-based come un piacere, non una rinuncia' },
   { id: 'trust', label: 'Fiducia', caption: '“Thank you for trusting us”: niente pubblicità, niente dati venduti, cancelli quando vuoi' },

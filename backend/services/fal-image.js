@@ -10,7 +10,7 @@ const REQUEST_TIMEOUT_MS = 60000;
 const MAX_ATTEMPTS = 3;
 const MAX_CONCURRENCY = 6;
 
-// Lo stile unico di Vego: una vera foto, non un render. Luce naturale,
+// Lo stile unico di Cherry: una vera foto, non un render. Luce naturale,
 // piatto protagonista, texture vere (bruciature, lucido della salsa,
 // briciole) — è quello che fa venire fame. Il "cosa" c'è nel piatto lo
 // decide Gemini nell'imagePrompt; qui c'è solo il "come" lo fotografiamo.

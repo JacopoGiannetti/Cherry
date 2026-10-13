@@ -22,7 +22,7 @@ function isReady() {
   return init();
 }
 
-// Il database del progetto si chiama "vego", non "(default)": senza
+// Il database del progetto si chiama "cherry", non "(default)": senza
 // passarne il nome l'SDK cercherebbe un database inesistente.
 function db() {
   if (!init()) throw new Error('Firebase non configurato (service account mancante)');

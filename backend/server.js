@@ -1,4 +1,4 @@
-// Vego backend — fire-and-forget: ogni endpoint avvia un lavoro,
+// Cherry backend — fire-and-forget: ogni endpoint avvia un lavoro,
 // risponde 202 { jobId } e scrive i risultati su Firestore.
 // L'app legge sempre e solo da Firestore.
 const express = require('express');
@@ -13,7 +13,7 @@ app.use(express.json({ limit: '1mb' }));
 app.get('/health', (req, res) => {
   res.json({
     ok: true,
-    service: 'vego-backend',
+    service: 'cherry-backend',
     missingKeys: missingKeys(), // vuoto quando tutte le chiavi sono a posto
   });
 });
@@ -72,7 +72,7 @@ app.use((req, res) => res.status(404).json({ error: 'not_found' }));
 const missing = missingKeys();
 const optional = optionalMissingKeys();
 app.listen(keys.server.port, () => {
-  console.log(`Vego backend in ascolto sulla porta ${keys.server.port}`);
+  console.log(`Cherry backend in ascolto sulla porta ${keys.server.port}`);
   if (missing.length) {
     console.warn('ATTENZIONE — chiavi mancanti nel .env:', missing.join(', '));
     console.warn('Il server risponde, ma gli endpoint che le richiedono falliranno in modo esplicito.');

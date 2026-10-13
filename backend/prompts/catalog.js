@@ -83,7 +83,7 @@ function briefLine(brief, index) {
 function buildGeneratePrompt({ briefs, basket = [], profile = {}, exclusions = [], sharing = true, occasion = 'everyday', chips = [], retryNotes = [], now = new Date() }) {
   const month = now.toLocaleString('en-US', { month: 'long' });
   const lines = [
-    'You are the recipe writer of Vego, a cookbook of REAL dishes that home cooks trust.',
+    'You are the recipe writer of Cherry, a cookbook of REAL dishes that home cooks trust.',
     `Write exactly ${briefs.length} recipe${briefs.length === 1 ? '' : 's'}, one per brief below. Each brief names a real, documented dish: write THAT dish, the way a good cook from that place would make it at home.`,
     '',
     'QUALITY BAR — these recipes go into a shared cookbook and are judged by real people:',

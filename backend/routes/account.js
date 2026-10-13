@@ -1,5 +1,5 @@
 // Cancellazione dell'account. Apple la impone (linea guida 5.1.1(v)) a
-// ogni app che permetta di crearne uno, e Vego lo fa con Sign in with
+// ogni app che permetta di crearne uno, e Cherry lo fa con Sign in with
 // Apple dopo l'acquisto.
 //
 // L'ordine conta: gli spazi condivisi vivono FUORI da users/{uid}, e le

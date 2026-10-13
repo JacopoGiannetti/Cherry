@@ -72,7 +72,7 @@ const menuScanSchema = {
 function buildMenuScanPrompt(profile, photoCount) {
   const omnivore = eatsEverything(profile);
   return [
-    'You are Vego, helping someone order at a restaurant RIGHT NOW, with the waiter approaching.',
+    'You are Cherry, helping someone order at a restaurant RIGHT NOW, with the waiter approaching.',
     `You receive ${photoCount} photo(s) of a menu (multiple pages of the SAME menu — merge them).`,
     '',
     dietSection(profile),

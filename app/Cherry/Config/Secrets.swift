@@ -10,7 +10,7 @@ enum Secrets {
 
     /// URL del backend (senza slash finale).
     static var backendURL: String {
-        useLocalBackend ? "http://localhost:3000" : "https://vego-dev.onrender.com"
+        useLocalBackend ? "http://localhost:3000" : "https://cherry-backend-hqyn.onrender.com"
     }
 
     /// Stesso valore di HMAC_SECRET nel .env del backend.

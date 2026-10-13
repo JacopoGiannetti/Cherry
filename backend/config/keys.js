@@ -110,7 +110,7 @@ const keys = {
     appleAppID: process.env.APPLE_APP_ID || '',
   },
   openFoodFacts: {
-    userAgent: process.env.OFF_USER_AGENT || 'Vego/1.0',
+    userAgent: process.env.OFF_USER_AGENT || 'Cherry/1.0',
   },
   server: {
     port: parseInt(process.env.PORT || '3000', 10),

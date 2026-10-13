@@ -29,4 +29,4 @@ services:
       - key: HMAC_SECRET
         sync: false
       - key: OFF_USER_AGENT
-        value: Vego/1.0 (support@vego.app)
+        value: Cherry/1.0

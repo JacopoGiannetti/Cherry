@@ -1,7 +1,7 @@
 # Cosa NON caricare quando si fa `gcloud run deploy --source .` da qui.
 #
 # Serve davvero: gcloud ripiega sul .gitignore solo se ne trova uno
-# nella cartella sorgente, e il .gitignore di Vego sta nella root della
+# nella cartella sorgente, e il .gitignore di Cherry sta nella root della
 # repo. Senza questo file, `--source .` da backend/ spedirebbe a Cloud
 # Build anche .env — cioè service account Firebase, chiave Gemini, fal,
 # RapidAPI, HMAC e la chiave APNs.

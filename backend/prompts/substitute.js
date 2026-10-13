@@ -38,7 +38,7 @@ const substituteSchema = {
 
 function buildSubstitutePrompt(profile, ingredientName, affectedRecipes) {
   return [
-    'You are Vego. The user is standing in a grocery aisle RIGHT NOW and cannot find an ingredient.',
+    'You are Cherry. The user is standing in a grocery aisle RIGHT NOW and cannot find an ingredient.',
     '',
     dietSection(profile),
     '',

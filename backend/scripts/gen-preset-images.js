@@ -1,4 +1,4 @@
-// One-off: genera le foto delle 12 ricette preset (piani curati da Vego)
+// One-off: genera le foto delle 12 ricette preset (piani curati da Cherry)
 // e stampa gli URL hosted da fal, da hardcodare nel catalogo dell'app.
 require('dotenv').config({ path: require('path').join(__dirname, '..', '.env') });
 const { generateRecipeImage } = require('../services/fal-image');
