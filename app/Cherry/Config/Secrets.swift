@@ -28,7 +28,7 @@ enum Secrets {
     /// binario ed è estraibile da qualunque .ipa. Il fallback su
     /// /config (Render: APPSFLYER_DEV_KEY) resta come rete di sicurezza,
     /// ma finché questa stringa è piena non viene mai usato.
-    static let appsFlyerDevKey = ""
+    static let appsFlyerDevKey = "TarBKdGEettMmbfcnnwASN"
     /// Numero dell'app su App Store Connect. Vuoto = AppsFlyer spento.
-    static let appleAppID = ""
+    static let appleAppID = "6822337167"
 }
