@@ -205,6 +205,7 @@ function photoBrief(extra) {
     '- Describe the sauce as the steps make it, and be generous: a pan sauce is "a glossy, silky sauce coating every strand',
     '  of spaghetti". Never dry or dull-looking, never a puddle of oil or broth. A dish with no sauce gets no sauce word.',
     '- Give small ingredients their real size: "tiny pine nuts", "small capers", "thin garlic slices".',
+    '- Write "steaming" only for a dish served hot. Cold or room-temperature dishes (salads, dips, desserts) get no steam word.',
     '- ONE plate or bowl with ONE serving, whatever the recipe yields. Every component recognisable, real cuts and cooked',
     '  textures, one hero detail. Only ingredients from the ingredient list may appear, and never any animal product for',
     '  a vegan profile.',

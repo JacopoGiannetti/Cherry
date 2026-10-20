@@ -22,7 +22,7 @@ const STYLE_PROMPT =
   'Photorealistic food photography, shot on a full-frame camera with an 85mm lens, f/2.8, ' +
   'natural soft window light from the left with gentle shadows, 45-degree angle, ' +
   'a single plate or bowl holding one serving is the only subject, centred, on a warm neutral wooden or linen table, ' +
-  'freshly served and appetizing, food glistening where it is moist, a gentle wisp of steam, ' +
+  'freshly served and appetizing, food glistening where it is moist, ' +
   'true-to-life colours, natural matte ceramic, no over-saturation, no plastic-looking CGI sheen, ' +
   'no second plate, no pot or pan, no people, no hands, no text, no watermark, no cutlery clutter';
 
