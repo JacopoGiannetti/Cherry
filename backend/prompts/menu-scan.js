@@ -89,7 +89,7 @@ function buildMenuScanPrompt(profile, photoCount) {
     ...(omnivore
       ? [
         '  With no dietary restrictions, modifications are only needed for the hard exclusions above.',
-        'List up to 24 dishes across both arrays, skipping drinks and plain sides.',
+        '  Skip drinks and plain sides.',
       ]
       : []),
     'Only include dishes you can actually see on the menu. Never invent dishes.',

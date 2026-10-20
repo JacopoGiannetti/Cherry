@@ -834,6 +834,10 @@ struct MenuResultView: View {
 
     private var verdictHeadline: String {
         if orderCount == 0 { return "Slim pickings" }
+        if lens == .vegan { return orderCount == 1 ? "One vegan dish" : "\(orderCount) vegan dishes" }
+        if appState.tasteProfile.dietaryIdentity == .omnivore {
+            return orderCount == 1 ? "One dish on this menu" : "\(orderCount) dishes on this menu"
+        }
         if bestBets.isEmpty { return "Doable, with a word" }
         return orderCount == 1 ? "One dish for you" : "\(orderCount) dishes for you"
     }
