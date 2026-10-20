@@ -9,7 +9,7 @@ const { getCached, setCached, bumpCacheHit } = require('../lib/cache');
 const { generateJSON, imagePart } = require('../services/gemini');
 const { downloadImage } = require('../services/storage');
 const { lookupBarcode } = require('../services/openfoodfacts');
-const { buildMenuScanPrompt, menuScanSchema } = require('../prompts/menu-scan');
+const { buildMenuScanPrompt, menuScanSchema, toAppDish } = require('../prompts/menu-scan');
 const { flagsFromOffTags, classifyWithGemini, verdictFor, badgesFor } = require('../lib/verdict');
 const { recordEvent } = require('../lib/usage');
 
@@ -51,8 +51,8 @@ router.post('/menu', (req, res) => {
         {
           status: 'done',
           restaurantName: result.restaurantName || null,
-          bestBets: result.bestBets || [],
-          askForThese: result.askForThese || [],
+          bestBets: (result.bestBets || []).map(toAppDish),
+          askForThese: (result.askForThese || []).map(toAppDish),
           completedAt: FieldValue.serverTimestamp(),
         },
         { merge: true }

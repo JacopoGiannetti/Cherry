@@ -306,6 +306,9 @@ struct CherryMediaRow<Thumb: View, Trailing: View>: View {
         }
         .padding(14)
         .glassEffect(.regular.tint(wash.opacity(0.45)), in: CherryPebbleShape(hero: false))
+        // Il vetro non conta come contenuto per il tocco: senza, dentro
+        // un Button .plain rispondevano solo foto e testo.
+        .contentShape(CherryPebbleShape(hero: false))
     }
 }
 

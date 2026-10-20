@@ -295,21 +295,48 @@ function buildFinalizePrompt(profile, originalRecipe, chosenSubstitutes, goal = 
 
 const coverSchema = {
   type: 'OBJECT',
-  properties: { imagePrompt: { type: 'STRING', description: IMAGE_PROMPT_SCHEMA } },
+  properties: {
+    imagePrompt: {
+      type: 'STRING',
+      description:
+        'English, 40-70 words, for a photo generator. THIS exact dish, finished and plated: every visible component ' +
+        'with its real shape, cut, colour and cooked texture, how it is assembled, the vessel it is served in, and one hero detail. ' +
+        'Only ingredients that are in the recipe. Plain sentences, no camera or style instructions. Internal.',
+    },
+  },
   required: ['imagePrompt'],
 };
 
-/** La foto che sostituisce il fotogramma del video: la ricetta resta quella. */
-function buildCoverPrompt(recipe) {
+/**
+ * La copertina di una ricetta salvata dai social. Gemini guarda il
+ * fotogramma del video, se c'è, per capire com'è fatto davvero il piatto,
+ * e scrive l'imagePrompt su quella ricetta: un brief generico dava piatti
+ * che col video non c'entravano niente.
+ */
+function buildCoverPrompt(recipe, { hasFrame }) {
   const brief = {
     title: recipe.title,
-    ingredients: (recipe.ingredients || []).map((i) => i.name),
+    ingredients: (recipe.ingredients || []).map((i) => `${i.quantity ? `${i.quantity} ` : ''}${i.name}`.trim()),
     steps: recipe.steps || [],
   };
   return [
-    'You brief a photo generator for the cover of a recipe someone saved from social media.',
-    'The video frame they had is a random, unappetising still: this photo replaces it.',
+    'You brief a photo generator for the cover of a recipe someone saved from a social media video.',
+    'The cover they have is a random frame of that video: this photo replaces it, and must show the SAME dish.',
     `Recipe: ${JSON.stringify(brief)}`,
+    '',
+    hasFrame
+      ? [
+          'The attached image is that video frame. Use it as the truth about what this dish looks like: its components,',
+          'shapes, cuts, colours, sauce, how it is assembled, what it is served in. Ignore everything that is not the food:',
+          'captions, stickers, watermarks, hands, faces, the kitchen, motion blur, bad light. If the frame does not show the',
+          'finished dish (a face, raw ingredients, a mid-step, a title card), rely on the recipe instead.',
+        ].join('\n')
+      : 'There is no frame: work out the finished dish from the recipe.',
+    '',
+    'Work out from the steps how it really looks at the end — a crumble has a rough golden top, a stew is chunky, a smash',
+    'burger has crisp lacy edges — and describe THAT, concretely, so the generator cannot invent a different dish.',
+    'Name each visible component with its real look (e.g. "thick slices of roasted aubergine with dark charred edges",',
+    'not "vegetables"). Keep it simple and believable: a real home-cooked dish at its best, not a fantasy creation.',
     '',
     photoBrief('This is the cover that makes someone stop scrolling: the most irresistible honest version of THIS exact dish, nothing added.'),
     'imagePrompt is ALWAYS in English.',

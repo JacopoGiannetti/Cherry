@@ -758,6 +758,16 @@ final class AppState: ObservableObject {
         sharedInboxStore.discardPreview(url)
     }
 
+    /// La ricetta di quel link è in collezione: non è più in attesa.
+    /// Si confronta il link normalizzato, come fa lo swapId: lo stesso
+    /// post può arrivare con parametri di tracking diversi.
+    func resolveInboxItem(matching url: String) {
+        let id = SharedInbox.previewId(for: url)
+        for item in sharedInbox where SharedInbox.previewId(for: item) == id {
+            discardInboxItem(item)
+        }
+    }
+
     /// Chiede al backend titolo e foto per i link ancora anonimi, e
     /// avvia subito l'estrazione completa: magari la ricetta è già
     /// vegana e l'utente vuole solo ritrovarla pronta da salvare.

@@ -413,6 +413,24 @@ router.post('/finalize', (req, res) => {
   });
 });
 
+/**
+ * Il fotogramma del video da cui viene la ricetta, per far vedere a
+ * Gemini com'è fatto il piatto. null se non c'è o non si scarica più.
+ */
+async function loadCoverFrame(recipe) {
+  const url = recipe.imageSource === 'ai' ? recipe.originalImageUrl : recipe.imageUrl;
+  if (!url) return null;
+  try {
+    const res = await axios.get(url, { responseType: 'arraybuffer', timeout: 15000, maxContentLength: 15 * 1024 * 1024 });
+    const mimeType = String(res.headers['content-type'] || 'image/jpeg').split(';')[0];
+    if (!mimeType.startsWith('image/')) return null;
+    return { buffer: Buffer.from(res.data), mimeType };
+  } catch (e) {
+    console.warn('[swap.cover] fotogramma non disponibile, prompt dalla sola ricetta:', e.message);
+    return null;
+  }
+}
+
 // POST /swap/cover  { recipeId }
 // Foto nuova per una ricetta salvata dai social: il fotogramma del video
 // è spesso brutto. Esito e stato finiscono sul documento della ricetta,
@@ -441,10 +459,12 @@ router.post('/cover', (req, res) => {
 
       await ref.set({ coverStatus: 'generating', coverError: FieldValue.delete() }, { merge: true });
       try {
+        const frame = await loadCoverFrame(recipe);
         const brief = await generateJSON({
-          prompt: buildCoverPrompt(recipe),
+          prompt: buildCoverPrompt(recipe, { hasFrame: !!frame }),
+          parts: frame ? [imagePart(frame.buffer, frame.mimeType)] : [],
           schema: coverSchema,
-          temperature: 0.6,
+          temperature: 0.4,
           thinkingLevel: 'LOW',
           label: 'swap-cover',
         });

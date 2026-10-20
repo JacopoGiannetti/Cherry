@@ -6,14 +6,14 @@
 // rifare la scansione.
 const { dietSection, eatsEverything } = require('./diet');
 
-const box = {
-  type: 'OBJECT',
-  description: 'Approximate location of the dish name in the photo, normalized 0-1',
-  properties: {
-    x: { type: 'NUMBER' }, y: { type: 'NUMBER' },
-    w: { type: 'NUMBER' }, h: { type: 'NUMBER' },
-  },
-  required: ['x', 'y', 'w', 'h'],
+// Il formato con cui Gemini localizza davvero: [ymin, xmin, ymax, xmax]
+// in 0-1000. L'app vuole {x, y, w, h} in 0-1: converte `toAppBox`.
+const box_2d = {
+  type: 'ARRAY',
+  items: { type: 'INTEGER' },
+  description:
+    'Bounding box of the dish NAME text only on its photo, as [ymin, xmin, ymax, xmax] normalized to 0-1000. ' +
+    'Tight around the printed name of THIS dish: not its description, not its price, never another dish.',
 };
 
 const estimates = {
@@ -41,10 +41,10 @@ const menuScanSchema = {
           description: { type: 'STRING', description: 'Max 10 words, why it is good' },
           priceText: { type: 'STRING', description: 'Price as printed, or empty' },
           photoIndex: { type: 'NUMBER', description: '0-based index of the photo containing the dish' },
-          box,
+          box_2d,
           ...estimates,
         },
-        required: ['dishName', 'description', 'photoIndex', 'box', 'kcal', 'proteinG', 'carbsG', 'vegan'],
+        required: ['dishName', 'description', 'photoIndex', 'box_2d', 'kcal', 'proteinG', 'carbsG', 'vegan'],
       },
     },
     askForThese: {
@@ -59,10 +59,10 @@ const menuScanSchema = {
           },
           priceText: { type: 'STRING' },
           photoIndex: { type: 'NUMBER' },
-          box,
+          box_2d,
           ...estimates,
         },
-        required: ['dishName', 'waiterPhrase', 'photoIndex', 'box', 'kcal', 'proteinG', 'carbsG', 'vegan'],
+        required: ['dishName', 'waiterPhrase', 'photoIndex', 'box_2d', 'kcal', 'proteinG', 'carbsG', 'vegan'],
       },
     },
   },
@@ -76,6 +76,10 @@ function buildMenuScanPrompt(profile, photoCount) {
     `You receive ${photoCount} photo(s) of a menu (multiple pages of the SAME menu — merge them).`,
     '',
     dietSection(profile),
+    '',
+    'READ THE WHOLE MENU FIRST. Go through every photo, every section and every line, top to bottom, column by column,',
+    'including small print, side columns, boxed specials and dishes written in another language. Do not stop after',
+    'the first sections: a dish you skipped is a dish the user never sees. Then decide.',
     '',
     'Answer the only question that matters: WHAT DO I ORDER?',
     '- bestBets: dishes already compatible with the profile as written on the menu.',
@@ -91,8 +95,11 @@ function buildMenuScanPrompt(profile, photoCount) {
     'Only include dishes you can actually see on the menu. Never invent dishes.',
     'Do NOT list incompatible dishes at all — only good news.',
     'If genuinely nothing fits, return empty arrays.',
-    'For every dish, report which photo it appears in (photoIndex, 0-based) and the approximate',
-    'normalized bounding box of the dish name on that photo.',
+    'Include EVERY dish that fits, not a selection.',
+    'For every dish, report which photo it appears in (photoIndex, 0-based) and box_2d: the box of its NAME on that',
+    'photo, [ymin, xmin, ymax, xmax] in 0-1000. The box hugs the printed name only — usually one line, as wide as the',
+    'words and as tall as the letters. Small print gets a small box. It never covers the description, the price or a',
+    'neighbouring dish; two dishes never share a box.',
     '',
     'For every dish also estimate, for ONE restaurant portion as it would be served (after the requested',
     'modification, if any): kcal, proteinG and carbsG. Restaurant portions are generous and cooked with',
@@ -104,4 +111,23 @@ function buildMenuScanPrompt(profile, photoCount) {
   ].join('\n');
 }
 
-module.exports = { buildMenuScanPrompt, menuScanSchema };
+/** box_2d di Gemini → il box {x, y, w, h} in 0-1 che legge l'app. null se non è un box valido. */
+function toAppBox(box2d) {
+  if (!Array.isArray(box2d) || box2d.length !== 4 || !box2d.every(Number.isFinite)) return null;
+  const clamp = (v) => Math.min(1, Math.max(0, v / 1000));
+  const [y0, x0, y1, x1] = box2d.map(clamp);
+  const x = Math.min(x0, x1);
+  const y = Math.min(y0, y1);
+  const w = Math.abs(x1 - x0);
+  const h = Math.abs(y1 - y0);
+  if (w <= 0 || h <= 0) return null;
+  return { x, y, w, h };
+}
+
+/** Il piatto come lo salva Firestore: `box` nel formato dell'app, senza `box_2d`. */
+function toAppDish({ box_2d: box2d, ...dish }) {
+  const box = toAppBox(box2d);
+  return box ? { ...dish, box } : dish;
+}
+
+module.exports = { buildMenuScanPrompt, menuScanSchema, toAppDish };

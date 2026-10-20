@@ -29,6 +29,10 @@ final class SwapStore: ObservableObject, Identifiable {
     /// arriva da una ricetta già salvata l'originale l'ha già davanti.
     var opensOnSwaps = false
 
+    /// Ricetta salvata, col link da cui era arrivata: chi ha aperto lo
+    /// swap toglie quel link dai pending.
+    var onSaved: ((String) -> Void)?
+
     private var listener: ListenerRegistration?
     private var jobListener: ListenerRegistration?
 
@@ -189,5 +193,6 @@ final class SwapStore: ObservableObject, Identifiable {
         }
         FirestoreService.saveRecipe(uid: uid, payload)
         jobs.ping("recipe.save")
+        if let sourceUrl = swap?.source?.url { onSaved?(sourceUrl) }
     }
 }

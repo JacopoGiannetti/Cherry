@@ -111,6 +111,7 @@ struct RecipesHomeView: View {
             store = SwapStore(uid: appState.uid, jobs: appState.jobs)
         }
         store.opensOnSwaps = opensOnSwaps
+        store.onSaved = { [appState] url in appState.resolveInboxItem(matching: url) }
         activeSwap = store
         Task { await store.startImport(source: source) }
     }
