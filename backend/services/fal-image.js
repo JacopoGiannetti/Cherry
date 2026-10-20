@@ -16,15 +16,15 @@ const MAX_CONCURRENCY = 6;
 // piatto protagonista, texture vere (bruciature, lucido della salsa,
 // briciole) — è quello che fa venire fame. Il "cosa" c'è nel piatto lo
 // decide Gemini nell'imagePrompt; qui c'è solo il "come" lo fotografiamo.
+// Niente nomi di cibi qui: FLUX li disegna in ogni piatto (la frase sulla
+// pasta metteva tagliatelle sotto i peperoni ripieni).
 const STYLE_PROMPT =
   'Photorealistic food photography, shot on a full-frame camera with an 85mm lens, f/2.8, ' +
   'natural soft window light from the left with gentle shadows, 45-degree angle, ' +
   'a single plate or bowl holding one serving is the only subject, centred, on a warm neutral wooden or linen table, ' +
-  'carefully plated: distinct recognisable components, clear shapes, contrasting colours, sauce placed not flooded, ' +
-  'pasta and noodles rest loosely and naturally in the plate or bowl, low and gently tumbled as if just served, ' +
-  'true-to-life colours, real textures — glossy sauce, charred edges, visible steam, ' +
-  'appetizing generous single portion, no over-saturation, no plastic-looking CGI sheen, ' +
-  'no second plate, no pot or pan, no people, no hands, no text, no watermark, no extra side dishes, no cutlery clutter';
+  'freshly served and appetizing, food glistening where it is moist, a gentle wisp of steam, ' +
+  'true-to-life colours, natural matte ceramic, no over-saturation, no plastic-looking CGI sheen, ' +
+  'no second plate, no pot or pan, no people, no hands, no text, no watermark, no cutlery clutter';
 
 let active = 0;
 const queue = [];

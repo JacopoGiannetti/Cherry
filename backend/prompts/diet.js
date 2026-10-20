@@ -183,7 +183,7 @@ const IMAGE_PROMPT_SCHEMA =
   'English, 40-70 words, for a photo generator. Describe the FINISHED dish exactly as the steps produce it: ' +
   'the visible ingredients (only ones in the recipe), their cooked state (charred edges, glossy sauce, melted, crisp, steaming), ' +
   'one single serving on one plate or bowl, neatly plated, and any garnish that is actually in the recipe. ' +
-  'Pasta and noodles rest low and loose in the dish, never a tall standing nest, never lifted. ' +
+  'Every ingredient by its full name from the list ("cherry tomatoes", never "cherries"). ' +
   'Make it look irresistible but never add food that is not in the recipe. Internal.';
 
 /**
@@ -193,19 +193,22 @@ const IMAGE_PROMPT_SCHEMA =
  */
 function photoBrief(extra) {
   const lines = [
-    'PHOTO BRIEF (imagePrompt): the photo must be faithful to the recipe AND make people hungry.',
-    '- Describe the finished dish exactly as the last step leaves it: which ingredients are visible, how they look cooked',
-    '  (blistered, glossy, caramelised, melted, crisp, steaming), the sauce, the plating.',
-    '- ONE plate or bowl with ONE serving, whatever the recipe yields: never two plates, never the pot or the pan.',
-    '- Plated with care like in a good restaurant: every component recognisable, clear shapes, contrasting',
-    '  colours, sauce placed rather than flooded. Never a shapeless pile, a beige mush or a messy stew filling the bowl.',
-    '- Pasta and noodles rest low and loose in the plate or bowl, as if just served: never twisted into a tall standing',
-    '  nest or lifted in the air. Nothing is held, lifted or picked up.',
-    '- Only ingredients from the ingredient list may appear. No extra garnish, no side dishes, no drinks, no herbs that',
-    '  are not in the recipe, and never any animal product for a vegan profile.',
-    '- Write it as a hungry food photographer would: specific textures and colours, a hero detail (a drip of sauce,',
-    '  a torn piece showing the inside, a glossy sauce clinging to the noodles). 40-70 words, English, no camera/style instructions',
-    '  (the app adds those).',
+    'PHOTO BRIEF (imagePrompt): the most realistic AND mouth-watering version of this dish, freshly served.',
+    'The image model reads every word literally and does not understand negation or context, so:',
+    '- Describe ONLY what is on the plate, as the last step leaves it: which ingredients are visible, how they look cooked',
+    '  (blistered, glossy, caramelised, melted, crisp, steaming), the sauce, the plating. Never mention anything that is not',
+    '  there, not even to exclude it: writing "no pasta" makes it draw pasta.',
+    '- Name every ingredient by its FULL name from the ingredient list: "cherry tomatoes", never "cherries";',
+    '  "spring onions", never "onions".',
+    '- Name pasta, rice or bread ONLY if the recipe has it, with its exact shape ("spaghetti", not "pasta" or "noodles"),',
+    '  resting low and loose in the plate. Nothing sits under or beside the main dish unless the recipe serves it that way.',
+    '- Describe the sauce as the steps make it, and be generous: a pan sauce is "a glossy, silky sauce coating every strand',
+    '  of spaghetti". Never dry or dull-looking, never a puddle of oil or broth. A dish with no sauce gets no sauce word.',
+    '- Give small ingredients their real size: "tiny pine nuts", "small capers", "thin garlic slices".',
+    '- ONE plate or bowl with ONE serving, whatever the recipe yields. Every component recognisable, real cuts and cooked',
+    '  textures, one hero detail. Only ingredients from the ingredient list may appear, and never any animal product for',
+    '  a vegan profile.',
+    '- 40-70 words, English, plain sentences, no camera or style words (the app adds those).',
   ];
   if (extra) lines.push(`- ${extra}`);
   return lines.join('\n');
