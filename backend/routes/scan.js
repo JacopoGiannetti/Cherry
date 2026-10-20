@@ -12,6 +12,7 @@ const { lookupBarcode } = require('../services/openfoodfacts');
 const { buildMenuScanPrompt, menuScanSchema, toAppDish } = require('../prompts/menu-scan');
 const { flagsFromOffTags, classifyWithGemini, verdictFor, badgesFor } = require('../lib/verdict');
 const { recordEvent } = require('../lib/usage');
+const { responseLanguage } = require('../prompts/diet');
 
 const router = express.Router();
 
@@ -60,6 +61,64 @@ router.post('/menu', (req, res) => {
     },
   });
 });
+
+const translationSchema = {
+  type: 'OBJECT',
+  properties: {
+    name: { type: 'STRING' },
+    ingredients: { type: 'ARRAY', items: { type: 'STRING' } },
+  },
+  required: ['name', 'ingredients'],
+};
+
+/**
+ * Open Food Facts dà nome e ingredienti nella lingua dell'etichetta:
+ * l'utente li vede nella lingua dell'app. Cache per barcode e lingua,
+ * perché la cache del prodotto è condivisa tra utenti di lingue diverse.
+ * Se la traduzione non riesce si mostra l'originale.
+ */
+async function localizeProduct(product, verdict, profile) {
+  const lang = profile.language || 'en';
+  const offending = verdict.offendingIngredients || [];
+  const key = `${product.barcode}_${lang}`;
+  let translated = await getCached('productTranslations', key, PRODUCT_CACHE_TTL_MS);
+  const covers = translated && offending.every((i) => translated.ingredients[i.name]);
+  if (!covers) {
+    try {
+      const names = offending.map((i) => i.name);
+      const result = await generateJSON({
+        prompt: [
+          `Translate this grocery product's name and ingredient names into ${responseLanguage(profile)}.`,
+          'Write the name as a shop would label it in that language. Keep brand names, trademarks and proper nouns as they are.',
+          'If a text is already in that language, return it unchanged. Same order and count for ingredients.',
+          JSON.stringify({ name: product.name, ingredients: names }),
+        ].join('\n'),
+        schema: translationSchema,
+        temperature: 0.1,
+        thinkingLevel: 'LOW',
+        label: 'product-translate',
+      });
+      translated = {
+        name: result.name || product.name,
+        ingredients: {
+          ...(translated?.ingredients || {}),
+          ...Object.fromEntries(names.map((n, i) => [n, (result.ingredients || [])[i] || n])),
+        },
+      };
+      await setCached('productTranslations', key, translated);
+    } catch (e) {
+      console.warn('[scan.product] traduzione non riuscita, resta la lingua dell\'etichetta:', e.message);
+      return { product, verdict };
+    }
+  }
+  return {
+    product: { ...product, name: translated.name },
+    verdict: {
+      ...verdict,
+      offendingIngredients: offending.map((i) => ({ ...i, name: translated.ingredients[i.name] || i.name })),
+    },
+  };
+}
 
 // POST /scan/product  { scanId, barcode }
 router.post('/product', (req, res) => {
@@ -115,12 +174,13 @@ router.post('/product', (req, res) => {
       const verdict = entry.flags
         ? verdictFor(profile.dietaryIdentity, entry.flags)
         : { fits: null, label: 'Not enough data', offendingIngredients: [] };
+      const localized = await localizeProduct(entry.product, verdict, profile);
 
       await scanRef.set(
         {
           status: 'done',
-          product: entry.product,
-          verdict,
+          product: localized.product,
+          verdict: localized.verdict,
           badges: badgesFor(entry.flags, entry.product.nutrition),
           completedAt: FieldValue.serverTimestamp(),
         },
