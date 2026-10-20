@@ -68,7 +68,7 @@ struct RecipesHomeView: View {
                     // collezione, altrimenti resta sotto e non parte.
                     showCollection = false
                     DispatchQueue.main.asyncAfter(deadline: .now() + 0.45) {
-                        startSwap(source: ["type": "link", "url": url])
+                        startSwap(source: ["type": "link", "url": url], opensOnSwaps: true)
                     }
                 }
             )
@@ -99,7 +99,7 @@ struct RecipesHomeView: View {
         startSwap(source: ["type": "link", "url": url])
     }
 
-    private func startSwap(source: [String: Any]) {
+    private func startSwap(source: [String: Any], opensOnSwaps: Bool = false) {
         // Per i link lo swapId deriva dall'URL: se il backend ha già
         // elaborato quel link (prewarm in background o un tentativo
         // precedente) ci si riaggancia al documento esistente e il
@@ -110,6 +110,7 @@ struct RecipesHomeView: View {
         } else {
             store = SwapStore(uid: appState.uid, jobs: appState.jobs)
         }
+        store.opensOnSwaps = opensOnSwaps
         activeSwap = store
         Task { await store.startImport(source: source) }
     }

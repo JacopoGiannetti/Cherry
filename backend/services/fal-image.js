@@ -1,9 +1,11 @@
 // Foto ricette con fal.ai FLUX.1 [schnell] — stesso modello del Gut Shop
 // di GutSense. Uno style prompt FISSO garantisce che tutte le foto
 // dell'app sembrino scattate dallo stesso fotografo (§10.5 blueprint).
+const crypto = require('crypto');
 const axios = require('axios');
 const { keys } = require('../config/keys');
 const { recordFal } = require('../lib/usage');
+const { persistImage } = require('./storage');
 
 const FAL_ENDPOINT = 'https://fal.run/fal-ai/flux/schnell';
 const REQUEST_TIMEOUT_MS = 60000;
@@ -46,8 +48,10 @@ function release() {
 }
 
 /**
- * Genera la foto di una ricetta. Ritorna l'URL hosted da fal, o null se
- * fallisce: le immagini sono best-effort, la ricetta resta usabile senza.
+ * Genera la foto di una ricetta e la copia nel nostro Storage. Ritorna
+ * l'URL stabile, quello temporaneo di fal se la copia non riesce, o null
+ * se la generazione fallisce: le immagini sono best-effort, la ricetta
+ * resta usabile senza.
  */
 async function generateRecipeImage({ title, imagePrompt, cuisine }) {
   if (!keys.fal.apiKey) {
@@ -55,8 +59,17 @@ async function generateRecipeImage({ title, imagePrompt, cuisine }) {
     return null;
   }
   const subject = imagePrompt || `${title}, ${cuisine || 'plant-based'} dish`;
-  const prompt = `${subject}. ${STYLE_PROMPT}`;
+  const url = await requestImage(`${subject}. ${STYLE_PROMPT}`);
+  if (!url) return null;
+  try {
+    return await persistImage(url, `recipe-images/${crypto.randomUUID()}.jpg`);
+  } catch (e) {
+    console.warn('[fal] foto non copiata su Storage, resta il link fal:', e.message);
+    return url;
+  }
+}
 
+async function requestImage(prompt) {
   await acquire();
   try {
     for (let attempt = 1; attempt <= MAX_ATTEMPTS; attempt++) {

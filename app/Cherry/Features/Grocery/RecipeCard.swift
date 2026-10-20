@@ -52,9 +52,6 @@ struct RecipeCardFace: View {
                         .foregroundStyle(.white.opacity(0.85))
                         .lineLimit(2)
 
-                    AIGeneratedBadge(surface: .overlay)
-                        .padding(.top, 2)
-
                     if showsTapHint {
                         HStack(spacing: 6) {
                             Image(systemName: "hand.tap.fill")

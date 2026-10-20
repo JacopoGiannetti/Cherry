@@ -2,26 +2,32 @@
 // ledger personalizzato, riscrittura finale con foto.
 const express = require('express');
 const crypto = require('crypto');
+const axios = require('axios');
 const { db, FieldValue } = require('../lib/firebase');
 const { startJob, JobError } = require('../lib/jobs');
 const { consumeQuota, checkQuota } = require('../lib/rate-limit');
 const { getTasteProfile } = require('../lib/profile');
-const { getCached, setCached, bumpCacheHit } = require('../lib/cache');
+const { getCached, setCached, patchCached, bumpCacheHit } = require('../lib/cache');
 const { generateJSON, imagePart, videoPart } = require('../services/gemini');
-const { downloadImage } = require('../services/storage');
-const { downloadVideo, detectPlatform } = require('../services/social-video');
+const { downloadImage, isPersisted } = require('../services/storage');
+const { downloadVideo, detectPlatform, resolve, SocialVideoError } = require('../services/social-video');
 const { fetchWebRecipe } = require('../services/web-recipe');
 const { generateRecipeImage } = require('../services/fal-image');
-const { previewId, fetchPreview, writePreview, markPreviewFailed } = require('../lib/inbox-preview');
+const { previewId, fetchPreview, writePreview, markPreviewFailed, keepThumbnail } = require('../lib/inbox-preview');
 const { recordSocial } = require('../lib/usage');
 const {
   buildExtractionPrompt, extractionSchema,
   buildLedgerPrompt, ledgerSchema,
   buildFinalizePrompt, finalizeSchema,
+  buildCoverPrompt, coverSchema,
   GOALS, defaultGoal,
 } = require('../prompts/swap');
 
 const router = express.Router();
+
+// Come `staleAfter` in SharedInboxStore: oltre, un ledger mai arrivato
+// è un job morto e l'import può ripartire.
+const LEDGER_STALE_MS = 3 * 60 * 1000;
 
 function normalizeUrl(url) {
   try {
@@ -35,7 +41,13 @@ function normalizeUrl(url) {
 }
 
 async function extractFromVideo(uid, url, profile) {
-  const video = await downloadVideo(url);
+  let video;
+  try {
+    video = await downloadVideo(url);
+  } catch (e) {
+    if (!(e instanceof SocialVideoError) || !e.caption) throw e;
+    return extractFromPost(uid, url, profile, e);
+  }
   const extraction = await generateJSON({
     prompt: buildExtractionPrompt({ sourceType: 'video', caption: video.caption, profile }),
     schema: extractionSchema,
@@ -50,9 +62,42 @@ async function extractFromVideo(uid, url, profile) {
   }
   return {
     recipe: extraction.recipe,
-    thumbnail: video.thumbnail || null,
+    thumbnail: (await keepThumbnail(url, video.thumbnail)) || video.thumbnail || null,
     platform: video.platform,
     caption: video.caption || null,
+  };
+}
+
+/**
+ * Il video non si scarica (troppo lungo, CDN che rifiuta, post di sole
+ * foto) ma il post si è letto: didascalia e copertina bastano spesso,
+ * perché su Instagram la ricetta sta quasi sempre scritta lì sotto.
+ */
+async function extractFromPost(uid, url, profile, failure) {
+  const parts = [];
+  if (failure.thumbnail) {
+    const cover = await axios.get(failure.thumbnail, { responseType: 'arraybuffer', timeout: 15000 }).catch(() => null);
+    const type = String(cover?.headers?.['content-type'] || '').split(';')[0];
+    if (cover && type.startsWith('image/')) parts.push(imagePart(Buffer.from(cover.data), type));
+  }
+  const extraction = await generateJSON({
+    prompt: buildExtractionPrompt({ sourceType: 'post', caption: failure.caption, profile }),
+    schema: extractionSchema,
+    parts,
+    temperature: 0.2,
+    label: 'swap-extract-caption',
+    thinkingLevel: 'LOW',
+  });
+  consumeQuota(uid, 'jobs', 1);
+  if (!extraction.found || !extraction.recipe) {
+    // L'errore vero resta quello del video: la didascalia era un tentativo in più.
+    throw failure;
+  }
+  return {
+    recipe: extraction.recipe,
+    thumbnail: (await keepThumbnail(url, failure.thumbnail)) || failure.thumbnail || null,
+    platform: detectPlatform(url),
+    caption: failure.caption,
   };
 }
 
@@ -71,7 +116,7 @@ async function extractFromWebPage(uid, url, profile) {
   }
   return {
     recipe: extraction.recipe,
-    thumbnail: page.thumbnail || null,
+    thumbnail: (await keepThumbnail(url, page.thumbnail)) || page.thumbnail || null,
     platform: 'web',
     caption: page.title || null,
   };
@@ -94,7 +139,7 @@ async function extractOriginal(uid, source, profile) {
     const cached = await getCached('sourceRecipes', cacheKey);
     if (cached) {
       bumpCacheHit('sourceRecipes', cacheKey);
-      return cached;
+      return withLastingThumbnail(source.url, cached, cacheKey);
     }
 
     // Social: si guarda il video. Qualsiasi altro sito: si legge la
@@ -138,6 +183,23 @@ async function extractOriginal(uid, source, profile) {
     throw new JobError('no_recipe', "We couldn't find a recipe in that text.");
   }
   return { recipe: extraction.recipe, thumbnail: null, platform: 'text', caption: null };
+}
+
+/**
+ * Le voci in cache scritte prima della copia su Storage tengono il link
+ * originale della copertina, che può essere scaduto: si copia ora, o se
+ * ne chiede uno nuovo al social, e la cache si corregge per tutti.
+ */
+async function withLastingThumbnail(url, entry, cacheKey) {
+  if (!entry.thumbnail || isPersisted(entry.thumbnail)) return entry;
+  let thumbnail = await keepThumbnail(url, entry.thumbnail);
+  if (!thumbnail && detectPlatform(url) !== 'unknown') {
+    const fresh = await resolve(url).catch(() => null);
+    if (fresh?.thumbnail) thumbnail = await keepThumbnail(url, fresh.thumbnail);
+  }
+  if (!thumbnail) return entry;
+  await patchCached('sourceRecipes', cacheKey, { thumbnail });
+  return { ...entry, thumbnail };
 }
 
 // POST /swap/preview  { url }
@@ -204,7 +266,13 @@ router.post('/import', (req, res) => {
       // già pronto.
       const existing = await swapRef.get();
       const doneStatuses = ['extracted', 'ledger_ready', 'generating_photo', 'finalized'];
-      if (existing.exists && doneStatuses.includes(existing.get('status'))) return;
+      const status = existing.exists ? existing.get('status') : null;
+      if (doneStatuses.includes(status)) return;
+      // Ledger partito da poco: è il prewarm ancora al lavoro, e la
+      // ricetta letta è già lì da mostrare. Ripartire la cancellerebbe.
+      const startedAt = existing.exists ? existing.get('createdAt') : null;
+      if (status === 'building_ledger' && existing.get('original') && startedAt
+        && Date.now() - startedAt.toMillis() < LEDGER_STALE_MS) return;
 
       if (source.type === 'link') recordSocial(uid, { linksImported: 1 });
       else if (source.type === 'screenshot') recordSocial(uid, { screenshots: 1 });
@@ -233,7 +301,15 @@ router.post('/import', (req, res) => {
         },
         { merge: true }
       );
-      if (goal) await buildLedger(uid, swapRef, profile, extracted.recipe, goal);
+      if (!goal) return;
+      try {
+        await buildLedger(uid, swapRef, profile, extracted.recipe, goal);
+      } catch (e) {
+        // La ricetta letta resta salvabile così com'è: si torna alla
+        // scelta, non a un caricamento infinito.
+        await swapRef.set({ status: 'extracted', goal: null }, { merge: true }).catch(() => {});
+        throw e;
+      }
     },
   });
 });
@@ -333,6 +409,60 @@ router.post('/finalize', (req, res) => {
       // Foto non disponibile: si mostra la ricetta senza ripiegare
       // sulla thumbnail del video originale.
       await swapRef.set({ status: 'finalized', finalRecipe: recipe }, { merge: true });
+    },
+  });
+});
+
+// POST /swap/cover  { recipeId }
+// Foto nuova per una ricetta salvata dai social: il fotogramma del video
+// è spesso brutto. Esito e stato finiscono sul documento della ricetta,
+// che l'app sta già ascoltando. Il fotogramma resta in `originalImageUrl`.
+router.post('/cover', (req, res) => {
+  const { recipeId } = req.body || {};
+  if (!recipeId || typeof recipeId !== 'string') {
+    return res.status(400).json({ error: 'missing_fields', details: 'recipeId richiesto' });
+  }
+  startJob(req, res, {
+    type: 'swap.cover',
+    payload: { recipeId },
+    work: async ({ uid }) => {
+      const ref = db().doc(`users/${uid}/savedRecipes/${recipeId}`);
+      const snap = await ref.get();
+      if (!snap.exists) throw new JobError('recipe_not_found', 'This recipe is no longer in your collection.');
+      const recipe = snap.data();
+
+      const fail = async (e) => {
+        await ref.set({ coverStatus: 'failed', coverError: e.userMessage || 'We couldn’t plate a photo right now. Try again.' }, { merge: true }).catch(() => {});
+        throw e;
+      };
+
+      const { allowed } = await checkQuota(uid, 'images');
+      if (!allowed) return fail(new JobError('daily_limit_exceeded', 'You’ve made a lot of photos today. Try again tomorrow.'));
+
+      await ref.set({ coverStatus: 'generating', coverError: FieldValue.delete() }, { merge: true });
+      try {
+        const brief = await generateJSON({
+          prompt: buildCoverPrompt(recipe),
+          schema: coverSchema,
+          temperature: 0.6,
+          thinkingLevel: 'LOW',
+          label: 'swap-cover',
+        });
+        consumeQuota(uid, 'jobs', 1);
+        const imageUrl = await generateRecipeImage({ title: recipe.title, imagePrompt: brief.imagePrompt, cuisine: recipe.cuisine });
+        if (!imageUrl) throw new JobError('cover_failed', 'We couldn’t plate a photo right now. Try again.');
+        consumeQuota(uid, 'images', 1);
+        await ref.set({
+          imageUrl,
+          imageSource: 'ai',
+          // Solo la prima volta: rifare la foto non deve perdere il fotogramma.
+          ...(recipe.imageSource !== 'ai' && recipe.imageUrl ? { originalImageUrl: recipe.imageUrl } : {}),
+          coverStatus: FieldValue.delete(),
+          coverError: FieldValue.delete(),
+        }, { merge: true });
+      } catch (e) {
+        return fail(e);
+      }
     },
   });
 });

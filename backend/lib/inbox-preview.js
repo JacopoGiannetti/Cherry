@@ -6,6 +6,7 @@ const crypto = require('crypto');
 const { db, FieldValue } = require('./firebase');
 const { detectPlatform, resolve } = require('../services/social-video');
 const { fetchWebRecipe } = require('../services/web-recipe');
+const { persistImage } = require('../services/storage');
 
 // Stesso algoritmo di swap.js così client e server concordano sull'id.
 function normalizeUrl(url) {
@@ -23,6 +24,21 @@ function previewId(url) {
   return crypto.createHash('sha256').update(normalizeUrl(url)).digest('hex');
 }
 
+/**
+ * La copertina del post copiata nel nostro Storage: il link del social
+ * è firmato e scade. Il path dipende solo dal link del post, così
+ * anteprima e import finiscono sullo stesso file. null se non riesce.
+ */
+async function keepThumbnail(sourceUrl, thumbnail) {
+  if (!thumbnail) return null;
+  try {
+    return await persistImage(thumbnail, `thumbnails/${previewId(sourceUrl)}`);
+  } catch (e) {
+    console.warn('[thumbnail] copertina non copiata:', e.message);
+    return null;
+  }
+}
+
 function cleanTitle(text, fallback) {
   const line = String(text || '').split('\n').map((s) => s.trim()).find(Boolean) || '';
   const title = line.slice(0, 100);
@@ -37,7 +53,7 @@ async function fetchPreview(url) {
     const { caption, thumbnail } = await resolve(url);
     return {
       title: cleanTitle(caption, `Recipe from ${platform}`),
-      thumbnail: thumbnail || null,
+      thumbnail: (await keepThumbnail(url, thumbnail)) || thumbnail || null,
       platform,
     };
   }
@@ -45,7 +61,7 @@ async function fetchPreview(url) {
   const page = await fetchWebRecipe(url);
   return {
     title: cleanTitle(page.title, 'Recipe from the web'),
-    thumbnail: page.thumbnail || null,
+    thumbnail: (await keepThumbnail(url, page.thumbnail)) || page.thumbnail || null,
     platform: 'web',
   };
 }
@@ -80,6 +96,7 @@ async function markPreviewFailed(uid, url, message) {
 module.exports = {
   previewId,
   normalizeUrl,
+  keepThumbnail,
   fetchPreview,
   writePreview,
   markPreviewFailed,

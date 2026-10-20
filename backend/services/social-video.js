@@ -13,10 +13,14 @@ const { MAX_INLINE_BYTES } = require('./gemini');
 const MAX_VIDEO_BYTES = MAX_INLINE_BYTES;
 
 class SocialVideoError extends Error {
-  constructor(code, message) {
+  constructor(code, message, extra = {}) {
     super(message);
     this.code = code;
     this.userMessage = message;
+    // Didascalia e copertina, quando il post si è letto ma il video no:
+    // chi chiama può ancora provare a ricavarne la ricetta.
+    this.caption = extra.caption || null;
+    this.thumbnail = extra.thumbnail || null;
   }
 }
 
@@ -39,29 +43,36 @@ function pickBestMedia(data) {
   const thumbnail = firstString(data.thumbnail, data.cover, data.thumb, data.picture, data.image, data.meta?.thumbnail);
 
   const candidates = [];
+  const seen = new Set();
+  const add = (url, quality) => {
+    if (!url || seen.has(url)) return;
+    seen.add(url);
+    candidates.push({ url, quality });
+  };
   const collect = (arr) => {
     if (!Array.isArray(arr)) return;
     for (const m of arr) {
       const url = firstString(m.url, m.link, m.src);
       if (!url) continue;
       const isVideo = (m.type || m.videoAvailable || '').toString().toLowerCase().includes('video') || /\.mp4/i.test(url);
-      if (isVideo) {
-        candidates.push({ url, quality: (m.quality || '').toString().toLowerCase() });
-      }
+      if (isVideo) add(url, (m.quality || '').toString().toLowerCase());
     }
   };
   collect(data.medias);
   collect(data.links);
   collect(data.formats);
-  if (typeof data.url === 'string') candidates.push({ url: data.url, quality: '' });
+  // `url` a volte è il link del post stesso: una pagina, non un video.
+  if (typeof data.url === 'string' && detectPlatform(data.url) === 'unknown') add(data.url, '');
 
-  // Preferisci HD / no-watermark quando dichiarato.
-  candidates.sort((a, b) => {
-    const score = (c) => (c.quality.includes('hd') ? 2 : 0) + (c.quality.includes('no_watermark') || c.quality.includes('no-watermark') ? 1 : 0);
-    return score(b) - score(a);
-  });
+  // Per leggere la ricetta basta la definizione normale, e l'HD di un
+  // reel lungo sfora il limite inline di Gemini: prima la versione più
+  // leggera, l'HD resta come seconda scelta. Senza watermark a parità.
+  const score = (c) =>
+    (c.quality.includes('hd') ? 0 : 2) +
+    (c.quality.includes('no_watermark') || c.quality.includes('no-watermark') ? 1 : 0);
+  candidates.sort((a, b) => score(b) - score(a));
 
-  return { videoUrl: candidates[0]?.url || null, caption, thumbnail };
+  return { videoUrls: candidates.map((c) => c.url), caption, thumbnail };
 }
 
 async function resolve(url) {
@@ -99,29 +110,46 @@ async function downloadVideo(url) {
     throw new SocialVideoError('unsupported_platform', 'Only TikTok and Instagram links are supported for now.');
   }
 
-  const { videoUrl, caption, thumbnail } = await resolve(url);
-  if (!videoUrl) {
-    throw new SocialVideoError('no_media', 'No video found at that link.');
+  const { videoUrls, caption, thumbnail } = await resolve(url);
+  if (!videoUrls.length) {
+    // Post di sole foto, o carosello: niente video, ma la didascalia c'è.
+    throw new SocialVideoError('no_media', 'No video found at that link.', { caption, thumbnail });
   }
 
-  try {
-    const response = await axios.get(videoUrl, {
-      responseType: 'arraybuffer',
-      timeout: DOWNLOAD_TIMEOUT_MS,
-      maxContentLength: MAX_VIDEO_BYTES,
-      maxBodyLength: MAX_VIDEO_BYTES,
-    });
-    const buffer = Buffer.from(response.data);
-    if (!buffer.length) throw new SocialVideoError('empty_media', 'The video appears to be empty.');
-    if (buffer.length > MAX_VIDEO_BYTES) throw new SocialVideoError('too_large', 'That video is too long to analyze.');
-
-    let mimeType = (response.headers['content-type'] || 'video/mp4').split(';')[0];
-    if (!mimeType.startsWith('video/')) mimeType = 'video/mp4';
-    return { buffer, mimeType, caption, thumbnail, platform };
-  } catch (e) {
-    if (e instanceof SocialVideoError) throw e;
-    throw new SocialVideoError('download_failed', 'Could not download that video. Try again.');
+  // Si provano tutte le versioni: una può sforare il limite o avere il
+  // link del CDN già scaduto, e la successiva andare benissimo.
+  const reasons = [];
+  for (const videoUrl of videoUrls) {
+    try {
+      return { ...(await fetchVideo(videoUrl)), caption, thumbnail, platform };
+    } catch (e) {
+      reasons.push(e.message);
+    }
   }
+  console.warn(`[social] nessun video scaricabile per ${url}: ${reasons.join(' | ')}`);
+  const tooLarge = reasons.every((r) => /maxContentLength|troppo grande/i.test(r));
+  throw tooLarge
+    ? new SocialVideoError('too_large', 'That video is too long for us to read. Try a shorter post.', { caption, thumbnail })
+    : new SocialVideoError('download_failed', 'Could not download that video. Try again.', { caption, thumbnail });
+}
+
+async function fetchVideo(videoUrl) {
+  const response = await axios.get(videoUrl, {
+    responseType: 'arraybuffer',
+    timeout: DOWNLOAD_TIMEOUT_MS,
+    maxContentLength: MAX_VIDEO_BYTES,
+    maxBodyLength: MAX_VIDEO_BYTES,
+    headers: { 'User-Agent': 'Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X)' },
+  });
+  const buffer = Buffer.from(response.data);
+  if (!buffer.length) throw new Error('video vuoto');
+  if (buffer.length > MAX_VIDEO_BYTES) throw new Error(`video troppo grande: ${buffer.length} byte`);
+
+  const contentType = String(response.headers['content-type'] || 'video/mp4').split(';')[0];
+  // Un CDN che risponde con una pagina d'errore non è un video.
+  if (/^(text|application\/json)/.test(contentType)) throw new Error(`non è un video: ${contentType}`);
+  const mimeType = contentType.startsWith('video/') ? contentType : 'video/mp4';
+  return { buffer, mimeType };
 }
 
 module.exports = { downloadVideo, resolve, detectPlatform, SocialVideoError };

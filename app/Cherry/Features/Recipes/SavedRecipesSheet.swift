@@ -150,7 +150,16 @@ struct SavedRecipesSheet: View {
                         // una ricetta che non c'è più.
                         if !path.isEmpty { path.removeLast() }
                         onDelete(live)
-                    }
+                    },
+                    isImported: live.origin == "imported",
+                    hasAIPhoto: live.hasAIPhoto,
+                    coverStatus: live.coverStatus,
+                    coverError: live.coverError,
+                    // Il fotogramma del video è quasi sempre brutto: chi
+                    // ha salvato dai social può farsi fare la copertina.
+                    onGenerateCover: live.origin == "imported" ? live.id.map { id in
+                        { try await appState.jobs.start("/swap/cover", body: ["recipeId": id]) }
+                    } : nil
                 )
             }
             .sheet(item: $recipeToEdit) { recipe in

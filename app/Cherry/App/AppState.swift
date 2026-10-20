@@ -118,8 +118,6 @@ final class AppState: ObservableObject {
     /// L'accesso dipende da StoreKit, non da un flag locale che
     /// sopravviverebbe a una disdetta.
     var hasAccess: Bool {
-        // PAYWALL OFF — temporaneo, da togliere prima di mandare in review.
-        return true
         if subscriptions.isSubscribed { return true }
         // Holdout Superwall: gruppo di controllo che per definizione
         // non vede il paywall, quindi non può nemmeno restare fuori.

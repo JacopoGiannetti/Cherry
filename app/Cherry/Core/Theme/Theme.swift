@@ -330,48 +330,8 @@ struct SecondaryButtonStyle: ButtonStyle {
 
 /// Ricette, verdetti sui menu, swap e foto dei piatti li scrive un
 /// modello, non una redazione: Apple chiede che sia dichiarato dove
-/// l'utente li legge. Un solo componente per tutta l'app, così
-/// l'etichetta è sempre la stessa e nessuna schermata se la dimentica.
-struct AIGeneratedBadge: View {
-    enum Surface {
-        case light   // su card e sfondi chiari
-        case overlay // sopra una foto
-    }
-
-    var label: String = "AI-generated"
-    var surface: Surface = .light
-
-    var body: some View {
-        HStack(spacing: 4) {
-            Image(systemName: "sparkles")
-                .font(.system(size: 9, weight: .bold))
-            Text(label)
-                .font(.system(size: 10, weight: .bold, design: .rounded))
-        }
-        .foregroundStyle(foreground)
-        .padding(.horizontal, 8)
-        .padding(.vertical, 4)
-        .background(background, in: .capsule)
-        .accessibilityLabel("\(label) content")
-    }
-
-    private var foreground: Color {
-        switch surface {
-        case .light: Theme.subtle
-        case .overlay: .white.opacity(0.95)
-        }
-    }
-
-    private var background: some ShapeStyle {
-        switch surface {
-        case .light: AnyShapeStyle(Theme.ink.opacity(0.07))
-        case .overlay: AnyShapeStyle(.black.opacity(0.42))
-        }
-    }
-}
-
-/// Versione distesa, per il fondo di una schermata che è per intero
-/// il risultato di una generazione.
+/// l'utente li legge. Sta in fondo alla schermata, non sopra le foto:
+/// lì direbbe "AI" anche su quelle scattate da chi ha pubblicato il post.
 struct AIGeneratedNote: View {
     let text: String
 

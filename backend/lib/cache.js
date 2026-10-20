@@ -43,6 +43,16 @@ async function setCached(collection, key, value) {
   }
 }
 
+/** Corregge dei campi del valore senza rimettere a zero la scadenza. */
+async function patchCached(collection, key, fields) {
+  const id = typeof key === 'string' ? key : hashKey(key);
+  try {
+    await db().doc(`caches/${collection}/entries/${id}`).set({ value: fields }, { merge: true });
+  } catch (e) {
+    console.error(`[cache ${collection}] aggiornamento fallito:`, e.message);
+  }
+}
+
 async function bumpCacheHit(collection, key) {
   const id = typeof key === 'string' ? key : hashKey(key);
   db()
@@ -51,4 +61,4 @@ async function bumpCacheHit(collection, key) {
     .catch(() => {});
 }
 
-module.exports = { getCached, setCached, bumpCacheHit, hashKey };
+module.exports = { getCached, setCached, patchCached, bumpCacheHit, hashKey };

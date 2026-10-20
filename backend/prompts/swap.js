@@ -109,6 +109,13 @@ function buildExtractionPrompt({ sourceType, caption, text, profile }) {
   if (sourceType === 'video') {
     lines.push('You receive a cooking video from social media. Watch it and transcribe the recipe.');
     if (caption) lines.push(`The post caption (may contain the ingredient list): """${caption.slice(0, 2000)}"""`);
+  } else if (sourceType === 'post') {
+    lines.push(
+      'You receive a social media post whose video could not be loaded: only its caption and, when present, its cover image.',
+      `The caption: """${(caption || '').slice(0, 4000)}"""`,
+      'Use the caption as the main source and the cover only to recognise the dish.',
+      'Return found=true only if the caption names the dish AND gives enough of the ingredients to cook it; a title and hashtags alone are NOT a recipe.'
+    );
   } else if (sourceType === 'screenshot') {
     lines.push('You receive a screenshot containing a recipe. Read it and transcribe the recipe.');
   } else {
@@ -284,9 +291,35 @@ function buildFinalizePrompt(profile, originalRecipe, chosenSubstitutes, goal = 
   ].join('\n');
 }
 
+// ---------- Copertina di una ricetta importata ----------
+
+const coverSchema = {
+  type: 'OBJECT',
+  properties: { imagePrompt: { type: 'STRING', description: IMAGE_PROMPT_SCHEMA } },
+  required: ['imagePrompt'],
+};
+
+/** La foto che sostituisce il fotogramma del video: la ricetta resta quella. */
+function buildCoverPrompt(recipe) {
+  const brief = {
+    title: recipe.title,
+    ingredients: (recipe.ingredients || []).map((i) => i.name),
+    steps: recipe.steps || [],
+  };
+  return [
+    'You brief a photo generator for the cover of a recipe someone saved from social media.',
+    'The video frame they had is a random, unappetising still: this photo replaces it.',
+    `Recipe: ${JSON.stringify(brief)}`,
+    '',
+    photoBrief('This is the cover that makes someone stop scrolling: the most irresistible honest version of THIS exact dish, nothing added.'),
+    'imagePrompt is ALWAYS in English.',
+  ].join('\n');
+}
+
 module.exports = {
   buildExtractionPrompt, extractionSchema,
   buildLedgerPrompt, ledgerSchema,
   buildFinalizePrompt, finalizeSchema,
+  buildCoverPrompt, coverSchema,
   GOALS, defaultGoal,
 };

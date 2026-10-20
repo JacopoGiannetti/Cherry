@@ -604,6 +604,20 @@ struct SavedRecipe: Codable, Identifiable {
 
     /// Ricetta suggerita da Cherry, seminata al primo avvio.
     var preset: Bool?
+
+    /// "ai" quando la foto l'ha fatta Cherry al posto del fotogramma del
+    /// video. nil = foto del post, scattata da chi l'ha pubblicato.
+    var imageSource: String?
+    /// Copertina richiesta (`/swap/cover`): "generating" o "failed".
+    var coverStatus: String?
+    var coverError: String?
+
+    /// La foto della ricetta l'ha generata l'AI: per le importate solo se
+    /// è stata rifatta, per tutte le altre sempre.
+    var hasAIPhoto: Bool {
+        guard origin == "imported" else { return origin != "manual" }
+        return imageSource == "ai"
+    }
 }
 
 extension SavedRecipe: Hashable {

@@ -25,6 +25,10 @@ final class SwapStore: ObservableObject, Identifiable {
     /// Fa partire la percentuale del caricamento.
     @Published private(set) var loadingStartedAt = Date()
 
+    /// Si parte dalle sostituzioni invece che dalla ricetta com'è: chi
+    /// arriva da una ricetta già salvata l'originale l'ha già davanti.
+    var opensOnSwaps = false
+
     private var listener: ListenerRegistration?
     private var jobListener: ListenerRegistration?
 

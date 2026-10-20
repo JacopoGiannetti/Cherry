@@ -101,6 +101,8 @@ struct SwapView: View {
     /// La scelta riaperta dal ledger, per cambiare obiettivo.
     @State private var pickingGoal = false
     @State private var goalChoice: String?
+    /// L'utente ha lasciato la ricetta com'è per vedere le sostituzioni.
+    @State private var showsSwaps = false
 
     private var diet: DietaryIdentity { appState.tasteProfile.dietaryIdentity }
 
@@ -114,9 +116,22 @@ struct SwapView: View {
         store.pendingGoal == nil && (store.swap?.status == "extracted" || (store.swap?.status == "ledger_ready" && pickingGoal))
     }
 
+    /// La ricetta appena letta, intera e salvabile com'è. Le sostituzioni
+    /// si preparano dietro e non la tengono in ostaggio: chi la vuole
+    /// solo ritrovare non deve aspettare il ledger.
+    private var showsOriginal: Bool {
+        guard !showsSwaps, !store.opensOnSwaps, store.pendingGoal == nil, !store.finalizing,
+              store.swap?.original != nil else { return false }
+        switch store.swap?.status {
+        case "extracted", "building_ledger", "ledger_ready": return true
+        default: return false
+        }
+    }
+
     /// Durante loading ed errori niente header Close: l'errore ha il
     /// suo pulsante grande; il loading non si interrompe.
     private var showsFlowChrome: Bool {
+        if showsOriginal { return true }
         if store.errorMessage != nil { return false }
         if store.pendingGoal != nil { return false }
         switch store.swap?.status {
@@ -145,7 +160,9 @@ struct SwapView: View {
                         .padding(.bottom, 6)
                 }
 
-                if let errorMessage = store.errorMessage {
+                if showsOriginal {
+                    originalRecipe
+                } else if let errorMessage = store.errorMessage {
                     errorState(errorMessage)
                 } else if let pending = store.pendingGoal {
                     buildingLedger(for: pending)
@@ -275,6 +292,40 @@ struct SwapView: View {
         Haptics.light()
         store.saveOriginalRecipe()
         dismiss()
+    }
+
+    // MARK: - La ricetta com'è
+
+    @ViewBuilder
+    private var originalRecipe: some View {
+        if let original = store.swap?.original {
+            RecipeDetailView(
+                title: original.title,
+                imageUrl: store.swap?.source?.thumbnail,
+                costUsd: original.costUsd ?? 0,
+                cookMinutes: original.cookMinutes,
+                servings: original.servings,
+                ingredients: original.ingredients,
+                steps: original.steps,
+                onSave: { store.saveOriginalRecipe() },
+                isSaved: store.didSave,
+                sourceUrl: store.swap?.source?.url,
+                onVeganize: {
+                    // Un ledger fallito ha già riportato la ricetta alla
+                    // scelta: l'errore vecchio non deve coprirla.
+                    store.errorMessage = nil
+                    withAnimation(Theme.Motion.signature) { showsSwaps = true }
+                },
+                isImported: true,
+                hasAIPhoto: false
+            )
+            .safeAreaInset(edge: .bottom) {
+                Button(store.didSave ? "Saved — done" : "Save as is", action: saveAsIs)
+                    .buttonStyle(PrimaryButtonStyle())
+                    .padding(.horizontal, 20)
+                    .padding(.bottom, 10)
+            }
+        }
     }
 
     @ViewBuilder

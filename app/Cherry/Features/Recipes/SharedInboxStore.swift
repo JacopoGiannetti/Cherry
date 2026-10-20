@@ -168,10 +168,13 @@ final class SharedInboxStore: ObservableObject {
         SharedInbox.previewId(for: url)
     }
 
-    /// La ricetta pronta da aprire: estrazione e ledger già fatti.
+    /// La ricetta pronta da aprire: letta, anche se le sostituzioni si
+    /// stanno ancora preparando — com'è si può già vedere e salvare.
     func isSwapReady(for url: String) -> Bool {
-        switch swaps[Self.swapId(for: url)]?.status {
+        let swap = swaps[Self.swapId(for: url)]
+        switch swap?.status {
         case "extracted", "ledger_ready", "generating_photo", "finalized": return true
+        case "building_ledger": return swap?.original != nil
         default: return false
         }
     }
