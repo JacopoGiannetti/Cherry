@@ -1,5 +1,5 @@
-// Foto ricette con fal.ai FLUX.1 [schnell] — stesso modello del Gut Shop
-// di GutSense. Uno style prompt FISSO garantisce che tutte le foto
+// Foto ricette con fal.ai FLUX.2 [klein] 4B: 4 passaggi, ~1 s a foto.
+// Uno style prompt FISSO garantisce che tutte le foto
 // dell'app sembrino scattate dallo stesso fotografo (§10.5 blueprint).
 const crypto = require('crypto');
 const axios = require('axios');
@@ -7,7 +7,7 @@ const { keys } = require('../config/keys');
 const { recordFal } = require('../lib/usage');
 const { persistImage } = require('./storage');
 
-const FAL_ENDPOINT = 'https://fal.run/fal-ai/flux/schnell';
+const FAL_ENDPOINT = 'https://fal.run/fal-ai/flux-2/klein/4b';
 const REQUEST_TIMEOUT_MS = 60000;
 const MAX_ATTEMPTS = 3;
 const MAX_CONCURRENCY = 6;
@@ -16,15 +16,15 @@ const MAX_CONCURRENCY = 6;
 // piatto protagonista, texture vere (bruciature, lucido della salsa,
 // briciole) — è quello che fa venire fame. Il "cosa" c'è nel piatto lo
 // decide Gemini nell'imagePrompt; qui c'è solo il "come" lo fotografiamo.
-// Niente nomi di cibi qui: FLUX li disegna in ogni piatto (la frase sulla
-// pasta metteva tagliatelle sotto i peperoni ripieni).
+// Niente nomi di cibi e niente "no ...": FLUX disegna ogni parola che legge
+// (la frase sulla pasta metteva tagliatelle sotto i peperoni ripieni,
+// "no cutlery" faceva comparire forchette).
 const STYLE_PROMPT =
   'Photorealistic food photography, shot on a full-frame camera with an 85mm lens, f/2.8, ' +
   'natural soft window light from the left with gentle shadows, 45-degree angle, ' +
-  'a single plate or bowl holding one serving is the only subject, centred, on a warm neutral wooden or linen table, ' +
-  'freshly served and appetizing, food glistening where it is moist, ' +
-  'true-to-life colours, natural matte ceramic, no over-saturation, no plastic-looking CGI sheen, ' +
-  'no second plate, no pot or pan, no people, no hands, no text, no watermark, no cutlery clutter';
+  'the dish is the only object on a warm neutral wooden or linen table, centred, ' +
+  'freshly served and appetizing, true-to-life colours, natural matte ceramic, ' +
+  'clean simple background, real textures, editorial home-cooking photo';
 
 let active = 0;
 const queue = [];

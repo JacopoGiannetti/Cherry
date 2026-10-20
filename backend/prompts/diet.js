@@ -180,36 +180,49 @@ function eatsEverything(profile = {}) {
 
 /** Descrizione schema di imagePrompt — grocery e swap devono coincidere. */
 const IMAGE_PROMPT_SCHEMA =
-  'English, 40-70 words, for a photo generator. Describe the FINISHED dish exactly as the steps produce it: ' +
-  'the visible ingredients (only ones in the recipe), their cooked state (charred edges, glossy sauce, melted, crisp, steaming), ' +
-  'one single serving on one plate or bowl, neatly plated, and any garnish that is actually in the recipe. ' +
-  'Every ingredient by its full name from the list ("cherry tomatoes", never "cherries"). ' +
-  'Make it look irresistible but never add food that is not in the recipe. Internal.';
+  'English, 40-70 words, for a photo generator: THIS dish exactly as the steps produce it, ' +
+  'following the PHOTO BRIEF. Only things that are in the photo. Internal.';
 
 /**
  * Brief foto identico per grocery e per lo swap (TikTok / social / link).
  * Lo stile della fotocamera lo aggiunge fal; qui si decide solo COSA c'è nel piatto.
+ * Le regole per tipo di piatto le applica Gemini: il modello foto non legge
+ * condizioni, quindi non devono mai finire nello style prompt.
  * @param {string} [extra]  riga in più (es. "mostra i sostituti, mai gli ingredienti animali")
  */
 function photoBrief(extra) {
   const lines = [
-    'PHOTO BRIEF (imagePrompt): the most realistic AND mouth-watering version of this dish, freshly served.',
-    'The image model reads every word literally and does not understand negation or context, so:',
-    '- Describe ONLY what is on the plate, as the last step leaves it: which ingredients are visible, how they look cooked',
-    '  (blistered, glossy, caramelised, melted, crisp, steaming), the sauce, the plating. Never mention anything that is not',
-    '  there, not even to exclude it: writing "no pasta" makes it draw pasta.',
-    '- Name every ingredient by its FULL name from the ingredient list: "cherry tomatoes", never "cherries";',
-    '  "spring onions", never "onions".',
-    '- Name pasta, rice or bread ONLY if the recipe has it, with its exact shape ("spaghetti", not "pasta" or "noodles"),',
-    '  resting low and loose in the plate. Nothing sits under or beside the main dish unless the recipe serves it that way.',
-    '- Describe the sauce as the steps make it, and be generous: a pan sauce is "a glossy, silky sauce coating every strand',
-    '  of spaghetti". Never dry or dull-looking, never a puddle of oil or broth. A dish with no sauce gets no sauce word.',
-    '- Give small ingredients their real size: "tiny pine nuts", "small capers", "thin garlic slices".',
-    '- Write "steaming" only for a dish served hot. Cold or room-temperature dishes (salads, dips, desserts) get no steam word.',
-    '- ONE plate or bowl with ONE serving, whatever the recipe yields. Every component recognisable, real cuts and cooked',
-    '  textures, one hero detail. Only ingredients from the ingredient list may appear, and never any animal product for',
-    '  a vegan profile.',
+    'PHOTO BRIEF (imagePrompt): the most realistic AND mouth-watering version of this dish, freshly served,',
+    'as a good home cook would plate it. You write for an image model that draws every word literally,',
+    'ignores negation ("no pasta" draws pasta) and does not understand conditions. So you decide, it only draws.',
+    '',
+    'HOW TO WRITE IT',
+    '- Start with the dish and its vessel, then the main component, then the rest. Most important things first.',
+    '- Describe ONLY what is in the photo. Never name anything that is absent, not even to exclude it.',
+    '- Use the name of the food as it looks on the plate, not the shopping-list name: "tomato sauce", not',
+    '  "canned peeled tomatoes"; but keep names that tell foods apart: "cherry tomatoes", never "cherries".',
+    '- Give each component its real colour, shape, size and texture: "tiny pine nuts", "thin garlic slices",',
+    '  "smooth bright-red tomato sauce". Avoid words that suggest another food: "chunky" or "rich" on a tomato',
+    '  sauce draws meat ragù; "broth" on a pan sauce draws soup.',
+    '- One plate or bowl, one serving. Only ingredients from the recipe. Never any animal product for a vegan profile.',
+    '- "steaming" only for a dish served hot; never for cold or room-temperature food.',
     '- 40-70 words, English, plain sentences, no camera or style words (the app adds those).',
+    '',
+    'WHAT EACH KIND OF DISH LOOKS LIKE (use only the one that matches this recipe)',
+    '- Pasta: name the exact shape once. The sauce coats the pasta and is the colour the steps make it',
+    '  (an olive-oil pan sauce makes the pasta glossy; a tomato sauce is smooth and bright red). Loose, low in the plate.',
+    '- Risotto: creamy and loose, gently spreading across a flat plate, grains bound in a velvety sauce, never dry or separate.',
+    '- Asian noodles: describe the noodle by its look ("wide flat translucent rice noodles", "thin yellow egg noodles"),',
+    '  never just "noodles" or "spaghetti". Stir-fried noodles are glossy and tossed with their toppings, with no liquid.',
+    '- Soup or velvety soup: the surface and its colour, the garnish on top. Stew or curry: the sauce consistency and',
+    '  the pieces in it; rice or bread beside it only if the recipe serves it.',
+    '- Salad: crisp, fresh, raw cuts with their real shapes; dressing as a light sheen, never a puddle.',
+    '- Burger or sandwich: side view of the stack, every layer named in order from bottom to top.',
+    '- Eggs: the yolk as the steps leave it (runny, jammy, set) and the whites.',
+    '- Dessert: the real colour of every part ("dark chocolate-brown molten centre"), the garnish, the plate.',
+    '- Bowl (poke, grain bowl): each component in its own section over the base.',
+    '- Baked or stuffed dishes: the golden or crisp top and what the filling looks like inside.',
+    '- Anything served in its pan or pot by the recipe (shakshuka, paella) is shown in it.',
   ];
   if (extra) lines.push(`- ${extra}`);
   return lines.join('\n');

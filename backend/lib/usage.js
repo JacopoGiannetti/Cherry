@@ -31,9 +31,9 @@ function geminiRates() {
   return { input, output };
 }
 
-/** FLUX.1 schnell su fal: $0.003/MP, landscape_4_3 ≈ 1 MP arrotondato. */
+/** FLUX.2 klein 4B su fal: $0.005/MP, landscape_4_3 ≈ 0,8 MP. */
 function falUsdPerImage() {
-  return parseFloat(process.env.FAL_USD_PER_IMAGE || '') || 0.003;
+  return parseFloat(process.env.FAL_USD_PER_IMAGE || '') || 0.005;
 }
 
 /** RapidAPI social download: stima per chiamata (il piano è a quota). */

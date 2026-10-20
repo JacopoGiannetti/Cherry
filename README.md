@@ -39,7 +39,7 @@ legal/      privacy policy e termini di servizio
 |---|---|---|
 | **Firebase** (nuovo progetto) | 1) `GoogleService-Info.plist` (app iOS) 2) service account JSON (backend) | plist in `app/Cherry/Supporting/`; JSON incollato in `.env` |
 | **Google AI Studio** | API key Gemini | `.env` → `GEMINI_API_KEY` |
-| **fal.ai** | API key (foto ricette, FLUX.1 schnell) | `.env` → `FAL_KEY` |
+| **fal.ai** | API key (foto ricette, FLUX.2 klein 4B) | `.env` → `FAL_KEY` |
 | **RapidAPI** | key + subscription a "Social Download All In One" (import TikTok/IG) | `.env` → `RAPIDAPI_KEY` |
 | **Superwall** | public API key (app) + webhook secret (backend) | key in `app/Cherry/Config/Secrets.swift`; secret in `.env` |
 | **Apple Developer** | App Group `group.com.vego.jacopogiannetti.app`, Sign in with Apple, Live Activities, prodotti IAP | Xcode Signing & Capabilities |

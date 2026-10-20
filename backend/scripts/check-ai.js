@@ -37,12 +37,12 @@ async function checkFal() {
   if (!keys.fal.apiKey) return ko('FAL_KEY assente nel .env');
   try {
     const r = await axios.post(
-      'https://fal.run/fal-ai/flux/schnell',
+      'https://fal.run/fal-ai/flux-2/klein/4b',
       { prompt: 'a bowl of pasta, food photography', image_size: 'square', num_images: 1 },
       { headers: { Authorization: `Key ${keys.fal.apiKey}` }, timeout: 90000 }
     );
     const url = r.data.images && r.data.images[0] && r.data.images[0].url;
-    ok(url ? 'fal.ai FLUX.1 schnell — immagine generata' : 'fal.ai risponde ma senza immagine');
+    ok(url ? 'fal.ai FLUX.2 klein — immagine generata' : 'fal.ai risponde ma senza immagine');
   } catch (e) {
     const d = e.response && e.response.data;
     ko(`fal.ai — ${e.response ? e.response.status : ''} ${d ? JSON.stringify(d).slice(0, 150) : e.message}`);
