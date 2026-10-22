@@ -28,8 +28,8 @@ enum AppConfig {
     /// metadati su App Store Connect sia da dentro l'app, in un punto
     /// facile da trovare (linea guida 5.1.1(i)).
     enum Legal {
-        static let privacyURL = URL(string: "https://hellovego.com/privacy")!
-        static let termsURL = URL(string: "https://hellovego.com/terms")!
+        static let privacyURL = URL(string: "https://hellovego.com/cherry/privacy")!
+        static let termsURL = URL(string: "https://hellovego.com/cherry/terms")!
         static let supportEmail = "support@hellovego.com"
         static let privacyEmail = "privacy@hellovego.com"
 
