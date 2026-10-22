@@ -15,7 +15,7 @@ struct TasteQuizView: View {
 
     private enum Stage: Int, CaseIterable {
         case noGo, cantEat, spice, cuisines, kitchen
-        case tried, household, nights, nightsOk, time, why, apps
+        case household, nights, nightsOk, time, why
     }
 
     @EnvironmentObject private var appState: AppState
@@ -25,12 +25,10 @@ struct TasteQuizView: View {
     @State private var spiceChoice: String?
     @State private var cuisines: [String] = []
     @State private var appliances: Set<String> = Set(KitchenAppliance.all.filter(\.common).map(\.id))
-    @State private var tried: String?
     @State private var household: String?
     @State private var nights = 3
     @State private var dinnerTime: String?
     @State private var reasons: Set<String> = []
-    @State private var otherApps: String?
     @FocusState private var cantEatFocused: Bool
 
     var body: some View {
@@ -50,8 +48,6 @@ struct TasteQuizView: View {
                 cuisinesStage
             case .kitchen:
                 kitchenStage
-            case .tried:
-                triedStage
             case .household:
                 householdStage
             case .nights:
@@ -62,8 +58,6 @@ struct TasteQuizView: View {
                 timeStage
             case .why:
                 whyStage
-            case .apps:
-                appsStage
             }
 
             continueButton
@@ -84,13 +78,11 @@ struct TasteQuizView: View {
         case .spice: appState.trackOnboarding(.quizSpice)
         case .cuisines: appState.trackOnboarding(.quizCuisines)
         case .kitchen: appState.trackOnboarding(.quizKitchen)
-        case .tried: appState.trackOnboarding(.quizTried)
         case .household: appState.trackOnboarding(.quizHousehold)
         case .nights: appState.trackOnboarding(.quizNights)
         case .nightsOk: appState.trackOnboarding(.quizNightsOk)
         case .time: appState.trackOnboarding(.quizTime)
         case .why: appState.trackOnboarding(.quizWhy)
-        case .apps: appState.trackOnboarding(.quizApps)
         }
     }
 
@@ -99,10 +91,10 @@ struct TasteQuizView: View {
     private var percent: Int {
         // Una schermata, un pezzo. Sull'ultima risposta il meter
         // arriva a 100, così il profilo non sembra monco.
-        let last = Double(Stage.apps.rawValue)
+        let last = Double(Stage.why.rawValue)
         var value = Double(stage.rawValue) / last * 100
         if stage == .noGo { value = Double(min(noGo.count, 4)) * 2 }
-        if stage == .apps, otherApps != nil { value = 100 }
+        if stage == .why, !reasons.isEmpty { value = 100 }
         return min(100, Int(value))
     }
 
@@ -467,21 +459,6 @@ struct TasteQuizView: View {
         }
     }
 
-    // MARK: - Hai già provato
-
-    private var triedStage: some View {
-        pickStage(
-            title: "Have you tried\nplanning your meals?",
-            subtitle: "Just so we know where you're starting.",
-            options: [
-                ("never", "📝", "Not yet", "This would be my first real go."),
-                ("bounced", "↩️", "I tried, then stopped", "It got hard to keep up."),
-                ("already", "🗓️", "I already do", "I want the day to day to get easier."),
-            ],
-            selected: tried
-        ) { tried = $0 }
-    }
-
     // MARK: - Per chi cucini
 
     private var householdStage: some View {
@@ -641,20 +618,6 @@ struct TasteQuizView: View {
         ]
     }
 
-    // MARK: - Altre app
-
-    private var appsStage: some View {
-        pickStage(
-            title: "Have you used another\napp for this?",
-            subtitle: "Recipe apps, scanners, anything like Cherry.",
-            options: [
-                ("no", "✨", "No, this is the first", "We're starting from scratch."),
-                ("yes", "📱", "Yes, I've tried others", "They didn't quite stick."),
-            ],
-            selected: otherApps
-        ) { otherApps = $0 }
-    }
-
     private func pickStage(
         title: String,
         subtitle: String,
@@ -728,18 +691,16 @@ struct TasteQuizView: View {
         switch stage {
         case .spice: spiceChoice != nil
         case .kitchen: !appliances.isEmpty
-        case .tried: tried != nil
         case .household: household != nil
         case .time: dinnerTime != nil
         case .why: !reasons.isEmpty
-        case .apps: otherApps != nil
         default: true
         }
     }
 
     private var continueLabel: String {
         switch stage {
-        case .apps: "Build my profile"
+        case .why: "Build my profile"
         case .nightsOk: "Sounds right"
         case .cantEat where cantEatText.isEmpty: "Nothing, I eat it all"
         case .cuisines where cuisines.isEmpty: "I like them all"
@@ -787,12 +748,12 @@ struct TasteQuizView: View {
         appState.saveQuizPreferences(
             cuisines: cuisines,
             appliances: KitchenAppliance.all.map(\.id).filter { appliances.contains($0) },
-            tried: tried,
+            tried: nil,
             household: household,
             nights: nights,
             dinnerTime: dinnerTime,
             reasons: Array(reasons),
-            otherApps: otherApps
+            otherApps: nil
         )
         onDone(buildProfile())
     }

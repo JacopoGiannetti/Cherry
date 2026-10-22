@@ -29,13 +29,11 @@ enum OnboardingStep: String {
     case quizSpice = "quiz.spice"
     case quizCuisines = "quiz.cuisines"
     case quizKitchen = "quiz.kitchen"
-    case quizTried = "quiz.tried"
     case quizHousehold = "quiz.household"
     case quizNights = "quiz.nights"
     case quizNightsOk = "quiz.nights_ok"
     case quizTime = "quiz.time"
     case quizWhy = "quiz.why"
-    case quizApps = "quiz.apps"
     case quizDone = "quiz.done"
     case profileReady = "profile.ready"
     case blockers
@@ -71,8 +69,8 @@ enum Shot {
         case "hello": return .hello
         case "referral": return .referral
         case "quiz.ingredients", "quiz.cant_eat", "quiz.spice", "quiz.cuisines", "quiz.kitchen",
-             "quiz.tried", "quiz.household", "quiz.nights", "quiz.nights_ok", "quiz.time",
-             "quiz.why", "quiz.apps", "quiz.done": return .quiz
+             "quiz.household", "quiz.nights", "quiz.nights_ok", "quiz.time",
+             "quiz.why", "quiz.done": return .quiz
         case "profile.ready": return .allSet
         case "blockers": return .blockers
         case "audience": return .audience
@@ -99,13 +97,11 @@ enum Shot {
         case "quiz.spice": return 2
         case "quiz.cuisines": return 3
         case "quiz.kitchen": return 4
-        case "quiz.tried": return 5
-        case "quiz.household": return 6
-        case "quiz.nights": return 7
-        case "quiz.nights_ok": return 8
-        case "quiz.time": return 9
-        case "quiz.why": return 10
-        case "quiz.apps", "quiz.done": return 11
+        case "quiz.household": return 5
+        case "quiz.nights": return 6
+        case "quiz.nights_ok": return 7
+        case "quiz.time": return 8
+        case "quiz.why", "quiz.done": return 9
         default: return nil
         }
     }
