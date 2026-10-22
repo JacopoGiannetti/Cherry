@@ -3785,6 +3785,807 @@
           "url": "https://www.cookaround.com/ricetta/Seppie-con-piselli.html"
         }
       ]
+    },
+    {
+      "key": "bucatini-allamatriciana",
+      "name": "Bucatini all'amatriciana",
+      "nameEn": "Bucatini with guanciale and tomato",
+      "aliases": [
+        "amatriciana",
+        "matriciana"
+      ],
+      "tiles": [
+        "Italian"
+      ],
+      "cuisine": "Italian",
+      "region": "Lazio",
+      "format": "pasta",
+      "protein": "mushrooms",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 30,
+      "effort": "low",
+      "familiarity": 1,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "bucatini",
+        "guanciale",
+        "canned tomatoes",
+        "pecorino romano",
+        "white wine",
+        "chili flakes",
+        "black pepper"
+      ],
+      "specialtyIngredients": [],
+      "veganApproach": "Render smoked mushrooms or eggplant strips in olive oil in place of guanciale and finish with a cashew-based pecorino.",
+      "technique": "Strips of guanciale are rendered slowly until crisp, deglazed with white wine, simmered with tomato and tossed with bucatini and pecorino.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "comfort",
+        "quick"
+      ],
+      "sources": [
+        {
+          "title": "Amatriciana sauce - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Amatriciana_sauce"
+        }
+      ]
+    },
+    {
+      "key": "spaghetti-alla-gricia",
+      "name": "Spaghetti alla gricia",
+      "nameEn": "Spaghetti with guanciale and pecorino",
+      "aliases": [
+        "gricia",
+        "rigatoni alla gricia"
+      ],
+      "tiles": [
+        "Italian"
+      ],
+      "cuisine": "Italian",
+      "region": "Lazio",
+      "format": "pasta",
+      "protein": "mushrooms",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 25,
+      "effort": "low",
+      "familiarity": 2,
+      "traditionalDiet": "meat",
+      "versions": [],
+      "keyIngredients": [
+        "spaghetti",
+        "guanciale",
+        "pecorino romano",
+        "black pepper"
+      ],
+      "specialtyIngredients": [],
+      "technique": "Guanciale is rendered until crisp and its fat is emulsified with starchy pasta water and pecorino into a glossy sauce.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "quick",
+        "comfort"
+      ],
+      "sources": [
+        {
+          "title": "Gricia - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Gricia"
+        }
+      ]
+    },
+    {
+      "key": "polpette-al-sugo",
+      "name": "Polpette al sugo",
+      "nameEn": "Meatballs in tomato sauce",
+      "aliases": [
+        "polpette",
+        "meatballs in sauce"
+      ],
+      "tiles": [
+        "Italian"
+      ],
+      "cuisine": "Italian",
+      "region": "Southern Italy",
+      "format": "stew",
+      "protein": "lentils",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 60,
+      "effort": "medium",
+      "familiarity": 1,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "ground beef",
+        "ground pork",
+        "stale bread",
+        "milk",
+        "eggs",
+        "parmigiano reggiano",
+        "parsley",
+        "garlic",
+        "tomato passata"
+      ],
+      "specialtyIngredients": [],
+      "veganApproach": "Make the balls from cooked lentils, breadcrumbs and walnuts bound with flax, and simmer them in the tomato sauce.",
+      "technique": "Meatballs bound with milk-soaked bread, egg and parmigiano are browned and then simmered gently in tomato sauce until tender.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "comfort",
+        "mealprep",
+        "everyday"
+      ],
+      "sources": [
+        {
+          "title": "Meatball - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Meatball"
+        }
+      ]
+    },
+    {
+      "key": "ossobuco-alla-milanese",
+      "name": "Ossobuco alla milanese",
+      "nameEn": "Braised veal shanks Milanese style",
+      "aliases": [
+        "osso buco"
+      ],
+      "tiles": [
+        "Italian"
+      ],
+      "cuisine": "Italian",
+      "region": "Lombardy",
+      "format": "stew",
+      "protein": "mushrooms",
+      "method": "slow_cook",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 120,
+      "effort": "medium",
+      "familiarity": 2,
+      "traditionalDiet": "meat",
+      "versions": [],
+      "keyIngredients": [
+        "veal shanks",
+        "flour",
+        "butter",
+        "onion",
+        "carrot",
+        "celery",
+        "white wine",
+        "beef stock",
+        "lemon zest",
+        "parsley",
+        "garlic"
+      ],
+      "specialtyIngredients": [],
+      "technique": "Floured veal shanks are browned, braised slowly with soffritto, wine and stock until the meat falls off the bone, and finished with gremolata.",
+      "seasons": [
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "hosting",
+        "comfort",
+        "date"
+      ],
+      "sources": [
+        {
+          "title": "Ossobuco - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Ossobuco"
+        }
+      ]
+    },
+    {
+      "key": "saltimbocca-alla-romana",
+      "name": "Saltimbocca alla romana",
+      "nameEn": "Veal with prosciutto and sage",
+      "aliases": [
+        "saltimbocca"
+      ],
+      "tiles": [
+        "Italian"
+      ],
+      "cuisine": "Italian",
+      "region": "Lazio",
+      "format": "other",
+      "protein": "seitan",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 20,
+      "effort": "low",
+      "familiarity": 2,
+      "traditionalDiet": "meat",
+      "versions": [],
+      "keyIngredients": [
+        "veal cutlets",
+        "prosciutto crudo",
+        "fresh sage",
+        "butter",
+        "white wine",
+        "flour"
+      ],
+      "specialtyIngredients": [],
+      "technique": "Thin veal cutlets topped with prosciutto and a sage leaf are seared in butter and glazed with a quick white wine pan sauce.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "date",
+        "quick",
+        "hosting"
+      ],
+      "sources": [
+        {
+          "title": "Saltimbocca - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Saltimbocca"
+        }
+      ]
+    },
+    {
+      "key": "pollo-alla-cacciatora",
+      "name": "Pollo alla cacciatora",
+      "nameEn": "Hunter's-style braised chicken",
+      "aliases": [
+        "chicken cacciatore",
+        "cacciatora"
+      ],
+      "tiles": [
+        "Italian"
+      ],
+      "cuisine": "Italian",
+      "region": "Central Italy",
+      "format": "stew",
+      "protein": "mushrooms",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 70,
+      "effort": "medium",
+      "familiarity": 1,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "chicken thighs",
+        "onion",
+        "garlic",
+        "rosemary",
+        "canned tomatoes",
+        "black olives",
+        "red wine",
+        "olive oil"
+      ],
+      "specialtyIngredients": [],
+      "veganApproach": "Braise thick chunks of king oyster mushrooms and white beans in the same tomato, rosemary and olive sauce.",
+      "technique": "Chicken pieces are browned and braised with onion, rosemary, wine, tomato and olives until the sauce is thick and the meat tender.",
+      "seasons": [
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "comfort",
+        "mealprep",
+        "everyday"
+      ],
+      "sources": [
+        {
+          "title": "Cacciatore - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Cacciatore"
+        }
+      ]
+    },
+    {
+      "key": "scaloppine-al-limone",
+      "name": "Scaloppine al limone",
+      "nameEn": "Veal escalopes in lemon sauce",
+      "aliases": [
+        "scaloppine",
+        "veal piccata"
+      ],
+      "tiles": [
+        "Italian"
+      ],
+      "cuisine": "Italian",
+      "region": "Nationwide",
+      "format": "other",
+      "protein": "tofu",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 20,
+      "effort": "low",
+      "familiarity": 1,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "veal escalopes",
+        "flour",
+        "butter",
+        "lemon",
+        "white wine",
+        "parsley"
+      ],
+      "specialtyIngredients": [],
+      "veganApproach": "Use thin slices of pressed tofu or seitan, floured and seared in olive oil, with the same lemon and wine sauce.",
+      "technique": "Pounded escalopes are dusted in flour, seared quickly in butter and finished with lemon juice and wine to a silky pan sauce.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "quick",
+        "everyday",
+        "date"
+      ],
+      "sources": [
+        {
+          "title": "Scaloppine - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Scaloppine"
+        }
+      ]
+    },
+    {
+      "key": "cotoletta-alla-milanese",
+      "name": "Cotoletta alla milanese",
+      "nameEn": "Breaded veal cutlet Milanese style",
+      "aliases": [
+        "cotoletta",
+        "veal milanese"
+      ],
+      "tiles": [
+        "Italian"
+      ],
+      "cuisine": "Italian",
+      "region": "Lombardy",
+      "format": "other",
+      "protein": "seitan",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 30,
+      "effort": "medium",
+      "familiarity": 1,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "veal chop",
+        "eggs",
+        "breadcrumbs",
+        "clarified butter",
+        "lemon",
+        "arugula"
+      ],
+      "specialtyIngredients": [],
+      "veganApproach": "Bread thin seitan cutlets in a plant-milk and flour batter and breadcrumbs, and fry them in olive oil.",
+      "technique": "A pounded veal cutlet is dipped in egg and breadcrumbs and shallow-fried in clarified butter until golden, served with lemon.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "comfort",
+        "everyday"
+      ],
+      "sources": [
+        {
+          "title": "Cotoletta - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Cotoletta"
+        }
+      ]
+    },
+    {
+      "key": "salsiccia-e-friarielli",
+      "name": "Salsiccia e friarielli",
+      "nameEn": "Sausages with sautéed broccoli rabe",
+      "aliases": [
+        "salsicce e friarielli",
+        "sausage and rapini"
+      ],
+      "tiles": [
+        "Italian"
+      ],
+      "cuisine": "Italian",
+      "region": "Campania",
+      "format": "other",
+      "protein": "beans",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 30,
+      "effort": "low",
+      "familiarity": 2,
+      "traditionalDiet": "meat",
+      "versions": [],
+      "keyIngredients": [
+        "pork sausage",
+        "broccoli rabe",
+        "garlic",
+        "chili flakes",
+        "olive oil"
+      ],
+      "specialtyIngredients": [],
+      "technique": "Pork sausages are browned in a pan, then the bitter greens are sautéed in the same pan with garlic and chili until tender.",
+      "seasons": [
+        "autumn",
+        "winter",
+        "spring"
+      ],
+      "occasions": [
+        "everyday",
+        "quick",
+        "comfort"
+      ],
+      "sources": [
+        {
+          "title": "Friarielli - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Friarielli"
+        }
+      ]
+    },
+    {
+      "key": "arista-di-maiale",
+      "name": "Arista di maiale",
+      "nameEn": "Tuscan roast pork loin with rosemary and garlic",
+      "aliases": [
+        "arista",
+        "arista alla fiorentina"
+      ],
+      "tiles": [
+        "Italian"
+      ],
+      "cuisine": "Italian",
+      "region": "Tuscany",
+      "format": "bake",
+      "protein": "seitan",
+      "method": "oven",
+      "appliances": [
+        "oven"
+      ],
+      "cookMinutes": 100,
+      "effort": "medium",
+      "familiarity": 2,
+      "traditionalDiet": "meat",
+      "versions": [],
+      "keyIngredients": [
+        "pork loin",
+        "rosemary",
+        "garlic",
+        "fennel seeds",
+        "olive oil",
+        "white wine",
+        "potatoes"
+      ],
+      "specialtyIngredients": [],
+      "technique": "A pork loin is studded with garlic, rosemary and fennel, roasted slowly with wine and served sliced with potatoes from the pan.",
+      "seasons": [
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "hosting",
+        "comfort",
+        "mealprep"
+      ],
+      "sources": [
+        {
+          "title": "Arista (cucina) - Wikipedia",
+          "url": "https://it.wikipedia.org/wiki/Arista_(cucina)"
+        }
+      ]
+    },
+    {
+      "key": "spezzatino-di-manzo",
+      "name": "Spezzatino di manzo",
+      "nameEn": "Italian beef stew",
+      "aliases": [
+        "spezzatino",
+        "beef stew"
+      ],
+      "tiles": [
+        "Italian"
+      ],
+      "cuisine": "Italian",
+      "region": "Northern Italy",
+      "format": "stew",
+      "protein": "mushrooms",
+      "method": "slow_cook",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 150,
+      "effort": "medium",
+      "familiarity": 1,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "beef chuck",
+        "onion",
+        "carrot",
+        "celery",
+        "red wine",
+        "tomato paste",
+        "potatoes",
+        "rosemary",
+        "beef stock"
+      ],
+      "specialtyIngredients": [],
+      "veganApproach": "Braise mushrooms, seitan chunks and potatoes in the same red wine and tomato base.",
+      "technique": "Cubes of beef are browned, then simmered for hours with soffritto, red wine and tomato; potatoes go in for the last half hour.",
+      "seasons": [
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "comfort",
+        "mealprep",
+        "hosting"
+      ],
+      "sources": [
+        {
+          "title": "Spezzatino - Wikipedia",
+          "url": "https://it.wikipedia.org/wiki/Spezzatino"
+        }
+      ]
+    },
+    {
+      "key": "pasta-alla-genovese",
+      "name": "Pasta alla genovese",
+      "nameEn": "Pasta with slow-cooked onion and beef ragù",
+      "aliases": [
+        "genovese napoletana"
+      ],
+      "tiles": [
+        "Italian"
+      ],
+      "cuisine": "Italian",
+      "region": "Campania",
+      "format": "pasta",
+      "protein": "mushrooms",
+      "method": "slow_cook",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 180,
+      "effort": "medium",
+      "familiarity": 2,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "ziti",
+        "beef chuck",
+        "onions",
+        "carrot",
+        "celery",
+        "white wine",
+        "parmigiano reggiano"
+      ],
+      "specialtyIngredients": [],
+      "veganApproach": "Cook the onions just as long with shredded king oyster mushrooms in place of the beef.",
+      "technique": "A mountain of onions melts for hours with a piece of beef into a sweet, jammy sauce; the beef is shredded and tossed with broken ziti.",
+      "seasons": [
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "comfort",
+        "hosting",
+        "mealprep"
+      ],
+      "sources": [
+        {
+          "title": "Genovese sauce - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Genovese_sauce"
+        }
+      ]
+    },
+    {
+      "key": "pasta-alla-norcina",
+      "name": "Pasta alla norcina",
+      "nameEn": "Pasta with sausage and sheep ricotta",
+      "aliases": [
+        "norcina",
+        "penne alla norcina"
+      ],
+      "tiles": [
+        "Italian"
+      ],
+      "cuisine": "Italian",
+      "region": "Umbria",
+      "format": "pasta",
+      "protein": "mushrooms",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 25,
+      "effort": "low",
+      "familiarity": 2,
+      "traditionalDiet": "meat",
+      "versions": [],
+      "keyIngredients": [
+        "penne rigate",
+        "pork sausage",
+        "onion",
+        "white wine",
+        "sheep ricotta",
+        "parmigiano reggiano",
+        "black pepper"
+      ],
+      "specialtyIngredients": [],
+      "technique": "Crumbled sausage is browned with onion, deglazed with white wine and loosened with sheep ricotta and pasta water into a creamy sauce.",
+      "seasons": [
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "quick",
+        "comfort"
+      ],
+      "sources": [
+        {
+          "title": "Pasta alla norcina - Umbriatourism",
+          "url": "https://www.umbriatourism.it/en/w/norcina"
+        },
+        {
+          "title": "Pasta alla norcina - Cucchiaio d'Argento",
+          "url": "https://www.cucchiaio.it/ricetta/pasta-alla-norcina/"
+        }
+      ]
+    },
+    {
+      "key": "vitello-tonnato",
+      "name": "Vitello tonnato",
+      "nameEn": "Cold sliced veal with tuna sauce",
+      "aliases": [
+        "vitel tonné"
+      ],
+      "tiles": [
+        "Italian"
+      ],
+      "cuisine": "Italian",
+      "region": "Piedmont",
+      "format": "other",
+      "protein": "tofu",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop",
+        "blender"
+      ],
+      "cookMinutes": 90,
+      "effort": "medium",
+      "familiarity": 2,
+      "traditionalDiet": "meat",
+      "versions": [],
+      "keyIngredients": [
+        "veal round",
+        "canned tuna",
+        "anchovies",
+        "capers",
+        "egg yolks",
+        "olive oil",
+        "lemon",
+        "white wine",
+        "carrot",
+        "celery"
+      ],
+      "specialtyIngredients": [],
+      "technique": "Veal is poached with aromatics and wine, chilled, sliced thin and covered with a creamy blended sauce of tuna, capers and anchovy.",
+      "seasons": [
+        "spring",
+        "summer"
+      ],
+      "occasions": [
+        "hosting",
+        "date",
+        "mealprep"
+      ],
+      "sources": [
+        {
+          "title": "Vitello tonnato - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Vitello_tonnato"
+        }
+      ]
+    },
+    {
+      "key": "pollo-alla-diavola",
+      "name": "Pollo alla diavola",
+      "nameEn": "Devil-style spatchcocked chicken",
+      "aliases": [
+        "chicken diavola"
+      ],
+      "tiles": [
+        "Italian"
+      ],
+      "cuisine": "Italian",
+      "region": "Tuscany",
+      "format": "other",
+      "protein": "tofu",
+      "method": "oven",
+      "appliances": [
+        "oven"
+      ],
+      "cookMinutes": 60,
+      "effort": "low",
+      "familiarity": 2,
+      "traditionalDiet": "meat",
+      "versions": [],
+      "keyIngredients": [
+        "whole chicken",
+        "chili flakes",
+        "black pepper",
+        "lemon",
+        "garlic",
+        "rosemary",
+        "olive oil"
+      ],
+      "specialtyIngredients": [],
+      "technique": "A flattened chicken marinated with lemon, chili and plenty of black pepper is pressed and roasted until the skin is crisp.",
+      "seasons": [
+        "spring",
+        "summer"
+      ],
+      "occasions": [
+        "hosting",
+        "everyday"
+      ],
+      "sources": [
+        {
+          "title": "Pollo alla diavola - Wikipedia",
+          "url": "https://it.wikipedia.org/wiki/Pollo_alla_diavola"
+        }
+      ]
     }
   ]
 }

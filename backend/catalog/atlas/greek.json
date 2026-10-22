@@ -3405,6 +3405,338 @@
           "url": "https://www.kalliopiskitchen.com/recipes/bourdeto/"
         }
       ]
+    },
+    {
+      "key": "kleftiko",
+      "name": "Kleftiko",
+      "nameEn": "Slow-roasted lamb with lemon and potatoes",
+      "aliases": [
+        "lamb kleftiko"
+      ],
+      "tiles": [
+        "Greek"
+      ],
+      "cuisine": "Greek",
+      "region": "Nationwide",
+      "format": "bake",
+      "protein": "mushrooms",
+      "method": "oven",
+      "appliances": [
+        "oven"
+      ],
+      "cookMinutes": 210,
+      "effort": "medium",
+      "familiarity": 2,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "lamb shoulder",
+        "potatoes",
+        "garlic",
+        "lemon",
+        "oregano",
+        "olive oil",
+        "kefalotyri"
+      ],
+      "specialtyIngredients": [],
+      "veganApproach": "Seal large mushrooms, potatoes and artichokes in parchment with the same lemon, garlic and oregano.",
+      "technique": "Lamb with garlic, lemon and oregano is sealed in parchment with potatoes and roasted very slowly until it falls apart.",
+      "seasons": [
+        "spring",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "hosting",
+        "comfort"
+      ],
+      "sources": [
+        {
+          "title": "Kleftiko - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Kleftiko"
+        }
+      ]
+    },
+    {
+      "key": "moschari-stifado",
+      "name": "Moschari stifado",
+      "nameEn": "Beef and pearl onion stew",
+      "aliases": [
+        "beef stifado",
+        "stifado"
+      ],
+      "tiles": [
+        "Greek"
+      ],
+      "cuisine": "Greek",
+      "region": "Nationwide",
+      "format": "stew",
+      "protein": "mushrooms",
+      "method": "slow_cook",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 150,
+      "effort": "medium",
+      "familiarity": 2,
+      "traditionalDiet": "meat",
+      "versions": [],
+      "keyIngredients": [
+        "beef chuck",
+        "pearl onions",
+        "red wine",
+        "tomato paste",
+        "cinnamon",
+        "cloves",
+        "bay leaves",
+        "red wine vinegar"
+      ],
+      "specialtyIngredients": [],
+      "technique": "Beef is browned and braised for hours with whole small onions, red wine, tomato and warm spices until the sauce is glossy.",
+      "seasons": [
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "comfort",
+        "hosting",
+        "mealprep"
+      ],
+      "sources": [
+        {
+          "title": "Stifado - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Stifado"
+        }
+      ]
+    },
+    {
+      "key": "kotopoulo-lemonato",
+      "name": "Kotopoulo lemonato",
+      "nameEn": "Greek lemon chicken with potatoes",
+      "aliases": [
+        "greek lemon chicken"
+      ],
+      "tiles": [
+        "Greek"
+      ],
+      "cuisine": "Greek",
+      "region": "Nationwide",
+      "format": "bake",
+      "protein": "tofu",
+      "method": "oven",
+      "appliances": [
+        "oven"
+      ],
+      "cookMinutes": 90,
+      "effort": "low",
+      "familiarity": 1,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "chicken thighs",
+        "potatoes",
+        "lemon",
+        "garlic",
+        "oregano",
+        "olive oil",
+        "chicken stock"
+      ],
+      "specialtyIngredients": [],
+      "veganApproach": "Roast thick slabs of tofu or chickpeas with the potatoes in the same lemon and oregano marinade, using vegetable stock.",
+      "technique": "Chicken and potato wedges marinated in lemon, garlic and oregano roast together in one tray, the potatoes soaking up the juices.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "comfort",
+        "hosting"
+      ],
+      "sources": [
+        {
+          "title": "Greek Lemon Chicken and Potatoes (Kotopoulo Lemonato) - My Greek Dish",
+          "url": "https://www.mygreekdish.com/recipe/greek-chicken-with-lemon-sauce-and-potatoes-kotopoulo-lemonato/"
+        },
+        {
+          "title": "Greek Lemon Chicken and Potatoes - Allrecipes",
+          "url": "https://www.allrecipes.com/recipe/242352/greek-lemon-chicken-and-potatoes/"
+        }
+      ]
+    },
+    {
+      "key": "keftedes",
+      "name": "Keftedes",
+      "nameEn": "Greek herb meatballs",
+      "aliases": [
+        "keftedakia"
+      ],
+      "tiles": [
+        "Greek"
+      ],
+      "cuisine": "Greek",
+      "region": "Nationwide",
+      "format": "fritters",
+      "protein": "lentils",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 40,
+      "effort": "low",
+      "familiarity": 1,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "ground beef",
+        "ground pork",
+        "onion",
+        "stale bread",
+        "mint",
+        "parsley",
+        "oregano",
+        "eggs",
+        "flour"
+      ],
+      "specialtyIngredients": [],
+      "veganApproach": "Shape the balls from lentils and bulgur with the same herbs and fry them.",
+      "technique": "Minced meat with grated onion, soaked bread, mint and oregano is shaped into small balls, floured and pan-fried until crisp.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "hosting",
+        "mealprep"
+      ],
+      "sources": [
+        {
+          "title": "Keftedes - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Keftedes"
+        }
+      ]
+    },
+    {
+      "key": "soutzoukakia",
+      "name": "Soutzoukakia smyrneika",
+      "nameEn": "Cumin meatballs in tomato sauce",
+      "aliases": [
+        "soutzoukakia"
+      ],
+      "tiles": [
+        "Greek"
+      ],
+      "cuisine": "Greek",
+      "region": "Smyrna (Asia Minor)",
+      "format": "stew",
+      "protein": "lentils",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 60,
+      "effort": "medium",
+      "familiarity": 2,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "ground beef",
+        "cumin",
+        "garlic",
+        "stale bread",
+        "red wine",
+        "canned tomatoes",
+        "cinnamon",
+        "eggs"
+      ],
+      "specialtyIngredients": [],
+      "veganApproach": "Make the oblong patties from lentils and walnuts with cumin and simmer them in the tomato sauce.",
+      "technique": "Oblong cumin and garlic meatballs are browned and then simmered in a tomato sauce scented with cinnamon.",
+      "seasons": [
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "comfort",
+        "mealprep",
+        "everyday"
+      ],
+      "sources": [
+        {
+          "title": "Soutzoukakia Smyrneika - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Soutzoukakia_Smyrneika"
+        }
+      ]
+    },
+    {
+      "key": "bifteki",
+      "name": "Bifteki",
+      "nameEn": "Greek beef patties stuffed with feta",
+      "aliases": [
+        "biftekia"
+      ],
+      "tiles": [
+        "Greek"
+      ],
+      "cuisine": "Greek",
+      "region": "Nationwide",
+      "format": "other",
+      "protein": "lentils",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 40,
+      "effort": "low",
+      "familiarity": 2,
+      "traditionalDiet": "meat",
+      "versions": [],
+      "keyIngredients": [
+        "ground beef",
+        "onion",
+        "stale bread",
+        "eggs",
+        "parsley",
+        "mint",
+        "oregano",
+        "feta",
+        "potatoes"
+      ],
+      "specialtyIngredients": [],
+      "technique": "Herby minced beef is shaped into thick patties around a piece of feta and pan-fried or grilled, served with fried potatoes.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "comfort"
+      ],
+      "sources": [
+        {
+          "title": "Bifteki Recipe - The Mediterranean Dish",
+          "url": "https://www.themediterraneandish.com/biftekia-baked-greek-beef-patties/"
+        },
+        {
+          "title": "Bifteki Recipe - Serious Eats",
+          "url": "https://www.seriouseats.com/grilling-bifteki-greek-meatballs"
+        }
+      ]
     }
   ]
 }

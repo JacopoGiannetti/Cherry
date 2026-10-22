@@ -3548,6 +3548,114 @@
           "url": "https://www.seriouseats.com/mentaiko-japanese-spaghetti-cod-roe-butter-recipe"
         }
       ]
+    },
+    {
+      "key": "chicken-teriyaki",
+      "name": "Chicken teriyaki",
+      "nameEn": "Pan-glazed chicken with soy and mirin",
+      "aliases": [
+        "tori no teriyaki"
+      ],
+      "tiles": [
+        "Japanese"
+      ],
+      "cuisine": "Japanese",
+      "region": "Nationwide",
+      "format": "other",
+      "protein": "tofu",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 25,
+      "effort": "low",
+      "familiarity": 1,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "chicken thighs",
+        "soy sauce",
+        "mirin",
+        "sake",
+        "sugar",
+        "ginger",
+        "rice"
+      ],
+      "specialtyIngredients": [],
+      "veganApproach": "Pan-fry thick slices of pressed tofu and glaze them the same way.",
+      "technique": "Skin-on chicken thighs are pan-fried until crisp and reduced with soy, mirin, sake and sugar into a shiny glaze.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "quick",
+        "everyday",
+        "mealprep"
+      ],
+      "sources": [
+        {
+          "title": "Teriyaki - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Teriyaki"
+        }
+      ]
+    },
+    {
+      "key": "buta-no-shogayaki",
+      "name": "Buta no shōgayaki",
+      "nameEn": "Ginger pork stir-fry",
+      "aliases": [
+        "shogayaki",
+        "ginger pork"
+      ],
+      "tiles": [
+        "Japanese"
+      ],
+      "cuisine": "Japanese",
+      "region": "Nationwide",
+      "format": "stir_fry",
+      "protein": "tofu",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 20,
+      "effort": "low",
+      "familiarity": 2,
+      "traditionalDiet": "meat",
+      "versions": [],
+      "keyIngredients": [
+        "thinly sliced pork loin",
+        "ginger",
+        "soy sauce",
+        "mirin",
+        "sake",
+        "onion",
+        "cabbage",
+        "rice"
+      ],
+      "specialtyIngredients": [],
+      "technique": "Thin slices of pork are seared quickly with onion and glazed in grated ginger, soy and mirin, served with shredded cabbage and rice.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "quick",
+        "everyday"
+      ],
+      "sources": [
+        {
+          "title": "生姜焼き - Wikipedia",
+          "url": "https://ja.wikipedia.org/wiki/%E7%94%9F%E5%A7%9C%E7%84%BC%E3%81%8D"
+        }
+      ]
     }
   ]
 }

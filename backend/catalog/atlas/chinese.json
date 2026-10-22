@@ -3776,6 +3776,230 @@
           "url": "https://myhungrytraveler.com/cuisines/chinese/shanghai-sesame-noodles/"
         }
       ]
+    },
+    {
+      "key": "char-siu",
+      "name": "Char siu",
+      "nameEn": "Cantonese barbecued pork",
+      "aliases": [
+        "cha siu",
+        "chinese bbq pork"
+      ],
+      "tiles": [
+        "Chinese"
+      ],
+      "cuisine": "Chinese",
+      "region": "Guangdong",
+      "format": "other",
+      "protein": "seitan",
+      "method": "oven",
+      "appliances": [
+        "oven"
+      ],
+      "cookMinutes": 75,
+      "effort": "medium",
+      "familiarity": 2,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "pork shoulder",
+        "hoisin sauce",
+        "soy sauce",
+        "honey",
+        "shaoxing wine",
+        "five-spice powder",
+        "garlic",
+        "rice"
+      ],
+      "specialtyIngredients": [
+        "shaoxing wine"
+      ],
+      "veganApproach": "Marinate and roast thick seitan strips in the same glaze, using maple syrup instead of honey.",
+      "technique": "Strips of pork shoulder are marinated in hoisin, soy and five-spice, roasted and basted with honey until sticky and lacquered.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "hosting",
+        "everyday",
+        "mealprep"
+      ],
+      "sources": [
+        {
+          "title": "Char siu - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Char_siu"
+        }
+      ]
+    },
+    {
+      "key": "beef-and-broccoli",
+      "name": "Beef and broccoli",
+      "nameEn": "Stir-fried beef with broccoli in oyster sauce",
+      "aliases": [],
+      "tiles": [
+        "Chinese",
+        "American"
+      ],
+      "cuisine": "Chinese",
+      "region": "United States (Chinese-American)",
+      "format": "stir_fry",
+      "protein": "tofu",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 25,
+      "effort": "low",
+      "familiarity": 1,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "flank steak",
+        "broccoli",
+        "oyster sauce",
+        "soy sauce",
+        "garlic",
+        "ginger",
+        "cornstarch",
+        "rice"
+      ],
+      "specialtyIngredients": [],
+      "veganApproach": "Sear pressed tofu instead of beef and use mushroom oyster sauce.",
+      "technique": "Thinly sliced beef velveted in cornstarch is seared hot, then tossed with blanched broccoli in a garlicky oyster sauce glaze.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "quick",
+        "everyday"
+      ],
+      "sources": [
+        {
+          "title": "Beef and broccoli - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Beef_and_broccoli"
+        }
+      ]
+    },
+    {
+      "key": "orange-chicken",
+      "name": "Orange chicken",
+      "nameEn": "Crispy chicken in a sweet orange glaze",
+      "aliases": [],
+      "tiles": [
+        "Chinese",
+        "American"
+      ],
+      "cuisine": "Chinese",
+      "region": "United States (Chinese-American)",
+      "format": "other",
+      "protein": "tofu",
+      "method": "deep_fry",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 40,
+      "effort": "medium",
+      "familiarity": 1,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "chicken thighs",
+        "cornstarch",
+        "eggs",
+        "orange juice",
+        "orange zest",
+        "soy sauce",
+        "rice vinegar",
+        "ginger",
+        "garlic",
+        "rice"
+      ],
+      "specialtyIngredients": [],
+      "veganApproach": "Coat and fry tofu or cauliflower in a cornstarch batter and toss in the same orange glaze.",
+      "technique": "Battered chicken pieces are fried until crisp and tossed in a glossy sauce of orange juice, zest, soy, vinegar and ginger.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "comfort",
+        "everyday"
+      ],
+      "sources": [
+        {
+          "title": "Orange chicken - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Orange_chicken"
+        }
+      ]
+    },
+    {
+      "key": "hong-shao-rou",
+      "name": "Hong shao rou",
+      "nameEn": "Red-braised pork belly",
+      "aliases": [
+        "red braised pork",
+        "chairman mao pork"
+      ],
+      "tiles": [
+        "Chinese"
+      ],
+      "cuisine": "Chinese",
+      "region": "Hunan / Shanghai",
+      "format": "stew",
+      "protein": "tofu",
+      "method": "slow_cook",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 100,
+      "effort": "medium",
+      "familiarity": 2,
+      "traditionalDiet": "meat",
+      "versions": [],
+      "keyIngredients": [
+        "pork belly",
+        "rock sugar",
+        "light soy sauce",
+        "dark soy sauce",
+        "shaoxing wine",
+        "ginger",
+        "star anise",
+        "scallions",
+        "rice"
+      ],
+      "specialtyIngredients": [
+        "shaoxing wine",
+        "rock sugar"
+      ],
+      "technique": "Cubes of pork belly are blanched, caramelised in sugar and braised slowly with soy, wine and spices until meltingly tender and glossy.",
+      "seasons": [
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "comfort",
+        "hosting"
+      ],
+      "sources": [
+        {
+          "title": "Red braised pork belly - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Red_braised_pork_belly"
+        }
+      ]
     }
   ]
 }

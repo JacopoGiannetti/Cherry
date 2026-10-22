@@ -3787,6 +3787,671 @@
           "url": "https://www.parsicuisine.com/fish/"
         }
       ]
+    },
+    {
+      "key": "butter-chicken",
+      "name": "Butter chicken",
+      "nameEn": "Chicken in a creamy tomato and butter sauce",
+      "aliases": [
+        "murgh makhani"
+      ],
+      "tiles": [
+        "Indian"
+      ],
+      "cuisine": "Indian",
+      "region": "Delhi",
+      "format": "curry",
+      "protein": "tofu",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop",
+        "blender"
+      ],
+      "cookMinutes": 60,
+      "effort": "medium",
+      "familiarity": 1,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "chicken thighs",
+        "yogurt",
+        "tomatoes",
+        "butter",
+        "heavy cream",
+        "ginger",
+        "garlic",
+        "garam masala",
+        "kashmiri chili",
+        "dried fenugreek leaves"
+      ],
+      "specialtyIngredients": [
+        "dried fenugreek leaves"
+      ],
+      "veganApproach": "Use seared tofu and make the sauce with vegan butter and cashew cream.",
+      "technique": "Yogurt-marinated chicken is seared, then simmered in a smooth tomato sauce enriched with butter, cream and kasuri methi.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "comfort",
+        "hosting",
+        "everyday"
+      ],
+      "sources": [
+        {
+          "title": "Butter chicken - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Butter_chicken"
+        }
+      ]
+    },
+    {
+      "key": "chicken-tikka-masala",
+      "name": "Chicken tikka masala",
+      "nameEn": "Grilled chicken pieces in spiced tomato cream sauce",
+      "aliases": [
+        "tikka masala"
+      ],
+      "tiles": [
+        "Indian"
+      ],
+      "cuisine": "Indian",
+      "region": "United Kingdom (British Indian)",
+      "format": "curry",
+      "protein": "tofu",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop",
+        "oven"
+      ],
+      "cookMinutes": 60,
+      "effort": "medium",
+      "familiarity": 1,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "chicken breast",
+        "yogurt",
+        "onion",
+        "tomatoes",
+        "heavy cream",
+        "ginger",
+        "garlic",
+        "garam masala",
+        "paprika",
+        "cumin"
+      ],
+      "specialtyIngredients": [],
+      "veganApproach": "Char marinated tofu or cauliflower and use coconut cream in the sauce.",
+      "technique": "Chicken marinated in yogurt and spices is charred under high heat and finished in a spiced onion, tomato and cream sauce.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "comfort",
+        "everyday",
+        "hosting"
+      ],
+      "sources": [
+        {
+          "title": "Chicken tikka masala - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Chicken_tikka_masala"
+        }
+      ]
+    },
+    {
+      "key": "chicken-korma",
+      "name": "Chicken korma",
+      "nameEn": "Mild chicken curry with yogurt and nuts",
+      "aliases": [
+        "murgh korma"
+      ],
+      "tiles": [
+        "Indian"
+      ],
+      "cuisine": "Indian",
+      "region": "North India (Mughlai)",
+      "format": "curry",
+      "protein": "chickpeas",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop",
+        "blender"
+      ],
+      "cookMinutes": 50,
+      "effort": "medium",
+      "familiarity": 1,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "chicken thighs",
+        "yogurt",
+        "onion",
+        "cashews",
+        "ghee",
+        "cardamom",
+        "cinnamon",
+        "ginger",
+        "garlic",
+        "cream"
+      ],
+      "specialtyIngredients": [],
+      "veganApproach": "Braise chickpeas and vegetables in a cashew and coconut-yogurt sauce.",
+      "technique": "Chicken is braised gently with browned onion, yogurt and a paste of ground cashews and whole warm spices into a mild, rich sauce.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "comfort",
+        "hosting"
+      ],
+      "sources": [
+        {
+          "title": "Korma - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Korma"
+        }
+      ]
+    },
+    {
+      "key": "rogan-josh",
+      "name": "Rogan josh",
+      "nameEn": "Kashmiri braised lamb curry",
+      "aliases": [
+        "roghan josh"
+      ],
+      "tiles": [
+        "Indian"
+      ],
+      "cuisine": "Indian",
+      "region": "Kashmir",
+      "format": "curry",
+      "protein": "mushrooms",
+      "method": "slow_cook",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 100,
+      "effort": "medium",
+      "familiarity": 2,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "lamb shoulder",
+        "yogurt",
+        "kashmiri chili",
+        "fennel seeds",
+        "dried ginger",
+        "cardamom",
+        "cloves",
+        "ghee"
+      ],
+      "specialtyIngredients": [],
+      "veganApproach": "Braise mushrooms and potatoes with the same spices, using coconut yogurt.",
+      "technique": "Lamb is browned in ghee with whole spices and braised slowly with yogurt, Kashmiri chili and fennel into a deep red sauce.",
+      "seasons": [
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "comfort",
+        "hosting",
+        "mealprep"
+      ],
+      "sources": [
+        {
+          "title": "Rogan josh - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Rogan_josh"
+        }
+      ]
+    },
+    {
+      "key": "keema-matar",
+      "name": "Keema matar",
+      "nameEn": "Spiced minced lamb with peas",
+      "aliases": [
+        "kheema",
+        "keema mutter"
+      ],
+      "tiles": [
+        "Indian"
+      ],
+      "cuisine": "Indian",
+      "region": "North India",
+      "format": "curry",
+      "protein": "soy_mince",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 40,
+      "effort": "low",
+      "familiarity": 2,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "ground lamb",
+        "green peas",
+        "onion",
+        "tomatoes",
+        "ginger",
+        "garlic",
+        "garam masala",
+        "cumin",
+        "green chilies"
+      ],
+      "specialtyIngredients": [],
+      "veganApproach": "Use soy mince or finely chopped mushrooms and lentils in place of the lamb.",
+      "technique": "Minced meat is fried with onion, ginger, garlic and spices until dry and fragrant, then simmered with tomato and peas.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "mealprep",
+        "comfort"
+      ],
+      "sources": [
+        {
+          "title": "Keema - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Keema"
+        }
+      ]
+    },
+    {
+      "key": "chicken-biryani",
+      "name": "Chicken biryani",
+      "nameEn": "Layered spiced rice with chicken",
+      "aliases": [
+        "murgh biryani"
+      ],
+      "tiles": [
+        "Indian"
+      ],
+      "cuisine": "Indian",
+      "region": "Hyderabad",
+      "format": "rice_dish",
+      "protein": "chickpeas",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 90,
+      "effort": "high",
+      "familiarity": 1,
+      "traditionalDiet": "meat",
+      "versions": [],
+      "keyIngredients": [
+        "chicken thighs",
+        "basmati rice",
+        "yogurt",
+        "fried onions",
+        "saffron",
+        "mint",
+        "cilantro",
+        "garam masala",
+        "ghee"
+      ],
+      "specialtyIngredients": [
+        "saffron"
+      ],
+      "technique": "Spiced yogurt chicken is layered with par-cooked basmati, fried onions, herbs and saffron milk, then sealed and steamed on low heat.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "hosting",
+        "comfort"
+      ],
+      "sources": [
+        {
+          "title": "Biryani - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Biryani"
+        }
+      ]
+    },
+    {
+      "key": "tandoori-chicken",
+      "name": "Tandoori chicken",
+      "nameEn": "Yogurt and spice marinated roast chicken",
+      "aliases": [],
+      "tiles": [
+        "Indian"
+      ],
+      "cuisine": "Indian",
+      "region": "Punjab",
+      "format": "other",
+      "protein": "tofu",
+      "method": "oven",
+      "appliances": [
+        "oven"
+      ],
+      "cookMinutes": 50,
+      "effort": "low",
+      "familiarity": 1,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "chicken legs",
+        "yogurt",
+        "lemon",
+        "kashmiri chili",
+        "garam masala",
+        "ginger",
+        "garlic",
+        "onion"
+      ],
+      "specialtyIngredients": [],
+      "veganApproach": "Marinate thick slabs of tofu or cauliflower in spiced coconut yogurt and roast them hot.",
+      "technique": "Slashed chicken is marinated in yogurt, lemon and spices for hours and roasted at very high heat until charred at the edges.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn"
+      ],
+      "occasions": [
+        "everyday",
+        "hosting",
+        "mealprep"
+      ],
+      "sources": [
+        {
+          "title": "Tandoori chicken - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Tandoori_chicken"
+        }
+      ]
+    },
+    {
+      "key": "chicken-jalfrezi",
+      "name": "Chicken jalfrezi",
+      "nameEn": "Stir-fried chicken curry with peppers",
+      "aliases": [],
+      "tiles": [
+        "Indian"
+      ],
+      "cuisine": "Indian",
+      "region": "Bengal",
+      "format": "curry",
+      "protein": "tofu",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 30,
+      "effort": "low",
+      "familiarity": 2,
+      "traditionalDiet": "meat",
+      "versions": [],
+      "keyIngredients": [
+        "chicken breast",
+        "bell peppers",
+        "onion",
+        "tomatoes",
+        "green chilies",
+        "ginger",
+        "garlic",
+        "cumin",
+        "turmeric"
+      ],
+      "specialtyIngredients": [],
+      "technique": "Chicken is stir-fried over high heat with peppers, onion and chilies, then tossed with tomato and spices into a thick, dry curry.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "quick"
+      ],
+      "sources": [
+        {
+          "title": "Jalfrezi - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Jalfrezi"
+        }
+      ]
+    },
+    {
+      "key": "lamb-saag",
+      "name": "Saag gosht",
+      "nameEn": "Lamb curry with spinach",
+      "aliases": [
+        "lamb saag",
+        "palak gosht"
+      ],
+      "tiles": [
+        "Indian"
+      ],
+      "cuisine": "Indian",
+      "region": "Punjab",
+      "format": "curry",
+      "protein": "chickpeas",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop",
+        "blender"
+      ],
+      "cookMinutes": 90,
+      "effort": "medium",
+      "familiarity": 2,
+      "traditionalDiet": "meat",
+      "versions": [],
+      "keyIngredients": [
+        "lamb shoulder",
+        "spinach",
+        "onion",
+        "tomatoes",
+        "ginger",
+        "garlic",
+        "garam masala",
+        "cumin",
+        "ghee"
+      ],
+      "specialtyIngredients": [],
+      "technique": "Lamb is braised with onion, tomato and spices until tender, then a thick purée of spinach is stirred through.",
+      "seasons": [
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "comfort",
+        "mealprep"
+      ],
+      "sources": [
+        {
+          "title": "Saag - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Saag"
+        }
+      ]
+    },
+    {
+      "key": "chicken-madras",
+      "name": "Chicken madras",
+      "nameEn": "Hot and tangy South Indian-style chicken curry",
+      "aliases": [],
+      "tiles": [
+        "Indian"
+      ],
+      "cuisine": "Indian",
+      "region": "United Kingdom (British Indian)",
+      "format": "curry",
+      "protein": "chickpeas",
+      "method": "stovetop",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 45,
+      "effort": "low",
+      "familiarity": 2,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "chicken thighs",
+        "onion",
+        "tomatoes",
+        "chili powder",
+        "coriander",
+        "cumin",
+        "mustard seeds",
+        "curry leaves",
+        "tamarind"
+      ],
+      "specialtyIngredients": [
+        "curry leaves"
+      ],
+      "veganApproach": "Simmer chickpeas and potatoes in the same spiced tamarind and tomato sauce.",
+      "technique": "Chicken simmers in a hot, tangy sauce of fried onion, tomato, ground chili and coriander, sharpened with tamarind.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "everyday",
+        "comfort"
+      ],
+      "sources": [
+        {
+          "title": "Madras curry sauce - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Madras_curry_sauce"
+        }
+      ]
+    },
+    {
+      "key": "chicken-65",
+      "name": "Chicken 65",
+      "nameEn": "Spicy fried chicken bites from Chennai",
+      "aliases": [],
+      "tiles": [
+        "Indian"
+      ],
+      "cuisine": "Indian",
+      "region": "Tamil Nadu",
+      "format": "other",
+      "protein": "tofu",
+      "method": "deep_fry",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 40,
+      "effort": "medium",
+      "familiarity": 3,
+      "traditionalDiet": "meat",
+      "versions": [
+        "vegan"
+      ],
+      "keyIngredients": [
+        "chicken thighs",
+        "yogurt",
+        "cornstarch",
+        "rice flour",
+        "kashmiri chili",
+        "ginger",
+        "garlic",
+        "curry leaves",
+        "green chilies"
+      ],
+      "specialtyIngredients": [
+        "curry leaves"
+      ],
+      "veganApproach": "Fry cubes of pressed tofu or cauliflower in the same spiced coating.",
+      "technique": "Chicken marinated in spiced yogurt is coated in corn and rice flour, deep-fried until crisp and tossed with curry leaves and chilies.",
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "hosting",
+        "comfort"
+      ],
+      "sources": [
+        {
+          "title": "Chicken 65 - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Chicken_65"
+        }
+      ]
+    },
+    {
+      "key": "nihari",
+      "name": "Nihari",
+      "nameEn": "Slow-cooked spiced beef shank stew",
+      "aliases": [],
+      "tiles": [
+        "Indian"
+      ],
+      "cuisine": "Indian",
+      "region": "Delhi",
+      "format": "stew",
+      "protein": "chickpeas",
+      "method": "slow_cook",
+      "appliances": [
+        "stovetop"
+      ],
+      "cookMinutes": 240,
+      "effort": "high",
+      "familiarity": 3,
+      "traditionalDiet": "meat",
+      "versions": [],
+      "keyIngredients": [
+        "beef shank",
+        "onion",
+        "ginger",
+        "garlic",
+        "wheat flour",
+        "fennel",
+        "long pepper",
+        "ghee",
+        "lemon"
+      ],
+      "specialtyIngredients": [
+        "long pepper"
+      ],
+      "technique": "Beef shank simmers overnight-style for hours in a fragrant spice broth, which is thickened with toasted flour and served with ginger and lemon.",
+      "seasons": [
+        "autumn",
+        "winter"
+      ],
+      "occasions": [
+        "comfort",
+        "hosting"
+      ],
+      "sources": [
+        {
+          "title": "Nihari - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Nihari"
+        }
+      ]
     }
   ]
 }
