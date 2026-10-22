@@ -105,17 +105,21 @@ function dietOf(ingredients) {
 
 /** Diete dell'utente → tipi di ricetta che può ricevere. */
 function allowedDiets(userDiet) {
+  if (userDiet === 'omnivore') return ['vegan', 'vegetarian', 'pescatarian', 'meat'];
   if (userDiet === 'vegetarian') return ['vegan', 'vegetarian'];
   if (userDiet === 'pescatarian' || userDiet === 'reducer') return ['vegan', 'vegetarian', 'pescatarian'];
   return ['vegan'];
 }
 
-/** I profili vecchi "reducer" non si offrono più: si trattano da pescetariani. */
+/**
+ * I profili vecchi "reducer" non si offrono più: si trattano da pescetariani.
+ * Senza dieta dichiarata si mangia di tutto, come in lib/profile.js.
+ */
 function userDietOf(profile = {}) {
   const d = profile.dietaryIdentity;
-  if (d === 'vegetarian' || d === 'pescatarian') return d;
+  if (d === 'vegan' || d === 'vegetarian' || d === 'pescatarian') return d;
   if (d === 'reducer') return 'pescatarian';
-  return 'vegan';
+  return 'omnivore';
 }
 
 // ---------------------------------------------------------------------------

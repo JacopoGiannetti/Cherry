@@ -11,8 +11,9 @@ const RC = {
   timer: null,
 };
 
-const DIET_LABEL = { vegan: 'vegana', vegetarian: 'vegetariana', pescatarian: 'pescetariana' };
-const DIET_PILL = { vegan: 'green', vegetarian: 'amber', pescatarian: 'blue' };
+const DIET_LABEL = { vegan: 'vegana', vegetarian: 'vegetariana', pescatarian: 'pescetariana', meat: 'con carne' };
+const DIET_PILL = { vegan: 'green', vegetarian: 'amber', pescatarian: 'blue', meat: 'red' };
+const GROUP_LABEL = { vegan: 'utenti vegani', vegetarian: 'utenti vegetariani', pescatarian: 'utenti pescetariani', omnivore: 'utenti che mangiano di tutto' };
 const STATUS_LABEL = {
   ranked: 'in classifica', candidate: 'candidata', reviewing: 'al critico', seed_review: 'da approvare',
   rejected: 'scartata', retired: 'ritirata', expired: 'scaduta',
@@ -245,9 +246,9 @@ async function openRecipe(id) {
       </div>
       <table class="tbl rc-groups">
         <thead><tr><th>Gruppo</th><th>viste</th><th>tenute</th><th>stelle</th><th>riusi</th></tr></thead>
-        <tbody>${['vegan', 'vegetarian', 'pescatarian'].map((g) => {
+        <tbody>${['vegan', 'vegetarian', 'pescatarian', 'omnivore'].map((g) => {
           const x = groups[g] || {};
-          return `<tr><td>utenti ${esc(DIET_LABEL[g].replace(/a$/, 'i'))}</td><td>${n(x.views)}</td><td>${n(x.keeps)}</td><td>${n(x.stars)}</td><td>${n(x.reuses)}</td></tr>`;
+          return `<tr><td>${esc(GROUP_LABEL[g])}</td><td>${n(x.views)}</td><td>${n(x.keeps)}</td><td>${n(x.stars)}</td><td>${n(x.reuses)}</td></tr>`;
         }).join('')}</tbody>
       </table>
 
@@ -311,6 +312,7 @@ function renderCoverage() {
           <label>vegane <input type="number" min="0" max="5" value="3" data-mix="vegan"></label>
           <label>veget. <input type="number" min="0" max="5" value="1" data-mix="vegetarian"></label>
           <label>pesce <input type="number" min="0" max="5" value="1" data-mix="pescatarian"></label>
+          <label>carne <input type="number" min="0" max="5" value="0" data-mix="meat"></label>
           <button class="btn small primary" data-seed="${esc(t)}">Crea</button>
         </div></td></tr>`;
     }).join('')}</tbody>`;
@@ -364,6 +366,10 @@ const PARAM_FIELDS = [
   ['quotas.pescatarian.vegan', 'Pescetariani: quota vegane', '0-1'],
   ['quotas.pescatarian.vegetarian', 'Pescetariani: quota vegetariane', '0-1'],
   ['quotas.pescatarian.pescatarian', 'Pescetariani: quota con pesce', '0-1'],
+  ['quotas.omnivore.meat', 'Chi mangia di tutto: quota con carne', '0-1'],
+  ['quotas.omnivore.pescatarian', 'Chi mangia di tutto: quota con pesce', '0-1'],
+  ['quotas.omnivore.vegetarian', 'Chi mangia di tutto: quota vegetariane', '0-1'],
+  ['quotas.omnivore.vegan', 'Chi mangia di tutto: quota vegane', '0-1'],
 ];
 
 function dig(obj, path) {

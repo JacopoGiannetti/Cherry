@@ -190,11 +190,11 @@ router.put('/params', guard(async (req, res) => {
   if (body.bonus) clean.bonus = { star: num(body.bonus.star, 0, 5), reuse: num(body.bonus.reuse, 0, 5) };
   if (body.quotas) {
     clean.quotas = {};
-    for (const diet of ['vegan', 'vegetarian', 'pescatarian']) {
+    for (const diet of ['vegan', 'vegetarian', 'pescatarian', 'omnivore']) {
       const q = body.quotas[diet];
       if (!q) continue;
       const out = {};
-      for (const [k, v] of Object.entries(q)) if (['vegan', 'vegetarian', 'pescatarian'].includes(k)) out[k] = num(v, 0, 1);
+      for (const [k, v] of Object.entries(q)) if (['vegan', 'vegetarian', 'pescatarian', 'meat'].includes(k)) out[k] = num(v, 0, 1);
       const sum = Object.values(out).reduce((a, b) => a + b, 0);
       if (Math.abs(sum - 1) > 0.01) throw fail(400, `le quote ${diet} devono fare 100%`);
       clean.quotas[diet] = out;
@@ -216,7 +216,7 @@ router.put('/params', guard(async (req, res) => {
   res.json({ ok: true });
 }));
 
-// POST /api/catalog/seed { tile, mix: { vegan, vegetarian, pescatarian } }
+// POST /api/catalog/seed { tile, mix: { vegan, vegetarian, pescatarian, meat } }
 // Ricette di partenza per una cucina: piatti famosi dell'atlante, scritti,
 // passati dal critico, con la foto. Restano "da approvare" finché non le
 // approvi tu.
@@ -227,13 +227,13 @@ router.post('/seed', guard(async (req, res) => {
   const coverage = await store.coverageByDish();
 
   const slots = [];
-  for (const diet of ['vegan', 'vegetarian', 'pescatarian']) {
+  for (const diet of ['vegan', 'vegetarian', 'pescatarian', 'meat']) {
     for (let i = 0; i < Math.min(5, Number(mix[diet]) || 0); i++) slots.push({ slot: slots.length, diet });
   }
   if (!slots.length) throw fail(400, 'nessuna ricetta richiesta');
 
   const ctx = buildContext({
-    userDiet: 'pescatarian',
+    userDiet: 'omnivore',
     tiles: [tile],
     appliances: [],
     rules: [],

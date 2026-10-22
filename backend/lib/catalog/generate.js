@@ -5,6 +5,7 @@ const { buildGeneratePrompt, generateSchema } = require('../../prompts/catalog')
 const { dietOf, violation, inferAllergens, DIET_RANK } = require('./ingredients');
 const { UNITS } = require('./units');
 const { emptyStats } = require('./store');
+const { proteinFor } = require('./atlas');
 
 const MARKETING = /\b(ultimate|best|perfect|easy|dreamy|loaded|cozy|cosy|creamy|epic|amazing|delicious|irresistible|healthy|quick|simple)\b\s*/gi;
 
@@ -30,9 +31,11 @@ function problemsOf(recipe, brief, ctx) {
     if (ing.unit !== 'to_taste' && !(ing.amount > 0)) return `no amount for ${ing.name}`;
   }
   const diet = dietOf(ingredients);
-  if (diet === 'meat') return `${brief.dish.name}: contains meat — must be ${brief.diet}`;
   if (DIET_RANK[diet] > DIET_RANK[brief.diet]) {
     return `${brief.dish.name}: must be ${brief.diet} but the ingredients make it ${diet}`;
+  }
+  if (brief.diet === 'meat' && diet !== 'meat') {
+    return `${brief.dish.name}: this is the traditional version — keep its meat, it came out ${diet}`;
   }
   const allergens = [...new Set([...(recipe.allergens || []), ...inferAllergens(ingredients)])];
   const hit = violation(ctx.rules, ingredients.map((i) => i.name), allergens);
@@ -65,7 +68,7 @@ function toEntry(recipe, brief, { uid, ctx }) {
     tiles: d.tiles,
     cuisine: d.cuisine,
     format: d.format,
-    protein: d.protein,
+    protein: proteinFor(d, brief.diet),
     method: d.method,
     appliances: [...new Set(recipe.appliances && recipe.appliances.length ? recipe.appliances : d.appliances)],
     familiarity: d.familiarity,

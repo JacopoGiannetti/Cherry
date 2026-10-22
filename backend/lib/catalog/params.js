@@ -8,6 +8,7 @@ const DEFAULTS = {
     vegan: { vegan: 1 },
     vegetarian: { vegan: 0.6, vegetarian: 0.4 },
     pescatarian: { vegan: 0.5, vegetarian: 0.25, pescatarian: 0.25 },
+    omnivore: { meat: 0.6, pescatarian: 0.1, vegetarian: 0.2, vegan: 0.1 },
   },
   // Di quanto la quota si sposta seguendo i gusti della persona (±).
   quotaShift: 0.15,

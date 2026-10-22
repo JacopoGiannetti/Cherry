@@ -100,9 +100,7 @@ async function generateInto(uid, root, runId, { profile, history, run, keeps, pa
   const servings = clampServings(run.servings);
   const count = recipeCount(Math.max(remainingUsd, 20), servings);
 
-  // Il ricettario ha solo ricette vegane, vegetariane e pescetariane:
-  // chi mangia di tutto le riceve scritte apposta.
-  if (keys.catalog.enabled && profile.dietaryIdentity !== 'omnivore') {
+  if (keys.catalog.enabled) {
     return buildDeck({
       uid,
       root,

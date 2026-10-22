@@ -88,7 +88,7 @@ function emptyStats() {
   const group = { views: 0, keeps: 0, stars: 0, reuses: 0 };
   return {
     views: 0, keeps: 0, passes: 0, stars: 0, reuses: 0,
-    groups: { vegan: { ...group }, vegetarian: { ...group }, pescatarian: { ...group } },
+    groups: { vegan: { ...group }, vegetarian: { ...group }, pescatarian: { ...group }, omnivore: { ...group } },
   };
 }
 

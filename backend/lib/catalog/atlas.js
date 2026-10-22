@@ -33,6 +33,24 @@ function dish(key) {
   return load().byKey.get(key) || null;
 }
 
+// Il campo `protein` dell'atlante è quello della versione vegana (il tofu
+// al posto del maiale): la versione con carne prende la carne vera dagli
+// ingredienti chiave, così il mazzo non mette tre piatti di maiale.
+const MEATS = [
+  ['poultry', /\b(chicken|turkey|duck|goose|quail)\b/],
+  ['beef', /\b(beef|veal|oxtail|brisket|steak|bone marrow)\b/],
+  ['pork', /\b(pork|bacon|pancetta|guanciale|prosciutto|ham|salami|chorizo|sausages?|lard|speck|mortadella|nduja)\b/],
+  ['lamb', /\b(lamb|mutton|goat)\b/],
+];
+
+/** La proteina del piatto nella versione di quella dieta. */
+function proteinFor(dish, diet) {
+  if (diet !== 'meat') return dish.protein;
+  const text = (dish.keyIngredients || []).join(' ').toLowerCase();
+  const hit = MEATS.find(([, re]) => re.test(text));
+  return hit ? hit[0] : 'meat';
+}
+
 /** Piatti di almeno una delle tile; nessuna tile = tutto l'atlante. */
 function dishesForTiles(tiles) {
   const all = load().dishes;
@@ -40,4 +58,4 @@ function dishesForTiles(tiles) {
   return all.filter((d) => d.tiles.some((t) => tiles.includes(t)));
 }
 
-module.exports = { TILES, allDishes, dish, dishesForTiles };
+module.exports = { TILES, allDishes, dish, dishesForTiles, proteinFor };

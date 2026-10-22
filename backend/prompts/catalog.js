@@ -54,7 +54,10 @@ const VERSION_RULES = {
   vegan: 'VEGAN version: no meat, fish, seafood, dairy, eggs, honey, gelatin, fish sauce, anchovy, worcestershire or any animal product. Follow the vegan approach in the brief; keep the dish recognisable.',
   vegetarian: 'VEGETARIAN version: no meat, fish, seafood, gelatin, anchovy, fish sauce or worcestershire. KEEP the dairy and eggs that make this dish what it is (the cheese, the butter, the eggs, the yogurt) — do not make it vegan.',
   pescatarian: 'PESCATARIAN version: no meat or poultry, no meat stock, no lard or bacon. The fish or seafood is the point of this dish — keep it (or use the closest fish/seafood if the original is meat). Dairy and eggs are fine where traditional.',
+  meat: 'TRADITIONAL version: the dish as it is really made, WITH its meat (and the fish, dairy or eggs it traditionally has). Do not replace the meat with a substitute and do not make it vegetarian.',
 };
+
+const DIET_NAMES = { meat: 'traditional (with its meat)' };
 
 function briefLine(brief, index) {
   const d = brief.dish;
@@ -120,7 +123,7 @@ function buildGeneratePrompt({ briefs, basket = [], profile = {}, exclusions = [
     hosting: 'OCCASION: hosting friends. Write it so it looks generous on the table.',
     date: 'OCCASION: date night at home. Careful plating, a finishing touch that belongs to the dish.',
     mealprep: 'OCCASION: meal prep. Mention how it keeps in the fridge in the last step.',
-    protein: 'OCCASION: high protein. The beans, lentils, tofu, tempeh or seitan must be a generous, obvious part of the plate, about a third of the meal.',
+    protein: 'OCCASION: high protein. The main protein of each dish (meat, fish, eggs, beans, lentils, tofu, tempeh or seitan — whatever its version uses) must be a generous, obvious part of the plate, about a third of the meal.',
     fresh: 'OCCASION: light and fresh. Keep it bright: herbs, crisp vegetables, a light sauce. No cream and no deep-frying as the main method.',
     quick: 'OCCASION: minimal effort. Shortcuts that real cooks use are fine (canned beans, ready stock); keep it under 30 minutes.',
     comfort: 'OCCASION: comfort food. Do not hold back on the richness the dish traditionally has.',
@@ -179,13 +182,14 @@ const criticSchema = {
 };
 
 function buildCriticPrompt({ recipe, dish, diet }) {
+  const dietName = DIET_NAMES[diet] || diet;
   return [
     'You are the strict editor of a cookbook of real dishes. A recipe is about to be published to every user.',
-    `It must be ${dish ? `a faithful ${diet} version of ${dish.name} (${dish.cuisine})` : `a real ${diet} dish`}.`,
+    `It must be ${dish ? `a faithful ${dietName} version of ${dish.name} (${dish.cuisine})` : `a real ${dietName} dish`}.`,
     dish ? `Reference: format ${dish.format}; traditional key ingredients ${(dish.keyIngredients || []).join(', ')}.${dish.veganApproach && diet === 'vegan' ? ` Vegan approach: ${dish.veganApproach}` : ''}` : '',
     '',
     'Check, in this order:',
-    `1. Diet: is it truly ${diet}? (${VERSION_RULES[diet]})`,
+    `1. Diet: is it truly ${dietName}? (${VERSION_RULES[diet]})`,
     '2. Authenticity: would a cook from that place recognise the dish? Wrong technique, wrong key ingredient, invented fusion = problem.',
     '3. Cookability: amounts for 2 servings that make sense together, every ingredient used in the steps and every step ingredient listed, heat/time/visual cues, honest total time.',
     '4. Portion: a real dinner for 2, not a side dish.',

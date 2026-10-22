@@ -10,6 +10,7 @@
 //    dall'atlante, preferendo quelli che il ricettario non ha ancora.
 const { allowedDiets, violation, animalCategories, DIET_RANK } = require('./ingredients');
 const { localCost } = require('./render');
+const { proteinFor } = require('./atlas');
 
 const SEASON_BY_MONTH = ['winter', 'winter', 'spring', 'spring', 'spring', 'summer', 'summer', 'summer', 'autumn', 'autumn', 'autumn', 'winter'];
 
@@ -153,6 +154,7 @@ const FAMILIARITY = {
 const PROTEIN_RICH = new Set([
   'tofu', 'beans', 'lentils', 'chickpeas', 'seitan', 'tempeh', 'fish',
   'eggs', 'cheese', 'soy_mince', 'jackfruit', 'shellfish', 'edamame_peas',
+  'poultry', 'beef', 'pork', 'lamb', 'meat',
 ]);
 
 /** Quanto un piatto risponde al motivo della spesa. */
@@ -247,12 +249,17 @@ function dietFits(itemDiet, slotDiet) {
   return DIET_RANK[itemDiet] <= DIET_RANK[slotDiet];
 }
 
-/** Un posto vegetariano lo riempie prima una ricetta vegetariana, poi una vegana. */
+/**
+ * Un posto vegetariano lo riempie prima una ricetta vegetariana, poi una vegana.
+ * Un posto con carne solo una ricetta con carne: se la classifica non ne
+ * ha, la scrive l'IA, invece di riempire il mazzo di chi mangia di tutto
+ * con le ricette vegane che la classifica ha già.
+ */
 function bestFor(slotDiet, list, tracker, extra = () => true) {
   const tile = tracker.neediestTile();
   const usable = list.filter((c) => !c.used && dietFits(c.entry.diet, slotDiet) && tracker.ok(c.entry) && extra(c));
   const exact = usable.filter((c) => c.entry.diet === slotDiet);
-  const pools = [exact, usable];
+  const pools = slotDiet === 'meat' ? [exact] : [exact, usable];
   for (const pool of pools) {
     if (!pool.length) continue;
     if (tile) {
@@ -322,6 +329,13 @@ function pickFromPool(pool, ctx, params, count) {
 
 /** Il piatto dell'atlante si adatta alla dieta del posto? */
 function dishFitsDiet(dish, diet) {
+  // La versione con carne è il piatto com'è: solo quelli che la carne ce
+  // l'hanno davvero. Alcuni piatti "meat" dell'atlante hanno già gli
+  // ingredienti chiave vegetali, e l'IA dovrebbe inventarsela.
+  if (diet === 'meat') {
+    return dish.traditionalDiet === 'meat'
+      && (dish.keyIngredients || []).some((t) => animalCategories(t).includes('meat'));
+  }
   if (!(dish.versions || []).includes(diet)) return false;
   // Un posto vegetariano vuole formaggio o uova veri, non un piatto vegano.
   if (diet === 'vegetarian') return dish.traditionalDiet !== 'vegan';
@@ -333,7 +347,7 @@ function dishExcluded(dish, diet, ctx) {
   // Gli ingredienti animali di un piatto tradizionale spariscono nella
   // versione vegana: non devono bloccarlo.
   const texts = (dish.keyIngredients || []).filter((t) => {
-    if (diet === 'pescatarian') return true;
+    if (diet === 'pescatarian' || diet === 'meat') return true;
     const cats = animalCategories(t);
     if (!cats.length) return true;
     if (diet === 'vegetarian') return !cats.some((c) => c === 'meat' || c === 'fish' || c === 'shellfish');
@@ -342,6 +356,11 @@ function dishExcluded(dish, diet, ctx) {
   return Boolean(violation(ctx.rules, texts, []));
 }
 
+// L'atlante ha pochi piatti con carne per alcune cucine: un posto con
+// carne che non trova piatti scende di un gradino, invece di accorciare
+// il mazzo.
+const FALLBACK = { meat: ['meat', 'pescatarian', 'vegetarian', 'vegan'] };
+
 /**
  * Sceglie i piatti dell'atlante per i posti vuoti. Prima quelli che il
  * ricettario non ha ancora per quella dieta, così il ricettario cresce in
@@ -349,24 +368,30 @@ function dishExcluded(dish, diet, ctx) {
  */
 function pickBriefs(missing, dishes, ctx, coverage, tracker) {
   const briefs = [];
-  for (const slot of missing) {
-    const options = dishes.filter((d) => {
-      if (!dishFitsDiet(d, slot.diet)) return false;
-      if (!fitsTiles(d.tiles, ctx)) return false;
-      if (ctx.blocked.has(d.key)) return false;
-      if (ctx.dishMaxRetired && (ctx.retiredDishes.get(`${d.key}|${slot.diet}`) || 0) >= ctx.dishMaxRetired) return false;
-      if (!fitsAppliances(d.appliances, ctx)) return false;
-      if (ctx.occasion === 'quick' && d.cookMinutes > 30) return false;
-      if (!tracker.ok({ dishKey: d.key, format: d.format, protein: d.protein, tiles: d.tiles })) return false;
-      return !dishExcluded(d, slot.diet, ctx);
-    });
+  for (const wanted of missing) {
+    let slot = wanted;
+    let options = [];
+    for (const diet of FALLBACK[wanted.diet] || [wanted.diet]) {
+      slot = { ...wanted, diet };
+      options = dishes.filter((d) => {
+        if (!dishFitsDiet(d, diet)) return false;
+        if (!fitsTiles(d.tiles, ctx)) return false;
+        if (ctx.blocked.has(d.key)) return false;
+        if (ctx.dishMaxRetired && (ctx.retiredDishes.get(`${d.key}|${diet}`) || 0) >= ctx.dishMaxRetired) return false;
+        if (!fitsAppliances(d.appliances, ctx)) return false;
+        if (ctx.occasion === 'quick' && d.cookMinutes > 30) return false;
+        if (!tracker.ok({ dishKey: d.key, format: d.format, protein: proteinFor(d, diet), tiles: d.tiles })) return false;
+        return !dishExcluded(d, diet, ctx);
+      });
+      if (options.length) break;
+    }
     if (!options.length) continue;
 
     const tile = tracker.neediestTile();
     const scored = options.map((d) => {
       let s = (FAMILIARITY[ctx.adventure] || FAMILIARITY[2])[d.familiarity] || 1;
       if (!(d.seasons || []).includes(ctx.season)) s *= 0.8;
-      s *= moodFactor(d, ctx.occasion);
+      s *= moodFactor({ ...d, protein: proteinFor(d, slot.diet) }, ctx.occasion);
       if (tile && d.tiles.includes(tile)) s *= 1.5;
       const have = coverage.get(`${d.key}|${slot.diet}`) || 0;
       s *= have === 0 ? 1.4 : have < 3 ? 1 : 0.6;
@@ -376,7 +401,7 @@ function pickBriefs(missing, dishes, ctx, coverage, tracker) {
     });
     scored.sort((a, b) => b.s - a.s);
     const dish = scored[0].d;
-    tracker.add({ dishKey: dish.key, format: dish.format, protein: dish.protein, tiles: dish.tiles });
+    tracker.add({ dishKey: dish.key, format: dish.format, protein: proteinFor(dish, slot.diet), tiles: dish.tiles });
     briefs.push({ slot: slot.slot, diet: slot.diet, dish });
   }
   return briefs;
