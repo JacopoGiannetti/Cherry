@@ -224,6 +224,58 @@ const VIDEO_MODELS = [
       };
     },
   },
+  {
+    id: 'seedance-2-5',
+    label: 'Seedance 2.5 Edit',
+    endpoint: 'bytedance/seedance-2.5/reference-to-video',
+    note: 'Modifica vera (task editing): tiene formato, durata e movimento. Il più caro.',
+    // A token: con un video di riferimento ~$0.284 al secondo fatturato a
+    // 720p, e si fatturano sorgente + uscita, che in modifica durano uguale.
+    price: perSecond(price('FAL_SEEDANCE_25_USD_SEC', 0.57)),
+    limits: { minSeconds: 2, maxSeconds: 15 },
+    refs: 'image',
+    maxRefs: 4,
+    // Il video da modificare è il primo riferimento: il prompt lo deve
+    // chiamare @Video1, altrimenti il modello non sa qual è il master.
+    build({ prompt, videoUrl, imageUrls, seed }) {
+      return {
+        prompt: `Edit @Video1. ${prompt} Keep the motion, camera, timing and audio of @Video1.`,
+        task: 'editing',
+        video_urls: [videoUrl],
+        ...(imageUrls && imageUrls.length ? { image_urls: imageUrls.slice(0, 4) } : {}),
+        resolution: process.env.FAL_SEEDANCE_RESOLUTION || '720p',
+        generate_audio: true,
+        ...(Number.isInteger(seed) ? { seed } : {}),
+      };
+    },
+  },
+  {
+    id: 'wan-3-0',
+    label: 'Wan 3.0',
+    endpoint: 'alibaba/wan-3.0/reference-to-video',
+    note: 'Rigenera dal clip invece di ritoccarlo: meno fedele al movimento di Kling e Seedance.',
+    // $0.10/s di uscita a 720p, più i secondi del video di riferimento.
+    price: perSecond(price('FAL_WAN_30_USD_SEC', 0.2)),
+    // I riferimenti video non passano i 15s in tutto e vogliono 16+ fps.
+    limits: { minSeconds: 2, maxSeconds: 15 },
+    refs: 'image',
+    maxRefs: 4,
+    // Su fal Wan 3.0 non ha un endpoint di modifica: il clip entra come
+    // riferimento e si chiama "Video 1", senza @. La durata va passata,
+    // altrimenti fal ne fa 5s qualunque sia il clip.
+    build({ prompt, videoUrl, imageUrls, duration, seed }) {
+      const named = prompt.replace(/@Image(\d+)/g, 'Image $1');
+      return {
+        prompt: `Edit Video 1. ${named} Keep the motion, camera and timing of Video 1.`,
+        reference_video_urls: [videoUrl],
+        ...(imageUrls && imageUrls.length ? { reference_image_urls: imageUrls.slice(0, 4) } : {}),
+        duration: Math.min(15, Math.max(2, Math.ceil(duration || 5))),
+        resolution: process.env.FAL_WAN_30_RESOLUTION || '720p',
+        audio: true,
+        ...(Number.isInteger(seed) ? { seed } : {}),
+      };
+    },
+  },
 ];
 
 // ---------------------------------------------------------------------
