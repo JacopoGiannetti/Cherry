@@ -9,7 +9,7 @@ const { consumeQuota, checkQuota } = require('../lib/rate-limit');
 const { getTasteProfile } = require('../lib/profile');
 const { getCached, setCached, patchCached, bumpCacheHit } = require('../lib/cache');
 const { generateJSON, imagePart, videoPart } = require('../services/gemini');
-const { downloadImage, persistVideo, isPersisted } = require('../services/storage');
+const { downloadImage, persistVideo, persistRemoteVideo, storedVideo, isPersisted } = require('../services/storage');
 const { cleanSegments, remapSegments, withoutSegments } = require('../lib/recipe-segments');
 const { downloadVideo, detectPlatform, resolve, SocialVideoError } = require('../services/social-video');
 const { fetchWebRecipe } = require('../services/web-recipe');
@@ -30,6 +30,9 @@ const router = express.Router();
 // Come `staleAfter` in SharedInboxStore: oltre, un ledger mai arrivato
 // è un job morto e l'import può ripartire.
 const LEDGER_STALE_MS = 3 * 60 * 1000;
+
+/** Estrazioni dei link in corso, per chiave di cache. */
+const extracting = new Map();
 
 function normalizeUrl(url) {
   try {
@@ -69,6 +72,9 @@ async function extractFromVideo(uid, url, profile) {
     + ` spezzoni grezzi ${extraction.recipe.segments?.length || 0}, validi ${segments?.length || 0}`);
   const videoUrl = await keepVideo(url, video, segments, recipe);
   console.log(`[swap.video] ${url}: vista dinamica ${videoUrl ? 'PRONTA' : 'non disponibile'}`);
+  // Senza vista dinamica il video intero si salva comunque, in sottofondo:
+  // l'import resta veloce, e "Generate" lo troverà già su Storage.
+  if (!videoUrl) saveSourceVideo(url, video.videoUrls).catch(() => {});
   return {
     recipe,
     thumbnail: (await keepThumbnail(url, video.thumbnail)) || video.thumbnail || null,
@@ -87,6 +93,26 @@ async function extractFromVideo(uid, url, profile) {
 // sola traccia audio) non deve tornare a ogni nuovo tentativo.
 function videoPath(video) {
   return `source-videos/${crypto.createHash('sha256').update(video.buffer).digest('hex')}.mp4`;
+}
+
+/** Il video intero di un post, uno per link: lo legge "Generate". */
+function sourceVideoPath(url) {
+  return `source-videos/by-url/${crypto.createHash('sha256').update(normalizeUrl(url)).digest('hex')}.mp4`;
+}
+
+/** Copia il video intero su Storage provando ogni versione. null se nessuna va. */
+async function saveSourceVideo(url, videoUrls = []) {
+  const path = sourceVideoPath(url);
+  for (const [i, remote] of videoUrls.entries()) {
+    try {
+      const stored = await persistRemoteVideo(remote, path);
+      console.log(`[swap.video] ${url}: video intero salvato (${i + 1}/${videoUrls.length})`);
+      return stored;
+    } catch (e) {
+      console.log(`[swap.video] ${url}: video intero NON salvato (${i + 1}/${videoUrls.length}): ${e.message}`);
+    }
+  }
+  return null;
 }
 
 async function keepVideo(url, video, segments, recipe) {
@@ -175,15 +201,26 @@ async function extractOriginal(uid, source, profile) {
       return withLastingThumbnail(source.url, cached, cacheKey);
     }
 
+    // Stesso link già in lettura (anteprima, import in sottofondo, import
+    // all'apertura arrivano insieme): si aspetta quella, invece di
+    // rifare la chiamata al social e la lettura con Gemini.
+    const running = extracting.get(cacheKey);
+    if (running) return running;
+
     // Social: si guarda il video. Qualsiasi altro sito: si legge la
     // pagina, perché le ricette vivono anche fuori da TikTok.
-    const entry =
-      detectPlatform(source.url) === 'unknown'
-        ? await extractFromWebPage(uid, source.url, profile)
-        : await extractFromVideo(uid, source.url, profile);
-
-    await setCached('sourceRecipes', cacheKey, entry);
-    return entry;
+    const work = (async () => {
+      const entry =
+        detectPlatform(source.url) === 'unknown'
+          ? await extractFromWebPage(uid, source.url, profile)
+          : await extractFromVideo(uid, source.url, profile);
+      await setCached('sourceRecipes', cacheKey, entry);
+      return entry;
+    })();
+    extracting.set(cacheKey, work);
+    const clear = () => extracting.delete(cacheKey);
+    work.then(clear, clear);
+    return work;
   }
 
   if (source.type === 'screenshot') {
@@ -496,24 +533,27 @@ router.post('/dynamic', (req, res) => {
       await ref.set({ dynamicStatus: 'generating', dynamicError: FieldValue.delete() }, { merge: true });
 
       try {
-        const video = await downloadVideo(url);
-        console.log(`[swap.dynamic] ${url}: scaricato ${video.hasPicture ? 'VIDEO' : 'solo AUDIO'} ${(video.buffer.length / 1024 / 1024).toFixed(1)}MB`);
-        if (!video.hasPicture) {
-          throw new JobError('too_large', 'This video is too long for the dynamic view.');
-        }
+        // Il video intero salvato all'import; se manca (ricette di prima,
+        // o salvataggio fallito) si scarica adesso. Gemini lo legge da
+        // Storage, senza il limite dei 18MB delle richieste.
+        let stored = await storedVideo(sourceVideoPath(url));
+        console.log(`[swap.dynamic] ${url}: video intero ${stored ? 'già su Storage' : 'da scaricare'}`);
+        if (!stored) stored = await saveSourceVideo(url, (await resolve(url)).videoUrls);
+        if (!stored) throw new JobError('no_video', 'We couldn’t get this video. Try again.');
+
         const result = await generateJSON({
           prompt: buildSegmentsPrompt(recipe),
           schema: segmentsSchema,
-          parts: [videoPart(video.buffer, video.mimeType)],
+          parts: [{ fileData: { fileUri: stored.gsUri, mimeType: 'video/mp4' } }],
           temperature: 0.2,
           label: 'swap-dynamic',
           thinkingLevel: 'LOW',
         });
         consumeQuota(uid, 'jobs', 1);
         const segments = cleanSegments(result.segments, recipe);
-        console.log(`[swap.dynamic] ${url}: spezzoni grezzi ${result.segments?.length || 0}, validi ${segments?.length || 0}`);
+        console.log(`[swap.dynamic] ${url}: Gemini ha guardato il VIDEO da ${stored.gsUri}, spezzoni grezzi ${result.segments?.length || 0}, validi ${segments?.length || 0}`);
         if (!segments) throw new JobError('no_segments', 'We couldn’t split this video into steps.');
-        const videoUrl = await persistVideo(video.buffer, video.mimeType, videoPath(video));
+        const videoUrl = stored.downloadUrl;
 
         const done = { dynamicStatus: FieldValue.delete(), dynamicError: FieldValue.delete() };
         if (recipeId) {

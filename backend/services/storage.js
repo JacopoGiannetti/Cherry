@@ -3,6 +3,8 @@
 // E il contrario: le foto che arrivano da fuori (fal, copertine dei
 // social) si copiano qui, perché i loro link scadono.
 const crypto = require('crypto');
+const { Transform } = require('stream');
+const { pipeline } = require('stream/promises');
 const axios = require('axios');
 const { storage } = require('../lib/firebase');
 const { bucket } = require('../lib/catalog/deps');
@@ -98,4 +100,65 @@ async function persistVideo(buffer, mimeType, path) {
   return downloadUrl(b.name, path, token);
 }
 
-module.exports = { downloadImage, persistImage, persistVideo, isPersisted };
+const MAX_SOURCE_VIDEO_BYTES = 300 * 1024 * 1024;
+const SOURCE_VIDEO_TIMEOUT_MS = 180000;
+
+function storedRef(b, path, token) {
+  return { gsUri: `gs://${b.name}/${path}`, downloadUrl: downloadUrl(b.name, path, token) };
+}
+
+/** Il video già salvato in `path`, o null. */
+async function storedVideo(path) {
+  const b = bucket();
+  const file = b.file(path);
+  const [exists] = await file.exists();
+  if (!exists) return null;
+  const [meta] = await file.getMetadata();
+  const token = String(meta.metadata?.firebaseStorageDownloadTokens || '').split(',')[0];
+  return token ? storedRef(b, path, token) : null;
+}
+
+/**
+ * Il video intero di un post, copiato dal CDN social nel bucket a
+ * flusso: i reel pesano decine di MB e in memoria non devono stare.
+ * Ritorna `gsUri` (per Gemini, che da Storage legge fino a 2 GB) e
+ * `downloadUrl` (per l'app). Lancia se non è un video o è troppo grande.
+ */
+async function persistRemoteVideo(remoteUrl, path) {
+  const existing = await storedVideo(path);
+  if (existing) return existing;
+
+  const response = await axios.get(remoteUrl, {
+    responseType: 'stream',
+    timeout: SOURCE_VIDEO_TIMEOUT_MS,
+    headers: { 'User-Agent': 'Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X)' },
+  });
+  const contentType = String(response.headers['content-type'] || '').split(';')[0];
+  const declared = parseInt(response.headers['content-length'] || '0', 10);
+  if (!contentType.startsWith('video/') || declared > MAX_SOURCE_VIDEO_BYTES) {
+    response.data.destroy();
+    throw new Error(!contentType.startsWith('video/') ? `non è un video: ${contentType}` : `troppo grande: ${declared} byte`);
+  }
+
+  let seen = 0;
+  const limit = new Transform({
+    transform(chunk, _enc, done) {
+      seen += chunk.length;
+      done(seen > MAX_SOURCE_VIDEO_BYTES ? new Error(`troppo grande: oltre ${MAX_SOURCE_VIDEO_BYTES} byte`) : null, chunk);
+    },
+  });
+  const b = bucket();
+  const token = crypto.randomUUID();
+  await pipeline(
+    response.data,
+    limit,
+    b.file(path).createWriteStream({
+      resumable: false,
+      contentType,
+      metadata: { cacheControl: 'public, max-age=31536000', metadata: { firebaseStorageDownloadTokens: token } },
+    })
+  );
+  return storedRef(b, path, token);
+}
+
+module.exports = { downloadImage, persistImage, persistVideo, persistRemoteVideo, storedVideo, isPersisted };

@@ -85,7 +85,26 @@ function pickBestMedia(data) {
   return { videoUrls: candidates.map((c) => c.url), audioUrls, caption, thumbnail };
 }
 
-async function resolve(url) {
+// L'app chiede lo stesso link più volte nello stesso istante (anteprima,
+// import in sottofondo, import all'apertura): Pro accetta 3 chiamate al
+// secondo, e le altre tornavano 429. Una sola chiamata per link, la cui
+// risposta vale qualche minuto (i link dei CDN durano ore).
+const RESOLVE_TTL_MS = 5 * 60 * 1000;
+const resolving = new Map();
+
+function resolve(url) {
+  const key = String(url || '').trim();
+  const now = Date.now();
+  for (const [k, v] of resolving) if (now - v.at > RESOLVE_TTL_MS) resolving.delete(k);
+  const hit = resolving.get(key);
+  if (hit) return hit.promise;
+  const promise = resolveFresh(url);
+  resolving.set(key, { at: now, promise });
+  promise.catch(() => resolving.delete(key));
+  return promise;
+}
+
+async function resolveFresh(url) {
   if (!keys.rapidApi.apiKey) {
     throw new SocialVideoError('not_configured', 'Video import is not set up yet.');
   }
@@ -117,9 +136,10 @@ async function resolve(url) {
 }
 
 /**
- * Ritorna { buffer, mimeType, caption, thumbnail, platform, hasPicture }.
+ * Ritorna { buffer, mimeType, caption, thumbnail, platform, hasPicture, videoUrls }.
  * `hasPicture` false: è arrivata solo la traccia audio, buona per leggere
- * la ricetta ma non per la vista dinamica.
+ * la ricetta ma non per la vista dinamica. `videoUrls`: i link del video
+ * intero, anche quelli troppo pesanti da mandare dentro la richiesta.
  */
 async function downloadVideo(url) {
   const platform = detectPlatform(url);
@@ -145,7 +165,7 @@ async function downloadVideo(url) {
     try {
       const file = await fetchVideo(a.u);
       console.log(`[social] tentativo ${i + 1}/${attempts.length} (${a.kind}): OK ${mb(file.buffer.length)} ${file.contentType}`);
-      return { buffer: file.buffer, mimeType: file.mimeType, caption, thumbnail, platform, hasPicture: a.hasPicture };
+      return { buffer: file.buffer, mimeType: file.mimeType, caption, thumbnail, platform, hasPicture: a.hasPicture, videoUrls };
     } catch (e) {
       console.log(`[social] tentativo ${i + 1}/${attempts.length} (${a.kind}): FALLITO ${e.message}`);
       reasons.push(e.message);
