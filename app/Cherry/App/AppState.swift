@@ -139,9 +139,8 @@ final class AppState: ObservableObject {
         // swap, e a questo punto deve vedere quella vera.
         advanceToCurrentPhase()
         redeemSharedURLFromAppGroup()
-        // I piani suggeriti da Cherry: l'app non parte mai vuota.
         let uid = self.uid
-        Task.detached { await PresetSeeder.seedIfNeeded(uid: uid) }
+        Task.detached { await PresetSeeder.removePresets(uid: uid) }
     }
 
     // MARK: - Spazi condivisi e Live Activity

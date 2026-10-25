@@ -9,16 +9,17 @@ const { consumeQuota, checkQuota } = require('../lib/rate-limit');
 const { getTasteProfile } = require('../lib/profile');
 const { getCached, setCached, patchCached, bumpCacheHit } = require('../lib/cache');
 const { generateJSON, imagePart, videoPart } = require('../services/gemini');
-const { downloadImage, isPersisted } = require('../services/storage');
+const { downloadImage, persistVideo, isPersisted } = require('../services/storage');
+const { cleanSegments, remapSegments, withoutSegments } = require('../lib/recipe-segments');
 const { downloadVideo, detectPlatform, resolve, SocialVideoError } = require('../services/social-video');
 const { fetchWebRecipe } = require('../services/web-recipe');
 const { generateRecipeImage } = require('../services/fal-image');
 const { previewId, fetchPreview, writePreview, markPreviewFailed, keepThumbnail } = require('../lib/inbox-preview');
 const { recordSocial } = require('../lib/usage');
 const {
-  buildExtractionPrompt, extractionSchema,
+  buildExtractionPrompt, extractionSchema, videoExtractionSchema,
   buildLedgerPrompt, ledgerSchema,
-  buildFinalizePrompt, finalizeSchema,
+  buildFinalizePrompt, finalizeSchema, finalizeWithSegmentsSchema,
   buildCoverPrompt, coverSchema,
   GOALS, defaultGoal,
 } = require('../prompts/swap');
@@ -50,7 +51,7 @@ async function extractFromVideo(uid, url, profile) {
   }
   const extraction = await generateJSON({
     prompt: buildExtractionPrompt({ sourceType: 'video', caption: video.caption, profile }),
-    schema: extractionSchema,
+    schema: videoExtractionSchema,
     parts: [videoPart(video.buffer, video.mimeType)],
     temperature: 0.2,
     label: 'swap-extract-video',
@@ -60,12 +61,33 @@ async function extractFromVideo(uid, url, profile) {
   if (!extraction.found || !extraction.recipe) {
     throw new JobError('no_recipe', "We couldn't find a recipe in that post.");
   }
+  const recipe = withoutSegments(extraction.recipe);
+  const videoUrl = await keepVideo(url, video, cleanSegments(extraction.recipe.segments, recipe), recipe);
   return {
-    recipe: extraction.recipe,
+    recipe,
     thumbnail: (await keepThumbnail(url, video.thumbnail)) || video.thumbnail || null,
     platform: video.platform,
     caption: video.caption || null,
+    ...(videoUrl ? { videoUrl } : {}),
   };
+}
+
+/**
+ * Vista dinamica: il video si tiene solo se la divisione in spezzoni è
+ * riuscita, e non fermare mai l'import se il salvataggio fallisce.
+ * Gli spezzoni si attaccano a `recipe` solo insieme al video.
+ */
+async function keepVideo(url, video, segments, recipe) {
+  if (!segments) return null;
+  try {
+    const key = crypto.createHash('sha256').update(normalizeUrl(url)).digest('hex');
+    const videoUrl = await persistVideo(video.buffer, video.mimeType, `source-videos/${key}.mp4`);
+    if (videoUrl) recipe.segments = segments;
+    return videoUrl;
+  } catch (e) {
+    console.warn('[swap.video] video non salvato, niente vista dinamica:', e.message);
+    return null;
+  }
 }
 
 /**
@@ -297,7 +319,13 @@ router.post('/import', (req, res) => {
           status: goal ? 'building_ledger' : 'extracted',
           goal,
           original: extracted.recipe,
-          source: { type: source.type, url: source.url || null, platform: extracted.platform, thumbnail: extracted.thumbnail },
+          source: {
+            type: source.type,
+            url: source.url || null,
+            platform: extracted.platform,
+            thumbnail: extracted.thumbnail,
+            ...(extracted.videoUrl ? { videoUrl: extracted.videoUrl } : {}),
+          },
         },
         { merge: true }
       );
@@ -321,7 +349,7 @@ router.post('/import', (req, res) => {
  */
 async function buildLedger(uid, swapRef, profile, recipe, goal) {
   const ledger = await generateJSON({
-    prompt: buildLedgerPrompt(profile, recipe, goal),
+    prompt: buildLedgerPrompt(profile, withoutSegments(recipe), goal),
     schema: ledgerSchema,
     temperature: 0.6,
     label: 'swap-ledger',
@@ -382,13 +410,21 @@ router.post('/finalize', (req, res) => {
 
       const profile = await getTasteProfile(uid);
       const goal = snap.get('goal') || defaultGoal(profile);
+      const original = snap.get('original');
+      const segments = Array.isArray(original.segments) && original.segments.length ? original.segments : null;
       const result = await generateJSON({
-        prompt: buildFinalizePrompt(profile, snap.get('original'), chosen, goal),
-        schema: finalizeSchema,
+        prompt: buildFinalizePrompt(profile, withoutSegments(original), chosen, goal, { segments }),
+        schema: segments ? finalizeWithSegmentsSchema : finalizeSchema,
         temperature: 0.5,
         label: 'swap-finalize',
       });
       consumeQuota(uid, 'jobs', 1);
+
+      // Stesso video, stessi tempi: cambiano solo step e ingredienti sotto.
+      if (segments) {
+        const remapped = remapSegments(original, result.recipe, result, chosen);
+        if (remapped) result.recipe.segments = remapped;
+      }
 
       const recipe = { ...result.recipe, imageUrl: null };
       await swapRef.set({ status: 'generating_photo', finalRecipe: recipe }, { merge: true });

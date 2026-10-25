@@ -41,8 +41,8 @@ schemes:
 settings:
   base:
     SWIFT_VERSION: "5.10"
-    MARKETING_VERSION: 1.2
-    CURRENT_PROJECT_VERSION: 5
+    MARKETING_VERSION: 1.0
+    CURRENT_PROJECT_VERSION: 1
     CODE_SIGN_STYLE: Automatic
     # Team Apple Developer di Jacopo: vale per tutti e tre i target.
     DEVELOPMENT_TEAM: 7ZST47J92X

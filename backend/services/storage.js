@@ -74,4 +74,28 @@ async function persistImage(url, path) {
   return downloadUrl(b.name, path, token);
 }
 
-module.exports = { downloadImage, persistImage, isPersisted };
+/**
+ * Il video di un post, per la vista dinamica: i link dei CDN social
+ * scadono in poche ore. Stesse regole di `persistImage`: se c'è già si
+ * riusa col suo token.
+ */
+async function persistVideo(buffer, mimeType, path) {
+  if (!buffer || !buffer.length) return null;
+  const b = bucket();
+  const file = b.file(path);
+  const [exists] = await file.exists();
+  if (exists) {
+    const [meta] = await file.getMetadata();
+    const token = String(meta.metadata?.firebaseStorageDownloadTokens || '').split(',')[0];
+    if (token) return downloadUrl(b.name, path, token);
+  }
+  const token = crypto.randomUUID();
+  await file.save(buffer, {
+    contentType: mimeType || 'video/mp4',
+    resumable: false,
+    metadata: { cacheControl: 'public, max-age=31536000', metadata: { firebaseStorageDownloadTokens: token } },
+  });
+  return downloadUrl(b.name, path, token);
+}
+
+module.exports = { downloadImage, persistImage, persistVideo, isPersisted };

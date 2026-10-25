@@ -101,6 +101,34 @@ const extractionSchema = {
   required: ['found'],
 };
 
+// Solo per i video: in più, il video diviso in passaggi. Facoltativo,
+// così una divisione mancata non costa la ricetta.
+const segmentItem = {
+  type: 'OBJECT',
+  properties: {
+    start: { type: 'NUMBER', description: 'Second of the video where this phase starts' },
+    end: { type: 'NUMBER', description: 'Second of the video where this phase ends' },
+    title: { type: 'STRING', description: '2-5 words naming the action, e.g. "Brown the onion"' },
+    steps: { type: 'ARRAY', items: { type: 'INTEGER' }, description: '0-based indexes into recipe.steps shown in this phase' },
+    ingredients: { type: 'ARRAY', items: { type: 'INTEGER' }, description: '0-based indexes into recipe.ingredients used in this phase' },
+  },
+  required: ['start', 'end', 'title', 'steps', 'ingredients'],
+};
+
+const videoExtractionSchema = {
+  ...extractionSchema,
+  properties: {
+    ...extractionSchema.properties,
+    recipe: {
+      ...extractionSchema.properties.recipe,
+      properties: {
+        ...extractionSchema.properties.recipe.properties,
+        segments: { type: 'ARRAY', items: segmentItem },
+      },
+    },
+  },
+};
+
 function buildExtractionPrompt({ sourceType, caption, text, profile }) {
   const lines = [
     'You are a precise recipe transcriber.',
@@ -109,6 +137,13 @@ function buildExtractionPrompt({ sourceType, caption, text, profile }) {
   if (sourceType === 'video') {
     lines.push('You receive a cooking video from social media. Watch it and transcribe the recipe.');
     if (caption) lines.push(`The post caption (may contain the ingredient list): """${caption.slice(0, 2000)}"""`);
+    lines.push(
+      'Also split the video into segments: one per cooking phase the viewer would want to rewatch',
+      '(chopping, browning, adding the sauce, plating...). Usually 3-8 segments, each at least 3 seconds.',
+      'start/end are seconds of THIS video, in order, not overlapping; skip intros, talking heads and outros',
+      'that show no cooking. For each segment list the 0-based indexes of the recipe steps it shows and of',
+      'the ingredients used in it. Every step should belong to exactly one segment when the video shows it.'
+    );
   } else if (sourceType === 'post') {
     lines.push(
       'You receive a social media post whose video could not be loaded: only its caption and, when present, its cover image.',
@@ -263,7 +298,44 @@ const finalizeSchema = {
   required: ['recipe'],
 };
 
-function buildFinalizePrompt(profile, originalRecipe, chosenSubstitutes, goal = defaultGoal(profile)) {
+// Quando la ricetta viene da un video diviso in passaggi: la riscrittura
+// dice dove cade ogni step e ingrediente nuovo, e il codice ridistribuisce
+// la ricetta sugli stessi spezzoni del video originale.
+const finalizeWithSegmentsSchema = {
+  ...finalizeSchema,
+  properties: {
+    ...finalizeSchema.properties,
+    segmentTitles: {
+      type: 'ARRAY',
+      items: { type: 'STRING' },
+      description: 'One title per video segment, same order, rewritten for the adapted recipe',
+    },
+    stepSegments: {
+      type: 'ARRAY',
+      items: { type: 'INTEGER' },
+      description: 'One entry per step of the rewritten recipe: index of the video segment it belongs to, -1 if none',
+    },
+    ingredientOrigins: {
+      type: 'ARRAY',
+      items: { type: 'INTEGER' },
+      description: 'One entry per ingredient of the rewritten recipe: 0-based index of the original ingredient it is or replaces, -1 if new',
+    },
+  },
+  required: [...finalizeSchema.required, 'segmentTitles', 'stepSegments', 'ingredientOrigins'],
+};
+
+function segmentsBrief(segments) {
+  const list = segments.map((s, i) => ({ segment: i, title: s.title, originalSteps: s.steps }));
+  return [
+    '',
+    `The original recipe comes from a video split into segments (indexes into the original steps): ${JSON.stringify(list)}`,
+    'The adapted recipe is shown over the SAME video segments. Fill segmentTitles (one per segment, describing the',
+    'adapted action), stepSegments (one per rewritten step: the segment showing that moment) and ingredientOrigins',
+    '(one per rewritten ingredient: index of the original ingredient it is or replaces, -1 if new).',
+  ];
+}
+
+function buildFinalizePrompt(profile, originalRecipe, chosenSubstitutes, goal = defaultGoal(profile), { segments } = {}) {
   const tweak = TWEAK_GOALS[goal];
   const example = (DIET_GOALS[goal] || tweak || {}).title;
   return [
@@ -281,6 +353,7 @@ function buildFinalizePrompt(profile, originalRecipe, chosenSubstitutes, goal = 
       ? 'The result must meet the goal and comply with the dietary profile even if a substitution was missed.'
       : 'The result must comply with the dietary profile even if a substitution was missed.',
     example ? `The title says what changed, like "${example}".` : '',
+    ...(segments && segments.length ? segmentsBrief(segments) : []),
     '',
     photoBrief(
       tweak
@@ -344,9 +417,9 @@ function buildCoverPrompt(recipe, { hasFrame }) {
 }
 
 module.exports = {
-  buildExtractionPrompt, extractionSchema,
+  buildExtractionPrompt, extractionSchema, videoExtractionSchema,
   buildLedgerPrompt, ledgerSchema,
-  buildFinalizePrompt, finalizeSchema,
+  buildFinalizePrompt, finalizeSchema, finalizeWithSegmentsSchema,
   buildCoverPrompt, coverSchema,
   GOALS, defaultGoal,
 };

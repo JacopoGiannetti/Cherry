@@ -552,6 +552,29 @@ struct SwapSource: Codable, Equatable {
     var url: String?
     var platform: String?
     var thumbnail: String?
+    /// Copia del video su Storage, solo se è stato diviso in spezzoni.
+    var videoUrl: String?
+}
+
+/// Un pezzo del video originale nella vista dinamica: dove sta nel video,
+/// e quali step e ingredienti della ricetta (per indice) ci si vedono.
+struct RecipeSegment: Codable, Equatable, Hashable {
+    var start: Double
+    var end: Double
+    var title: String = ""
+    var steps: [Int] = []
+    var ingredients: [Int] = []
+
+    enum CodingKeys: String, CodingKey { case start, end, title, steps, ingredients }
+
+    init(from decoder: Decoder) throws {
+        let c = try decoder.container(keyedBy: CodingKeys.self)
+        start = try c.decode(Double.self, forKey: .start)
+        end = try c.decode(Double.self, forKey: .end)
+        title = (try? c.decode(String.self, forKey: .title)) ?? ""
+        steps = (try? c.decode([Int].self, forKey: .steps)) ?? []
+        ingredients = (try? c.decode([Int].self, forKey: .ingredients)) ?? []
+    }
 }
 
 struct SwapRecipe: Codable, Equatable {
@@ -565,6 +588,7 @@ struct SwapRecipe: Codable, Equatable {
     var steps: [String] = []
     var imageUrl: String?
     var imagePrompt: String?
+    var segments: [RecipeSegment]?
 }
 
 struct Swap: Codable, Identifiable {
@@ -597,6 +621,10 @@ struct SavedRecipe: Codable, Identifiable {
     /// permette di rivedere l'originale, e di trasformarla più tardi
     /// se era stata salvata as-is.
     var sourceUrl: String?
+    /// Vista dinamica: il video originale e i suoi spezzoni, con indici
+    /// in `steps` e `ingredients` di questa ricetta.
+    var videoUrl: String?
+    var segments: [RecipeSegment]?
     /// Per le ricette trasformate (`origin == "swap"`): il `SwapGoal`.
     /// nil sulle vecchie, che erano tutte veganizzate.
     var swapGoal: String?

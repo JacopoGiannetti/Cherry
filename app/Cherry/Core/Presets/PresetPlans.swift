@@ -369,6 +369,32 @@ enum PresetSeeder {
     private static let lock = NSLock()
     private static var inFlight = Set<String>()
 
+    /// I preset non si seminano più: chi li aveva ricevuti li perde. Le
+    /// liste che l'utente sta usando (riaperte per fare la spesa) restano.
+    static func removePresets(uid: String) async {
+        guard FirebaseBootstrap.isConfigured else { return }
+        let db = FirestoreService.db
+
+        if let recipes = try? await db.collection("users/\(uid)/savedRecipes")
+            .whereField("preset", isEqualTo: true)
+            .getDocuments(), !recipes.isEmpty {
+            let batch = db.batch()
+            recipes.documents.forEach { batch.deleteDocument($0.reference) }
+            try? await batch.commit()
+        }
+
+        if let runs = try? await db.collection("users/\(uid)/runs")
+            .whereField("preset", isEqualTo: true)
+            .getDocuments() {
+            let scope = DataScope.personal(uid)
+            for doc in runs.documents {
+                let status = doc.data()["status"] as? String ?? ""
+                guard status == RunStatus.archived.rawValue else { continue }
+                try? await FirestoreService.deleteRun(scope: scope, runId: doc.documentID)
+            }
+        }
+    }
+
     static func seedIfNeeded(uid: String) async {
         guard FirebaseBootstrap.isConfigured else { return }
         let claimed = lock.withLock { () -> Bool in

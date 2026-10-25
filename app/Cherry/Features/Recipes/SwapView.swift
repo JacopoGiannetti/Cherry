@@ -317,7 +317,9 @@ struct SwapView: View {
                     withAnimation(Theme.Motion.signature) { showsSwaps = true }
                 },
                 isImported: true,
-                hasAIPhoto: false
+                hasAIPhoto: false,
+                videoUrl: store.swap?.source?.videoUrl,
+                segments: original.segments
             )
             .safeAreaInset(edge: .bottom) {
                 Button(store.didSave ? "Saved — done" : "Save as is", action: saveAsIs)
@@ -541,7 +543,9 @@ struct SwapView: View {
             ingredients: recipe.ingredients,
             steps: recipe.steps,
             onSave: { store.saveFinalRecipe() },
-            isSaved: store.didSave
+            isSaved: store.didSave,
+            videoUrl: store.swap?.source?.videoUrl,
+            segments: recipe.segments
         )
         .safeAreaInset(edge: .bottom) {
             Button(store.didSave ? "Saved — done" : "Save to my recipes") {

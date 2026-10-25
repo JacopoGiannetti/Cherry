@@ -40,9 +40,13 @@ struct RecipeDetailView: View {
     var coverStatus: String? = nil
     var coverError: String? = nil
     var onGenerateCover: (() async throws -> Void)? = nil
+    /// Ricetta da un video diviso in spezzoni: apre la vista dinamica.
+    var videoUrl: String? = nil
+    var segments: [RecipeSegment]? = nil
 
     @EnvironmentObject private var appState: AppState
     @Environment(\.dismiss) private var dismiss
+    @State private var showsDynamic = false
     @State private var saved = false
     @State private var confirmingDelete = false
     /// Tra il tap e il primo aggiornamento del documento.
@@ -85,6 +89,10 @@ struct RecipeDetailView: View {
                                 .padding(10)
                         }
                     }
+
+                if dynamicStepCount > 0 {
+                    dynamicButton
+                }
 
                 if let message = coverStartError ?? (coverStatus == "failed" ? coverError : nil) {
                     Text(message)
@@ -210,6 +218,56 @@ struct RecipeDetailView: View {
             if status != nil { coverRequested = false }
         }
         .onChange(of: imageUrl) { _, _ in coverRequested = false }
+        .fullScreenCover(isPresented: $showsDynamic) {
+            if let videoUrl {
+                DynamicRecipeView(
+                    title: title,
+                    videoUrl: videoUrl,
+                    segments: segments ?? [],
+                    ingredients: ingredients,
+                    steps: steps
+                )
+            }
+        }
+    }
+
+    private var dynamicStepCount: Int {
+        guard videoUrl != nil else { return 0 }
+        let pages = DynamicRecipeView.pages(segments, steps: steps, ingredients: ingredients)
+        return pages.count >= 2 ? pages.count : 0
+    }
+
+    private var dynamicButton: some View {
+        Button {
+            Haptics.medium()
+            showsDynamic = true
+        } label: {
+            HStack(spacing: 12) {
+                Image(systemName: "play.fill")
+                    .font(.system(size: 14, weight: .bold))
+                    .foregroundStyle(.white)
+                    .frame(width: 38, height: 38)
+                    .background(Circle().fill(Theme.brandGradient))
+                VStack(alignment: .leading, spacing: 2) {
+                    Text("Dynamic view")
+                        .font(Theme.body(16, weight: .bold))
+                    Text("\(dynamicStepCount) steps, straight from the video")
+                        .font(Theme.body(12, weight: .medium))
+                        .opacity(0.85)
+                }
+                Spacer()
+                Image(systemName: "chevron.right")
+                    .font(.system(size: 13, weight: .bold))
+            }
+            .foregroundStyle(.white)
+            .padding(.leading, 8)
+            .padding(.trailing, 18)
+            .frame(height: 56)
+            .frame(maxWidth: .infinity)
+            .background(Theme.ink, in: .capsule)
+            .contentShape(.capsule)
+        }
+        .buttonStyle(.plain)
     }
 
     /// Sulla foto, dove si guarda: rifarla è un gesto sulla foto stessa.

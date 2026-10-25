@@ -159,7 +159,9 @@ struct SavedRecipesSheet: View {
                     // ha salvato dai social può farsi fare la copertina.
                     onGenerateCover: live.origin == "imported" ? live.id.map { id in
                         { try await appState.jobs.start("/swap/cover", body: ["recipeId": id]) }
-                    } : nil
+                    } : nil,
+                    videoUrl: live.videoUrl,
+                    segments: live.segments
                 )
             }
             .sheet(item: $recipeToEdit) { recipe in
