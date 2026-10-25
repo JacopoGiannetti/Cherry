@@ -11,10 +11,14 @@ struct DynamicRecipeView: View {
     let segments: [RecipeSegment]
     let ingredients: [Ingredient]
     let steps: [String]
+    /// Rifà la vista dinamica da capo, quando il file salvato non è un
+    /// video vero (solo audio).
+    var onRebuild: (() -> Void)? = nil
 
     @Environment(\.dismiss) private var dismiss
     @State private var localFile: URL?
     @State private var loadFailed = false
+    @State private var noPicture = false
     @State private var current: Int? = 0
     @State private var paused = false
     @State private var muted = true
@@ -32,6 +36,12 @@ struct DynamicRecipeView: View {
 
     private var pages: [RecipeSegment] {
         Self.pages(segments, steps: steps, ingredients: ingredients)
+    }
+
+    /// Solo i video dei social si possono dividere in spezzoni.
+    static func supports(sourceUrl: String?) -> Bool {
+        let host = sourceUrl.flatMap(URL.init)?.host?.lowercased() ?? ""
+        return host.contains("tiktok") || host.contains("instagram") || host.contains("instagr.am")
     }
 
     private var index: Int { min(current ?? 0, max(pages.count - 1, 0)) }
@@ -157,16 +167,35 @@ struct DynamicRecipeView: View {
             Image(systemName: "play.slash")
                 .font(.system(size: 28, weight: .semibold))
                 .foregroundStyle(Theme.subtle)
-            Text("We couldn’t load the video.")
+            Text(noPicture ? "This video came through without its picture." : "We couldn’t load the video.")
                 .font(Theme.body(16, weight: .semibold))
                 .foregroundStyle(Theme.ink)
-            Button("Try again") {
-                loadFailed = false
-                Task { await load() }
+                .multilineTextAlignment(.center)
+            if noPicture, let onRebuild {
+                Button("Rebuild the dynamic view") {
+                    Haptics.medium()
+                    dismiss()
+                    onRebuild()
+                }
+                .font(Theme.body(15, weight: .bold))
+                .foregroundStyle(Theme.brand)
+            } else if !noPicture {
+                Button("Try again") {
+                    loadFailed = false
+                    Task { await load() }
+                }
+                .font(Theme.body(15, weight: .bold))
+                .foregroundStyle(Theme.brand)
             }
-            .font(Theme.body(15, weight: .bold))
-            .foregroundStyle(Theme.brand)
         }
+        .padding(.horizontal, 32)
+    }
+
+    /// Un file senza traccia video (la sola traccia audio di un reel)
+    /// si suonerebbe su un riquadro nero.
+    private static func hasPicture(_ file: URL) async -> Bool {
+        let tracks = try? await AVURLAsset(url: file).loadTracks(withMediaType: .video)
+        return !(tracks ?? []).isEmpty
     }
 
     // MARK: - Video
@@ -179,16 +208,20 @@ struct DynamicRecipeView: View {
             return
         }
         let target = Self.cacheFile(for: videoUrl)
-        if FileManager.default.fileExists(atPath: target.path) {
-            localFile = target
-            return
-        }
         do {
-            let (temp, response) = try await URLSession.shared.download(from: remote)
-            guard (response as? HTTPURLResponse)?.statusCode ?? 200 < 400 else { throw URLError(.badServerResponse) }
-            try? FileManager.default.removeItem(at: target)
-            try FileManager.default.createDirectory(at: target.deletingLastPathComponent(), withIntermediateDirectories: true)
-            try FileManager.default.moveItem(at: temp, to: target)
+            if !FileManager.default.fileExists(atPath: target.path) {
+                let (temp, response) = try await URLSession.shared.download(from: remote)
+                guard (response as? HTTPURLResponse)?.statusCode ?? 200 < 400 else { throw URLError(.badServerResponse) }
+                try? FileManager.default.removeItem(at: target)
+                try FileManager.default.createDirectory(at: target.deletingLastPathComponent(), withIntermediateDirectories: true)
+                try FileManager.default.moveItem(at: temp, to: target)
+            }
+            guard await Self.hasPicture(target) else {
+                try? FileManager.default.removeItem(at: target)
+                noPicture = true
+                loadFailed = true
+                return
+            }
             localFile = target
         } catch {
             loadFailed = true
@@ -378,6 +411,7 @@ private final class SegmentPlayer: ObservableObject {
     private var wantsPlay = false
     private var timeObserver: Any?
     private var endObserver: NSObjectProtocol?
+    private var statusObserver: NSKeyValueObservation?
 
     func load(_ file: URL, segment: RecipeSegment) {
         guard player.currentItem == nil else { return }
@@ -387,7 +421,17 @@ private final class SegmentPlayer: ObservableObject {
         player.replaceCurrentItem(with: item)
         player.actionAtItemEnd = .pause
         player.isMuted = true
-        seekToStart()
+
+        // Un seek prima che l'item sia pronto può andare perso: la card
+        // partirebbe dall'inizio del video invece che dal suo spezzone.
+        statusObserver = item.observe(\.status, options: [.initial, .new]) { [weak self] item, _ in
+            guard item.status == .readyToPlay else { return }
+            Task { @MainActor in
+                guard let self else { return }
+                self.statusObserver = nil
+                if self.wantsPlay { self.loop() } else { self.seekToStart() }
+            }
+        }
 
         timeObserver = player.addPeriodicTimeObserver(
             forInterval: CMTime(seconds: 0.1, preferredTimescale: 600),

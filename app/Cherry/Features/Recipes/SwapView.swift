@@ -106,6 +106,13 @@ struct SwapView: View {
 
     private var diet: DietaryIdentity { appState.tasteProfile.dietaryIdentity }
 
+    /// Vista dinamica a richiesta, solo per le ricette lette da un video.
+    private var generateDynamic: (() async throws -> Void)? {
+        guard DynamicRecipeView.supports(sourceUrl: store.swap?.source?.url) else { return nil }
+        let store = store
+        return { _ = try await store.jobs.start("/swap/dynamic", body: ["swapId": store.swapId]) }
+    }
+
     private var currentGoal: SwapGoal? {
         store.swap?.goal.flatMap(SwapGoal.init(rawValue:)) ?? SwapGoal.defaultGoal(for: diet)
     }
@@ -319,7 +326,10 @@ struct SwapView: View {
                 isImported: true,
                 hasAIPhoto: false,
                 videoUrl: store.swap?.source?.videoUrl,
-                segments: original.segments
+                segments: original.segments,
+                dynamicStatus: store.swap?.dynamicStatus,
+                dynamicError: store.swap?.dynamicError,
+                onGenerateDynamic: generateDynamic
             )
             .safeAreaInset(edge: .bottom) {
                 Button(store.didSave ? "Saved — done" : "Save as is", action: saveAsIs)
@@ -545,7 +555,10 @@ struct SwapView: View {
             onSave: { store.saveFinalRecipe() },
             isSaved: store.didSave,
             videoUrl: store.swap?.source?.videoUrl,
-            segments: recipe.segments
+            segments: recipe.segments,
+            dynamicStatus: store.swap?.dynamicStatus,
+            dynamicError: store.swap?.dynamicError,
+            onGenerateDynamic: generateDynamic
         )
         .safeAreaInset(edge: .bottom) {
             Button(store.didSave ? "Saved — done" : "Save to my recipes") {

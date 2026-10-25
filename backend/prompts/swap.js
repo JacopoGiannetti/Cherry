@@ -129,6 +129,35 @@ const videoExtractionSchema = {
   },
 };
 
+// Vista dinamica a richiesta, su una ricetta già letta (anche trasformata
+// o modificata a mano): solo gli spezzoni, la ricetta non si tocca.
+const segmentsSchema = {
+  type: 'OBJECT',
+  properties: { segments: { type: 'ARRAY', items: segmentItem } },
+  required: ['segments'],
+};
+
+function buildSegmentsPrompt(recipe) {
+  const steps = (recipe.steps || []).map((s, i) => `${i}. ${s}`).join('\n');
+  const ingredients = (recipe.ingredients || []).map((g, i) => `${i}. ${g.name}${g.quantity ? ` (${g.quantity})` : ''}`).join('\n');
+  return [
+    'You receive a cooking video from social media and a recipe written from it.',
+    'The recipe may have been adapted (some ingredients replaced, steps reworded): match each step to the moment',
+    'of the video showing that action, even when the ingredient on screen is the original one.',
+    '',
+    `Steps:\n${steps}`,
+    '',
+    `Ingredients:\n${ingredients}`,
+    '',
+    'Split the video into segments: one per cooking phase the viewer would want to rewatch',
+    '(chopping, browning, adding the sauce, plating...). Usually 3-8 segments, each at least 3 seconds.',
+    'start/end are seconds of THIS video, in order, not overlapping; skip intros, talking heads and outros',
+    'that show no cooking. For each segment list the 0-based indexes of the steps it shows and of the',
+    'ingredients used in it. Every step should belong to exactly one segment when the video shows it.',
+    'title = 2-5 words naming the action, in the same language as the steps.',
+  ].join('\n');
+}
+
 function buildExtractionPrompt({ sourceType, caption, text, profile }) {
   const lines = [
     'You are a precise recipe transcriber.',
@@ -418,6 +447,7 @@ function buildCoverPrompt(recipe, { hasFrame }) {
 
 module.exports = {
   buildExtractionPrompt, extractionSchema, videoExtractionSchema,
+  buildSegmentsPrompt, segmentsSchema,
   buildLedgerPrompt, ledgerSchema,
   buildFinalizePrompt, finalizeSchema, finalizeWithSegmentsSchema,
   buildCoverPrompt, coverSchema,

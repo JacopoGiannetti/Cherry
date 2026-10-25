@@ -161,7 +161,12 @@ struct SavedRecipesSheet: View {
                         { try await appState.jobs.start("/swap/cover", body: ["recipeId": id]) }
                     } : nil,
                     videoUrl: live.videoUrl,
-                    segments: live.segments
+                    segments: live.segments,
+                    dynamicStatus: live.dynamicStatus,
+                    dynamicError: live.dynamicError,
+                    onGenerateDynamic: DynamicRecipeView.supports(sourceUrl: live.sourceUrl) ? live.id.map { id in
+                        { _ = try await appState.jobs.start("/swap/dynamic", body: ["recipeId": id]) }
+                    } : nil
                 )
             }
             .sheet(item: $recipeToEdit) { recipe in

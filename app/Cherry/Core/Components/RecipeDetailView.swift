@@ -43,10 +43,18 @@ struct RecipeDetailView: View {
     /// Ricetta da un video diviso in spezzoni: apre la vista dinamica.
     var videoUrl: String? = nil
     var segments: [RecipeSegment]? = nil
+    /// Ricetta da un video ma senza spezzoni: la vista dinamica si chiede
+    /// a parte. Lo stato arriva dal documento: "generating" o "failed".
+    var dynamicStatus: String? = nil
+    var dynamicError: String? = nil
+    var onGenerateDynamic: (() async throws -> Void)? = nil
 
     @EnvironmentObject private var appState: AppState
     @Environment(\.dismiss) private var dismiss
     @State private var showsDynamic = false
+    /// Tra il tap e il primo aggiornamento del documento.
+    @State private var dynamicRequested = false
+    @State private var dynamicStartError: String?
     @State private var saved = false
     @State private var confirmingDelete = false
     /// Tra il tap e il primo aggiornamento del documento.
@@ -90,8 +98,12 @@ struct RecipeDetailView: View {
                         }
                     }
 
-                if dynamicStepCount > 0 {
+                // Durante una ricostruzione, o se è fallita, si vede lo stato
+                // anche quando ci sono gli spezzoni vecchi.
+                if dynamicStepCount > 0 && !generatingDynamic && dynamicFailure == nil {
                     dynamicButton
+                } else if onGenerateDynamic != nil {
+                    dynamicUnavailable
                 }
 
                 if let message = coverStartError ?? (coverStatus == "failed" ? coverError : nil) {
@@ -218,6 +230,10 @@ struct RecipeDetailView: View {
             if status != nil { coverRequested = false }
         }
         .onChange(of: imageUrl) { _, _ in coverRequested = false }
+        .onChange(of: dynamicStatus) { _, status in
+            if status != nil { dynamicRequested = false }
+        }
+        .onChange(of: segments) { _, _ in dynamicRequested = false }
         .fullScreenCover(isPresented: $showsDynamic) {
             if let videoUrl {
                 DynamicRecipeView(
@@ -225,7 +241,8 @@ struct RecipeDetailView: View {
                     videoUrl: videoUrl,
                     segments: segments ?? [],
                     ingredients: ingredients,
-                    steps: steps
+                    steps: steps,
+                    onRebuild: onGenerateDynamic == nil ? nil : { requestDynamic() }
                 )
             }
         }
@@ -268,6 +285,85 @@ struct RecipeDetailView: View {
             .contentShape(.capsule)
         }
         .buttonStyle(.plain)
+    }
+
+    private var generatingDynamic: Bool { dynamicRequested || dynamicStatus == "generating" }
+
+    private var dynamicFailure: String? {
+        dynamicStartError ?? (dynamicStatus == "failed" ? (dynamicError ?? "We couldn’t build it this time.") : nil)
+    }
+
+    /// Stesso posto del pulsante: chi cerca la vista dinamica la trova
+    /// sempre, e se manca sa perché e come averla.
+    private var dynamicUnavailable: some View {
+        HStack(spacing: 12) {
+            Group {
+                if generatingDynamic {
+                    ProgressView()
+                        .controlSize(.small)
+                        .tint(.white)
+                } else {
+                    Image(systemName: "play.slash.fill")
+                        .font(.system(size: 13, weight: .bold))
+                        .foregroundStyle(.white.opacity(0.7))
+                }
+            }
+            .frame(width: 38, height: 38)
+            .background(Circle().fill(.white.opacity(0.12)))
+
+            VStack(alignment: .leading, spacing: 2) {
+                Text("Dynamic view")
+                    .font(Theme.body(16, weight: .bold))
+                    .foregroundStyle(.white)
+                Text(dynamicMessage)
+                    .font(Theme.body(12, weight: .medium))
+                    .foregroundStyle(.white.opacity(0.75))
+                    .fixedSize(horizontal: false, vertical: true)
+            }
+
+            Spacer(minLength: 4)
+
+            if !generatingDynamic {
+                Button {
+                    requestDynamic()
+                } label: {
+                    Text(dynamicFailure == nil ? "Generate" : "Try again")
+                        .font(Theme.body(13, weight: .bold))
+                        .foregroundStyle(.white)
+                        .padding(.horizontal, 14)
+                        .frame(height: 34)
+                        .background(Theme.brandGradient, in: .capsule)
+                }
+                .buttonStyle(.plain)
+            }
+        }
+        .padding(.leading, 9)
+        .padding(.trailing, 11)
+        .padding(.vertical, 9)
+        .frame(maxWidth: .infinity)
+        .background(Theme.ink, in: .rect(cornerRadius: 26))
+        .animation(Theme.Motion.quick, value: generatingDynamic)
+    }
+
+    private var dynamicMessage: String {
+        if generatingDynamic { return "Watching the video and splitting it into steps…" }
+        if let dynamicFailure { return dynamicFailure }
+        return "Not available for this recipe yet. Cherry can rewatch the video and split it into steps."
+    }
+
+    private func requestDynamic() {
+        guard let onGenerateDynamic, !generatingDynamic else { return }
+        Haptics.medium()
+        dynamicRequested = true
+        dynamicStartError = nil
+        Task {
+            do {
+                try await onGenerateDynamic()
+            } catch {
+                dynamicRequested = false
+                dynamicStartError = error.localizedDescription
+            }
+        }
     }
 
     /// Sulla foto, dove si guarda: rifarla è un gesto sulla foto stessa.

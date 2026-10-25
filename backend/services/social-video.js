@@ -54,6 +54,10 @@ function pickBestMedia(data) {
     for (const m of arr) {
       const url = firstString(m.url, m.link, m.src);
       if (!url) continue;
+      // Instagram dà anche la traccia audio da sola, con un link .mp4:
+      // presa per video, arriva un file senza immagini.
+      const kind = `${m.type || ''} ${m.quality || ''}`.toLowerCase();
+      if (/audio|image|photo/.test(kind)) continue;
       const isVideo = (m.type || m.videoAvailable || '').toString().toLowerCase().includes('video') || /\.mp4/i.test(url);
       if (isVideo) add(url, (m.quality || '').toString().toLowerCase());
     }

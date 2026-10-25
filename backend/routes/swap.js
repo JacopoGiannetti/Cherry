@@ -18,6 +18,7 @@ const { previewId, fetchPreview, writePreview, markPreviewFailed, keepThumbnail 
 const { recordSocial } = require('../lib/usage');
 const {
   buildExtractionPrompt, extractionSchema, videoExtractionSchema,
+  buildSegmentsPrompt, segmentsSchema,
   buildLedgerPrompt, ledgerSchema,
   buildFinalizePrompt, finalizeSchema, finalizeWithSegmentsSchema,
   buildCoverPrompt, coverSchema,
@@ -77,11 +78,16 @@ async function extractFromVideo(uid, url, profile) {
  * riuscita, e non fermare mai l'import se il salvataggio fallisce.
  * Gli spezzoni si attaccano a `recipe` solo insieme al video.
  */
+// Per contenuto, non per link: un file sbagliato salvato una volta (la
+// sola traccia audio) non deve tornare a ogni nuovo tentativo.
+function videoPath(video) {
+  return `source-videos/${crypto.createHash('sha256').update(video.buffer).digest('hex')}.mp4`;
+}
+
 async function keepVideo(url, video, segments, recipe) {
   if (!segments) return null;
   try {
-    const key = crypto.createHash('sha256').update(normalizeUrl(url)).digest('hex');
-    const videoUrl = await persistVideo(video.buffer, video.mimeType, `source-videos/${key}.mp4`);
+    const videoUrl = await persistVideo(video.buffer, video.mimeType, videoPath(video));
     if (videoUrl) recipe.segments = segments;
     return videoUrl;
   } catch (e) {
@@ -445,6 +451,74 @@ router.post('/finalize', (req, res) => {
       // Foto non disponibile: si mostra la ricetta senza ripiegare
       // sulla thumbnail del video originale.
       await swapRef.set({ status: 'finalized', finalRecipe: recipe }, { merge: true });
+    },
+  });
+});
+
+// POST /swap/dynamic  { recipeId } | { swapId }
+// Vista dinamica a richiesta: per le ricette salvate prima della feature,
+// o quando la divisione in import non è riuscita. Si riguarda il video e
+// lo si divide sugli step della ricetta così com'è adesso. Esito e stato
+// finiscono sul documento che l'app sta già ascoltando.
+router.post('/dynamic', (req, res) => {
+  const { recipeId, swapId } = req.body || {};
+  const id = recipeId || swapId;
+  if (!id || typeof id !== 'string') {
+    return res.status(400).json({ error: 'missing_fields', details: 'recipeId o swapId richiesto' });
+  }
+  startJob(req, res, {
+    type: 'swap.dynamic',
+    payload: { recipeId: recipeId || null, swapId: swapId || null },
+    work: async ({ uid }) => {
+      const ref = db().doc(recipeId ? `users/${uid}/savedRecipes/${recipeId}` : `users/${uid}/swaps/${swapId}`);
+      const snap = await ref.get();
+      if (!snap.exists) throw new JobError('recipe_not_found', 'This recipe is no longer available.');
+      const data = snap.data();
+      const url = recipeId ? data.sourceUrl : data.source?.url;
+      const recipe = recipeId ? data : data.original;
+
+      const fail = async (e) => {
+        await ref.set({
+          dynamicStatus: 'failed',
+          dynamicError: e.userMessage || 'We couldn’t build the dynamic view for this recipe. Try again.',
+        }, { merge: true }).catch(() => {});
+        throw e;
+      };
+
+      if (!url || detectPlatform(url) === 'unknown' || !recipe?.steps?.length) {
+        return fail(new JobError('no_video', 'This recipe doesn’t come from a video.'));
+      }
+      await ref.set({ dynamicStatus: 'generating', dynamicError: FieldValue.delete() }, { merge: true });
+
+      try {
+        const video = await downloadVideo(url);
+        const result = await generateJSON({
+          prompt: buildSegmentsPrompt(recipe),
+          schema: segmentsSchema,
+          parts: [videoPart(video.buffer, video.mimeType)],
+          temperature: 0.2,
+          label: 'swap-dynamic',
+          thinkingLevel: 'LOW',
+        });
+        consumeQuota(uid, 'jobs', 1);
+        const segments = cleanSegments(result.segments, recipe);
+        if (!segments) throw new JobError('no_segments', 'We couldn’t split this video into steps.');
+        const videoUrl = await persistVideo(video.buffer, video.mimeType, videoPath(video));
+
+        const done = { dynamicStatus: FieldValue.delete(), dynamicError: FieldValue.delete() };
+        if (recipeId) {
+          await ref.set({ videoUrl, segments, ...done }, { merge: true });
+          return;
+        }
+        const update = { 'source.videoUrl': videoUrl, 'original.segments': segments, ...done };
+        if (data.finalRecipe) {
+          const remapped = remapSegments({ ...recipe, segments }, data.finalRecipe);
+          if (remapped) update['finalRecipe.segments'] = remapped;
+        }
+        await ref.update(update);
+      } catch (e) {
+        return fail(e);
+      }
     },
   });
 });

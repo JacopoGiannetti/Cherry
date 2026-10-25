@@ -601,6 +601,9 @@ struct Swap: Codable, Identifiable {
     var ledger: [LedgerLine]?
     var finalRecipe: SwapRecipe?
     var createdAt: Date?
+    /// Vista dinamica richiesta (`/swap/dynamic`): "generating" o "failed".
+    var dynamicStatus: String?
+    var dynamicError: String?
 }
 
 // MARK: - Saved recipes (§6: da run o da swap, indistinti)
@@ -625,6 +628,9 @@ struct SavedRecipe: Codable, Identifiable {
     /// in `steps` e `ingredients` di questa ricetta.
     var videoUrl: String?
     var segments: [RecipeSegment]?
+    /// Vista dinamica richiesta (`/swap/dynamic`): "generating" o "failed".
+    var dynamicStatus: String?
+    var dynamicError: String?
     /// Per le ricette trasformate (`origin == "swap"`): il `SwapGoal`.
     /// nil sulle vecchie, che erano tutte veganizzate.
     var swapGoal: String?
