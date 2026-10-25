@@ -51,8 +51,8 @@ async function extractFromVideo(uid, url, profile) {
     return extractFromPost(uid, url, profile, e);
   }
   const extraction = await generateJSON({
-    prompt: buildExtractionPrompt({ sourceType: 'video', caption: video.caption, profile }),
-    schema: videoExtractionSchema,
+    prompt: buildExtractionPrompt({ sourceType: 'video', caption: video.caption, profile, segments: video.hasPicture }),
+    schema: video.hasPicture ? videoExtractionSchema : extractionSchema,
     parts: [videoPart(video.buffer, video.mimeType)],
     temperature: 0.2,
     label: 'swap-extract-video',
@@ -63,7 +63,8 @@ async function extractFromVideo(uid, url, profile) {
     throw new JobError('no_recipe', "We couldn't find a recipe in that post.");
   }
   const recipe = withoutSegments(extraction.recipe);
-  const videoUrl = await keepVideo(url, video, cleanSegments(extraction.recipe.segments, recipe), recipe);
+  const segments = video.hasPicture ? cleanSegments(extraction.recipe.segments, recipe) : null;
+  const videoUrl = await keepVideo(url, video, segments, recipe);
   return {
     recipe,
     thumbnail: (await keepThumbnail(url, video.thumbnail)) || video.thumbnail || null,
@@ -492,6 +493,9 @@ router.post('/dynamic', (req, res) => {
 
       try {
         const video = await downloadVideo(url);
+        if (!video.hasPicture) {
+          throw new JobError('too_large', 'This video is too long for the dynamic view.');
+        }
         const result = await generateJSON({
           prompt: buildSegmentsPrompt(recipe),
           schema: segmentsSchema,

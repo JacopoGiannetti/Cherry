@@ -158,7 +158,7 @@ function buildSegmentsPrompt(recipe) {
   ].join('\n');
 }
 
-function buildExtractionPrompt({ sourceType, caption, text, profile }) {
+function buildExtractionPrompt({ sourceType, caption, text, profile, segments = true }) {
   const lines = [
     'You are a precise recipe transcriber.',
     'Reconstruct the recipe FAITHFULLY as shown — do NOT modify, substitute or improve anything yet.',
@@ -166,7 +166,7 @@ function buildExtractionPrompt({ sourceType, caption, text, profile }) {
   if (sourceType === 'video') {
     lines.push('You receive a cooking video from social media. Watch it and transcribe the recipe.');
     if (caption) lines.push(`The post caption (may contain the ingredient list): """${caption.slice(0, 2000)}"""`);
-    lines.push(
+    if (segments) lines.push(
       'Also split the video into segments: one per cooking phase the viewer would want to rewatch',
       '(chopping, browning, adding the sauce, plating...). Usually 3-8 segments, each at least 3 seconds.',
       'start/end are seconds of THIS video, in order, not overlapping; skip intros, talking heads and outros',

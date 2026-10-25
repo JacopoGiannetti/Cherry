@@ -43,6 +43,7 @@ function pickBestMedia(data) {
   const thumbnail = firstString(data.thumbnail, data.cover, data.thumb, data.picture, data.image, data.meta?.thumbnail);
 
   const candidates = [];
+  const audioUrls = [];
   const seen = new Set();
   const add = (url, quality) => {
     if (!url || seen.has(url)) return;
@@ -54,10 +55,15 @@ function pickBestMedia(data) {
     for (const m of arr) {
       const url = firstString(m.url, m.link, m.src);
       if (!url) continue;
-      // Instagram dà anche la traccia audio da sola, con un link .mp4:
-      // presa per video, arriva un file senza immagini.
+      // Instagram dà anche la traccia audio da sola, con un link .mp4.
+      // Non è un video (niente immagini), ma resta il ripiego per leggere
+      // la ricetta quando ogni versione video sfora il limite di Gemini.
       const kind = `${m.type || ''} ${m.quality || ''}`.toLowerCase();
-      if (/audio|image|photo/.test(kind)) continue;
+      if (/audio/.test(kind)) {
+        if (!seen.has(url)) { seen.add(url); audioUrls.push(url); }
+        continue;
+      }
+      if (/image|photo/.test(kind)) continue;
       const isVideo = (m.type || m.videoAvailable || '').toString().toLowerCase().includes('video') || /\.mp4/i.test(url);
       if (isVideo) add(url, (m.quality || '').toString().toLowerCase());
     }
@@ -76,7 +82,7 @@ function pickBestMedia(data) {
     (c.quality.includes('no_watermark') || c.quality.includes('no-watermark') ? 1 : 0);
   candidates.sort((a, b) => score(b) - score(a));
 
-  return { videoUrls: candidates.map((c) => c.url), caption, thumbnail };
+  return { videoUrls: candidates.map((c) => c.url), audioUrls, caption, thumbnail };
 }
 
 async function resolve(url) {
@@ -106,7 +112,9 @@ async function resolve(url) {
 }
 
 /**
- * Ritorna { buffer, mimeType, caption, thumbnail, platform }.
+ * Ritorna { buffer, mimeType, caption, thumbnail, platform, hasPicture }.
+ * `hasPicture` false: è arrivata solo la traccia audio, buona per leggere
+ * la ricetta ma non per la vista dinamica.
  */
 async function downloadVideo(url) {
   const platform = detectPlatform(url);
@@ -114,8 +122,8 @@ async function downloadVideo(url) {
     throw new SocialVideoError('unsupported_platform', 'Only TikTok and Instagram links are supported for now.');
   }
 
-  const { videoUrls, caption, thumbnail } = await resolve(url);
-  if (!videoUrls.length) {
+  const { videoUrls, audioUrls, caption, thumbnail } = await resolve(url);
+  if (!videoUrls.length && !audioUrls.length) {
     // Post di sole foto, o carosello: niente video, ma la didascalia c'è.
     throw new SocialVideoError('no_media', 'No video found at that link.', { caption, thumbnail });
   }
@@ -125,7 +133,14 @@ async function downloadVideo(url) {
   const reasons = [];
   for (const videoUrl of videoUrls) {
     try {
-      return { ...(await fetchVideo(videoUrl)), caption, thumbnail, platform };
+      return { ...(await fetchVideo(videoUrl)), caption, thumbnail, platform, hasPicture: true };
+    } catch (e) {
+      reasons.push(e.message);
+    }
+  }
+  for (const audioUrl of audioUrls) {
+    try {
+      return { ...(await fetchVideo(audioUrl)), caption, thumbnail, platform, hasPicture: false };
     } catch (e) {
       reasons.push(e.message);
     }
