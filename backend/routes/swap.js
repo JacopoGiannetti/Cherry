@@ -45,7 +45,56 @@ function normalizeUrl(url) {
   }
 }
 
+/**
+ * Una chiamata sola: il video intero si copia su Storage e Gemini lo
+ * guarda da lì (niente limite dei 18MB), leggendo ricetta e spezzoni
+ * insieme. Lancia se il video non si salva o Gemini fallisce: chi chiama
+ * ripiega sulla lettura di sempre. "Nessuna ricetta" invece è definitivo.
+ */
+async function extractWatchingVideo(uid, url, profile) {
+  const t0 = Date.now();
+  const post = await resolve(url);
+  if (!post.videoUrls?.length) throw new Error('nessuna versione video');
+  const stored = await saveSourceVideo(url, post.videoUrls);
+  if (!stored) throw new Error('video intero non salvato');
+  const t1 = Date.now();
+
+  const extraction = await generateJSON({
+    prompt: buildExtractionPrompt({ sourceType: 'video', caption: post.caption, profile, segments: true }),
+    schema: videoExtractionSchema,
+    parts: [{ fileData: { fileUri: stored.gsUri, mimeType: 'video/mp4' } }],
+    temperature: 0.2,
+    label: 'swap-extract-video-full',
+    thinkingLevel: 'LOW',
+  });
+  const t2 = Date.now();
+  consumeQuota(uid, 'jobs', 1);
+  if (!extraction.found || !extraction.recipe) {
+    throw new JobError('no_recipe', "We couldn't find a recipe in that post.");
+  }
+  const recipe = withoutSegments(extraction.recipe);
+  const segments = cleanSegments(extraction.recipe.segments, recipe);
+  if (segments) recipe.segments = segments;
+  console.log(`[swap.video] ${url}: Gemini ha guardato il VIDEO intero, ${recipe.steps?.length || 0} step,`
+    + ` spezzoni grezzi ${extraction.recipe.segments?.length || 0}, validi ${segments?.length || 0}`
+    + ` | tempi: social+salvataggio ${((t1 - t0) / 1000).toFixed(1)}s, Gemini ${((t2 - t1) / 1000).toFixed(1)}s`);
+  return {
+    recipe,
+    thumbnail: (await keepThumbnail(url, post.thumbnail)) || post.thumbnail || null,
+    platform: detectPlatform(url),
+    caption: post.caption || null,
+    ...(segments ? { videoUrl: stored.downloadUrl } : {}),
+  };
+}
+
 async function extractFromVideo(uid, url, profile) {
+  try {
+    return await extractWatchingVideo(uid, url, profile);
+  } catch (e) {
+    if (e instanceof JobError) throw e;
+    console.log(`[swap.video] ${url}: lettura del video intero non riuscita, si ripiega: ${e.message}`);
+  }
+  const t0 = Date.now();
   let video;
   try {
     video = await downloadVideo(url);
@@ -69,7 +118,8 @@ async function extractFromVideo(uid, url, profile) {
   const segments = video.hasPicture ? cleanSegments(extraction.recipe.segments, recipe) : null;
   console.log(`[swap.video] ${url}: Gemini ha letto ${video.hasPicture ? 'il VIDEO' : 'solo l’AUDIO'}`
     + ` (${(video.buffer.length / 1024 / 1024).toFixed(1)}MB), ${recipe.steps?.length || 0} step,`
-    + ` spezzoni grezzi ${extraction.recipe.segments?.length || 0}, validi ${segments?.length || 0}`);
+    + ` spezzoni grezzi ${extraction.recipe.segments?.length || 0}, validi ${segments?.length || 0}`
+    + ` | tempo ${((Date.now() - t0) / 1000).toFixed(1)}s`);
   const videoUrl = await keepVideo(url, video, segments, recipe);
   console.log(`[swap.video] ${url}: vista dinamica ${videoUrl ? 'PRONTA' : 'non disponibile'}`);
   // Senza vista dinamica il video intero si salva comunque, in sottofondo:

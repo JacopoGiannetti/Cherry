@@ -277,14 +277,17 @@ struct Ingredient: Codable, Equatable, Hashable {
     var quantity: String
     var storeSection: StoreSection = .other
     var costUsd: Double = 0
+    /// Scelta dall'AI all'import; le ricette di prima non ce l'hanno.
+    var emoji: String? = nil
 
-    enum CodingKeys: String, CodingKey { case name, quantity, storeSection, costUsd }
+    enum CodingKeys: String, CodingKey { case name, quantity, storeSection, costUsd, emoji }
 
-    init(name: String, quantity: String, storeSection: StoreSection = .other, costUsd: Double = 0) {
+    init(name: String, quantity: String, storeSection: StoreSection = .other, costUsd: Double = 0, emoji: String? = nil) {
         self.name = name
         self.quantity = quantity
         self.storeSection = storeSection
         self.costUsd = costUsd
+        self.emoji = emoji
     }
 
     init(from decoder: Decoder) throws {
@@ -293,6 +296,7 @@ struct Ingredient: Codable, Equatable, Hashable {
         quantity = (try? c.decode(String.self, forKey: .quantity)) ?? ""
         storeSection = (try? c.decode(StoreSection.self, forKey: .storeSection)) ?? .other
         costUsd = (try? c.decode(Double.self, forKey: .costUsd)) ?? 0
+        emoji = (try? c.decode(String.self, forKey: .emoji)).flatMap { $0.isEmpty ? nil : $0 }
     }
 }
 

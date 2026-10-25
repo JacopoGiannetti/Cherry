@@ -154,7 +154,11 @@ struct SwapView: View {
             CherryBackground(mood: .warm)
 
             VStack(spacing: 0) {
-                if showsFlowChrome {
+                if showsOriginal {
+                    recipeHeader(action: saveAsIs)
+                } else if showsFinalRecipe {
+                    recipeHeader(action: saveFinal)
+                } else if showsFlowChrome {
                     FeatureFlowHeader {
                         EmptyView()
                     } trailing: {
@@ -301,6 +305,43 @@ struct SwapView: View {
         dismiss()
     }
 
+    private func saveFinal() {
+        Haptics.success()
+        store.saveFinalRecipe()
+        dismiss()
+    }
+
+    /// Stessa catena di `body`: la ricetta finale è ciò che si vede.
+    private var showsFinalRecipe: Bool {
+        !showsOriginal && store.errorMessage == nil && store.pendingGoal == nil && !showsGoalChooser
+            && store.swap?.status == "finalized" && store.swap?.finalRecipe != nil
+    }
+
+    /// Sulla ricetta una riga sola: niente spazio vuoto sopra la foto, e
+    /// il salvataggio in alto invece che sopra al contenuto.
+    private func recipeHeader(action: @escaping () -> Void) -> some View {
+        ZStack {
+            CherryWordmark(height: CherryWordmarkSize.compact)
+            HStack {
+                FeatureFlowCloseButton { dismiss() }
+                Spacer()
+                Button(action: action) {
+                    Text(store.didSave ? "Done" : "Save")
+                        .font(Theme.body(15, weight: .bold))
+                        .foregroundStyle(.white)
+                        .padding(.horizontal, 18)
+                        .frame(height: 36)
+                        .background(Theme.brandGradient, in: .capsule)
+                        .contentShape(.capsule)
+                }
+                .buttonStyle(.plain)
+            }
+        }
+        .padding(.horizontal, 20)
+        .padding(.top, 8)
+        .padding(.bottom, 6)
+    }
+
     // MARK: - La ricetta com'è
 
     @ViewBuilder
@@ -331,12 +372,6 @@ struct SwapView: View {
                 dynamicError: store.swap?.dynamicError,
                 onGenerateDynamic: generateDynamic
             )
-            .safeAreaInset(edge: .bottom) {
-                Button(store.didSave ? "Saved — done" : "Save as is", action: saveAsIs)
-                    .buttonStyle(PrimaryButtonStyle())
-                    .padding(.horizontal, 20)
-                    .padding(.bottom, 10)
-            }
         }
     }
 
@@ -560,16 +595,6 @@ struct SwapView: View {
             dynamicError: store.swap?.dynamicError,
             onGenerateDynamic: generateDynamic
         )
-        .safeAreaInset(edge: .bottom) {
-            Button(store.didSave ? "Saved — done" : "Save to my recipes") {
-                Haptics.success()
-                store.saveFinalRecipe()
-                dismiss()
-            }
-            .buttonStyle(PrimaryButtonStyle())
-            .padding(.horizontal, 20)
-            .padding(.bottom, 10)
-        }
     }
 }
 

@@ -52,6 +52,8 @@ struct RecipeDetailView: View {
     @EnvironmentObject private var appState: AppState
     @Environment(\.dismiss) private var dismiss
     @State private var showsDynamic = false
+    @State private var tab: Tab = .steps
+    @Namespace private var tabSpace
     /// Tra il tap e il primo aggiornamento del documento.
     @State private var dynamicRequested = false
     @State private var dynamicStartError: String?
@@ -98,14 +100,6 @@ struct RecipeDetailView: View {
                         }
                     }
 
-                // Durante una ricostruzione, o se è fallita, si vede lo stato
-                // anche quando ci sono gli spezzoni vecchi.
-                if dynamicStepCount > 0 && !generatingDynamic && dynamicFailure == nil {
-                    dynamicButton
-                } else if onGenerateDynamic != nil {
-                    dynamicUnavailable
-                }
-
                 if let message = coverStartError ?? (coverStatus == "failed" ? coverError : nil) {
                     Text(message)
                         .font(Theme.body(12, weight: .semibold))
@@ -151,58 +145,15 @@ struct RecipeDetailView: View {
                     CherryPickNotice()
                 }
 
-                if onVeganize != nil || originalLink != nil {
-                    originActions
-                }
-
-                Text("INGREDIENTS")
-                    .font(Theme.body(11, weight: .bold))
-                    .foregroundStyle(Theme.subtle)
-                    .tracking(1.2)
-
-                VStack(spacing: 0) {
-                    ForEach(ingredients, id: \.name) { ingredient in
-                        HStack {
-                            Text(ingredient.name)
-                                .font(Theme.body(15, weight: .medium))
-                                .foregroundStyle(Theme.ink)
-                            Spacer()
-                            Text(ingredient.quantity)
-                                .font(Theme.body(14))
-                                .foregroundStyle(Theme.subtle)
-                        }
-                        .padding(.vertical, 10)
-                        if ingredient.name != ingredients.last?.name {
-                            Divider()
-                        }
-                    }
-                }
-                .padding(.horizontal, 16)
-                .vegoCard()
+                actions
 
                 if !steps.isEmpty {
-                    Text("STEPS")
-                        .font(Theme.body(11, weight: .bold))
-                        .foregroundStyle(Theme.subtle)
-                        .tracking(1.2)
-
-                    VStack(alignment: .leading, spacing: 14) {
-                        ForEach(Array(steps.enumerated()), id: \.offset) { index, step in
-                            HStack(alignment: .top, spacing: 12) {
-                                Text("\(index + 1)")
-                                    .font(Theme.body(14, weight: .bold))
-                                    .foregroundStyle(.white)
-                                    .frame(width: 26, height: 26)
-                                    .background(Circle().fill(Theme.brand))
-                                Text(step)
-                                    .font(Theme.body(15))
-                                    .foregroundStyle(Theme.ink)
-                            }
-                        }
-                    }
-                    .padding(16)
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    .vegoCard()
+                    tabPicker
+                }
+                if activeTab == .steps {
+                    stepsList
+                } else {
+                    ingredientsList
                 }
 
                 if !isUserAuthored {
@@ -254,101 +205,225 @@ struct RecipeDetailView: View {
         return pages.count >= 2 ? pages.count : 0
     }
 
-    private var dynamicButton: some View {
-        Button {
-            Haptics.medium()
-            showsDynamic = true
-        } label: {
-            HStack(spacing: 12) {
-                Image(systemName: "play.fill")
-                    .font(.system(size: 14, weight: .bold))
-                    .foregroundStyle(.white)
-                    .frame(width: 38, height: 38)
-                    .background(Circle().fill(Theme.brandGradient))
-                VStack(alignment: .leading, spacing: 2) {
-                    Text("Dynamic view")
-                        .font(Theme.body(16, weight: .bold))
-                    Text("\(dynamicStepCount) steps, straight from the video")
-                        .font(Theme.body(12, weight: .medium))
-                        .opacity(0.85)
-                }
-                Spacer()
-                Image(systemName: "chevron.right")
-                    .font(.system(size: 13, weight: .bold))
-            }
-            .foregroundStyle(.white)
-            .padding(.leading, 8)
-            .padding(.trailing, 18)
-            .frame(height: 56)
-            .frame(maxWidth: .infinity)
-            .background(Theme.ink, in: .capsule)
-            .contentShape(.capsule)
-        }
-        .buttonStyle(.plain)
-    }
-
     private var generatingDynamic: Bool { dynamicRequested || dynamicStatus == "generating" }
 
     private var dynamicFailure: String? {
         dynamicStartError ?? (dynamicStatus == "failed" ? (dynamicError ?? "We couldn’t build it this time.") : nil)
     }
 
-    /// Stesso posto del pulsante: chi cerca la vista dinamica la trova
-    /// sempre, e se manca sa perché e come averla.
-    private var dynamicUnavailable: some View {
-        HStack(spacing: 12) {
-            Group {
-                if generatingDynamic {
-                    ProgressView()
-                        .controlSize(.small)
-                        .tint(.white)
-                } else {
-                    Image(systemName: "play.slash.fill")
-                        .font(.system(size: 13, weight: .bold))
-                        .foregroundStyle(.white.opacity(0.7))
-                }
-            }
-            .frame(width: 38, height: 38)
-            .background(Circle().fill(.white.opacity(0.12)))
+    /// Durante una ricostruzione, o se è fallita, si vede lo stato anche
+    /// quando ci sono gli spezzoni vecchi.
+    private var dynamicReady: Bool { dynamicStepCount > 0 && !generatingDynamic && dynamicFailure == nil }
 
-            VStack(alignment: .leading, spacing: 2) {
-                Text("Dynamic view")
-                    .font(Theme.body(16, weight: .bold))
-                    .foregroundStyle(.white)
-                Text(dynamicMessage)
-                    .font(Theme.body(12, weight: .medium))
-                    .foregroundStyle(.white.opacity(0.75))
-                    .fixedSize(horizontal: false, vertical: true)
-            }
+    /// Chi cerca la vista dinamica la trova sempre: pronta, oppure da
+    /// generare a un tap.
+    private var offersDynamic: Bool { dynamicReady || onGenerateDynamic != nil }
 
-            Spacer(minLength: 4)
+    // MARK: - Azioni
 
-            if !generatingDynamic {
-                Button {
-                    requestDynamic()
-                } label: {
-                    Text(dynamicFailure == nil ? "Generate" : "Try again")
-                        .font(Theme.body(13, weight: .bold))
+    /// Un solo gesto grande; sotto, affiancati, la vista dinamica e il post originale.
+    @ViewBuilder
+    private var actions: some View {
+        if onVeganize != nil || originalLink != nil || offersDynamic {
+            VStack(alignment: .leading, spacing: 10) {
+                if let onVeganize {
+                    Button {
+                        Haptics.medium()
+                        onVeganize()
+                    } label: {
+                        HStack(spacing: 8) {
+                            Image(systemName: "wand.and.stars")
+                                .font(.system(size: 15, weight: .semibold))
+                            Text(SwapGoal.entryVerb(for: appState.tasteProfile.dietaryIdentity))
+                                .font(Theme.body(16, weight: .bold))
+                        }
                         .foregroundStyle(.white)
-                        .padding(.horizontal, 14)
-                        .frame(height: 34)
+                        .frame(maxWidth: .infinity)
+                        .frame(height: 50)
                         .background(Theme.brandGradient, in: .capsule)
+                        .contentShape(.capsule)
+                    }
+                    .buttonStyle(.plain)
                 }
-                .buttonStyle(.plain)
+
+                if offersDynamic || originalLink != nil {
+                    HStack(spacing: 10) {
+                        if offersDynamic { dynamicPill }
+                        if let originalLink { originalPill(originalLink) }
+                    }
+                }
+
+                if let dynamicFailure, !generatingDynamic {
+                    Text(dynamicFailure)
+                        .font(Theme.body(12, weight: .semibold))
+                        .foregroundStyle(Theme.soft_red)
+                        .fixedSize(horizontal: false, vertical: true)
+                }
             }
         }
-        .padding(.leading, 9)
-        .padding(.trailing, 11)
-        .padding(.vertical, 9)
-        .frame(maxWidth: .infinity)
-        .background(Theme.ink, in: .rect(cornerRadius: 26))
+    }
+
+    private var dynamicPillTitle: String {
+        if dynamicReady { return "Dynamic view" }
+        if generatingDynamic { return "Watching…" }
+        return dynamicFailure == nil ? "Get dynamic view" : "Try again"
+    }
+
+    private var dynamicPill: some View {
+        Button {
+            if dynamicReady {
+                Haptics.medium()
+                showsDynamic = true
+            } else {
+                requestDynamic()
+            }
+        } label: {
+            HStack(spacing: 8) {
+                Group {
+                    if generatingDynamic {
+                        ProgressView()
+                            .controlSize(.mini)
+                            .tint(.white)
+                    } else {
+                        Image(systemName: dynamicReady ? "play.fill" : (dynamicFailure == nil ? "sparkles" : "arrow.clockwise"))
+                            .font(.system(size: 11, weight: .bold))
+                    }
+                }
+                .frame(width: 28, height: 28)
+                .background(Circle().fill(Theme.brandGradient))
+
+                Text(dynamicPillTitle)
+                    .font(Theme.body(14, weight: .bold))
+                    .lineLimit(1)
+                    .minimumScaleFactor(0.8)
+            }
+            .foregroundStyle(.white)
+            .padding(.leading, 6)
+            .padding(.trailing, 14)
+            .frame(maxWidth: .infinity)
+            .frame(height: 46)
+            .background(Theme.ink, in: .capsule)
+            .contentShape(.capsule)
+        }
+        .buttonStyle(.plain)
+        .disabled(generatingDynamic)
         .animation(Theme.Motion.quick, value: generatingDynamic)
     }
 
-    private var dynamicMessage: String {
-        if generatingDynamic { return "Watching the video and splitting it into steps…" }
-        if let dynamicFailure { return dynamicFailure }
-        return "Not available for this recipe yet. Cherry can rewatch the video and split it into steps."
+    private func originalPill(_ url: URL) -> some View {
+        Link(destination: url) {
+            HStack(spacing: 6) {
+                Image(systemName: "play.rectangle.fill")
+                    .font(.system(size: 13, weight: .semibold))
+                Text(sourcePlatform == "the web" ? "Original" : sourcePlatform)
+                    .font(Theme.body(14, weight: .bold))
+                    .lineLimit(1)
+                Image(systemName: "arrow.up.right")
+                    .font(.system(size: 11, weight: .bold))
+            }
+            .foregroundStyle(Theme.brand)
+            .frame(maxWidth: .infinity)
+            .frame(height: 46)
+            .contentShape(.capsule)
+            .glassEffect(.regular.interactive(), in: .capsule)
+        }
+        .accessibilityLabel("Watch the original on \(sourcePlatform)")
+    }
+
+    // MARK: - Steps | Ingredients
+
+    private enum Tab { case steps, ingredients }
+
+    /// Senza passi resta solo la lista degli ingredienti, senza selettore.
+    private var activeTab: Tab { steps.isEmpty ? .ingredients : tab }
+
+    private var tabPicker: some View {
+        HStack(spacing: 4) {
+            tabButton("Steps", count: steps.count, .steps)
+            tabButton("Ingredients", count: ingredients.count, .ingredients)
+        }
+        .padding(4)
+        .glassEffect(.regular, in: .capsule)
+    }
+
+    private func tabButton(_ title: String, count: Int, _ value: Tab) -> some View {
+        let selected = activeTab == value
+        return Button {
+            guard !selected else { return }
+            Haptics.selection()
+            withAnimation(Theme.Motion.quick) { tab = value }
+        } label: {
+            HStack(spacing: 6) {
+                Text(title)
+                Text("\(count)")
+                    .opacity(0.6)
+            }
+            .font(Theme.body(14, weight: .bold))
+            .foregroundStyle(selected ? .white : Theme.ink)
+            .frame(maxWidth: .infinity)
+            .frame(height: 38)
+            .background {
+                if selected {
+                    Capsule()
+                        .fill(Theme.ink)
+                        .matchedGeometryEffect(id: "tab", in: tabSpace)
+                }
+            }
+            .contentShape(.capsule)
+        }
+        .buttonStyle(.plain)
+    }
+
+    private var stepsList: some View {
+        VStack(alignment: .leading, spacing: 14) {
+            ForEach(Array(steps.enumerated()), id: \.offset) { index, step in
+                HStack(alignment: .top, spacing: 12) {
+                    Text("\(index + 1)")
+                        .font(Theme.body(14, weight: .bold))
+                        .foregroundStyle(.white)
+                        .frame(width: 26, height: 26)
+                        .background(Circle().fill(Theme.brand))
+                    Text(step)
+                        .font(Theme.body(15))
+                        .foregroundStyle(Theme.ink)
+                        .fixedSize(horizontal: false, vertical: true)
+                }
+            }
+        }
+        .padding(16)
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .vegoCard()
+    }
+
+    private var ingredientsList: some View {
+        // Colonna delle emoji solo se almeno uno ce l'ha: le ricette di
+        // prima restano allineate come sempre.
+        let hasEmoji = ingredients.contains { $0.emoji != nil }
+        return VStack(spacing: 0) {
+            ForEach(Array(ingredients.enumerated()), id: \.offset) { index, ingredient in
+                HStack(spacing: 12) {
+                    if hasEmoji {
+                        Text(ingredient.emoji ?? "")
+                            .font(.system(size: 20))
+                            .frame(width: 28)
+                    }
+                    Text(ingredient.name)
+                        .font(Theme.body(15, weight: .medium))
+                        .foregroundStyle(Theme.ink)
+                    Spacer()
+                    Text(ingredient.quantity)
+                        .font(Theme.body(14))
+                        .foregroundStyle(Theme.subtle)
+                        .multilineTextAlignment(.trailing)
+                }
+                .padding(.vertical, 10)
+                if index < ingredients.count - 1 {
+                    Divider()
+                }
+            }
+        }
+        .padding(.horizontal, 16)
+        .vegoCard()
     }
 
     private func requestDynamic() {
@@ -401,50 +476,6 @@ struct RecipeDetailView: View {
         }
         .buttonStyle(.plain)
         .disabled(generatingCover)
-    }
-
-    /// Azioni legate all'origine: veganizzare (se era stata salvata
-    /// as-is) e rivedere il post da cui la ricetta è arrivata.
-    private var originActions: some View {
-        VStack(spacing: 10) {
-            if let onVeganize {
-                Button {
-                    Haptics.medium()
-                    onVeganize()
-                } label: {
-                    HStack(spacing: 8) {
-                        Image(systemName: "wand.and.stars")
-                            .font(.system(size: 15, weight: .semibold))
-                        Text(SwapGoal.entryVerb(for: appState.tasteProfile.dietaryIdentity))
-                            .font(Theme.body(16, weight: .bold))
-                    }
-                    .foregroundStyle(.white)
-                    .frame(maxWidth: .infinity)
-                    .frame(height: 50)
-                    .background(Theme.brandGradient, in: .capsule)
-                }
-                .buttonStyle(.plain)
-            }
-
-            if let originalLink {
-                Link(destination: originalLink) {
-                    HStack(spacing: 8) {
-                        Image(systemName: "play.rectangle.fill")
-                            .font(.system(size: 14, weight: .semibold))
-                        Text("Watch the original on \(sourcePlatform)")
-                            .font(Theme.body(14, weight: .semibold))
-                        Spacer()
-                        Image(systemName: "arrow.up.right")
-                            .font(.system(size: 12, weight: .bold))
-                    }
-                    .foregroundStyle(Theme.brand)
-                    .padding(.horizontal, 16)
-                    .frame(height: 46)
-                    .frame(maxWidth: .infinity)
-                    .glassEffect(.regular, in: .capsule)
-                }
-            }
-        }
     }
 
     @ToolbarContentBuilder

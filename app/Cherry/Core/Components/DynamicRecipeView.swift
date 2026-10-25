@@ -114,6 +114,7 @@ struct DynamicRecipeView: View {
                     .font(.system(size: 14, weight: .bold))
                     .foregroundStyle(Theme.ink)
                     .frame(width: 38, height: 38)
+                    .contentShape(.circle)
                     .glassEffect(.regular.interactive(), in: .circle)
             }
             .buttonStyle(.plain)
@@ -305,6 +306,7 @@ private struct SegmentCard: View {
                 .font(.system(size: 14, weight: .bold))
                 .foregroundStyle(.white)
                 .frame(width: 40, height: 40)
+                .contentShape(.circle)
                 .contentTransition(.symbolEffect(.replace))
                 .glassEffect(.regular.tint(.black.opacity(0.25)).interactive(), in: .circle)
         }

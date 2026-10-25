@@ -76,6 +76,8 @@ const ingredientItem = {
     quantity: { type: 'STRING' },
     storeSection: { type: 'STRING', enum: STORE_SECTIONS },
     costUsd: { type: 'NUMBER' },
+    // Facoltativo: le app che non lo conoscono lo ignorano.
+    emoji: { type: 'STRING', description: 'One emoji for this ingredient (🍅 tomatoes, 🧄 garlic); the closest food emoji when none matches exactly' },
   },
   required: ['name', 'quantity', 'storeSection', 'costUsd'],
 };
