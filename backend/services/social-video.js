@@ -103,7 +103,12 @@ async function resolve(url) {
       }
     );
     recordRapid(1);
-    return pickBestMedia(response.data || {});
+    const data = response.data || {};
+    const medias = [...(data.medias || []), ...(data.links || []), ...(data.formats || [])];
+    console.log(`[social] ${url} → ${medias.length} media: ${medias
+      .map((m) => `${m.type || '?'}/${m.quality || '?'}/${m.extension || '?'}`)
+      .join(', ') || 'nessuno'}`);
+    return pickBestMedia(data);
   } catch (e) {
     const status = e.response && e.response.status;
     if (status === 429) throw new SocialVideoError('provider_rate_limited', 'Too many imports right now. Try again in a minute.');
@@ -130,18 +135,19 @@ async function downloadVideo(url) {
 
   // Si provano tutte le versioni: una può sforare il limite o avere il
   // link del CDN già scaduto, e la successiva andare benissimo.
+  console.log(`[social] ${url}: ${videoUrls.length} versioni video, ${audioUrls.length} audio`);
   const reasons = [];
-  for (const videoUrl of videoUrls) {
+  const attempts = [
+    ...videoUrls.map((u) => ({ u, kind: 'video', hasPicture: true })),
+    ...audioUrls.map((u) => ({ u, kind: 'audio', hasPicture: false })),
+  ];
+  for (const [i, a] of attempts.entries()) {
     try {
-      return { ...(await fetchVideo(videoUrl)), caption, thumbnail, platform, hasPicture: true };
+      const file = await fetchVideo(a.u);
+      console.log(`[social] tentativo ${i + 1}/${attempts.length} (${a.kind}): OK ${mb(file.buffer.length)} ${file.contentType}`);
+      return { buffer: file.buffer, mimeType: file.mimeType, caption, thumbnail, platform, hasPicture: a.hasPicture };
     } catch (e) {
-      reasons.push(e.message);
-    }
-  }
-  for (const audioUrl of audioUrls) {
-    try {
-      return { ...(await fetchVideo(audioUrl)), caption, thumbnail, platform, hasPicture: false };
-    } catch (e) {
+      console.log(`[social] tentativo ${i + 1}/${attempts.length} (${a.kind}): FALLITO ${e.message}`);
       reasons.push(e.message);
     }
   }
@@ -153,6 +159,15 @@ async function downloadVideo(url) {
 }
 
 async function fetchVideo(videoUrl) {
+  // Il peso dichiarato, prima di scaricare: dice se il file sfora il
+  // limite senza doverlo tirare giù.
+  const head = await axios.head(videoUrl, {
+    timeout: 15000,
+    headers: { 'User-Agent': 'Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X)' },
+  }).catch(() => null);
+  const declared = parseInt(head?.headers?.['content-length'] || '0', 10);
+  if (declared > MAX_VIDEO_BYTES) throw new Error(`troppo grande: ${mb(declared)} (limite ${mb(MAX_VIDEO_BYTES)})`);
+
   const response = await axios.get(videoUrl, {
     responseType: 'arraybuffer',
     timeout: DOWNLOAD_TIMEOUT_MS,
@@ -168,7 +183,11 @@ async function fetchVideo(videoUrl) {
   // Un CDN che risponde con una pagina d'errore non è un video.
   if (/^(text|application\/json)/.test(contentType)) throw new Error(`non è un video: ${contentType}`);
   const mimeType = contentType.startsWith('video/') ? contentType : 'video/mp4';
-  return { buffer, mimeType };
+  return { buffer, mimeType, contentType };
+}
+
+function mb(bytes) {
+  return `${(bytes / 1024 / 1024).toFixed(1)}MB`;
 }
 
 module.exports = { downloadVideo, resolve, detectPlatform, SocialVideoError };

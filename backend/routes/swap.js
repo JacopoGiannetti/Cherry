@@ -64,7 +64,11 @@ async function extractFromVideo(uid, url, profile) {
   }
   const recipe = withoutSegments(extraction.recipe);
   const segments = video.hasPicture ? cleanSegments(extraction.recipe.segments, recipe) : null;
+  console.log(`[swap.video] ${url}: Gemini ha letto ${video.hasPicture ? 'il VIDEO' : 'solo l’AUDIO'}`
+    + ` (${(video.buffer.length / 1024 / 1024).toFixed(1)}MB), ${recipe.steps?.length || 0} step,`
+    + ` spezzoni grezzi ${extraction.recipe.segments?.length || 0}, validi ${segments?.length || 0}`);
   const videoUrl = await keepVideo(url, video, segments, recipe);
+  console.log(`[swap.video] ${url}: vista dinamica ${videoUrl ? 'PRONTA' : 'non disponibile'}`);
   return {
     recipe,
     thumbnail: (await keepThumbnail(url, video.thumbnail)) || video.thumbnail || null,
@@ -493,6 +497,7 @@ router.post('/dynamic', (req, res) => {
 
       try {
         const video = await downloadVideo(url);
+        console.log(`[swap.dynamic] ${url}: scaricato ${video.hasPicture ? 'VIDEO' : 'solo AUDIO'} ${(video.buffer.length / 1024 / 1024).toFixed(1)}MB`);
         if (!video.hasPicture) {
           throw new JobError('too_large', 'This video is too long for the dynamic view.');
         }
@@ -506,6 +511,7 @@ router.post('/dynamic', (req, res) => {
         });
         consumeQuota(uid, 'jobs', 1);
         const segments = cleanSegments(result.segments, recipe);
+        console.log(`[swap.dynamic] ${url}: spezzoni grezzi ${result.segments?.length || 0}, validi ${segments?.length || 0}`);
         if (!segments) throw new JobError('no_segments', 'We couldn’t split this video into steps.');
         const videoUrl = await persistVideo(video.buffer, video.mimeType, videoPath(video));
 
