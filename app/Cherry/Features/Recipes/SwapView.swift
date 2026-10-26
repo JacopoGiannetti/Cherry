@@ -219,10 +219,10 @@ struct SwapView: View {
                 }
             }
         }
-        .onChange(of: store.swap?.status) { old, new in
-            // Solo se la riscrittura finisce sotto gli occhi: riaprire
-            // uno swap già pronto passa da nil a "finalized" e non conta.
-            guard new == "finalized", let old, old != "finalized", store.swap?.finalRecipe != nil else { return }
+        // Conta anche la ricetta già pronta: chi salva col tasto Condividi
+        // dei social la trova letta in sottofondo quando apre Cherry.
+        .onChange(of: showsOriginal || showsFinalRecipe, initial: true) { _, shown in
+            guard shown, DynamicRecipeView.supports(sourceUrl: store.swap?.source?.url) else { return }
             ReviewPrompt.request(.swapReady, after: 2.5)
         }
     }

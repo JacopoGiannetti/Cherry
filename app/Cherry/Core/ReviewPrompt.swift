@@ -3,7 +3,7 @@ import UIKit
 
 // Richiesta di recensione, agganciata ai due momenti in cui l'app ha
 // appena mantenuto la promessa: la prima lista consegnata e la prima
-// ricetta dei social riscritta per la sua dieta.
+// ricetta letta da un video di Instagram o TikTok.
 //
 // Il popup non lo decide l'app: iOS lo mostra al massimo tre volte
 // l'anno e si riserva di ignorare la richiesta senza dirlo. Per questo
@@ -14,29 +14,13 @@ enum ReviewPrompt {
     enum Milestone: String {
         /// La prima lista della spesa è comparsa a schermo.
         case listReady = "review.asked.listReady"
-        /// La prima ricetta condivisa dai social è tornata riscritta,
-        /// dopo "Make it vegan" / "Remove the meat".
+        /// La prima ricetta da un video di Instagram o TikTok è appena
+        /// arrivata, letta e pronta da salvare.
         case swapReady = "review.asked.swapReady"
     }
 
     private static let defaults = UserDefaults.standard
     private static let lastAskedKey = "review.lastAskedAt"
-
-    /// La richiesta sulla slide delle recensioni dell'onboarding.
-    /// La accende la dashboard (GET /config); vale solo il valore letto
-    /// in questo avvio, quindi senza rete resta spenta.
-    private(set) static var onboardingEnabled = false
-
-    static func loadRemoteSwitch() async {
-        guard let url = URL(string: Secrets.backendURL + "/config") else { return }
-        var request = URLRequest(url: url)
-        request.timeoutInterval = 8
-        guard let (data, response) = try? await URLSession.shared.data(for: request),
-              (response as? HTTPURLResponse)?.statusCode == 200,
-              let json = try? JSONSerialization.jsonObject(with: data) as? [String: Any]
-        else { return }
-        onboardingEnabled = json["onboardingReviewPrompt"] as? Bool == true
-    }
 
     /// Due richieste a poche ore di distanza sono una sola: la seconda
     /// iOS la scarta, e il traguardo si consumerebbe senza che nessuno

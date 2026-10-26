@@ -24,10 +24,11 @@ enum ProblemTopic: String, CaseIterable, Identifiable {
         }
     }
 
-    /// Prima i problemi che l'utente ha dichiarato, nell'ordine in cui
-    /// li ha toccati; poi gli altri nell'ordine di default.
+    /// Sempre prima le ricette dai social, la funzione di punta; poi i
+    /// problemi che l'utente ha dichiarato, nell'ordine in cui li ha
+    /// toccati; poi gli altri nell'ordine di default.
     static func ordered(for blockers: [OnboardingBlocker]) -> [ProblemTopic] {
-        var result: [ProblemTopic] = []
+        var result: [ProblemTopic] = [.recipe]
         for blocker in blockers {
             for topic in allCases where topic.blockers.contains(blocker) && !result.contains(topic) {
                 result.append(topic)
@@ -68,7 +69,7 @@ enum ProblemTopic: String, CaseIterable, Identifiable {
         switch self {
         case .grocery: "“What do I\neven buy?”"
         case .menu: "“What can I even\norder here?”"
-        case .recipe: "“Looks amazing.\nBut not for me”"
+        case .recipe: "“Saved it.\nNever cooked it.”"
         case .barcode: "“What's actually\nin this?”"
         }
     }
@@ -77,7 +78,7 @@ enum ProblemTopic: String, CaseIterable, Identifiable {
         switch self {
         case .grocery: "Standing in the aisle with an empty basket, and nothing on the shelves turns into dinner."
         case .menu: "Everyone's already chosen. You're reading the menu for the third time, pretending to hesitate."
-        case .recipe: "You saved it, you want it tonight. Then you read the ingredients."
+        case .recipe: "You saved the video. Tonight you're scrolling back and forth to catch the steps."
         case .barcode: "Tiny print, strange codes. Ten minutes per box, and you're still not sure."
         }
     }
@@ -107,10 +108,10 @@ enum ProblemTopic: String, CaseIterable, Identifiable {
             Thought(text: "…side salad?", x: 0.78, y: 0.27, tilt: 4),
         ]
         case .recipe: [
-            Thought(text: "500 ml cream", x: 0.70, y: 0.09, tilt: 4, struck: true),
-            Thought(text: "200 g butter", x: 0.20, y: 0.14, tilt: -7, struck: true),
-            Thought(text: "900 kcal", x: 0.78, y: 0.21, tilt: 6, struck: true),
-            Thought(text: "so… no.", x: 0.76, y: 0.33, tilt: -3),
+            Thought(text: "wait, how much pasta?", x: 0.70, y: 0.09, tilt: 4),
+            Thought(text: "what did she add?", x: 0.22, y: 0.14, tilt: -7),
+            Thought(text: "rewind…", x: 0.78, y: 0.21, tilt: 6),
+            Thought(text: "where was that video?", x: 0.72, y: 0.33, tilt: -3),
         ]
         case .barcode: [
             Thought(text: "E120?", x: 0.18, y: 0.11, tilt: -8),
@@ -127,7 +128,7 @@ enum ProblemTopic: String, CaseIterable, Identifiable {
         switch self {
         case .grocery: "Swipe recipes.\nGet one grocery list."
         case .menu: "Snap the menu.\nSort it your way."
-        case .recipe: "Share it from TikTok.\nPick how you want it."
+        case .recipe: "Share it from TikTok.\nCook it step by step."
         case .barcode: "Scan the barcode.\nSee what's inside."
         }
     }
@@ -136,7 +137,7 @@ enum ProblemTopic: String, CaseIterable, Identifiable {
         switch self {
         case .grocery: "Swipe recipes you like. Cherry turns them into one grocery list, priced to your budget."
         case .menu: "Snap any menu. Then tap vegan, high-protein, light or low-carb and every dish gets re-sorted for you."
-        case .recipe: "Share it from TikTok, then choose: vegan, lighter, high-protein, gluten-free, cheaper. Or save it as it is."
+        case .recipe: "Share any recipe video to Cherry. It saves the recipe and splits the video into steps you can follow while you cook."
         case .barcode: "Cherry reads the ingredients and the nutrition label, and checks them against what you told us you avoid."
         }
     }
@@ -1474,73 +1475,77 @@ private struct MenuScanDemo: View {
     }
 }
 
-// MARK: - Demo 3: dalla ricetta TikTok al ledger degli swap
+// MARK: - Demo 3: dalla ricetta TikTok alla vista dinamica
 
 /// Il video con la pasta (foto vera di una ricetta mock), la share
-/// card "Recipe caught!" identica all'extension, poi "Make it ___":
-/// il dito prova una parola, ne sceglie un'altra, e il ledger
-/// ORIGINAL → YOURS cambia con la scelta. Ogni giro un obiettivo diverso.
+/// card "Recipe caught!" identica all'extension, poi la vista dinamica
+/// come nell'app: il video fermo in alto che ripete il suo spezzone, e
+/// sotto le card degli step che il dito scorre una alla volta.
 private struct SwapDemo: View {
-    private enum Phase: Int { case video, share, goal, ledger, saved }
+    private enum Phase: Int { case video, share, dynamic }
+
+    private struct Step {
+        let title: String
+        let lines: [String]
+        let ingredients: [(emoji: String, name: String, quantity: String)]
+        /// Il fotogramma del video in quello spezzone.
+        let image: String
+    }
 
     private static let pasta: Recipe = {
         let catalog = DemoDeck.deck(preferring: ["Italian"])
         return catalog.first { $0.title.contains("Rigatoni") } ?? catalog[0]
     }()
 
-    private static let goals: [SwapGoal] = [.vegan, .light, .protein, .glutenFree, .cheaper, .pescatarian]
-    /// Per ogni giro: la parola provata e quella scelta.
-    private static let rounds: [(tried: SwapGoal, chosen: SwapGoal)] = [
-        (.protein, .light), (.light, .vegan), (.vegan, .protein),
+    private static let steps: [Step] = [
+        Step(title: "Boil the pasta",
+             lines: ["Bring a large pot of salted water to a boil.", "Cook the rigatoni for 11 minutes."],
+             ingredients: [("🍝", "Rigatoni", "320 g"), ("🧂", "Salt", "")],
+             image: "onb_step_boil"),
+        Step(title: "Make the sauce",
+             lines: ["Melt the butter, then add the tomatoes.", "Simmer for 10 minutes."],
+             ingredients: [("🧈", "Butter", "30 g"), ("🍅", "Tomatoes", "400 g")],
+             image: "onb_step_sauce"),
+        Step(title: "Add the cream",
+             lines: ["Stir in the cream and the parmesan."],
+             ingredients: [("🥛", "Heavy cream", "200 ml"), ("🧀", "Parmesan", "60 g")],
+             image: "onb_step_cream"),
+        Step(title: "Toss and serve",
+             lines: ["Toss the rigatoni in the sauce.", "Top with fresh basil."],
+             ingredients: [("🌿", "Basil", "a handful")],
+             image: "onb_step_serve"),
     ]
-    private static let space = "swapDemo"
 
-    private var swaps: [(from: String, to: String)] {
-        switch chosen {
-        case .vegan: [("Heavy cream", "Cashew cream"), ("Parmesan", "Nutritional yeast"), ("Butter", "Olive oil")]
-        case .protein: [("Rigatoni", "Lentil rigatoni"), ("Heavy cream", "Greek yogurt"), ("Parmesan, 30 g", "Parmesan, 60 g")]
-        default: [("Heavy cream", "Light ricotta"), ("Parmesan, 100 g", "Parmesan, 30 g"), ("Butter", "Olive oil")]
-        }
-    }
-
-    private var untouched: String { chosen == .protein ? "Tomatoes" : "Rigatoni" }
+    private static let playerHeight: CGFloat = 270
+    private static let cardHeight: CGFloat = 190
 
     @State private var phase: Phase = .video
-    @State private var round = 0
-    @State private var goal: SwapGoal?
-    @State private var frames: [String: CGRect] = [:]
     @State private var finger = CGPoint(x: 150, y: 560)
     @State private var fingerShown = false
     @State private var pressing: String?
     @State private var openPressed = false
-
-    private var chosen: SwapGoal { Self.rounds[round % Self.rounds.count].chosen }
     @State private var sharePulse = false
-    @State private var shownRows = 0
-    @State private var ctaPressed = false
     @State private var discSpinning = false
     @State private var videoProgress: CGFloat = 0
+
+    @State private var step = 0
+    @State private var drag: CGFloat = 0
+    /// Dentro lo spezzone: 0 all'inizio, 1 quando ricomincia.
+    @State private var segmentProgress: CGFloat = 0
 
     var body: some View {
         ZStack {
             videoScreen
                 .offset(x: slide(for: .share))
 
-            goalScreen
-                .offset(x: slide(for: .goal))
-
-            ledgerScreen
-                .offset(x: slide(for: .ledger))
-
-            savedScreen
-                .offset(x: slide(for: .saved))
+            dynamicScreen
+                .offset(x: slide(for: .dynamic))
 
             DemoFinger(pressing: pressing != nil)
                 .position(finger)
                 .opacity(fingerShown ? 1 : 0)
         }
         .frame(width: PhoneCanvas.size.width, height: PhoneCanvas.size.height)
-        .coordinateSpace(.named(Self.space))
         .clipped()
         .task { await runLoop() }
     }
@@ -1736,165 +1741,8 @@ private struct SwapDemo: View {
         .padding(.bottom, 22)
     }
 
-    // La scelta di SwapView: "Make it ___" con le parole sotto.
-    private var goalScreen: some View {
-        ZStack(alignment: .top) {
-            Theme.cream
-            CherryBackground(mood: .fresh)
-
-            VStack(alignment: .leading, spacing: 0) {
-                PhoneStatusBar()
-
-                HStack(spacing: 12) {
-                    RecipePhoto(imageUrl: Self.pasta.imageUrl, imageStatus: "ready")
-                        .frame(width: 54, height: 54)
-                        .clipShape(RoundedRectangle(cornerRadius: 14, style: .continuous))
-                    VStack(alignment: .leading, spacing: 2) {
-                        Text("Nonna's pasta")
-                            .font(Theme.title(17))
-                            .foregroundStyle(Theme.ink)
-                        Text("Caught from TikTok · 7 ingredients")
-                            .font(Theme.body(11.5, weight: .medium))
-                            .foregroundStyle(Theme.subtle)
-                    }
-                }
-                .padding(.top, 20)
-
-                Text("How do you want it?")
-                    .font(Theme.body(13, weight: .bold))
-                    .foregroundStyle(Theme.subtle)
-                    .padding(.top, 24)
-
-                DemoMagnetPicker(
-                    lead: "Make it",
-                    magnets: Self.goals.map(\.magnet),
-                    selection: goal?.rawValue,
-                    compact: false,
-                    pressed: pressing,
-                    space: Self.space,
-                    frames: $frames
-                )
-                .padding(.top, 8)
-
-                Text(goal?.promise ?? " ")
-                    .font(Theme.body(13, weight: .semibold))
-                    .foregroundStyle(Theme.ink.opacity(0.75))
-                    .fixedSize(horizontal: false, vertical: true)
-                    .contentTransition(.opacity)
-                    .padding(.top, 16)
-
-                Spacer()
-
-                Text(goal?.verb ?? "Pick a word")
-                    .font(Theme.body(15, weight: .bold))
-                    .foregroundStyle(.white)
-                    .frame(maxWidth: .infinity)
-                    .frame(height: 48)
-                    .background(Theme.brand.opacity(goal == nil ? 0.4 : 1), in: .capsule)
-                    .scaleEffect(ctaPressed && phase == .goal ? 0.94 : 1)
-                    .contentTransition(.opacity)
-
-                Text("or save it as it is")
-                    .font(Theme.body(12.5, weight: .semibold))
-                    .foregroundStyle(Theme.subtle)
-                    .frame(maxWidth: .infinity)
-                    .padding(.top, 10)
-                    .padding(.bottom, 24)
-            }
-            .padding(.horizontal, 18)
-        }
-        .frame(width: PhoneCanvas.size.width, height: PhoneCanvas.size.height)
-    }
-
-    // Il ledger di SwapView: ORIGINAL → YOURS, poi il salvataggio.
-    private var ledgerScreen: some View {
-        ZStack(alignment: .top) {
-            Theme.cream
-            CherryBackground(mood: .fresh)
-
-            VStack(alignment: .leading, spacing: 10) {
-                PhoneStatusBar()
-
-                Text("Nonna's pasta")
-                    .font(Theme.display(24))
-                    .foregroundStyle(Theme.ink)
-                    .padding(.top, 14)
-                Text("3 swaps · \(chosen.caption) · tap any to change it")
-                    .font(Theme.body(12, weight: .medium))
-                    .foregroundStyle(Theme.subtle)
-
-                VStack(alignment: .leading, spacing: 0) {
-                    HStack {
-                        Text("ORIGINAL")
-                        Spacer()
-                        Text("YOURS")
-                    }
-                    .font(Theme.body(10, weight: .bold))
-                    .foregroundStyle(Theme.subtle)
-                    .tracking(1.2)
-                    .padding(.bottom, 10)
-
-                    ForEach(swaps.indices, id: \.self) { i in
-                        HStack(spacing: 8) {
-                            Text(swaps[i].from)
-                                .font(Theme.body(13, weight: .medium))
-                                .foregroundStyle(Theme.ink.opacity(0.45))
-                                .strikethrough(color: Theme.soft_red.opacity(0.65))
-                            Spacer()
-                            Image(systemName: "arrow.right")
-                                .font(.system(size: 10, weight: .bold))
-                                .foregroundStyle(Theme.subtle)
-                            Text(swaps[i].to)
-                                .font(Theme.body(13, weight: .bold))
-                                .foregroundStyle(Theme.brand)
-                        }
-                        .padding(.vertical, 8)
-                        .opacity(shownRows > i ? 1 : 0)
-                        .offset(x: shownRows > i ? 0 : 26)
-
-                        if i < swaps.count - 1 {
-                            Divider().opacity(0.4)
-                        }
-                    }
-
-                    Divider().opacity(0.4)
-                    HStack {
-                        Text(untouched)
-                            .font(Theme.body(13, weight: .medium))
-                            .foregroundStyle(Theme.ink)
-                        Spacer()
-                        Text("keeps as is")
-                            .font(Theme.body(12, weight: .medium))
-                            .italic()
-                            .foregroundStyle(Theme.subtle)
-                    }
-                    .padding(.vertical, 8)
-                    .opacity(shownRows > 2 ? 1 : 0)
-                }
-                .padding(16)
-                .background(.white.opacity(0.9), in: RoundedRectangle(cornerRadius: 20, style: .continuous))
-                .shadow(color: Theme.ink.opacity(0.08), radius: 10, y: 4)
-                .padding(.top, 8)
-
-                Spacer()
-
-                Text("Save to my recipes")
-                    .font(Theme.body(15, weight: .bold))
-                    .foregroundStyle(.white)
-                    .frame(maxWidth: .infinity)
-                    .frame(height: 48)
-                    .background(Theme.brand, in: .capsule)
-                    .scaleEffect(ctaPressed && phase == .ledger ? 0.94 : 1)
-                    .opacity(shownRows > 2 ? 1 : 0)
-                    .padding(.bottom, 28)
-            }
-            .padding(.horizontal, 18)
-        }
-        .frame(width: PhoneCanvas.size.width, height: PhoneCanvas.size.height)
-    }
-
-    // La ricetta finale, salvata in collection.
-    private var savedScreen: some View {
+    // La vista dinamica di DynamicRecipeView: tacche, player, card.
+    private var dynamicScreen: some View {
         ZStack(alignment: .top) {
             Theme.cream
             CherryBackground(mood: .warm)
@@ -1902,58 +1750,178 @@ private struct SwapDemo: View {
             VStack(spacing: 12) {
                 PhoneStatusBar()
 
-                RecipePhoto(imageUrl: Self.pasta.imageUrl, imageStatus: "ready")
-                    .frame(height: 240)
-                    .clipShape(RoundedRectangle(cornerRadius: 24, style: .continuous))
-                    .shadow(color: Theme.ink.opacity(0.15), radius: 12, y: 6)
-                    .padding(.horizontal, 18)
-                    .padding(.top, 14)
-
-                Text("Nonna's pasta,\n\(chosen.caption)")
-                    .font(Theme.display(24))
-                    .foregroundStyle(Theme.ink)
-                    .multilineTextAlignment(.center)
-
-                HStack(spacing: 12) {
-                    Label("$\(Int(Self.pasta.costUsd))", systemImage: "dollarsign.circle.fill")
-                        .foregroundStyle(Theme.amber)
-                    Label("\(Self.pasta.cookMinutes) min", systemImage: "clock.fill")
-                        .foregroundStyle(Theme.subtle)
+                HStack(spacing: 10) {
+                    Image(systemName: "xmark")
+                        .font(.system(size: 11, weight: .bold))
+                        .foregroundStyle(Theme.ink)
+                        .frame(width: 30, height: 30)
+                        .background(.white.opacity(0.85), in: .circle)
+                    HStack(spacing: 3) {
+                        ForEach(Self.steps.indices, id: \.self) { n in
+                            Capsule()
+                                .fill(n <= step ? Theme.brand : Theme.ink.opacity(0.12))
+                                .frame(height: 3.5)
+                        }
+                    }
                 }
-                .font(Theme.body(13, weight: .semibold))
+                .padding(.horizontal, 16)
+
+                player
+                    .padding(.horizontal, 16)
+
+                cards
+                    .padding(.horizontal, 18)
+
+                Spacer(minLength: 0)
 
                 HStack(spacing: 6) {
-                    Image(systemName: "star.fill")
-                        .font(.system(size: 12, weight: .bold))
-                    Text("Saved to your recipes")
+                    Text(step == Self.steps.count - 1 ? "Done" : "Next step")
                         .font(Theme.body(13, weight: .bold))
+                    Image(systemName: step == Self.steps.count - 1 ? "checkmark" : "chevron.down")
+                        .font(.system(size: 10, weight: .bold))
                 }
-                .foregroundStyle(.white)
-                .padding(.horizontal, 14)
-                .padding(.vertical, 9)
-                .background(Theme.amber, in: .capsule)
-                .padding(.top, 4)
-
-                Spacer()
+                .foregroundStyle(Theme.ink)
+                .padding(.horizontal, 18)
+                .frame(height: 38)
+                .background(.white.opacity(0.85), in: .capsule)
+                .contentTransition(.opacity)
+                .padding(.bottom, 20)
             }
         }
         .frame(width: PhoneCanvas.size.width, height: PhoneCanvas.size.height)
     }
 
-    private func tap(_ target: SwapGoal) async {
-        guard let rect = frames[target.rawValue] else { return }
-        withAnimation(.easeInOut(duration: 0.55)) {
-            finger = CGPoint(x: rect.midX, y: rect.midY)
-            fingerShown = true
+    /// Il player ufficiale: il video del creator, col suo nome, che
+    /// ripete lo spezzone dello step aperto.
+    private var player: some View {
+        let shot = Self.steps[step]
+        return ZStack(alignment: .bottom) {
+            Image(shot.image)
+                .resizable()
+                .scaledToFill()
+                .frame(height: Self.playerHeight)
+                .scaleEffect(1.04 + segmentProgress * 0.08)
+                .id(step)
+                .transition(.opacity)
+
+            LinearGradient(colors: [.clear, .black.opacity(0.55)], startPoint: .center, endPoint: .bottom)
+
+            HStack(alignment: .bottom) {
+                HStack(spacing: 6) {
+                    Circle()
+                        .fill(LinearGradient(colors: [Theme.amber, Theme.soft_red], startPoint: .top, endPoint: .bottom))
+                        .frame(width: 20, height: 20)
+                        .overlay(
+                            Text("N")
+                                .font(.system(size: 9, weight: .heavy, design: .rounded))
+                                .foregroundStyle(.white)
+                        )
+                    Text("@nonna.pasta")
+                        .font(Theme.body(11, weight: .bold))
+                        .foregroundStyle(.white)
+                }
+                Spacer()
+                HStack(spacing: 6) {
+                    playerButton("pause.fill")
+                    playerButton("speaker.wave.2.fill")
+                }
+            }
+            .padding(.horizontal, 10)
+            .padding(.bottom, 14)
+
+            Capsule()
+                .fill(.white.opacity(0.3))
+                .frame(height: 2.5)
+                .overlay(alignment: .leading) {
+                    GeometryReader { geo in
+                        Capsule()
+                            .fill(.white)
+                            .frame(width: geo.size.width * segmentProgress)
+                    }
+                }
+                .frame(height: 2.5)
+                .padding(.horizontal, 10)
+                .padding(.bottom, 6)
         }
-        try? await Task.sleep(for: .seconds(0.6))
-        withAnimation(.easeOut(duration: 0.12)) { pressing = target.rawValue }
-        try? await Task.sleep(for: .seconds(0.15))
-        Haptics.selection()
-        withAnimation(Theme.Motion.signature) {
-            pressing = nil
-            goal = target
+        .frame(maxWidth: .infinity)
+        .frame(height: Self.playerHeight)
+        .background(.black)
+        .clipShape(RoundedRectangle(cornerRadius: 20, style: .continuous))
+    }
+
+    private func playerButton(_ symbol: String) -> some View {
+        Image(systemName: symbol)
+            .font(.system(size: 10, weight: .bold))
+            .foregroundStyle(.white)
+            .frame(width: 28, height: 28)
+            .background(.black.opacity(0.35), in: .circle)
+    }
+
+    /// Le card degli step, una per pagina, come lo scroll a pagine
+    /// dell'app: il dito le spinge su.
+    private var cards: some View {
+        VStack(spacing: 0) {
+            ForEach(Self.steps.indices, id: \.self) { n in
+                card(n)
+                    .frame(height: Self.cardHeight, alignment: .top)
+            }
         }
+        .offset(y: -CGFloat(step) * Self.cardHeight + drag)
+        .frame(height: Self.cardHeight, alignment: .top)
+        .clipped()
+    }
+
+    private func card(_ n: Int) -> some View {
+        let s = Self.steps[n]
+        let firstLine = Self.steps[..<n].reduce(1) { $0 + $1.lines.count }
+        return VStack(alignment: .leading, spacing: 9) {
+            VStack(alignment: .leading, spacing: 2) {
+                Text("STEP \(n + 1) OF \(Self.steps.count)")
+                    .font(Theme.body(9.5, weight: .bold))
+                    .foregroundStyle(Theme.subtle)
+                    .tracking(1.1)
+                Text(s.title)
+                    .font(Theme.display(19))
+                    .foregroundStyle(Theme.ink)
+            }
+
+            ForEach(s.lines.indices, id: \.self) { i in
+                HStack(alignment: .top, spacing: 8) {
+                    Text("\(firstLine + i)")
+                        .font(Theme.body(10, weight: .bold))
+                        .foregroundStyle(.white)
+                        .frame(width: 18, height: 18)
+                        .background(Circle().fill(Theme.brand))
+                    Text(s.lines[i])
+                        .font(Theme.body(12.5))
+                        .foregroundStyle(Theme.ink)
+                        .fixedSize(horizontal: false, vertical: true)
+                }
+            }
+
+            HStack(spacing: 6) {
+                ForEach(s.ingredients.indices, id: \.self) { i in
+                    let item = s.ingredients[i]
+                    HStack(spacing: 4) {
+                        Text(item.emoji)
+                            .font(.system(size: 11))
+                        Text(item.name)
+                            .font(Theme.body(11, weight: .semibold))
+                            .foregroundStyle(Theme.ink)
+                        if !item.quantity.isEmpty {
+                            Text(item.quantity)
+                                .font(Theme.body(11))
+                                .foregroundStyle(Theme.subtle)
+                        }
+                    }
+                    .lineLimit(1)
+                    .padding(.horizontal, 9)
+                    .frame(height: 26)
+                    .background(.white.opacity(0.85), in: .capsule)
+                }
+            }
+        }
+        .frame(maxWidth: .infinity, alignment: .leading)
     }
 
     private func press(_ point: CGPoint, _ pressed: Binding<Bool>) async {
@@ -1975,23 +1943,48 @@ private struct SwapDemo: View {
         try? await Task.sleep(for: .seconds(0.25))
     }
 
+    /// Lo spezzone che gira: la barra riparte da zero e il fotogramma
+    /// si avvicina piano, per `seconds`.
+    private func playSegment(for seconds: Double) {
+        withAnimation(nil) { segmentProgress = 0 }
+        withAnimation(.linear(duration: seconds)) { segmentProgress = 1 }
+    }
+
+    /// Il dito appoggiato sulle card le spinge su: arriva lo step dopo.
+    private func swipeUp() async {
+        withAnimation(.easeInOut(duration: 0.4)) {
+            finger = CGPoint(x: 190, y: 560)
+            fingerShown = true
+        }
+        try? await Task.sleep(for: .seconds(0.45))
+        withAnimation(.easeOut(duration: 0.1)) { pressing = "card" }
+        withAnimation(.easeInOut(duration: 0.3)) {
+            finger = CGPoint(x: 190, y: 470)
+            drag = -40
+        }
+        try? await Task.sleep(for: .seconds(0.3))
+        Haptics.selection()
+        withAnimation(.spring(duration: 0.5, bounce: 0.15)) {
+            step += 1
+            drag = 0
+            pressing = nil
+        }
+        withAnimation(.easeOut(duration: 0.3)) { fingerShown = false }
+    }
+
     private func runLoop() async {
-        var firstPass = true
         while !Task.isCancelled {
             withAnimation(nil) {
-                if !firstPass { round += 1 }
-                firstPass = false
                 phase = .video
                 sharePulse = false
-                shownRows = 0
-                ctaPressed = false
                 openPressed = false
-                goal = nil
                 fingerShown = false
                 finger = CGPoint(x: 150, y: 600)
                 videoProgress = 0
+                step = 0
+                drag = 0
+                segmentProgress = 0
             }
-            let current = Self.rounds[round % Self.rounds.count]
 
             withAnimation(.linear(duration: 3.2)) { videoProgress = 1 }
             try? await Task.sleep(for: .seconds(1.0))
@@ -2005,38 +1998,18 @@ private struct SwapDemo: View {
 
             await press(CGPoint(x: 150, y: 562), $openPressed)
             withAnimation(.spring(duration: 0.6, bounce: 0.12)) {
-                phase = .goal
+                phase = .dynamic
                 fingerShown = false
             }
-            try? await Task.sleep(for: .seconds(0.9))
 
-            // Prima prova una parola, poi cambia idea: si vede che
-            // le parole sono tante e che la scelta è tua.
-            await tap(current.tried)
-            try? await Task.sleep(for: .seconds(1.3))
-            await tap(current.chosen)
-            try? await Task.sleep(for: .seconds(1.4))
-
-            await press(CGPoint(x: 150, y: 572), $ctaPressed)
-            withAnimation(.spring(duration: 0.6, bounce: 0.12)) {
-                phase = .ledger
-                fingerShown = false
+            for n in Self.steps.indices {
+                let hold = n == 0 ? 2.6 : 2.2
+                playSegment(for: hold + 0.9)
+                try? await Task.sleep(for: .seconds(hold))
+                guard !Task.isCancelled else { return }
+                if n < Self.steps.count - 1 { await swipeUp() }
             }
-            try? await Task.sleep(for: .seconds(0.6))
-
-            for i in swaps.indices {
-                withAnimation(.spring(duration: 0.45, bounce: 0.3)) { shownRows = i + 1 }
-                Haptics.light()
-                try? await Task.sleep(for: .seconds(0.5))
-            }
-            try? await Task.sleep(for: .seconds(0.9))
-
-            await press(CGPoint(x: 150, y: 594), $ctaPressed)
-            withAnimation(.spring(duration: 0.6, bounce: 0.12)) {
-                phase = .saved
-                fingerShown = false
-            }
-            try? await Task.sleep(for: .seconds(2.4))
+            try? await Task.sleep(for: .seconds(1.2))
         }
     }
 }

@@ -35,7 +35,6 @@ struct CherryApp: App {
                     // Rete di sicurezza: se per qualsiasi motivo l'SDK
                     // non fosse partito in init, riprova qui. È idempotente.
                     Analytics.start()
-                    Task { await ReviewPrompt.loadRemoteSwitch() }
                     await appState.start()
                     SuperwallActions.shared.subscriptions = appState.subscriptions
                     SuperwallActions.shared.syncSubscriptionStatus(

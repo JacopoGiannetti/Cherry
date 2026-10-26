@@ -25,6 +25,7 @@
 		2E8C73C7ADE5FCD8FEC7E8A8 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 8E6CC30235C5C18332097B5F /* FirebaseFirestore */; };
 		329A9CAA4FDEB4F1FE71848F /* PaywallGateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9650E78A3D50131FF31EC696 /* PaywallGateView.swift */; };
 		334EB1EE29E12EE7B2D7FCD7 /* science.lottie in Resources */ = {isa = PBXBuildFile; fileRef = F60573066CCA90CE2B3C9A49 /* science.lottie */; };
+		37BD42397DB6C8D361210F8E /* DynamicRecipeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A65D6F4B2374CEAF2D56B7B /* DynamicRecipeView.swift */; };
 		381C73F15FC8C247BA20F41C /* CameraPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADBEC2E4893A7569A8A600B6 /* CameraPicker.swift */; };
 		3A1E5D015CF855C663EACDDE /* SwapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E74CB5CB6DEBAFCD3CF1B65F /* SwapView.swift */; };
 		3A6F7DAE8A578AD85E415902 /* DeckView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CF87DCBCC5B0E30FA8DC017 /* DeckView.swift */; };
@@ -97,7 +98,6 @@
 		DFAD09446B39F0DF63A22CA6 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AF1F0E7DC1FE1577801F603 /* Models.swift */; };
 		E44B24272EF491486E62DB91 /* CherryActivityBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10ADAC4CC5F16F95CB4BABA9 /* CherryActivityBundle.swift */; };
 		E55363AFA71672C67F3AF500 /* RecipeDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5414592F397067F19EC7DE65 /* RecipeDetailView.swift */; };
-		37BD42397DB6C8D361210F8E /* DynamicRecipeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A65D6F4B2374CEAF2D56B7B /* DynamicRecipeView.swift */; };
 		E5BEFCA03FDCF14685FB9898 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BBC817F3C92672EF555C934 /* SettingsView.swift */; };
 		E6FFC0033C4FD30CA4994550 /* Secrets.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43E37EFC57036FF1D66B5D7 /* Secrets.swift */; };
 		E8F3A1B200000002 /* AudienceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8F3A1B200000001 /* AudienceView.swift */; };
@@ -177,8 +177,8 @@
 		4FC04E9C45E8CC1F34E84A6E /* ProductScanFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductScanFlow.swift; sourceTree = "<group>"; };
 		5101AFD5272FE9443B4792CE /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
 		5414592F397067F19EC7DE65 /* RecipeDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeDetailView.swift; sourceTree = "<group>"; };
-		5A65D6F4B2374CEAF2D56B7B /* DynamicRecipeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicRecipeView.swift; sourceTree = "<group>"; };
 		5905AB7A67B226529AAA77A5 /* FirebaseBootstrap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseBootstrap.swift; sourceTree = "<group>"; };
+		5A65D6F4B2374CEAF2D56B7B /* DynamicRecipeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicRecipeView.swift; sourceTree = "<group>"; };
 		5D99DA9DDF14FE9DC744B814 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		602BCFDF2B153D18DFB17611 /* CherryApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CherryApp.swift; sourceTree = "<group>"; };
 		672DD5FBE9F9B92ACFED25CE /* AllSetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllSetView.swift; sourceTree = "<group>"; };
@@ -991,7 +991,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Cherry/CherryRelease.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				INFOPLIST_FILE = Cherry/Supporting/Info.plist;
 				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1129,7 +1129,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Cherry/Cherry.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				INFOPLIST_FILE = Cherry/Supporting/Info.plist;
 				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				LD_RUNPATH_SEARCH_PATHS = (

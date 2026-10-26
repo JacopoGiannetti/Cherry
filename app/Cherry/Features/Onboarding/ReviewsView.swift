@@ -238,10 +238,6 @@ struct ReviewsView: View {
     private func askForReview() async {
         guard !askedForReview else { return }
         askedForReview = true
-        guard ReviewPrompt.onboardingEnabled else {
-            canContinue = true
-            return
-        }
         try? await Task.sleep(for: .seconds(2.4))
         guard !Task.isCancelled else { return }
         requestReview()
