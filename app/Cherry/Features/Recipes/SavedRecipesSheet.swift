@@ -22,12 +22,52 @@ struct SavedRecipesSheet: View {
     @State private var recipeToEdit: SavedRecipe?
     @FocusState private var searchFocused: Bool
 
+    @State private var filter: Filter = .all
+
+    private enum Filter: String, CaseIterable {
+        case all = "All"
+        case videos = "From videos"
+        case adapted = "Adapted"
+        case yours = "Yours"
+
+        func matches(_ recipe: SavedRecipe) -> Bool {
+            switch self {
+            case .all: true
+            case .videos: DynamicRecipeView.supports(sourceUrl: recipe.sourceUrl)
+            case .adapted: recipe.origin == "swap"
+            case .yours: recipe.origin == "manual"
+            }
+        }
+    }
+
+    /// Solo i filtri che troverebbero qualcosa.
+    private var availableFilters: [Filter] {
+        Filter.allCases.filter { $0 == .all || recipes.contains(where: $0.matches) }
+    }
+
+    /// Inutili se ogni filtro mostrerebbe comunque tutta la collezione.
+    private var showsFilters: Bool {
+        availableFilters.dropFirst().contains { option in recipes.contains { !option.matches($0) } }
+    }
+
+    private var needle: String { query.trimmingCharacters(in: .whitespacesAndNewlines).lowercased() }
+
+    /// La più recente in grande, solo sulla collezione intera: una
+    /// ricerca o un filtro sono una lista di risultati, tutti alla pari.
+    private var hero: SavedRecipe? {
+        needle.isEmpty && filter == .all ? results.first : nil
+    }
+
+    private var gridRecipes: [SavedRecipe] {
+        hero == nil ? results : Array(results.dropFirst())
+    }
+
     /// Titolo, cucina e ingredienti: si cerca anche per "chickpea",
     /// non solo per il nome del piatto.
     private var results: [SavedRecipe] {
-        let needle = query.trimmingCharacters(in: .whitespacesAndNewlines).lowercased()
-        guard !needle.isEmpty else { return recipes }
-        return recipes.filter { recipe in
+        let filtered = recipes.filter(filter.matches)
+        guard !needle.isEmpty else { return filtered }
+        return filtered.filter { recipe in
             if recipe.title.lowercased().contains(needle) { return true }
             if (recipe.cuisine ?? "").lowercased().contains(needle) { return true }
             if (recipe.oneLiner ?? "").lowercased().contains(needle) { return true }
@@ -43,11 +83,14 @@ struct SavedRecipesSheet: View {
                 VStack(alignment: .leading, spacing: 16) {
                     CherrySheetHeader(
                         title: "Collection",
-                        subtitle: "Search, open, or turn dishes into a list",
                         chip: recipes.isEmpty ? nil : "\(recipes.count)"
                     )
 
                     searchField
+
+                    if showsFilters {
+                        filterBar
+                    }
 
                     if results.isEmpty {
                         CherrySheetEmpty(
@@ -62,12 +105,23 @@ struct SavedRecipesSheet: View {
                         Spacer(minLength: 0)
                     } else {
                         ScrollView(showsIndicators: false) {
-                            VStack(spacing: 12) {
-                                ForEach(Array(results.enumerated()), id: \.element.id) { index, recipe in
-                                    tile(recipe, wash: CherryRowWash.at(index))
+                            VStack(spacing: 18) {
+                                if let hero {
+                                    tile(hero) { selected in heroCard(hero, selected: selected) }
+                                }
+                                LazyVGrid(
+                                    columns: [GridItem(.flexible(), spacing: 12), GridItem(.flexible(), spacing: 12)],
+                                    alignment: .leading,
+                                    spacing: 18
+                                ) {
+                                    ForEach(gridRecipes, id: \.id) { recipe in
+                                        tile(recipe) { selected in gridCard(recipe, selected: selected) }
+                                    }
                                 }
                             }
+                            .padding(.top, 2)
                             .padding(.bottom, selectionMode && !selection.isEmpty ? 96 : 16)
+                            .animation(Theme.Motion.signature, value: filter)
                         }
                     }
                 }
@@ -160,7 +214,6 @@ struct SavedRecipesSheet: View {
                     onGenerateCover: live.origin == "imported" ? live.id.map { id in
                         { try await appState.jobs.start("/swap/cover", body: ["recipeId": id]) }
                     } : nil,
-                    videoUrl: live.videoUrl,
                     segments: live.segments,
                     dynamicStatus: live.dynamicStatus,
                     dynamicError: live.dynamicError,
@@ -228,8 +281,9 @@ struct SavedRecipesSheet: View {
         .focused($searchFocused)
     }
 
+    /// Stessa card in selezione e no: cambia solo cosa fa il tap.
     @ViewBuilder
-    private func tile(_ recipe: SavedRecipe, wash: Color) -> some View {
+    private func tile<Card: View>(_ recipe: SavedRecipe, @ViewBuilder card: (Bool) -> Card) -> some View {
         let isOn = selection.contains(recipe.id ?? "")
         if selectionMode {
             Button {
@@ -237,18 +291,18 @@ struct SavedRecipesSheet: View {
                 guard let id = recipe.id else { return }
                 if isOn { selection.remove(id) } else { selection.insert(id) }
             } label: {
-                tileContent(recipe, selected: isOn, wash: wash)
+                card(isOn)
             }
-            .buttonStyle(.plain)
+            .buttonStyle(CherryCardButtonStyle())
         } else {
             Button {
                 Haptics.light()
                 searchFocused = false
                 path.append(recipe)
             } label: {
-                tileContent(recipe, selected: false, wash: wash)
+                card(false)
             }
-            .buttonStyle(.plain)
+            .buttonStyle(CherryCardButtonStyle())
             .contextMenu {
                 Button {
                     recipeToEdit = recipe
@@ -264,36 +318,159 @@ struct SavedRecipesSheet: View {
         }
     }
 
-    private func tileContent(_ recipe: SavedRecipe, selected: Bool, wash: Color) -> some View {
-        CherryMediaRow(
-            wash: wash,
-            thumb: {
-                RecipePhoto(imageUrl: recipe.imageUrl, imageStatus: "ready")
-            },
-            title: recipe.title,
-            subtitle: recipe.origin == "vego"
-                ? "Cherry pick"
-                : (recipe.origin.map { caption(for: $0, goal: recipe.swapGoal) } ?? "\(recipe.ingredients.count) ingredients"),
-            trailing: {
-                if selectionMode {
-                    Image(systemName: selected ? "checkmark.circle.fill" : "circle")
-                        .font(.system(size: 24, weight: .semibold))
-                        .foregroundStyle(selected ? Theme.brand : Theme.ink.opacity(0.18))
-                } else {
-                    Text("\(recipe.ingredients.count)")
-                        .font(Theme.body(13, weight: .bold))
-                        .foregroundStyle(Theme.subtle)
+    private var filterBar: some View {
+        ScrollView(.horizontal, showsIndicators: false) {
+            HStack(spacing: 8) {
+                ForEach(availableFilters, id: \.self) { option in
+                    let on = filter == option
+                    Button {
+                        guard !on else { return }
+                        Haptics.selection()
+                        withAnimation(Theme.Motion.quick) { filter = option }
+                    } label: {
+                        let label = Text(option.rawValue)
+                            .font(Theme.body(14, weight: .bold))
+                            .foregroundStyle(on ? .white : Theme.ink)
+                            .padding(.horizontal, 16)
+                            .frame(height: 36)
+                            .contentShape(.capsule)
+                        if on {
+                            label.background(Theme.ink, in: .capsule)
+                        } else {
+                            label.glassChip(interactive: true)
+                        }
+                    }
+                    .buttonStyle(.plain)
                 }
             }
-        )
+            .padding(.vertical, 2)
+        }
+        .scrollClipDisabled()
     }
 
-    private func caption(for origin: String, goal: String?) -> String {
-        switch origin {
-        case "swap": goal.flatMap(SwapGoal.init(rawValue:))?.caption ?? "adapted"
-        case "manual": "yours"
-        default: "saved"
+    private func heroCard(_ recipe: SavedRecipe, selected: Bool) -> some View {
+        Color.clear
+            .frame(height: 250)
+            .overlay { RecipePhoto(imageUrl: recipe.imageUrl, imageStatus: "ready") }
+            .overlay {
+                LinearGradient(
+                    colors: [.clear, .black.opacity(0.15), .black.opacity(0.7)],
+                    startPoint: .center,
+                    endPoint: .bottom
+                )
+            }
+            .overlay(alignment: .bottomLeading) {
+                VStack(alignment: .leading, spacing: 6) {
+                    Text("LATEST")
+                        .font(Theme.body(11, weight: .bold))
+                        .tracking(1.4)
+                        .foregroundStyle(.white.opacity(0.75))
+                    Text(recipe.title)
+                        .font(Theme.display(26))
+                        .foregroundStyle(.white)
+                        .lineLimit(2)
+                        .multilineTextAlignment(.leading)
+                    meta(recipe)
+                        .foregroundStyle(.white.opacity(0.85))
+                }
+                .padding(18)
+            }
+            .overlay(alignment: .topLeading) { badges(recipe).padding(14) }
+            .overlay(alignment: .topTrailing) { selectionMark(selected).padding(12) }
+            .clipShape(RoundedRectangle(cornerRadius: Theme.cornerRadius))
+            .overlay(selectedBorder(selected, cornerRadius: Theme.cornerRadius))
+            .shadow(color: Theme.ink.opacity(0.12), radius: 16, y: 8)
+    }
+
+    private func gridCard(_ recipe: SavedRecipe, selected: Bool) -> some View {
+        VStack(alignment: .leading, spacing: 8) {
+            Color.clear
+                .aspectRatio(4 / 5, contentMode: .fit)
+                .overlay { RecipePhoto(imageUrl: recipe.imageUrl, imageStatus: "ready") }
+                .overlay(alignment: .topLeading) { badges(recipe).padding(10) }
+                .overlay(alignment: .topTrailing) { selectionMark(selected).padding(8) }
+                .clipShape(RoundedRectangle(cornerRadius: 22))
+                .overlay(selectedBorder(selected, cornerRadius: 22))
+                .shadow(color: Theme.ink.opacity(0.10), radius: 10, y: 5)
+
+            Text(recipe.title)
+                .font(Theme.body(15, weight: .bold))
+                .foregroundStyle(Theme.ink)
+                .lineLimit(2)
+                .multilineTextAlignment(.leading)
+                .fixedSize(horizontal: false, vertical: true)
+                .padding(.horizontal, 2)
+
+            meta(recipe)
+                .foregroundStyle(Theme.subtle)
+                .padding(.horizontal, 2)
         }
+        .contentShape(.rect)
+    }
+
+    /// Tempo e provenienza: "15 min · Instagram".
+    private func meta(_ recipe: SavedRecipe) -> some View {
+        let parts = [recipe.cookMinutes > 0 ? "\(recipe.cookMinutes) min" : nil, origin(of: recipe)].compactMap { $0 }
+        return Text(parts.isEmpty ? "\(recipe.ingredients.count) ingredients" : parts.joined(separator: " · "))
+            .font(Theme.body(12, weight: .semibold))
+            .lineLimit(1)
+    }
+
+    private func origin(of recipe: SavedRecipe) -> String? {
+        if recipe.origin == "vego" || recipe.preset == true { return "Cherry pick" }
+        if recipe.origin == "manual" { return "Yours" }
+        let host = recipe.sourceUrl.flatMap(URL.init)?.host?.lowercased() ?? ""
+        if host.contains("tiktok") { return "TikTok" }
+        if host.contains("instagram") || host.contains("instagr.am") { return "Instagram" }
+        if host.contains("youtu") { return "YouTube" }
+        return nil
+    }
+
+    /// Sulla foto: la trasformazione, col colore della sua parola, e la
+    /// vista dinamica se è pronta.
+    private func badges(_ recipe: SavedRecipe) -> some View {
+        HStack(spacing: 6) {
+            if recipe.origin == "swap" {
+                // Le trasformate senza goal sono le vecchie, tutte vegane.
+                let magnet = (recipe.swapGoal.flatMap(SwapGoal.init(rawValue:)) ?? .vegan).magnet
+                Text(magnet.word)
+                    .font(Theme.body(11, weight: .bold))
+                    .foregroundStyle(magnet.ink)
+                    .padding(.horizontal, 9)
+                    .frame(height: 24)
+                    .background(magnet.wash, in: .capsule)
+            }
+            if hasDynamic(recipe) {
+                Image(systemName: "play.fill")
+                    .font(.system(size: 9, weight: .bold))
+                    .foregroundStyle(.white)
+                    .frame(width: 24, height: 24)
+                    .background(.black.opacity(0.4), in: .circle)
+                    .accessibilityLabel("Dynamic view")
+            }
+        }
+    }
+
+    private func hasDynamic(_ recipe: SavedRecipe) -> Bool {
+        DynamicRecipeView.supports(sourceUrl: recipe.sourceUrl)
+            && DynamicRecipeView.pages(recipe.segments, steps: recipe.steps, ingredients: recipe.ingredients).count >= 2
+    }
+
+    @ViewBuilder
+    private func selectionMark(_ selected: Bool) -> some View {
+        if selectionMode {
+            Image(systemName: selected ? "checkmark.circle.fill" : "circle")
+                .font(.system(size: 24, weight: .semibold))
+                .foregroundStyle(.white, selected ? Theme.brand : .white)
+                .shadow(color: .black.opacity(0.25), radius: 4)
+                .contentTransition(.symbolEffect(.replace))
+        }
+    }
+
+    private func selectedBorder(_ selected: Bool, cornerRadius: CGFloat) -> some View {
+        RoundedRectangle(cornerRadius: cornerRadius)
+            .strokeBorder(Theme.brand, lineWidth: 3)
+            .opacity(selected ? 1 : 0)
     }
 
     private func deleteSelected() {

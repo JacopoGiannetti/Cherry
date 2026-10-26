@@ -41,13 +41,15 @@ struct RecipeDetailView: View {
     var coverError: String? = nil
     var onGenerateCover: (() async throws -> Void)? = nil
     /// Ricetta da un video diviso in spezzoni: apre la vista dinamica.
-    var videoUrl: String? = nil
     var segments: [RecipeSegment]? = nil
     /// Ricetta da un video ma senza spezzoni: la vista dinamica si chiede
     /// a parte. Lo stato arriva dal documento: "generating" o "failed".
     var dynamicStatus: String? = nil
     var dynamicError: String? = nil
     var onGenerateDynamic: (() async throws -> Void)? = nil
+    /// Il post del video, per la vista dinamica, anche dove il link
+    /// all'originale non si mostra (la ricetta trasformata).
+    var dynamicSourceUrl: String? = nil
 
     @EnvironmentObject private var appState: AppState
     @Environment(\.dismiss) private var dismiss
@@ -186,21 +188,18 @@ struct RecipeDetailView: View {
         }
         .onChange(of: segments) { _, _ in dynamicRequested = false }
         .fullScreenCover(isPresented: $showsDynamic) {
-            if let videoUrl {
-                DynamicRecipeView(
-                    title: title,
-                    videoUrl: videoUrl,
-                    segments: segments ?? [],
-                    ingredients: ingredients,
-                    steps: steps,
-                    onRebuild: onGenerateDynamic == nil ? nil : { requestDynamic() }
-                )
-            }
+            DynamicRecipeView(
+                title: title,
+                segments: segments ?? [],
+                ingredients: ingredients,
+                steps: steps,
+                sourceUrl: dynamicSourceUrl ?? sourceUrl
+            )
         }
     }
 
     private var dynamicStepCount: Int {
-        guard videoUrl != nil else { return 0 }
+        guard DynamicRecipeView.supports(sourceUrl: dynamicSourceUrl ?? sourceUrl) else { return 0 }
         let pages = DynamicRecipeView.pages(segments, steps: steps, ingredients: ingredients)
         return pages.count >= 2 ? pages.count : 0
     }
@@ -221,34 +220,17 @@ struct RecipeDetailView: View {
 
     // MARK: - Azioni
 
-    /// Un solo gesto grande; sotto, affiancati, la vista dinamica e il post originale.
+    /// La vista dinamica è il gesto grande; sotto, affiancati, la
+    /// trasformazione e il post originale.
     @ViewBuilder
     private var actions: some View {
         if onVeganize != nil || originalLink != nil || offersDynamic {
             VStack(alignment: .leading, spacing: 10) {
-                if let onVeganize {
-                    Button {
-                        Haptics.medium()
-                        onVeganize()
-                    } label: {
-                        HStack(spacing: 8) {
-                            Image(systemName: "wand.and.stars")
-                                .font(.system(size: 15, weight: .semibold))
-                            Text(SwapGoal.entryVerb(for: appState.tasteProfile.dietaryIdentity))
-                                .font(Theme.body(16, weight: .bold))
-                        }
-                        .foregroundStyle(.white)
-                        .frame(maxWidth: .infinity)
-                        .frame(height: 50)
-                        .background(Theme.brandGradient, in: .capsule)
-                        .contentShape(.capsule)
-                    }
-                    .buttonStyle(.plain)
-                }
+                if offersDynamic { dynamicPill }
 
-                if offersDynamic || originalLink != nil {
+                if onVeganize != nil || originalLink != nil {
                     HStack(spacing: 10) {
-                        if offersDynamic { dynamicPill }
+                        if let onVeganize { veganizePill(onVeganize) }
                         if let originalLink { originalPill(originalLink) }
                     }
                 }
@@ -265,8 +247,31 @@ struct RecipeDetailView: View {
 
     private var dynamicPillTitle: String {
         if dynamicReady { return "Dynamic view" }
-        if generatingDynamic { return "Watching…" }
-        return dynamicFailure == nil ? "Get dynamic view" : "Try again"
+        if generatingDynamic { return "Watching the video…" }
+        return dynamicFailure == nil ? "Generate dynamic view" : "Try again"
+    }
+
+    private func veganizePill(_ action: @escaping () -> Void) -> some View {
+        Button {
+            Haptics.medium()
+            action()
+        } label: {
+            HStack(spacing: 6) {
+                Image(systemName: "wand.and.stars")
+                    .font(.system(size: 13, weight: .semibold))
+                Text(SwapGoal.entryVerb(for: appState.tasteProfile.dietaryIdentity))
+                    .font(Theme.body(14, weight: .bold))
+                    .lineLimit(1)
+                    .minimumScaleFactor(0.8)
+            }
+            .foregroundStyle(.white)
+            .padding(.horizontal, 12)
+            .frame(maxWidth: .infinity)
+            .frame(height: 46)
+            .background(Theme.brandGradient, in: .capsule)
+            .contentShape(.capsule)
+        }
+        .buttonStyle(.plain)
     }
 
     private var dynamicPill: some View {
@@ -286,22 +291,32 @@ struct RecipeDetailView: View {
                             .tint(.white)
                     } else {
                         Image(systemName: dynamicReady ? "play.fill" : (dynamicFailure == nil ? "sparkles" : "arrow.clockwise"))
-                            .font(.system(size: 11, weight: .bold))
+                            .font(.system(size: 13, weight: .bold))
                     }
                 }
-                .frame(width: 28, height: 28)
+                .frame(width: 36, height: 36)
                 .background(Circle().fill(Theme.brandGradient))
 
                 Text(dynamicPillTitle)
-                    .font(Theme.body(14, weight: .bold))
+                    .font(Theme.body(16, weight: .bold))
                     .lineLimit(1)
                     .minimumScaleFactor(0.8)
+
+                Spacer(minLength: 0)
+
+                if dynamicReady {
+                    Text("\(dynamicStepCount) steps")
+                        .font(Theme.body(13, weight: .semibold))
+                        .opacity(0.7)
+                    Image(systemName: "chevron.right")
+                        .font(.system(size: 12, weight: .bold))
+                }
             }
             .foregroundStyle(.white)
-            .padding(.leading, 6)
-            .padding(.trailing, 14)
+            .padding(.leading, 7)
+            .padding(.trailing, 18)
             .frame(maxWidth: .infinity)
-            .frame(height: 46)
+            .frame(height: 52)
             .background(Theme.ink, in: .capsule)
             .contentShape(.capsule)
         }

@@ -9,7 +9,7 @@ const { consumeQuota, checkQuota } = require('../lib/rate-limit');
 const { getTasteProfile } = require('../lib/profile');
 const { getCached, setCached, patchCached, bumpCacheHit } = require('../lib/cache');
 const { generateJSON, imagePart, videoPart } = require('../services/gemini');
-const { downloadImage, persistVideo, persistRemoteVideo, storedVideo, isPersisted } = require('../services/storage');
+const { downloadImage, stageRemoteVideo, isPersisted } = require('../services/storage');
 const { cleanSegments, remapSegments, withoutSegments } = require('../lib/recipe-segments');
 const { downloadVideo, detectPlatform, resolve, SocialVideoError } = require('../services/social-video');
 const { fetchWebRecipe } = require('../services/web-recipe');
@@ -46,27 +46,47 @@ function normalizeUrl(url) {
 }
 
 /**
- * Una chiamata sola: il video intero si copia su Storage e Gemini lo
- * guarda da lì (niente limite dei 18MB), leggendo ricetta e spezzoni
- * insieme. Lancia se il video non si salva o Gemini fallisce: chi chiama
- * ripiega sulla lettura di sempre. "Nessuna ricetta" invece è definitivo.
+ * Il video intero di un post fatto guardare a Gemini da Storage (niente
+ * limite dei 18MB) e cancellato appena risponde: copie dei video dei
+ * creator non se ne tengono. null se nessuna versione si carica.
+ */
+async function watchVideo(url, videoUrls, request) {
+  for (const [i, remote] of (videoUrls || []).entries()) {
+    let staged;
+    try {
+      staged = await stageRemoteVideo(remote);
+    } catch (e) {
+      console.log(`[swap.video] ${url}: video NON caricato (${i + 1}/${videoUrls.length}): ${e.message}`);
+      continue;
+    }
+    try {
+      return await generateJSON({ ...request, parts: [{ fileData: { fileUri: staged.gsUri, mimeType: 'video/mp4' } }] });
+    } finally {
+      await staged.discard();
+      console.log(`[swap.video] ${url}: video temporaneo cancellato`);
+    }
+  }
+  return null;
+}
+
+/**
+ * Una chiamata sola: Gemini guarda il video intero e legge ricetta e
+ * spezzoni insieme. Lancia se il video non si carica o Gemini fallisce:
+ * chi chiama ripiega sulla lettura di sempre. "Nessuna ricetta" invece è
+ * definitivo.
  */
 async function extractWatchingVideo(uid, url, profile) {
   const t0 = Date.now();
   const post = await resolve(url);
   if (!post.videoUrls?.length) throw new Error('nessuna versione video');
-  const stored = await saveSourceVideo(url, post.videoUrls);
-  if (!stored) throw new Error('video intero non salvato');
-  const t1 = Date.now();
-
-  const extraction = await generateJSON({
+  const extraction = await watchVideo(url, post.videoUrls, {
     prompt: buildExtractionPrompt({ sourceType: 'video', caption: post.caption, profile, segments: true }),
     schema: videoExtractionSchema,
-    parts: [{ fileData: { fileUri: stored.gsUri, mimeType: 'video/mp4' } }],
     temperature: 0.2,
     label: 'swap-extract-video-full',
     thinkingLevel: 'LOW',
   });
+  if (!extraction) throw new Error('video intero non caricato');
   const t2 = Date.now();
   consumeQuota(uid, 'jobs', 1);
   if (!extraction.found || !extraction.recipe) {
@@ -77,13 +97,12 @@ async function extractWatchingVideo(uid, url, profile) {
   if (segments) recipe.segments = segments;
   console.log(`[swap.video] ${url}: Gemini ha guardato il VIDEO intero, ${recipe.steps?.length || 0} step,`
     + ` spezzoni grezzi ${extraction.recipe.segments?.length || 0}, validi ${segments?.length || 0}`
-    + ` | tempi: social+salvataggio ${((t1 - t0) / 1000).toFixed(1)}s, Gemini ${((t2 - t1) / 1000).toFixed(1)}s`);
+    + ` | tempo ${((t2 - t0) / 1000).toFixed(1)}s`);
   return {
     recipe,
     thumbnail: (await keepThumbnail(url, post.thumbnail)) || post.thumbnail || null,
     platform: detectPlatform(url),
     caption: post.caption || null,
-    ...(segments ? { videoUrl: stored.downloadUrl } : {}),
   };
 }
 
@@ -116,65 +135,17 @@ async function extractFromVideo(uid, url, profile) {
   }
   const recipe = withoutSegments(extraction.recipe);
   const segments = video.hasPicture ? cleanSegments(extraction.recipe.segments, recipe) : null;
+  if (segments) recipe.segments = segments;
   console.log(`[swap.video] ${url}: Gemini ha letto ${video.hasPicture ? 'il VIDEO' : 'solo l’AUDIO'}`
     + ` (${(video.buffer.length / 1024 / 1024).toFixed(1)}MB), ${recipe.steps?.length || 0} step,`
     + ` spezzoni grezzi ${extraction.recipe.segments?.length || 0}, validi ${segments?.length || 0}`
     + ` | tempo ${((Date.now() - t0) / 1000).toFixed(1)}s`);
-  const videoUrl = await keepVideo(url, video, segments, recipe);
-  console.log(`[swap.video] ${url}: vista dinamica ${videoUrl ? 'PRONTA' : 'non disponibile'}`);
-  // Senza vista dinamica il video intero si salva comunque, in sottofondo:
-  // l'import resta veloce, e "Generate" lo troverà già su Storage.
-  if (!videoUrl) saveSourceVideo(url, video.videoUrls).catch(() => {});
   return {
     recipe,
     thumbnail: (await keepThumbnail(url, video.thumbnail)) || video.thumbnail || null,
     platform: video.platform,
     caption: video.caption || null,
-    ...(videoUrl ? { videoUrl } : {}),
   };
-}
-
-/**
- * Vista dinamica: il video si tiene solo se la divisione in spezzoni è
- * riuscita, e non fermare mai l'import se il salvataggio fallisce.
- * Gli spezzoni si attaccano a `recipe` solo insieme al video.
- */
-// Per contenuto, non per link: un file sbagliato salvato una volta (la
-// sola traccia audio) non deve tornare a ogni nuovo tentativo.
-function videoPath(video) {
-  return `source-videos/${crypto.createHash('sha256').update(video.buffer).digest('hex')}.mp4`;
-}
-
-/** Il video intero di un post, uno per link: lo legge "Generate". */
-function sourceVideoPath(url) {
-  return `source-videos/by-url/${crypto.createHash('sha256').update(normalizeUrl(url)).digest('hex')}.mp4`;
-}
-
-/** Copia il video intero su Storage provando ogni versione. null se nessuna va. */
-async function saveSourceVideo(url, videoUrls = []) {
-  const path = sourceVideoPath(url);
-  for (const [i, remote] of videoUrls.entries()) {
-    try {
-      const stored = await persistRemoteVideo(remote, path);
-      console.log(`[swap.video] ${url}: video intero salvato (${i + 1}/${videoUrls.length})`);
-      return stored;
-    } catch (e) {
-      console.log(`[swap.video] ${url}: video intero NON salvato (${i + 1}/${videoUrls.length}): ${e.message}`);
-    }
-  }
-  return null;
-}
-
-async function keepVideo(url, video, segments, recipe) {
-  if (!segments) return null;
-  try {
-    const videoUrl = await persistVideo(video.buffer, video.mimeType, videoPath(video));
-    if (videoUrl) recipe.segments = segments;
-    return videoUrl;
-  } catch (e) {
-    console.warn('[swap.video] video non salvato, niente vista dinamica:', e.message);
-    return null;
-  }
 }
 
 /**
@@ -422,7 +393,6 @@ router.post('/import', (req, res) => {
             url: source.url || null,
             platform: extracted.platform,
             thumbnail: extracted.thumbnail,
-            ...(extracted.videoUrl ? { videoUrl: extracted.videoUrl } : {}),
           },
         },
         { merge: true }
@@ -583,34 +553,26 @@ router.post('/dynamic', (req, res) => {
       await ref.set({ dynamicStatus: 'generating', dynamicError: FieldValue.delete() }, { merge: true });
 
       try {
-        // Il video intero salvato all'import; se manca (ricette di prima,
-        // o salvataggio fallito) si scarica adesso. Gemini lo legge da
-        // Storage, senza il limite dei 18MB delle richieste.
-        let stored = await storedVideo(sourceVideoPath(url));
-        console.log(`[swap.dynamic] ${url}: video intero ${stored ? 'già su Storage' : 'da scaricare'}`);
-        if (!stored) stored = await saveSourceVideo(url, (await resolve(url)).videoUrls);
-        if (!stored) throw new JobError('no_video', 'We couldn’t get this video. Try again.');
-
-        const result = await generateJSON({
+        const result = await watchVideo(url, (await resolve(url)).videoUrls, {
           prompt: buildSegmentsPrompt(recipe),
           schema: segmentsSchema,
-          parts: [{ fileData: { fileUri: stored.gsUri, mimeType: 'video/mp4' } }],
           temperature: 0.2,
           label: 'swap-dynamic',
           thinkingLevel: 'LOW',
         });
+        if (!result) throw new JobError('no_video', 'We couldn’t get this video. Try again.');
         consumeQuota(uid, 'jobs', 1);
         const segments = cleanSegments(result.segments, recipe);
-        console.log(`[swap.dynamic] ${url}: Gemini ha guardato il VIDEO da ${stored.gsUri}, spezzoni grezzi ${result.segments?.length || 0}, validi ${segments?.length || 0}`);
+        console.log(`[swap.dynamic] ${url}: Gemini ha guardato il VIDEO, spezzoni grezzi ${result.segments?.length || 0}, validi ${segments?.length || 0}`);
         if (!segments) throw new JobError('no_segments', 'We couldn’t split this video into steps.');
-        const videoUrl = stored.downloadUrl;
 
+        // `videoUrl`: il link alla copia salvata dalle versioni di prima.
         const done = { dynamicStatus: FieldValue.delete(), dynamicError: FieldValue.delete() };
         if (recipeId) {
-          await ref.set({ videoUrl, segments, ...done }, { merge: true });
+          await ref.set({ segments, videoUrl: FieldValue.delete(), ...done }, { merge: true });
           return;
         }
-        const update = { 'source.videoUrl': videoUrl, 'original.segments': segments, ...done };
+        const update = { 'source.videoUrl': FieldValue.delete(), 'original.segments': segments, ...done };
         if (data.finalRecipe) {
           const remapped = remapSegments({ ...recipe, segments }, data.finalRecipe);
           if (remapped) update['finalRecipe.segments'] = remapped;

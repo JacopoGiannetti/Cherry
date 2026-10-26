@@ -366,7 +366,6 @@ struct SwapView: View {
                 },
                 isImported: true,
                 hasAIPhoto: false,
-                videoUrl: store.swap?.source?.videoUrl,
                 segments: original.segments,
                 dynamicStatus: store.swap?.dynamicStatus,
                 dynamicError: store.swap?.dynamicError,
@@ -589,11 +588,11 @@ struct SwapView: View {
             steps: recipe.steps,
             onSave: { store.saveFinalRecipe() },
             isSaved: store.didSave,
-            videoUrl: store.swap?.source?.videoUrl,
             segments: recipe.segments,
             dynamicStatus: store.swap?.dynamicStatus,
             dynamicError: store.swap?.dynamicError,
-            onGenerateDynamic: generateDynamic
+            onGenerateDynamic: generateDynamic,
+            dynamicSourceUrl: store.swap?.source?.url
         )
     }
 }

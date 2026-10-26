@@ -191,10 +191,9 @@ final class SwapStore: ObservableObject, Identifiable {
            let array = try? JSONSerialization.jsonObject(with: data) as? [[String: Any]] {
             payload["ingredients"] = array
         }
-        if let videoUrl = swap?.source?.videoUrl, let segments = recipe.segments, !segments.isEmpty,
+        if let segments = recipe.segments, !segments.isEmpty,
            let data = try? JSONEncoder().encode(segments),
            let array = try? JSONSerialization.jsonObject(with: data) as? [[String: Any]] {
-            payload["videoUrl"] = videoUrl
             payload["segments"] = array
         }
         FirestoreService.saveRecipe(uid: uid, payload)

@@ -76,58 +76,17 @@ async function persistImage(url, path) {
   return downloadUrl(b.name, path, token);
 }
 
-/**
- * Il video di un post, per la vista dinamica: i link dei CDN social
- * scadono in poche ore. Stesse regole di `persistImage`: se c'è già si
- * riusa col suo token.
- */
-async function persistVideo(buffer, mimeType, path) {
-  if (!buffer || !buffer.length) return null;
-  const b = bucket();
-  const file = b.file(path);
-  const [exists] = await file.exists();
-  if (exists) {
-    const [meta] = await file.getMetadata();
-    const token = String(meta.metadata?.firebaseStorageDownloadTokens || '').split(',')[0];
-    if (token) return downloadUrl(b.name, path, token);
-  }
-  const token = crypto.randomUUID();
-  await file.save(buffer, {
-    contentType: mimeType || 'video/mp4',
-    resumable: false,
-    metadata: { cacheControl: 'public, max-age=31536000', metadata: { firebaseStorageDownloadTokens: token } },
-  });
-  return downloadUrl(b.name, path, token);
-}
-
 const MAX_SOURCE_VIDEO_BYTES = 300 * 1024 * 1024;
 const SOURCE_VIDEO_TIMEOUT_MS = 180000;
 
-function storedRef(b, path, token) {
-  return { gsUri: `gs://${b.name}/${path}`, downloadUrl: downloadUrl(b.name, path, token) };
-}
-
-/** Il video già salvato in `path`, o null. */
-async function storedVideo(path) {
-  const b = bucket();
-  const file = b.file(path);
-  const [exists] = await file.exists();
-  if (!exists) return null;
-  const [meta] = await file.getMetadata();
-  const token = String(meta.metadata?.firebaseStorageDownloadTokens || '').split(',')[0];
-  return token ? storedRef(b, path, token) : null;
-}
-
 /**
- * Il video intero di un post, copiato dal CDN social nel bucket a
- * flusso: i reel pesano decine di MB e in memoria non devono stare.
- * Ritorna `gsUri` (per Gemini, che da Storage legge fino a 2 GB) e
- * `downloadUrl` (per l'app). Lancia se non è un video o è troppo grande.
+ * Il video di un post, copiato dal CDN social nel bucket solo per farlo
+ * guardare a Gemini (che da Storage legge fino a 2 GB, inline 18 MB), a
+ * flusso perché i reel pesano decine di MB. Nessun link di download: il
+ * file non si mostra a nessuno, e chi chiama lo cancella con `discard`
+ * appena Gemini ha risposto. Lancia se non è un video o è troppo grande.
  */
-async function persistRemoteVideo(remoteUrl, path) {
-  const existing = await storedVideo(path);
-  if (existing) return existing;
-
+async function stageRemoteVideo(remoteUrl) {
   const response = await axios.get(remoteUrl, {
     responseType: 'stream',
     timeout: SOURCE_VIDEO_TIMEOUT_MS,
@@ -148,17 +107,17 @@ async function persistRemoteVideo(remoteUrl, path) {
     },
   });
   const b = bucket();
-  const token = crypto.randomUUID();
-  await pipeline(
-    response.data,
-    limit,
-    b.file(path).createWriteStream({
-      resumable: false,
-      contentType,
-      metadata: { cacheControl: 'public, max-age=31536000', metadata: { firebaseStorageDownloadTokens: token } },
-    })
-  );
-  return storedRef(b, path, token);
+  const file = b.file(`tmp-videos/${crypto.randomUUID()}.mp4`);
+  const discard = () => file.delete({ ignoreNotFound: true }).catch((e) => {
+    console.warn(`[storage] video temporaneo ${file.name} NON cancellato: ${e.message}`);
+  });
+  try {
+    await pipeline(response.data, limit, file.createWriteStream({ resumable: false, contentType }));
+  } catch (e) {
+    await discard();
+    throw e;
+  }
+  return { gsUri: `gs://${b.name}/${file.name}`, discard };
 }
 
-module.exports = { downloadImage, persistImage, persistVideo, persistRemoteVideo, storedVideo, isPersisted };
+module.exports = { downloadImage, persistImage, stageRemoteVideo, isPersisted };
