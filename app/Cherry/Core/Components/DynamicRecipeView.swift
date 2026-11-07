@@ -114,6 +114,7 @@ struct DynamicRecipeView: View {
             .onChange(of: current) { _, _ in
                 Haptics.selection()
                 paused = false
+                if index == 2 { ReviewPrompt.request(.dynamicThirdStep, after: 1.5) }
             }
         }
     }

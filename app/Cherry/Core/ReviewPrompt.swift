@@ -2,8 +2,9 @@ import StoreKit
 import UIKit
 
 // Richiesta di recensione, agganciata ai due momenti in cui l'app ha
-// appena mantenuto la promessa: la prima lista consegnata e la prima
-// ricetta letta da un video di Instagram o TikTok.
+// appena mantenuto la promessa: la prima lista consegnata, la prima
+// ricetta letta da un video di Instagram o TikTok, e il terzo step
+// della vista dinamica.
 //
 // Il popup non lo decide l'app: iOS lo mostra al massimo tre volte
 // l'anno e si riserva di ignorare la richiesta senza dirlo. Per questo
@@ -17,6 +18,9 @@ enum ReviewPrompt {
         /// La prima ricetta da un video di Instagram o TikTok è appena
         /// arrivata, letta e pronta da salvare.
         case swapReady = "review.asked.swapReady"
+        /// Nella vista dinamica è arrivato allo step 3: la sta usando
+        /// davvero per cucinare.
+        case dynamicThirdStep = "review.asked.dynamicThirdStep"
     }
 
     private static let defaults = UserDefaults.standard
