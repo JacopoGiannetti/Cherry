@@ -1796,11 +1796,16 @@ private struct SwapDemo: View {
     private var player: some View {
         let shot = Self.steps[step]
         return ZStack(alignment: .bottom) {
-            Image(shot.image)
-                .resizable()
-                .scaledToFill()
-                .frame(height: Self.playerHeight)
-                .scaleEffect(1.04 + segmentProgress * 0.08)
+            // Il riquadro decide la misura, la foto lo riempie: foto con
+            // proporzioni diverse non devono allargare il player.
+            Color.clear
+                .overlay {
+                    Image(shot.image)
+                        .resizable()
+                        .scaledToFill()
+                        .scaleEffect(1.04 + segmentProgress * 0.08)
+                }
+                .clipped()
                 .id(step)
                 .transition(.opacity)
 

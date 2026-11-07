@@ -1,7 +1,6 @@
 import SwiftUI
-import StoreKit
 
-// Le parole dei primi utenti, e il posto dove chiediamo una stella.
+// Le parole dei primi utenti.
 //
 // Sono messaggi veri di persone che hanno provato Cherry, non recensioni
 // pubbliche dell'App Store: per questo la schermata non imita l'App
@@ -12,19 +11,12 @@ import StoreKit
 // aggregato gonfiato sarebbe metadato ingannevole per Apple e
 // pubblicità ingannevole per la FTC.
 //
-// Qui sta anche la richiesta di recensione (§3.6), spostata dal
-// movimento: il foglio di Apple arriva mentre si leggono le parole di
-// altri, che è l'unico momento in cui chiedere una stella non è una
-// domanda a freddo. Ed è anche l'unico punto dell'onboarding in cui la
-// slide stessa spiega perché serve: recensioni pubbliche non ne
-// abbiamo ancora.
+// Niente richiesta di recensione qui: Apple la rifiuta durante
+// l'onboarding (5.6.3). Si chiede dopo, in ReviewPrompt.
 struct ReviewsView: View {
     let onDone: () -> Void
 
-    @Environment(\.requestReview) private var requestReview
     @State private var shown = false
-    @State private var askedForReview = false
-    @State private var canContinue = false
 
     private struct Review: Identifiable {
         let id: String
@@ -166,18 +158,7 @@ struct ReviewsView: View {
         }
         .frame(maxWidth: .infinity, alignment: .leading)
         .safeAreaInset(edge: .bottom) { cta }
-        .onAppear {
-            shown = true
-            // Rete di sicurezza: se il task che chiede la recensione
-            // non arrivasse mai (cancellato, o Apple che non mostra
-            // niente), il pulsante si sblocca comunque. Lasciare
-            // l'unica uscita dell'onboarding spenta per sempre sarebbe
-            // molto peggio di una stella persa.
-            DispatchQueue.main.asyncAfter(deadline: .now() + 3.2) {
-                withAnimation(Theme.Motion.quick) { canContinue = true }
-            }
-        }
-        .task { await askForReview() }
+        .onAppear { shown = true }
     }
 
     private func card(_ review: Review) -> some View {
@@ -212,39 +193,16 @@ struct ReviewsView: View {
         .vegoCard(cornerRadius: 20)
     }
 
-    /// Spento fino a quando la richiesta non è partita. Se si potesse
-    /// premere prima, il foglio di Apple avrebbe due destini e sono
-    /// entrambi sbagliati: o non arriva mai, perché uscendo dalla
-    /// schermata il task viene cancellato, o arriva addosso alla slide
-    /// dopo, perché la view resta viva per l'animazione di uscita.
     private var cta: some View {
         Button("Keep going") {
             Haptics.light()
             onDone()
         }
         .buttonStyle(PrimaryButtonStyle())
-        .disabled(!canContinue)
-        .opacity(canContinue ? 1 : 0.5)
         .padding(.horizontal, 24)
         .padding(.top, 8)
         .padding(.bottom, 20)
         .background(.ultraThinMaterial)
-        .animation(Theme.Motion.quick, value: canContinue)
-    }
-
-    /// Il tempo di leggere la prima recensione prima che arrivi il
-    /// foglio di Apple: piazzato subito sembra un popup pubblicitario,
-    /// e il primo gesto della persona diventa "chiudi".
-    private func askForReview() async {
-        guard !askedForReview else { return }
-        askedForReview = true
-        try? await Task.sleep(for: .seconds(2.4))
-        guard !Task.isCancelled else { return }
-        requestReview()
-        // Da qui si può proseguire: la stella è stata chiesta, e se
-        // Apple ha deciso di non mostrare niente non se ne accorge
-        // nessuno.
-        withAnimation(Theme.Motion.quick) { canContinue = true }
     }
 }
 
