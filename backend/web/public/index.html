@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#FDF8F4">
+  <title>Cherry: cook any recipe video</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Incolla il link -->
+  <main id="home" class="screen">
+    <div class="home-inner">
+      <div class="logo">🍒 <span>Cherry</span></div>
+      <h1>Cook any recipe video,<br>step by step.</h1>
+      <p class="lead">Paste a TikTok or Instagram link. Cherry watches it, writes the recipe and loops the right part of the video for every step.</p>
+      <form id="form" autocomplete="off">
+        <input id="url" type="url" inputmode="url" placeholder="https://www.tiktok.com/@…/video/…" required>
+        <button type="submit" class="primary">Cook it</button>
+      </form>
+      <button id="paste" class="ghost" type="button">Paste from clipboard</button>
+      <p id="home-error" class="error" hidden></p>
+    </div>
+  </main>
+
+  <!-- Attesa -->
+  <main id="loading" class="screen" hidden>
+    <div class="loader">
+      <div class="spinner"></div>
+      <p id="stage">Reading the post</p>
+      <p class="hint">Watching the whole video takes about 20–60 seconds.</p>
+    </div>
+  </main>
+
+  <!-- Vista dinamica -->
+  <main id="dynamic" class="screen" hidden>
+    <header class="dyn-header">
+      <button id="close" class="round" aria-label="Close">✕</button>
+      <div id="ticks" class="ticks"></div>
+      <button id="full" class="round" aria-label="Full recipe">☰</button>
+    </header>
+
+    <section class="player-wrap">
+      <div id="player" class="player"></div>
+      <div class="controls">
+        <button id="play" class="round dark" aria-label="Pause">❚❚</button>
+        <button id="mute" class="round dark" aria-label="Sound on">🔇</button>
+      </div>
+      <p id="player-note" class="player-note" hidden></p>
+    </section>
+
+    <section id="pages" class="pages"></section>
+
+    <button id="next" class="next">Next step ↓</button>
+  </main>
+
+  <!-- Ricetta intera -->
+  <div id="sheet" class="sheet" hidden>
+    <div class="sheet-card">
+      <button id="sheet-close" class="round sheet-x" aria-label="Close">✕</button>
+      <h2 id="sheet-title"></h2>
+      <p id="sheet-meta" class="meta"></p>
+      <h3>Ingredients</h3>
+      <ul id="sheet-ingredients" class="ing-list"></ul>
+      <h3>Steps</h3>
+      <ol id="sheet-steps" class="step-list"></ol>
+      <a id="sheet-source" class="source" target="_blank" rel="noopener">Watch the original post ↗</a>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

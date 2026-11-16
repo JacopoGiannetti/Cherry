@@ -1,0 +1,120 @@
+:root {
+  --brand: #E5566E;
+  --brand-2: #F6A77E;
+  --ink: #2B1E22;
+  --subtle: #7A686C;
+  --cream: #FDF8F4;
+  --blush: #F8D9DC;
+  --card: #FFFFFF;
+  --radius: 28px;
+  --font: ui-rounded, "SF Pro Rounded", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; height: 100%; }
+body {
+  font-family: var(--font);
+  color: var(--ink);
+  background: radial-gradient(120% 80% at 50% 0%, #FCE3E3 0%, var(--cream) 55%);
+  -webkit-font-smoothing: antialiased;
+  overscroll-behavior: none;
+}
+button { font: inherit; color: inherit; cursor: pointer; }
+[hidden] { display: none !important; }
+
+.screen { min-height: 100dvh; }
+
+/* ---------- Home ---------- */
+#home { display: grid; place-items: center; padding: 24px 16px; }
+.home-inner { width: 100%; max-width: 520px; }
+.logo { font-weight: 800; font-size: 20px; margin-bottom: 28px; }
+.logo span { color: var(--brand); }
+h1 { font-size: clamp(32px, 8vw, 44px); line-height: 1.05; margin: 0 0 14px; letter-spacing: -0.02em; }
+.lead { color: var(--subtle); font-size: 17px; line-height: 1.45; margin: 0 0 26px; }
+form { display: flex; flex-direction: column; gap: 10px; }
+input {
+  font: inherit; font-size: 16px; padding: 16px 18px; border-radius: 18px;
+  border: 1.5px solid #EBD9DB; background: var(--card); color: var(--ink); outline: none;
+}
+input:focus { border-color: var(--brand); }
+.primary {
+  border: 0; border-radius: 18px; padding: 16px; font-weight: 800; font-size: 17px; color: #fff;
+  background: linear-gradient(90deg, var(--brand), #EF7F7A, var(--brand-2));
+}
+.ghost { margin-top: 10px; width: 100%; border: 0; background: none; color: var(--brand); font-weight: 700; padding: 10px; }
+.error { color: #C2334A; font-weight: 600; margin-top: 14px; }
+
+/* ---------- Attesa ---------- */
+#loading { display: grid; place-items: center; text-align: center; padding: 24px 16px; }
+.spinner {
+  width: 44px; height: 44px; margin: 0 auto 18px; border-radius: 50%;
+  border: 4px solid var(--blush); border-top-color: var(--brand); animation: spin 0.9s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+#stage { font-weight: 800; font-size: 19px; margin: 0 0 6px; }
+.hint { color: var(--subtle); margin: 0; }
+
+/* ---------- Vista dinamica ---------- */
+#dynamic { height: 100dvh; display: flex; flex-direction: column; overflow: hidden; max-width: 560px; margin: 0 auto; }
+.dyn-header { display: flex; align-items: center; gap: 12px; padding: 10px 16px 8px; }
+.round {
+  width: 38px; height: 38px; flex: none; border-radius: 50%; border: 0;
+  background: rgba(255,255,255,0.75); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 1px 6px rgba(43,30,34,0.08); font-weight: 800; font-size: 14px;
+}
+.round.dark { background: rgba(0,0,0,0.35); color: #fff; width: 40px; height: 40px; }
+.ticks { flex: 1; display: flex; gap: 4px; }
+.ticks i { flex: 1; height: 4px; border-radius: 4px; background: rgba(43,30,34,0.12); transition: background .2s; }
+.ticks i.on { background: var(--brand); }
+
+.player-wrap { position: relative; margin: 0 16px; height: 50dvh; border-radius: var(--radius); overflow: hidden; background: var(--ink); flex: none; }
+.player { position: absolute; inset: 0; }
+.player iframe, .player video { width: 100%; height: 100%; border: 0; display: block; object-fit: contain; background: #000; }
+.controls { position: absolute; right: 12px; bottom: 12px; display: flex; gap: 10px; }
+.player-note {
+  position: absolute; left: 12px; right: 12px; top: 12px; margin: 0; padding: 8px 12px; border-radius: 14px;
+  background: rgba(0,0,0,0.55); color: #fff; font-size: 13px; font-weight: 600;
+}
+
+.pages { flex: 1; overflow-y: auto; scroll-snap-type: y mandatory; padding-bottom: 76px; }
+.page { height: 100%; scroll-snap-align: start; overflow-y: auto; padding: 18px 16px 8px; }
+.kicker { font-size: 11px; font-weight: 800; letter-spacing: 0.1em; color: var(--subtle); margin: 0 0 4px; }
+.page h2 { font-size: 22px; margin: 0 0 14px; letter-spacing: -0.01em; }
+.steps { display: flex; flex-direction: column; gap: 12px; margin: 0 0 16px; padding: 0; list-style: none; }
+.steps li { display: flex; gap: 12px; align-items: flex-start; font-size: 15px; line-height: 1.45; }
+.num {
+  flex: none; width: 24px; height: 24px; border-radius: 50%; background: var(--brand); color: #fff;
+  font-size: 13px; font-weight: 800; display: grid; place-items: center; margin-top: 1px;
+}
+.time { display: inline-block; margin-left: 6px; font-size: 12px; font-weight: 700; color: var(--brand); }
+.chips { display: flex; gap: 8px; overflow-x: auto; padding-bottom: 4px; scrollbar-width: none; }
+.chips::-webkit-scrollbar { display: none; }
+.chip {
+  flex: none; display: flex; gap: 5px; align-items: center; height: 32px; padding: 0 12px; border-radius: 16px;
+  background: rgba(255,255,255,0.8); box-shadow: 0 1px 4px rgba(43,30,34,0.07); font-size: 13px; font-weight: 600; white-space: nowrap;
+}
+.chip em { font-style: normal; font-weight: 400; color: var(--subtle); }
+
+.next {
+  position: fixed; left: 50%; bottom: max(14px, env(safe-area-inset-bottom)); transform: translateX(-50%);
+  height: 46px; padding: 0 22px; border-radius: 23px; border: 0; font-weight: 800; font-size: 15px;
+  background: rgba(255,255,255,0.85); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+  box-shadow: 0 4px 18px rgba(43,30,34,0.14);
+}
+
+/* ---------- Ricetta intera ---------- */
+.sheet { position: fixed; inset: 0; background: rgba(43,30,34,0.35); display: flex; align-items: flex-end; justify-content: center; z-index: 10; }
+.sheet-card {
+  position: relative; width: 100%; max-width: 560px; max-height: 88dvh; overflow-y: auto; background: var(--cream);
+  border-radius: 28px 28px 0 0; padding: 26px 20px 40px;
+}
+.sheet-x { position: absolute; right: 16px; top: 16px; }
+.sheet-card h2 { margin: 0 48px 4px 0; font-size: 24px; }
+.meta { color: var(--subtle); margin: 0 0 8px; }
+.sheet-card h3 { font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--subtle); margin: 22px 0 10px; }
+.ing-list { list-style: none; padding: 0; margin: 0; }
+.ing-list li { display: flex; justify-content: space-between; gap: 12px; padding: 9px 0; border-bottom: 1px solid #F0E4E5; }
+.ing-list em { font-style: normal; color: var(--subtle); white-space: nowrap; }
+.step-list { padding-left: 20px; margin: 0; }
+.step-list li { margin-bottom: 10px; line-height: 1.45; }
+.source { display: inline-block; margin-top: 18px; color: var(--brand); font-weight: 700; text-decoration: none; }

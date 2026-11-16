@@ -49,6 +49,9 @@ app.get('/config', async (req, res) => {
 
 app.use('/webhooks', require('./routes/webhooks'));
 
+// Prototipo web della Dynamic view: pagina pubblica, con i suoi limiti.
+app.use('/web', require('./web'));
+
 // --- Rotte app (HMAC + token Firebase + quota giornaliera) ---------------
 const api = express.Router();
 api.use(verifyHmac, verifyFirebaseUser, jobQuotaGate);
