@@ -9,8 +9,8 @@ function appFallback(): Plugin {
     configureServer(server) {
       server.middlewares.use((req, _res, next) => {
         const url = req.url || '';
-        if (url.startsWith('/app') && !url.includes('.') && !url.startsWith('/app/index.html')) {
-          req.url = '/app/index.html';
+        if ((url === '/app' || url.startsWith('/app/') || url.startsWith('/app?')) && !url.split('?')[0].includes('.')) {
+          req.url = '/app.html';
         }
         next();
       });
@@ -26,7 +26,7 @@ export default defineConfig({
     rollupOptions: {
       input: {
         landing: resolve(__dirname, 'index.html'),
-        app: resolve(__dirname, 'app/index.html'),
+        app: resolve(__dirname, 'app.html'),
       },
     },
   },

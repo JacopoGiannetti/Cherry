@@ -122,6 +122,7 @@ export function Join() {
           {error && <p className="err" role="alert">{error}</p>}
           <p className="pay__fine"><Icon name="lock" size={13} /> Stripe checkout · Apple Pay and Google Pay · Cancel in two taps</p>
           {personal && d.monthly > 0 && <p className="pay__fine pay__fine--small">*Your estimate from the answers you gave.</p>}
+          <p className="pay__fine pay__fine--small">Cherry is a product of Jacopo Giannetti · <a href="/terms">Terms</a> · <a href="/privacy">Privacy</a></p>
         </div>
       </section>
     </div>
