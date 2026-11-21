@@ -1,10 +1,13 @@
-import { forwardRef, useEffect, useImperativeHandle, useRef } from 'react';
+import { forwardRef, useEffect, useImperativeHandle, useRef, useState } from 'react';
 import type { Embed } from '../lib/types';
+import { instagramVideo } from '../lib/api';
 
-// Il video originale, sempre dal player ufficiale della piattaforma.
+// Il video originale, sempre dai server della piattaforma.
 // TikTok (Embed Player) si comanda via postMessage: salto allo spezzone e
-// loop, come la Dynamic view dell'app. L'embed di Instagram non ha
-// comandi: si guarda e basta, e i passi mostrano i loro minuti.
+// loop, come la Dynamic view dell'app. Instagram: l'embed in un iframe non si
+// può comandare, quindi si prende il file del reel sul CDN di Instagram e lo si
+// riproduce in un <video> nostro (come fa l'app iOS dentro la pagina embed).
+// Se il file non si trova, resta l'embed: si guarda e basta.
 
 export type PlayerHandle = {
   seek: (t: number) => void;
@@ -15,6 +18,10 @@ export type PlayerHandle = {
 
 type Props = {
   embed: Embed;
+  /** Per i reel che la pagina embed non espone: il backend li chiede al servizio dell'import. */
+  recipeId?: string;
+  /** Il player si può comandare (salto e loop). */
+  onControl?: (on: boolean) => void;
   onReady?: () => void;
   onTime?: (t: number) => void;
   onEnded?: () => void;
@@ -27,10 +34,16 @@ const TIKTOK_PARAMS = [
   'description=0', 'native_context_menu=0', 'closed_caption=0',
 ].join('&');
 
-export const VideoPlayer = forwardRef<PlayerHandle, Props>(function VideoPlayer({ embed, onReady, onTime, onEnded, onFail }, ref) {
+export const VideoPlayer = forwardRef<PlayerHandle, Props>(function VideoPlayer(props, ref) {
+  if (props.embed.type === 'instagram') return <InstagramPlayer {...props} shortcode={props.embed.shortcode} ref={ref} />;
+  return <EmbedPlayer {...props} ref={ref} />;
+});
+
+const EmbedPlayer = forwardRef<PlayerHandle, Props>(function EmbedPlayer({ embed, onReady, onTime, onEnded, onFail, onControl }, ref) {
   const frame = useRef<HTMLIFrameElement>(null);
   const cbs = useRef({ onReady, onTime, onEnded, onFail });
   cbs.current = { onReady, onTime, onEnded, onFail };
+  useEffect(() => { onControl?.(embed.type === 'tiktok'); }, [embed]);
 
   const send = (type: string, value?: unknown) => {
     if (embed.type !== 'tiktok') return;
@@ -73,6 +86,70 @@ export const VideoPlayer = forwardRef<PlayerHandle, Props>(function VideoPlayer(
       title="Original recipe video"
       allow="autoplay; encrypted-media; fullscreen; picture-in-picture"
       style={{ width: '100%', height: '100%', border: 0, display: 'block', background: '#000' }}
+    />
+  );
+});
+
+// ---------- Instagram: il file del reel in un <video> nostro ----------
+
+const InstagramPlayer = forwardRef<PlayerHandle, Props & { shortcode: string }>(function InstagramPlayer(props, ref) {
+  const { shortcode, recipeId, onReady, onTime, onEnded, onControl } = props;
+  const [src, setSrc] = useState<string | null | undefined>(undefined);
+  const video = useRef<HTMLVideoElement>(null);
+  const retried = useRef(false);
+  const cbs = useRef({ onReady, onTime, onEnded });
+  cbs.current = { onReady, onTime, onEnded };
+
+  useEffect(() => {
+    let live = true;
+    retried.current = false;
+    setSrc(undefined);
+    instagramVideo(shortcode, recipeId).then((u) => { if (live) setSrc(u); });
+    return () => { live = false; };
+  }, [shortcode, recipeId]);
+
+  useEffect(() => { if (src !== undefined) onControl?.(!!src); }, [src]);
+
+  // timeupdate arriva 4 volte al secondo: troppo poco per chiudere il loop sul punto giusto.
+  useEffect(() => {
+    const v = video.current;
+    if (!src || !v) return;
+    let raf = 0;
+    const tick = () => { cbs.current.onTime?.(v.currentTime); raf = requestAnimationFrame(tick); };
+    const start = () => { cancelAnimationFrame(raf); raf = requestAnimationFrame(tick); };
+    const stop = () => cancelAnimationFrame(raf);
+    v.addEventListener('playing', start);
+    v.addEventListener('pause', stop);
+    return () => { stop(); v.removeEventListener('playing', start); v.removeEventListener('pause', stop); };
+  }, [src]);
+
+  useImperativeHandle(ref, () => ({
+    seek: (t) => { const v = video.current; if (v) v.currentTime = Math.max(0, t); },
+    play: () => { video.current?.play().catch(() => {}); },
+    pause: () => video.current?.pause(),
+    mute: (m) => { if (video.current) video.current.muted = m; },
+  }), [src]);
+
+  if (src === undefined) return <div className="cook__wait"><span className="spinner" /></div>;
+  if (src === null) return <EmbedPlayer {...props} />;
+  return (
+    <video
+      ref={video}
+      key={src}
+      src={src}
+      playsInline
+      muted
+      autoPlay
+      preload="auto"
+      onLoadedMetadata={() => cbs.current.onReady?.()}
+      onEnded={() => cbs.current.onEnded?.()}
+      onError={() => {
+        // Il link del CDN può essere scaduto: se ne chiede uno nuovo, una volta sola; poi l'embed.
+        if (retried.current) { setSrc(null); return; }
+        retried.current = true;
+        instagramVideo(shortcode, recipeId, true).then((u) => setSrc(u && u !== src ? u : null));
+      }}
+      style={{ width: '100%', height: '100%', objectFit: 'contain', display: 'block', background: '#000' }}
     />
   );
 });

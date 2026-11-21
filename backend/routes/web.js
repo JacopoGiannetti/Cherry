@@ -10,7 +10,7 @@ const { checkQuota, consumeQuota } = require('../lib/rate-limit');
 const { requireEntitlement, isEntitled } = require('../lib/entitlement');
 const crypto = require('crypto');
 const { importInto, readRecipe, recipeDoc, findEmbed } = require('../lib/web-import');
-const { detectPlatform } = require('../services/social-video');
+const { detectPlatform, resolve: resolveSocial } = require('../services/social-video');
 
 const router = express.Router();
 const stripe = () => {
@@ -162,6 +162,34 @@ router.post('/recipes/:id/embed', async (req, res) => {
   } catch (e) {
     console.error('[web] embed:', e.message);
     res.status(500).json({ error: 'embed_failed' });
+  }
+});
+
+// Il file video di un reel Instagram, per il player del web (che sul web, a
+// differenza della WKWebView di iOS, non può comandare l'embed). Prima prova la
+// Pages Function /api/ig sul sito, gratis; per i reel che la pagina embed non
+// espone si chiede al servizio dell'import. Il link del CDN dura ~1-2 giorni:
+// si salva sulla ricetta, così si paga al massimo una chiamata al giorno.
+router.get('/recipes/:id/video', requireEntitlement, async (req, res) => {
+  try {
+    const ref = db().doc(`users/${req.uid}/savedRecipes/${req.params.id}`);
+    const snap = await ref.get();
+    if (!snap.exists) return res.status(404).json({ error: 'not_found' });
+    const url = snap.get('sourceUrl') || '';
+    if (detectPlatform(url) !== 'instagram') return res.status(400).json({ error: 'not_instagram' });
+    const saved = snap.get('videoSrc');
+    if (saved?.url && saved.expires - Date.now() > 2 * 3600_000 && !('fresh' in req.query)) return res.json(saved);
+    if (!(await checkQuota(req.uid, 'jobs'))) return res.status(429).json({ error: 'daily_limit' });
+    const { videoUrls } = await resolveSocial(url);
+    const video = (videoUrls || [])[0];
+    if (!video) return res.status(404).json({ error: 'no_video' });
+    const oe = (video.match(/[?&]oe=([0-9A-Fa-f]+)/) || [])[1];
+    const out = { url: video, expires: oe ? parseInt(oe, 16) * 1000 : Date.now() + 12 * 3600_000 };
+    await ref.update({ videoSrc: out });
+    res.json(out);
+  } catch (e) {
+    console.error('[web] video:', e.message);
+    res.status(502).json({ error: 'video_failed' });
   }
 });
 

@@ -43,7 +43,11 @@ export function CookMode({ recipe, factor = 1, onClose, limit, onUnlock }: {
   state.current = { index, paused };
 
   const embed = recipe.embed;
-  const controllable = embed?.type === 'tiktok' && pages[0]?.fromVideo;
+  // TikTok si comanda sempre; Instagram solo se si è trovato il file del reel.
+  const [canControl, setCanControl] = useState(embed?.type === 'tiktok');
+  const controlRef = useRef(canControl);
+  const controllable = canControl && !!pages[0]?.fromVideo;
+  const isControllable = () => controlRef.current && !!pages[0]?.fromVideo;
   const isLast = index >= lastIndex;
   const onLock = locked && index === pages.length;
 
@@ -74,7 +78,7 @@ export function CookMode({ recipe, factor = 1, onClose, limit, onUnlock }: {
   // ---------- Loop sullo spezzone (logica del Coordinator iOS) ----------
   const restart = () => {
     const p = pages[state.current.index];
-    if (!ready.current || !p?.fromVideo || !controllable) return;
+    if (!ready.current || !p?.fromVideo || !isControllable()) return;
     player.current?.seek(p.start);
     state.current.paused ? player.current?.pause() : player.current?.play();
   };
@@ -85,7 +89,7 @@ export function CookMode({ recipe, factor = 1, onClose, limit, onUnlock }: {
 
   const onTime = (t: number) => {
     const p = pages[state.current.index];
-    if (!p || state.current.paused || !controllable) return;
+    if (!p || state.current.paused || !isControllable()) return;
     if (t >= p.end - 0.15 || t < p.start - 1) restart();
   };
 
@@ -142,6 +146,8 @@ export function CookMode({ recipe, factor = 1, onClose, limit, onUnlock }: {
           <VideoPlayer
             ref={player}
             embed={embed}
+            recipeId={recipe.id}
+            onControl={(on) => { controlRef.current = on; setCanControl(on); }}
             onReady={() => { ready.current = true; player.current?.mute(muted); restart(); }}
             onTime={onTime}
             onEnded={() => { if (!state.current.paused) restart(); }}
@@ -162,7 +168,7 @@ export function CookMode({ recipe, factor = 1, onClose, limit, onUnlock }: {
           )}
         </section>
       )}
-      {embed?.type === 'instagram' && page?.fromVideo && (
+      {embed?.type === 'instagram' && !controllable && page?.fromVideo && (
         <p className="cook__note">Instagram videos play in their own player: jump to <b>{fmtTime(page.start)}</b> for this step.</p>
       )}
 

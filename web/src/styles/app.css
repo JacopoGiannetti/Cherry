@@ -354,3 +354,4 @@ body { background: var(--app-bg); overscroll-behavior-y: none; }
 .promo__text b { font-weight: 700; }
 .promo__text span { font-size: 13.5px; opacity: .7; line-height: 1.35; }
 .promo svg { opacity: .6; flex: none; }
+.cook__wait { width: 100%; height: 100%; display: grid; place-items: center; background: #000; }

@@ -44,6 +44,7 @@ const MOCK_RECIPES: Recipe[] = [
   { ...base, id: 'm2', title: 'Crispy Mushroom Tacos', cuisine: 'Mexican', cookMinutes: 25, imageUrl: plate('tacos') },
   { ...base, id: 'm3', title: 'Miso Ramen with Tofu', cuisine: 'Japanese', cookMinutes: 40, imageUrl: plate('ramen') },
   { ...base, id: 'm4', title: 'Smash Burger', cuisine: 'American', cookMinutes: 20, imageUrl: plate('burger') },
+  { ...base, id: 'm6', title: 'Salmon (Instagram)', cuisine: 'Japanese', cookMinutes: 15, imageUrl: plate('poke'), sourceUrl: 'https://www.instagram.com/reel/Ddr2zmbSeGj/', platform: 'instagram', embed: { type: 'instagram', shortcode: 'Ddr2zmbSeGj' } },
   { ...base, id: 'm5', title: 'Reading the video…', status: 'importing', importStage: 'watching', imageUrl: null },
 ];
 let mockList: GroceryList | null = null;

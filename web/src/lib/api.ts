@@ -36,3 +36,18 @@ import type { Recipe } from './types';
 export const startPreview = (url: string) => api<{ id: string }>('/preview', { url });
 export const getPreview = (id: string) => api<{ status: 'running' | 'done' | 'error'; stage: string; recipe: Recipe | null; error: string | null }>(`/preview/${id}`);
 export const resolveEmbed = (id: string) => api<{ embed: import('./types').Embed | null }>(`/recipes/${id}/embed`, {});
+
+/**
+ * Il file del video di un reel Instagram, da riprodurre in un <video> nostro (salto e loop).
+ * 1) la funzione del sito, che legge la pagina embed pubblica (gratis);
+ * 2) per le ricette salvate, il backend (stesso servizio dell'import).
+ */
+export async function instagramVideo(shortcode: string, recipeId?: string, fresh = false): Promise<string | null> {
+  const site = import.meta.env.DEV ? 'https://hellocherry.app' : '';
+  try {
+    const r = await fetch(`${site}/api/ig/${encodeURIComponent(shortcode)}${fresh ? '?fresh=1' : ''}`);
+    if (r.ok) { const d = await r.json(); if (d.url) return d.url; }
+  } catch { /* si prova il backend */ }
+  if (!recipeId || recipeId === 'preview' || !auth.currentUser) return null;
+  try { return (await api<{ url: string }>(`/recipes/${recipeId}/video${fresh ? '?fresh=1' : ''}`)).url || null; } catch { return null; }
+}
