@@ -1,51 +1,31 @@
+import { forwardRef } from 'react';
 import { motion } from 'motion/react';
 import { Link } from 'wouter';
 import type { Recipe } from '../lib/types';
 import { minutes } from '../lib/kitchen';
 import { Icon } from './Icon';
 
-const STAGES: Record<string, string> = {
-  reading: 'Opening the post',
-  watching: 'Watching the video',
-};
+const STAGE: Record<string, string> = { reading: 'Opening the post', watching: 'Watching the video' };
 
-export function RecipeCard({ recipe, index = 0 }: { recipe: Recipe; index?: number }) {
+/** Foto quadrata, nome sotto, una riga di dettagli. La foto è la stessa che diventa la pagina. */
+export const RecipeCard = forwardRef<HTMLDivElement, { recipe: Recipe; index?: number }>(function RecipeCard({ recipe, index = 0 }, ref) {
   const importing = recipe.status === 'importing';
   const failed = recipe.status === 'failed';
-  const steps = recipe.segments?.length || 0;
+  const video = (recipe.segments?.length || 0) >= 2;
+  const meta = [minutes(recipe.cookMinutes), recipe.cuisine].filter(Boolean).join(' · ');
   return (
-    <motion.div initial={{ opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: Math.min(index, 8) * 0.04 }} layout>
-      <Link href={`/r/${recipe.id}`} className={`rcard ${importing ? 'rcard--importing' : ''}`} onClick={() => { document.documentElement.dataset.vt = recipe.id; }}>
-        <div className="rcard__img" style={{ viewTransitionName: `r-${recipe.id}` } as React.CSSProperties}>
-          {recipe.imageUrl ? <img src={recipe.imageUrl} alt="" loading="lazy" /> : <div className="shimmer" style={{ position: 'absolute', inset: 0 }} />}
-          {importing && (
-            <div className="importing">
-              <span className="spinner" style={{ width: 30, height: 30 }} />
-              <b>{STAGES[recipe.importStage || 'reading'] || 'Writing your recipe'}</b>
-              <small>Usually under a minute</small>
-            </div>
-          )}
-          {failed && (
-            <div className="importing">
-              <b>Couldn't read this one</b>
-              <small>Tap for details</small>
-            </div>
-          )}
+    <motion.div ref={ref} layout initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.35, delay: Math.min(index, 6) * 0.035, ease: [0.2, 0.8, 0.2, 1] }}>
+      <Link href={`/r/${recipe.id}`} className="card">
+        <div className="card__img" style={{ viewTransitionName: `img-${recipe.id}` } as React.CSSProperties}>
+          {recipe.imageUrl && !importing ? <img src={recipe.imageUrl} alt="" loading="lazy" /> : <span className="shimmer card__ph" />}
+          {importing && <span className="card__busy"><span className="spinner" /></span>}
+          {!importing && !failed && video && <span className="card__tag"><Icon name="play" size={10} fill="currentColor" stroke={0} />{recipe.segments!.length}</span>}
+          {recipe.favorite && <span className="card__fav"><Icon name="heart" size={14} fill="currentColor" stroke={0} /></span>}
         </div>
-        {!importing && !failed && (
-          <>
-            {steps >= 2 && <span className="rcard__badge"><Icon name="play" size={11} fill="currentColor" /> {steps} steps</span>}
-            {recipe.favorite && <span className="rcard__fav"><Icon name="heart" fill="currentColor" size={20} /></span>}
-            <div className="rcard__body">
-              <div className="rcard__title">{recipe.title}</div>
-              <div className="rcard__meta">
-                {minutes(recipe.cookMinutes) && <span>{minutes(recipe.cookMinutes)}</span>}
-                <span>{recipe.ingredients?.length || 0} ingredients</span>
-              </div>
-            </div>
-          </>
-        )}
+        <p className="card__title">{importing ? 'New recipe' : failed ? 'Couldn’t read this one' : recipe.title}</p>
+        <p className="card__meta">{importing ? STAGE[recipe.importStage || 'reading'] || 'Writing the steps' : failed ? 'Tap to try again' : meta || `${recipe.ingredients.length} ingredients`}</p>
       </Link>
     </motion.div>
   );
-}
+});

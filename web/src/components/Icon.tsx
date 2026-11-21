@@ -1,6 +1,9 @@
 // Icone inline (stroke 2, angoli tondi): niente librerie, niente richieste.
 const paths: Record<string, string> = {
   plus: 'M12 5v14M5 12h14',
+  minus: 'M5 12h14',
+  dots: 'M5 12h.01M12 12h.01M19 12h.01',
+  aisle: 'M4 6h16M4 12h10M4 18h6',
   close: 'M6 6l12 12M18 6L6 18',
   back: 'M15 18l-6-6 6-6',
   next: 'M9 6l6 6-6 6',
