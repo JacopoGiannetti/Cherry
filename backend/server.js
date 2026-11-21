@@ -7,7 +7,8 @@ const { verifyHmac, verifyFirebaseUser } = require('./lib/middleware');
 const { jobQuotaGate } = require('./lib/rate-limit');
 
 const app = express();
-app.use(express.json({ limit: '1mb' }));
+// rawBody: il webhook Stripe verifica la firma sui byte originali.
+app.use(express.json({ limit: '1mb', verify: (req, res, buf) => { req.rawBody = buf; } }));
 
 // --- Rotte pubbliche -----------------------------------------------------
 app.get('/health', (req, res) => {
@@ -51,6 +52,11 @@ app.use('/webhooks', require('./routes/webhooks'));
 
 // Prototipo web della Dynamic view: pagina pubblica, con i suoi limiti.
 app.use('/web', require('./web'));
+
+// Web app (hellocherry.app): login Firebase, abbonamento Stripe.
+const web = require('./routes/web');
+app.post('/webhooks/stripe', web.stripeWebhook);
+app.use('/v1', web.router);
 
 // --- Rotte app (HMAC + token Firebase + quota giornaliera) ---------------
 const api = express.Router();

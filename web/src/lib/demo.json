@@ -1,0 +1,165 @@
+{
+ "id": "demo",
+ "title": "Baked Feta Pasta with Chicken",
+ "status": "ready",
+ "sourceUrl": "https://www.tiktok.com/@jose.elcook/video/7448169436764212510",
+ "platform": "tiktok",
+ "embed": {
+  "type": "tiktok",
+  "postId": "7448169436764212510"
+ },
+ "servings": 4,
+ "cookMinutes": 35,
+ "ingredients": [
+  {
+   "name": "grape tomatoes",
+   "quantity": "16 oz",
+   "storeSection": "produce",
+   "costUsd": 3.49,
+   "emoji": "🍅"
+  },
+  {
+   "name": "feta cheese",
+   "quantity": "4 oz block",
+   "storeSection": "dairy_alternatives",
+   "costUsd": 3,
+   "emoji": "🧀"
+  },
+  {
+   "name": "olive oil",
+   "quantity": "2-3 tbsp",
+   "storeSection": "spices_condiments",
+   "costUsd": 0.5,
+   "emoji": "🫒"
+  },
+  {
+   "name": "salt",
+   "quantity": "to taste",
+   "storeSection": "spices_condiments",
+   "costUsd": 0.1,
+   "emoji": "🧂"
+  },
+  {
+   "name": "black pepper",
+   "quantity": "to taste",
+   "storeSection": "spices_condiments",
+   "costUsd": 0.1,
+   "emoji": "🌶️"
+  },
+  {
+   "name": "red chili flakes",
+   "quantity": "1 tsp",
+   "storeSection": "spices_condiments",
+   "costUsd": 0.15,
+   "emoji": "🌶️"
+  },
+  {
+   "name": "dried oregano",
+   "quantity": "1 tsp",
+   "storeSection": "spices_condiments",
+   "costUsd": 0.15,
+   "emoji": "🌿"
+  },
+  {
+   "name": "chicken breast",
+   "quantity": "1 large",
+   "storeSection": "proteins",
+   "costUsd": 3.5,
+   "emoji": "🍗"
+  },
+  {
+   "name": "pasta (rotini or fusilli)",
+   "quantity": "8 oz",
+   "storeSection": "grains_pasta",
+   "costUsd": 1.25,
+   "emoji": "🍝"
+  },
+  {
+   "name": "fresh basil",
+   "quantity": "handful, chopped",
+   "storeSection": "produce",
+   "costUsd": 1,
+   "emoji": "🌱"
+  }
+ ],
+ "steps": [
+  "Place grape tomatoes in a baking dish and set the block of feta cheese in the center.",
+  "Drizzle with olive oil, then season with salt, freshly cracked black pepper, red chili flakes, and dried oregano.",
+  "Bake in a preheated oven at 400°F (200°C) for 30 to 35 minutes until tomatoes blister and feta softens.",
+  "Pat chicken breast dry with a paper towel, slice horizontally into cutlets, cover with plastic wrap, and pound evenly with a meat mallet.",
+  "Season both sides of chicken cutlets with salt and black pepper.",
+  "Sear chicken in a pan with a little oil over medium-high heat until golden brown and cooked through, then slice into bite-sized strips.",
+  "Remove baking dish from oven, mash tomatoes and feta with a wooden spoon, and stir until a creamy sauce forms.",
+  "Toss in cooked pasta, sliced seared chicken, and fresh chopped basil until thoroughly combined."
+ ],
+ "segments": [
+  {
+   "start": 4,
+   "end": 20,
+   "title": "Season tomatoes and feta",
+   "steps": [
+    0,
+    1
+   ],
+   "ingredients": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+   ]
+  },
+  {
+   "start": 20,
+   "end": 25,
+   "title": "Bake in oven",
+   "steps": [
+    2
+   ],
+   "ingredients": []
+  },
+  {
+   "start": 25,
+   "end": 35,
+   "title": "Prep and season chicken",
+   "steps": [
+    3,
+    4
+   ],
+   "ingredients": [
+    3,
+    4,
+    7
+   ]
+  },
+  {
+   "start": 35,
+   "end": 40,
+   "title": "Sear and slice chicken",
+   "steps": [
+    5
+   ],
+   "ingredients": [
+    2,
+    7
+   ]
+  },
+  {
+   "start": 40,
+   "end": 49,
+   "title": "Mix sauce and toss pasta",
+   "steps": [
+    6,
+    7
+   ],
+   "ingredients": [
+    8,
+    9
+   ]
+  }
+ ],
+ "imageUrl": null,
+ "cuisine": "Mediterranean"
+}

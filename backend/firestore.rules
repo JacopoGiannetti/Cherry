@@ -10,10 +10,11 @@ service cloud.firestore {
       allow read: if request.auth != null && request.auth.uid == uid;
       // Il client può aggiornare il proprio profilo ma NON lo stato
       // abbonamento né i contatori quota (li scrive solo il backend).
-      allow create: if request.auth != null && request.auth.uid == uid;
+      allow create: if request.auth != null && request.auth.uid == uid
+        && !request.resource.data.keys().hasAny(['subscription', 'stripe', 'dailyUsage', 'usage']);
       allow update: if request.auth != null && request.auth.uid == uid
         && !request.resource.data.diff(resource.data).affectedKeys()
-            .hasAny(['subscription', 'dailyUsage', 'usage']);
+            .hasAny(['subscription', 'stripe', 'dailyUsage', 'usage']);
 
       // Serie giornaliera dei costi: solo backend.
       match /usageDays/{day} {

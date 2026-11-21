@@ -102,6 +102,19 @@ const keys = {
     // Vuoto = stesso modello delle ricette.
     criticModel: process.env.CATALOG_CRITIC_MODEL || '',
   },
+  // Web app (hellocherry.app): abbonamento con Stripe, login Firebase.
+  web: {
+    appUrl: (process.env.WEB_APP_URL || 'https://hellocherry.app').replace(/\/$/, ''),
+    // Origini da cui il browser può chiamare /v1 (virgole).
+    origins: (process.env.WEB_ORIGINS || 'https://hellocherry.app,http://localhost:5174')
+      .split(',').map((s) => s.trim()).filter(Boolean),
+  },
+  stripe: {
+    secretKey: process.env.STRIPE_SECRET_KEY || '',
+    webhookSecret: process.env.STRIPE_WEBHOOK_SECRET || '',
+    priceYearly: process.env.STRIPE_PRICE_YEARLY || '',
+    priceMonthly: process.env.STRIPE_PRICE_MONTHLY || '',
+  },
   hmacSecret: process.env.HMAC_SECRET || '',
   appsFlyer: {
     // Opzionale: l'app la pesca da GET /config. Vuota = SDK spento.
@@ -137,6 +150,9 @@ function missingKeys() {
 /** Chiavi non indispensabili: senza, l'app funziona con una capacità in meno. */
 function optionalMissingKeys() {
   const missing = [];
+  if (!keys.stripe.secretKey || !keys.stripe.webhookSecret) {
+    missing.push('STRIPE_SECRET_KEY + STRIPE_WEBHOOK_SECRET (la web app non può incassare)');
+  }
   if (!keys.superwall.webhookSecret) {
     missing.push('SUPERWALL_WEBHOOK_SECRET (lo stato abbonamento su Firestore non viene aggiornato dal server)');
   }
