@@ -1,4 +1,4 @@
-import type { GroceryItem, GroceryList, Recipe } from './types';
+import type { GroceryItem, GroceryList, Recipe, Trip } from './types';
 
 // ---------- Corsie ----------
 
@@ -126,4 +126,49 @@ export function minutes(n?: number) {
   const h = Math.floor(n / 60);
   const m = n % 60;
   return m ? `${h} h ${m} min` : `${h} h`;
+}
+
+// ---------- Articoli aggiunti a mano: emoji e corsia indovinate dal nome ----------
+
+const GUESS: [RegExp, string, string][] = [
+  [/milk|latte/i, '🥛', 'dairy_eggs'], [/egg|uova/i, '🥚', 'dairy_eggs'], [/cheese|parmesan|mozzarella|feta|formaggio/i, '🧀', 'dairy_eggs'],
+  [/butter|burro/i, '🧈', 'dairy_eggs'], [/yog(h)?urt/i, '🥛', 'dairy_eggs'], [/cream|panna/i, '🥛', 'dairy_eggs'],
+  [/bread|pane|bun|bagel|baguette/i, '🍞', 'bakery'], [/tortilla|wrap/i, '🌮', 'bakery'],
+  [/banana/i, '🍌', 'produce'], [/apple|mela/i, '🍎', 'produce'], [/lemon|lime|limone/i, '🍋', 'produce'], [/orange|arancia/i, '🍊', 'produce'],
+  [/berr|fragol/i, '🍓', 'produce'], [/grape|uva/i, '🍇', 'produce'], [/avocado/i, '🥑', 'produce'], [/tomato|pomodor/i, '🍅', 'produce'],
+  [/onion|cipoll|shallot/i, '🧅', 'produce'], [/garlic|aglio/i, '🧄', 'produce'], [/potato|patat/i, '🥔', 'produce'], [/carrot|carot/i, '🥕', 'produce'],
+  [/pepper|peperon/i, '🫑', 'produce'], [/salad|lettuce|spinach|kale|insalat|basil|parsley|cilantro|herb/i, '🥬', 'produce'],
+  [/mushroom|fungh/i, '🍄', 'produce'], [/cucumber|cetriol|zucchin/i, '🥒', 'produce'], [/broccoli/i, '🥦', 'produce'], [/corn|mais/i, '🌽', 'produce'],
+  [/chicken|pollo/i, '🍗', 'meat_seafood'], [/beef|steak|manzo|mince|ground/i, '🥩', 'meat_seafood'], [/bacon|ham|prosciutto|sausage|salsicc/i, '🥓', 'meat_seafood'],
+  [/salmon|tuna|fish|pesce|shrimp|prawn|gamber/i, '🐟', 'meat_seafood'],
+  [/pasta|spaghetti|penne|noodle/i, '🍝', 'grains_pasta'], [/rice|riso/i, '🍚', 'grains_pasta'], [/flour|farina|oat/i, '🌾', 'grains_pasta'],
+  [/coffee|caff/i, '☕', 'snacks_drinks'], [/tea\b|tè/i, '🍵', 'snacks_drinks'], [/water|acqua/i, '💧', 'snacks_drinks'], [/juice|succo/i, '🧃', 'snacks_drinks'],
+  [/wine|vino/i, '🍷', 'snacks_drinks'], [/beer|birra/i, '🍺', 'snacks_drinks'], [/chocolate|cioccolat/i, '🍫', 'snacks_drinks'], [/chips|crisps|snack|cookie|biscott/i, '🍪', 'snacks_drinks'],
+  [/oil|olio/i, '🫒', 'spices_condiments'], [/salt|sale|pepper|spice|sauce|salsa|ketchup|mayo|mustard|vinegar|aceto|honey|miele|sugar|zucchero/i, '🧂', 'spices_condiments'],
+  [/frozen|ice cream|gelato|surgel/i, '🧊', 'frozen'], [/can|beans|fagiol|chickpea|ceci|tomato sauce|passata/i, '🥫', 'canned_jarred'],
+  [/nut|almond|mandorl|peanut|walnut|seed/i, '🥜', 'nuts_seeds'],
+  [/soap|detergent|paper|tissue|sponge|toilet|shampoo|toothpaste|sapone|carta/i, '🧻', 'other'],
+];
+
+export function guessItem(name: string) {
+  for (const [re, emoji, sectionKey] of GUESS) if (re.test(name)) return { emoji, section: sectionKey };
+  return { emoji: undefined, section: 'other' };
+}
+
+export const itemEmoji = (item: { emoji?: string; section?: string }) => item.emoji || section(item.section).emoji;
+
+/** Ciò che compri spesso: contato sulle spese passate, escluso quanto è già da comprare. */
+export function recurring(trips: Trip[] | null, list: GroceryList | null | undefined, max = 12) {
+  const open = new Set((list?.items || []).filter((i) => !i.checked).map((i) => i.name.toLowerCase().trim()));
+  const seen = new Map<string, { item: GroceryItem; count: number; last: number }>();
+  for (const t of trips || []) {
+    for (const i of t.items) {
+      const key = i.name.toLowerCase().trim();
+      if (!key || open.has(key)) continue;
+      const hit = seen.get(key);
+      if (hit) hit.count++;
+      else seen.set(key, { item: i, count: 1, last: t.at });
+    }
+  }
+  return [...seen.values()].sort((a, b) => b.count - a.count || b.last - a.last).slice(0, max);
 }

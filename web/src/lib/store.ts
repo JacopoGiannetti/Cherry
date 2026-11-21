@@ -1,10 +1,10 @@
-import { useEffect, useState, useSyncExternalStore } from 'react';
+import { useCallback, useSyncExternalStore } from 'react';
 import type { User } from 'firebase/auth';
 import {
-  collection, doc, onSnapshot, orderBy, query, setDoc, deleteDoc, updateDoc, serverTimestamp,
+  collection, doc, onSnapshot, orderBy, query, setDoc, deleteDoc, updateDoc, serverTimestamp, limit,
 } from 'firebase/firestore';
 import { db, onUser, completeRedirectSignIn } from './firebase';
-import type { Embed, GroceryList, Recipe } from './types';
+import type { Embed, GroceryList, Recipe, Trip } from './types';
 
 /**
  * Le ricette salvate dall'app iOS non hanno `status` né `embed`: sono pronte,
@@ -48,7 +48,41 @@ const MOCK_RECIPES: Recipe[] = [
 ];
 let mockList: GroceryList | null = null;
 const mockListeners = new Set<() => void>();
+const mockItem = (name: string, section: string, emoji: string, quantity = '') => ({ id: crypto.randomUUID(), name, quantity, section, emoji, checked: true, recipeIds: [], manual: true });
+let mockTrips: Trip[] = [
+  { id: 't1', at: Date.now() - 3 * 864e5, recipeIds: ['m2'], items: [mockItem('Milk', 'dairy_eggs', '🥛'), mockItem('Bananas', 'produce', '🍌', '6'), mockItem('Coffee', 'snacks_drinks', '☕'), mockItem('Corn tortillas', 'bakery', '🌮', '12')] },
+  { id: 't2', at: Date.now() - 10 * 864e5, recipeIds: [], items: [mockItem('Milk', 'dairy_eggs', '🥛'), mockItem('Bananas', 'produce', '🍌'), mockItem('Eggs', 'dairy_eggs', '🥚', '12'), mockItem('Coffee', 'snacks_drinks', '☕')] },
+];
 
+
+// ---------- Dati in tempo reale, condivisi tra le schermate ----------
+// Una sola sottoscrizione per dato, tenuta viva finché l'utente resta lo stesso:
+// tornando a una schermata le ricette sono già lì, niente scheletri né foto che ricaricano.
+
+type Feed = { value: any; subs: Set<() => void>; stop: () => void };
+const feeds = new Map<string, Feed>();
+
+function feed<T>(key: string, initial: T, start: (set: (v: T) => void) => () => void): Feed {
+  let f = feeds.get(key);
+  if (!f) {
+    const nf: Feed = { value: initial, subs: new Set(), stop: () => {} };
+    feeds.set(key, nf);
+    nf.stop = start((v) => { nf.value = v; nf.subs.forEach((l) => l()); });
+    f = nf;
+  }
+  return f;
+}
+
+function useFeed<T>(key: string | null, initial: T, start: (set: (v: T) => void) => () => void): T {
+  const f = key ? feed(key, initial, start) : null;
+  const sub = useCallback((l: () => void) => { if (!f) return () => {}; f.subs.add(l); return () => { f.subs.delete(l); }; }, [f]);
+  return useSyncExternalStore(sub, () => (f ? (f.value as T) : initial));
+}
+
+function resetFeeds() {
+  feeds.forEach((f) => f.stop());
+  feeds.clear();
+}
 
 // ---------- Sessione: utente Firebase + documento utente in tempo reale ----------
 
@@ -84,6 +118,7 @@ export function startSession() {
   }
   completeRedirectSignIn();
   onUser((user) => {
+    if (user?.uid !== session.user?.uid) resetFeeds();
     stopDoc?.();
     stopDoc = null;
     if (!user) {
@@ -116,27 +151,24 @@ export function useSession() {
 
 // ---------- Ricette ----------
 
-export function useRecipes(uid?: string) {
-  const [recipes, setRecipes] = useState<Recipe[] | null>(MOCK ? MOCK_RECIPES : null);
-  useEffect(() => {
-    if (!uid || MOCK) return;
-    const q = query(collection(db, 'users', uid, 'savedRecipes'), orderBy('createdAt', 'desc'));
+export function useRecipes(uid?: string): Recipe[] | null {
+  return useFeed<Recipe[] | null>(MOCK ? null : uid ? `recipes:${uid}` : null, MOCK ? MOCK_RECIPES : null, (set) => {
+    const q = query(collection(db, 'users', uid!, 'savedRecipes'), orderBy('createdAt', 'desc'));
     return onSnapshot(q, (snap) => {
-      setRecipes(snap.docs.map((d) => normalize(d.id, d.data())).filter((r) => !(r as any).preset));
-    }, () => setRecipes([]));
-  }, [uid]);
-  return recipes;
+      set(snap.docs.map((d) => normalize(d.id, d.data())).filter((r) => !(r as any).preset));
+    }, () => set([]));
+  });
 }
 
-export function useRecipe(uid: string | undefined, id: string) {
-  const [recipe, setRecipe] = useState<Recipe | null | undefined>(MOCK ? (MOCK_RECIPES.find((r) => r.id === id) || null) : undefined);
-  useEffect(() => {
-    if (!uid || MOCK) return;
-    return onSnapshot(doc(db, 'users', uid, 'savedRecipes', id), (snap) => {
-      setRecipe(snap.exists() ? normalize(snap.id, snap.data()) : null);
-    }, () => setRecipe(null));
-  }, [uid, id]);
-  return recipe;
+/** Dalla raccolta già in memoria; solo se manca (ricette senza data) la si legge da sola. */
+export function useRecipe(uid: string | undefined, id: string): Recipe | null | undefined {
+  const all = useRecipes(uid);
+  const hit = all?.find((r) => r.id === id);
+  const single = useFeed<Recipe | null | undefined>(!MOCK && uid && all && !hit ? `recipe:${uid}:${id}` : null, undefined, (set) =>
+    onSnapshot(doc(db, 'users', uid!, 'savedRecipes', id), (snap) => set(snap.exists() ? normalize(snap.id, snap.data()) : null), () => set(null)));
+  if (hit) return hit;
+  if (!all) return undefined;
+  return MOCK ? null : single;
 }
 
 export const deleteRecipe = (uid: string, id: string) => MOCK ? Promise.resolve() : deleteDoc(doc(db, 'users', uid, 'savedRecipes', id));
@@ -145,20 +177,37 @@ export const setFavorite = (uid: string, id: string, favorite: boolean) =>
 
 // ---------- Lista della spesa (una sola, sempre a portata) ----------
 
-export function useList(uid?: string) {
-  const [list, setList] = useState<GroceryList | null | undefined>(MOCK ? mockList : undefined);
-  useEffect(() => {
-    if (MOCK) { const l = () => setList(mockList); mockListeners.add(l); return () => { mockListeners.delete(l); }; }
-    if (!uid) return;
-    return onSnapshot(doc(db, 'users', uid, 'lists', 'current'), (snap) => {
-      setList(snap.exists() ? (snap.data() as GroceryList) : null);
-    }, () => setList(null));
-  }, [uid]);
-  return list;
+export function useList(uid?: string): GroceryList | null | undefined {
+  const sub = useCallback((l: () => void) => { mockListeners.add(l); return () => { mockListeners.delete(l); }; }, []);
+  const mock = useSyncExternalStore(sub, () => mockList);
+  const live = useFeed<GroceryList | null | undefined>(!MOCK && uid ? `list:${uid}` : null, undefined, (set) =>
+    onSnapshot(doc(db, 'users', uid!, 'lists', 'current'), (snap) => set(snap.exists() ? (snap.data() as GroceryList) : null), () => set(null)));
+  return MOCK ? mock : live;
 }
 
 export const saveList = (uid: string, list: GroceryList) =>
   MOCK ? (mockList = list, mockListeners.forEach((l) => l()), Promise.resolve()) : setDoc(doc(db, 'users', uid, 'lists', 'current'), { ...list, updatedAt: serverTimestamp() });
+
+// ---------- Spese passate: ciò che hai comprato, per ritrovarlo e ricomprarlo ----------
+
+export function useTrips(uid?: string): Trip[] | null {
+  const sub = useCallback((l: () => void) => { mockListeners.add(l); return () => { mockListeners.delete(l); }; }, []);
+  const mock = useSyncExternalStore(sub, () => mockTrips);
+  const live = useFeed<Trip[] | null>(!MOCK && uid ? `trips:${uid}` : null, null, (set) =>
+    onSnapshot(query(collection(db, 'users', uid!, 'trips'), orderBy('at', 'desc'), limit(30)),
+      (snap) => set(snap.docs.map((d) => ({ id: d.id, ...d.data() }) as Trip)), () => set([])));
+  return MOCK ? mock : live;
+}
+
+export function saveTrip(uid: string, trip: Omit<Trip, 'id'>) {
+  if (MOCK) { mockTrips = [{ ...trip, id: crypto.randomUUID() }, ...mockTrips]; mockListeners.forEach((l) => l()); return Promise.resolve(); }
+  return setDoc(doc(collection(db, 'users', uid, 'trips')), trip);
+}
+
+export const deleteTrip = (uid: string, id: string) => {
+  if (MOCK) { mockTrips = mockTrips.filter((t) => t.id !== id); mockListeners.forEach((l) => l()); return Promise.resolve(); }
+  return deleteDoc(doc(db, 'users', uid, 'trips', id));
+};
 
 // ---------- Onboarding (prima del login vive sul telefono) ----------
 

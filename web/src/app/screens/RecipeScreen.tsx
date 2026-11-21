@@ -169,9 +169,6 @@ function Ready({ recipe, uid, household }: { recipe: Recipe; uid: string; househ
                   <li key={i}><span>{g.name}</span><em>{scaleQuantity(g.quantity, factor)}</em></li>
                 ))}
               </ul>
-              <button className={`btn btn--block ${inList ? 'btn--ghost' : 'btn--soft'}`} onClick={toggleList}>
-                <Icon name={inList ? 'check' : 'cart'} size={18} /> {inList ? 'On your grocery list' : 'Add to groceries'}
-              </button>
             </motion.div>
           ) : (
             <motion.ol key="s" className="method" initial={{ opacity: 0, x: 12 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: 12 }} transition={{ duration: 0.18 }}>
@@ -182,7 +179,17 @@ function Ready({ recipe, uid, household }: { recipe: Recipe; uid: string; househ
       </section>
 
       <div className="recipe__cta">
-        <button className="btn btn--cherry btn--block btn--lg" onClick={() => navigate(`/cook/${recipe.id}?s=${servings}`)}>
+        <button className={`cart-btn ${inList ? 'is-on' : ''}`} onClick={toggleList} aria-pressed={inList}
+          aria-label={inList ? 'Remove from groceries' : 'Add ingredients to groceries'}>
+          <AnimatePresence mode="popLayout" initial={false}>
+            <motion.span key={String(inList)} initial={{ scale: 0.4, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} exit={{ scale: 0.4, opacity: 0 }}
+              transition={{ type: 'spring', stiffness: 600, damping: 26 }} style={{ display: 'grid' }}>
+              <Icon name={inList ? 'check' : 'cart'} size={21} stroke={inList ? 2.8 : 2.2} />
+            </motion.span>
+          </AnimatePresence>
+          <span className="cart-btn__label">{inList ? 'On list' : 'Groceries'}</span>
+        </button>
+        <button className="btn btn--cherry btn--lg recipe__go" onClick={() => navigate(`/cook/${recipe.id}?s=${servings}`, { state: { from: 'recipe' } })}>
           <Icon name="play" size={16} fill="currentColor" stroke={0} /> Start cooking
         </button>
       </div>

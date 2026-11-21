@@ -43,3 +43,6 @@ export type GroceryItem = {
 };
 
 export type GroceryList = { items: GroceryItem[]; recipeIds: string[]; updatedAt?: unknown };
+
+/** Una spesa fatta: gli articoli spuntati, archiviati quando chiudi la spesa. */
+export type Trip = { id: string; at: number; items: GroceryItem[]; recipeIds: string[] };

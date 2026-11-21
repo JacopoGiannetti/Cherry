@@ -181,7 +181,7 @@ body { background: var(--app-bg); overscroll-behavior-y: none; }
 .face--more { background: var(--surface); box-shadow: 0 0 0 2.5px var(--app-bg), inset 0 0 0 1px var(--hair); color: var(--ink); }
 .meter { height: 4px; border-radius: 2px; background: rgba(27, 19, 19, .07); overflow: hidden; }
 .meter i { display: block; height: 100%; width: 0; border-radius: 2px; background: var(--cherry); }
-.quick-add { margin-bottom: 24px; }
+.quick-add { margin-bottom: 18px; }
 
 .aisle { margin-bottom: 22px; }
 .aisle__head { display: flex; align-items: center; justify-content: space-between; }
@@ -231,7 +231,7 @@ body { background: var(--app-bg); overscroll-behavior-y: none; }
 .group__row.is-busy { opacity: .5; pointer-events: none; }
 
 /* ---------- Avvisi e caricamento ---------- */
-.toast { position: fixed; z-index: 90; left: 50%; bottom: calc(92px + var(--safe-b)); transform: translateX(-50%); display: flex; align-items: center; gap: 10px; padding: 12px 18px; border-radius: 999px; background: var(--ink); color: var(--white); font-weight: 600; font-size: 14.5px; box-shadow: var(--shadow-2); white-space: nowrap; }
+.toast { position: fixed; z-index: 90; left: 50%; bottom: calc(104px + var(--safe-b)); transform: translateX(-50%); display: flex; align-items: center; gap: 10px; padding: 12px 18px; border-radius: 999px; background: var(--ink); color: var(--white); font-weight: 600; font-size: 14.5px; box-shadow: var(--shadow-2); white-space: nowrap; }
 .boot { min-height: 100dvh; display: grid; place-items: center; }
 .boot img { width: 56px; }
 
@@ -282,3 +282,38 @@ body { background: var(--app-bg); overscroll-behavior-y: none; }
 @keyframes vt-out { to { opacity: 0; } }
 @keyframes vt-in { from { opacity: 0; transform: translateY(8px); } }
 @media (prefers-reduced-motion: reduce) { ::view-transition-group(*), ::view-transition-old(root), ::view-transition-new(root) { animation: none; } }
+
+/* ---------- Ricetta: barra in basso con spesa + cucina ---------- */
+.recipe__cta { display: flex; gap: 10px; align-items: center; }
+.recipe__go { flex: 1; }
+.cart-btn { flex: none; width: 74px; height: 58px; border-radius: 18px; display: grid; justify-items: center; align-content: center; gap: 2px; background: var(--surface); color: var(--ink); box-shadow: inset 0 0 0 1px var(--hair), 0 4px 14px rgba(27, 19, 19, .08); transition: background var(--quick), color var(--quick), transform var(--press) var(--ease); }
+.cart-btn:active { transform: scale(.94); }
+.cart-btn.is-on { background: var(--ink); color: var(--white); box-shadow: none; }
+.cart-btn__label { font-size: 11px; font-weight: 600; }
+
+/* ---------- Spesa: emoji, compra di nuovo, spese passate ---------- */
+.row__emoji { width: 24px; text-align: center; font-size: 19px; line-height: 1; flex: none; margin-left: -4px; transition: opacity var(--quick); }
+.row.is-done .row__emoji { opacity: .45; filter: grayscale(.6); }
+.again { margin: 0 0 22px; padding-top: 2px; }
+.again__chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.again__chip { display: inline-flex; align-items: center; gap: 7px; height: 38px; padding: 0 12px 0 10px; border-radius: 999px; background: var(--surface); box-shadow: inset 0 0 0 1px var(--hair); font-size: 14.5px; font-weight: 500; }
+.again__chip span { font-size: 17px; line-height: 1; }
+.again__chip svg { color: var(--faint); }
+.again__chip:active { transform: scale(.95); }
+.empty + .again { margin-top: 26px; }
+
+.past { display: grid; gap: 14px; padding-top: 4px; }
+.past__list { display: grid; gap: 8px; }
+.past__trip { background: var(--surface); border-radius: 18px; overflow: hidden; }
+.past__head { display: flex; align-items: center; gap: 12px; width: 100%; padding: 14px 16px; text-align: left; }
+.past__emojis { font-size: 18px; letter-spacing: -2px; min-width: 64px; }
+.past__when { flex: 1; min-width: 0; display: grid; }
+.past__when b { font-weight: 700; }
+.past__when small { color: var(--mute); font-size: 13px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.past__items { padding: 0 16px; border-top: 1px solid var(--hair); }
+.past__items li { display: flex; align-items: center; gap: 10px; padding: 10px 0; font-size: 15px; }
+.past__items li + li { border-top: 1px solid var(--hair); }
+.past__items span { width: 22px; text-align: center; }
+.past__items em { margin-left: auto; font-style: normal; color: var(--mute); font-size: 13.5px; }
+.past__actions { display: flex; gap: 8px; align-items: center; padding: 12px 12px 14px 16px; }
+.past__actions .btn { flex: 1; }
