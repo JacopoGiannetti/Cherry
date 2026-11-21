@@ -10,9 +10,14 @@ export function GoogleButton({ label = 'Continue with Google' }: { label?: strin
     try {
       await signInWithGoogle();
     } catch (e: any) {
-      if (e?.code !== 'auth/popup-closed-by-user' && e?.code !== 'auth/cancelled-popup-request') {
-        setError('Google sign-in did not work. Try again.');
-      }
+      const code = String(e?.code || e?.message || 'unknown').replace('auth/', '');
+      if (code === 'popup-closed-by-user' || code === 'cancelled-popup-request') return;
+      console.error('[signin]', e);
+      setError(code === 'popup-blocked'
+        ? 'Your browser blocked the Google window. Allow pop-ups for hellocherry.app and try again.'
+        : code === 'web-storage-unsupported' || code === 'operation-not-supported-in-this-environment'
+          ? 'This browser can’t sign in. Open hellocherry.app in Safari or Chrome and try again.'
+          : `Google sign-in did not work (${code}). Try again.`);
     } finally {
       setBusy(false);
     }
