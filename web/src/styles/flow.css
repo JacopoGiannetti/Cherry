@@ -209,3 +209,6 @@
 .pick b { display: block; padding: 10px 12px 12px; font-size: 14px; line-height: 1.25; font-weight: 600; }
 .pick__plus { position: absolute; top: 8px; right: 8px; width: 30px; height: 30px; border-radius: 50%; background: var(--white); display: grid; place-items: center; box-shadow: var(--shadow-1); }
 .lr button { margin-left: 2px; opacity: .5; display: grid; place-items: center; }
+
+.signin-buttons { display: grid; gap: 10px; width: 100%; }
+.signin-buttons .gbtn.btn--ink { box-shadow: none; }

@@ -1,6 +1,6 @@
 import { initializeApp } from 'firebase/app';
 import {
-  getAuth, GoogleAuthProvider, signInWithPopup, signInWithRedirect, getRedirectResult,
+  getAuth, GoogleAuthProvider, OAuthProvider, signInWithPopup, signInWithRedirect, getRedirectResult,
   onAuthStateChanged, signOut as fbSignOut, type User,
 } from 'firebase/auth';
 
@@ -18,6 +18,26 @@ export const auth = getAuth(firebaseApp);
 
 const provider = new GoogleAuthProvider();
 provider.setCustomParameters({ prompt: 'select_account' });
+
+// Apple: chi usava l'app iOS ha l'account Apple, e con questo ritrova le sue ricette.
+const apple = new OAuthProvider('apple.com');
+apple.addScope('email');
+apple.addScope('name');
+
+/** Il login Apple è pronto solo dopo la configurazione su Apple Developer e Firebase. */
+export const APPLE_ENABLED = import.meta.env.VITE_APPLE_SIGNIN === '1';
+
+export async function signInWithApple() {
+  if (isStandalone()) return signInWithRedirect(auth, apple);
+  try {
+    return await signInWithPopup(auth, apple);
+  } catch (e: any) {
+    if (e?.code === 'auth/popup-blocked' || e?.code === 'auth/operation-not-supported-in-this-environment') {
+      return signInWithRedirect(auth, apple);
+    }
+    throw e;
+  }
+}
 
 /** Le app installate sulla Home (standalone) gestiscono male i popup: lì si usa il redirect. */
 function isStandalone() {
