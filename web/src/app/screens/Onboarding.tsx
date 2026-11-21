@@ -1,11 +1,12 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { AnimatePresence, motion } from 'motion/react';
-import { Link, useLocation } from 'wouter';
+import { useLocation } from 'wouter';
 import { Icon, Logo } from '../../components/Icon';
 import { CookMode } from '../../components/CookMode';
 import { GoogleButton } from '../../components/GoogleButton';
 import { LoopDemo } from '../../components/LoopDemo';
 import { useSession } from '../../lib/store';
+import { signInWithGoogle } from '../../lib/firebase';
 import { getPreview, saveProfile, startPreview } from '../../lib/api';
 import { DEMO_URL, derive, HOME_USD, loadFunnel, saveFunnel, TAKEOUT_USD, type Funnel } from '../../lib/funnel';
 import { extractLink, minutes } from '../../lib/kitchen';
@@ -88,7 +89,12 @@ export function Onboarding() {
         <div className="flow__bar" role="progressbar" aria-valuenow={step + 1} aria-valuemax={STEPS.length}>
           <i style={{ width: `${((step + 1) / STEPS.length) * 100}%` }} />
         </div>
-        <Link href="/signin" className="flow__signin">Sign in</Link>
+        <a href="/app/signin" className="flow__signin" onClick={(e) => {
+          // Chi ha già l'account: login Google subito. La pagina /signin fa da rete (popup chiuso o bloccato) e smista dopo il login.
+          e.preventDefault();
+          navigate('/signin');
+          signInWithGoogle().catch(() => {});
+        }}>Sign in</a>
       </header>
 
       <AnimatePresence mode="wait" custom={dir} initial={false}>

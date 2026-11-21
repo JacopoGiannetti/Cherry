@@ -6,8 +6,32 @@ import '../styles/landing.css';
 import { Icon, Logo } from '../components/Icon';
 import { LoopDemo } from '../components/LoopDemo';
 import { getPlans, money, type Plan } from '../lib/plans';
+import { onUser, signInWithGooglePopup } from '../lib/auth';
 
 const START = '/app/start';
+const APP = '/app/';
+
+/** "Sign in" apre subito il login Google (chi ha già l'account). Chi non ce l'ha passa da "Create account" e fa l'onboarding. */
+function SignIn({ className }: { className?: string }) {
+  const [signedIn, setSignedIn] = useState(false);
+  const [busy, setBusy] = useState(false);
+  useEffect(() => onUser((u) => setSignedIn(!!u)), []);
+  if (signedIn) return <a href={APP} className={className}>Open Cherry</a>;
+  const click = (e: React.MouseEvent) => {
+    e.preventDefault();
+    if (busy) return;
+    setBusy(true);
+    // Il popup parte nel tocco stesso: niente await prima, o Safari lo blocca.
+    signInWithGooglePopup()
+      .then(() => { location.href = APP; })
+      .catch((err: any) => {
+        setBusy(false);
+        if (err?.code === 'auth/popup-closed-by-user' || err?.code === 'auth/cancelled-popup-request') return;
+        location.href = '/app/signin';
+      });
+  };
+  return <a href="/app/signin" className={className} onClick={click} aria-busy={busy}>{busy ? 'Signing in…' : 'Sign in'}</a>;
+}
 
 function Nav() {
   const [solid, setSolid] = useState(false);
@@ -27,8 +51,8 @@ function Nav() {
         <a href="#faq">FAQ</a>
       </nav>
       <div className="nav__cta">
-        <a href="/app/signin" className="nav__signin">Sign in</a>
-        <a href={START} className="btn btn--ink btn--sm">Start cooking</a>
+        <SignIn className="nav__signin" />
+        <a href={START} className="btn btn--ink btn--sm">Create account</a>
       </div>
     </header>
   );
@@ -336,7 +360,7 @@ function Footer() {
   return (
     <footer className="footer">
       <Logo size={26} />
-      <nav><a href="/privacy">Privacy</a><a href="/terms">Terms</a><a href="mailto:support@hellovego.com">Support</a><a href="/app/signin">Sign in</a></nav>
+      <nav><a href="/privacy">Privacy</a><a href="/terms">Terms</a><a href="mailto:support@hellovego.com">Support</a><SignIn /></nav>
       <small>© {new Date().getFullYear()} Cherry is a product of <b>Jacopo Giannetti</b>, Italy. Not affiliated with TikTok or Instagram.</small>
     </footer>
   );

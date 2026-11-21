@@ -14,7 +14,7 @@ section { padding: clamp(84px, 11vw, 160px) clamp(18px, 5vw, 64px); max-width: 1
 .nav__links a:hover { color: var(--cherry); }
 .nav__cta { display: flex; align-items: center; gap: 16px; }
 .nav__signin { font-weight: 600; font-size: 15px; }
-@media (max-width: 860px) { .nav__links, .nav__signin { display: none; } }
+@media (max-width: 860px) { .nav__links { display: none; } .nav__cta { gap: 14px; } }
 
 /* ---------- Hero: il titolo regge la pagina, i piatti ci passano sopra ---------- */
 .hero { max-width: none; padding: 104px clamp(14px, 3vw, 44px) 56px; min-height: 100svh; display: flex; flex-direction: column; }
