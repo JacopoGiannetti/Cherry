@@ -1,111 +1,64 @@
-import { useMemo, useRef, useState } from 'react';
-import { AnimatePresence, LayoutGroup, motion } from 'motion/react';
+import { useRef, useState } from 'react';
+import { AnimatePresence, motion } from 'motion/react';
 import { Icon } from '../../components/Icon';
 import { toast } from '../../components/Toast';
 import { Sheet, originOf, type Origin } from '../../components/Sheet';
-import { deleteTrip, saveList, saveTrip, useList, useRecipes, useSession, useTrips } from '../../lib/store';
-import { guessItem, itemEmoji, mergeIntoList, recurring, removeRecipeFromList, section } from '../../lib/kitchen';
-import type { GroceryItem, GroceryList, Recipe, Trip } from '../../lib/types';
+import { Aisles, BuyAgain, Progress, QuickAdd, addItems, clearChecked, setChecked, type NewItem } from '../../components/Groceries';
+import { deleteTrip, editList, saveTrip, shareList, shareUrl, stopSharing, useList, useRecipes, useSession, useShareId, useTrips } from '../../lib/store';
+import { itemEmoji, mergeIntoList, recurring, removeRecipeFromList, section } from '../../lib/kitchen';
+import type { GroceryList, Recipe, Trip } from '../../lib/types';
 
 // La spesa si fa camminando tra le corsie: sopra quello che manca, diviso
-// per corsia; ciò che spunti scivola giù, nel carrello. Le ricette da cui
-// arriva la lista stanno in una fila di foto, e si gestiscono da un pannello.
+// per corsia; ciò che spunti scivola giù, nel carrello. Si può fare in due:
+// un link, e chi lo apre vede e spunta la stessa lista, dal vivo.
 
-const ROW = { type: 'spring', stiffness: 520, damping: 44 } as const;
+type Panel = 'recipes' | 'more' | 'past' | 'share';
 
 export function ListScreen() {
   const { user } = useSession();
   const uid = user!.uid;
   const list = useList(uid);
+  const shareId = useShareId(uid);
   const recipes = useRecipes(uid);
-  const [draft, setDraft] = useState('');
   const trips = useTrips(uid);
-  const [focus, setFocus] = useState(false);
-  const [sheet, setSheet] = useState<'recipes' | 'more' | 'past' | null>(null);
+  const [sheet, setSheet] = useState<Panel | null>(null);
   const [from, setFrom] = useState<Origin>(null);
   const recipesBtn = useRef<HTMLButtonElement>(null);
   const moreBtn = useRef<HTMLButtonElement>(null);
   const addBtn = useRef<HTMLButtonElement>(null);
   const pastBtn = useRef<HTMLButtonElement>(null);
-  const open = (which: 'recipes' | 'more' | 'past', el: Element | null) => { setFrom(originOf(el)); setSheet(which); };
+  const shareBtn = useRef<HTMLButtonElement>(null);
+  const open = (which: Panel, el: Element | null) => { setFrom(originOf(el)); setSheet(which); };
 
   const items = list?.items || [];
-  const todo = items.filter((i) => !i.checked);
-  const done = items.filter((i) => i.checked);
   const inList = (list?.recipeIds || []).map((id) => recipes?.find((r) => r.id === id)).filter(Boolean) as Recipe[];
+  const edit = (fn: (l: GroceryList) => GroceryList) => editList(uid, fn).catch((e) => toast(e.message || 'Could not save', 'close'));
+  const add = (n: NewItem[]) => { navigator.vibrate?.(6); return edit(addItems(n)); };
 
-  const aisles = useMemo(() => {
-    const by = new Map<string, { label: string; order: number; items: GroceryItem[] }>();
-    for (const item of todo) {
-      const s = section(item.section);
-      const g = by.get(s.label) || { label: s.label, order: s.order, items: [] };
-      g.items.push(item);
-      by.set(s.label, g);
-    }
-    return [...by.values()].sort((a, b) => a.order - b.order);
-  }, [list]);
-
-  const update = (next: GroceryList) => saveList(uid, next);
-  const toggle = (id: string) => {
-    if (!list) return;
-    navigator.vibrate?.(6);
-    update({ ...list, items: list.items.map((i) => (i.id === id ? { ...i, checked: !i.checked } : i)) });
-  };
-  const addItems = (add: { name: string; quantity?: string; section?: string; emoji?: string }[]) => {
-    const base = list || { items: [], recipeIds: [] };
-    const have = new Map(base.items.map((i) => [i.name.toLowerCase().trim(), i]));
-    let items = base.items;
-    const fresh: GroceryItem[] = [];
-    for (const a of add) {
-      const hit = have.get(a.name.toLowerCase().trim());
-      if (hit) { items = items.map((i) => (i.id === hit.id ? { ...i, checked: false } : i)); continue; }
-      const guess = guessItem(a.name);
-      fresh.push({ id: crypto.randomUUID(), name: a.name, quantity: a.quantity || '', section: a.section && a.section !== 'other' ? a.section : guess.section,
-        emoji: a.emoji || guess.emoji, checked: false, recipeIds: [], manual: true });
-    }
-    navigator.vibrate?.(6);
-    return update({ ...base, items: [...fresh, ...items] });
-  };
-  const addItem = (e: React.FormEvent) => {
-    e.preventDefault();
-    const name = draft.trim();
-    if (!name) return;
-    addItems([{ name }]);
-    setDraft('');
-  };
   /** Chiudere la spesa: ciò che è nel carrello va nelle spese passate, il resto resta. */
   const finish = async (all = false) => {
     if (!list) return;
     const bought = list.items.filter((i) => i.checked);
     if (bought.length) await saveTrip(uid, { at: Date.now(), items: bought, recipeIds: list.recipeIds || [] });
-    const left = all ? [] : list.items.filter((i) => !i.checked);
-    const ids = new Set(left.flatMap((i) => i.recipeIds));
-    await update({ items: left, recipeIds: (list.recipeIds || []).filter((id) => ids.has(id)) });
+    await edit(all ? (l) => ({ ...l, items: [], recipeIds: [] }) : clearChecked);
     if (bought.length) toast('Saved to past lists', 'check');
   };
-  const again = recurring(trips, list).filter((r) => !draft.trim() || r.item.name.toLowerCase().includes(draft.trim().toLowerCase()));
-  const share = async () => {
-    const text = aisles.map((a) => `${a.label}\n${a.items.map((i) => `• ${i.name}${i.quantity ? ` — ${i.quantity}` : ''}`).join('\n')}`).join('\n\n');
-    try {
-      if (navigator.share) await navigator.share({ title: 'Groceries', text });
-      else { await navigator.clipboard.writeText(text); toast('List copied'); }
-    } catch { /* annullato */ }
-  };
-
+  const again = recurring(trips, list).map((r) => r.item);
   const empty = list !== undefined && items.length === 0;
-  const pct = items.length ? Math.round((done.length / items.length) * 100) : 0;
 
   return (
     <main className="page">
       <header className="bar">
         <h1 className="bar__title">Groceries</h1>
-        {!empty && (
-          <div className="bar__actions">
-            <button className="bar__btn" onClick={share} aria-label="Share list"><Icon name="share" /></button>
-            <button ref={pastBtn} className="bar__btn" onClick={() => open('past', pastBtn.current)} aria-label="Past lists"><Icon name="clock" /></button>
-            <button ref={moreBtn} className="bar__btn" onClick={() => open('more', moreBtn.current)} aria-label="More"><Icon name="dots" /></button>
-          </div>
-        )}
+        <div className="bar__actions">
+          {!empty && (
+            <button ref={shareBtn} className={`bar__btn ${shareId ? 'bar__btn--live' : ''}`} onClick={() => open('share', shareBtn.current)} aria-label={shareId ? 'Shared list' : 'Share list'}>
+              <Icon name={shareId ? 'people' : 'share'} />
+            </button>
+          )}
+          <button ref={pastBtn} className="bar__btn" onClick={() => open('past', pastBtn.current)} aria-label="Past lists"><Icon name="clock" /></button>
+          {!empty && <button ref={moreBtn} className="bar__btn" onClick={() => open('more', moreBtn.current)} aria-label="More"><Icon name="dots" /></button>}
+        </div>
       </header>
 
       {list === undefined && <div className="quiet-note"><span className="spinner" /></div>}
@@ -119,84 +72,45 @@ export function ListScreen() {
           <p>Pick a few recipes and Cherry makes one list, sorted by aisle.</p>
           <div className="empty__actions">
             <button ref={addBtn} className="btn btn--cherry" onClick={() => open('recipes', addBtn.current)}><Icon name="plus" size={18} stroke={2.6} /> Add recipes</button>
-            {!!trips?.length && <button ref={pastBtn} className="btn btn--ghost" onClick={() => open('past', pastBtn.current)}><Icon name="clock" size={18} /> Past lists</button>}
           </div>
         </section>
       )}
-
-      {empty && again.length > 0 && <BuyAgain items={again} onAdd={(i) => addItems([i])} />}
+      {empty && again.length > 0 && <BuyAgain items={again} onAdd={(i) => add([i])} />}
 
       {!empty && list && (
         <>
-          <section className="summary">
-            <div className="summary__row">
-              <p><b>{todo.length ? `${todo.length} to buy` : 'All done'}</b>{done.length > 0 && <span> · {done.length} in the cart</span>}</p>
-              <button ref={recipesBtn} className="faces" onClick={() => open('recipes', recipesBtn.current)} aria-label="Manage recipes">
-                {inList.slice(0, 4).map((r) => <span key={r.id} className="face">{r.imageUrl ? <img src={r.imageUrl} alt="" /> : null}</span>)}
-                <span className="face face--more">{inList.length > 4 ? `+${inList.length - 4}` : <Icon name="plus" size={14} stroke={2.8} />}</span>
-              </button>
-            </div>
-            <div className="meter" aria-label={`${pct}% done`}><motion.i animate={{ width: `${pct}%` }} transition={{ duration: 0.5, ease: [0.2, 0.8, 0.2, 1] }} /></div>
-          </section>
-
-          <form className="field field--quiet quick-add" onSubmit={addItem}>
-            <Icon name="plus" size={17} />
-            <input value={draft} onChange={(e) => setDraft(e.target.value)} onFocus={() => setFocus(true)} onBlur={() => setTimeout(() => setFocus(false), 150)}
-              placeholder="Add an item" aria-label="Add an item" enterKeyHint="done" />
-            {draft.trim() && <button className="field__go" type="submit" aria-label="Add"><Icon name="check" size={16} stroke={2.8} /></button>}
-          </form>
-          <AnimatePresence initial={false}>
-            {(focus || draft) && again.length > 0 && (
-              <motion.div key="again" initial={{ height: 0, opacity: 0 }} animate={{ height: 'auto', opacity: 1 }} exit={{ height: 0, opacity: 0 }} transition={{ duration: 0.2 }} style={{ overflow: 'hidden' }}>
-                <BuyAgain items={again} onAdd={(i) => addItems([i])} />
-              </motion.div>
-            )}
-          </AnimatePresence>
-
-          <LayoutGroup>
-            {aisles.map((a) => (
-              <motion.section key={a.label} className="aisle" layout transition={ROW}>
-                <h2 className="aisle__label">{a.label}</h2>
-                <ul className="rows">
-                  <AnimatePresence initial={false}>
-                    {a.items.map((item) => <Row key={item.id} item={item} onToggle={toggle} />)}
-                  </AnimatePresence>
-                </ul>
-              </motion.section>
-            ))}
-
-            {done.length > 0 && (
-              <motion.section className="aisle aisle--done" layout transition={ROW}>
-                <div className="aisle__head">
-                  <h2 className="aisle__label">In the cart</h2>
-                  <button className="link-btn" onClick={() => finish()}>Done shopping</button>
-                </div>
-                <ul className="rows">
-                  <AnimatePresence initial={false}>
-                    {done.map((item) => <Row key={item.id} item={item} onToggle={toggle} />)}
-                  </AnimatePresence>
-                </ul>
-              </motion.section>
-            )}
-          </LayoutGroup>
+          {shareId && (
+            <button className="live-banner" onClick={() => open('share', shareBtn.current)}>
+              <span className="live-dot" aria-hidden="true" /> <b>Live</b> <span>Anyone with the link can tick items off</span><Icon name="next" size={16} />
+            </button>
+          )}
+          <Progress list={list}>
+            <button ref={recipesBtn} className="faces" onClick={() => open('recipes', recipesBtn.current)} aria-label="Manage recipes">
+              {inList.slice(0, 4).map((r) => <span key={r.id} className="face">{r.imageUrl ? <img src={r.imageUrl} alt="" /> : null}</span>)}
+              <span className="face face--more">{inList.length > 4 ? `+${inList.length - 4}` : <Icon name="plus" size={14} stroke={2.8} />}</span>
+            </button>
+          </Progress>
+          <QuickAdd onAdd={add} suggestions={again} />
+          <Aisles list={list} onToggle={(i) => edit(setChecked(i.id, !i.checked))} doneAction={{ label: 'Done shopping', run: () => finish() }} />
         </>
       )}
 
       <Sheet open={sheet === 'recipes'} onClose={() => setSheet(null)} from={from} label="Recipes on your list">
-        <RecipesSheet list={list || null} recipes={recipes || []} inList={inList} onChange={update} />
+        <RecipesSheet list={list || null} recipes={recipes || []} inList={inList} onChange={(fn) => edit(fn)} />
       </Sheet>
       <Sheet open={sheet === 'past'} onClose={() => setSheet(null)} from={from} label="Past lists">
-        <PastLists trips={trips || []} recipes={recipes || []} onAgain={async (t) => { await addItems(t.items); setSheet(null); toast(`${t.items.length} items back on your list`, 'cart'); }}
+        <PastLists trips={trips || []} recipes={recipes || []} onAgain={async (t) => { await add(t.items); setSheet(null); toast(`${t.items.length} items back on your list`, 'cart'); }}
           onDelete={(t) => deleteTrip(uid, t.id)} />
+      </Sheet>
+      <Sheet open={sheet === 'share'} onClose={() => setSheet(null)} from={from} label="Share list">
+        <SharePanel uid={uid} name={user?.displayName?.split(' ')[0] || ''} shareId={shareId || null} list={list || null} onClose={() => setSheet(null)} />
       </Sheet>
       <Sheet open={sheet === 'more'} onClose={() => setSheet(null)} from={from} label="List options">
         <div className="menu">
-          <button className="menu__row" onClick={() => { list && update({ ...list, items: list.items.map((i) => ({ ...i, checked: false })) }); setSheet(null); }}>
+          <button className="menu__row" onClick={() => { edit((l) => ({ ...l, items: l.items.map((i) => ({ ...i, checked: false })) })); setSheet(null); }}>
             <Icon name="refresh" size={19} /> Uncheck everything
           </button>
-          <button className="menu__row" onClick={() => { setSheet('past'); }}>
-            <Icon name="clock" size={19} /> Past lists
-          </button>
+          <button className="menu__row" onClick={() => setSheet('past')}><Icon name="clock" size={19} /> Past lists</button>
           <button className="menu__row menu__row--danger" onClick={async () => { setSheet(null); await finish(true); toast('List cleared', 'trash'); }}>
             <Icon name="trash" size={19} /> Clear the whole list
           </button>
@@ -206,28 +120,70 @@ export function ListScreen() {
   );
 }
 
-function Row({ item, onToggle }: { item: GroceryItem; onToggle: (id: string) => void }) {
+// ---------- Condividere: un link, la stessa lista dal vivo ----------
+
+function SharePanel({ uid, name, shareId, list, onClose }: { uid: string; name: string; shareId: string | null; list: GroceryList | null; onClose: () => void }) {
+  const [busy, setBusy] = useState(false);
+  const [copied, setCopied] = useState(false);
+  const url = shareId ? shareUrl(shareId) : '';
+
+  const start = async () => {
+    setBusy(true);
+    try { await shareList(uid, name); } catch (e: any) { toast(e.message || 'Could not share', 'close'); }
+    setBusy(false);
+  };
+  const send = async () => {
+    try {
+      if (navigator.share) await navigator.share({ title: 'Our grocery list', text: 'Here’s our grocery list — tick things off as you shop:', url });
+      else { await navigator.clipboard.writeText(url); setCopied(true); }
+    } catch { /* annullato */ }
+  };
+  const copy = async () => {
+    try { await navigator.clipboard.writeText(url); setCopied(true); navigator.vibrate?.(8); setTimeout(() => setCopied(false), 1800); } catch { /* niente appunti */ }
+  };
+  const asText = async () => {
+    const text = (list?.items || []).filter((i) => !i.checked).map((i) => `${itemEmoji(i)} ${i.name}${i.quantity ? ` — ${i.quantity}` : ''}`).join('\n');
+    try { if (navigator.share) await navigator.share({ title: 'Groceries', text }); else { await navigator.clipboard.writeText(text); toast('List copied'); } } catch { /* annullato */ }
+  };
+
+  if (!shareId) {
+    return (
+      <div className="add share">
+        <div className="share__art" aria-hidden="true"><span>🛒</span><i /><span>📱</span></div>
+        <h2 className="add__title">Shop together</h2>
+        <p className="add__lead">Send a link. Whoever opens it sees this list and can tick items off — live, no app or account needed.</p>
+        <button className={`btn btn--cherry btn--block btn--lg ${busy ? 'is-busy' : ''}`} onClick={start}><Icon name="link" size={18} /> Create a live link</button>
+        <button className="btn btn--ghost btn--block" onClick={asText}>Send as text instead</button>
+      </div>
+    );
+  }
   return (
-    <motion.li layout layoutId={item.id} transition={ROW}
-      initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: 'auto' }} exit={{ opacity: 0, height: 0 }}>
-      <button className={`row ${item.checked ? 'is-done' : ''}`} onClick={() => onToggle(item.id)} aria-pressed={item.checked}>
-        <span className="tick">
-          <AnimatePresence>{item.checked && (
-            <motion.span initial={{ scale: 0 }} animate={{ scale: 1 }} exit={{ scale: 0 }} transition={{ type: 'spring', stiffness: 700, damping: 26 }}>
-              <Icon name="check" size={13} stroke={3.4} />
+    <div className="add share">
+      <h2 className="add__title"><span className="live-dot" aria-hidden="true" /> Your list is live</h2>
+      <p className="add__lead">Anyone with this link can see the list and tick items off. You’ll see their changes as they happen.</p>
+      <div className="field share__link">
+        <Icon name="link" size={17} />
+        <input readOnly value={url.replace(/^https?:\/\//, '')} aria-label="Share link" onFocus={(e) => e.currentTarget.select()} />
+        <button className="field__go" onClick={copy} aria-label="Copy link">
+          <AnimatePresence mode="popLayout" initial={false}>
+            <motion.span key={String(copied)} initial={{ scale: 0.4, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} exit={{ scale: 0.4, opacity: 0 }} style={{ display: 'grid' }}>
+              <Icon name={copied ? 'check' : 'paste'} size={16} stroke={copied ? 2.8 : 2.2} />
             </motion.span>
-          )}</AnimatePresence>
-        </span>
-        <span className="row__emoji" aria-hidden="true">{itemEmoji(item)}</span>
-        <span className="row__name">{item.name}</span>
-        {item.quantity && <span className="row__qty">{item.quantity}</span>}
-      </button>
-    </motion.li>
+          </AnimatePresence>
+        </button>
+      </div>
+      <button className="btn btn--cherry btn--block btn--lg" onClick={send}><Icon name="share" size={18} /> Send the link</button>
+      <button className={`btn btn--ghost btn--block share__stop ${busy ? 'is-busy' : ''}`} onClick={async () => {
+        setBusy(true);
+        try { await stopSharing(uid); onClose(); toast('Link turned off', 'lock'); } catch (e: any) { toast(e.message || 'Could not stop sharing', 'close'); }
+        setBusy(false);
+      }}>Stop sharing</button>
+    </div>
   );
 }
 
 function RecipesSheet({ list, recipes, inList, onChange }: {
-  list: GroceryList | null; recipes: Recipe[]; inList: Recipe[]; onChange: (l: GroceryList) => Promise<void>;
+  list: GroceryList | null; recipes: Recipe[]; inList: Recipe[]; onChange: (fn: (l: GroceryList) => GroceryList) => Promise<unknown>;
 }) {
   const others = recipes.filter((r) => r.status === 'ready' && !list?.recipeIds?.includes(r.id));
   return (
@@ -240,7 +196,7 @@ function RecipesSheet({ list, recipes, inList, onChange }: {
               <li key={r.id}>
                 <span className="picker__img">{r.imageUrl && <img src={r.imageUrl} alt="" />}</span>
                 <span className="picker__name">{r.title}</span>
-                <button className="picker__btn" onClick={() => list && onChange(removeRecipeFromList(list, r.id))} aria-label={`Remove ${r.title}`}>
+                <button className="picker__btn" onClick={() => onChange((l) => ({ ...l, ...removeRecipeFromList(l, r.id) }))} aria-label={`Remove ${r.title}`}>
                   <Icon name="minus" size={16} stroke={2.6} />
                 </button>
               </li>
@@ -255,31 +211,13 @@ function RecipesSheet({ list, recipes, inList, onChange }: {
           <li key={r.id}>
             <span className="picker__img">{r.imageUrl && <img src={r.imageUrl} alt="" />}</span>
             <span className="picker__name">{r.title}<small>{r.ingredients.length} ingredients</small></span>
-            <button className="picker__btn picker__btn--add" onClick={async () => { await onChange(mergeIntoList(list, [r])); navigator.vibrate?.(8); }} aria-label={`Add ${r.title}`}>
+            <button className="picker__btn picker__btn--add" onClick={async () => { navigator.vibrate?.(8); await onChange((l) => ({ ...l, ...mergeIntoList(l, [r]) })); }} aria-label={`Add ${r.title}`}>
               <Icon name="plus" size={16} stroke={2.6} />
             </button>
           </li>
         ))}
       </ul>
     </div>
-  );
-}
-
-function BuyAgain({ items, onAdd }: { items: { item: GroceryItem; count: number }[]; onAdd: (i: GroceryItem) => void }) {
-  return (
-    <section className="again">
-      <h2 className="aisle__label">Buy again</h2>
-      <div className="again__chips">
-        <AnimatePresence initial={false} mode="popLayout">
-          {items.map(({ item }) => (
-            <motion.button layout key={item.name.toLowerCase()} className="again__chip" onClick={() => onAdd(item)}
-              initial={{ opacity: 0, scale: 0.8 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0, scale: 0.6 }} transition={{ type: 'spring', stiffness: 600, damping: 32 }}>
-              <span aria-hidden="true">{itemEmoji(item)}</span>{item.name}<Icon name="plus" size={14} stroke={2.6} />
-            </motion.button>
-          ))}
-        </AnimatePresence>
-      </div>
-    </section>
   );
 }
 

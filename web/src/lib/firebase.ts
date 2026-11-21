@@ -7,6 +7,6 @@ export * from './auth';
 // senza rete (al supermercato capita).
 export const db = initializeFirestore(
   firebaseApp,
-  { localCache: persistentLocalCache({ tabManager: persistentMultipleTabManager() }) },
+  { localCache: persistentLocalCache({ tabManager: persistentMultipleTabManager() }), ignoreUndefinedProperties: true },
   import.meta.env.VITE_FIRESTORE_DATABASE || '(default)',
 );

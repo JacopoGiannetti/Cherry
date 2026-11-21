@@ -42,7 +42,15 @@ export type GroceryItem = {
   manual?: boolean;
 };
 
-export type GroceryList = { items: GroceryItem[]; recipeIds: string[]; updatedAt?: unknown };
+export type GroceryList = {
+  items: GroceryItem[];
+  recipeIds: string[];
+  updatedAt?: unknown;
+  /** Solo sulle liste condivise: chi l'ha creata e le ricette, per chi apre il link senza account. */
+  ownerUid?: string;
+  ownerName?: string;
+  recipes?: { id: string; title: string; imageUrl?: string | null }[];
+};
 
 /** Una spesa fatta: gli articoli spuntati, archiviati quando chiudi la spesa. */
 export type Trip = { id: string; at: number; items: GroceryItem[]; recipeIds: string[] };

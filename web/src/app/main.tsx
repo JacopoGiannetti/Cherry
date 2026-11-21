@@ -17,6 +17,7 @@ import { CookScreen } from './screens/CookScreen';
 import { ListScreen } from './screens/ListScreen';
 import { Settings } from './screens/Settings';
 import { SignIn } from './screens/SignIn';
+import { SharedList } from './screens/SharedList';
 import { TabBar } from '../components/TabBar';
 import { ToastHost } from '../components/Toast';
 
@@ -64,6 +65,7 @@ function App() {
         <Switch>
           <Route path="/start"><Onboarding /></Route>
           <Route path="/signin"><SignIn /></Route>
+          <Route path="/l/:id">{(p) => <SharedList id={p.id} />}</Route>
           <Route path="/join"><Join /></Route>
           <Route path="/welcome"><Welcome /></Route>
           <Route path="/add"><Member><Add /></Member></Route>

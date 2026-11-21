@@ -1,7 +1,7 @@
 import { useCallback, useSyncExternalStore } from 'react';
 import type { User } from 'firebase/auth';
 import {
-  collection, doc, onSnapshot, orderBy, query, setDoc, deleteDoc, updateDoc, serverTimestamp, limit,
+  collection, doc, onSnapshot, orderBy, query, setDoc, deleteDoc, updateDoc, serverTimestamp, limit, getDoc, runTransaction,
 } from 'firebase/firestore';
 import { db, onUser, completeRedirectSignIn } from './firebase';
 import type { Embed, GroceryList, Recipe, Trip } from './types';
@@ -177,16 +177,141 @@ export const setFavorite = (uid: string, id: string, favorite: boolean) =>
 
 // ---------- Lista della spesa (una sola, sempre a portata) ----------
 
-export function useList(uid?: string): GroceryList | null | undefined {
-  const sub = useCallback((l: () => void) => { mockListeners.add(l); return () => { mockListeners.delete(l); }; }, []);
-  const mock = useSyncExternalStore(sub, () => mockList);
-  const live = useFeed<GroceryList | null | undefined>(!MOCK && uid ? `list:${uid}` : null, undefined, (set) =>
-    onSnapshot(doc(db, 'users', uid!, 'lists', 'current'), (snap) => set(snap.exists() ? (snap.data() as GroceryList) : null), () => set(null)));
+// La lista è privata (users/{uid}/lists/current) finché non la condividi: allora vive in
+// sharedLists/{id}, e un puntatore (users/{uid}/lists/share) dice all'app dove guardare.
+// Chi ha il link legge e spunta senza account; le regole limitano cosa può cambiare.
+
+let mockShareId: string | null = null;
+const mockShared = new Map<string, GroceryList>();
+const mockEmit = () => mockListeners.forEach((l) => l());
+const mockSub = (l: () => void) => { mockListeners.add(l); return () => { mockListeners.delete(l); }; };
+
+export function useShareId(uid?: string): string | null | undefined {
+  const mock = useSyncExternalStore(mockSub, () => mockShareId);
+  const live = useFeed<string | null | undefined>(!MOCK && uid ? `share:${uid}` : null, undefined, (set) =>
+    onSnapshot(doc(db, 'users', uid!, 'lists', 'share'), (snap) => set((snap.exists() && snap.data().id) || null), () => set(null)));
   return MOCK ? mock : live;
 }
 
-export const saveList = (uid: string, list: GroceryList) =>
-  MOCK ? (mockList = list, mockListeners.forEach((l) => l()), Promise.resolve()) : setDoc(doc(db, 'users', uid, 'lists', 'current'), { ...list, updatedAt: serverTimestamp() });
+/** La lista condivisa, in tempo reale. null = non esiste (più). */
+export function useSharedList(id?: string | null): GroceryList | null | undefined {
+  const mock = useSyncExternalStore(mockSub, () => (id ? mockShared.get(id) ?? null : null));
+  const live = useFeed<GroceryList | null | undefined>(!MOCK && id ? `shared:${id}` : null, undefined, (set) =>
+    onSnapshot(doc(db, 'sharedLists', id!), (snap) => set(snap.exists() ? (snap.data() as GroceryList) : null), () => set(null)));
+  return MOCK ? mock : live;
+}
+
+export function useList(uid?: string): GroceryList | null | undefined {
+  const mock = useSyncExternalStore(mockSub, () => mockList);
+  const shareId = useShareId(uid);
+  const shared = useSharedList(shareId);
+  const own = useFeed<GroceryList | null | undefined>(!MOCK && uid && shareId === null ? `list:${uid}` : null, undefined, (set) =>
+    onSnapshot(doc(db, 'users', uid!, 'lists', 'current'), (snap) => set(snap.exists() ? (snap.data() as GroceryList) : null), () => set(null)));
+  if (shareId) return shared;
+  if (MOCK) return mock;
+  return shareId === undefined ? undefined : own;
+}
+
+/** Cambia subito sullo schermo, poi salva: al supermercato la spunta non deve aspettare la rete. */
+function optimistic(key: string, next: GroceryList) {
+  const f = feeds.get(key);
+  if (f) { f.value = next; f.subs.forEach((l) => l()); }
+}
+
+const snapRecipes = (uid: string, ids: string[]) => {
+  const all = feeds.get(`recipes:${uid}`)?.value as Recipe[] | null | undefined;
+  if (!all) return undefined;
+  return ids.map((id) => all.find((r) => r.id === id)).filter(Boolean).map((r) => ({ id: r!.id, title: r!.title, imageUrl: r!.imageUrl || null }));
+};
+
+/**
+ * Modifica una lista condivisa dentro una transazione: si rilegge l'ultima versione e si
+ * applica il cambiamento lì sopra, così due persone che spuntano insieme non si cancellano a vicenda.
+ */
+export async function editShared(id: string, fn: (l: GroceryList) => GroceryList, extra: Partial<GroceryList> = {}) {
+  if (MOCK) {
+    const cur = mockShared.get(id);
+    if (cur) { mockShared.set(id, { ...cur, ...fn(cur), ...extra }); mockEmit(); }
+    return;
+  }
+  const key = `shared:${id}`;
+  const seen = feeds.get(key)?.value as GroceryList | null | undefined;
+  if (seen) optimistic(key, { ...seen, ...fn(seen), ...extra });
+  const ref = doc(db, 'sharedLists', id);
+  await runTransaction(db, async (tx) => {
+    const snap = await tx.get(ref);
+    if (!snap.exists()) throw new Error('This list is no longer shared.');
+    const next = fn(snap.data() as GroceryList);
+    tx.set(ref, { items: next.items, recipeIds: next.recipeIds || [], ...extra, updatedAt: serverTimestamp() }, { merge: true });
+  });
+}
+
+async function currentShareId(uid: string): Promise<string | null> {
+  if (MOCK) return mockShareId;
+  const cached = feeds.get(`share:${uid}`)?.value;
+  if (cached !== undefined) return cached;
+  const snap = await getDoc(doc(db, 'users', uid, 'lists', 'share'));
+  return (snap.exists() && snap.data().id) || null;
+}
+
+/** L'unico modo di cambiare la lista: riceve la versione più recente e ne restituisce una nuova. */
+export async function editList(uid: string, fn: (l: GroceryList) => GroceryList) {
+  const shareId = await currentShareId(uid);
+  if (shareId) {
+    return editShared(shareId, fn, {}).then(async () => {
+      const recipes = snapRecipes(uid, (feeds.get(`shared:${shareId}`)?.value as GroceryList | undefined)?.recipeIds || []);
+      if (recipes && !MOCK) await updateDoc(doc(db, 'sharedLists', shareId), { recipes }).catch(() => {});
+    });
+  }
+  const empty: GroceryList = { items: [], recipeIds: [] };
+  if (MOCK) { mockList = fn(mockList || empty); mockEmit(); return; }
+  const key = `list:${uid}`;
+  const next = fn((feeds.get(key)?.value as GroceryList | null | undefined) || empty);
+  optimistic(key, next);
+  return setDoc(doc(db, 'users', uid, 'lists', 'current'), { items: next.items, recipeIds: next.recipeIds || [], updatedAt: serverTimestamp() });
+}
+
+/** Sostituisce la lista intera (usato dove il nuovo stato è già calcolato). */
+export const saveList = (uid: string, list: GroceryList) => editList(uid, () => list);
+
+const newId = () => {
+  const a = new Uint8Array(16);
+  crypto.getRandomValues(a);
+  return Array.from(a, (b) => 'abcdefghijkmnpqrstuvwxyzABCDEFGHJKLMNPQRSTUVWXYZ23456789'[b % 56]).join('').slice(0, 16);
+};
+
+/** Mette la lista online: da qui in poi la modificano tutti quelli che hanno il link. */
+export async function shareList(uid: string, ownerName: string): Promise<string> {
+  const existing = await currentShareId(uid);
+  if (existing) return existing;
+  const id = newId();
+  if (MOCK) {
+    mockShared.set(id, { ...(mockList || { items: [], recipeIds: [] }), ownerUid: uid, ownerName, recipes: snapRecipes(uid, mockList?.recipeIds || []) || MOCK_RECIPES.filter((r) => mockList?.recipeIds.includes(r.id)).map((r) => ({ id: r.id, title: r.title, imageUrl: r.imageUrl })) });
+    mockShareId = id; mockEmit();
+    return id;
+  }
+  const own = (await getDoc(doc(db, 'users', uid, 'lists', 'current'))).data() as GroceryList | undefined;
+  await setDoc(doc(db, 'sharedLists', id), {
+    items: own?.items || [], recipeIds: own?.recipeIds || [], recipes: snapRecipes(uid, own?.recipeIds || []) || [],
+    ownerUid: uid, ownerName, createdAt: serverTimestamp(), updatedAt: serverTimestamp(),
+  });
+  await setDoc(doc(db, 'users', uid, 'lists', 'share'), { id });
+  return id;
+}
+
+/** Riporta la lista in privato: il link smette di funzionare, la lista resta com'è. */
+export async function stopSharing(uid: string) {
+  const id = await currentShareId(uid);
+  if (!id) return;
+  if (MOCK) { const l = mockShared.get(id); mockList = l ? { items: l.items, recipeIds: l.recipeIds } : mockList; mockShared.delete(id); mockShareId = null; mockEmit(); return; }
+  const snap = await getDoc(doc(db, 'sharedLists', id));
+  const l = snap.data() as GroceryList | undefined;
+  await setDoc(doc(db, 'users', uid, 'lists', 'current'), { items: l?.items || [], recipeIds: l?.recipeIds || [], updatedAt: serverTimestamp() });
+  await deleteDoc(doc(db, 'users', uid, 'lists', 'share'));
+  await deleteDoc(doc(db, 'sharedLists', id));
+}
+
+export const shareUrl = (id: string) => `${location.origin}${import.meta.env.DEV ? '/app/l/' : '/l/'}${id}`;
 
 // ---------- Spese passate: ciò che hai comprato, per ritrovarlo e ricomprarlo ----------
 

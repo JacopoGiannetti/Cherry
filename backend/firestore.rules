@@ -53,6 +53,29 @@ service cloud.firestore {
       }
     }
 
+    // Liste della spesa condivise per link: chi conosce l'id (16 caratteri casuali)
+    // la legge e la spunta anche senza account. Nessuno può elencarle; solo chi
+    // l'ha creata la crea o la cancella, e nessuno può cambiarne il proprietario.
+    match /sharedLists/{listId} {
+      allow get: if true;
+      allow list: if false;
+      allow create: if request.auth != null
+        && request.resource.data.ownerUid == request.auth.uid
+        && validSharedList(request.resource.data);
+      allow update: if validSharedList(request.resource.data)
+        && request.resource.data.ownerUid == resource.data.ownerUid
+        && request.resource.data.diff(resource.data).affectedKeys()
+            .hasOnly(['items', 'recipeIds', 'recipes', 'updatedAt', 'ownerName']);
+      allow delete: if request.auth != null && resource.data.ownerUid == request.auth.uid;
+    }
+
+    function validSharedList(d) {
+      return d.keys().hasOnly(['items', 'recipeIds', 'recipes', 'updatedAt', 'createdAt', 'ownerUid', 'ownerName'])
+        && d.items is list && d.items.size() <= 400
+        && (!('recipeIds' in d) || (d.recipeIds is list && d.recipeIds.size() <= 60))
+        && (!('recipes' in d) || (d.recipes is list && d.recipes.size() <= 60));
+    }
+
     // Codici di invito: risolti solo dal backend, altrimenti sarebbero
     // indovinabili a tentativi.
     match /inviteCodes/{code} {

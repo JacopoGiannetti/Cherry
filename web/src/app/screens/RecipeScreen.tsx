@@ -4,7 +4,7 @@ import { useLocation } from 'wouter';
 import { Icon } from '../../components/Icon';
 import { toast } from '../../components/Toast';
 import { Sheet, originOf, type Origin } from '../../components/Sheet';
-import { deleteRecipe, saveList, setFavorite, useList, useRecipe, useSession } from '../../lib/store';
+import { deleteRecipe, editList, setFavorite, useList, useRecipe, useSession } from '../../lib/store';
 import { importRecipe, resolveEmbed } from '../../lib/api';
 import { mergeIntoList, minutes, removeRecipeFromList, scaleQuantity } from '../../lib/kitchen';
 import type { Recipe } from '../../lib/types';
@@ -105,11 +105,11 @@ function Ready({ recipe, uid, household }: { recipe: Recipe; uid: string; househ
   const toggleList = async () => {
     navigator.vibrate?.(8);
     if (inList && list) {
-      await saveList(uid, removeRecipeFromList(list, recipe.id));
+      await editList(uid, (l) => ({ ...l, ...removeRecipeFromList(l, recipe.id) }));
       toast('Removed from groceries', 'cart');
     } else {
       const scaled = { ...recipe, ingredients: recipe.ingredients.map((g) => ({ ...g, quantity: scaleQuantity(g.quantity, factor) })) };
-      await saveList(uid, mergeIntoList(list || null, [scaled]));
+      await editList(uid, (l) => ({ ...l, ...mergeIntoList(l, [scaled]) }));
       toast(`${recipe.ingredients.length} items added to groceries`, 'cart');
     }
   };
@@ -211,7 +211,7 @@ function Ready({ recipe, uid, household }: { recipe: Recipe; uid: string; househ
           <div className="menu">
             <p className="menu__ask">Delete “{recipe.title}”? This can’t be undone.</p>
             <button className="btn btn--danger btn--block" onClick={async () => {
-              if (inList && list) await saveList(uid, removeRecipeFromList(list, recipe.id));
+              if (inList && list) await editList(uid, (l) => ({ ...l, ...removeRecipeFromList(l, recipe.id) }));
               await deleteRecipe(uid, recipe.id);
               setMenu(false);
               toast('Recipe deleted', 'trash');
