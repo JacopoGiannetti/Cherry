@@ -208,4 +208,4 @@ async function importInto(uid, url) {
   return { id, existing: false };
 }
 
-module.exports = { importInto, readRecipe, recipeDoc, recipeIdFor, WEB_SECTIONS };
+module.exports = { importInto, readRecipe, recipeDoc, recipeIdFor, findEmbed, WEB_SECTIONS };

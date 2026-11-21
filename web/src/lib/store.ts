@@ -4,7 +4,30 @@ import {
   collection, doc, onSnapshot, orderBy, query, setDoc, deleteDoc, updateDoc, serverTimestamp,
 } from 'firebase/firestore';
 import { db, onUser, completeRedirectSignIn } from './firebase';
-import type { GroceryList, Recipe } from './types';
+import type { Embed, GroceryList, Recipe } from './types';
+
+/**
+ * Le ricette salvate dall'app iOS non hanno `status` né `embed`: sono pronte,
+ * e il video si ricava dal link del post (i link corti TikTok li risolve il backend).
+ */
+export function embedFromUrl(url?: string): Embed | undefined {
+  if (!url) return undefined;
+  const ig = url.match(/instagram\.com\/(?:reel|reels|p|tv)\/([A-Za-z0-9_-]+)/i);
+  if (ig) return { type: 'instagram', shortcode: ig[1] };
+  const tt = url.match(/tiktok\.com\/.*?\/(?:video|photo)\/(\d{8,})/i) || url.match(/[?&]item_id=(\d{8,})/);
+  if (tt) return { type: 'tiktok', postId: tt[1] };
+  return undefined;
+}
+
+function normalize(id: string, data: any): Recipe {
+  const r = { id, ...data } as Recipe;
+  if (!r.status) r.status = 'ready';
+  if (!r.embed) r.embed = embedFromUrl(r.sourceUrl);
+  if (!r.platform && r.sourceUrl) r.platform = /tiktok/i.test(r.sourceUrl) ? 'tiktok' : /instagram|instagr\.am/i.test(r.sourceUrl) ? 'instagram' : undefined;
+  r.ingredients = r.ingredients || [];
+  r.steps = r.steps || [];
+  return r;
+}
 import demoRecipe from './demo.json';
 
 // ---------- Solo in sviluppo: /app/?mock apre l'app con dati finti, senza account ----------
@@ -99,7 +122,7 @@ export function useRecipes(uid?: string) {
     if (!uid || MOCK) return;
     const q = query(collection(db, 'users', uid, 'savedRecipes'), orderBy('createdAt', 'desc'));
     return onSnapshot(q, (snap) => {
-      setRecipes(snap.docs.map((d) => ({ id: d.id, ...(d.data() as any) })).filter((r) => r.origin === 'imported' || r.status));
+      setRecipes(snap.docs.map((d) => normalize(d.id, d.data())).filter((r) => !(r as any).preset));
     }, () => setRecipes([]));
   }, [uid]);
   return recipes;
@@ -110,7 +133,7 @@ export function useRecipe(uid: string | undefined, id: string) {
   useEffect(() => {
     if (!uid || MOCK) return;
     return onSnapshot(doc(db, 'users', uid, 'savedRecipes', id), (snap) => {
-      setRecipe(snap.exists() ? ({ id: snap.id, ...(snap.data() as any) }) : null);
+      setRecipe(snap.exists() ? normalize(snap.id, snap.data()) : null);
     }, () => setRecipe(null));
   }, [uid, id]);
   return recipe;

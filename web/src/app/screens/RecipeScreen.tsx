@@ -4,7 +4,7 @@ import { useLocation } from 'wouter';
 import { Icon } from '../../components/Icon';
 import { toast } from '../../components/Toast';
 import { deleteRecipe, saveList, setFavorite, useList, useRecipe, useSession } from '../../lib/store';
-import { importRecipe } from '../../lib/api';
+import { importRecipe, resolveEmbed } from '../../lib/api';
 import { mergeIntoList, minutes, removeRecipeFromList, scaleQuantity } from '../../lib/kitchen';
 import type { Recipe } from '../../lib/types';
 
@@ -103,6 +103,11 @@ function Ready({ recipe, uid, household }: { recipe: Recipe; uid: string; househ
   const inList = !!list?.recipeIds?.includes(recipe.id);
   const [confirmDelete, setConfirmDelete] = useState(false);
   const hasVideo = (recipe.segments?.length || 0) >= 2;
+
+  // Ricette dall'app iOS con link TikTok corto: il video lo ricava il backend, una volta sola.
+  useEffect(() => {
+    if (!recipe.embed && recipe.sourceUrl && /tiktok/i.test(recipe.sourceUrl)) resolveEmbed(recipe.id).catch(() => {});
+  }, [recipe.id, recipe.embed]);
 
   const toggleList = async () => {
     navigator.vibrate?.(10);

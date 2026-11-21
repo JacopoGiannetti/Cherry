@@ -9,7 +9,7 @@ const { verifyFirebaseUser } = require('../lib/middleware');
 const { checkQuota, consumeQuota } = require('../lib/rate-limit');
 const { requireEntitlement, isEntitled } = require('../lib/entitlement');
 const crypto = require('crypto');
-const { importInto, readRecipe, recipeDoc } = require('../lib/web-import');
+const { importInto, readRecipe, recipeDoc, findEmbed } = require('../lib/web-import');
 const { detectPlatform } = require('../services/social-video');
 
 const router = express.Router();
@@ -141,6 +141,27 @@ router.post('/import', express.json(), requireEntitlement, async (req, res) => {
   } catch (e) {
     console.error('[web] import:', e.message);
     res.status(500).json({ error: 'import_failed', message: 'Could not start the import. Try again.' });
+  }
+});
+
+// ---------- Video di una ricetta salvata dall'app iOS ----------
+// Quelle ricette hanno solo il link del post: per i link corti TikTok
+// (vm.tiktok.com) serve seguire il rimando per sapere quale video mostrare.
+router.post('/recipes/:id/embed', async (req, res) => {
+  try {
+    const ref = db().doc(`users/${req.uid}/savedRecipes/${req.params.id}`);
+    const snap = await ref.get();
+    if (!snap.exists) return res.status(404).json({ error: 'not_found' });
+    if (snap.get('embed')) return res.json({ embed: snap.get('embed') });
+    const url = snap.get('sourceUrl');
+    const platform = detectPlatform(url || '');
+    if (!url || platform === 'unknown') return res.json({ embed: null });
+    const embed = await findEmbed(url, platform);
+    if (embed) await ref.update({ embed });
+    res.json({ embed: embed || null });
+  } catch (e) {
+    console.error('[web] embed:', e.message);
+    res.status(500).json({ error: 'embed_failed' });
   }
 });
 
