@@ -346,3 +346,23 @@ export function loadAnswers(): Answers {
 export function saveAnswers(a: Answers) {
   try { localStorage.setItem(KEY, JSON.stringify(a)); } catch { /* privato */ }
 }
+
+// ---------- Come il modello scrive le ricette: lingua e misure ----------
+
+export type RecipePrefs = { language: string; units: 'us' | 'metric' };
+export const LANGUAGES: [string, string, string][] = [
+  ['en', 'English', '🇺🇸'], ['it', 'Italiano', '🇮🇹'], ['es', 'Español', '🇪🇸'],
+  ['fr', 'Français', '🇫🇷'], ['de', 'Deutsch', '🇩🇪'], ['pt', 'Português', '🇧🇷'],
+];
+
+export function recipePrefsOf(d: Record<string, any> | null): RecipePrefs {
+  const language = d?.recipePrefs?.language || 'en';
+  const units = d?.recipePrefs?.units || (language === 'en' ? 'us' : 'metric');
+  return { language, units };
+}
+
+export async function setRecipePrefs(uid: string, prefs: Partial<RecipePrefs>) {
+  if (MOCK) { session = { ...session, doc: { ...session.doc, recipePrefs: { ...recipePrefsOf(session.doc), ...prefs } } }; emit(); return; }
+  const cur = recipePrefsOf(session.doc);
+  await setDoc(doc(db, 'users', uid), { recipePrefs: { ...cur, ...prefs } }, { merge: true });
+}

@@ -30,6 +30,14 @@ const webSchema = (() => {
 })();
 
 const PROFILE = { dietaryIdentity: 'omnivore', language: 'en', units: 'us', currency: 'USD' };
+const LANGS = ['en', 'it', 'es', 'fr', 'de', 'pt'];
+
+/** Lingua e misure scelte nell'account: il modello scrive la ricetta così. */
+function profileFor(prefs = {}) {
+  const language = LANGS.includes(prefs.language) ? prefs.language : 'en';
+  const units = prefs.units === 'metric' || prefs.units === 'us' ? prefs.units : (language === 'en' ? 'us' : 'metric');
+  return { ...PROFILE, language, units, currency: language === 'en' ? 'USD' : 'EUR' };
+}
 
 function userError(code, message) {
   return Object.assign(new Error(message), { code, userMessage: message });
@@ -51,8 +59,10 @@ function recipeIdFor(url) {
   return 'w' + crypto.createHash('sha256').update(normalizeUrl(url)).digest('hex').slice(0, 24);
 }
 
-function cacheKey(url) {
-  return crypto.createHash('sha256').update(`web::${normalizeUrl(url)}::en`).digest('hex');
+function cacheKey(url, profile = PROFILE) {
+  // In inglese con misure US la chiave resta quella di prima: la cache esistente vale ancora.
+  const variant = profile.language === 'en' && profile.units === 'us' ? 'en' : `${profile.language}-${profile.units}`;
+  return crypto.createHash('sha256').update(`web::${normalizeUrl(url)}::${variant}`).digest('hex');
 }
 
 // ---------- Il video da mostrare ----------
@@ -82,11 +92,11 @@ async function findEmbed(url, platform) {
 
 // ---------- Estrazione ----------
 
-async function extract(url) {
+async function extract(url, profile = PROFILE) {
   const t0 = Date.now();
   const post = await resolve(url);
   const request = {
-    prompt: buildExtractionPrompt({ sourceType: 'video', caption: post.caption, profile: PROFILE, segments: true })
+    prompt: buildExtractionPrompt({ sourceType: 'video', caption: post.caption, profile, segments: true })
       + '\nAlso return the cuisine in 1-2 words.',
     schema: webSchema,
     temperature: 0.2,
@@ -129,15 +139,15 @@ async function extract(url) {
 }
 
 /** Link → { embed, entry }: dalla cache se c'è, altrimenti Gemini guarda il video. */
-async function readRecipe(url, onStage = () => {}) {
+async function readRecipe(url, onStage = () => {}, profile = PROFILE) {
   const platform = detectPlatform(url);
   const embed = await findEmbed(url, platform);
   if (!embed) throw userError('no_embed', "We couldn't find the video in that link.");
   await onStage('watching', embed);
-  const key = cacheKey(url);
+  const key = cacheKey(url, profile);
   let entry = await getCached('sourceRecipes', key);
   if (!entry) {
-    entry = await extract(url);
+    entry = await extract(url, profile);
     await setCached('sourceRecipes', key, entry);
   }
   return { embed, entry, platform };
@@ -187,8 +197,10 @@ async function importInto(uid, url) {
   }, { merge: false });
 
   (async () => {
+    const user = await db().doc(`users/${uid}`).get();
+    const profile = profileFor(user.get('recipePrefs') || {});
     const { entry } = await readRecipe(url, (stage, embed) =>
-      ref.update({ embed, importStage: stage, updatedAt: FieldValue.serverTimestamp() }));
+      ref.update({ embed, importStage: stage, updatedAt: FieldValue.serverTimestamp() }), profile);
     await ref.set({
       ...recipeDoc(entry),
       status: 'ready',
@@ -208,4 +220,5 @@ async function importInto(uid, url) {
   return { id, existing: false };
 }
 
-module.exports = { importInto, readRecipe, recipeDoc, recipeIdFor, findEmbed, WEB_SECTIONS };
+module.exports = {
+  profileFor, importInto, readRecipe, recipeDoc, recipeIdFor, findEmbed, WEB_SECTIONS };

@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { AnimatePresence, motion } from 'motion/react';
 import type { Recipe, Segment } from '../lib/types';
-import { fmtTime, scaleQuantity } from '../lib/kitchen';
+import { fmtTime, guessItem, scaleQuantity, section } from '../lib/kitchen';
 import { Icon } from './Icon';
 import { VideoPlayer, type PlayerHandle } from './VideoPlayer';
 
@@ -36,6 +36,8 @@ export function CookMode({ recipe, factor = 1, onClose, limit, onUnlock }: {
   const [paused, setPaused] = useState(false);
   const [muted, setMuted] = useState(true);
   const [videoFailed, setVideoFailed] = useState(false);
+  // Gli ingredienti del passo: chiusi sono solo emoji; aperti restano aperti anche nei passi dopo.
+  const [showIngs, setShowIngs] = useState(false);
   const player = useRef<PlayerHandle>(null);
   const ready = useRef(false);
   const scroller = useRef<HTMLDivElement>(null);
@@ -180,6 +182,9 @@ export function CookMode({ recipe, factor = 1, onClose, limit, onUnlock }: {
               {p.fromVideo && <span>{fmtTime(p.start)}</span>}
             </p>
             {p.title && <h2 className="cook__title display">{p.title}</h2>}
+            {p.ingredients.length > 0 && (
+              <StepIngredients recipe={recipe} ids={p.ingredients} factor={factor} open={showIngs} onToggle={() => setShowIngs((o) => !o)} />
+            )}
             <ol className="cook__steps">
               {p.steps.map((i) => (
                 <li key={i}>
@@ -188,20 +193,6 @@ export function CookMode({ recipe, factor = 1, onClose, limit, onUnlock }: {
                 </li>
               ))}
             </ol>
-            {p.ingredients.length > 0 && (
-              <div className="cook__ings">
-                {p.ingredients.map((i) => {
-                  const g = recipe.ingredients[i];
-                  return (
-                    <span key={i} className="cook__ing">
-                      {g.emoji && <span>{g.emoji}</span>}
-                      {g.name}
-                      {g.quantity && <em>{scaleQuantity(g.quantity, factor)}</em>}
-                    </span>
-                  );
-                })}
-              </div>
-            )}
           </article>
         ))}
         {locked && (
@@ -230,6 +221,41 @@ export function CookMode({ recipe, factor = 1, onClose, limit, onUnlock }: {
           </motion.button>
         </AnimatePresence>
       </footer>
+    </div>
+  );
+}
+
+const emojiOf = (g: Recipe['ingredients'][number]) => g.emoji || guessItem(g.name).emoji || section(g.storeSection).emoji;
+
+/** In cima al passo: le emoji di cosa serve. Si toccano e si aprono con nomi e quantità. */
+function StepIngredients({ recipe, ids, factor, open, onToggle }: {
+  recipe: Recipe; ids: number[]; factor: number; open: boolean; onToggle: () => void;
+}) {
+  const items = ids.map((i) => recipe.ingredients[i]).filter(Boolean);
+  return (
+    <div className={`step-ings ${open ? 'is-open' : ''}`}>
+      <button className="step-ings__bar" onClick={onToggle} aria-expanded={open}>
+        <span className="step-ings__emojis" aria-hidden="true">
+          {items.slice(0, 5).map((g, n) => <span key={n} className="step-ings__dot">{emojiOf(g)}</span>)}
+          {items.length > 5 && <span className="step-ings__dot step-ings__more">+{items.length - 5}</span>}
+        </span>
+        <span className="step-ings__label">{open ? 'Hide' : `${items.length} ingredient${items.length === 1 ? '' : 's'}`}</span>
+        <motion.span className="step-ings__chev" animate={{ rotate: open ? 180 : 0 }}><Icon name="down" size={16} stroke={2.6} /></motion.span>
+      </button>
+      <AnimatePresence initial={false}>
+        {open && (
+          <motion.ul className="step-ings__list" initial={{ height: 0, opacity: 0 }} animate={{ height: 'auto', opacity: 1 }} exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.24, ease: [0.2, 0.8, 0.2, 1] }}>
+            {items.map((g, n) => (
+              <motion.li key={n} initial={{ opacity: 0, y: -6 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.03 * n }}>
+                <span aria-hidden="true">{emojiOf(g)}</span>
+                <b>{g.name}</b>
+                {g.quantity && <em>{scaleQuantity(g.quantity, factor)}</em>}
+              </motion.li>
+            ))}
+          </motion.ul>
+        )}
+      </AnimatePresence>
     </div>
   );
 }

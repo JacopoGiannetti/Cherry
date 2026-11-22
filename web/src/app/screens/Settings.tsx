@@ -1,10 +1,11 @@
 import { useRef, useState } from 'react';
 import { useLocation } from 'wouter';
+import { motion } from 'motion/react';
 import { Icon } from '../../components/Icon';
 import { InstallGuide } from '../../components/InstallGuide';
 import { toast } from '../../components/Toast';
 import { Sheet, originOf, type Origin } from '../../components/Sheet';
-import { useSession } from '../../lib/store';
+import { LANGUAGES, recipePrefsOf, setRecipePrefs, useSession } from '../../lib/store';
 import { deleteAccount, openPortal } from '../../lib/api';
 import { signOut } from '../../lib/firebase';
 import { SUPPORT_EMAIL } from '../../lib/pwa';
@@ -12,11 +13,14 @@ import { SUPPORT_EMAIL } from '../../lib/pwa';
 export function Settings() {
   const { user, doc } = useSession();
   const [, navigate] = useLocation();
-  const [sheet, setSheet] = useState<'install' | 'delete' | null>(null);
+  const [sheet, setSheet] = useState<'install' | 'delete' | 'lang' | null>(null);
   const [from, setFrom] = useState<Origin>(null);
   const [busy, setBusy] = useState(false);
   const installBtn = useRef<HTMLButtonElement>(null);
   const deleteBtn = useRef<HTMLButtonElement>(null);
+  const langBtn = useRef<HTMLButtonElement>(null);
+  const prefs = recipePrefsOf(doc);
+  const lang = LANGUAGES.find(([c]) => c === prefs.language) || LANGUAGES[0];
   const stripe = doc?.stripe;
   const fromApple = !stripe?.status && doc?.subscription?.status === 'active';
   const date = stripe?.currentPeriodEnd ? new Date(stripe.currentPeriodEnd).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' }) : null;
@@ -54,6 +58,13 @@ export function Settings() {
         )}
       </div>
 
+      <p className="group-label">Recipes</p>
+      <div className="group">
+        <button ref={langBtn} className="group__row group__row--btn" onClick={() => { setFrom(originOf(langBtn.current)); setSheet('lang'); }}>
+          <span>Language</span><em>{lang[2]} {lang[1]} · {prefs.units === 'metric' ? 'Metric' : 'US'}</em><Icon name="next" size={18} />
+        </button>
+      </div>
+
       <p className="group-label">App</p>
       <div className="group">
         <button ref={installBtn} className="group__row group__row--btn" onClick={() => { setFrom(originOf(installBtn.current)); setSheet('install'); }}>
@@ -73,6 +84,31 @@ export function Settings() {
 
       <Sheet open={sheet === 'install'} onClose={() => setSheet(null)} from={from} label="Add to Home Screen">
         <div className="sheet__pad"><InstallGuide compact onDone={() => setSheet(null)} /></div>
+      </Sheet>
+      <Sheet open={sheet === 'lang'} onClose={() => setSheet(null)} from={from} label="Recipe language">
+        <div className="add">
+          <h2 className="add__title">Recipe language</h2>
+          <p className="add__lead">Cherry writes your next recipes in this language, translating from the video. Recipes you already saved stay as they are.</p>
+          <div className="langs" role="radiogroup" aria-label="Language">
+            {LANGUAGES.map(([code, name, flag]) => (
+              <button key={code} role="radio" aria-checked={prefs.language === code} className={`langs__row ${prefs.language === code ? 'is-on' : ''}`}
+                onClick={() => { navigator.vibrate?.(6); setRecipePrefs(user!.uid, { language: code, units: code === 'en' ? 'us' : 'metric' }); }}>
+                <span aria-hidden="true">{flag}</span>{name}
+                {prefs.language === code && <motion.span layoutId="lang-on" className="langs__tick"><Icon name="check" size={16} stroke={2.8} /></motion.span>}
+              </button>
+            ))}
+          </div>
+          <p className="group-label" style={{ marginTop: 10 }}>Measurements</p>
+          <div className="rseg rseg--flat" role="radiogroup" aria-label="Measurements">
+            {(['metric', 'us'] as const).map((u) => (
+              <button key={u} role="radio" aria-checked={prefs.units === u} className={prefs.units === u ? 'is-on' : ''} onClick={() => setRecipePrefs(user!.uid, { units: u })}>
+                {prefs.units === u && <motion.span layoutId="units-on" className="rseg__bg" transition={{ type: 'spring', stiffness: 500, damping: 40 }} />}
+                <span>{u === 'metric' ? 'Metric · g, ml' : 'US · cups, oz'}</span>
+              </button>
+            ))}
+          </div>
+          <button className="btn btn--cherry btn--block" style={{ marginTop: 8 }} onClick={() => setSheet(null)}>Done</button>
+        </div>
       </Sheet>
       <Sheet open={sheet === 'delete'} onClose={() => setSheet(null)} from={from} label="Delete account">
         <div className="menu">

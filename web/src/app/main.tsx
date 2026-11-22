@@ -32,13 +32,26 @@ function Boot() {
 }
 
 /** Le stanze dell'app: servono login e abbonamento. */
-function Member({ children, tabs = true }: { children: React.ReactNode; tabs?: boolean }) {
+function Member({ children }: { children: React.ReactNode; tabs?: boolean }) {
   const s = useSession();
   const [location] = useLocation();
   if (!s.ready) return <Boot />;
   if (!s.user) return <Redirect to={`/start${location === '/' ? '' : `?next=${encodeURIComponent(location)}`}`} />;
   if (!s.entitled) return <Redirect to="/join" />;
-  return <>{children}{tabs && <TabBar />}</>;
+  return <>{children}</>;
+}
+
+/**
+ * Una sola barra per tutta l'app, fuori dalle pagine: cambiando schermata non
+ * viene smontata e ridisegnata (e non entra nella dissolvenza tra pagine),
+ * si sposta solo l'indicatore.
+ */
+const TAB_ROUTES = ['/', '/list', '/settings', '/add'];
+function Tabs() {
+  const s = useSession();
+  const [location] = useLocation();
+  if (!s.ready || !s.user || !s.entitled || !TAB_ROUTES.includes(location)) return null;
+  return <TabBar />;
 }
 
 function ScrollTop() {
@@ -77,6 +90,7 @@ function App() {
           <Route><Redirect to="/" /></Route>
         </Switch>
       </div>
+      <Tabs />
       <ToastHost />
     </Router>
   );

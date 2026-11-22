@@ -355,3 +355,41 @@ body { background: var(--app-bg); overscroll-behavior-y: none; }
 .promo__text span { font-size: 13.5px; opacity: .7; line-height: 1.35; }
 .promo svg { opacity: .6; flex: none; }
 .cook__wait { width: 100%; height: 100%; display: grid; place-items: center; background: #000; }
+
+/* ---------- Lingua delle ricette ---------- */
+.group__row em + svg { margin-left: -4px; }
+.langs { display: grid; background: var(--surface); border-radius: 18px; overflow: hidden; box-shadow: 0 0 0 1px var(--hair); }
+.langs__row { position: relative; display: flex; align-items: center; gap: 12px; height: 52px; padding: 0 16px; font-weight: 500; text-align: left; }
+.langs__row + .langs__row { border-top: 1px solid var(--hair); }
+.langs__row > span:first-child { font-size: 20px; }
+.langs__row.is-on { font-weight: 700; }
+.langs__tick { margin-left: auto; width: 26px; height: 26px; border-radius: 50%; background: var(--ink); color: var(--white); display: grid; place-items: center; }
+.rseg--flat { margin: 0 0 6px; }
+.group__row em { margin-left: auto; }
+
+/* La barra in basso resta ferma durante il passaggio tra pagine. */
+.tabbar { view-transition-name: tabbar; }
+::view-transition-group(tabbar), ::view-transition-old(tabbar), ::view-transition-new(tabbar) { animation: none; }
+::view-transition-old(tabbar) { display: none; }
+
+/* ---------- Cook mode: ingredienti del passo, in cima ---------- */
+.step-ings { margin: -4px 0 18px; }
+.step-ings__bar { display: inline-flex; align-items: center; gap: 10px; height: 44px; padding: 0 12px 0 6px; border-radius: 999px; background: rgba(244, 238, 228, .08); box-shadow: inset 0 0 0 1px rgba(244, 238, 228, .1); color: var(--paper); transition: background var(--quick), transform var(--press) var(--ease); }
+.step-ings__bar:active { transform: scale(.97); }
+.step-ings.is-open .step-ings__bar { background: rgba(244, 238, 228, .14); }
+.step-ings__emojis { display: flex; padding-left: 2px; }
+.step-ings__dot { width: 32px; height: 32px; border-radius: 50%; display: grid; place-items: center; font-size: 17px; background: #2A2020; box-shadow: 0 0 0 2px var(--ink); }
+.step-ings__more { font-size: 11px; font-weight: 700; margin-left: -6px; }
+.step-ings__label { font-size: 14px; font-weight: 600; }
+.step-ings__chev { display: grid; opacity: .6; }
+.step-ings__list { display: grid; gap: 0; margin-top: 8px; overflow: hidden; border-radius: 18px; background: rgba(244, 238, 228, .06); }
+.step-ings__list li { display: flex; align-items: center; gap: 12px; padding: 11px 14px; font-size: 15.5px; }
+.step-ings__list li + li { border-top: 1px solid rgba(244, 238, 228, .08); }
+.step-ings__list li > span { font-size: 19px; width: 24px; text-align: center; }
+.step-ings__list b { font-weight: 600; flex: 1; }
+.step-ings__list b::first-letter { text-transform: uppercase; }
+.step-ings__list em { font-style: normal; opacity: .6; font-size: 14px; text-align: right; }
+
+.step-ings__dot + .step-ings__dot { margin-left: -7px; }
+.step-ings__more { margin-left: -7px; }
+.step-ings__label { white-space: nowrap; }
