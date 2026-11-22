@@ -360,7 +360,7 @@ function Footer() {
   return (
     <footer className="footer">
       <Logo size={26} />
-      <nav><a href="/privacy">Privacy</a><a href="/terms">Terms</a><a href="mailto:support@hellovego.com">Support</a><SignIn /></nav>
+      <nav><a href="/privacy">Privacy</a><a href="/terms">Terms</a><a href="mailto:support@hellocherry.app">Support</a><SignIn /></nav>
       <small>© {new Date().getFullYear()} Cherry is a product of <b>Jacopo Giannetti</b>, Italy. Not affiliated with TikTok or Instagram.</small>
     </footer>
   );

@@ -1,7 +1,7 @@
 // Cherry vive fuori dall'App Store: l'installazione sulla Home è ciò che
 // la fa sentire un'app (icona, schermo intero, niente barra di Safari).
 
-export const SUPPORT_EMAIL = 'support@hellovego.com';
+export const SUPPORT_EMAIL = 'support@hellocherry.app';
 
 let deferred: any = null;
 window.addEventListener('beforeinstallprompt', (e) => {

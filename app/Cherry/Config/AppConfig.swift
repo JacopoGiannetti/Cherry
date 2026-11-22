@@ -30,8 +30,8 @@ enum AppConfig {
     enum Legal {
         static let privacyURL = URL(string: "https://hellovego.com/cherry/privacy")!
         static let termsURL = URL(string: "https://hellovego.com/cherry/terms")!
-        static let supportEmail = "support@hellovego.com"
-        static let privacyEmail = "privacy@hellovego.com"
+        static let supportEmail = "support@hellocherry.app"
+        static let privacyEmail = "privacy@hellocherry.app"
 
         /// mailto con oggetto già compilato: chi scrive non deve spiegare
         /// da dove arriva.
