@@ -60,3 +60,6 @@ export type GroceryList = {
 
 /** Una spesa fatta: gli articoli spuntati, archiviati quando chiudi la spesa. */
 export type Trip = { id: string; at: number; items: GroceryItem[]; recipeIds: string[] };
+
+/** Una categoria del ricettario, creata da te. */
+export type Category = { id: string; name: string; emoji?: string; recipeIds: string[]; createdAt?: number };

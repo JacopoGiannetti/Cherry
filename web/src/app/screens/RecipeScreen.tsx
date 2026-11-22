@@ -4,7 +4,8 @@ import { useLocation } from 'wouter';
 import { Icon } from '../../components/Icon';
 import { toast } from '../../components/Toast';
 import { Sheet, originOf, type Origin } from '../../components/Sheet';
-import { deleteRecipe, editList, setFavorite, setRecipePhoto, useList, useRecipe, useSession } from '../../lib/store';
+import { deleteRecipe, editList, saveCategory, setFavorite, setInCategory, setRecipePhoto, useCategories, useList, useRecipe, useSession } from '../../lib/store';
+import { CategoryChooser, CategoryForm } from '../../components/Categories';
 import { uploadPhoto } from '../../lib/upload';
 import { importRecipe, refreshCover, resolveEmbed } from '../../lib/api';
 import { mergeIntoList, minutes, removeRecipeFromList, scaleQuantity } from '../../lib/kitchen';
@@ -98,6 +99,9 @@ function Ready({ recipe, uid, household }: { recipe: Recipe; uid: string; househ
   const [menu, setMenu] = useState(false);
   const [confirm, setConfirm] = useState(false);
   const [coverBusy, setCoverBusy] = useState(false);
+  const categories = useCategories(uid);
+  const [catView, setCatView] = useState<'list' | 'new' | null>(null);
+  const inCats = (categories || []).filter((c) => c.recipeIds.includes(recipe.id));
   const photoInput = useRef<HTMLInputElement>(null);
   const ownPhoto = async (file?: File) => {
     if (!file) return;
@@ -218,6 +222,19 @@ function Ready({ recipe, uid, household }: { recipe: Recipe; uid: string; househ
         </button>
       </div>
 
+      <Sheet open={catView !== null} onClose={() => setCatView(null)} from={from} label="Categories">
+        {catView === 'new' ? (
+          <CategoryForm onSave={async (name, emoji) => {
+            const id = await saveCategory(uid, { name, emoji, recipeIds: [recipe.id] });
+            if (categories?.some((c) => c.id === id)) await setInCategory(uid, id, recipe.id, true);
+            setCatView('list');
+            toast(`Added to ${name}`, 'check');
+          }} />
+        ) : (
+          <CategoryChooser categories={categories || []} recipeId={recipe.id} onNew={() => setCatView('new')}
+            onToggle={(cid, on) => setInCategory(uid, cid, recipe.id, on).catch((e) => toast(e.message, 'close'))} />
+        )}
+      </Sheet>
       <Sheet open={menu} onClose={() => { setMenu(false); setConfirm(false); }} from={from} label="Recipe options">
         {!confirm ? (
           <div className="menu">
@@ -226,6 +243,9 @@ function Ready({ recipe, uid, household }: { recipe: Recipe; uid: string; househ
                 <Icon name="external" size={19} /> Open the original on {recipe.platform === 'instagram' || /instagr/i.test(recipe.sourceUrl) ? 'Instagram' : 'TikTok'}
               </a>
             )}
+            <button className="menu__row" onClick={() => { setMenu(false); setCatView('list'); }}>
+              <Icon name="flag" size={19} /> {inCats.length ? `In ${inCats.map((c) => c.name).join(', ')}` : 'Add to a category'}
+            </button>
             <button className="menu__row" onClick={() => { setMenu(false); navigate(`/r/${recipe.id}/edit`); }}>
               <Icon name="pencil" size={19} /> Edit recipe
             </button>

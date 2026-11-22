@@ -1,10 +1,10 @@
 import { useCallback, useSyncExternalStore } from 'react';
 import type { User } from 'firebase/auth';
 import {
-  collection, doc, onSnapshot, orderBy, query, setDoc, deleteDoc, updateDoc, serverTimestamp, limit, getDoc, runTransaction,
+  collection, doc, onSnapshot, orderBy, query, setDoc, deleteDoc, updateDoc, serverTimestamp, limit, getDoc, runTransaction, arrayUnion, arrayRemove,
 } from 'firebase/firestore';
 import { db, onUser, completeRedirectSignIn } from './firebase';
-import type { Embed, GroceryList, Recipe, Trip } from './types';
+import type { Category, Embed, GroceryList, Recipe, Trip } from './types';
 
 /**
  * Le ricette salvate dall'app iOS non hanno `status` né `embed`: sono pronte,
@@ -391,4 +391,52 @@ export async function setRecipePrefs(uid: string, prefs: Partial<RecipePrefs>) {
   if (MOCK) { session = { ...session, doc: { ...session.doc, recipePrefs: { ...recipePrefsOf(session.doc), ...prefs } } }; emit(); return; }
   const cur = recipePrefsOf(session.doc);
   await setDoc(doc(db, 'users', uid), { recipePrefs: { ...cur, ...prefs } }, { merge: true });
+}
+
+
+// ---------- Categorie: raccolte tue di ricette (nome, emoji, ricette dentro) ----------
+
+let mockCategories: Category[] = [
+  { id: 'c1', name: 'Weeknights', emoji: '🌙', recipeIds: ['m2', 'm4'], createdAt: 1 },
+  { id: 'c2', name: 'Date night', emoji: '🕯️', recipeIds: ['demo'], createdAt: 2 },
+];
+
+export function useCategories(uid?: string): Category[] | null {
+  const mock = useSyncExternalStore(mockSub, () => mockCategories);
+  const live = useFeed<Category[] | null>(!MOCK && uid ? `categories:${uid}` : null, null, (set) =>
+    onSnapshot(query(collection(db, 'users', uid!, 'collections'), orderBy('createdAt', 'asc')),
+      (snap) => set(snap.docs.map((d) => ({ id: d.id, recipeIds: [], ...d.data() }) as unknown as Category)), () => set([])));
+  return MOCK ? mock : live;
+}
+
+/** Crea o rinomina. Restituisce l'id. */
+export async function saveCategory(uid: string, data: { id?: string; name: string; emoji?: string; recipeIds?: string[] }) {
+  const id = data.id || 'c' + crypto.randomUUID().replace(/-/g, '').slice(0, 16);
+  const patch: Partial<Category> = { name: data.name.trim().slice(0, 40), emoji: data.emoji || '' };
+  if (data.recipeIds) patch.recipeIds = data.recipeIds;
+  if (MOCK) {
+    const cur = mockCategories.find((c) => c.id === id);
+    mockCategories = cur ? mockCategories.map((c) => (c.id === id ? { ...c, ...patch } : c)) : [...mockCategories, { id, recipeIds: [], createdAt: Date.now(), ...patch } as Category];
+    mockEmit();
+    return id;
+  }
+  await setDoc(doc(db, 'users', uid, 'collections', id), {
+    ...patch, ...(data.id ? {} : { createdAt: Date.now(), recipeIds: data.recipeIds || [] }), updatedAt: serverTimestamp(),
+  }, { merge: true });
+  return id;
+}
+
+export async function deleteCategory(uid: string, id: string) {
+  if (MOCK) { mockCategories = mockCategories.filter((c) => c.id !== id); mockEmit(); return; }
+  await deleteDoc(doc(db, 'users', uid, 'collections', id));
+}
+
+/** Mette o toglie una ricetta da una categoria (le altre ricette dentro non si toccano). */
+export async function setInCategory(uid: string, categoryId: string, recipeId: string, on: boolean) {
+  if (MOCK) {
+    mockCategories = mockCategories.map((c) => (c.id !== categoryId ? c : { ...c, recipeIds: on ? [...new Set([...c.recipeIds, recipeId])] : c.recipeIds.filter((r) => r !== recipeId) }));
+    mockEmit();
+    return;
+  }
+  await updateDoc(doc(db, 'users', uid, 'collections', categoryId), { recipeIds: on ? arrayUnion(recipeId) : arrayRemove(recipeId), updatedAt: serverTimestamp() });
 }
