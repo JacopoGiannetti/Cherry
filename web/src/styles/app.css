@@ -393,3 +393,7 @@ body { background: var(--app-bg); overscroll-behavior-y: none; }
 .step-ings__dot + .step-ings__dot { margin-left: -7px; }
 .step-ings__more { margin-left: -7px; }
 .step-ings__label { white-space: nowrap; }
+
+/* Ricetta senza foto: si riprende la copertina dal video. */
+.recipe__cover-btn { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); white-space: nowrap; z-index: 1; }
+.menu__row.is-busy { opacity: .6; }

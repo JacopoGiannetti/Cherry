@@ -11,6 +11,8 @@ const { requireEntitlement, isEntitled } = require('../lib/entitlement');
 const crypto = require('crypto');
 const { importInto, readRecipe, recipeDoc, findEmbed } = require('../lib/web-import');
 const { detectPlatform, resolve: resolveSocial } = require('../services/social-video');
+const { persistImage } = require('../services/storage');
+const axios = require('axios');
 
 const router = express.Router();
 const stripe = () => {
@@ -190,6 +192,60 @@ router.get('/recipes/:id/video', requireEntitlement, async (req, res) => {
   } catch (e) {
     console.error('[web] video:', e.message);
     res.status(502).json({ error: 'video_failed' });
+  }
+});
+
+// Riprova la copertina della ricetta dal post: per Instagram prima la pagina
+// embed pubblica (gratis), altrimenti il servizio dell'import.
+// Va in un file nuovo su Storage: il vecchio resterebbe in cache nel browser.
+const PAGE_UA = 'Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.0 Mobile/15E148 Safari/604.1';
+
+async function freeCover(url, platform, embed) {
+  try {
+    // TikTok non mette la copertina nelle pagine pubbliche (e l'oEmbed non la dà più).
+    if (platform === 'instagram' && embed?.shortcode) {
+      const r = await axios.get(`https://www.instagram.com/p/${embed.shortcode}/embed/captioned/`, {
+        timeout: 10000, headers: { 'User-Agent': PAGE_UA }, responseType: 'text',
+      });
+      const m = String(r.data).match(/display_url\\*":\\*"((?:[^"\\]|\\.)*?)\\*"/)
+        || String(r.data).match(/class="EmbeddedMediaImage"[^>]*src="([^"]+)"/);
+      let u = m && m[1];
+      for (let i = 0; u && u.includes('\\') && i < 3; i++) u = JSON.parse(`"${u}"`);
+      return u ? u.replace(/&amp;/g, '&') : null;
+    }
+  } catch (e) {
+    console.log(`[web] copertina gratuita non trovata (${platform}): ${e.message}`);
+  }
+  return null;
+}
+
+router.post('/recipes/:id/cover', requireEntitlement, async (req, res) => {
+  try {
+    const ref = db().doc(`users/${req.uid}/savedRecipes/${req.params.id}`);
+    const snap = await ref.get();
+    if (!snap.exists) return res.status(404).json({ error: 'not_found', message: 'Recipe not found.' });
+    const url = snap.get('sourceUrl') || '';
+    const platform = detectPlatform(url);
+    if (platform === 'unknown') return res.status(400).json({ error: 'no_source', message: 'This recipe has no video link.' });
+
+    const code = (url.match(/\/(?:reel|reels|p|tv)\/([A-Za-z0-9_-]+)/) || [])[1];
+    const embed = snap.get('embed') || (platform === 'instagram' && code ? { shortcode: code } : null);
+    let remote = await freeCover(url, platform, embed);
+    if (!remote) {
+      if (!(await checkQuota(req.uid, 'jobs'))) {
+        return res.status(429).json({ error: 'daily_limit', message: 'Try again tomorrow.' });
+      }
+      remote = (await resolveSocial(url)).thumbnail || null;
+    }
+    if (!remote) return res.status(404).json({ error: 'no_cover', message: 'We couldn’t find a cover for this video.' });
+
+    const kept = await persistImage(remote, `covers/${req.uid}/${req.params.id}-${Date.now()}.jpg`).catch(() => null);
+    if (!kept) return res.status(502).json({ error: 'cover_failed', message: 'We couldn’t save the cover. Try again.' });
+    await ref.update({ imageUrl: kept, updatedAt: FieldValue.serverTimestamp() });
+    res.json({ imageUrl: kept });
+  } catch (e) {
+    console.error('[web] cover:', e.message);
+    res.status(500).json({ error: 'cover_failed', message: 'We couldn’t get the cover. Try again.' });
   }
 });
 

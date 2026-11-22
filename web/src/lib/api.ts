@@ -35,6 +35,7 @@ export const deleteAccount = () => api('/account/delete', {});
 import type { Recipe } from './types';
 export const startPreview = (url: string) => api<{ id: string }>('/preview', { url });
 export const getPreview = (id: string) => api<{ status: 'running' | 'done' | 'error'; stage: string; recipe: Recipe | null; error: string | null }>(`/preview/${id}`);
+export const refreshCover = (id: string) => api<{ imageUrl: string }>(`/recipes/${id}/cover`, {});
 export const resolveEmbed = (id: string) => api<{ embed: import('./types').Embed | null }>(`/recipes/${id}/embed`, {});
 
 /**
