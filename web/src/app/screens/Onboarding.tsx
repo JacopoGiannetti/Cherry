@@ -7,6 +7,7 @@ import { GoogleButton } from '../../components/GoogleButton';
 import { LoopDemo } from '../../components/LoopDemo';
 import { useSession } from '../../lib/store';
 import { signInWithGoogle } from '../../lib/firebase';
+import { once, track } from '../../lib/meta';
 import { getPreview, saveProfile, startPreview } from '../../lib/api';
 import { DEMO_URL, derive, HOME_USD, loadFunnel, saveFunnel, TAKEOUT_USD, type Funnel } from '../../lib/funnel';
 import { extractLink, minutes } from '../../lib/kitchen';
@@ -72,6 +73,7 @@ export function Onboarding() {
         household: String(f.household), cookingFrequency: String(f.nights),
         goals: f.blockers, saveHabit: `${f.cooked}/${f.saved}`, completed: true,
       }).catch(() => {});
+      once(`reg-${user.uid}`, () => track('CompleteRegistration', { status: true, content_name: 'Cherry account' }, `reg_${user.uid}`));
       navigate('/join');
     }
   }, [ready, user, entitled, name]);

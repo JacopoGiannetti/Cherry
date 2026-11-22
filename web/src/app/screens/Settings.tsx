@@ -9,6 +9,7 @@ import { LANGUAGES, recipePrefsOf, setRecipePrefs, useSession } from '../../lib/
 import { deleteAccount, openPortal } from '../../lib/api';
 import { signOut } from '../../lib/firebase';
 import { SUPPORT_EMAIL } from '../../lib/pwa';
+import { setConsent } from '../../lib/meta';
 
 export function Settings() {
   const { user, doc } = useSession();
@@ -71,6 +72,7 @@ export function Settings() {
           <span>Add to Home Screen</span><Icon name="next" size={18} />
         </button>
         <a className="group__row group__row--btn" href={`mailto:${SUPPORT_EMAIL}`}><span>Help & feedback</span><Icon name="next" size={18} /></a>
+        <button className="group__row group__row--btn" onClick={() => { setConsent(null); toast('Choose again in the banner below', 'check'); }}><span>Cookie preferences</span><Icon name="next" size={18} /></button>
         <a className="group__row group__row--btn" href="/privacy"><span>Privacy Policy</span><Icon name="external" size={16} /></a>
         <a className="group__row group__row--btn" href="/terms"><span>Terms of Service</span><Icon name="external" size={16} /></a>
       </div>

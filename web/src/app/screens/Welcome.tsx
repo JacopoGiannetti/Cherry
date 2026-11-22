@@ -7,6 +7,7 @@ import { InstallGuide } from '../../components/InstallGuide';
 import { Icon } from '../../components/Icon';
 import { SUPPORT_EMAIL } from '../../lib/pwa';
 import { loadFunnel } from '../../lib/funnel';
+import { once, track } from '../../lib/meta';
 
 /** Ritorno da Stripe: si conferma l'abbonamento, festa, poi l'app sulla Home. */
 export function Welcome() {
@@ -24,7 +25,14 @@ export function Welcome() {
     if (!session) { navigate('/join'); return; }
     let tries = 0;
     const attempt = () => confirmCheckout(session)
-      .then((r) => { if (!r.entitled && ++tries < 6) setTimeout(attempt, 1500); else if (!r.entitled) setStage('error'); })
+      .then((r) => {
+        if (r.entitled && r.value) {
+          // Stesso id della Conversions API (la Checkout Session): Meta tiene un solo acquisto.
+          const p = { value: r.value, currency: (r.currency || 'usd').toUpperCase(), content_name: `Cherry ${r.plan || ''}`.trim() };
+          once(`buy-${session}`, () => { track('Purchase', p, session); track('Subscribe', { ...p, predicted_ltv: p.value }, session); });
+        }
+        if (!r.entitled && ++tries < 6) setTimeout(attempt, 1500); else if (!r.entitled) setStage('error');
+      })
       .catch(() => { if (++tries < 6) setTimeout(attempt, 1500); else setStage('error'); });
     attempt();
   }, [user, entitled]);

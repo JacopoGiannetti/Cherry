@@ -7,6 +7,8 @@ import { Icon, Logo } from '../components/Icon';
 import { LoopDemo } from '../components/LoopDemo';
 import { getPlans, money, type Plan } from '../lib/plans';
 import { onUser, signInWithGooglePopup } from '../lib/auth';
+import { ConsentBanner } from '../components/ConsentBanner';
+import { initMeta, keepClickId, setConsent } from '../lib/meta';
 
 const START = '/app/start';
 const APP = '/app/';
@@ -360,7 +362,7 @@ function Footer() {
   return (
     <footer className="footer">
       <Logo size={26} />
-      <nav><a href="/privacy">Privacy</a><a href="/terms">Terms</a><a href="mailto:support@hellocherry.app">Support</a><SignIn /></nav>
+      <nav><a href="/privacy">Privacy</a><a href="/terms">Terms</a><a href="mailto:support@hellocherry.app">Support</a><button className="footer__link" onClick={() => setConsent(null)}>Cookies</button><SignIn /></nav>
       <small>© {new Date().getFullYear()} Cherry is a product of <b>Jacopo Giannetti</b>, Italy. Not affiliated with TikTok or Instagram.</small>
     </footer>
   );
@@ -402,8 +404,11 @@ function Landing() {
       </main>
       <Footer />
       <StickyCta />
+      <ConsentBanner />
     </>
   );
 }
 
+keepClickId();
+initMeta();
 createRoot(document.getElementById('root')!).render(<StrictMode><Landing /></StrictMode>);

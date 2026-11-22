@@ -194,3 +194,11 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: .001ms !important; transition-duration: .001ms !important; }
 }
+
+/* ---------- Banner dei cookie (landing e app) ---------- */
+.consent { position: fixed; z-index: 95; left: 12px; right: 12px; bottom: calc(12px + env(safe-area-inset-bottom)); max-width: 460px; margin: 0 auto; padding: 16px; border-radius: 20px; background: var(--white); box-shadow: 0 0 0 1px rgba(27, 19, 19, .08), 0 18px 50px rgba(27, 19, 19, .22); display: grid; gap: 12px; }
+.consent p { font-size: 14.5px; line-height: 1.45; color: var(--ink); }
+.consent a { color: var(--mute); text-decoration: underline; }
+.consent__actions { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.consent__actions .btn { height: 46px; font-size: 15px; }
+.footer__link { font: inherit; color: inherit; background: none; padding: 0; cursor: pointer; }

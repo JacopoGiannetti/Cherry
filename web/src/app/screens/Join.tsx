@@ -3,6 +3,7 @@ import { motion } from 'motion/react';
 import { Redirect, useLocation } from 'wouter';
 import { Icon } from '../../components/Icon';
 import { getPlans, money, startCheckout, type Plan } from '../../lib/api';
+import { metaForServer, track } from '../../lib/meta';
 import { useSession } from '../../lib/store';
 import { signOut } from '../../lib/firebase';
 import { derive, hasFunnel, loadFunnel } from '../../lib/funnel';
@@ -41,7 +42,8 @@ export function Join() {
     setBusy(true);
     setError(null);
     try {
-      const { url } = await startCheckout(choice);
+      if (selected) track('InitiateCheckout', { value: selected.amount, currency: (selected.currency || 'usd').toUpperCase(), content_name: `Cherry ${choice}`, num_items: 1 });
+      const { url } = await startCheckout(choice, metaForServer());
       location.href = url;
     } catch (e: any) {
       setError(e.message || 'Checkout is not available right now.');

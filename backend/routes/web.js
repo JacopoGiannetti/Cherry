@@ -13,6 +13,7 @@ const { importInto, readRecipe, recipeDoc, findEmbed } = require('../lib/web-imp
 const { detectPlatform, resolve: resolveSocial } = require('../services/social-video');
 const { persistImage } = require('../services/storage');
 const axios = require('axios');
+const metaCapi = require('../lib/meta-capi');
 
 const router = express.Router();
 const stripe = () => {
@@ -290,6 +291,7 @@ router.post('/checkout', express.json(), async (req, res) => {
       client_reference_id: req.uid,
       line_items: [{ price, quantity: 1 }],
       subscription_data: { metadata: { uid: req.uid } },
+      metadata: { uid: req.uid, plan, ...metaCapi.checkoutMetadata((req.body || {}).meta, req) },
       allow_promotion_codes: true,
       success_url: `${keys.web.appUrl}/app/welcome?session={CHECKOUT_SESSION_ID}`,
       cancel_url: `${keys.web.appUrl}/app/join?canceled=1`,
@@ -341,7 +343,8 @@ router.post('/checkout/confirm', express.json(), async (req, res) => {
     if (s.client_reference_id !== req.uid) return res.status(403).json({ error: 'not_yours' });
     if (s.subscription && typeof s.subscription === 'object') await writeSubscription(req.uid, s.subscription);
     const user = (await db().doc(`users/${req.uid}`).get()).data() || {};
-    res.json({ entitled: isEntitled(user) });
+    // Il valore serve all'evento Purchase del browser (stesso id della Conversions API).
+    res.json({ entitled: isEntitled(user), value: (s.amount_total || 0) / 100, currency: s.currency, plan: s.metadata?.plan || null });
   } catch (e) {
     console.error('[stripe] confirm:', e.message);
     res.status(500).json({ error: 'confirm_failed' });
@@ -382,6 +385,7 @@ async function stripeWebhook(req, res) {
     } else if (event.type === 'checkout.session.completed' && obj.subscription && obj.client_reference_id) {
       const sub = await stripe().subscriptions.retrieve(obj.subscription);
       await writeSubscription(obj.client_reference_id, sub);
+      metaCapi.sendPurchase(obj, { uid: obj.client_reference_id, plan: obj.metadata?.plan, appUrl: keys.web.appUrl });
     }
     res.json({ received: true });
   } catch (e) {

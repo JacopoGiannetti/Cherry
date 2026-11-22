@@ -21,8 +21,12 @@ import { SharedList } from './screens/SharedList';
 import { RecipeEditor } from './screens/RecipeEditor';
 import { TabBar } from '../components/TabBar';
 import { ToastHost } from '../components/Toast';
+import { ConsentBanner } from '../components/ConsentBanner';
+import { initMeta, keepClickId, pageView } from '../lib/meta';
 
 startSession();
+keepClickId();
+initMeta();
 
 if ('serviceWorker' in navigator && import.meta.env.PROD) {
   window.addEventListener('load', () => navigator.serviceWorker.register('/sw.js').catch(() => {}));
@@ -57,7 +61,7 @@ function Tabs() {
 
 function ScrollTop() {
   const [location] = useLocation();
-  useEffect(() => { window.scrollTo(0, 0); }, [location]);
+  useEffect(() => { window.scrollTo(0, 0); pageView(window.location.pathname); }, [location]);
   return null;
 }
 
@@ -95,6 +99,7 @@ function App() {
       </div>
       <Tabs />
       <ToastHost />
+      <ConsentBanner />
     </Router>
   );
 }
