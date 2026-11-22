@@ -24,6 +24,7 @@ import { ToastHost } from '../components/Toast';
 import { ConsentBanner } from '../components/ConsentBanner';
 import { initMeta, keepClickId, pageView } from '../lib/meta';
 
+document.body.classList.add('is-app');
 startSession();
 keepClickId();
 initMeta();

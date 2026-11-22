@@ -202,3 +202,24 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 .consent__actions { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
 .consent__actions .btn { height: 46px; font-size: 15px; }
 .footer__link { font: inherit; color: inherit; background: none; padding: 0; cursor: pointer; }
+/* Opt-out (USA…): l'avviso piccolo, non blocca niente */
+.consent--notice { display: flex; align-items: center; gap: 10px; padding: 10px 10px 10px 16px; border-radius: 16px; max-width: 400px; }
+.consent--notice p { flex: 1; font-size: 13.5px; }
+.consent__link { font: inherit; font-weight: 700; color: var(--ink); text-decoration: underline; background: none; border: 0; padding: 0; cursor: pointer; }
+.consent__x { flex: none; width: 34px; height: 34px; border-radius: 50%; border: 0; background: rgba(27, 19, 19, .06); color: var(--ink); display: grid; place-items: center; cursor: pointer; }
+body.is-app .consent { bottom: calc(96px + env(safe-area-inset-bottom)); }
+/* Il pannello delle preferenze */
+.consent-prefs { position: fixed; inset: 0; z-index: 120; background: rgba(27, 19, 19, .38); display: flex; align-items: flex-end; justify-content: center; padding: 12px; padding-bottom: calc(12px + env(safe-area-inset-bottom)); }
+.consent-prefs__card { width: 100%; max-width: 460px; background: var(--white); border-radius: 24px; padding: 22px 18px 18px; display: grid; gap: 14px; box-shadow: 0 24px 60px rgba(27, 19, 19, .3); }
+.consent-prefs__card h2 { font-family: var(--display); font-weight: 800; font-size: 24px; letter-spacing: -.02em; color: var(--ink); }
+.consent-prefs__lead { margin-top: -8px; font-size: 13.5px; color: var(--mute); }
+.consent-prefs__row { display: flex; gap: 14px; align-items: flex-start; padding: 14px; border-radius: 16px; background: rgba(27, 19, 19, .04); }
+.consent-prefs__row b { display: block; font-size: 15.5px; color: var(--ink); margin-bottom: 4px; }
+.consent-prefs__row small { display: block; font-size: 13.5px; line-height: 1.45; color: var(--mute); }
+.consent-prefs__note { font-size: 12.5px; line-height: 1.45; color: var(--mute); }
+.consent-prefs__note a { color: inherit; text-decoration: underline; }
+.switch { flex: none; position: relative; width: 50px; height: 30px; border-radius: 99px; border: 0; background: rgba(27, 19, 19, .18); cursor: pointer; transition: background .2s; }
+.switch span { position: absolute; top: 3px; left: 3px; width: 24px; height: 24px; border-radius: 50%; background: #fff; box-shadow: 0 2px 6px rgba(0, 0, 0, .2); transition: transform .22s cubic-bezier(.3, 1.4, .5, 1); }
+.switch.is-on { background: var(--cherry); }
+.switch.is-on span { transform: translateX(20px); }
+.switch:disabled { opacity: .5; cursor: not-allowed; }

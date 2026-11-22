@@ -1,7 +1,9 @@
 // Meta Conversions API: il pagamento confermato da Stripe arriva a Meta dal
 // server, anche se il browser ha un blocco pubblicità o chiude la pagina.
-// Solo per chi ha accettato i cookie (lo dice il metadata della Checkout
-// Session) e solo per pagamenti veri (livemode), a meno di un codice di test.
+// Solo se per quella persona il consenso vale (lo dice il metadata della Checkout
+// Session): in UE/UK ha premuto "Accept"; altrove (USA…) non ha fatto opt-out e il
+// browser non manda Global Privacy Control. Il browser lo decide e lo passa al checkout.
+// Solo per pagamenti veri (livemode), a meno di un codice di test.
 // L'event_id è l'id della Checkout Session: lo stesso dell'evento del browser,
 // così Meta lo conta una volta sola.
 const crypto = require('crypto');
@@ -20,7 +22,7 @@ function enabled() { return !!(PIXEL_ID && TOKEN); }
 function checkoutMetadata(meta, req) {
   if (!meta || meta.consent !== true) return {};
   const ip = String(req.get('x-forwarded-for') || req.ip || '').split(',')[0].trim();
-  const out = { meta_consent: '1', meta_ip: ip.slice(0, 60), meta_ua: String(req.get('user-agent') || '').slice(0, 480) };
+  const out = { meta_consent: '1', meta_basis: meta.basis === 'opt_in' ? 'opt_in' : 'default', meta_ip: ip.slice(0, 60), meta_ua: String(req.get('user-agent') || '').slice(0, 480) };
   if (typeof meta.fbp === 'string') out.meta_fbp = meta.fbp.slice(0, 200);
   if (typeof meta.fbc === 'string') out.meta_fbc = meta.fbc.slice(0, 400);
   return out;
