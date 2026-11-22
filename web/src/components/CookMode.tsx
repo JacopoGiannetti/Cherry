@@ -19,8 +19,12 @@ function pagesFor(recipe: Recipe): Page[] {
       fromVideo: true,
     }))
     .filter((s) => s.steps.length && s.end > s.start);
-  if (segs.length >= 2) return segs;
-  return recipe.steps.map((_, i) => ({ start: 0, end: 0, title: '', steps: [i], ingredients: [], fromVideo: false }));
+  if (segs.length < 2) return recipe.steps.map((_, i) => ({ start: 0, end: 0, title: '', steps: [i], ingredients: [], fromVideo: false }));
+  // Passi senza spezzone (ricette sincronizzate a mano solo in parte): pagine senza video, al loro posto.
+  const covered = new Set(segs.flatMap((s) => s.steps));
+  const loose: Page[] = recipe.steps.map((_, i) => i).filter((i) => !covered.has(i))
+    .map((i) => ({ start: 0, end: 0, title: '', steps: [i], ingredients: [], fromVideo: false }));
+  return [...segs, ...loose].sort((a, b) => Math.min(...a.steps) - Math.min(...b.steps));
 }
 
 export function CookMode({ recipe, factor = 1, onClose, limit, onUnlock }: {
@@ -48,8 +52,9 @@ export function CookMode({ recipe, factor = 1, onClose, limit, onUnlock }: {
   // TikTok si comanda sempre; Instagram solo se si è trovato il file del reel.
   const [canControl, setCanControl] = useState(embed?.type === 'tiktok');
   const controlRef = useRef(canControl);
-  const controllable = canControl && !!pages[0]?.fromVideo;
-  const isControllable = () => controlRef.current && !!pages[0]?.fromVideo;
+  const anyVideo = pages.some((p) => p.fromVideo);
+  const controllable = canControl && anyVideo;
+  const isControllable = () => controlRef.current && anyVideo;
   const isLast = index >= lastIndex;
   const onLock = locked && index === pages.length;
 
@@ -153,7 +158,7 @@ export function CookMode({ recipe, factor = 1, onClose, limit, onUnlock }: {
             onReady={() => { ready.current = true; player.current?.mute(muted); restart(); }}
             onTime={onTime}
             onEnded={() => { if (!state.current.paused) restart(); }}
-            onFail={() => { if (embed.type === 'tiktok') setVideoFailed(true); }}
+            onFail={() => { if (embed.type !== 'instagram') setVideoFailed(true); }}
           />
           {controllable && (
             <div className="cook__controls">

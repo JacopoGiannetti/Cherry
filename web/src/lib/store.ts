@@ -39,7 +39,7 @@ const MOCK = import.meta.env.DEV && (() => {
 })();
 const plate = (n: string) => `/assets/plates/${n}.jpg`;
 const base = demoRecipe as unknown as Recipe;
-const MOCK_RECIPES: Recipe[] = [
+let MOCK_RECIPES: Recipe[] = [
   { ...base, id: 'demo', imageUrl: '/assets/steps/serve.jpg', favorite: true },
   { ...base, id: 'm2', title: 'Crispy Mushroom Tacos', cuisine: 'Mexican', cookMinutes: 25, imageUrl: plate('tacos') },
   { ...base, id: 'm3', title: 'Miso Ramen with Tofu', cuisine: 'Japanese', cookMinutes: 40, imageUrl: plate('ramen') },
@@ -49,6 +49,8 @@ const MOCK_RECIPES: Recipe[] = [
 ];
 let mockList: GroceryList | null = null;
 const mockListeners = new Set<() => void>();
+const mockEmit = () => mockListeners.forEach((l) => l());
+const mockSub = (l: () => void) => { mockListeners.add(l); return () => { mockListeners.delete(l); }; };
 const mockItem = (name: string, section: string, emoji: string, quantity = '') => ({ id: crypto.randomUUID(), name, quantity, section, emoji, checked: true, recipeIds: [], manual: true });
 let mockTrips: Trip[] = [
   { id: 't1', at: Date.now() - 3 * 864e5, recipeIds: ['m2'], items: [mockItem('Milk', 'dairy_eggs', '🥛'), mockItem('Bananas', 'produce', '🍌', '6'), mockItem('Coffee', 'snacks_drinks', '☕'), mockItem('Corn tortillas', 'bakery', '🌮', '12')] },
@@ -153,12 +155,14 @@ export function useSession() {
 // ---------- Ricette ----------
 
 export function useRecipes(uid?: string): Recipe[] | null {
-  return useFeed<Recipe[] | null>(MOCK ? null : uid ? `recipes:${uid}` : null, MOCK ? MOCK_RECIPES : null, (set) => {
+  const mock = useSyncExternalStore(mockSub, () => MOCK_RECIPES);
+  const live = useFeed<Recipe[] | null>(MOCK ? null : uid ? `recipes:${uid}` : null, null, (set) => {
     const q = query(collection(db, 'users', uid!, 'savedRecipes'), orderBy('createdAt', 'desc'));
     return onSnapshot(q, (snap) => {
       set(snap.docs.map((d) => normalize(d.id, d.data())).filter((r) => !(r as any).preset));
     }, () => set([]));
   });
+  return MOCK ? mock : live;
 }
 
 /** Dalla raccolta già in memoria; solo se manca (ricette senza data) la si legge da sola. */
@@ -172,9 +176,34 @@ export function useRecipe(uid: string | undefined, id: string): Recipe | null | 
   return MOCK ? null : single;
 }
 
-export const deleteRecipe = (uid: string, id: string) => MOCK ? Promise.resolve() : deleteDoc(doc(db, 'users', uid, 'savedRecipes', id));
+export const deleteRecipe = (uid: string, id: string) => {
+  if (MOCK) { MOCK_RECIPES = MOCK_RECIPES.filter((r) => r.id !== id); mockEmit(); return Promise.resolve(); }
+  return deleteDoc(doc(db, 'users', uid, 'savedRecipes', id));
+};
+
+export const IS_MOCK = !!MOCK;
+export const newRecipeId = () => 'm' + crypto.randomUUID().replace(/-/g, '').slice(0, 20);
+
+/** Salva una ricetta scritta (o corretta) a mano. Solo i campi passati cambiano. */
+export async function saveRecipe(uid: string, id: string, data: Partial<Recipe>, isNew: boolean) {
+  const clean = Object.fromEntries(Object.entries(data).filter(([, v]) => v !== undefined)) as Partial<Recipe>;
+  if (MOCK) {
+    const cur = MOCK_RECIPES.find((r) => r.id === id);
+    MOCK_RECIPES = cur ? MOCK_RECIPES.map((r) => (r.id === id ? { ...r, ...clean } : r)) : [{ id, status: 'ready', ingredients: [], steps: [], title: '', ...clean } as Recipe, ...MOCK_RECIPES];
+    mockEmit();
+    return;
+  }
+  const ref = doc(db, 'users', uid, 'savedRecipes', id);
+  await setDoc(ref, {
+    ...clean,
+    ...(isNew ? { status: 'ready', origin: 'manual', createdAt: serverTimestamp() } : {}),
+    updatedAt: serverTimestamp(),
+  }, { merge: true });
+}
+
+export const setRecipePhoto = (uid: string, id: string, imageUrl: string) => saveRecipe(uid, id, { imageUrl }, false);
 export const setFavorite = (uid: string, id: string, favorite: boolean) =>
-  MOCK ? Promise.resolve() : updateDoc(doc(db, 'users', uid, 'savedRecipes', id), { favorite });
+  MOCK ? (MOCK_RECIPES = MOCK_RECIPES.map((r) => (r.id === id ? { ...r, favorite } : r)), mockEmit(), Promise.resolve()) : updateDoc(doc(db, 'users', uid, 'savedRecipes', id), { favorite });
 
 // ---------- Lista della spesa (una sola, sempre a portata) ----------
 
@@ -184,9 +213,6 @@ export const setFavorite = (uid: string, id: string, favorite: boolean) =>
 
 let mockShareId: string | null = null;
 const mockShared = new Map<string, GroceryList>();
-const mockEmit = () => mockListeners.forEach((l) => l());
-const mockSub = (l: () => void) => { mockListeners.add(l); return () => { mockListeners.delete(l); }; };
-
 export function useShareId(uid?: string): string | null | undefined {
   const mock = useSyncExternalStore(mockSub, () => mockShareId);
   const live = useFeed<string | null | undefined>(!MOCK && uid ? `share:${uid}` : null, undefined, (set) =>

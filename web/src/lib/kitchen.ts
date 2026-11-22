@@ -133,7 +133,7 @@ export function minutes(n?: number) {
 const GUESS: [RegExp, string, string][] = [
   [/milk|latte/i, '🥛', 'dairy_eggs'], [/egg|uova/i, '🥚', 'dairy_eggs'], [/cheese|parmesan|mozzarella|feta|formaggio/i, '🧀', 'dairy_eggs'],
   [/butter|burro/i, '🧈', 'dairy_eggs'], [/yog(h)?urt/i, '🥛', 'dairy_eggs'], [/cream|panna/i, '🥛', 'dairy_eggs'],
-  [/bread|pane|bun|bagel|baguette/i, '🍞', 'bakery'], [/tortilla|wrap/i, '🌮', 'bakery'],
+  [/bread|pane|bun|bagel|baguette|dough|impasto|pizza base|pastry|focaccia/i, '🍞', 'bakery'], [/tortilla|wrap/i, '🌮', 'bakery'],
   [/banana/i, '🍌', 'produce'], [/apple|mela/i, '🍎', 'produce'], [/lemon|lime|limone/i, '🍋', 'produce'], [/orange|arancia/i, '🍊', 'produce'],
   [/berr|fragol/i, '🍓', 'produce'], [/grape|uva/i, '🍇', 'produce'], [/avocado/i, '🥑', 'produce'], [/tomato|pomodor/i, '🍅', 'produce'],
   [/onion|cipoll|shallot/i, '🧅', 'produce'], [/garlic|aglio/i, '🧄', 'produce'], [/potato|patat/i, '🥔', 'produce'], [/carrot|carot/i, '🥕', 'produce'],

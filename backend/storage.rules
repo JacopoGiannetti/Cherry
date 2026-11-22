@@ -14,6 +14,21 @@ service firebase.storage {
       allow read: if request.auth != null
         && request.auth.uid == uid;
     }
+    // Ricette scritte a mano: la foto (già compressa dall'app) e, se si vuole,
+    // il proprio video per la Dynamic view. L'app li mostra con il link di
+    // download (con token), quindi anche chi apre una lista condivisa vede la foto.
+    match /users/{uid}/photos/{fileName} {
+      allow write: if request.auth != null && request.auth.uid == uid
+        && request.resource.size < 10 * 1024 * 1024
+        && request.resource.contentType.matches('image/.*');
+      allow read: if request.auth != null && request.auth.uid == uid;
+    }
+    match /users/{uid}/videos/{fileName} {
+      allow write: if request.auth != null && request.auth.uid == uid
+        && request.resource.size < 300 * 1024 * 1024
+        && request.resource.contentType.matches('video/.*');
+      allow read: if request.auth != null && request.auth.uid == uid;
+    }
     match /{allPaths=**} {
       allow read, write: if false;
     }

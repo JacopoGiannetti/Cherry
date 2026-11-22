@@ -36,6 +36,7 @@ const TIKTOK_PARAMS = [
 
 export const VideoPlayer = forwardRef<PlayerHandle, Props>(function VideoPlayer(props, ref) {
   if (props.embed.type === 'instagram') return <InstagramPlayer {...props} shortcode={props.embed.shortcode} ref={ref} />;
+  if (props.embed.type === 'file') return <NativePlayer {...props} src={props.embed.url} ref={ref} />;
   return <EmbedPlayer {...props} ref={ref} />;
 });
 
@@ -76,7 +77,7 @@ const EmbedPlayer = forwardRef<PlayerHandle, Props>(function EmbedPlayer({ embed
 
   const src = embed.type === 'tiktok'
     ? `https://www.tiktok.com/player/v1/${embed.postId}?${TIKTOK_PARAMS}`
-    : `https://www.instagram.com/reel/${embed.shortcode}/embed/`;
+    : embed.type === 'instagram' ? `https://www.instagram.com/reel/${embed.shortcode}/embed/` : '';
 
   return (
     <iframe
@@ -90,66 +91,82 @@ const EmbedPlayer = forwardRef<PlayerHandle, Props>(function EmbedPlayer({ embed
   );
 });
 
-// ---------- Instagram: il file del reel in un <video> nostro ----------
+// ---------- Instagram: il file del reel; poi lo stesso <video> dei video tuoi ----------
 
 const InstagramPlayer = forwardRef<PlayerHandle, Props & { shortcode: string }>(function InstagramPlayer(props, ref) {
-  const { shortcode, recipeId, onReady, onTime, onEnded, onControl } = props;
+  const { shortcode, recipeId } = props;
   const [src, setSrc] = useState<string | null | undefined>(undefined);
-  const video = useRef<HTMLVideoElement>(null);
-  const retried = useRef(false);
-  const cbs = useRef({ onReady, onTime, onEnded });
-  cbs.current = { onReady, onTime, onEnded };
 
   useEffect(() => {
     let live = true;
-    retried.current = false;
     setSrc(undefined);
     instagramVideo(shortcode, recipeId).then((u) => { if (live) setSrc(u); });
     return () => { live = false; };
   }, [shortcode, recipeId]);
 
-  useEffect(() => { if (src !== undefined) onControl?.(!!src); }, [src]);
-
-  // timeupdate arriva 4 volte al secondo: troppo poco per chiudere il loop sul punto giusto.
-  useEffect(() => {
-    const v = video.current;
-    if (!src || !v) return;
-    let raf = 0;
-    const tick = () => { cbs.current.onTime?.(v.currentTime); raf = requestAnimationFrame(tick); };
-    const start = () => { cancelAnimationFrame(raf); raf = requestAnimationFrame(tick); };
-    const stop = () => cancelAnimationFrame(raf);
-    v.addEventListener('playing', start);
-    v.addEventListener('pause', stop);
-    return () => { stop(); v.removeEventListener('playing', start); v.removeEventListener('pause', stop); };
-  }, [src]);
-
-  useImperativeHandle(ref, () => ({
-    seek: (t) => { const v = video.current; if (v) v.currentTime = Math.max(0, t); },
-    play: () => { video.current?.play().catch(() => {}); },
-    pause: () => video.current?.pause(),
-    mute: (m) => { if (video.current) video.current.muted = m; },
-  }), [src]);
-
   if (src === undefined) return <div className="cook__wait"><span className="spinner" /></div>;
   if (src === null) return <EmbedPlayer {...props} />;
   return (
-    <video
-      ref={video}
-      key={src}
-      src={src}
-      playsInline
-      muted
-      autoPlay
-      preload="auto"
-      onLoadedMetadata={() => cbs.current.onReady?.()}
-      onEnded={() => cbs.current.onEnded?.()}
-      onError={() => {
-        // Il link del CDN può essere scaduto: se ne chiede uno nuovo, una volta sola; poi l'embed.
-        if (retried.current) { setSrc(null); return; }
-        retried.current = true;
-        instagramVideo(shortcode, recipeId, true).then((u) => setSrc(u && u !== src ? u : null));
-      }}
-      style={{ width: '100%', height: '100%', objectFit: 'contain', display: 'block', background: '#000' }}
-    />
+    <NativePlayer {...props} ref={ref} src={src}
+      // Il link del CDN può essere scaduto: se ne chiede uno nuovo, una volta sola; poi l'embed.
+      refresh={() => instagramVideo(shortcode, recipeId, true)}
+      onGiveUp={() => setSrc(null)} />
   );
 });
+
+/** Un file video normale, comandato da noi: salto allo spezzone, loop, audio. */
+const NativePlayer = forwardRef<PlayerHandle, Props & { src: string; refresh?: () => Promise<string | null>; onGiveUp?: () => void }>(
+  function NativePlayer({ src: initial, refresh, onGiveUp, onReady, onTime, onEnded, onControl, onFail }, ref) {
+    const [src, setSrc] = useState(initial);
+    const video = useRef<HTMLVideoElement>(null);
+    const retried = useRef(false);
+    const cbs = useRef({ onReady, onTime, onEnded });
+    cbs.current = { onReady, onTime, onEnded };
+
+    useEffect(() => { setSrc(initial); retried.current = false; }, [initial]);
+    useEffect(() => { onControl?.(true); }, []);
+
+    // timeupdate arriva 4 volte al secondo: troppo poco per chiudere il loop sul punto giusto.
+    useEffect(() => {
+      const v = video.current;
+      if (!v) return;
+      let raf = 0;
+      const tick = () => { cbs.current.onTime?.(v.currentTime); raf = requestAnimationFrame(tick); };
+      const start = () => { cancelAnimationFrame(raf); raf = requestAnimationFrame(tick); };
+      const stop = () => { cancelAnimationFrame(raf); cbs.current.onTime?.(v.currentTime); };
+      v.addEventListener('playing', start);
+      v.addEventListener('pause', stop);
+      v.addEventListener('seeked', stop);
+      return () => { cancelAnimationFrame(raf); v.removeEventListener('playing', start); v.removeEventListener('pause', stop); v.removeEventListener('seeked', stop); };
+    }, [src]);
+
+    useImperativeHandle(ref, () => ({
+      seek: (t) => { const v = video.current; if (v) v.currentTime = Math.max(0, t); },
+      play: () => { video.current?.play().catch(() => {}); },
+      pause: () => video.current?.pause(),
+      mute: (m) => { if (video.current) video.current.muted = m; },
+    }), [src]);
+
+    return (
+      <video
+        ref={video}
+        key={src}
+        src={src}
+        playsInline
+        muted
+        autoPlay
+        preload="auto"
+        onLoadedMetadata={() => cbs.current.onReady?.()}
+        onEnded={() => cbs.current.onEnded?.()}
+        onError={async () => {
+          if (refresh && !retried.current) {
+            retried.current = true;
+            const u = await refresh();
+            if (u && u !== src) { setSrc(u); return; }
+          }
+          if (onGiveUp) onGiveUp(); else onFail?.();
+        }}
+        style={{ width: '100%', height: '100%', objectFit: 'contain', display: 'block', background: '#000' }}
+      />
+    );
+  });

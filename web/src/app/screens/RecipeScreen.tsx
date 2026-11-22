@@ -4,7 +4,8 @@ import { useLocation } from 'wouter';
 import { Icon } from '../../components/Icon';
 import { toast } from '../../components/Toast';
 import { Sheet, originOf, type Origin } from '../../components/Sheet';
-import { deleteRecipe, editList, setFavorite, useList, useRecipe, useSession } from '../../lib/store';
+import { deleteRecipe, editList, setFavorite, setRecipePhoto, useList, useRecipe, useSession } from '../../lib/store';
+import { uploadPhoto } from '../../lib/upload';
 import { importRecipe, refreshCover, resolveEmbed } from '../../lib/api';
 import { mergeIntoList, minutes, removeRecipeFromList, scaleQuantity } from '../../lib/kitchen';
 import type { Recipe } from '../../lib/types';
@@ -97,6 +98,15 @@ function Ready({ recipe, uid, household }: { recipe: Recipe; uid: string; househ
   const [menu, setMenu] = useState(false);
   const [confirm, setConfirm] = useState(false);
   const [coverBusy, setCoverBusy] = useState(false);
+  const photoInput = useRef<HTMLInputElement>(null);
+  const ownPhoto = async (file?: File) => {
+    if (!file) return;
+    setMenu(false);
+    setCoverBusy(true);
+    try { await setRecipePhoto(uid, recipe.id, await uploadPhoto(uid, file)); toast('Photo updated', 'check'); }
+    catch (e: any) { toast(e.message || 'Could not upload the photo', 'close'); }
+    setCoverBusy(false);
+  };
   const getCover = async () => {
     setCoverBusy(true);
     try { await refreshCover(recipe.id); toast('New cover from the video', 'check'); setMenu(false); }
@@ -131,11 +141,13 @@ function Ready({ recipe, uid, household }: { recipe: Recipe; uid: string; househ
     <main className="recipe">
       <div className="recipe__media" style={{ viewTransitionName: `img-${recipe.id}` } as React.CSSProperties}>
         {recipe.imageUrl ? <img src={recipe.imageUrl} alt="" /> : <span className="shimmer card__ph" />}
-        {!recipe.imageUrl && recipe.sourceUrl && (
-          <button className={`btn btn--soft recipe__cover-btn ${coverBusy ? 'is-busy' : ''}`} onClick={getCover}>
-            <Icon name="refresh" size={17} /> Get the cover from the video
+        {!recipe.imageUrl && (
+          <button className={`btn btn--soft recipe__cover-btn ${coverBusy ? 'is-busy' : ''}`} onClick={() => (recipe.sourceUrl ? getCover() : photoInput.current?.click())}>
+            <Icon name={recipe.sourceUrl ? 'refresh' : 'camera'} size={17} /> {recipe.sourceUrl ? 'Get the cover from the video' : 'Add a photo'}
           </button>
         )}
+        {coverBusy && recipe.imageUrl && <span className="recipe__busy"><span className="spinner" /></span>}
+        <input ref={photoInput} type="file" accept="image/*" hidden onChange={(e) => { ownPhoto(e.target.files?.[0]); e.target.value = ''; }} />
       </div>
       <header className="recipe__bar">
         <button className="bar__btn bar__btn--float" onClick={() => (history.length > 1 ? history.back() : navigate('/'))} aria-label="Back"><Icon name="back" /></button>
@@ -211,9 +223,15 @@ function Ready({ recipe, uid, household }: { recipe: Recipe; uid: string; househ
           <div className="menu">
             {recipe.sourceUrl && (
               <a className="menu__row" href={recipe.sourceUrl} target="_blank" rel="noopener" onClick={() => setMenu(false)}>
-                <Icon name="external" size={19} /> Open the original on {recipe.platform === 'instagram' ? 'Instagram' : 'TikTok'}
+                <Icon name="external" size={19} /> Open the original on {recipe.platform === 'instagram' || /instagr/i.test(recipe.sourceUrl) ? 'Instagram' : 'TikTok'}
               </a>
             )}
+            <button className="menu__row" onClick={() => { setMenu(false); navigate(`/r/${recipe.id}/edit`); }}>
+              <Icon name="pencil" size={19} /> Edit recipe
+            </button>
+            <button className="menu__row" onClick={() => photoInput.current?.click()}>
+              <Icon name="camera" size={19} /> Use my own photo
+            </button>
             {recipe.sourceUrl && (
               <button className={`menu__row ${coverBusy ? 'is-busy' : ''}`} onClick={getCover} disabled={coverBusy}>
                 <Icon name="refresh" size={19} /> {coverBusy ? 'Getting the cover…' : 'Get the cover again'}

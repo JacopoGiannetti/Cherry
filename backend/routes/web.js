@@ -167,6 +167,20 @@ router.post('/recipes/:id/embed', async (req, res) => {
   }
 });
 
+// Editor delle ricette: il link incollato → quale video mostrare (anche i link corti TikTok).
+router.post('/embed', express.json(), async (req, res) => {
+  const url = String((req.body || {}).url || '').trim();
+  const platform = detectPlatform(url);
+  if (!/^https?:\/\//i.test(url) || platform === 'unknown') return res.status(400).json({ error: 'unsupported', message: 'Paste a TikTok or Instagram video link.' });
+  try {
+    const embed = await findEmbed(url, platform);
+    if (!embed) return res.status(404).json({ error: 'no_embed', message: 'We couldn’t find the video in that link.' });
+    res.json({ embed, platform });
+  } catch (e) {
+    res.status(502).json({ error: 'embed_failed', message: 'We couldn’t read that link. Try again.' });
+  }
+});
+
 // Il file video di un reel Instagram, per il player del web (che sul web, a
 // differenza della WKWebView di iOS, non può comandare l'embed). Prima prova la
 // Pages Function /api/ig sul sito, gratis; per i reel che la pagina embed non

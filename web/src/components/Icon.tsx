@@ -31,6 +31,11 @@ const paths: Record<string, string> = {
   flame: 'M12 22c4 0 7-2.7 7-6.8 0-4.1-3.5-6.7-4.5-10.2-.6 2.4-2 3.6-3.4 4.6C9.5 8 9 6 9.4 3.5 6.6 5.6 5 9 5 15.2 5 19.3 8 22 12 22z',
   refresh: 'M20 11a8 8 0 0 0-14.9-3.9M4 4v4h4M4 13a8 8 0 0 0 14.9 3.9M20 20v-4h-4',
   lock: 'M6 11h12v10H6zM8 11V7a4 4 0 0 1 8 0v4',
+  camera: 'M4 8h3l2-3h6l2 3h3a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1zM12 17a4 4 0 1 0 0-8 4 4 0 0 0 0 8z',
+  upload: 'M12 16V4M7 9l5-5 5 5M5 20h14',
+  pencil: 'M4 20h4L19 9l-4-4L4 16zM14 6l4 4',
+  image: 'M4 5h16v14H4zM4 15l4-4 5 5M14 14l2-2 4 4M15 9h.01',
+  flag: 'M5 21V4M5 4h11l-2 4 2 4H5',
 };
 
 export function Icon({ name, size = 20, stroke = 2.2, fill = 'none', className }: {

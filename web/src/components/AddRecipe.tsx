@@ -66,6 +66,11 @@ export function AddRecipe({ onDone, autoLink }: { onDone?: () => void; autoLink?
         <li><span>2</span>Tap Share, then Copy link</li>
         <li><span>3</span>Come back and tap Paste link</li>
       </ol>
+      <button className="add__own" onClick={() => { onDone?.(); navigate('/new'); }}>
+        <span className="add__own-icon"><Icon name="pencil" size={18} /></span>
+        <span><b>Write your own recipe</b><small>Your ingredients, steps, photo and video</small></span>
+        <Icon name="next" size={18} />
+      </button>
     </div>
   );
 }

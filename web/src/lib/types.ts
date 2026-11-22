@@ -8,7 +8,11 @@ export type Ingredient = {
 
 export type Segment = { start: number; end: number; title?: string; steps: number[]; ingredients: number[] };
 
-export type Embed = { type: 'tiktok'; postId: string } | { type: 'instagram'; shortcode: string };
+export type Embed =
+  | { type: 'tiktok'; postId: string }
+  | { type: 'instagram'; shortcode: string }
+  /** Un video caricato da te (ricette scritte a mano). */
+  | { type: 'file'; url: string };
 
 export type Recipe = {
   id: string;
@@ -29,6 +33,8 @@ export type Recipe = {
   imageUrl?: string | null;
   createdAt?: { toMillis(): number } | null;
   favorite?: boolean;
+  /** 'manual' = scritta a mano nell'app. */
+  origin?: string;
 };
 
 export type GroceryItem = {

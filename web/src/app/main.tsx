@@ -18,6 +18,7 @@ import { ListScreen } from './screens/ListScreen';
 import { Settings } from './screens/Settings';
 import { SignIn } from './screens/SignIn';
 import { SharedList } from './screens/SharedList';
+import { RecipeEditor } from './screens/RecipeEditor';
 import { TabBar } from '../components/TabBar';
 import { ToastHost } from '../components/Toast';
 
@@ -82,6 +83,8 @@ function App() {
           <Route path="/join"><Join /></Route>
           <Route path="/welcome"><Welcome /></Route>
           <Route path="/add"><Member><Add /></Member></Route>
+          <Route path="/new"><Member><RecipeEditor /></Member></Route>
+          <Route path="/r/:id/edit">{(p) => <Member><RecipeEditor id={p.id} /></Member>}</Route>
           <Route path="/r/:id">{(p) => <Member tabs={false}><RecipeScreen id={p.id} /></Member>}</Route>
           <Route path="/cook/:id">{(p) => <Member tabs={false}><CookScreen id={p.id} /></Member>}</Route>
           <Route path="/list"><Member><ListScreen /></Member></Route>
