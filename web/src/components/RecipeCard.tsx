@@ -21,7 +21,7 @@ export const RecipeCard = forwardRef<HTMLDivElement, { recipe: Recipe; index?: n
   return (
     <motion.div ref={ref} layout initial={first ? { opacity: 0, y: 12 } : false} animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.35, delay: Math.min(index, 6) * 0.035, ease: [0.2, 0.8, 0.2, 1] }}>
-      <Link href={`/r/${recipe.id}`} className="card">
+      <Link href={`/r/${recipe.id}`} state={{ from: 'library' }} className="card">
         <div className="card__img" style={{ viewTransitionName: `img-${recipe.id}` } as React.CSSProperties}>
           {recipe.imageUrl && !importing ? <img src={recipe.imageUrl} alt="" loading={index < 8 ? 'eager' : 'lazy'} decoding="async" /> : <span className="shimmer card__ph" />}
           {importing && <span className="card__busy"><span className="spinner" /></span>}

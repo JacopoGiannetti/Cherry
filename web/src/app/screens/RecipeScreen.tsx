@@ -154,7 +154,7 @@ function Ready({ recipe, uid, household }: { recipe: Recipe; uid: string; househ
         <input ref={photoInput} type="file" accept="image/*" hidden onChange={(e) => { ownPhoto(e.target.files?.[0]); e.target.value = ''; }} />
       </div>
       <header className="recipe__bar">
-        <button className="bar__btn bar__btn--float" onClick={() => (history.length > 1 ? history.back() : navigate('/'))} aria-label="Back"><Icon name="back" /></button>
+        <button className="bar__btn bar__btn--float" onClick={() => ((history.state as any)?.from === 'library' ? history.back() : navigate('/', { replace: true }))} aria-label="Back"><Icon name="back" /></button>
         <div className="bar__actions">
           <button className="bar__btn bar__btn--float" onClick={() => setFavorite(uid, recipe.id, !recipe.favorite)}
             aria-label={recipe.favorite ? 'Remove from favorites' : 'Add to favorites'} aria-pressed={!!recipe.favorite}>

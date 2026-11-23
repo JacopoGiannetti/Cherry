@@ -23,7 +23,9 @@ export function AddRecipe({ onDone, autoLink }: { onDone?: () => void; autoLink?
     try {
       const { id } = await importRecipe(link);
       onDone?.();
-      navigate(`/r/${id}`);
+      // Da un link (?u=…, prima ricetta, condivisione) la pagina di import non resta nella cronologia:
+      // "indietro" dalla ricetta la ritroverebbe e reimporterebbe, riaprendo la ricetta all'infinito.
+      navigate(`/r/${id}`, { replace: !!autoLink });
     } catch (e: any) {
       setError(e.message);
       setBusy(false);
