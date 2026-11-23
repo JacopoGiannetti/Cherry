@@ -7,8 +7,8 @@ import { GoogleButton } from '../../components/GoogleButton';
 import { LoopDemo } from '../../components/LoopDemo';
 import { useSession } from '../../lib/store';
 import { signInWithGoogle } from '../../lib/firebase';
-import { once, track } from '../../lib/meta';
-import { getPreview, saveProfile, startPreview } from '../../lib/api';
+import { metaForServer, once, track } from '../../lib/meta';
+import { getPreview, saveProfile, sendRegistrationEvent, startPreview } from '../../lib/api';
 import { DEMO_URL, derive, HOME_USD, loadFunnel, saveFunnel, TAKEOUT_USD, type Funnel } from '../../lib/funnel';
 import { extractLink, minutes } from '../../lib/kitchen';
 import demo from '../../lib/demo.json';
@@ -73,7 +73,13 @@ export function Onboarding() {
         household: String(f.household), cookingFrequency: String(f.nights),
         goals: f.blockers, saveHabit: `${f.cooked}/${f.saved}`, completed: true,
       }).catch(() => {});
-      once(`reg-${user.uid}`, () => track('CompleteRegistration', { status: true, content_name: 'Cherry account' }, `reg_${user.uid}`));
+      // Browser e server con lo stesso id: Meta lo conta una volta (il server una volta per account).
+      once(`reg-${user.uid}`, async () => {
+        const id = `reg_${user.uid}`;
+        const meta = await metaForServer(id);
+        if (meta) void sendRegistrationEvent(meta, id);
+        return track('CompleteRegistration', { status: true, content_name: 'Cherry account' }, id);
+      });
       navigate('/join');
     }
   }, [ready, user, entitled, name]);

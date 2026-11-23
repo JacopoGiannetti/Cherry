@@ -29,7 +29,7 @@ export function Welcome() {
         if (r.entitled && r.value) {
           // Stesso id della Conversions API (la Checkout Session): Meta tiene un solo acquisto.
           const p = { value: r.value, currency: (r.currency || 'usd').toUpperCase(), content_name: `Cherry ${r.plan || ''}`.trim() };
-          once(`buy-${session}`, () => { track('Purchase', p, session); track('Subscribe', { ...p, predicted_ltv: p.value }, session); });
+          void once(`buy-${session}`, async () => { const ok = await track('Purchase', p, session); if (ok) void track('Subscribe', { ...p, predicted_ltv: p.value }, session); return ok; });
         }
         if (!r.entitled && ++tries < 6) setTimeout(attempt, 1500); else if (!r.entitled) setStage('error');
       })

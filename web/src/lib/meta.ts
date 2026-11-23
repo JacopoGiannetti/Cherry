@@ -137,29 +137,42 @@ export function initMeta() {
   return started;
 }
 
-export function track(event: string, params: Record<string, unknown> = {}, eventId?: string) {
-  if (!PIXEL_ID || effectiveConsent() !== 'granted') return;
+/**
+ * Manda un evento al Pixel. Se il paese non è ancora noto (initMeta in corso) lo aspetta:
+ * negli USA il consenso vale per difetto solo dopo averlo saputo.
+ * Risponde true se l'evento è partito davvero (cioè se il consenso c'è).
+ */
+export async function track(event: string, params: Record<string, unknown> = {}, eventId?: string): Promise<boolean> {
+  if (!PIXEL_ID) return false;
+  if (!region && started) await started.catch(() => {});
+  if (effectiveConsent() !== 'granted') return false;
   load();
   (window as any).fbq('track', event, params, eventId ? { eventID: eventId } : undefined);
+  return true;
 }
+
+/** Un id per l'evento, uguale nel browser e nell'API Conversions (deduplica). */
+export const eventId = (prefix: string) => `${prefix}_${Date.now().toString(36)}_${Math.random().toString(36).slice(2, 10)}`;
 
 let lastPath = typeof location !== 'undefined' ? location.pathname : '';
 /** Le pagine dell'app cambiano senza ricaricare: PageView a ogni cambio. */
 export function pageView(path: string) {
   if (path === lastPath) return;
   lastPath = path;
-  track('PageView');
+  void track('PageView');
 }
 
 const cookie = (name: string) => document.cookie.split('; ').find((c) => c.startsWith(name + '='))?.split('=')[1];
 
-/** Cosa serve al server per abbinare il pagamento all'annuncio: solo se il consenso vale. */
-export function metaForServer() {
-  if (!PIXEL_ID || effectiveConsent() !== 'granted') return undefined;
+/** Cosa serve al server per abbinare l'evento all'annuncio: solo se il consenso vale. */
+export async function metaForServer(id?: string) {
+  if (!PIXEL_ID) return undefined;
+  if (!region && started) await started.catch(() => {});
+  if (effectiveConsent() !== 'granted') return undefined;
   let fbc = cookie('_fbc');
   const clid = new URLSearchParams(location.search).get('fbclid') || sessionStorage.getItem('cherry.fbclid');
   if (!fbc && clid) fbc = `fb.1.${Date.now()}.${clid}`;
-  return { consent: true, basis: getConsent() === 'granted' ? 'opt_in' : 'default', fbp: cookie('_fbp'), fbc };
+  return { consent: true, basis: getConsent() === 'granted' ? 'opt_in' : 'default', fbp: cookie('_fbp'), fbc, ...(id ? { eventId: id } : {}) };
 }
 
 /** Il fbclid arriva sulla landing: lo si tiene finché non si paga (di solito qualche schermata dopo). */
@@ -171,10 +184,15 @@ export function keepClickId() {
   } catch { /* privato */ }
 }
 
-/** Un evento una volta sola per chiave (es. la stessa pagina di benvenuto ricaricata). */
-export function once(key: string, fn: () => void) {
-  try { if (localStorage.getItem('cherry.ev.' + key)) return; localStorage.setItem('cherry.ev.' + key, '1'); } catch { /* privato */ }
-  fn();
+/**
+ * Un evento una volta sola per chiave (es. la stessa pagina di benvenuto ricaricata).
+ * La chiave si scrive solo se l'evento è partito davvero (consenso "granted"):
+ * altrimenti, se la persona accetta dopo, l'evento può ancora partire.
+ */
+export async function once(key: string, fn: () => Promise<boolean> | boolean) {
+  try { if (localStorage.getItem('cherry.ev.' + key)) return; } catch { /* privato */ }
+  if (!(await fn())) return;
+  try { localStorage.setItem('cherry.ev.' + key, '1'); } catch { /* privato */ }
 }
 
 // ---------- le preferenze (pannello) ----------

@@ -37,22 +37,28 @@ router.use((req, res, next) => {
 
 // ---------- Prezzi (pubblici: servono a landing e paywall) ----------
 let plansCache = { at: 0, value: null };
+async function loadPlans() {
+  if (plansCache.value && Date.now() - plansCache.at < 10 * 60 * 1000) return plansCache.value;
+  const ids = [['yearly', keys.stripe.priceYearly], ['monthly', keys.stripe.priceMonthly]].filter(([, id]) => id);
+  const plans = await Promise.all(ids.map(async ([plan, id]) => {
+    const p = await stripe().prices.retrieve(id);
+    return {
+      plan,
+      amount: p.unit_amount / 100,
+      currency: p.currency,
+      interval: p.recurring?.interval || null,
+      trialDays: p.recurring?.trial_period_days || 0,
+    };
+  }));
+  plansCache = { at: Date.now(), value: { plans } };
+  return plansCache.value;
+}
+/** Il prezzo di listino del piano (fallback del valore per gli eventi Meta). */
+const planPrice = (plan) => loadPlans().then((r) => r.plans.find((p) => p.plan === plan) || null).catch(() => null);
+
 router.get('/plans', async (req, res) => {
   try {
-    if (plansCache.value && Date.now() - plansCache.at < 10 * 60 * 1000) return res.json(plansCache.value);
-    const ids = [['yearly', keys.stripe.priceYearly], ['monthly', keys.stripe.priceMonthly]].filter(([, id]) => id);
-    const plans = await Promise.all(ids.map(async ([plan, id]) => {
-      const p = await stripe().prices.retrieve(id);
-      return {
-        plan,
-        amount: p.unit_amount / 100,
-        currency: p.currency,
-        interval: p.recurring?.interval || null,
-        trialDays: p.recurring?.trial_period_days || 0,
-      };
-    }));
-    plansCache = { at: Date.now(), value: { plans } };
-    res.json(plansCache.value);
+    res.json(await loadPlans());
   } catch (e) {
     res.status(e.status || 500).json({ error: 'plans_unavailable' });
   }
@@ -297,9 +303,39 @@ router.post('/checkout', express.json(), async (req, res) => {
       cancel_url: `${keys.web.appUrl}/app/join?canceled=1`,
     });
     res.json({ url: session.url });
+    // Stesso event_id dell'InitiateCheckout del browser: Meta lo conta una volta.
+    const meta = (req.body || {}).meta;
+    if (meta?.eventId) {
+      planPrice(plan).then(async (pp) => {
+        const fb = await auth().getUser(req.uid).catch(() => null);
+        metaCapi.sendInitiateCheckout({ meta, req, uid: req.uid, email: fb?.email, eventId: meta.eventId, value: pp?.amount || 0, currency: pp?.currency, plan });
+      });
+    }
   } catch (e) {
     console.error('[stripe] checkout:', e.message);
     res.status(e.status || 500).json({ error: 'checkout_failed' });
+  }
+});
+
+/** CompleteRegistration dal server (stesso event_id del browser). Una volta per account. */
+router.post('/meta/registration', express.json(), async (req, res) => {
+  const { meta, eventId, url } = req.body || {};
+  if (!meta || meta.consent !== true || typeof eventId !== 'string') return res.json({ sent: false });
+  try {
+    const ref = db().doc(`users/${req.uid}`);
+    const first = await db().runTransaction(async (t) => {
+      const u = (await t.get(ref)).data() || {};
+      if (u.meta?.registrationSent) return false;
+      t.set(ref, { meta: { registrationSent: Date.now() } }, { merge: true });
+      return true;
+    });
+    if (!first) return res.json({ sent: false, already: true });
+    const fb = await auth().getUser(req.uid).catch(() => null);
+    const n = await metaCapi.sendRegistration({ meta, req, uid: req.uid, email: fb?.email, eventId, url });
+    res.json({ sent: n > 0 });
+  } catch (e) {
+    console.error('[meta] registrazione:', e.message);
+    res.json({ sent: false });
   }
 });
 
@@ -344,7 +380,8 @@ router.post('/checkout/confirm', express.json(), async (req, res) => {
     if (s.subscription && typeof s.subscription === 'object') await writeSubscription(req.uid, s.subscription);
     const user = (await db().doc(`users/${req.uid}`).get()).data() || {};
     // Il valore serve all'evento Purchase del browser (stesso id della Conversions API).
-    res.json({ entitled: isEntitled(user), value: (s.amount_total || 0) / 100, currency: s.currency, plan: s.metadata?.plan || null });
+    const { value, currency } = metaCapi.purchaseValue(s, await planPrice(s.metadata?.plan));
+    res.json({ entitled: isEntitled(user), value, currency, plan: s.metadata?.plan || null });
   } catch (e) {
     console.error('[stripe] confirm:', e.message);
     res.status(500).json({ error: 'confirm_failed' });
@@ -385,7 +422,7 @@ async function stripeWebhook(req, res) {
     } else if (event.type === 'checkout.session.completed' && obj.subscription && obj.client_reference_id) {
       const sub = await stripe().subscriptions.retrieve(obj.subscription);
       await writeSubscription(obj.client_reference_id, sub);
-      metaCapi.sendPurchase(obj, { uid: obj.client_reference_id, plan: obj.metadata?.plan, appUrl: keys.web.appUrl });
+      planPrice(obj.metadata?.plan).then((pp) => metaCapi.sendPurchase(obj, { uid: obj.client_reference_id, plan: obj.metadata?.plan, appUrl: keys.web.appUrl, planPrice: pp }));
     }
     res.json({ received: true });
   } catch (e) {
