@@ -26,7 +26,7 @@ export async function api<T = any>(path: string, body?: unknown, method = body =
 
 export { getPlans, money, type Plan } from './plans';
 export const importRecipe = (url: string) => api<{ id: string; existing: boolean }>('/import', { url });
-export const startCheckout = (plan: 'yearly' | 'monthly', meta?: Record<string, unknown>) => api<{ url: string }>('/checkout', { plan, meta });
+export const startCheckout = (plan: 'yearly' | 'monthly', meta?: Record<string, unknown>, fid?: string) => api<{ url: string }>('/checkout', { plan, meta, fid });
 export const sendRegistrationEvent = (meta: Record<string, unknown>, eventId: string) => api<{ sent: boolean }>('/meta/registration', { meta, eventId, url: location.href }).catch(() => null);
 export const confirmCheckout = (session: string) => api<{ entitled: boolean; value?: number; currency?: string; plan?: string }>('/checkout/confirm', { session });
 export const openPortal = () => api<{ url: string }>('/portal', {});

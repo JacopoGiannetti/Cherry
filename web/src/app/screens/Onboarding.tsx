@@ -11,6 +11,7 @@ import { metaForServer, once, track } from '../../lib/meta';
 import { getPreview, saveProfile, sendRegistrationEvent, startPreview } from '../../lib/api';
 import { DEMO_URL, derive, HOME_USD, loadFunnel, saveFunnel, TAKEOUT_USD, type Funnel } from '../../lib/funnel';
 import { extractLink, minutes } from '../../lib/kitchen';
+import { journey } from '../../lib/journey';
 import demo from '../../lib/demo.json';
 import type { Recipe } from '../../lib/types';
 
@@ -50,6 +51,12 @@ const BLOCKERS = [
   { id: 'shopping', label: 'I never have the ingredients', fix: 'One tap turns recipes into a grocery list by aisle.' },
 ];
 
+/** Le risposte, senza la ricetta intera. */
+function answersOf(f: Funnel) {
+  const platform = f.url ? (/instagram/.test(f.url) ? 'instagram' : /tiktok/.test(f.url) ? 'tiktok' : /youtu/.test(f.url) ? 'youtube' : 'other') : undefined;
+  return { saved: f.saved, cooked: f.cooked, blockers: f.blockers, household: f.household, nights: f.nights, takeout: f.takeout, paste: f.recipe ? (f.demo ? 'demo' : 'own') : undefined, platform: f.demo ? undefined : platform };
+}
+
 export function Onboarding() {
   const [, navigate] = useLocation();
   const { user, entitled, ready } = useSession();
@@ -61,6 +68,8 @@ export function Onboarding() {
   const d = useMemo(() => derive(f), [f]);
 
   useEffect(() => { saveFunnel(f); }, [f]);
+  // Per la dashboard: a che schermata è arrivato e cosa ha risposto fin lì.
+  useEffect(() => { void journey('step', { id: name, answers: answersOf(f) }); }, [name]);
   const set: Set = (patch) => setF((cur) => ({ ...cur, ...(typeof patch === 'function' ? patch(cur) : patch) }));
 
   // Chi è già dentro non rifà il percorso; chi ha già l'account va al paywall.
@@ -74,6 +83,7 @@ export function Onboarding() {
         goals: f.blockers, saveHabit: `${f.cooked}/${f.saved}`, completed: true,
       }).catch(() => {});
       // Browser e server con lo stesso id: Meta lo conta una volta (il server una volta per account).
+      void journey('account', { answers: answersOf(f) });
       once(`reg-${user.uid}`, async () => {
         const id = `reg_${user.uid}`;
         const meta = await metaForServer(id);

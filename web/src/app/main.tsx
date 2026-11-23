@@ -23,8 +23,11 @@ import { TabBar } from '../components/TabBar';
 import { ToastHost } from '../components/Toast';
 import { ConsentBanner } from '../components/ConsentBanner';
 import { initMeta, keepClickId, pageView } from '../lib/meta';
+import { setJourneyAuth } from '../lib/journey';
+import { auth } from '../lib/firebase';
 
 document.body.classList.add('is-app');
+setJourneyAuth(async () => (auth.currentUser ? auth.currentUser.getIdToken() : null));
 startSession();
 keepClickId();
 initMeta();

@@ -9,6 +9,7 @@ import { getPlans, money, type Plan } from '../lib/plans';
 import { onUser, signInWithGooglePopup } from '../lib/auth';
 import { ConsentBanner } from '../components/ConsentBanner';
 import { initMeta, keepClickId, openCookiePrefs } from '../lib/meta';
+import { journey } from '../lib/journey';
 
 const START = '/app/start';
 const APP = '/app/';
@@ -411,4 +412,5 @@ function Landing() {
 
 keepClickId();
 initMeta();
+void journey('landing', undefined, { once: true });
 createRoot(document.getElementById('root')!).render(<StrictMode><Landing /></StrictMode>);

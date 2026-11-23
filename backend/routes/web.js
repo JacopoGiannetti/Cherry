@@ -14,6 +14,7 @@ const { detectPlatform, resolve: resolveSocial } = require('../services/social-v
 const { persistImage } = require('../services/storage');
 const axios = require('axios');
 const metaCapi = require('../lib/meta-capi');
+const journeyLog = require('../lib/journey');
 
 const router = express.Router();
 const stripe = () => {
@@ -113,6 +114,34 @@ router.get('/preview/:id', (req, res) => {
   const job = previews.get(req.params.id);
   if (!job) return res.status(404).json({ error: 'not_found' });
   res.json({ status: job.status, stage: job.stage, recipe: job.recipe, error: job.error });
+});
+
+// ---------- Il percorso anonimo del sito (per la dashboard) ----------
+// Pubblico (la landing non ha login); l'uid c'è solo se il token è valido.
+const journeyHits = new Map();
+router.post('/journey', express.json({ limit: '8kb' }), async (req, res) => {
+  const ip = String(req.get('x-forwarded-for') || req.ip || '').split(',')[0].trim();
+  const minute = Math.floor(Date.now() / 60000);
+  const hit = journeyHits.get(ip);
+  if (hit && hit.minute === minute && hit.n >= 120) return res.status(429).end();
+  journeyHits.set(ip, { minute, n: hit && hit.minute === minute ? hit.n + 1 : 1 });
+  if (journeyHits.size > 5000) journeyHits.clear();
+  try {
+    const b = req.body || {};
+    let uid = null;
+    const h = req.get('authorization') || '';
+    if (h.startsWith('Bearer ')) uid = await auth().verifyIdToken(h.slice(7)).then((d) => d.uid).catch(() => null);
+    // Il paese lo dice Cloudflare al sito (/api/geo), e il sito lo passa qui.
+    const country = /^[A-Z]{2}$/.test(String(b.country || '')) ? b.country : null;
+    await journeyLog.record({ fid: b.fid, event: b.event, data: b.data, ctx: b.ctx, test: b.test === true, uid, country });
+    if (uid && /^[a-z0-9]{10,40}$/.test(String(b.fid || ''))) {
+      db().doc(`users/${uid}`).set({ journey: b.fid }, { merge: true }).catch(() => {});
+    }
+    res.status(204).end();
+  } catch (e) {
+    console.warn('[journey]', e.message);
+    res.status(204).end();
+  }
 });
 
 router.use(verifyFirebaseUser);
@@ -297,7 +326,7 @@ router.post('/checkout', express.json(), async (req, res) => {
       client_reference_id: req.uid,
       line_items: [{ price, quantity: 1 }],
       subscription_data: { metadata: { uid: req.uid } },
-      metadata: { uid: req.uid, plan, ...metaCapi.checkoutMetadata((req.body || {}).meta, req) },
+      metadata: { uid: req.uid, plan, ...(/^[a-z0-9]{10,40}$/.test(String((req.body || {}).fid || '')) ? { fid: req.body.fid } : {}), ...metaCapi.checkoutMetadata((req.body || {}).meta, req) },
       allow_promotion_codes: true,
       success_url: `${keys.web.appUrl}/app/welcome?session={CHECKOUT_SESSION_ID}`,
       cancel_url: `${keys.web.appUrl}/app/join?canceled=1`,
@@ -404,6 +433,11 @@ async function writeSubscription(uid, sub) {
   }, { merge: true });
 }
 
+/** payments/{id}: entrate di Cherry per la dashboard (primo pagamento, rinnovi, rimborsi). */
+async function recordPayment(id, p) {
+  await db().doc(`payments/${id}`).set({ ...p, recordedAt: Date.now() }, { merge: true }).catch((e) => console.warn('[stripe] payments:', e.message));
+}
+
 // ---------- Webhook Stripe (montato fuori da questo router, senza token) ----------
 async function stripeWebhook(req, res) {
   let event;
@@ -423,6 +457,19 @@ async function stripeWebhook(req, res) {
       const sub = await stripe().subscriptions.retrieve(obj.subscription);
       await writeSubscription(obj.client_reference_id, sub);
       planPrice(obj.metadata?.plan).then((pp) => metaCapi.sendPurchase(obj, { uid: obj.client_reference_id, plan: obj.metadata?.plan, appUrl: keys.web.appUrl, planPrice: pp }));
+      // Per la dashboard: il primo pagamento e il percorso che l'ha portato.
+      await recordPayment(obj.id, {
+        uid: obj.client_reference_id, fid: obj.metadata?.fid || null, plan: obj.metadata?.plan || null, kind: 'first',
+        amount: (obj.amount_total || 0) / 100, currency: obj.currency, live: !!obj.livemode, ts: (obj.created || 0) * 1000 || Date.now(),
+        source: obj.metadata?.meta_fbc ? 'meta_click' : null,
+      });
+      if (obj.metadata?.fid) journeyLog.markPaid(obj.metadata.fid, { plan: obj.metadata?.plan, value: (obj.amount_total || 0) / 100, currency: obj.currency, uid: obj.client_reference_id, live: !!obj.livemode });
+    } else if (event.type === 'invoice.paid' && obj.billing_reason === 'subscription_cycle') {
+      // I rinnovi (se l'endpoint del webhook su Stripe li manda).
+      const uid = obj.subscription_details?.metadata?.uid || obj.parent?.subscription_details?.metadata?.uid || null;
+      await recordPayment(obj.id, { uid, plan: null, kind: 'renewal', amount: (obj.amount_paid || 0) / 100, currency: obj.currency, live: !!obj.livemode, ts: (obj.created || 0) * 1000 || Date.now() });
+    } else if (event.type === 'charge.refunded') {
+      await recordPayment(`${obj.id}_refund`, { uid: obj.metadata?.uid || null, kind: 'refund', amount: -((obj.amount_refunded || 0) / 100), currency: obj.currency, live: !!obj.livemode, ts: Date.now() });
     }
     res.json({ received: true });
   } catch (e) {

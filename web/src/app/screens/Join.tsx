@@ -5,6 +5,7 @@ import { Icon } from '../../components/Icon';
 import { getPlans, money, startCheckout, type Plan } from '../../lib/api';
 import { eventId, metaForServer, track } from '../../lib/meta';
 import { useSession } from '../../lib/store';
+import { journey, journeyId } from '../../lib/journey';
 import { signOut } from '../../lib/firebase';
 import { derive, hasFunnel, loadFunnel } from '../../lib/funnel';
 
@@ -27,6 +28,7 @@ export function Join() {
 
   useEffect(() => { getPlans().then((r) => setPlans(r.plans)).catch(() => setPlans([])); }, []);
   useEffect(() => { if (entitled) navigate('/'); }, [entitled]);
+  useEffect(() => { if (user) void journey('paywall', { canceled: canceled || undefined }); }, [!!user]);
 
   // Solo in sviluppo: /app/join?preview per vedere il paywall senza account.
   const devPreview = import.meta.env.DEV && new URLSearchParams(location.search).has('preview');
@@ -44,8 +46,9 @@ export function Join() {
     try {
       // Stesso id nel browser e nell'API Conversions (che parte dal server al checkout).
       const id = eventId('ic');
+      void journey('checkout', { plan: choice });
       if (selected) void track('InitiateCheckout', { value: selected.amount, currency: (selected.currency || 'usd').toUpperCase(), content_name: `Cherry ${choice}`, num_items: 1 }, id);
-      const { url } = await startCheckout(choice, await metaForServer(id));
+      const { url } = await startCheckout(choice, await metaForServer(id), journeyId());
       location.href = url;
     } catch (e: any) {
       setError(e.message || 'Checkout is not available right now.');

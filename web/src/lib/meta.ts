@@ -9,6 +9,8 @@
 // Gli eventi di pagamento hanno l'id della Checkout Session: lo stesso dell'API Conversions,
 // così Meta li conta una volta.
 
+import { journey } from './journey';
+
 const PIXEL_ID = import.meta.env.VITE_META_PIXEL_ID as string | undefined;
 const KEY = 'cherry.consent';
 const NOTICE_KEY = 'cherry.notice';
@@ -62,6 +64,7 @@ async function detectRegion(): Promise<Region> {
     const r = await fetch('/api/geo', { signal: ctrl.signal, cache: 'no-store' });
     clearTimeout(t);
     const { country } = await r.json();
+    if (country) store.set('cherry.country', country, sessionStorage);
     return regionFor(country);
   } catch {
     return 'optin'; // non si sa: si chiede prima, per prudenza
@@ -89,6 +92,7 @@ export const needsConsent = () => consentUi() === 'banner';
 
 export function setConsent(v: Consent) {
   store.set(KEY, v);
+  void journey('consent', { value: v, region });
   apply();
   emit();
 }
@@ -122,6 +126,7 @@ function load() {
   w.fbq('consent', 'grant');
   w.fbq('init', PIXEL_ID);
   w.fbq('track', 'PageView');
+  void journey('pixel', { name: 'PageView' }, { once: true });
 }
 
 /** All'avvio: si scopre il paese, poi il Pixel parte se il consenso c'è (o vale per difetto). */
@@ -148,6 +153,7 @@ export async function track(event: string, params: Record<string, unknown> = {},
   if (effectiveConsent() !== 'granted') return false;
   load();
   (window as any).fbq('track', event, params, eventId ? { eventID: eventId } : undefined);
+  if (event !== 'PageView') void journey('pixel', { name: event });
   return true;
 }
 

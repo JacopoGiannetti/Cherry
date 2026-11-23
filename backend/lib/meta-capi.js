@@ -14,6 +14,7 @@
 const crypto = require('crypto');
 const axios = require('axios');
 const { keys } = require('../config/keys');
+const { db } = require('./firebase');
 
 const PIXEL_ID = process.env.META_PIXEL_ID || '';
 const TOKEN = process.env.META_CAPI_TOKEN || '';
@@ -49,11 +50,29 @@ async function send(events, { live }) {
     const r = await axios.post(`https://graph.facebook.com/${VERSION}/${PIXEL_ID}/events`, body, { params: { access_token: TOKEN }, timeout: 10000 });
     const n = r.data?.events_received || 0;
     console.log(`[meta] ${events.map((e) => e.event_name).join('+')} inviati${live ? '' : ' (test)'}: ${n}`);
+    logEvents(events, { live, ok: n === events.length, received: n });
     return n;
   } catch (e) {
-    console.warn('[meta] conversions api:', e.response?.data?.error?.message || e.message);
+    const msg = e.response?.data?.error?.message || e.message;
+    console.warn('[meta] conversions api:', msg);
+    logEvents(events, { live, ok: false, error: String(msg).slice(0, 300) });
     return 0;
   }
+}
+
+/** meta_events: cosa è partito dal server, per la dashboard. Senza dati personali (niente user_data). */
+function logEvents(events, { live, ok, received, error }) {
+  try {
+    const batch = db().batch();
+    for (const e of events) {
+      batch.set(db().collection('meta_events').doc(), {
+        name: e.event_name, eventId: e.event_id || null, value: e.custom_data?.value ?? null, currency: e.custom_data?.currency || null,
+        live, ok, received: received ?? null, error: error || null, ts: Date.now(),
+        hasFbp: !!e.user_data?.fbp, hasFbc: !!e.user_data?.fbc, hasEmail: !!e.user_data?.em,
+      });
+    }
+    batch.commit().catch((err) => console.warn('[meta] log:', err.message));
+  } catch (err) { console.warn('[meta] log:', err.message); }
 }
 
 function userData({ email, uid, fbp, fbc, ip, ua, country, zip }) {

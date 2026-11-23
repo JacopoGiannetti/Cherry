@@ -8,6 +8,7 @@ import { Icon } from '../../components/Icon';
 import { SUPPORT_EMAIL } from '../../lib/pwa';
 import { loadFunnel } from '../../lib/funnel';
 import { once, track } from '../../lib/meta';
+import { journey } from '../../lib/journey';
 
 /** Ritorno da Stripe: si conferma l'abbonamento, festa, poi l'app sulla Home. */
 export function Welcome() {
@@ -28,6 +29,7 @@ export function Welcome() {
       .then((r) => {
         if (r.entitled && r.value) {
           // Stesso id della Conversions API (la Checkout Session): Meta tiene un solo acquisto.
+          void journey('paid', { plan: r.plan, value: r.value, currency: r.currency, session }, { once: true });
           const p = { value: r.value, currency: (r.currency || 'usd').toUpperCase(), content_name: `Cherry ${r.plan || ''}`.trim() };
           void once(`buy-${session}`, async () => { const ok = await track('Purchase', p, session); if (ok) void track('Subscribe', { ...p, predicted_ltv: p.value }, session); return ok; });
         }
