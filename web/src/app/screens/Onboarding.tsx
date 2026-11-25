@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { AnimatePresence, motion } from 'motion/react';
 import { useLocation } from 'wouter';
 import { Icon, Logo } from '../../components/Icon';
@@ -8,9 +8,9 @@ import { LoopDemo } from '../../components/LoopDemo';
 import { useSession } from '../../lib/store';
 import { signInWithGoogle } from '../../lib/firebase';
 import { metaForServer, once, track } from '../../lib/meta';
-import { getPreview, saveProfile, sendRegistrationEvent, startPreview } from '../../lib/api';
+import { saveProfile, sendRegistrationEvent } from '../../lib/api';
 import { DEMO_URL, derive, HOME_USD, loadFunnel, saveFunnel, TAKEOUT_USD, type Funnel } from '../../lib/funnel';
-import { extractLink, minutes } from '../../lib/kitchen';
+import { minutes } from '../../lib/kitchen';
 import { journey } from '../../lib/journey';
 import demo from '../../lib/demo.json';
 import type { Recipe } from '../../lib/types';
@@ -27,12 +27,16 @@ import type { Recipe } from '../../lib/types';
 //  6 table     per quanti, quante sere               (l'impegno)
 //  7 takeout   quante sere di asporto                (il costo di oggi)
 //  8 math      quanto vale cambiare                  (il valore)
-//  9 paste     incolla una tua ricetta               (la prova)
-// 10 ready     la tua ricetta, primi passi veri      (l'aha)
-// 11 account   salvala                               (→ paywall)
+//  9 ready     una nostra ricetta, primi passi veri  (l'aha)
+// 10 account   salvala                               (→ paywall)
+//
+// Niente "incolla un tuo link": quasi tutti arrivano dalla ad dentro Facebook o
+// Instagram, e per copiare un link dovrebbero uscire dall'onboarding (7 su 10 si
+// fermavano lì). Si prova con la nostra ricetta, senza alternative.
 
-const STEPS = ['saved', 'cooked', 'reveal', 'blockers', 'fix', 'table', 'takeout', 'math', 'paste', 'ready', 'account'] as const;
+const STEPS = ['saved', 'cooked', 'reveal', 'blockers', 'fix', 'table', 'takeout', 'math', 'ready', 'account'] as const;
 type Step = typeof STEPS[number];
+const DEMO: Partial<Funnel> = { recipe: demo as unknown as Recipe, url: DEMO_URL, demo: true };
 type Set = (patch: Partial<Funnel> | ((f: Funnel) => Partial<Funnel>)) => void;
 const DARK: Step[] = ['reveal', 'math'];
 
@@ -131,10 +135,8 @@ export function Onboarding() {
           {name === 'fix' && <Fix f={f} onNext={next} />}
           {name === 'table' && <Table f={f} set={set} onNext={next} />}
           {name === 'takeout' && <Takeout f={f} set={set} onNext={next} />}
-          {name === 'math' && <MathScreen f={f} onNext={next} />}
-          {name === 'paste' && <Paste f={f} set={set} onReady={next} />}
-          {name === 'ready' && f.recipe && <Ready f={f} onCook={() => setCooking(true)} onNext={next} />}
-          {name === 'ready' && !f.recipe && <Paste f={f} set={set} onReady={() => {}} />}
+          {name === 'math' && <MathScreen f={f} onNext={() => { if (!f.recipe) set(DEMO); next(); }} />}
+          {name === 'ready' && <Ready f={f.recipe ? f : { ...f, ...DEMO }} onCook={() => { if (!f.recipe) set(DEMO); setCooking(true); }} onNext={next} />}
           {name === 'account' && <Account f={f} />}
         </motion.section>
       </AnimatePresence>
@@ -355,121 +357,18 @@ function MathScreen({ f, onNext }: { f: Funnel; onNext: () => void }) {
         <li><span className="num">{f.household === 5 ? '5+' : f.household}</span>at the table, amounts scaled for you</li>
         <li><span className="num">{d.savedLabel}</span>saved recipes finally in play</li>
       </ul>
-      <Cta onClick={onNext}>Let's start with one recipe</Cta>
+      <Cta onClick={onNext}>Try it free on a recipe</Cta>
     </>
   );
 }
 
-// 9 ---------- La prova: una TUA ricetta
-function Paste({ f, set, onReady }: { f: Funnel; set: Set; onReady: () => void }) {
-  const [value, setValue] = useState('');
-  const [state, setState] = useState<'idle' | 'working' | 'error'>('idle');
-  const [stage, setStage] = useState('reading');
-  const [error, setError] = useState<string | null>(null);
-  const [tick, setTick] = useState(0);
-  const alive = useRef(true);
-  useEffect(() => () => { alive.current = false; }, []);
-  useEffect(() => {
-    if (state !== 'working') return;
-    const t = setInterval(() => setTick((n) => n + 1), 1000);
-    return () => clearInterval(t);
-  }, [state]);
-
-  const useDemo = () => { set({ recipe: demo as unknown as Recipe, url: DEMO_URL, demo: true }); onReady(); };
-
-  const run = async (raw: string) => {
-    const link = extractLink(raw.trim());
-    if (!link) { setError("That doesn't look like a TikTok or Instagram link."); setState('error'); return; }
-    setState('working'); setError(null); setTick(0); setStage('reading');
-    try {
-      const { id } = await startPreview(link);
-      for (;;) {
-        await new Promise((r) => setTimeout(r, 1500));
-        if (!alive.current) return;
-        const job = await getPreview(id);
-        setStage(job.stage);
-        if (job.status === 'done' && job.recipe) { set({ recipe: job.recipe, url: link, demo: false }); onReady(); return; }
-        if (job.status === 'error') throw new Error(job.error || "We couldn't read that video.");
-      }
-    } catch (e: any) {
-      if (!alive.current) return;
-      setError(e.message || "We couldn't read that video.");
-      setState('error');
-    }
-  };
-
-  const paste = async () => {
-    try {
-      const text = await navigator.clipboard.readText();
-      const link = extractLink(text || '');
-      if (link) { setValue(link); run(link); } else { setError('No TikTok or Instagram link on your clipboard yet. Copy one and try again.'); setState('error'); }
-    } catch { document.getElementById('paste-input')?.focus(); }
-  };
-
-  if (state === 'working') {
-    const lines = ['Opening the post', 'Watching the whole video', 'Writing every ingredient', 'Matching each step to its moment'];
-    const at = stage === 'reading' ? 0 : Math.min(3, 1 + Math.floor(tick / 9));
-    return (
-      <>
-        <Head kicker="Usually under a minute">Cherry is <em>watching</em> your video.</Head>
-        <div className="watch">
-          <div className="stamp watch__stamp">
-            <svg viewBox="0 0 100 100" aria-hidden="true"><defs><path id="circ" d="M50,50 m-38,0 a38,38 0 1,1 76,0 a38,38 0 1,1 -76,0" /></defs>
-              <text fontSize="9.2" fontWeight="700" letterSpacing="2.2"><textPath href="#circ">WATCHING · WRITING · MATCHING · </textPath></text></svg>
-            <b>{tick}s</b>
-          </div>
-          <ul className="watch__list">
-            {lines.map((l, i) => (
-              <li key={l} className={i < at ? 'done' : i === at ? 'now' : ''}>
-                <span>{i < at ? <Icon name="check" size={13} stroke={3.2} /> : String(i + 1)}</span>{l}
-              </li>
-            ))}
-          </ul>
-        </div>
-        <p className="flow__note">Keep this open. Your recipe appears here the moment it's ready.</p>
-      </>
-    );
-  }
-
-  return (
-    <>
-      <Head kicker="Now the fun part">Paste one recipe <em>you</em> saved.</Head>
-      <p className="flow__lead">We'll turn it into cook mode right now, before you sign up for anything.</p>
-      <div className="flow__mid flow__mid--top">
-        <button className="btn btn--ink btn--block btn--xl" onClick={paste}><Icon name="paste" /> Paste link</button>
-        <form className="linkbox" onSubmit={(e) => { e.preventDefault(); run(value); }}>
-          <input id="paste-input" value={value} onChange={(e) => setValue(e.target.value)} inputMode="url" placeholder="or type a TikTok / Instagram link" aria-label="Recipe link" />
-          <button className="linkbox__go" type="submit" disabled={!value.trim()} aria-label="Go"><Icon name="next" stroke={2.6} /></button>
-        </form>
-        {error && <p className="err" role="alert">{error}</p>}
-        <ol className="howlink">
-          <li><span>1</span>Open the video on TikTok or Instagram</li>
-          <li><span>2</span>Tap Share, then Copy link</li>
-          <li><span>3</span>Come back and tap Paste link</li>
-        </ol>
-      </div>
-      <div className="flow__cta">
-        {/* Grande e con la foto: chi non ha voglia di cercare un link deve vederla subito, non saltare. */}
-        <button className="demo-pick" onClick={useDemo}>
-          <img src={(demo as unknown as Recipe).imageUrl || '/assets/food/serve.jpg'} alt="" />
-          <span className="demo-pick__text">
-            <b>{f.recipe && !f.demo ? 'Use a popular recipe instead' : 'No link handy? Try a popular one'}</b>
-            <small>{(demo as unknown as Recipe).title}, ready in seconds</small>
-          </span>
-          <Icon name="next" stroke={2.6} />
-        </button>
-      </div>
-    </>
-  );
-}
-
-// 10 ---------- L'aha
+// 9 ---------- L'aha
 function Ready({ f, onCook, onNext }: { f: Funnel; onCook: () => void; onNext: () => void }) {
   const r = f.recipe!;
   const steps = (r.segments?.length || 0) >= 2 ? r.segments!.length : r.steps.length;
   return (
     <>
-      <p className="eyebrow flow__kicker">{f.demo ? 'A popular one, ready to cook' : 'Yours, ready to cook'}</p>
+      <p className="eyebrow flow__kicker">{f.demo ? 'Try it free on a popular recipe' : 'Yours, ready to cook'}</p>
       <div className="ready">
         <motion.div className="ready__card" initial={{ opacity: 0, y: 30, rotate: -3 }} animate={{ opacity: 1, y: 0, rotate: -1.5 }} transition={{ type: 'spring', stiffness: 140, damping: 16 }}>
           {r.imageUrl ? <img src={r.imageUrl} alt="" /> : <img src="/assets/food/serve.jpg" alt="" />}
@@ -490,7 +389,7 @@ function Ready({ f, onCook, onNext }: { f: Funnel; onCook: () => void; onNext: (
   );
 }
 
-// 11 ---------- Salvala
+// 10 ---------- Salvala
 function Account({ f }: { f: Funnel }) {
   const r = f.recipe;
   return (
