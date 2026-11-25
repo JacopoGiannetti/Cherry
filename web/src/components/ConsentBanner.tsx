@@ -22,13 +22,19 @@ export function ConsentBanner() {
     <>
       <AnimatePresence>
         {ui === 'banner' && !prefs && (
-          <motion.div key="banner" className="consent" role="dialog" aria-label="Cookies"
-            initial={{ y: 40, opacity: 0 }} animate={{ y: 0, opacity: 1 }} exit={{ y: 40, opacity: 0 }} transition={spring}>
-            <p>We use cookies to see which of our ads bring people to Cherry. <a href="/privacy#cookies">Learn more</a></p>
-            <div className="consent__actions">
-              <button className="btn btn--ghost" onClick={() => setConsent('denied')}>Decline</button>
-              <button className="btn btn--ink" onClick={() => setConsent('granted')}>Accept</button>
-            </div>
+          <motion.div key="banner" className="consent-sheet" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
+            <motion.div className="consent consent--big" role="dialog" aria-modal="true" aria-labelledby="consent-title"
+              initial={{ y: 60 }} animate={{ y: 0 }} exit={{ y: 60 }} transition={spring}>
+              <span className="consent__icon" aria-hidden="true">🍪</span>
+              <h2 id="consent-title">Can we use cookies?</h2>
+              <p>They help us see which of our ads bring people to Cherry, so we can keep it affordable. Cookies that keep you signed in are always on. <a href="/privacy#cookies">Learn more</a></p>
+              {/* Rifiutare deve essere facile quanto accettare (GDPR): stessi bottoni, stessa misura. */}
+              <div className="consent__actions">
+                <button className="btn btn--ink" onClick={() => setConsent('denied')}>Reject all</button>
+                <button className="btn btn--ink" onClick={() => setConsent('granted')}>Accept all</button>
+              </div>
+              <button className="consent__link consent__more" onClick={() => setPrefs(true)}>Choose what to allow</button>
+            </motion.div>
           </motion.div>
         )}
         {ui === 'notice' && !prefs && (

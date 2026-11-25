@@ -171,7 +171,8 @@
 .plan-card__main b { display: flex; align-items: center; gap: 8px; font-size: 17.5px; font-weight: 700; }
 .plan-card__main i { font-style: normal; font-size: 11.5px; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; padding: 3px 8px; border-radius: 8px; background: var(--cherry); color: var(--white); }
 .plan-card__main small { color: var(--mute); font-size: 13.5px; }
-.plan-card__price { font-size: 32px; }
+.plan-card__price { font-size: 32px; white-space: nowrap; }
+.plan-card__price small { font-size: 14px; font-weight: 600; color: var(--mute); margin-left: 2px; }
 .pay__cta { margin-top: auto; padding-top: 22px; }
 .pay__fine { text-align: center; margin-top: 14px; font-size: 12.5px; color: var(--mute); }
 .pay__fine svg { display: inline-block; vertical-align: -2px; margin-right: 4px; }

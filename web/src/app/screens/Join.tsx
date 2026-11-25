@@ -3,6 +3,7 @@ import { motion } from 'motion/react';
 import { Redirect, useLocation } from 'wouter';
 import { Icon } from '../../components/Icon';
 import { getPlans, money, startCheckout, type Plan } from '../../lib/api';
+import { perMonth as monthOf, savePct } from '../../lib/plans';
 import { eventId, metaForServer, track } from '../../lib/meta';
 import { useSession } from '../../lib/store';
 import { journey, journeyId } from '../../lib/journey';
@@ -37,8 +38,8 @@ export function Join() {
   const yearly = plans?.find((p) => p.plan === 'yearly');
   const monthly = plans?.find((p) => p.plan === 'monthly');
   const selected = choice === 'yearly' ? yearly : monthly;
-  const save = yearly && monthly ? Math.round((1 - yearly.amount / (monthly.amount * 12)) * 100) : 0;
-  const perMonth = yearly ? yearly.amount / 12 : null;
+  const save = yearly && monthly ? savePct(yearly.amount, monthly.amount) : 0;
+  const perMonth = yearly ? monthOf(yearly.amount) : null;
 
   const checkout = async () => {
     setBusy(true);
@@ -107,15 +108,15 @@ export function Join() {
           {yearly && (
             <button role="radio" aria-checked={choice === 'yearly'} className={`plan-card ${choice === 'yearly' ? 'on' : ''}`} onClick={() => setChoice('yearly')}>
               <span className="plan-card__radio" />
-              <span className="plan-card__main"><b>Yearly{save > 0 && <i>Save {save}%</i>}</b><small>{perMonth ? `${money(Math.round(perMonth * 100) / 100, yearly.currency)} a month, billed yearly` : 'Billed yearly'}</small></span>
-              <span className="plan-card__price num">{money(yearly.amount, yearly.currency)}</span>
+              <span className="plan-card__main"><b>Yearly{save > 0 && <i>Save {save}%</i>}</b><small>Billed {money(yearly.amount, yearly.currency)} yearly</small></span>
+              <span className="plan-card__price num">{perMonth !== null ? money(perMonth, yearly.currency) : money(yearly.amount, yearly.currency)}<small>/mo</small></span>
             </button>
           )}
           {monthly && (
             <button role="radio" aria-checked={choice === 'monthly'} className={`plan-card ${choice === 'monthly' ? 'on' : ''}`} onClick={() => setChoice('monthly')}>
               <span className="plan-card__radio" />
               <span className="plan-card__main"><b>Monthly</b><small>Cancel anytime</small></span>
-              <span className="plan-card__price num">{money(monthly.amount, monthly.currency)}</span>
+              <span className="plan-card__price num">{money(monthly.amount, monthly.currency)}<small>/mo</small></span>
             </button>
           )}
           {plans && !plans.length && <p className="err">Plans are not available right now. Please try again in a moment.</p>}

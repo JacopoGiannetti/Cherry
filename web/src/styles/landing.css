@@ -134,7 +134,10 @@ section { padding: clamp(84px, 11vw, 160px) clamp(18px, 5vw, 64px); max-width: 1
 .price--best { box-shadow: inset 0 0 0 2.5px var(--ink), var(--shadow-2); }
 .price__tag { position: absolute; top: -13px; left: 28px; height: 26px; padding: 0 12px; border-radius: 13px; background: var(--cherry); color: var(--white); font-size: 12px; font-weight: 700; line-height: 26px; letter-spacing: .06em; text-transform: uppercase; }
 .price > b { font-size: 18px; font-weight: 700; }
-.price__amount { font-size: clamp(64px, 7vw, 96px); margin: 6px 0; }
+.price__amount { font-size: clamp(64px, 7vw, 96px); margin: 6px 0; display: flex; align-items: baseline; flex-wrap: wrap; gap: 0 .14em; }
+.price__amount small { font-size: .24em; font-weight: 600; color: var(--mute); letter-spacing: 0; }
+.price__was { font-size: .42em; font-weight: 600; color: var(--mute); text-decoration-thickness: 2px; margin-right: .2em; }
+.price p b { color: var(--ink); }
 .price p { color: var(--mute); margin-bottom: 14px; min-height: 2.6em; }
 .pricing__fine { margin-top: 28px; color: var(--mute); font-size: 15px; }
 @media (max-width: 720px) { .price-cards { grid-template-columns: 1fr; } }

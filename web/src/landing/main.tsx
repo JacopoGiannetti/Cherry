@@ -5,7 +5,7 @@ import '../styles/tokens.css';
 import '../styles/landing.css';
 import { Icon, Logo } from '../components/Icon';
 import { LoopDemo } from '../components/LoopDemo';
-import { getPlans, money, type Plan } from '../lib/plans';
+import { getPlans, money, perMonth, savePct, type Plan } from '../lib/plans';
 import { onUser, signInWithGooglePopup } from '../lib/auth';
 import { ConsentBanner } from '../components/ConsentBanner';
 import { initMeta, keepClickId, openCookiePrefs } from '../lib/meta';
@@ -267,23 +267,27 @@ function Pricing() {
   useEffect(() => { getPlans().then((r) => setPlans(r.plans)).catch(() => setPlans([])); }, []);
   const yearly = plans?.find((p) => p.plan === 'yearly');
   const monthly = plans?.find((p) => p.plan === 'monthly');
+  const save = yearly && monthly ? savePct(yearly.amount, monthly.amount) : 0;
   return (
     <section className="pricing" id="pricing">
       <Reveal><p className="eyebrow">Pricing</p></Reveal>
       <Reveal delay={0.05}><h2 className="display section-title">Less than one <em>takeout order.</em></h2></Reveal>
       <div className="price-cards">
         <Reveal className="price price--best">
-          <span className="price__tag">Best value</span>
+          <span className="price__tag">Most popular{save > 0 ? ` · Save ${save}%` : ''}</span>
           <b>Yearly</b>
-          <div className="price__amount num">{yearly ? money(yearly.amount, yearly.currency) : '—'}</div>
-          <p>{yearly ? `${money(Math.round((yearly.amount / 12) * 100) / 100, yearly.currency)} a month, billed yearly.` : 'Billed once a year.'}{yearly?.trialDays ? ` ${yearly.trialDays} days free.` : ''}</p>
-          <a href={START} className="btn btn--cherry btn--block">Start cooking</a>
+          <div className="price__amount num">
+            {monthly && <s className="price__was">{money(monthly.amount, monthly.currency)}</s>}
+            {yearly ? <>{money(perMonth(yearly.amount), yearly.currency)}<small>/month</small></> : '—'}
+          </div>
+          <p>{yearly ? <>Billed <b>{money(yearly.amount, yearly.currency)}</b> once a year.</> : 'Billed once a year.'}{yearly?.trialDays ? ` ${yearly.trialDays} days free.` : ''}</p>
+          <a href={START} className="btn btn--cherry btn--block">Get yearly</a>
         </Reveal>
         <Reveal className="price" delay={0.08}>
           <b>Monthly</b>
-          <div className="price__amount num">{monthly ? money(monthly.amount, monthly.currency) : '—'}</div>
-          <p>Flexible. Cancel anytime.</p>
-          <a href={START} className="btn btn--ghost btn--block">Start cooking</a>
+          <div className="price__amount num">{monthly ? <>{money(monthly.amount, monthly.currency)}<small>/month</small></> : '—'}</div>
+          <p>Billed monthly. Cancel anytime.</p>
+          <a href={START} className="btn btn--ghost btn--block">Get monthly</a>
         </Reveal>
       </div>
       <p className="pricing__fine">Unlimited recipes · Cook mode · Grocery lists · Cancel in two taps</p>

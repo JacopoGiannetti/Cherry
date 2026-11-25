@@ -203,6 +203,16 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 .consent__actions .btn { height: 46px; font-size: 15px; }
 .footer__link { font: inherit; color: inherit; background: none; padding: 0; cursor: pointer; }
 /* Opt-out (USA…): l'avviso piccolo, non blocca niente */
+/* Il foglio grande del consenso (UE): copre la pagina finché non si sceglie. */
+.consent-sheet { position: fixed; inset: 0; z-index: 110; background: rgba(27, 19, 19, .45); display: flex; align-items: flex-end; justify-content: center; padding: 12px; padding-bottom: calc(12px + env(safe-area-inset-bottom)); }
+.consent--big { position: relative; left: auto; right: auto; bottom: auto; width: 100%; max-width: 520px; padding: 26px 22px 18px; border-radius: 26px; gap: 14px; text-align: center; }
+.consent--big h2 { font-family: var(--display); font-weight: 800; font-size: 30px; letter-spacing: -.02em; color: var(--ink); line-height: 1.05; }
+.consent--big p { font-size: 15.5px; color: var(--ink-2, var(--ink)); }
+.consent__icon { font-size: 40px; line-height: 1; }
+.consent--big .consent__actions .btn { height: 54px; font-size: 16.5px; }
+.consent__more { justify-self: center; font-size: 14px; color: var(--mute); font-weight: 600; }
+@media (min-width: 760px) { .consent-sheet { align-items: center; } }
+body.is-app .consent--big { bottom: auto; }
 .consent--notice { display: flex; align-items: center; gap: 10px; padding: 10px 10px 10px 16px; border-radius: 16px; max-width: 400px; }
 .consent--notice p { flex: 1; font-size: 13.5px; }
 .consent__link { font: inherit; font-weight: 700; color: var(--ink); text-decoration: underline; background: none; border: 0; padding: 0; cursor: pointer; }
