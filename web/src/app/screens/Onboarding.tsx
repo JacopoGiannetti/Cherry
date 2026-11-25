@@ -449,7 +449,15 @@ function Paste({ f, set, onReady }: { f: Funnel; set: Set; onReady: () => void }
         </ol>
       </div>
       <div className="flow__cta">
-        <button className="flow__link" onClick={useDemo}>{f.recipe && !f.demo ? 'Use a popular recipe instead' : "I don't have one handy, show me a popular one"}</button>
+        {/* Grande e con la foto: chi non ha voglia di cercare un link deve vederla subito, non saltare. */}
+        <button className="demo-pick" onClick={useDemo}>
+          <img src={(demo as unknown as Recipe).imageUrl || '/assets/food/serve.jpg'} alt="" />
+          <span className="demo-pick__text">
+            <b>{f.recipe && !f.demo ? 'Use a popular recipe instead' : 'No link handy? Try a popular one'}</b>
+            <small>{(demo as unknown as Recipe).title}, ready in seconds</small>
+          </span>
+          <Icon name="next" stroke={2.6} />
+        </button>
       </div>
     </>
   );
