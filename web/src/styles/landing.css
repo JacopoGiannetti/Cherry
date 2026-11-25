@@ -90,7 +90,7 @@ section { padding: clamp(84px, 11vw, 160px) clamp(18px, 5vw, 64px); max-width: 1
 .cookm__demo { position: relative; max-width: 340px; justify-self: center; width: 100%; }
 .cookm__demo .loopdemo { background: #2A1E1E; box-shadow: 0 40px 80px rgba(0, 0, 0, .5); transform: rotate(3deg); }
 .cookm__stamp { position: absolute; left: -54px; top: -48px; width: 128px; height: 128px; color: var(--ink); background: var(--cherry); border-radius: 50%; z-index: 2; }
-.cookm__stamp svg { color: var(--white); fill: var(--white); }
+.cookm__stamp > svg { color: var(--white); fill: var(--white); }
 .cookm__stamp b { color: var(--white); display: grid; }
 @media (max-width: 900px) {
   .cookm__inner { grid-template-columns: 1fr; }
