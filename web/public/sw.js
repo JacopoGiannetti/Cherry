@@ -1,6 +1,7 @@
 // Cherry: l'app si apre anche offline (al supermercato la rete va e viene).
 // Le pagine: rete prima, cache se manca. Gli asset con hash: cache prima.
-const CACHE = 'cherry-v1';
+// v2: la v1 poteva aver salvato una pagina HTML al posto di un file degli asset (durante una pubblicazione) e servirla per sempre.
+const CACHE = 'cherry-v2';
 const SHELL = ['/app/', '/manifest.webmanifest', '/assets/mascot.png', '/assets/icon-192.png'];
 
 self.addEventListener('install', (e) => {
@@ -26,10 +27,11 @@ self.addEventListener('fetch', (e) => {
     return;
   }
   if (url.pathname.startsWith('/assets/')) {
-    e.respondWith(caches.match(req).then((hit) => hit || fetch(req).then((res) => {
-      const copy = res.clone();
-      caches.open(CACHE).then((c) => c.put(req, copy));
+    // Si tiene solo un file vero: mai una pagina HTML (quella che arriva se il file non c'è ancora).
+    const real = (res) => res && res.ok && !(res.headers.get('content-type') || '').includes('text/html');
+    e.respondWith(caches.match(req).then((hit) => (real(hit) ? hit : fetch(req, { cache: 'reload' }).then((res) => {
+      if (real(res)) { const copy = res.clone(); caches.open(CACHE).then((c) => c.put(req, copy)); }
       return res;
-    })));
+    }))));
   }
 });
