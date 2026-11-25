@@ -200,7 +200,7 @@ function Saved({ f, set, onNext }: { f: Funnel; set: Set; onNext: () => void }) 
         {plates.slice(0, shown).map((p, i) => (
           <motion.div key={p} className="plate pile__plate" style={{ left: `${SPOTS[i][0]}%`, top: `${SPOTS[i][1]}%`, width: `${SPOTS[i][2]}%`, zIndex: i % 3 }}
             initial={{ scale: 0, rotate: -25 }} animate={{ scale: 1, rotate: SPOTS[i][3] }} exit={{ scale: 0 }} transition={{ type: 'spring', stiffness: 300, damping: 20 }}>
-            <img src={`/assets/plates/${p}.jpg`} alt="" />
+            <img src={`/assets/food/${p}.jpg`} alt="" />
           </motion.div>
         ))}
         <div className="pile__num num">{f.saved >= 500 ? '500+' : f.saved}</div>
@@ -464,7 +464,7 @@ function Ready({ f, onCook, onNext }: { f: Funnel; onCook: () => void; onNext: (
       <p className="eyebrow flow__kicker">{f.demo ? 'A popular one, ready to cook' : 'Yours, ready to cook'}</p>
       <div className="ready">
         <motion.div className="ready__card" initial={{ opacity: 0, y: 30, rotate: -3 }} animate={{ opacity: 1, y: 0, rotate: -1.5 }} transition={{ type: 'spring', stiffness: 140, damping: 16 }}>
-          {r.imageUrl ? <img src={r.imageUrl} alt="" /> : <img src="/assets/steps/serve.jpg" alt="" />}
+          {r.imageUrl ? <img src={r.imageUrl} alt="" /> : <img src="/assets/food/serve.jpg" alt="" />}
           <div className="ready__shade" />
           <h1 className="display ready__title">{r.title}</h1>
         </motion.div>

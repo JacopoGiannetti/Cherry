@@ -5,10 +5,10 @@ import { Icon } from './Icon';
 // La cook mode in miniatura, con una ricetta vera in quattro passi:
 // il "video" resta sul suo pezzo finché non passi al prossimo.
 export const DEMO_STEPS = [
-  { t: '0:03', end: '0:11', img: '/assets/steps/boil.jpg', title: 'Boil the rigatoni', body: 'Salted water, two minutes shy of the box time.', ing: ['Rigatoni · 1 lb', 'Salt'] },
-  { t: '0:11', end: '0:19', img: '/assets/steps/sauce.jpg', title: 'Burst the tomatoes', body: 'Olive oil, garlic, cherry tomatoes. Crush as they soften.', ing: ['Cherry tomatoes · 2 cups', 'Garlic · 3 cloves'] },
-  { t: '0:19', end: '0:28', img: '/assets/steps/cream.jpg', title: 'Swirl in the cream', body: 'Lower the heat, pour slowly, shower with parmesan.', ing: ['Heavy cream · ½ cup', 'Parmesan · 1 cup'] },
-  { t: '0:28', end: '0:36', img: '/assets/steps/serve.jpg', title: 'Toss and serve', body: 'Pasta into the pan, a splash of pasta water, basil on top.', ing: ['Basil', 'Pasta water'] },
+  { t: '0:03', end: '0:11', img: '/assets/food/boil.jpg', title: 'Boil the rigatoni', body: 'Salted water, two minutes shy of the box time.', ing: ['Rigatoni · 1 lb', 'Salt'] },
+  { t: '0:11', end: '0:19', img: '/assets/food/sauce.jpg', title: 'Burst the tomatoes', body: 'Olive oil, garlic, cherry tomatoes. Crush as they soften.', ing: ['Cherry tomatoes · 2 cups', 'Garlic · 3 cloves'] },
+  { t: '0:19', end: '0:28', img: '/assets/food/cream.jpg', title: 'Swirl in the cream', body: 'Lower the heat, pour slowly, shower with parmesan.', ing: ['Heavy cream · ½ cup', 'Parmesan · 1 cup'] },
+  { t: '0:28', end: '0:36', img: '/assets/food/serve.jpg', title: 'Toss and serve', body: 'Pasta into the pan, a splash of pasta water, basil on top.', ing: ['Basil', 'Pasta water'] },
 ];
 
 export function LoopDemo({ auto = true, className = '' }: { auto?: boolean; className?: string }) {

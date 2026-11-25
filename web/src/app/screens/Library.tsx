@@ -85,7 +85,7 @@ export function Library() {
       {empty && (
         <section className="empty">
           <div className="empty__art" aria-hidden="true">
-            {['v-tacos', 'v-ramen', 'v-dumplings'].map((p) => <span key={p} className="plate"><img src={`/assets/plates/${p}.jpg`} alt="" /></span>)}
+            {['v-tacos', 'v-ramen', 'v-dumplings'].map((p) => <span key={p} className="plate"><img src={`/assets/food/${p}.jpg`} alt="" /></span>)}
           </div>
           <h2>Your cookbook is empty</h2>
           <p>Save a recipe video from TikTok or Instagram and it shows up here, ready to cook.</p>

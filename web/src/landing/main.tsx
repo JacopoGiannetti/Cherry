@@ -66,7 +66,7 @@ function Plate({ name, className, delay = 0 }: { name: string; className: string
   return (
     <motion.span className={`plate ${className}`} aria-hidden="true"
       initial={{ scale: 0, rotate: -30 }} animate={{ scale: 1, rotate: 0 }} transition={{ type: 'spring', stiffness: 120, damping: 14, delay }}>
-      <img src={`/assets/plates/${name}.jpg`} alt="" />
+      <img src={`/assets/food/${name}.jpg`} alt="" />
     </motion.span>
   );
 }
@@ -172,7 +172,7 @@ function TypingLink() {
           )}
           {phase === 'done' && (
             <motion.div key="d" className="typing__result" initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }} transition={{ duration: 0.4, ease: [0.2, 0.8, 0.2, 1] }}>
-              <span className="plate"><img src="/assets/plates/v-gnocchi.jpg" alt="" /></span>
+              <span className="plate"><img src="/assets/food/v-gnocchi.jpg" alt="" /></span>
               <div><b>Baked Gnocchi alla Sorrentina</b><small>9 ingredients · 4 video steps · 25 min</small></div>
             </motion.div>
           )}
@@ -255,7 +255,7 @@ function More() {
         <p className="eyebrow">Cookbook</p>
         <h3 className="display">Everything you saved, finally <em>findable.</em></h3>
         <div className="more__plates" aria-hidden="true">
-          {['v-pizza', 'v-udon', 'v-curry', 'v-fettuccine', 'v-teriyaki', 'v-beans'].map((p) => <span key={p} className="plate"><img src={`/assets/plates/${p}.jpg`} alt="" loading="lazy" /></span>)}
+          {['v-pizza', 'v-udon', 'v-curry', 'v-fettuccine', 'v-teriyaki', 'v-beans'].map((p) => <span key={p} className="plate"><img src={`/assets/food/${p}.jpg`} alt="" loading="lazy" /></span>)}
         </div>
       </Reveal>
     </section>
@@ -331,8 +331,8 @@ function Closer() {
   return (
     <section className="closer">
       <div className="closer__plates" aria-hidden="true">
-        <span className="plate"><img src="/assets/plates/v-kungpao.jpg" alt="" loading="lazy" /></span>
-        <span className="plate"><img src="/assets/plates/v-grilledcheese.jpg" alt="" loading="lazy" /></span>
+        <span className="plate"><img src="/assets/food/v-kungpao.jpg" alt="" loading="lazy" /></span>
+        <span className="plate"><img src="/assets/food/v-grilledcheese.jpg" alt="" loading="lazy" /></span>
       </div>
       <Reveal>
         <h2 className="display shout closer__title">Tonight, cook the one <em>you saved.</em></h2>

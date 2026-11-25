@@ -67,7 +67,7 @@ export function ListScreen() {
       {empty && (
         <section className="empty">
           <div className="empty__art empty__art--list" aria-hidden="true">
-            {['v-curry', 'v-teriyaki', 'v-beans'].map((p) => <span key={p} className="plate"><img src={`/assets/plates/${p}.jpg`} alt="" /></span>)}
+            {['v-curry', 'v-teriyaki', 'v-beans'].map((p) => <span key={p} className="plate"><img src={`/assets/food/${p}.jpg`} alt="" /></span>)}
           </div>
           <h2>Nothing to buy yet</h2>
           <p>Pick a few recipes and Cherry makes one list, sorted by aisle.</p>

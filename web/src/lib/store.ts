@@ -40,7 +40,7 @@ const MOCK = import.meta.env.DEV && (() => {
 const plate = (n: string) => `/assets/plates/${n}.jpg`;
 const base = demoRecipe as unknown as Recipe;
 let MOCK_RECIPES: Recipe[] = [
-  { ...base, id: 'demo', imageUrl: '/assets/steps/serve.jpg', favorite: true },
+  { ...base, id: 'demo', imageUrl: '/assets/food/serve.jpg', favorite: true },
   { ...base, id: 'm2', title: 'Crispy Mushroom Tacos', cuisine: 'Mexican', cookMinutes: 25, imageUrl: plate('tacos') },
   { ...base, id: 'm3', title: 'Miso Ramen with Tofu', cuisine: 'Japanese', cookMinutes: 40, imageUrl: plate('ramen') },
   { ...base, id: 'm4', title: 'Smash Burger', cuisine: 'American', cookMinutes: 20, imageUrl: plate('burger') },

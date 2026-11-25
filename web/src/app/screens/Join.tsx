@@ -70,7 +70,7 @@ export function Join() {
 
         {recipe && (
           <motion.div className="pay__recipe" initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, ease: [0.2, 0.8, 0.2, 1] }}>
-            <img src={recipe.imageUrl || '/assets/steps/serve.jpg'} alt="" />
+            <img src={recipe.imageUrl || '/assets/food/serve.jpg'} alt="" />
             <div>
               <b>{recipe.title}</b>
               <span>{recipe.ingredients.length} ingredients · {steps} video steps</span>
