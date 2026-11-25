@@ -16,19 +16,14 @@ section { padding: clamp(84px, 11vw, 160px) clamp(18px, 5vw, 64px); max-width: 1
 .nav__signin { font-weight: 600; font-size: 15px; }
 @media (max-width: 860px) { .nav__links { display: none; } .nav__cta { gap: 14px; } }
 
-/* ---------- Hero: il titolo regge la pagina, i piatti ci passano sopra ---------- */
+/* ---------- Hero: il titolo a sinistra con i piatti nella riga, la demo a destra. Niente copre le parole. ---------- */
 .hero { max-width: none; padding: 104px clamp(14px, 3vw, 44px) 56px; min-height: 100svh; display: flex; flex-direction: column; }
-.hero__stage { position: relative; flex: 1; display: grid; align-content: center; }
-.hero__title { font-size: clamp(74px, 19.5vw, 330px); line-height: .8; letter-spacing: -.045em; }
-.hero__title span { display: block; white-space: nowrap; }
-.hero__title span:nth-child(2) { text-align: right; }
+.hero__stage { position: relative; flex: 1; display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: clamp(24px, 4vw, 72px); }
+.hero__title { font-size: clamp(60px, 12.4vw, 210px); line-height: .86; letter-spacing: -.045em; }
+.hero__title > span { display: block; white-space: nowrap; }
 .hero__title em { text-transform: none; font-size: 1.02em; letter-spacing: -.03em; }
-.hero__plates { position: absolute; inset: 0; pointer-events: none; }
-.hero__p { position: absolute; }
-.hero__p--1 { width: clamp(96px, 16vw, 270px); left: 33%; top: 6%; }
-.hero__p--2 { width: clamp(80px, 15vw, 250px); left: 22%; top: 50%; }
-.hero__p--3 { width: clamp(70px, 11vw, 190px); right: 24%; bottom: -2%; }
-.hero__phone { position: absolute; right: clamp(8px, 6vw, 110px); top: -3%; width: clamp(150px, 21vw, 330px); z-index: 3; }
+.hero__p { display: inline-block; width: .82em; vertical-align: middle; margin: -.1em .04em 0; }
+.hero__phone { position: relative; width: clamp(170px, 20vw, 320px); z-index: 3; }
 .hero__foot { display: flex; align-items: flex-end; justify-content: space-between; gap: 40px; margin-top: clamp(30px, 5vw, 64px); padding: 0 clamp(4px, 2vw, 20px); }
 .hero__lead { font-size: clamp(18px, 1.7vw, 24px); line-height: 1.38; max-width: 31ch; color: var(--ink-2); }
 .hero__lead b { color: var(--ink); font-weight: 700; }
@@ -36,12 +31,10 @@ section { padding: clamp(84px, 11vw, 160px) clamp(18px, 5vw, 64px); max-width: 1
 .hero__sub { font-size: 14.5px; color: var(--mute); }
 @media (max-width: 760px) {
   .hero { padding-top: 92px; min-height: 0; }
-  .hero__title { font-size: 24vw; }
-  .hero__stage { align-content: start; padding-top: 8px; min-height: 124vw; }
-  .hero__phone { right: 3%; top: auto; bottom: 2vw; width: 42vw; }
-  .hero__p--1 { left: 6%; top: 43%; width: 31vw; }
-  .hero__p--2 { left: 26%; top: 68%; width: 25vw; }
-  .hero__p--3 { right: auto; left: 2%; bottom: 0; width: 19vw; }
+  .hero__title { font-size: 17.5vw; }
+  .hero__stage { grid-template-columns: 1fr; justify-items: center; padding-top: 8px; gap: 30px; }
+  .hero__title { justify-self: start; }
+  .hero__phone { width: 62vw; }
   .hero__foot { flex-direction: column; align-items: stretch; gap: 22px; margin-top: 64px; }
   .hero__cta { justify-items: stretch; }
   .hero__cta .btn { width: 100%; padding: 0 18px; }
@@ -170,3 +163,8 @@ section { padding: clamp(84px, 11vw, 160px) clamp(18px, 5vw, 64px); max-width: 1
 
 .sticky-cta { position: fixed; z-index: 45; left: 50%; bottom: calc(16px + var(--safe-b)); box-shadow: 0 0 0 4px var(--paper), 0 14px 30px rgba(27, 19, 19, .25); }
 @media (min-width: 861px) { .sticky-cta { display: none; } }
+/* Sul telefono i piatti del finale stanno sopra il titolo, in fila: non coprono le parole. */
+@media (max-width: 760px) {
+  .closer__plates { display: flex; justify-content: center; gap: 18px; margin-bottom: 26px; }
+  .closer__plates .plate { position: relative; width: 30vw; left: auto; right: auto; top: auto; bottom: auto; }
+}

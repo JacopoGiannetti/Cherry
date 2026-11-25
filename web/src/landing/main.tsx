@@ -61,6 +61,7 @@ function Nav() {
   );
 }
 
+/** Un piatto nella riga del titolo: sta accanto alle parole, non sopra. */
 function Plate({ name, className, delay = 0 }: { name: string; className: string; delay?: number }) {
   return (
     <motion.span className={`plate ${className}`} aria-hidden="true"
@@ -73,20 +74,14 @@ function Plate({ name, className, delay = 0 }: { name: string; className: string
 function Hero() {
   const ref = useRef<HTMLElement>(null);
   const { scrollYProgress } = useScroll({ target: ref, offset: ['start start', 'end start'] });
-  const up = useTransform(scrollYProgress, [0, 1], [0, -90]);
   const down = useTransform(scrollYProgress, [0, 1], [0, 70]);
   return (
     <section className="hero" id="top" ref={ref}>
       <div className="hero__stage">
         <motion.h1 className="display shout hero__title" initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, ease: [0.2, 0.8, 0.2, 1] }}>
-          <span>Saved it.</span>
-          <span>Now <em>cook</em> it.</span>
+          <span>Saved it. <Plate name="v-tacos" className="hero__p" delay={0.25} /></span>
+          <span><Plate name="v-ramen" className="hero__p" delay={0.35} /> Now <em>cook</em> it.</span>
         </motion.h1>
-        <motion.div className="hero__plates" style={{ y: up }}>
-          <Plate name="tacos" className="hero__p hero__p--1" delay={0.25} />
-          <Plate name="ramen" className="hero__p hero__p--2" delay={0.35} />
-          <Plate name="burger" className="hero__p hero__p--3" delay={0.45} />
-        </motion.div>
         <motion.div className="hero__phone" style={{ y: down }} initial={{ opacity: 0, y: 60, rotate: 8 }} animate={{ opacity: 1, rotate: 4 }} transition={{ type: 'spring', stiffness: 70, damping: 15, delay: 0.2 }}>
           <LoopDemo />
         </motion.div>
@@ -133,7 +128,7 @@ function Problem() {
   return (
     <section className="problem">
       <Reveal><p className="eyebrow">The problem</p></Reveal>
-      <Reveal delay={0.05}><h2 className="display problem__title">Recipe videos are made for <s>scrolling,</s> <em>not for cooking.</em></h2></Reveal>
+      <Reveal delay={0.05}><h2 className="display problem__title">Recipe videos are made for scrolling, <em>not for cooking.</em></h2></Reveal>
       <ol className="problem__list">
         {pains.map(([t, b], i) => (
           <Reveal key={t} delay={0.08 * i}>
@@ -177,8 +172,8 @@ function TypingLink() {
           )}
           {phase === 'done' && (
             <motion.div key="d" className="typing__result" initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }} transition={{ duration: 0.4, ease: [0.2, 0.8, 0.2, 1] }}>
-              <span className="plate"><img src="/assets/steps/serve.jpg" alt="" /></span>
-              <div><b>Creamy Tomato Rigatoni</b><small>9 ingredients · 4 video steps · 25 min</small></div>
+              <span className="plate"><img src="/assets/plates/v-gnocchi.jpg" alt="" /></span>
+              <div><b>Baked Gnocchi alla Sorrentina</b><small>9 ingredients · 4 video steps · 25 min</small></div>
             </motion.div>
           )}
         </AnimatePresence>
@@ -249,7 +244,7 @@ function More() {
         <p className="eyebrow">Groceries</p>
         <h3 className="display">One list, sorted <em>by aisle.</em></h3>
         <ul className="checks">
-          {[['Rigatoni', '1 lb', true], ['Cherry tomatoes', '2 cups', true], ['Heavy cream', '½ cup', false], ['Parmesan', '1 cup', false]].map(([n, q, on], i) => (
+          {[['Potato gnocchi', '1 lb', true], ['Cherry tomatoes', '2 cups', true], ['Fresh mozzarella', '8 oz', false], ['Basil', '1 bunch', false]].map(([n, q, on], i) => (
             <motion.li key={String(n)} className={on ? 'on' : ''} initial={{ opacity: 0, x: -10 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ delay: 0.15 + i * 0.08 }}>
               <span className="cb">{on && <Icon name="check" size={13} stroke={3.4} />}</span><span>{n}</span><em>{q}</em>
             </motion.li>
@@ -260,25 +255,9 @@ function More() {
         <p className="eyebrow">Cookbook</p>
         <h3 className="display">Everything you saved, finally <em>findable.</em></h3>
         <div className="more__plates" aria-hidden="true">
-          {['sushi', 'pad_thai', 'paella', 'margherita', 'poke', 'shakshuka'].map((p) => <span key={p} className="plate"><img src={`/assets/plates/${p}.jpg`} alt="" loading="lazy" /></span>)}
+          {['v-pizza', 'v-udon', 'v-curry', 'v-fettuccine', 'v-teriyaki', 'v-beans'].map((p) => <span key={p} className="plate"><img src={`/assets/plates/${p}.jpg`} alt="" loading="lazy" /></span>)}
         </div>
       </Reveal>
-    </section>
-  );
-}
-
-function AppLike() {
-  return (
-    <section className="applike">
-      <div className="applike__inner">
-        <Reveal>
-          <p className="eyebrow">On your Home Screen</p>
-          <h2 className="display shout applike__title">Feels like an app. <em>No App Store.</em></h2>
-          <p className="applike__lead">Add Cherry to your Home Screen in ten seconds: its own icon, full screen, opens instantly. Your list works even with bad signal at the store.</p>
-          <a href={START} className="btn btn--ink btn--xl">Get Cherry <Icon name="next" stroke={2.6} /></a>
-        </Reveal>
-        <motion.img src="/assets/icon-512.png" alt="" className="applike__icon" initial={{ scale: 0.4, rotate: -20, opacity: 0 }} whileInView={{ scale: 1, rotate: 8, opacity: 1 }} viewport={{ once: true }} transition={{ type: 'spring', stiffness: 160, damping: 12 }} />
-      </div>
     </section>
   );
 }
@@ -313,7 +292,7 @@ function Pricing() {
 }
 
 const FAQ = [
-  ['Is there an app?', 'Cherry runs in your browser and installs on your Home Screen in ten seconds, with its own icon and full screen, just like an app. It works on iPhone, Android, tablets and computers, and your cookbook syncs everywhere.'],
+  ['Does it work on my phone?', 'Yes. Cherry works on iPhone, Android, tablets and computers. Add it to your Home Screen for one-tap access, and your cookbook syncs everywhere.'],
   ['Which videos work?', 'Public recipe videos from TikTok and Instagram Reels. If the video shows the cooking, Cherry can turn it into steps. On TikTok each step loops its moment automatically; on Instagram each step shows its timestamp next to the official player.'],
   ['How long does it take?', 'Usually under a minute. Cherry watches the whole video, so a longer recipe takes a bit longer. You can keep browsing while it works.'],
   ['Do creators get credit?', 'Always. Cook mode plays the original video in the official TikTok or Instagram player, with the creator’s name, and every recipe links back to the post.'],
@@ -348,8 +327,8 @@ function Closer() {
   return (
     <section className="closer">
       <div className="closer__plates" aria-hidden="true">
-        <span className="plate"><img src="/assets/plates/bibimbap.jpg" alt="" loading="lazy" /></span>
-        <span className="plate"><img src="/assets/plates/tikka_masala.jpg" alt="" loading="lazy" /></span>
+        <span className="plate"><img src="/assets/plates/v-kungpao.jpg" alt="" loading="lazy" /></span>
+        <span className="plate"><img src="/assets/plates/v-grilledcheese.jpg" alt="" loading="lazy" /></span>
       </div>
       <Reveal>
         <h2 className="display shout closer__title">Tonight, cook the one <em>you saved.</em></h2>
@@ -398,7 +377,6 @@ function Landing() {
         <How />
         <Cook />
         <More />
-        <AppLike />
         <Pricing />
         <Faq />
         <Closer />

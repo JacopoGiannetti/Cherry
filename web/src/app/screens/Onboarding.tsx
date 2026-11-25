@@ -191,7 +191,7 @@ function Counter({ value, min, max, onChange, suffix, label }: {
 function Saved({ f, set, onNext }: { f: Funnel; set: Set; onNext: () => void }) {
   const idx = Math.max(0, SAVED_STOPS.indexOf(f.saved));
   const label = f.saved >= 300 ? 'A full-blown archive.' : f.saved >= 100 ? 'A serious collection.' : f.saved >= 30 ? 'A healthy habit.' : 'Just getting started.';
-  const plates = ['tacos', 'ramen', 'burger', 'sushi', 'pad_thai', 'paella', 'margherita', 'poke', 'shakshuka', 'bibimbap', 'mac_cheese', 'tikka_masala'];
+  const plates = ['v-tacos', 'v-ramen', 'v-dumplings', 'v-pizza', 'v-udon', 'v-curry', 'v-fettuccine', 'v-teriyaki', 'v-beans', 'v-kungpao', 'v-grilledcheese', 'v-gnocchi'];
   const shown = Math.min(plates.length, 2 + idx);
   return (
     <>
