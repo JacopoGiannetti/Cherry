@@ -25,6 +25,7 @@ import { ConsentBanner } from '../components/ConsentBanner';
 import { initMeta, keepClickId, pageView } from '../lib/meta';
 import { setJourneyAuth } from '../lib/journey';
 import { auth } from '../lib/firebase';
+import { used } from '../lib/usage';
 
 document.body.classList.add('is-app');
 setJourneyAuth(async () => (auth.currentUser ? auth.currentUser.getIdToken() : null));
@@ -47,7 +48,13 @@ function Member({ children }: { children: React.ReactNode; tabs?: boolean }) {
   if (!s.ready) return <Boot />;
   if (!s.user) return <Redirect to={`/start${location === '/' ? '' : `?next=${encodeURIComponent(location)}`}`} />;
   if (!s.entitled) return <Redirect to="/join" />;
-  return <>{children}</>;
+  return <><Opened />{children}</>;
+}
+
+/** L'apertura del giorno, per la retention (una al giorno, la filtra used). */
+function Opened() {
+  useEffect(() => { used('app.open'); }, []);
+  return null;
 }
 
 /**

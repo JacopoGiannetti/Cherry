@@ -27,8 +27,8 @@ function pagesFor(recipe: Recipe): Page[] {
   return [...segs, ...loose].sort((a, b) => Math.min(...a.steps) - Math.min(...b.steps));
 }
 
-export function CookMode({ recipe, factor = 1, onClose, limit, onUnlock }: {
-  recipe: Recipe; factor?: number; onClose: () => void;
+export function CookMode({ recipe, factor = 1, onClose, onDone, limit, onUnlock }: {
+  recipe: Recipe; factor?: number; onClose: () => void; onDone?: () => void;
   /** Anteprima: solo i primi passi, poi l'invito a sbloccare il resto. */
   limit?: number; onUnlock?: () => void;
 }) {
@@ -217,7 +217,7 @@ export function CookMode({ recipe, factor = 1, onClose, limit, onUnlock }: {
           <motion.button
             key={onLock ? 'unlock' : isLast ? 'done' : 'next'}
             className="btn btn--cherry cook__next"
-            onClick={() => (onLock ? (onUnlock || onClose)() : isLast ? onClose() : go(index + 1))}
+            onClick={() => (onLock ? (onUnlock || onClose)() : isLast ? (onDone || onClose)() : go(index + 1))}
             initial={{ opacity: 0, y: 6 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -6 }}
             transition={{ duration: 0.18 }}
           >

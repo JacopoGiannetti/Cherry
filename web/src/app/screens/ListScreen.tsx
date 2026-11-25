@@ -7,6 +7,7 @@ import { Aisles, BuyAgain, Progress, QuickAdd, addItems, clearChecked, setChecke
 import { deleteTrip, editList, saveTrip, shareList, shareUrl, stopSharing, useList, useRecipes, useSession, useShareId, useTrips } from '../../lib/store';
 import { itemEmoji, mergeIntoList, recurring, removeRecipeFromList, section } from '../../lib/kitchen';
 import type { GroceryList, Recipe, Trip } from '../../lib/types';
+import { used } from '../../lib/usage';
 
 // La spesa si fa camminando tra le corsie: sopra quello che manca, diviso
 // per corsia; ciò che spunti scivola giù, nel carrello. Si può fare in due:
@@ -32,14 +33,14 @@ export function ListScreen() {
 
   const items = list?.items || [];
   const inList = (list?.recipeIds || []).map((id) => recipes?.find((r) => r.id === id)).filter(Boolean) as Recipe[];
-  const edit = (fn: (l: GroceryList) => GroceryList) => editList(uid, fn).catch((e) => toast(e.message || 'Could not save', 'close'));
+  const edit = (fn: (l: GroceryList) => GroceryList) => { used('list.check'); return editList(uid, fn).catch((e) => toast(e.message || 'Could not save', 'close')); };
   const add = (n: NewItem[]) => { navigator.vibrate?.(6); return edit(addItems(n)); };
 
   /** Chiudere la spesa: ciò che è nel carrello va nelle spese passate, il resto resta. */
   const finish = async (all = false) => {
     if (!list) return;
     const bought = list.items.filter((i) => i.checked);
-    if (bought.length) await saveTrip(uid, { at: Date.now(), items: bought, recipeIds: list.recipeIds || [] });
+    if (bought.length) { await saveTrip(uid, { at: Date.now(), items: bought, recipeIds: list.recipeIds || [] }); used('trip.done'); }
     await edit(all ? (l) => ({ ...l, items: [], recipeIds: [] }) : clearChecked);
     if (bought.length) toast('Saved to past lists', 'check');
   };
@@ -129,7 +130,7 @@ function SharePanel({ uid, name, shareId, list, onClose }: { uid: string; name: 
 
   const start = async () => {
     setBusy(true);
-    try { await shareList(uid, name); } catch (e: any) { toast(e.message || 'Could not share', 'close'); }
+    try { await shareList(uid, name); used('list.share'); } catch (e: any) { toast(e.message || 'Could not share', 'close'); }
     setBusy(false);
   };
   const send = async () => {

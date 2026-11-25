@@ -13,6 +13,7 @@ const { generateJSON, videoPart } = require('../services/gemini');
 const { stageRemoteVideo } = require('../services/storage');
 const { resolve, downloadVideo, detectPlatform } = require('../services/social-video');
 const { buildExtractionPrompt, videoExtractionSchema } = require('../prompts/swap');
+const { runWith, recordJob, recordJobError } = require('./usage');
 
 const UA = 'Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.0 Mobile/15E148 Safari/604.1';
 
@@ -196,7 +197,8 @@ async function importInto(uid, url) {
     updatedAt: FieldValue.serverTimestamp(),
   }, { merge: false });
 
-  (async () => {
+  // Dentro runWith: Gemini e RapidAPI scrivono il loro costo su questo account (feature web.import).
+  runWith(uid, 'web.import', async () => {
     const user = await db().doc(`users/${uid}`).get();
     const profile = profileFor(user.get('recipePrefs') || {});
     const { entry } = await readRecipe(url, (stage, embed) =>
@@ -208,7 +210,9 @@ async function importInto(uid, url) {
       caption: entry.caption ? entry.caption.slice(0, 2000) : null,
       updatedAt: FieldValue.serverTimestamp(),
     }, { merge: true });
-  })().catch(async (e) => {
+    recordJob(uid, 'web.import');
+  }).catch(async (e) => {
+    recordJobError(uid, 'web.import');
     console.error(`[web] import ${url}: ${e.message}`);
     await ref.set({
       status: 'failed',

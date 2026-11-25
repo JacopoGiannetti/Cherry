@@ -15,6 +15,11 @@ const als = new AsyncLocalStorage();
 /// dashboard: tre posti, un nome solo.
 const APP_OPEN_EVENT = 'app.open';
 
+/// Le anteprime dell'onboarding del sito costano come un import ma non
+/// hanno ancora un account: finiscono su analytics/preview (stessa forma
+/// di un utente, giorni compresi) invece che sotto users/.
+const PREVIEW_UID = '_preview';
+
 function todayKey() {
   return new Date().toISOString().slice(0, 10);
 }
@@ -162,9 +167,10 @@ async function write(uid, patch) {
   }));
   if (feature && patch.count) totals.features = { [feature]: FieldValue.increment(1) };
 
+  const base = uid === PREVIEW_UID ? 'analytics/preview' : `users/${uid}`;
   const writes = [
-    db().doc(`users/${uid}`).set({ usage }, { merge: true }),
-    db().doc(`users/${uid}/usageDays/${todayKey()}`).set(day, { merge: true }),
+    db().doc(base).set({ usage }, { merge: true }),
+    db().doc(`${base}/usageDays/${todayKey()}`).set(day, { merge: true }),
   ];
   // `skipTotals`: gli eventi che arrivano a raffica (gli step
   // dell'onboarding) restano fuori dal documento unico dei totali, che
@@ -226,6 +232,7 @@ async function snapshotSpaces(uid) {
 
 module.exports = {
   APP_OPEN_EVENT,
+  PREVIEW_UID,
   runWith,
   recordJob,
   recordJobError,

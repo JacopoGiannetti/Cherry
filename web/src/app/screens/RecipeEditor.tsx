@@ -10,6 +10,7 @@ import { uploadPhoto, uploadVideo, MAX_VIDEO_MB } from '../../lib/upload';
 import { embedFor } from '../../lib/api';
 import { guessItem, section } from '../../lib/kitchen';
 import type { Embed, Recipe, Segment } from '../../lib/types';
+import { used } from '../../lib/usage';
 
 // Scrivere una ricetta a mano (o correggerne una importata): foto, ingredienti,
 // passi e, se vuoi, un video, tuo o da TikTok/Instagram, con i passi
@@ -160,6 +161,7 @@ export function RecipeEditor({ id }: { id?: string }) {
     };
     try {
       await saveRecipe(uid, rid, data, isNew);
+      used(isNew ? 'recipe.create' : 'recipe.edit');
       toast(isNew ? 'Recipe saved' : 'Changes saved', 'check');
       navigate(`/r/${rid}`, { replace: true });
     } catch (e: any) {

@@ -8,6 +8,7 @@ import { AddRecipe } from '../../components/AddRecipe';
 import { deleteCategory, saveCategory, setInCategory, useCategories, useRecipes, useSession } from '../../lib/store';
 import { CategoryForm, RecipePicker } from '../../components/Categories';
 import { toast } from '../../components/Toast';
+import { used } from '../../lib/usage';
 
 export function Library() {
   const { user } = useSession();
@@ -134,6 +135,7 @@ export function Library() {
       <Sheet open={catSheet === 'new'} onClose={() => setCatSheet(null)} from={from} label="New category">
         <CategoryForm onSave={async (name, emoji) => {
           const id = await saveCategory(user!.uid, { name, emoji });
+          used('folder.use');
           setFilter(`c:${id}`);
           setCatSheet('pick');
         }} />
@@ -148,7 +150,7 @@ export function Library() {
       <Sheet open={catSheet === 'pick' && !!activeCat} onClose={() => setCatSheet(null)} from={from} label="Choose recipes">
         {activeCat && recipes && (
           <RecipePicker category={activeCat} recipes={recipes} onDone={() => setCatSheet(null)}
-            onToggle={(rid, on) => setInCategory(user!.uid, activeCat.id, rid, on).catch((e) => toast(e.message, 'close'))} />
+            onToggle={(rid, on) => { used('folder.use'); setInCategory(user!.uid, activeCat.id, rid, on).catch((e) => toast(e.message, 'close')); }} />
         )}
       </Sheet>
       <Sheet open={adding} onClose={() => setAdding(false)} from={from} label="Add a recipe">

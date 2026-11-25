@@ -15,6 +15,7 @@ const { persistImage } = require('../services/storage');
 const axios = require('axios');
 const metaCapi = require('../lib/meta-capi');
 const journeyLog = require('../lib/journey');
+const { runWith, recordEvent, PREVIEW_UID, APP_OPEN_EVENT } = require('../lib/usage');
 
 const router = express.Router();
 const stripe = () => {
@@ -97,7 +98,7 @@ router.post('/preview', express.json(), (req, res) => {
   const job = { status: 'running', stage: 'reading', recipe: null, error: null, at: Date.now() };
   previews.set(id, job);
   for (const [k, j] of previews) if (Date.now() - j.at > 3600_000) previews.delete(k);
-  readRecipe(url, (stage) => { job.stage = stage; })
+  runWith(PREVIEW_UID, 'web.preview', () => readRecipe(url, (stage) => { job.stage = stage; }))
     .then(({ embed, entry, platform }) => {
       job.status = 'done';
       job.recipe = { id: 'preview', status: 'ready', sourceUrl: url, platform, embed, ...recipeDoc(entry) };
@@ -232,7 +233,7 @@ router.get('/recipes/:id/video', requireEntitlement, async (req, res) => {
     const saved = snap.get('videoSrc');
     if (saved?.url && saved.expires - Date.now() > 2 * 3600_000 && !('fresh' in req.query)) return res.json(saved);
     if (!(await checkQuota(req.uid, 'jobs'))) return res.status(429).json({ error: 'daily_limit' });
-    const { videoUrls } = await resolveSocial(url);
+    const { videoUrls } = await runWith(req.uid, 'web.video', () => resolveSocial(url));
     const video = (videoUrls || [])[0];
     if (!video) return res.status(404).json({ error: 'no_video' });
     const oe = (video.match(/[?&]oe=([0-9A-Fa-f]+)/) || [])[1];
@@ -285,7 +286,7 @@ router.post('/recipes/:id/cover', requireEntitlement, async (req, res) => {
       if (!(await checkQuota(req.uid, 'jobs'))) {
         return res.status(429).json({ error: 'daily_limit', message: 'Try again tomorrow.' });
       }
-      remote = (await resolveSocial(url)).thumbnail || null;
+      remote = (await runWith(req.uid, 'web.cover', () => resolveSocial(url))).thumbnail || null;
     }
     if (!remote) return res.status(404).json({ error: 'no_cover', message: 'We couldn’t find a cover for this video.' });
 
@@ -297,6 +298,20 @@ router.post('/recipes/:id/cover', requireEntitlement, async (req, res) => {
     console.error('[web] cover:', e.message);
     res.status(500).json({ error: 'cover_failed', message: 'We couldn’t get the cover. Try again.' });
   }
+});
+
+// ---------- Cosa si fa nell'app (per la retention della dashboard) ----------
+// Il sito ne manda al massimo uno per tipo al giorno: alla dashboard serve
+// sapere in che giorni uno ha aperto, cucinato, fatto la spesa, non quante volte.
+const WEB_EVENTS = new Set([
+  APP_OPEN_EVENT, 'recipe.open', 'recipe.create', 'recipe.edit', 'cook.start', 'cook.done',
+  'list.add', 'list.check', 'list.share', 'trip.done', 'folder.use',
+]);
+router.post('/event', express.json({ limit: '1kb' }), (req, res) => {
+  const event = String((req.body || {}).event || '');
+  if (!WEB_EVENTS.has(event)) return res.status(400).json({ error: 'unknown_event' });
+  recordEvent(req.uid, event, { skipTotals: true });
+  res.json({ ok: true });
 });
 
 // ---------- Abbonamento (Stripe) ----------

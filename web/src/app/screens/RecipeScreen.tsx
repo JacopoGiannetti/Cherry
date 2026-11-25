@@ -10,6 +10,7 @@ import { uploadPhoto } from '../../lib/upload';
 import { importRecipe, refreshCover, resolveEmbed } from '../../lib/api';
 import { mergeIntoList, minutes, removeRecipeFromList, scaleQuantity } from '../../lib/kitchen';
 import type { Recipe } from '../../lib/types';
+import { used } from '../../lib/usage';
 
 export function RecipeScreen({ id }: { id: string }) {
   const { user, doc } = useSession();
@@ -118,6 +119,8 @@ function Ready({ recipe, uid, household }: { recipe: Recipe; uid: string; househ
     setCoverBusy(false);
   };
 
+  useEffect(() => { used('recipe.open'); }, [recipe.id]);
+
   // Ricette dall'app iOS con link TikTok corto: il video lo ricava il backend, una volta sola.
   useEffect(() => {
     if (!recipe.embed && recipe.sourceUrl && /tiktok/i.test(recipe.sourceUrl)) resolveEmbed(recipe.id).catch(() => {});
@@ -131,6 +134,7 @@ function Ready({ recipe, uid, household }: { recipe: Recipe; uid: string; househ
     } else {
       const scaled = { ...recipe, ingredients: recipe.ingredients.map((g) => ({ ...g, quantity: scaleQuantity(g.quantity, factor) })) };
       await editList(uid, (l) => ({ ...l, ...mergeIntoList(l, [scaled]) }));
+      used('list.add');
       toast(`${recipe.ingredients.length} items added to groceries`, 'cart');
     }
   };
@@ -226,13 +230,14 @@ function Ready({ recipe, uid, household }: { recipe: Recipe; uid: string; househ
         {catView === 'new' ? (
           <CategoryForm onSave={async (name, emoji) => {
             const id = await saveCategory(uid, { name, emoji, recipeIds: [recipe.id] });
+            used('folder.use');
             if (categories?.some((c) => c.id === id)) await setInCategory(uid, id, recipe.id, true);
             setCatView('list');
             toast(`Added to ${name}`, 'check');
           }} />
         ) : (
           <CategoryChooser categories={categories || []} recipeId={recipe.id} onNew={() => setCatView('new')}
-            onToggle={(cid, on) => setInCategory(uid, cid, recipe.id, on).catch((e) => toast(e.message, 'close'))} />
+            onToggle={(cid, on) => { used('folder.use'); setInCategory(uid, cid, recipe.id, on).catch((e) => toast(e.message, 'close')); }} />
         )}
       </Sheet>
       <Sheet open={menu} onClose={() => { setMenu(false); setConfirm(false); }} from={from} label="Recipe options">
