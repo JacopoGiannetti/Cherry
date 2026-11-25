@@ -449,9 +449,77 @@ async function writeSubscription(uid, sub) {
 }
 
 /** payments/{id}: entrate di Cherry per la dashboard (primo pagamento, rinnovi, rimborsi). */
-async function recordPayment(id, p) {
+async function recordPayment(id, p, ref) {
   await db().doc(`payments/${id}`).set({ ...p, recordedAt: Date.now() }, { merge: true }).catch((e) => console.warn('[stripe] payments:', e.message));
+  if (ref) fillNet(id, ref);
 }
+
+// Il netto: quello che Stripe accredita davvero, tolte le commissioni (come i proceeds di Superwall).
+// Lo prende dalla balance transaction, che a volte arriva qualche minuto dopo il pagamento.
+async function balanceOfCharge(chargeId) {
+  const ch = await stripe().charges.retrieve(chargeId, { expand: ['balance_transaction'] });
+  return ch.balance_transaction && typeof ch.balance_transaction === 'object' ? ch.balance_transaction : null;
+}
+async function chargeOfInvoice(invoiceId) {
+  const list = await stripe().invoicePayments.list({ invoice: invoiceId, limit: 5 });
+  const paid = list.data.find((x) => x.status === 'paid') || list.data[0];
+  const pay = paid?.payment || {};
+  if (pay.charge) return typeof pay.charge === 'string' ? pay.charge : pay.charge.id;
+  if (pay.payment_intent) {
+    const pi = await stripe().paymentIntents.retrieve(typeof pay.payment_intent === 'string' ? pay.payment_intent : pay.payment_intent.id);
+    return typeof pi.latest_charge === 'string' ? pi.latest_charge : pi.latest_charge?.id || null;
+  }
+  return null;
+}
+async function netOf(ref) {
+  if (ref.refundOfCharge) {
+    const refunds = await stripe().refunds.list({ charge: ref.refundOfCharge, limit: 20, expand: ['data.balance_transaction'] });
+    const bts = refunds.data.map((r) => r.balance_transaction).filter((b) => b && typeof b === 'object');
+    if (!bts.length) return null;
+    return { net: bts.reduce((s, b) => s + b.net, 0) / 100, fee: bts.reduce((s, b) => s + b.fee, 0) / 100, netCurrency: bts[0].currency };
+  }
+  let chargeId = ref.chargeId || null;
+  if (!chargeId && ref.sessionId) {
+    const s = await stripe().checkout.sessions.retrieve(ref.sessionId);
+    if (s.invoice) chargeId = await chargeOfInvoice(typeof s.invoice === 'string' ? s.invoice : s.invoice.id);
+    else if (s.payment_intent) {
+      const pi = await stripe().paymentIntents.retrieve(typeof s.payment_intent === 'string' ? s.payment_intent : s.payment_intent.id);
+      chargeId = typeof pi.latest_charge === 'string' ? pi.latest_charge : pi.latest_charge?.id || null;
+    }
+  }
+  if (!chargeId && ref.invoiceId) chargeId = await chargeOfInvoice(ref.invoiceId);
+  if (!chargeId) return null;
+  const bt = await balanceOfCharge(chargeId);
+  return bt ? { net: bt.net / 100, fee: bt.fee / 100, netCurrency: bt.currency } : null;
+}
+function fillNet(id, ref, tries = 0) {
+  setTimeout(async () => {
+    try {
+      const n = await netOf(ref);
+      if (n) return void (await db().doc(`payments/${id}`).set(n, { merge: true }));
+    } catch (e) { console.warn('[stripe] netto', id, e.message); }
+    if (tries < 6) fillNet(id, ref, tries + 1);
+  }, tries === 0 ? 20000 : 120000 * tries);
+}
+
+// All'avvio: il netto anche per i pagamenti registrati prima (una volta sola, poi restano).
+setTimeout(async () => {
+  try {
+    if (!keys.stripe?.secretKey) return;
+    const snap = await db().collection('payments').get();
+    let n = 0;
+    for (const d of snap.docs) {
+      const p = d.data();
+      if (p.net !== undefined || !p.live) continue;
+      const ref = p.kind === 'refund' ? { refundOfCharge: d.id.replace(/_refund$/, '') }
+        : d.id.startsWith('cs_') ? { sessionId: d.id } : d.id.startsWith('in_') ? { invoiceId: d.id } : null;
+      if (!ref) continue;
+      const r = await netOf(ref).catch(() => null);
+      if (r) { await d.ref.set(r, { merge: true }); n += 1; }
+    }
+    if (n) console.log(`[stripe] netto aggiunto a ${n} pagamenti`);
+  } catch (e) { console.warn('[stripe] netto (avvio):', e.message); }
+}, 15000);
 
 // ---------- Webhook Stripe (montato fuori da questo router, senza token) ----------
 async function stripeWebhook(req, res) {
@@ -477,14 +545,14 @@ async function stripeWebhook(req, res) {
         uid: obj.client_reference_id, fid: obj.metadata?.fid || null, plan: obj.metadata?.plan || null, kind: 'first',
         amount: (obj.amount_total || 0) / 100, currency: obj.currency, live: !!obj.livemode, ts: (obj.created || 0) * 1000 || Date.now(),
         source: obj.metadata?.meta_fbc ? 'meta_click' : null,
-      });
+      }, obj.livemode ? { sessionId: obj.id } : null);
       if (obj.metadata?.fid) journeyLog.markPaid(obj.metadata.fid, { plan: obj.metadata?.plan, value: (obj.amount_total || 0) / 100, currency: obj.currency, uid: obj.client_reference_id, live: !!obj.livemode });
     } else if (event.type === 'invoice.paid' && obj.billing_reason === 'subscription_cycle') {
       // I rinnovi (se l'endpoint del webhook su Stripe li manda).
       const uid = obj.subscription_details?.metadata?.uid || obj.parent?.subscription_details?.metadata?.uid || null;
-      await recordPayment(obj.id, { uid, plan: null, kind: 'renewal', amount: (obj.amount_paid || 0) / 100, currency: obj.currency, live: !!obj.livemode, ts: (obj.created || 0) * 1000 || Date.now() });
+      await recordPayment(obj.id, { uid, plan: null, kind: 'renewal', amount: (obj.amount_paid || 0) / 100, currency: obj.currency, live: !!obj.livemode, ts: (obj.created || 0) * 1000 || Date.now() }, obj.livemode ? { invoiceId: obj.id } : null);
     } else if (event.type === 'charge.refunded') {
-      await recordPayment(`${obj.id}_refund`, { uid: obj.metadata?.uid || null, kind: 'refund', amount: -((obj.amount_refunded || 0) / 100), currency: obj.currency, live: !!obj.livemode, ts: Date.now() });
+      await recordPayment(`${obj.id}_refund`, { uid: obj.metadata?.uid || null, kind: 'refund', amount: -((obj.amount_refunded || 0) / 100), currency: obj.currency, live: !!obj.livemode, ts: Date.now() }, obj.livemode ? { refundOfCharge: obj.id } : null);
     }
     res.json({ received: true });
   } catch (e) {
