@@ -28,6 +28,13 @@ export default defineConfig({
         landing: resolve(__dirname, 'index.html'),
         app: resolve(__dirname, 'app.html'),
       },
+      // Nomi col punto (non col trattino): file mai scaricati prima, così nessun browser
+      // usa una vecchia risposta sbagliata rimasta in cache per lo stesso nome.
+      output: {
+        entryFileNames: 'assets/[name].[hash].js',
+        chunkFileNames: 'assets/[name].[hash].js',
+        assetFileNames: 'assets/[name].[hash][extname]',
+      },
     },
   },
 });
