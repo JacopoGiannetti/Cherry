@@ -10,7 +10,6 @@
 .nx-lead { color: var(--ink-2); font-size: 17px; line-height: 1.45; margin-top: 14px; max-width: 36ch; }
 .nx-hint { text-align: center; color: var(--mute); font-size: 15px; margin-top: 10px; }
 .nx .flow__link { font-size: 15.5px; }
-.nx-preview { position: fixed; left: 50%; bottom: calc(3px + var(--safe-b)); transform: translateX(-50%); z-index: 60; padding: 1px 8px; border-radius: 999px; background: var(--ink); color: var(--paper); font-size: 10px; font-weight: 700; letter-spacing: .04em; opacity: .6; pointer-events: none; white-space: nowrap; }
 
 /* Il bottone resta sempre a portata di pollice (i browser dentro Facebook e Instagram sono bassi). */
 .nx .flow__cta { position: sticky; bottom: 0; z-index: 5; margin: auto -22px calc(-22px - var(--safe-b)); padding: 26px 22px calc(22px + var(--safe-b)); background: linear-gradient(to bottom, rgba(244, 238, 228, 0), var(--paper) 26px); }

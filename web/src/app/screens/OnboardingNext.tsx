@@ -94,6 +94,18 @@ export function OnboardingNext() {
   const scene = MIRROR.includes(name) ? 'mirror' : name;
 
   useEffect(() => { saveFunnel(f); }, [f]);
+  // Le scene scure arrivano fino ai bordi: barra di stato e barra del browser prendono
+  // il colore della scena, non restano chiare sopra e sotto.
+  const dark = DARK.includes(name);
+  useEffect(() => {
+    const color = dark ? '#1B1313' : '#F4EEE4';
+    const meta = document.querySelector('meta[name="theme-color"]');
+    const before = { meta: meta?.getAttribute('content') || '', body: document.body.style.background, html: document.documentElement.style.background };
+    meta?.setAttribute('content', color);
+    document.body.style.background = color;
+    document.documentElement.style.background = color;
+    return () => { meta?.setAttribute('content', before.meta); document.body.style.background = before.body; document.documentElement.style.background = before.html; };
+  }, [dark]);
   useEffect(() => { void journey('step', { id: `next.${name}`, answers: answersOf(f) }); }, [name]);
   const set: Set = (patch) => setF((cur) => ({ ...cur, ...(typeof patch === 'function' ? patch(cur) : patch) }));
 
@@ -126,7 +138,7 @@ export function OnboardingNext() {
   const next = () => go(step + 1);
 
   return (
-    <div className={`flow nx ${DARK.includes(name) ? 'flow--dark' : ''}`}>
+    <div className={`flow nx ${dark ? 'flow--dark' : ''}`}>
       <header className="flow__top">
         {name === 'hello' ? <span className="nx-top__gap" /> : (
           <>
@@ -162,7 +174,6 @@ export function OnboardingNext() {
       {cooking && f.recipe && (
         <CookMode recipe={f.recipe} limit={2} onClose={() => setCooking(false)} onUnlock={() => { setCooking(false); go(STEPS.indexOf('nights')); }} />
       )}
-      {preview && <span className="nx-preview">Preview · {step + 1}/{STEPS.length} · {name}</span>}
     </div>
   );
 }
