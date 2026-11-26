@@ -12,7 +12,7 @@ import { signOut } from '../../lib/firebase';
 import { isPreview } from '../../lib/preview';
 
 // Paywall rigido. Una frase che si capisce in un colpo ("costa meno di un asporto"), l'app vera
-// (schermate in public/assets/paywall), i due piani affiancati, un bottone.
+// (public/assets/paywall/phones.jpg), i due piani affiancati, un bottone.
 // Pagamento su Stripe Checkout (Apple Pay e Google Pay inclusi).
 
 const EASE = [0.2, 0.8, 0.2, 1] as const;
@@ -33,8 +33,13 @@ export function Join() {
   useEffect(() => { getPlans().then((r) => setPlans(r.plans)).catch(() => setPlans([])); }, []);
   useEffect(() => { if (entitled && !devPreview) navigate('/'); }, [entitled]);
   useEffect(() => { if (user) void journey('paywall', { canceled: canceled || undefined }); }, [!!user]);
-  // Il paywall è scuro in cima? No: carta. La barra del browser prende il colore della pagina.
-  useEffect(() => { document.querySelector('meta[name="theme-color"]')?.setAttribute('content', '#F4EEE4'); }, []);
+  // Il paywall è bianco (come la foto dei telefoni): la barra del browser e lo sfondo lo seguono.
+  useEffect(() => {
+    document.querySelector('meta[name="theme-color"]')?.setAttribute('content', '#FEFEFE');
+    const before = document.body.style.background;
+    document.body.style.background = '#FEFEFE';
+    return () => { document.body.style.background = before; };
+  }, []);
 
   if (ready && !user && !devPreview) return <Redirect to="/start" />;
 
@@ -81,15 +86,9 @@ export function Join() {
         </motion.p>
       </section>
 
-      <div className="pw__phones" aria-hidden="true">
-        <motion.div className="pw__phone pw__phone--l" initial={{ opacity: 0, y: 50, rotate: -2 }} animate={{ opacity: 1, y: 0, rotate: -7 }} transition={{ type: 'spring', stiffness: 90, damping: 16, delay: 0.15 }}>
-          <Phone src="/assets/paywall/cookbook.jpg" />
-        </motion.div>
-        <motion.div className="pw__phone pw__phone--r" initial={{ opacity: 0, y: 70, rotate: 2 }} animate={{ opacity: 1, y: 0, rotate: 6 }} transition={{ type: 'spring', stiffness: 90, damping: 16, delay: 0.3 }}>
-          <Phone src="/assets/paywall/recipe.jpg" />
-        </motion.div>
-        <span className="pw__fade" />
-      </div>
+      <motion.div className="pw__phones" aria-hidden="true" initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ type: 'spring', stiffness: 80, damping: 16, delay: 0.15 }}>
+        <img src="/assets/paywall/phones.jpg" alt="" />
+      </motion.div>
 
       <section className="pw__body">
         {canceled && <p className="pw__note">Nothing was charged. Pick a plan whenever you're ready.</p>}
@@ -124,15 +123,6 @@ export function Join() {
         <p className="pw__fine">{fine}</p>
         <p className="pw__links"><Icon name="lock" size={12} /> Secure checkout by Stripe · <a href="/terms">Terms</a> · <a href="/privacy">Privacy</a></p>
       </section>
-    </div>
-  );
-}
-
-function Phone({ src }: { src: string }) {
-  return (
-    <div className="pw-phone">
-      <span className="pw-phone__island" />
-      <div className="pw-phone__screen"><img src={src} alt="" /></div>
     </div>
   );
 }

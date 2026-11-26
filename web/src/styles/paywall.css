@@ -1,7 +1,7 @@
 /* ========== Paywall ==========
    Carta, una frase grande, due telefoni che si muovono, i piani affiancati, un bottone nero. */
 
-.pw { min-height: 100dvh; max-width: 560px; margin: 0 auto; display: flex; flex-direction: column; padding: calc(12px + var(--safe-t)) 20px calc(18px + var(--safe-b)); background: var(--paper); }
+.pw { --pw-bg: #FEFEFE; min-height: 100dvh; max-width: 560px; margin: 0 auto; display: flex; flex-direction: column; padding: calc(12px + var(--safe-t)) 20px calc(18px + var(--safe-b)); background: var(--pw-bg); }
 .pw__bar { display: flex; align-items: center; justify-content: space-between; height: 40px; }
 .pw__logo { display: inline-flex; align-items: center; gap: 8px; }
 .pw__logo img { width: 26px; height: 26px; border-radius: 8px; }
@@ -13,24 +13,15 @@
 .pw__title em { display: block; }
 .pw__sub { margin-top: 10px; font-size: 16.5px; color: var(--mute); }
 
-/* I due telefoni: si sovrappongono, ruotati, e sfumano nella carta in basso. */
-.pw__phones { position: relative; height: min(330px, 38dvh); margin: 18px -20px 0; overflow: hidden; }
-.pw__phone { position: absolute; top: 6px; width: min(46%, 230px); }
-.pw__phone--l { left: 50%; margin-left: calc(min(46%, 230px) * -0.93); z-index: 2; }
-.pw__phone--r { left: 50%; margin-left: calc(min(46%, 230px) * -0.07); top: 26px; z-index: 1; }
-.pw__fade { position: absolute; left: 0; right: 0; bottom: 0; height: 46%; z-index: 3; background: linear-gradient(to bottom, rgba(244, 238, 228, 0), var(--paper) 88%); pointer-events: none; }
-
-.pw-phone { position: relative; padding: 7px; border-radius: 40px; background: #121010; box-shadow: 0 0 0 1.5px #3a3232 inset, 0 30px 60px rgba(27, 19, 19, .28); }
-.pw-phone__island { position: absolute; z-index: 2; left: 50%; top: 14px; width: 30%; height: 15px; margin-left: -15%; border-radius: 10px; background: #000; }
-.pw-phone__screen { border-radius: 33px; overflow: hidden; background: var(--paper); aspect-ratio: 9 / 18; }
-.pw-phone__screen { padding-top: 13%; }
-.pw-phone__screen img { width: 100%; height: 100%; object-fit: cover; object-position: top; }
+/* I telefoni (foto dell'app vera, sfondo bianco come la pagina). */
+.pw__phones { margin: 8px -20px 0; height: min(400px, 44dvh); overflow: hidden; display: flex; justify-content: center; }
+.pw__phones img { height: 100%; width: auto; max-width: none; }
 
 /* I piani affiancati. */
-.pw__body { position: relative; z-index: 4; margin-top: -26px; }
+.pw__body { position: relative; z-index: 4; margin-top: -10px; }
 .pw__note { margin-bottom: 12px; padding: 10px 14px; border-radius: 14px; background: var(--paper-2); font-size: 14.5px; font-weight: 600; text-align: center; }
 .pw__plans { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-.pw__plan { position: relative; min-height: 96px; display: grid; align-content: center; gap: 4px; padding: 16px 16px 14px; border-radius: 20px; text-align: left; background: var(--white); box-shadow: inset 0 0 0 1.5px var(--line-2); transition: box-shadow var(--press), background var(--press), transform var(--press) var(--ease); }
+.pw__plan { position: relative; min-height: 92px; display: grid; align-content: center; gap: 4px; padding: 16px 16px 14px; border-radius: 20px; text-align: left; background: var(--pw-bg); box-shadow: inset 0 0 0 1.5px var(--line-2); transition: box-shadow var(--press), background var(--press), transform var(--press) var(--ease); }
 .pw__plan:active { transform: scale(.98); }
 .pw__plan.on { background: var(--cherry-wash); box-shadow: inset 0 0 0 2.5px var(--cherry); }
 .pw__plan.shimmer { box-shadow: none; }
@@ -49,7 +40,7 @@
 .pw__links a { text-decoration: underline; }
 
 @media (max-height: 700px) {
-  .pw__phones { height: 210px; }
+  .pw__phones { height: 250px; }
   .pw__sub { font-size: 15px; }
   .pw__cancel { margin: 12px 0 10px; }
   .pw__title { font-size: clamp(38px, 10.6vw, 52px); }
