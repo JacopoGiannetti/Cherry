@@ -9,7 +9,7 @@ import { DEMO_STEPS } from '../../components/LoopDemo';
 import { useSession } from '../../lib/store';
 import { metaForServer, once, track } from '../../lib/meta';
 import { saveProfile, sendRegistrationEvent } from '../../lib/api';
-import { DEMO_URL, derive, loadFunnel, saveFunnel, TAKEOUT_USD, type Funnel } from '../../lib/funnel';
+import { DEMO_URL, derive, hasFunnel, loadFunnel, saveFunnel, TAKEOUT_USD, type Funnel } from '../../lib/funnel';
 import { journey } from '../../lib/journey';
 import { isPreview } from '../../lib/preview';
 import demo from '../../lib/demo.json';
@@ -95,7 +95,9 @@ export function OnboardingNext() {
   const { user, entitled, ready } = useSession();
   const preview = useMemo(() => isPreview(), []);
   const STEPS = ALL;
-  const [f, setF] = useState<Funnel>(() => loadFunnel());
+  // Chi arriva senza risposte parte da 10 salvate: la scatola si riempie mentre sali.
+  // (Il default condiviso resta 50, lo usa il percorso in produzione.)
+  const [f, setF] = useState<Funnel>(() => (hasFunnel() ? loadFunnel() : { ...loadFunnel(), saved: 10 }));
   const [step, setStep] = useState(() => {
     const want = preview ? new URLSearchParams(location.search).get('step') : null;
     return Math.max(0, STEPS.indexOf(want as Step));
