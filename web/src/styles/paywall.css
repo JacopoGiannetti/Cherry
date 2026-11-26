@@ -22,23 +22,9 @@
 
 .pw-phone { position: relative; padding: 7px; border-radius: 40px; background: #121010; box-shadow: 0 0 0 1.5px #3a3232 inset, 0 30px 60px rgba(27, 19, 19, .28); }
 .pw-phone__island { position: absolute; z-index: 2; left: 50%; top: 14px; width: 30%; height: 15px; margin-left: -15%; border-radius: 10px; background: #000; }
-.pw-phone__screen { border-radius: 33px; overflow: hidden; background: var(--ink); aspect-ratio: 9 / 18; }
-.pw-phone--light .pw-phone__screen { background: var(--white); }
-.pw-phone .loopdemo { border-radius: 0; box-shadow: none; padding-top: 34px; height: 100%; }
-.pw-phone .loopdemo__card { min-height: 0; }
-
-.pw-list { height: 100%; padding: 40px 14px 14px; color: var(--ink); }
-.pw-list__eyebrow { font-size: 9.5px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: var(--mute); }
-.pw-list__title { display: block; font-size: 26px; line-height: 1; letter-spacing: -.02em; margin: 2px 0 8px; }
-.pw-list ul { display: grid; }
-.pw-list small { display: block; margin: 8px 0 2px; font-size: 9.5px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--cherry); }
-.pw-list li > span { display: flex; align-items: center; gap: 8px; padding: 6px 0; border-bottom: 1px solid var(--line); font-size: 12.5px; font-weight: 600; }
-.pw-list li i { width: 16px; height: 16px; flex: none; border-radius: 50%; display: grid; place-items: center; box-shadow: inset 0 0 0 1.5px var(--line-2); color: var(--white); transition: background var(--quick), box-shadow var(--quick); }
-.pw-list li i > span { display: grid; }
-.pw-list li em { flex: 1; font-style: normal; transition: color var(--quick); }
-.pw-list li u { text-decoration: none; font-weight: 500; font-size: 11px; color: var(--mute); }
-.pw-list li .on i { background: var(--ink); box-shadow: none; }
-.pw-list li .on em { color: var(--faint); text-decoration: line-through; text-decoration-color: var(--cherry); }
+.pw-phone__screen { border-radius: 33px; overflow: hidden; background: var(--paper); aspect-ratio: 9 / 18; }
+.pw-phone__screen { padding-top: 13%; }
+.pw-phone__screen img { width: 100%; height: 100%; object-fit: cover; object-position: top; }
 
 /* I piani affiancati. */
 .pw__body { position: relative; z-index: 4; margin-top: -26px; }

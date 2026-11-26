@@ -1,9 +1,8 @@
 import { useEffect, useState } from 'react';
-import { AnimatePresence, motion } from 'motion/react';
+import { motion } from 'motion/react';
 import { Redirect, useLocation } from 'wouter';
 import '../../styles/paywall.css';
 import { Icon } from '../../components/Icon';
-import { LoopDemo } from '../../components/LoopDemo';
 import { getPlans, money, startCheckout, type Plan } from '../../lib/api';
 import { perMonth as monthOf, savePct } from '../../lib/plans';
 import { eventId, metaForServer, track } from '../../lib/meta';
@@ -12,8 +11,8 @@ import { journey, journeyId } from '../../lib/journey';
 import { signOut } from '../../lib/firebase';
 import { isPreview } from '../../lib/preview';
 
-// Paywall rigido. Una frase che si capisce in un colpo ("costa meno di un asporto"), il prodotto
-// che si muove (la cook mode e la lista della spesa), i due piani affiancati, un bottone.
+// Paywall rigido. Una frase che si capisce in un colpo ("costa meno di un asporto"), l'app vera
+// (schermate in public/assets/paywall), i due piani affiancati, un bottone.
 // Pagamento su Stripe Checkout (Apple Pay e Google Pay inclusi).
 
 const EASE = [0.2, 0.8, 0.2, 1] as const;
@@ -84,10 +83,10 @@ export function Join() {
 
       <div className="pw__phones" aria-hidden="true">
         <motion.div className="pw__phone pw__phone--l" initial={{ opacity: 0, y: 50, rotate: -2 }} animate={{ opacity: 1, y: 0, rotate: -7 }} transition={{ type: 'spring', stiffness: 90, damping: 16, delay: 0.15 }}>
-          <Phone><LoopDemo /></Phone>
+          <Phone src="/assets/paywall/cookbook.jpg" />
         </motion.div>
         <motion.div className="pw__phone pw__phone--r" initial={{ opacity: 0, y: 70, rotate: 2 }} animate={{ opacity: 1, y: 0, rotate: 6 }} transition={{ type: 'spring', stiffness: 90, damping: 16, delay: 0.3 }}>
-          <Phone light><GroceryMock /></Phone>
+          <Phone src="/assets/paywall/recipe.jpg" />
         </motion.div>
         <span className="pw__fade" />
       </div>
@@ -129,57 +128,11 @@ export function Join() {
   );
 }
 
-function Phone({ children, light }: { children: React.ReactNode; light?: boolean }) {
+function Phone({ src }: { src: string }) {
   return (
-    <div className={`pw-phone ${light ? 'pw-phone--light' : ''}`}>
+    <div className="pw-phone">
       <span className="pw-phone__island" />
-      <div className="pw-phone__screen">{children}</div>
-    </div>
-  );
-}
-
-const ITEMS = [
-  { aisle: 'Produce', name: 'Cherry tomatoes', q: '2 cups' },
-  { aisle: 'Produce', name: 'Fresh basil', q: '1 bunch' },
-  { aisle: 'Dairy', name: 'Feta block', q: '8 oz' },
-  { aisle: 'Dairy', name: 'Heavy cream', q: '½ cup' },
-  { aisle: 'Pantry', name: 'Rigatoni', q: '1 lb' },
-  { aisle: 'Pantry', name: 'Chili flakes', q: '1 tsp' },
-];
-
-/** La lista della spesa che si spunta da sola, per corsie. */
-function GroceryMock() {
-  const [done, setDone] = useState(0);
-  useEffect(() => {
-    const t = setInterval(() => setDone((d) => (d >= ITEMS.length + 2 ? 0 : d + 1)), 850);
-    return () => clearInterval(t);
-  }, []);
-  let last = '';
-  return (
-    <div className="pw-list">
-      <p className="pw-list__eyebrow">This week</p>
-      <b className="display pw-list__title">Groceries</b>
-      <ul>
-        {ITEMS.map((it, i) => {
-          const head = it.aisle !== last ? it.aisle : null;
-          last = it.aisle;
-          const on = i < done;
-          return (
-            <li key={it.name}>
-              {head && <small>{head}</small>}
-              <span className={on ? 'on' : ''}>
-                <i>
-                  <AnimatePresence initial={false}>
-                    {on && <motion.span key="c" initial={{ scale: 0 }} animate={{ scale: 1 }} exit={{ scale: 0 }} transition={{ type: 'spring', stiffness: 500, damping: 20 }}><Icon name="check" size={10} stroke={3.6} /></motion.span>}
-                  </AnimatePresence>
-                </i>
-                <em>{it.name}</em>
-                <u>{it.q}</u>
-              </span>
-            </li>
-          );
-        })}
-      </ul>
+      <div className="pw-phone__screen"><img src={src} alt="" /></div>
     </div>
   );
 }

@@ -37,14 +37,14 @@ const MOCK = import.meta.env.DEV && (() => {
     return sessionStorage.getItem('cherry.mock') === '1';
   } catch { return false; }
 })();
-const plate = (n: string) => `/assets/plates/${n}.jpg`;
+const plate = (n: string) => `/assets/food/${n}.jpg`;
 const base = demoRecipe as unknown as Recipe;
 let MOCK_RECIPES: Recipe[] = [
   { ...base, id: 'demo', imageUrl: '/assets/food/serve.jpg', favorite: true },
-  { ...base, id: 'm2', title: 'Crispy Mushroom Tacos', cuisine: 'Mexican', cookMinutes: 25, imageUrl: plate('tacos') },
-  { ...base, id: 'm3', title: 'Miso Ramen with Tofu', cuisine: 'Japanese', cookMinutes: 40, imageUrl: plate('ramen') },
-  { ...base, id: 'm4', title: 'Smash Burger', cuisine: 'American', cookMinutes: 20, imageUrl: plate('burger') },
-  { ...base, id: 'm6', title: 'Salmon (Instagram)', cuisine: 'Japanese', cookMinutes: 15, imageUrl: plate('poke'), sourceUrl: 'https://www.instagram.com/reel/Ddr2zmbSeGj/', platform: 'instagram', embed: { type: 'instagram', shortcode: 'Ddr2zmbSeGj' } },
+  { ...base, id: 'm2', title: 'Crispy Mushroom Tacos', cuisine: 'Mexican', cookMinutes: 25, imageUrl: plate('v-tacos') },
+  { ...base, id: 'm3', title: 'Miso Ramen', cuisine: 'Japanese', cookMinutes: 40, imageUrl: plate('v-ramen') },
+  { ...base, id: 'm4', title: 'Margherita Pizza', cuisine: 'Italian', cookMinutes: 30, imageUrl: plate('v-pizza') },
+  { ...base, id: 'm6', title: 'Teriyaki Salmon Bowl', cuisine: 'Japanese', cookMinutes: 15, imageUrl: plate('v-teriyaki'), sourceUrl: 'https://www.instagram.com/reel/Ddr2zmbSeGj/', platform: 'instagram', embed: { type: 'instagram', shortcode: 'Ddr2zmbSeGj' } },
   { ...base, id: 'm5', title: 'Reading the video…', status: 'importing', importStage: 'watching', imageUrl: null },
 ];
 let mockList: GroceryList | null = null;
