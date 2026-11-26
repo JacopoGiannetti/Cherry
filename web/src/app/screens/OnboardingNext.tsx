@@ -100,14 +100,14 @@ export function OnboardingNext() {
   // il colore della scena, non restano chiare sopra e sotto.
   const dark = DARK.includes(name);
   useEffect(() => {
-    const color = dark ? '#1B1313' : '#FFFFFF';
+    const color = dark ? '#1B1313' : name === 'account' ? '#FFFFFF' : '#F4EEE4';
     const meta = document.querySelector('meta[name="theme-color"]');
     const before = { meta: meta?.getAttribute('content') || '', body: document.body.style.background, html: document.documentElement.style.background };
     meta?.setAttribute('content', color);
     document.body.style.background = color;
     document.documentElement.style.background = color;
     return () => { meta?.setAttribute('content', before.meta); document.body.style.background = before.body; document.documentElement.style.background = before.html; };
-  }, [dark]);
+  }, [dark, name === 'account']);
   useEffect(() => { void journey('step', { id: name, answers: answersOf(f) }); }, [name]);
   const set: Set = (patch) => setF((cur) => ({ ...cur, ...(typeof patch === 'function' ? patch(cur) : patch) }));
 
@@ -141,7 +141,7 @@ export function OnboardingNext() {
   const next = () => go(step + 1);
 
   return (
-    <div className={`flow nx ${dark ? 'flow--dark' : ''}`}>
+    <div className={`flow nx ${dark ? 'flow--dark' : ''} ${name === 'account' ? 'nx--white' : ''}`}>
       <header className="flow__top">
         {name === 'hello' ? <span className="nx-top__gap" /> : (
           <>
