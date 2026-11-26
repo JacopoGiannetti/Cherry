@@ -5,6 +5,7 @@ import '../../styles/flow-next.css';
 import { Icon } from '../../components/Icon';
 import { CookMode } from '../../components/CookMode';
 import { GoogleButton } from '../../components/GoogleButton';
+import { EmailAuth } from '../../components/EmailAuth';
 import { MagicStage, Orbit, PLATES, plate, SomedayBox } from '../../components/Scenes';
 import { useSession } from '../../lib/store';
 import { metaForServer, once, track } from '../../lib/meta';
@@ -595,11 +596,14 @@ function Account({ f, signedInAs, onContinue }: { f: Funnel; signedInAs: string 
           </motion.li>
         ))}
       </ul>
-      <h1 className="display nx-q">Your plan is ready. <em>Save it.</em></h1>
-      <p className="nx-lead">One account keeps your cookbook and your grocery list in sync on your phone and computer.</p>
+      <h1 className="display nx-q">Your plan is ready. <em>Create your account.</em></h1>
       {signedInAs
         ? <button className="btn btn--cherry btn--block nx-account__go" onClick={onContinue}>Continue as {signedInAs.split(' ')[0]}</button>
-        : <GoogleButton />}
+        : <>
+            <EmailAuth mode="signup" />
+            <div className="nx-or"><span>or</span></div>
+            <GoogleButton />
+          </>}
       <p className="legal">By continuing you agree to our <a href="/terms">Terms</a> and <a href="/privacy">Privacy Policy</a>.</p>
     </div>
   );

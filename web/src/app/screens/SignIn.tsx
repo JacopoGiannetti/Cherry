@@ -1,6 +1,8 @@
 import { useEffect } from 'react';
 import { Link, useLocation } from 'wouter';
 import { GoogleButton } from '../../components/GoogleButton';
+import { EmailAuth } from '../../components/EmailAuth';
+import '../../styles/flow-next.css';
 import { Icon, Logo } from '../../components/Icon';
 import { useSession } from '../../lib/store';
 
@@ -21,7 +23,11 @@ export function SignIn() {
         <Logo size={40} />
         <h1 className="display save__title" style={{ marginTop: 28 }}>Welcome back</h1>
         <p className="save__lead">Sign in to open your cookbook.</p>
-        <GoogleButton />
+        <div className="nx-account" style={{ width: '100%' }}>
+          <EmailAuth mode="signin" />
+          <div className="nx-or"><span>or</span></div>
+          <GoogleButton />
+        </div>
       </section>
     </div>
   );

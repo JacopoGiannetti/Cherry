@@ -1,6 +1,7 @@
 import { initializeApp } from 'firebase/app';
 import {
   getAuth, GoogleAuthProvider, OAuthProvider, signInWithPopup, signInWithRedirect, getRedirectResult,
+  createUserWithEmailAndPassword, signInWithEmailAndPassword, sendPasswordResetEmail,
   onAuthStateChanged, signOut as fbSignOut, type User,
 } from 'firebase/auth';
 
@@ -60,6 +61,25 @@ export async function signInWithGoogle() {
     }
     throw e;
   }
+}
+
+/** Email e password: funziona anche nei browser di Instagram e Facebook, dove Google chiede di digitare tutto.
+ *  Se l'email ha già un account, con la stessa password si entra. */
+export async function signUpWithEmail(email: string, password: string) {
+  try {
+    return await createUserWithEmailAndPassword(auth, email.trim(), password);
+  } catch (e: any) {
+    if (e?.code === 'auth/email-already-in-use') return signInWithEmailAndPassword(auth, email.trim(), password);
+    throw e;
+  }
+}
+
+export function signInWithEmail(email: string, password: string) {
+  return signInWithEmailAndPassword(auth, email.trim(), password);
+}
+
+export function resetPassword(email: string) {
+  return sendPasswordResetEmail(auth, email.trim());
 }
 
 export function completeRedirectSignIn() {

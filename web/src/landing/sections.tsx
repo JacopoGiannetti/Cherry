@@ -6,32 +6,18 @@ import '../styles/landing.css';
 import { Icon, Logo } from '../components/Icon';
 import { LoopDemo } from '../components/LoopDemo';
 import { getPlans, money, perMonth, savePct, type Plan } from '../lib/plans';
-import { onUser, signInWithGooglePopup } from '../lib/auth';
+import { onUser } from '../lib/auth';
 import { openCookiePrefs } from '../lib/meta';
 
 export const START = '/app/start';
 export const APP = '/app/';
 
-/** "Sign in" apre subito il login Google (chi ha già l'account). Chi non ce l'ha passa da "Create account" e fa l'onboarding. */
+/** "Sign in" porta alla pagina di login (email e password, o Google). Chi non ha l'account passa da "Create account". */
 export function SignIn({ className }: { className?: string }) {
   const [signedIn, setSignedIn] = useState(false);
-  const [busy, setBusy] = useState(false);
   useEffect(() => onUser((u) => setSignedIn(!!u)), []);
   if (signedIn) return <a href={APP} className={className}>Open Cherry</a>;
-  const click = (e: React.MouseEvent) => {
-    e.preventDefault();
-    if (busy) return;
-    setBusy(true);
-    // Il popup parte nel tocco stesso: niente await prima, o Safari lo blocca.
-    signInWithGooglePopup()
-      .then(() => { location.href = APP; })
-      .catch((err: any) => {
-        setBusy(false);
-        if (err?.code === 'auth/popup-closed-by-user' || err?.code === 'auth/cancelled-popup-request') return;
-        location.href = '/app/signin';
-      });
-  };
-  return <a href="/app/signin" className={className} onClick={click} aria-busy={busy}>{busy ? 'Signing in…' : 'Sign in'}</a>;
+  return <a href="/app/signin" className={className}>Sign in</a>;
 }
 
 export function Nav() {
