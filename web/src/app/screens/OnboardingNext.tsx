@@ -12,7 +12,6 @@ import { saveProfile, sendRegistrationEvent } from '../../lib/api';
 import { DEMO_URL, derive, loadFunnel, saveFunnel, TAKEOUT_USD, type Funnel } from '../../lib/funnel';
 import { journey } from '../../lib/journey';
 import { isPreview } from '../../lib/preview';
-import { REVIEWS, REVIEW_PLACEHOLDERS } from '../../lib/reviews';
 import demo from '../../lib/demo.json';
 import type { Recipe } from '../../lib/types';
 
@@ -29,11 +28,11 @@ import type { Recipe } from '../../lib/types';
 //  7 week      l'impegno: apparecchi la settimana, un piatto per sera
 //  8 receipt   il costo di oggi: lo scontrino dell'asporto che si allunga
 //  9 menu      il futuro: il menu della tua settimana, con i tuoi numeri
-// 10 reviews   la prova (solo recensioni vere; senza, la scena non esiste)
+// 10 chart     la prova con i suoi numeri: il ritmo di oggi contro quello con Cherry
 // 11 team      chi c'è dietro: una nota firmata dal team
 // 12 account   salva la settimana (→ paywall)
 
-const ALL = ['hello', 'saved', 'cooked', 'reveal', 'blockers', 'magic', 'week', 'receipt', 'menu', 'reviews', 'team', 'account'] as const;
+const ALL = ['hello', 'saved', 'cooked', 'reveal', 'blockers', 'magic', 'week', 'receipt', 'menu', 'chart', 'team', 'account'] as const;
 type Step = typeof ALL[number];
 const MIRROR: Step[] = ['saved', 'cooked', 'reveal'];
 const DARK: Step[] = ['hello', 'reveal', 'menu'];
@@ -95,7 +94,7 @@ export function OnboardingNext() {
   const [, navigate] = useLocation();
   const { user, entitled, ready } = useSession();
   const preview = useMemo(() => isPreview(), []);
-  const STEPS = useMemo(() => ALL.filter((s) => s !== 'reviews' || REVIEWS.length > 0 || preview), [preview]);
+  const STEPS = ALL;
   const [f, setF] = useState<Funnel>(() => loadFunnel());
   const [step, setStep] = useState(() => {
     const want = preview ? new URLSearchParams(location.search).get('step') : null;
@@ -167,7 +166,7 @@ export function OnboardingNext() {
           {scene === 'week' && <Week f={f} set={set} onNext={next} />}
           {scene === 'receipt' && <Receipt f={f} set={set} onNext={next} />}
           {scene === 'menu' && <Menu f={f} onNext={next} />}
-          {scene === 'reviews' && <Reviews onNext={next} />}
+          {scene === 'chart' && <Chart f={f} onNext={next} />}
           {scene === 'team' && <Team onNext={() => { if (!f.recipe) set(DEMO); next(); }} />}
           {scene === 'account' && <Account f={f} signedInAs={preview && user ? (user.displayName || user.email || 'you') : null} onContinue={finish} />}
         </motion.section>
@@ -587,34 +586,86 @@ function Menu({ f, onNext }: { f: Funnel; onNext: () => void }) {
   );
 }
 
-// 10 ---------- La prova: recensioni (solo vere; i segnaposto si vedono solo in anteprima)
-function Reviews({ onNext }: { onNext: () => void }) {
-  const real = REVIEWS.length > 0;
-  const list = real ? REVIEWS : REVIEW_PLACEHOLDERS;
-  const rows = [list, [...list].reverse()];
+// 10 ---------- La prova con i suoi numeri: il ritmo di oggi contro quello con Cherry
+// Non è una media degli utenti (non la mostriamo finché non l'abbiamo misurata): le due
+// linee sono le SUE risposte, quante ne ha cucinate il mese scorso e quante sere ha scelto.
+const CW = 346, CH = 228, CL = 10, CR = 336, CT = 34, CB = 188;
+const RAMP = [0, 0.17, 0.42, 0.71, 1];
+
+function curve(pts: [number, number][]) {
+  return pts.map(([x, y], i) => {
+    if (!i) return `M${x},${y}`;
+    const [px, py] = pts[i - 1];
+    const mx = (px + x) / 2;
+    return `C${mx},${py} ${mx},${y} ${x},${y}`;
+  }).join(' ');
+}
+
+function Chart({ f, onNext }: { f: Funnel; onNext: () => void }) {
+  const days = daysOf(f);
+  const goal = Math.round(days.length * 4.3);
+  const now = Math.min(f.cooked, goal);
+  const gain = Math.max(0, goal - f.cooked);
+  const top = Math.max(goal, 4) * 1.12;
+  const px = (i: number) => CL + ((CR - CL) * i) / 4;
+  const py = (v: number) => CB - ((CB - CT) * v) / top;
+  const withCherry = RAMP.map((r, i) => [px(i), py(goal * r)] as [number, number]);
+  const today = RAMP.map((_, i) => [px(i), py((now * i) / 4)] as [number, number]);
+  const line = curve(withCherry);
+  const [done, setDone] = useState(false);
+  useEffect(() => { const t = setTimeout(() => setDone(true), 2500); return () => clearTimeout(t); }, []);
   return (
     <>
-      <Head kicker="From people cooking with Cherry">Saved folders, turned into <em>dinners.</em></Head>
-      {!real && <p className="nx-warn">Preview only. This scene stays hidden from the public until real reviews are pasted into <code>lib/reviews.ts</code>.</p>}
-      <div className="nx-wall">
-        {rows.map((row, r) => (
-          <div key={r} className={`nx-wall__row ${r ? 'is-back' : ''}`}>
-            {[...row, ...row, ...row, ...row].map((v, i) => (
-              <figure key={i} className={real ? '' : 'is-placeholder'}>
-                <div className="nx-stars" aria-hidden="true">★★★★★</div>
-                <blockquote>{v.quote}</blockquote>
-                <figcaption>
-                  {v.plate && <span className="plate"><img src={`/assets/food/${v.plate}.jpg`} alt="" /></span>}
-                  <span><b>{v.name}</b>{v.detail && <small>{v.detail}</small>}</span>
-                </figcaption>
-              </figure>
+      <Head kicker="Same saved folder">Now watch it get <em>cooked.</em></Head>
+      <div className="nx-chart">
+        <div className="nx-chart__legend">
+          <span className="is-cherry"><i />With Cherry</span>
+          <span><i />Your pace today</span>
+        </div>
+        <div className="nx-chart__plot">
+          <svg viewBox={`0 0 ${CW} ${CH}`} aria-hidden="true">
+            <defs>
+              <linearGradient id="nxg" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stopColor="#E8334A" stopOpacity=".3" /><stop offset="1" stopColor="#E8334A" stopOpacity="0" />
+              </linearGradient>
+            </defs>
+            {[0, 1, 2, 3].map((k) => <line key={k} className="nx-chart__grid" x1={CL} x2={CR} y1={CT + ((CB - CT) * k) / 3} y2={CT + ((CB - CT) * k) / 3} />)}
+            <path className="nx-chart__area" d={`${line} L${CR},${CB} L${CL},${CB} Z`} fill="url(#nxg)" />
+            <path className="nx-chart__today" d={curve(today)} pathLength={1} />
+            <path className="nx-chart__line" d={line} pathLength={1} />
+            {['Today', 'Week 1', 'Week 2', 'Week 3', 'Week 4'].map((t, i) => (
+              <text key={t} className="nx-chart__x" x={px(i)} y={CH - 12} textAnchor={i === 0 ? 'start' : i === 4 ? 'end' : 'middle'}>{t}</text>
             ))}
-          </div>
-        ))}
+          </svg>
+          {withCherry.slice(1).map(([x, y], i) => (
+            <motion.span key={i} className="plate nx-chart__plate" style={{ left: `${(x / CW) * 100}%`, top: `${(y / CH) * 100}%` }}
+              initial={{ scale: 0, rotate: -50 }} animate={{ scale: 1, rotate: 0 }} transition={{ type: 'spring', stiffness: 300, damping: 15, delay: 1.25 + i * 0.36 }}>
+              <img src={plate(WEEK[days[i % Math.max(1, days.length)] ?? i].plate)} alt="" />
+            </motion.span>
+          ))}
+          <motion.span className="nx-chart__tag" style={{ top: `${(py(goal) / CH) * 100}%` }} initial={{ opacity: 0, y: 8, scale: 0.8 }} animate={{ opacity: 1, y: 0, scale: 1 }} transition={{ delay: 2.5, type: 'spring', stiffness: 260, damping: 16 }}>
+            <b className="num">{goal}</b> cooked
+          </motion.span>
+          <motion.span className="nx-chart__tag is-today" style={{ top: `${(py(now) / CH) * 100}%` }} initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.1 }}>
+            <b className="num">{f.cooked}</b>
+          </motion.span>
+        </div>
+      </div>
+      <div className="nx-gain">
+        {done ? <Gain n={gain > 0 ? gain : goal} plus={gain > 0} /> : <span className="num nx-gain__n">&nbsp;</span>}
+        <motion.p initial={{ opacity: 0, x: 10 }} animate={done ? { opacity: 1, x: 0 } : { opacity: 0, x: 10 }} transition={{ duration: 0.4 }}>
+          <b>{gain > 0 ? 'new dishes on your table, every month' : 'home-cooked dinners, every month'}</b>
+          <span>Your plan: {days.length} night{days.length === 1 ? '' : 's'} a week, against {f.cooked} cooked last month.</span>
+        </motion.p>
       </div>
       <Cta onClick={onNext}>Continue</Cta>
     </>
   );
+}
+
+function Gain({ n, plus }: { n: number; plus: boolean }) {
+  const v = useCount(n, 900);
+  return <span className="num nx-gain__n">{plus ? '+' : ''}{v}</span>;
 }
 
 // 11 ---------- Chi c'è dietro: una nota firmata dal team

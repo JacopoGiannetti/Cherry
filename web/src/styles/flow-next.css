@@ -11,8 +11,6 @@
 .nx-hint { text-align: center; color: var(--mute); font-size: 15px; margin-top: 10px; }
 .nx .flow__link { font-size: 15.5px; }
 .nx-preview { position: fixed; left: 50%; bottom: calc(3px + var(--safe-b)); transform: translateX(-50%); z-index: 60; padding: 1px 8px; border-radius: 999px; background: var(--ink); color: var(--paper); font-size: 10px; font-weight: 700; letter-spacing: .04em; opacity: .6; pointer-events: none; white-space: nowrap; }
-.nx-warn { margin-top: 14px; padding: 10px 14px; border-radius: 12px; background: #FFF3C4; color: #5C4700; font-size: 13.5px; font-weight: 600; line-height: 1.4; }
-.nx-warn code { font-size: 12.5px; }
 
 /* Il bottone resta sempre a portata di pollice (i browser dentro Facebook e Instagram sono bassi). */
 .nx .flow__cta { position: sticky; bottom: 0; z-index: 5; margin: auto -22px calc(-22px - var(--safe-b)); padding: 26px 22px calc(22px + var(--safe-b)); background: linear-gradient(to bottom, rgba(244, 238, 228, 0), var(--paper) 26px); }
@@ -175,20 +173,33 @@
 .nx-menu__foot span:last-child .num { color: var(--cherry); }
 .nx-menu__note { margin-top: 18px; text-align: center; font-size: 14px; color: rgba(244, 238, 228, .62); }
 
-/* ---------- 10. La prova: il muro di recensioni ---------- */
-.nx-wall { display: grid; gap: 12px; margin: 18px -22px 0; padding: 6px 0 10px; overflow: hidden; }
-.nx-wall__row { display: flex; gap: 12px; width: max-content; animation: nx-marq 46s linear infinite; }
-.nx-wall__row.is-back { animation-direction: reverse; }
-@keyframes nx-marq { to { transform: translateX(-50%); } }
-.nx-wall figure { width: 248px; margin: 0; padding: 16px; display: grid; gap: 10px; align-content: start; border-radius: 22px; background: var(--white); box-shadow: var(--shadow-1); }
-.nx-stars { font-size: 15px; letter-spacing: 2px; color: var(--cherry); }
-.nx-wall blockquote { margin: 0; font-size: 15.5px; line-height: 1.4; }
-.nx-wall figcaption { display: flex; align-items: center; gap: 10px; }
-.nx-wall figcaption .plate { width: 32px; box-shadow: none; }
-.nx-wall figcaption b { display: block; font-size: 14px; }
-.nx-wall figcaption small { font-size: 13px; color: var(--mute); }
-.nx-wall figure.is-placeholder { background: none; box-shadow: inset 0 0 0 1.5px var(--line-2); color: var(--mute); }
-.nx-wall figure.is-placeholder .nx-stars { color: var(--faint); }
+/* ---------- 10. Il grafico: il ritmo di oggi contro quello con Cherry ---------- */
+.nx-chart { margin-top: 20px; padding: 16px 0 6px; border-radius: 28px; background: var(--white); box-shadow: var(--shadow-1); }
+.nx-chart__legend { display: flex; gap: 16px; padding: 0 18px; font-size: 13px; font-weight: 700; color: var(--mute); }
+.nx-chart__legend span { display: inline-flex; align-items: center; gap: 7px; }
+.nx-chart__legend i { width: 18px; height: 0; border-top: 2.5px dashed var(--faint); }
+.nx-chart__legend .is-cherry { color: var(--ink); }
+.nx-chart__legend .is-cherry i { height: 5px; border: 0; border-radius: 3px; background: var(--cherry); }
+.nx-chart__plot { position: relative; margin-top: 6px; }
+.nx-chart__plot svg { display: block; width: 100%; height: auto; overflow: visible; }
+.nx-chart__grid { stroke: var(--line); stroke-width: 1; }
+.nx-chart__x { font-size: 11.5px; font-weight: 700; letter-spacing: .04em; fill: var(--mute); font-family: var(--body); }
+.nx-chart__today { fill: none; stroke: var(--faint); stroke-width: 2.5; stroke-linecap: round; stroke-dasharray: .018 .022; opacity: 0; animation: nx-fade .7s .25s var(--ease) forwards; }
+.nx-chart__line { fill: none; stroke: var(--cherry); stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 1; stroke-dashoffset: 1; animation: nx-draw 1.5s 1s cubic-bezier(.5, 0, .2, 1) forwards; filter: drop-shadow(0 8px 10px rgba(232, 51, 74, .35)); }
+.nx-chart__area { opacity: 0; animation: nx-fade .9s 2.1s var(--ease) forwards; }
+@keyframes nx-draw { to { stroke-dashoffset: 0; } }
+@keyframes nx-fade { to { opacity: 1; } }
+.nx-chart__plate { position: absolute; width: 34px; margin: -17px 0 0 -17px; box-shadow: 0 0 0 3px var(--white), 0 8px 16px rgba(27, 19, 19, .22); }
+.nx-chart__plate:last-of-type { width: 44px; margin: -22px 0 0 -30px; }
+.nx-chart__tag { position: absolute; right: 44px; margin-top: -58px; display: inline-flex; align-items: baseline; gap: 5px; height: 32px; padding: 0 12px; border-radius: 16px 16px 4px 16px; background: var(--ink); color: var(--paper); font-size: 13px; font-weight: 700; white-space: nowrap; }
+.nx-chart__tag .num { font-size: 22px; line-height: 32px; }
+.nx-chart__tag.is-today { right: 10px; margin-top: -34px; height: 26px; padding: 0 9px; border-radius: 13px; background: var(--paper-2); color: var(--mute); }
+.nx-chart__tag.is-today .num { font-size: 16px; line-height: 26px; }
+.nx-gain { display: flex; align-items: center; gap: 16px; margin-top: 22px; }
+.nx-gain__n { flex: none; min-width: 96px; font-size: 84px; color: var(--cherry); }
+.nx-gain p { display: grid; gap: 4px; }
+.nx-gain b { font-size: 19px; font-weight: 700; line-height: 1.15; }
+.nx-gain p span { font-size: 14px; line-height: 1.35; color: var(--mute); }
 
 /* ---------- 11. Chi c'è dietro: la nota del team ---------- */
 .nx-letter { position: relative; margin-top: 40px; padding: 28px 22px 22px; border-radius: 6px; background: var(--white); box-shadow: var(--shadow-2); }
