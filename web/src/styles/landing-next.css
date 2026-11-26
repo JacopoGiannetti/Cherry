@@ -107,6 +107,20 @@
 .lnav__links a[aria-current="page"]::after { transform: scaleX(1); }
 .lprice { min-height: calc(100svh - 160px); padding-top: clamp(70px, 8vw, 110px); }
 
+/* ---------- Il ricettario: i piatti a ventaglio, centrati e interi ---------- */
+.more__tile--book .more__plates { bottom: 26px; left: 0; right: 0; justify-content: center; }
+.more__tile--book .more__plates .plate { width: 24%; margin: 0 -4%; }
+.more__tile--book .more__plates .plate:nth-child(1) { transform: translateY(30px) rotate(-14deg); z-index: 1; }
+.more__tile--book .more__plates .plate:nth-child(2) { transform: translateY(10px) rotate(-7deg); z-index: 2; }
+.more__tile--book .more__plates .plate:nth-child(3) { transform: translateY(-2px) rotate(-2deg); z-index: 3; }
+.more__tile--book .more__plates .plate:nth-child(4) { transform: translateY(-2px) rotate(3deg); z-index: 4; }
+.more__tile--book .more__plates .plate:nth-child(5) { transform: translateY(10px) rotate(8deg); z-index: 2; }
+.more__tile--book .more__plates .plate:nth-child(6) { transform: translateY(30px) rotate(14deg); z-index: 1; }
+@media (max-width: 820px) {
+  .more__tile--book { min-height: 380px; }
+  .more__tile--book .more__plates .plate { width: 25%; margin: 0 -4%; }
+}
+
 /* ---------- Piccole correzioni alle sezioni condivise ---------- */
 .footer nav { flex-wrap: wrap; gap: 14px 24px; }
 .footer { padding-bottom: calc(40px + var(--safe-b)); }

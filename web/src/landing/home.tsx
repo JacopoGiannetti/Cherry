@@ -21,11 +21,23 @@ export function Nav({ home = true }: { home?: boolean }) {
   const [open, setOpen] = useState(false);
   useEffect(() => {
     let raf = 0;
+    let theme = '';
     const on = () => {
       cancelAnimationFrame(raf);
       raf = requestAnimationFrame(() => {
         const p = Math.min(1, Math.max(0, window.scrollY / 180));
         ref.current?.style.setProperty('--p', p.toFixed(3));
+        if (home) {
+          // Sopra l'hero (scuro) la barra del browser e il rimbalzo in cima sono scuri anche loro.
+          const hero = document.getElementById('top');
+          const dark = !!hero && window.scrollY < hero.offsetHeight - 70;
+          const color = dark ? '#1B1313' : '#F4EEE4';
+          if (theme !== color) {
+            theme = color;
+            document.querySelector('meta[name="theme-color"]')?.setAttribute('content', color);
+            document.documentElement.style.background = color;
+          }
+        }
       });
     };
     on();
@@ -156,21 +168,38 @@ const HOW = [
   ['You cook, step by step', 'Each step loops its moment of the video. Big text, screen awake, hands free.'],
 ];
 
-/** Come funziona, mostrato: il video si apre in passi mentre i tre punti si accendono a tempo. */
+/** Come funziona, mostrato: il video si apre in passi in loop; i tre punti si accendono mentre scendi. */
 function How() {
   const ref = useRef<HTMLDivElement>(null);
+  const list = useRef<HTMLOListElement>(null);
   const inView = useInView(ref, { margin: '-20% 0px' });
-  const [phase, setPhase] = useState(0);
-  const active = phase <= 0 ? 0 : phase === 1 ? 1 : 2;
+  const [active, setActive] = useState(0);
+  useEffect(() => {
+    let raf = 0;
+    const on = () => {
+      cancelAnimationFrame(raf);
+      raf = requestAnimationFrame(() => {
+        const items = list.current ? [...list.current.children] as HTMLElement[] : [];
+        const line = window.innerHeight * 0.6;
+        let k = 0;
+        items.forEach((el, i) => { if (el.getBoundingClientRect().top < line) k = i; });
+        setActive(k);
+      });
+    };
+    on();
+    window.addEventListener('scroll', on, { passive: true });
+    window.addEventListener('resize', on);
+    return () => { window.removeEventListener('scroll', on); window.removeEventListener('resize', on); cancelAnimationFrame(raf); };
+  }, []);
   return (
     <section className="lhow" id="how">
-      <div className="lhow__stage" ref={ref}><MagicStage play={inView} loop onPhase={setPhase} /></div>
+      <div className="lhow__stage" ref={ref}><MagicStage play={inView} loop /></div>
       <div className="lhow__copy">
         <Reveal><p className="eyebrow">How it works</p></Reveal>
         <Reveal delay={0.05}><h2 className="display section-title">From scroll to stove in <em>under a minute.</em></h2></Reveal>
-        <ol className="lhow__steps">
+        <ol className="lhow__steps" ref={list}>
           {HOW.map(([t, b], i) => (
-            <li key={t} className={active === i ? 'on' : ''}>
+            <li key={t} className={i <= active ? 'on' : ''}>
               <span className="num">{i + 1}</span>
               <div><b>{t}</b><p>{b}</p></div>
             </li>
