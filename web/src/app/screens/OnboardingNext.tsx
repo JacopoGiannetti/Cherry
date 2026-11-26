@@ -25,17 +25,16 @@ import type { Recipe } from '../../lib/types';
 //  4 reveal      …e diventa buio: "1 su N". Non è colpa tua.
 //  5 blockers  la causa: il video che torna indietro, i commenti di tutti
 //  6 magic     la soluzione: un video si apre in passi, davanti a te (poi la provi)
-//  7 week      l'impegno: apparecchi la settimana, un piatto per sera
+//  7 nights    l'impegno: quante sere a settimana, un numero e sette posti a tavola
 //  8 receipt   il costo di oggi: lo scontrino dell'asporto che si allunga
-//  9 menu      il futuro: il menu della tua settimana, con i tuoi numeri
-// 10 chart     la prova con i suoi numeri: il ritmo di oggi contro quello con Cherry
-// 11 team      chi c'è dietro: una nota firmata dal team
-// 12 account   salva la settimana (→ paywall)
+//  9 chart     il futuro con i suoi numeri: il ritmo di oggi contro quello con Cherry
+// 10 team      chi c'è dietro: una nota firmata dal team
+// 11 account   salva il piano (→ paywall)
 
-const ALL = ['hello', 'saved', 'cooked', 'reveal', 'blockers', 'magic', 'week', 'receipt', 'menu', 'chart', 'team', 'account'] as const;
+const ALL = ['hello', 'saved', 'cooked', 'reveal', 'blockers', 'magic', 'nights', 'receipt', 'chart', 'team', 'account'] as const;
 type Step = typeof ALL[number];
 const MIRROR: Step[] = ['saved', 'cooked', 'reveal'];
-const DARK: Step[] = ['hello', 'reveal', 'menu'];
+const DARK: Step[] = ['hello', 'reveal'];
 const DEMO: Partial<Funnel> = { recipe: demo as unknown as Recipe, url: DEMO_URL, demo: true };
 type Set = (patch: Partial<Funnel> | ((f: Funnel) => Partial<Funnel>)) => void;
 const EASE = [0.2, 0.8, 0.2, 1] as const;
@@ -55,19 +54,6 @@ const BLOCKERS = [
   { id: 'lost', label: 'I can never find the recipe again', fix: 'One cookbook, searchable, on every device.' },
   { id: 'shopping', label: 'I never have the ingredients', fix: 'One tap turns recipes into a grocery list by aisle.' },
 ];
-
-const DAYS = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
-const WEEK = [
-  { plate: 'v-tacos', dish: 'Street tacos' },
-  { plate: 'v-ramen', dish: 'Miso ramen' },
-  { plate: 'v-curry', dish: 'Chickpea curry' },
-  { plate: 'v-udon', dish: 'Stir-fried udon' },
-  { plate: 'v-pizza', dish: 'Margherita pizza' },
-  { plate: 'v-dumplings', dish: 'Crispy dumplings' },
-  { plate: 'v-teriyaki', dish: 'Teriyaki salmon bowl' },
-];
-const DAY_ORDER = [0, 2, 4, 1, 3, 6, 5];
-const daysOf = (f: Funnel) => (f.days ? f.days : DAY_ORDER.slice(0, f.nights)).slice().sort((a, b) => a - b);
 
 function answersOf(f: Funnel) {
   return { saved: f.saved, cooked: f.cooked, blockers: f.blockers, household: f.household, nights: f.nights, takeout: f.takeout, paste: f.recipe ? 'demo' : undefined };
@@ -165,9 +151,8 @@ export function OnboardingNext() {
           {scene === 'mirror' && <Mirror phase={name as 'saved' | 'cooked' | 'reveal'} f={f} set={set} onNext={next} />}
           {scene === 'blockers' && <Blockers f={f} set={set} onNext={next} />}
           {scene === 'magic' && <Magic f={f} onCook={() => { if (!f.recipe) set(DEMO); setCooking(true); }} onNext={() => { if (!f.recipe) set(DEMO); next(); }} />}
-          {scene === 'week' && <Week f={f} set={set} onNext={next} />}
+          {scene === 'nights' && <Nights f={f} set={set} onNext={next} />}
           {scene === 'receipt' && <Receipt f={f} set={set} onNext={next} />}
-          {scene === 'menu' && <Menu f={f} onNext={next} />}
           {scene === 'chart' && <Chart f={f} onNext={next} />}
           {scene === 'team' && <Team onNext={() => { if (!f.recipe) set(DEMO); next(); }} />}
           {scene === 'account' && <Account f={f} signedInAs={preview && user ? (user.displayName || user.email || 'you') : null} onContinue={finish} />}
@@ -175,7 +160,7 @@ export function OnboardingNext() {
       </AnimatePresence>
 
       {cooking && f.recipe && (
-        <CookMode recipe={f.recipe} limit={2} onClose={() => setCooking(false)} onUnlock={() => { setCooking(false); go(STEPS.indexOf('week')); }} />
+        <CookMode recipe={f.recipe} limit={2} onClose={() => setCooking(false)} onUnlock={() => { setCooking(false); go(STEPS.indexOf('nights')); }} />
       )}
       {preview && <span className="nx-preview">Preview · {step + 1}/{STEPS.length} · {name}</span>}
     </div>
@@ -489,39 +474,25 @@ function Magic({ f, onCook, onNext }: { f: Funnel; onCook: () => void; onNext: (
   );
 }
 
-// 7 ---------- L'impegno: apparecchi la settimana
-function Week({ f, set, onNext }: { f: Funnel; set: Set; onNext: () => void }) {
-  const days = daysOf(f);
-  const toggle = (i: number) => {
-    navigator.vibrate?.(6);
-    const nextDays = days.includes(i) ? days.filter((x) => x !== i) : [...days, i].sort((a, b) => a - b);
-    set({ days: nextDays, nights: Math.max(1, nextDays.length) });
-  };
-  const n = days.length;
+// 7 ---------- L'impegno: quante sere, sette posti a tavola
+function Nights({ f, set, onNext }: { f: Funnel; set: Set; onNext: () => void }) {
+  const n = f.nights;
+  const pick = (k: number) => { navigator.vibrate?.(6); set({ nights: k }); };
   return (
     <>
-      <Head kicker="Now, your week">Which nights do you <em>want</em> to cook?</Head>
-      <div className="nx-week" role="group" aria-label="Nights of the week">
-        {DAYS.map((d, i) => {
-          const on = days.includes(i);
-          return (
-            <button key={d} className={`nx-day ${on ? 'on' : ''}`} onClick={() => toggle(i)} aria-pressed={on}>
-              <span className="nx-day__plate">
-                <AnimatePresence initial={false}>
-                  {on && (
-                    <motion.img key="p" src={plate(WEEK[i].plate)} alt="" initial={{ scale: 0, rotate: -60 }} animate={{ scale: 1, rotate: 0 }} exit={{ scale: 0, rotate: 40 }} transition={{ type: 'spring', stiffness: 320, damping: 18 }} />
-                  )}
-                </AnimatePresence>
-                {!on && <Icon name="plus" size={18} stroke={2.2} />}
-              </span>
-              <b>{d}</b>
+      <Head kicker="Now, your goal">How many nights a week would you like to <em>cook?</em></Head>
+      <div className="nx-nights">
+        <div className="nx-pips" role="group" aria-label="Nights per week">
+          {[1, 2, 3, 4, 5, 6, 7].map((k) => (
+            <button key={k} className={k <= n ? 'on' : ''} onClick={() => pick(k)} aria-label={`${k} night${k === 1 ? '' : 's'}`} aria-pressed={k <= n}>
+              <AnimatePresence initial={false}>
+                {k <= n && <motion.i key="d" initial={{ scale: 0 }} animate={{ scale: 1 }} exit={{ scale: 0 }} transition={{ type: 'spring', stiffness: 420, damping: 18, delay: 0.02 * k }} />}
+              </AnimatePresence>
             </button>
-          );
-        })}
-      </div>
-      <div className="nx-week__sum">
-        <span className="num">{n}</span>
-        <p><b>night{n === 1 ? '' : 's'} a week</b><span>{Math.round(n * 4.3)} home-cooked dinners a month</span></p>
+          ))}
+        </div>
+        <Stepper value={n} min={1} max={7} onChange={(v) => set({ nights: v })} label="Nights per week" />
+        <p className="nx-hint"><b>{n} night{n === 1 ? '' : 's'} a week</b> is {Math.round(n * 4.3)} home-cooked dinners a month.</p>
       </div>
       <div className="seg nx-seg" role="radiogroup" aria-label="Cooking for">
         <span className="seg__label">Cooking for</span>
@@ -529,7 +500,7 @@ function Week({ f, set, onNext }: { f: Funnel; set: Set; onNext: () => void }) {
           <button key={k} role="radio" aria-checked={f.household === k} className={f.household === k ? 'on' : ''} onClick={() => set({ household: k })}>{k === 5 ? '5+' : k}</button>
         ))}
       </div>
-      <Cta onClick={onNext} disabled={!n}>{n ? "That's my week" : 'Pick at least one night'}</Cta>
+      <Cta onClick={onNext}>That's my goal</Cta>
     </>
   );
 }
@@ -569,48 +540,12 @@ function Receipt({ f, set, onNext }: { f: Funnel; set: Set; onNext: () => void }
         <Stepper value={f.takeout} min={0} max={7} onChange={(n) => set({ takeout: n })} label="Takeout nights per week" />
         <p className="nx-hint">Rough estimate: ${TAKEOUT_USD} a person per meal, for {f.household === 5 ? '5+' : f.household}.</p>
       </div>
-      <Cta onClick={onNext}>Now show me my week</Cta>
+      <Cta onClick={onNext}>See what changes</Cta>
     </>
   );
 }
 
-// 9 ---------- Il futuro: il menu della tua settimana
-function Menu({ f, onNext }: { f: Funnel; onNext: () => void }) {
-  const d = derive(f);
-  const days = daysOf(f);
-  const dinners = useCount(Math.round(days.length * 4.3), 900);
-  const kept = useCount(d.monthly, 1100);
-  const money = d.swapped > 0 && d.monthly > 0;
-  return (
-    <>
-      <Head kicker="With Cherry">Your week, <em>on the table.</em></Head>
-      <motion.div className="nx-menu" initial={{ opacity: 0, y: 40, rotate: -4 }} animate={{ opacity: 1, y: 0, rotate: -1.2 }} transition={{ type: 'spring', stiffness: 110, damping: 15, delay: 0.1 }}>
-        <p className="nx-menu__head"><span>This week's menu</span><em className="voice">for {f.household === 5 ? '5+' : f.household}</em></p>
-        <ul>
-          {days.map((i, k) => (
-            <motion.li key={i} initial={{ opacity: 0, x: -12 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.35 + k * 0.09, duration: 0.35 }}>
-              <small>{DAYS[i]}</small>
-              <em className="voice">{WEEK[i].dish}</em>
-              <i />
-              <span className="plate"><img src={plate(WEEK[i].plate)} alt="" /></span>
-            </motion.li>
-          ))}
-        </ul>
-        <div className="nx-menu__foot">
-          <span><b className="num">{dinners}</b>dinners<br />a month</span>
-          <span><b className="num">1</b>grocery list<br />by aisle</span>
-          {money
-            ? <span><b className="num">${kept}</b>kept<br />a month*</span>
-            : <span><b className="num">{d.savedLabel}</b>saved recipes<br />in play</span>}
-        </div>
-      </motion.div>
-      <p className="nx-menu__note">Sample dishes. Yours come from the recipes you saved.{money ? ' *Estimate from your answers.' : ''}</p>
-      <Cta onClick={onNext}>I want this week</Cta>
-    </>
-  );
-}
-
-// 10 ---------- La prova con i suoi numeri: il ritmo di oggi contro quello con Cherry
+// 9 ---------- Il futuro con i suoi numeri: il ritmo di oggi contro quello con Cherry
 // Non è una media degli utenti (non la mostriamo finché non l'abbiamo misurata): le due
 // linee sono le SUE risposte, quante ne ha cucinate il mese scorso e quante sere ha scelto.
 const CW = 346, CH = 228, CL = 10, CR = 336, CT = 34, CB = 188;
@@ -626,8 +561,9 @@ function curve(pts: [number, number][]) {
 }
 
 function Chart({ f, onNext }: { f: Funnel; onNext: () => void }) {
-  const days = daysOf(f);
-  const goal = Math.round(days.length * 4.3);
+  const d = derive(f);
+  const money = d.swapped > 0 && d.monthly > 0;
+  const goal = Math.round(f.nights * 4.3);
   const now = Math.min(f.cooked, goal);
   const gain = Math.max(0, goal - f.cooked);
   const top = Math.max(goal, 4) * 1.12;
@@ -664,7 +600,7 @@ function Chart({ f, onNext }: { f: Funnel; onNext: () => void }) {
           {withCherry.slice(1).map(([x, y], i) => (
             <motion.span key={i} className="plate nx-chart__plate" style={{ left: `${(x / CW) * 100}%`, top: `${(y / CH) * 100}%` }}
               initial={{ scale: 0, rotate: -50 }} animate={{ scale: 1, rotate: 0 }} transition={{ type: 'spring', stiffness: 300, damping: 15, delay: 1.25 + i * 0.36 }}>
-              <img src={plate(WEEK[days[i % Math.max(1, days.length)] ?? i].plate)} alt="" />
+              <img src={plate(PLATES[i])} alt="" />
             </motion.span>
           ))}
           <motion.span className="nx-chart__tag" style={{ top: `${(py(goal) / CH) * 100}%` }} initial={{ opacity: 0, y: 8, scale: 0.8 }} animate={{ opacity: 1, y: 0, scale: 1 }} transition={{ delay: 2.5, type: 'spring', stiffness: 260, damping: 16 }}>
@@ -679,9 +615,15 @@ function Chart({ f, onNext }: { f: Funnel; onNext: () => void }) {
         {done ? <Gain n={gain > 0 ? gain : goal} plus={gain > 0} /> : <span className="num nx-gain__n">&nbsp;</span>}
         <motion.p initial={{ opacity: 0, x: 10 }} animate={done ? { opacity: 1, x: 0 } : { opacity: 0, x: 10 }} transition={{ duration: 0.4 }}>
           <b>{gain > 0 ? 'new dishes on your table, every month' : 'home-cooked dinners, every month'}</b>
-          <span>Your plan: {days.length} night{days.length === 1 ? '' : 's'} a week, against {f.cooked} cooked last month.</span>
+          <span>Your goal of {f.nights} night{f.nights === 1 ? '' : 's'} a week, against {f.cooked} cooked last month.</span>
         </motion.p>
       </div>
+      {money && (
+        <motion.p className="nx-kept" initial={{ opacity: 0, y: 10 }} animate={done ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }} transition={{ delay: 0.5, duration: 0.4 }}>
+          <b className="num">${d.monthly}</b>
+          <span>of takeout you'd cook instead, every month. <i>Estimate from your answers.</i></span>
+        </motion.p>
+      )}
       <Cta onClick={onNext}>Continue</Cta>
     </>
   );
@@ -692,7 +634,7 @@ function Gain({ n, plus }: { n: number; plus: boolean }) {
   return <span className="num nx-gain__n">{plus ? '+' : ''}{v}</span>;
 }
 
-// 11 ---------- Chi c'è dietro: una nota firmata dal team
+// 10 ---------- Chi c'è dietro: una nota firmata dal team
 function Team({ onNext }: { onNext: () => void }) {
   const rules = ['Made for cooking, not for scrolling.', 'Creators always get the credit.', 'Your cookbook, on every device you own.'];
   return (
@@ -722,19 +664,25 @@ function Team({ onNext }: { onNext: () => void }) {
   );
 }
 
-// 12 ---------- Salvala
+// 11 ---------- Salva il piano
 function Account({ f, signedInAs, onContinue }: { f: Funnel; signedInAs: string | null; onContinue: () => void }) {
-  const days = daysOf(f);
+  const goal = Math.round(f.nights * 4.3);
+  const gain = Math.max(0, goal - f.cooked);
+  const rows: [string, string][] = [
+    [String(f.nights), `night${f.nights === 1 ? '' : 's'} a week`],
+    [f.household === 5 ? '5+' : String(f.household), 'at the table'],
+    [gain > 0 ? `+${gain}` : String(goal), gain > 0 ? 'new dishes a month' : 'dinners a month'],
+  ];
   return (
     <div className="account nx-account">
-      <div className="nx-account__plates" aria-hidden="true">
-        {days.map((i, k) => (
-          <motion.span key={i} className="plate" initial={{ scale: 0, y: 20 }} animate={{ scale: 1, y: 0 }} transition={{ type: 'spring', stiffness: 260, damping: 16, delay: 0.1 + k * 0.07 }}>
-            <img src={plate(WEEK[i].plate)} alt="" />
-          </motion.span>
+      <ul className="nx-plan" aria-label="Your plan">
+        {rows.map(([n, l], i) => (
+          <motion.li key={l} initial={{ opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 + i * 0.1, duration: 0.4 }}>
+            <b className="num">{n}</b><span>{l}</span>
+          </motion.li>
         ))}
-      </div>
-      <h1 className="display nx-q">Your week is ready. <em>Save it.</em></h1>
+      </ul>
+      <h1 className="display nx-q">Your plan is ready. <em>Save it.</em></h1>
       <p className="nx-lead">One account keeps your cookbook and your grocery list in sync on your phone and computer.</p>
       {signedInAs
         ? <button className="btn btn--cherry btn--block nx-account__go" onClick={onContinue}>Continue as {signedInAs.split(' ')[0]}</button>

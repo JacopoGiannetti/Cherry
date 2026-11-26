@@ -139,21 +139,18 @@
 .nx-fixes s { font-size: 14px; color: var(--mute); text-decoration-color: var(--cherry); }
 .nx-fixes b { font-size: 16px; line-height: 1.25; }
 
-/* ---------- 7. L'impegno: apparecchi la settimana ---------- */
-.nx-week { display: flex; flex-wrap: wrap; justify-content: center; gap: 14px 10px; margin-top: 22px; }
-.nx-day { width: calc((100% - 30px) / 4); display: grid; justify-items: center; gap: 7px; }
-.nx-day__plate { position: relative; width: 100%; aspect-ratio: 1; border-radius: 50%; display: grid; place-items: center; color: var(--faint); border: 1.5px dashed var(--line-2); transition: transform var(--press) var(--ease), border-color var(--quick); }
-.nx-day:active .nx-day__plate { transform: scale(.93); }
-.nx-day.on .nx-day__plate { border-color: transparent; }
-.nx-day__plate img { position: absolute; inset: 0; width: 100%; height: 100%; max-width: none; border-radius: 50%; object-fit: cover; box-shadow: 0 10px 22px rgba(27, 19, 19, .24); }
-.nx-day b { font-size: 13px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--mute); transition: color var(--quick); }
-.nx-day.on b { color: var(--cherry); }
-.nx-week__sum { display: flex; align-items: center; gap: 14px; margin-top: 20px; }
-.nx-week__sum .num { font-size: 76px; min-width: 46px; }
-.nx-week__sum p { display: grid; gap: 2px; }
-.nx-week__sum b { font-size: 19px; font-weight: 700; line-height: 1.15; }
-.nx-week__sum p span { font-size: 15px; color: var(--mute); }
-.nx-seg { margin-top: 16px; align-self: flex-start; }
+/* ---------- 7. L'impegno: sette posti a tavola ---------- */
+.nx-nights { margin-top: 26px; display: grid; justify-items: center; gap: 18px; }
+.nx-pips { display: flex; justify-content: space-between; width: 100%; }
+.nx-pips button { position: relative; width: 12.4%; aspect-ratio: 1; border-radius: 50%; border: 1.5px dashed var(--line-2); display: grid; place-items: center; transition: border-color var(--quick), background var(--quick), box-shadow var(--quick), transform var(--press) var(--ease); }
+.nx-pips button:active { transform: scale(.9); }
+.nx-pips button.on { border-color: transparent; background: var(--white); box-shadow: 0 8px 18px rgba(27, 19, 19, .16), inset 0 0 0 5px var(--white), inset 0 0 0 6.5px var(--line); }
+.nx-pips i { width: 46%; height: 46%; border-radius: 50%; background: var(--cherry); box-shadow: 0 4px 10px rgba(232, 51, 74, .4); }
+.nx-nights .nx-stepper__value { height: 132px; min-width: 130px; }
+.nx-nights .nx-stepper__value .num { font-size: 132px; }
+.nx-nights .nx-hint { margin-top: 0; font-size: 16px; }
+.nx-nights .nx-hint b { color: var(--ink); }
+.nx-seg { margin: 22px auto 0; }
 
 /* ---------- 8. Il costo di oggi: lo scontrino ---------- */
 .nx-print { position: relative; margin-top: 20px; padding: 0 16px 12px; }
@@ -171,26 +168,7 @@
 .nx-receipt__total > .num { font-size: 56px; color: var(--cherry); }
 .nx-receipt__ctl { margin-top: 22px; }
 
-/* ---------- 9. Il futuro: il menu della settimana ---------- */
-.nx-menu { position: relative; margin-top: 22px; padding: 24px 22px 20px; border-radius: 6px; background: var(--white); color: var(--ink); box-shadow: 0 30px 60px rgba(0, 0, 0, .55); }
-.nx-menu::before { content: ""; position: absolute; inset: 7px; border: 1px solid var(--line-2); border-radius: 3px; pointer-events: none; }
-.nx-menu__head { display: grid; justify-items: center; gap: 2px; padding-bottom: 12px; border-bottom: 3px double var(--ink); }
-.nx-menu__head span { font-size: 12px; font-weight: 700; letter-spacing: .22em; text-transform: uppercase; }
-.nx-menu__head .voice { font-size: 24px; line-height: 1; }
-.nx-menu ul { padding: 6px 0; }
-.nx-menu li { display: flex; align-items: center; gap: 10px; height: 41px; }
-.nx-menu li small { width: 34px; flex: none; font-size: 11.5px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--mute); }
-.nx-menu li .voice { font-size: 21px; color: var(--ink); white-space: nowrap; }
-.nx-menu li > i { flex: 1; min-width: 8px; border-bottom: 1.5px dotted var(--line-2); transform: translateY(5px); }
-.nx-menu li .plate { width: 32px; flex: none; box-shadow: none; }
-.nx-menu__foot { display: grid; grid-template-columns: repeat(3, 1fr); padding-top: 14px; border-top: 3px double var(--ink); }
-.nx-menu__foot span { padding: 0 8px; border-left: 1px solid var(--line-2); font-size: 13px; line-height: 1.25; color: var(--mute); }
-.nx-menu__foot span:first-child { padding-left: 0; border-left: 0; }
-.nx-menu__foot .num { display: block; margin-bottom: 7px; font-size: 34px; color: var(--ink); }
-.nx-menu__foot span:last-child .num { color: var(--cherry); }
-.nx-menu__note { margin-top: 18px; text-align: center; font-size: 14px; color: rgba(244, 238, 228, .62); }
-
-/* ---------- 10. Il grafico: il ritmo di oggi contro quello con Cherry ---------- */
+/* ---------- 9. Il grafico: il ritmo di oggi contro quello con Cherry ---------- */
 .nx-chart { margin-top: 20px; padding: 16px 0 6px; border-radius: 28px; background: var(--white); box-shadow: var(--shadow-1); }
 .nx-chart__legend { display: flex; gap: 16px; padding: 0 18px; font-size: 13px; font-weight: 700; color: var(--mute); }
 .nx-chart__legend span { display: inline-flex; align-items: center; gap: 7px; }
@@ -218,7 +196,7 @@
 .nx-gain b { font-size: 19px; font-weight: 700; line-height: 1.15; }
 .nx-gain p span { font-size: 14px; line-height: 1.35; color: var(--mute); }
 
-/* ---------- 11. Chi c'è dietro: la nota del team ---------- */
+/* ---------- 10. Chi c'è dietro: la nota del team ---------- */
 .nx-letter { position: relative; margin-top: 40px; padding: 28px 22px 22px; border-radius: 6px; background: var(--white); box-shadow: var(--shadow-2); }
 .nx-letter__stamp { position: absolute; right: -8px; top: -38px; width: 98px; height: 98px; border-radius: 50%; background: var(--white); color: var(--cherry); box-shadow: var(--shadow-1); }
 .nx-letter__stamp img { position: relative; width: 38px; height: 38px; border-radius: 12px; }
@@ -231,11 +209,19 @@
 .nx-letter__sign .voice { font-size: 31px; color: var(--ink); line-height: 1; }
 .nx-letter__sign svg { width: 172px; margin-top: 2px; color: var(--cherry); }
 
-/* ---------- 12. Account ---------- */
+.nx-kept { display: flex; align-items: center; gap: 14px; margin-top: 16px; padding: 14px 16px; border-radius: 20px; background: var(--ink); color: var(--paper); }
+.nx-kept .num { flex: none; font-size: 40px; color: var(--paper); }
+.nx-kept span { font-size: 14.5px; line-height: 1.35; color: rgba(244, 238, 228, .85); }
+.nx-kept i { font-style: normal; color: rgba(244, 238, 228, .55); }
+
+/* ---------- 11. Account ---------- */
 .nx-account { gap: 0; }
-.nx-account__plates { display: flex; margin-bottom: 26px; }
-.nx-account__plates .plate { width: 56px; box-shadow: 0 0 0 3px var(--paper), 0 8px 18px rgba(27, 19, 19, .18); }
-.nx-account__plates .plate + .plate { margin-left: -14px; }
+.nx-plan { display: grid; grid-template-columns: repeat(3, 1fr); margin-bottom: 30px; padding: 18px 6px; border-radius: 24px; background: var(--ink); color: var(--paper); }
+.nx-plan li { padding: 0 12px; border-left: 1px solid rgba(244, 238, 228, .18); }
+.nx-plan li:first-child { border-left: 0; }
+.nx-plan .num { display: block; font-size: 42px; margin-bottom: 8px; }
+.nx-plan li:last-child .num { color: var(--cherry); }
+.nx-plan span { font-size: 13.5px; line-height: 1.25; color: rgba(244, 238, 228, .7); }
 .nx-account__go { margin-top: 28px; }
 
 @media (max-height: 720px) {
@@ -251,6 +237,7 @@
   .nx-magic__stage { height: 226px; }
   .nx-reel { height: 226px; width: 128px; margin-left: -64px; }
   .nx-step { height: 48px; }
-  .nx-week, .nx-rewind, .nx-menu, .nx-print { margin-top: 14px; }
-  .nx-menu li { height: 36px; }
+  .nx-rewind, .nx-print, .nx-nights { margin-top: 14px; }
+  .nx-nights .nx-stepper__value { height: 96px; }
+  .nx-nights .nx-stepper__value .num { font-size: 96px; }
 }
