@@ -79,7 +79,12 @@ export function OnboardingNext() {
   const STEPS = ALL;
   // Chi arriva senza risposte parte da 10 salvate: la scatola si riempie mentre sali.
   // (Il default condiviso resta 50, lo usa il percorso in produzione.)
-  const [f, setF] = useState<Funnel>(() => (hasFunnel() ? loadFunnel() : { ...loadFunnel(), saved: 10 }));
+  // La ricetta da provare è sempre la nostra demo: una ricetta rimasta salvata dal percorso di prima
+  // (quando si poteva incollare un proprio link) non deve ricomparire qui.
+  const [f, setF] = useState<Funnel>(() => {
+    const cur = hasFunnel() ? loadFunnel() : { ...loadFunnel(), saved: 10 };
+    return cur.recipe && !cur.demo ? { ...cur, recipe: undefined, url: undefined } : cur;
+  });
   const [step, setStep] = useState(() => {
     const want = preview ? new URLSearchParams(location.search).get('step') : null;
     return Math.max(0, STEPS.indexOf(want as Step));
@@ -159,11 +164,11 @@ export function OnboardingNext() {
           {scene === 'hello' && <Hello onNext={next} />}
           {scene === 'mirror' && <Mirror phase={name as 'saved' | 'cooked' | 'reveal'} f={f} set={set} onNext={next} />}
           {scene === 'blockers' && <Blockers f={f} set={set} onNext={next} />}
-          {scene === 'magic' && <Magic f={f} onCook={() => { if (!f.recipe) set(DEMO); setCooking(true); }} onNext={() => { if (!f.recipe) set(DEMO); next(); }} />}
+          {scene === 'magic' && <Magic f={f} onCook={() => { set(DEMO); setCooking(true); }} onNext={() => { set(DEMO); next(); }} />}
           {scene === 'nights' && <Nights f={f} set={set} onNext={next} />}
           {scene === 'receipt' && <Receipt f={f} set={set} onNext={next} />}
           {scene === 'chart' && <Chart f={f} onNext={next} />}
-          {scene === 'team' && <Team onNext={() => { if (!f.recipe) set(DEMO); next(); }} />}
+          {scene === 'team' && <Team onNext={() => { set(DEMO); next(); }} />}
           {scene === 'account' && <Account f={f} signedInAs={preview && user ? (user.displayName || user.email || 'you') : null} onContinue={finish} />}
         </motion.section>
       </AnimatePresence>
