@@ -9,6 +9,7 @@ export type Funnel = {
   household: number;
   nights: number;     // sere a settimana in cui vuole cucinare
   takeout: number;    // sere di asporto/delivery adesso
+  days?: number[];    // quali sere (0 = lunedì), se le ha scelte nel percorso nuovo
   url?: string;
   recipe?: Recipe;
   demo?: boolean;
