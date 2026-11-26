@@ -28,7 +28,6 @@ import { used } from '../lib/usage';
 import { isPreview } from '../lib/preview';
 
 // L'onboarding (dal 26 nov 2026). Quello di prima resta in screens/Onboarding.tsx, non più collegato.
-const JoinNext = lazy(() => import('./screens/JoinNext').then((m) => ({ default: m.JoinNext })));
 const OnboardingNext = lazy(() => import('./screens/OnboardingNext').then((m) => ({ default: m.OnboardingNext })));
 
 document.body.classList.add('is-app');
@@ -107,7 +106,7 @@ function App() {
           <Route path="/signin"><SignIn /></Route>
           <Route path="/l/:id">{(p) => <SharedList id={p.id} />}</Route>
           <Route path="/join"><Join /></Route>
-          <Route path="/join-next"><Suspense fallback={<Boot />}><JoinNext /></Suspense></Route>
+          <Route path="/join-next"><Redirect to="/join" /></Route>
           <Route path="/welcome"><Welcome /></Route>
           <Route path="/add"><Member><Add /></Member></Route>
           <Route path="/new"><Member><RecipeEditor /></Member></Route>

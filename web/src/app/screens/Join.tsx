@@ -1,6 +1,7 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { motion } from 'motion/react';
 import { Redirect, useLocation } from 'wouter';
+import '../../styles/paywall.css';
 import { Icon } from '../../components/Icon';
 import { getPlans, money, startCheckout, type Plan } from '../../lib/api';
 import { perMonth as monthOf, savePct } from '../../lib/plans';
@@ -8,12 +9,13 @@ import { eventId, metaForServer, track } from '../../lib/meta';
 import { useSession } from '../../lib/store';
 import { journey, journeyId } from '../../lib/journey';
 import { signOut } from '../../lib/firebase';
-import { derive, hasFunnel, loadFunnel } from '../../lib/funnel';
 import { isPreview } from '../../lib/preview';
 
-// Paywall rigido. Chi arriva dal percorso trova la SUA ricetta pronta e i
-// SUOI numeri: non compra un'app, sblocca una cena che ha già scelto.
+// Paywall rigido. In cima l'immagine fatta e finita (titolo e telefoni con l'app vera,
+// public/assets/paywall/phones.jpg), poi i due piani affiancati e un bottone.
 // Pagamento su Stripe Checkout (Apple Pay e Google Pay inclusi).
+
+const EASE = [0.2, 0.8, 0.2, 1] as const;
 
 export function Join() {
   const { user, entitled, ready } = useSession();
@@ -23,17 +25,22 @@ export function Join() {
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const canceled = new URLSearchParams(location.search).has('canceled');
-  const personal = useMemo(() => hasFunnel(), []);
-  const f = useMemo(() => loadFunnel(), []);
-  const d = derive(f);
   const first = user?.displayName?.split(' ')[0];
 
-  useEffect(() => { getPlans().then((r) => setPlans(r.plans)).catch(() => setPlans([])); }, []);
   // In sviluppo, o con l'anteprima accesa (lib/preview.ts): /app/join?preview mostra il paywall
   // anche senza account e anche a chi è già abbonato (che però non può pagare due volte).
   const devPreview = (import.meta.env.DEV || isPreview()) && new URLSearchParams(location.search).has('preview');
+  useEffect(() => { getPlans().then((r) => setPlans(r.plans)).catch(() => setPlans([])); }, []);
   useEffect(() => { if (entitled && !devPreview) navigate('/'); }, [entitled]);
   useEffect(() => { if (user) void journey('paywall', { canceled: canceled || undefined }); }, [!!user]);
+  // Il paywall è bianco (come la foto dei telefoni): la barra del browser e lo sfondo lo seguono.
+  useEffect(() => {
+    document.querySelector('meta[name="theme-color"]')?.setAttribute('content', '#FEFEFE');
+    const before = document.body.style.background;
+    document.body.style.background = '#FEFEFE';
+    return () => { document.body.style.background = before; };
+  }, []);
+
   if (ready && !user && !devPreview) return <Redirect to="/start" />;
 
   const yearly = plans?.find((p) => p.plan === 'yearly');
@@ -59,81 +66,56 @@ export function Join() {
     }
   };
 
-  const recipe = personal ? f.recipe : undefined;
-  const steps = recipe ? ((recipe.segments?.length || 0) >= 2 ? recipe.segments!.length : recipe.steps.length) : 0;
+  const fine = !selected ? '' : selected.plan === 'yearly'
+    ? `Billed as ${money(selected.amount, selected.currency)} per year${perMonth !== null ? ` (${money(perMonth, selected.currency)}/mo)` : ''}`
+    : `Billed ${money(selected.amount, selected.currency)} every month`;
 
   return (
-    <div className="pay">
-      <section className="pay__top">
-        <header className="pay__bar">
-          <span className="eyebrow">{recipe ? 'Ready and waiting' : 'Membership'}</span>
-          <button className="pay__out" onClick={() => signOut()}>Not {first || 'you'}?</button>
-        </header>
+    <div className="pw">
+      <header className="pw__bar">
+        <span className="pw__logo"><img src="/assets/mascot.png" alt="" /><b className="display">Cherry</b></span>
+        {user && <button className="pw__out" onClick={() => signOut()}>Not {first || 'you'}?</button>}
+      </header>
 
-        {recipe && (
-          <motion.div className="pay__recipe" initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, ease: [0.2, 0.8, 0.2, 1] }}>
-            <img src={recipe.imageUrl || '/assets/food/serve.jpg'} alt="" />
-            <div>
-              <b>{recipe.title}</b>
-              <span>{recipe.ingredients.length} ingredients · {steps} video steps</span>
-            </div>
-            <span className="pay__lock"><Icon name="lock" size={16} /></span>
-          </motion.div>
-        )}
+      <motion.div className="pw__phones" initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ type: 'spring', stiffness: 80, damping: 16, delay: 0.15 }}>
+        <img src="/assets/paywall/phones.jpg" alt="Always know what to eat. Meal planning just got unfairly easy." />
+      </motion.div>
 
-        <h1 className="display pay__title">
-          {recipe ? <>{first ? `${first}, your` : 'Your'} dinner is <em>one tap away.</em></> : <>Cook every recipe <em>you save.</em></>}
-        </h1>
+      <section className="pw__body">
+        {canceled && <p className="pw__note">Nothing was charged. Pick a plan whenever you're ready.</p>}
 
-        {personal && (
-          <ul className="pay__stats">
-            <li><span className="num">{f.nights}</span>nights a week</li>
-            <li><span className="num">{f.household === 5 ? '5+' : f.household}</span>at the table</li>
-            {d.monthly > 0
-              ? <li><span className="num">${d.monthly}</span>back a month*</li>
-              : <li><span className="num">{d.dinners}</span>dinners a month</li>}
-          </ul>
-        )}
-      </section>
-
-      <section className="pay__body">
-        <ul className="pay__gets">
-          <li><Icon name="check" size={16} stroke={3} />Cook mode on every recipe, each step looping its moment</li>
-          <li><Icon name="check" size={16} stroke={3} />Unlimited TikTok and Instagram recipes, written out with amounts</li>
-          <li><Icon name="check" size={16} stroke={3} />Grocery lists by aisle, synced on every device</li>
-        </ul>
-
-        {canceled && <p className="pay__note">Nothing was charged. Pick a plan whenever you're ready.</p>}
-
-        <div className="plans" role="radiogroup" aria-label="Choose a plan">
-          {plans === null && <div className="plan-card shimmer" style={{ height: 86 }} />}
-          {yearly && (
-            <button role="radio" aria-checked={choice === 'yearly'} className={`plan-card ${choice === 'yearly' ? 'on' : ''}`} onClick={() => setChoice('yearly')}>
-              <span className="plan-card__radio" />
-              <span className="plan-card__main"><b>Yearly{save > 0 && <i>Save {save}%</i>}</b><small>Billed {money(yearly.amount, yearly.currency)} yearly</small></span>
-              <span className="plan-card__price num">{perMonth !== null ? money(perMonth, yearly.currency) : money(yearly.amount, yearly.currency)}<small>/mo</small></span>
-            </button>
-          )}
+        <div className="pw__plans" role="radiogroup" aria-label="Choose a plan">
+          {plans === null && <><div className="pw__plan shimmer" /><div className="pw__plan shimmer" /></>}
           {monthly && (
-            <button role="radio" aria-checked={choice === 'monthly'} className={`plan-card ${choice === 'monthly' ? 'on' : ''}`} onClick={() => setChoice('monthly')}>
-              <span className="plan-card__radio" />
-              <span className="plan-card__main"><b>Monthly</b><small>Cancel anytime</small></span>
-              <span className="plan-card__price num">{money(monthly.amount, monthly.currency)}<small>/mo</small></span>
+            <button role="radio" aria-checked={choice === 'monthly'} className={`pw__plan ${choice === 'monthly' ? 'on' : ''}`} onClick={() => setChoice('monthly')}>
+              <span className="pw__planName">Monthly</span>
+              <span className="pw__price"><b className="num">{money(monthly.amount, monthly.currency)}</b>/month</span>
+              <span className="pw__billed">Billed monthly</span>
+              <i className="pw__radio">{choice === 'monthly' && <Icon name="check" size={13} stroke={3.4} />}</i>
             </button>
           )}
-          {plans && !plans.length && <p className="err">Plans are not available right now. Please try again in a moment.</p>}
+          {yearly && (
+            <button role="radio" aria-checked={choice === 'yearly'} className={`pw__plan ${choice === 'yearly' ? 'on' : ''}`} onClick={() => setChoice('yearly')}>
+              {save > 0 && <span className="pw__save">Save {save}%</span>}
+              <span className="pw__planName">Yearly</span>
+              {/* L'annuale si mostra al mese, come sulla pagina prezzi; il totale sta sotto. */}
+              <span className="pw__price"><b className="num">{money(perMonth ?? yearly.amount, yearly.currency)}</b>{perMonth !== null ? '/month' : '/year'}</span>
+              {perMonth !== null && <span className="pw__billed">{money(yearly.amount, yearly.currency)} billed yearly</span>}
+              <i className="pw__radio">{choice === 'yearly' && <Icon name="check" size={13} stroke={3.4} />}</i>
+            </button>
+          )}
         </div>
+        {plans && !plans.length && <p className="err">Plans are not available right now. Please try again in a moment.</p>}
 
-        <div className="pay__cta">
-          <button className={`btn btn--cherry btn--block btn--xl ${busy ? 'is-busy' : ''}`} onClick={checkout} disabled={!selected}>
-            {busy ? 'Opening secure checkout' : selected?.trialDays ? `Start ${selected.trialDays} days free` : recipe ? 'Unlock my recipe' : 'Start cooking'}
-            {!busy && <Icon name="next" stroke={2.6} />}
-          </button>
-          {error && <p className="err" role="alert">{error}</p>}
-          <p className="pay__fine"><Icon name="lock" size={13} /> Stripe checkout · Apple Pay and Google Pay · Cancel in two taps</p>
-          {personal && d.monthly > 0 && <p className="pay__fine pay__fine--small">*Your estimate from the answers you gave.</p>}
-          <p className="pay__fine pay__fine--small">Cherry is a product of Jacopo Giannetti · <a href="/terms">Terms</a> · <a href="/privacy">Privacy</a></p>
-        </div>
+        <p className="pw__cancel"><Icon name="check" size={15} stroke={3} /> Cancel anytime. No hidden fees.</p>
+
+        <button className={`btn btn--ink btn--block btn--xl pw__cta ${busy ? 'is-busy' : ''}`} onClick={checkout} disabled={!selected}>
+          {busy ? 'Opening secure checkout' : selected?.trialDays ? `Start ${selected.trialDays} days free` : 'Start today'}
+        </button>
+        {error && <p className="err" role="alert">{error}</p>}
+
+        <p className="pw__fine">{fine}</p>
+        <p className="pw__links"><Icon name="lock" size={12} /> Secure checkout by Stripe · <a href="/terms">Terms</a> · <a href="/privacy">Privacy</a></p>
       </section>
     </div>
   );
