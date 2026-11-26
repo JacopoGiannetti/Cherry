@@ -90,6 +90,7 @@ export function Join() {
             <button role="radio" aria-checked={choice === 'monthly'} className={`pw__plan ${choice === 'monthly' ? 'on' : ''}`} onClick={() => setChoice('monthly')}>
               <span className="pw__planName">Monthly</span>
               <span className="pw__price"><b className="num">{money(monthly.amount, monthly.currency)}</b>/month</span>
+              <span className="pw__billed">Billed monthly</span>
               <i className="pw__radio">{choice === 'monthly' && <Icon name="check" size={13} stroke={3.4} />}</i>
             </button>
           )}
@@ -97,7 +98,9 @@ export function Join() {
             <button role="radio" aria-checked={choice === 'yearly'} className={`pw__plan ${choice === 'yearly' ? 'on' : ''}`} onClick={() => setChoice('yearly')}>
               {save > 0 && <span className="pw__save">Save {save}%</span>}
               <span className="pw__planName">Yearly</span>
-              <span className="pw__price"><b className="num">{money(yearly.amount, yearly.currency)}</b>/year</span>
+              {/* L'annuale si mostra al mese, come sulla pagina prezzi; il totale sta sotto. */}
+              <span className="pw__price"><b className="num">{money(perMonth ?? yearly.amount, yearly.currency)}</b>{perMonth !== null ? '/month' : '/year'}</span>
+              {perMonth !== null && <span className="pw__billed">{money(yearly.amount, yearly.currency)} billed yearly</span>}
               <i className="pw__radio">{choice === 'yearly' && <Icon name="check" size={13} stroke={3.4} />}</i>
             </button>
           )}
