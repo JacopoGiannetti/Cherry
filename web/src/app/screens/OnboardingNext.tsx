@@ -7,7 +7,6 @@ import { CookMode } from '../../components/CookMode';
 import { GoogleButton } from '../../components/GoogleButton';
 import { DEMO_STEPS } from '../../components/LoopDemo';
 import { useSession } from '../../lib/store';
-import { signInWithGoogle } from '../../lib/firebase';
 import { metaForServer, once, track } from '../../lib/meta';
 import { saveProfile, sendRegistrationEvent } from '../../lib/api';
 import { DEMO_URL, derive, loadFunnel, saveFunnel, TAKEOUT_USD, type Funnel } from '../../lib/funnel';
@@ -42,8 +41,9 @@ const DEMO: Partial<Funnel> = { recipe: demo as unknown as Recipe, url: DEMO_URL
 type Set = (patch: Partial<Funnel> | ((f: Funnel) => Partial<Funnel>)) => void;
 const EASE = [0.2, 0.8, 0.2, 1] as const;
 
-const PLATES = ['margherita', 'ramen', 'tacos', 'poke', 'shakshuka', 'pad_thai', 'tikka_masala', 'bibimbap', 'paella', 'sushi', 'burger', 'mac_cheese', 'v-beans', 'v-curry', 'v-dumplings', 'v-fettuccine', 'v-gnocchi', 'v-grilledcheese', 'v-kungpao', 'v-pizza', 'v-teriyaki', 'v-udon', 'v-ramen'];
-const plate = (name: string) => `/assets/plates/${name}.jpg`;
+// Solo le foto nuove (public/assets/food/v-*.jpg), le stesse della landing.
+const PLATES = ['v-pizza', 'v-ramen', 'v-tacos', 'v-teriyaki', 'v-curry', 'v-udon', 'v-dumplings', 'v-fettuccine', 'v-kungpao', 'v-gnocchi', 'v-beans', 'v-grilledcheese'];
+const plate = (name: string) => `/assets/food/${name}.jpg`;
 
 const SAVED_STOPS = [10, 20, 30, 50, 75, 100, 150, 200, 300, 500];
 const SAVED_COLS = [3, 4, 5, 7, 9, 10, 12, 12, 12, 12];
@@ -59,13 +59,13 @@ const BLOCKERS = [
 
 const DAYS = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
 const WEEK = [
-  { plate: 'tacos', dish: 'Street tacos' },
-  { plate: 'ramen', dish: 'Miso ramen' },
-  { plate: 'tikka_masala', dish: 'Chickpea tikka masala' },
-  { plate: 'pad_thai', dish: 'Pad thai' },
-  { plate: 'margherita', dish: 'Margherita pizza' },
-  { plate: 'shakshuka', dish: 'Shakshuka' },
-  { plate: 'poke', dish: 'Poke bowl' },
+  { plate: 'v-tacos', dish: 'Street tacos' },
+  { plate: 'v-ramen', dish: 'Miso ramen' },
+  { plate: 'v-curry', dish: 'Chickpea curry' },
+  { plate: 'v-udon', dish: 'Stir-fried udon' },
+  { plate: 'v-pizza', dish: 'Margherita pizza' },
+  { plate: 'v-dumplings', dish: 'Crispy dumplings' },
+  { plate: 'v-teriyaki', dish: 'Teriyaki salmon bowl' },
 ];
 const DAY_ORDER = [0, 2, 4, 1, 3, 6, 5];
 const daysOf = (f: Funnel) => (f.days ? f.days : DAY_ORDER.slice(0, f.nights)).slice().sort((a, b) => a - b);
@@ -137,7 +137,6 @@ export function OnboardingNext() {
 
   const go = (n: number) => { setDir(n > step ? 1 : -1); setStep(Math.max(0, Math.min(STEPS.length - 1, n))); };
   const next = () => go(step + 1);
-  const signIn = (e: React.MouseEvent) => { e.preventDefault(); navigate('/signin'); signInWithGoogle().catch(() => {}); };
 
   return (
     <div className={`flow nx ${DARK.includes(name) ? 'flow--dark' : ''}`}>
@@ -150,7 +149,6 @@ export function OnboardingNext() {
             </div>
           </>
         )}
-        <a href="/app/signin" className="flow__signin" onClick={signIn}>Sign in</a>
       </header>
 
       <AnimatePresence mode="wait" initial={false}>
@@ -259,7 +257,7 @@ function Hello({ onNext }: { onNext: () => void }) {
 }
 
 // 2·3·4 ---------- Lo specchio: una sola griglia che resta, tre momenti
-const TILES = Array.from({ length: 144 }, (_, i) => PLATES[(i * 7 + Math.floor(i / 12) * 3) % PLATES.length]);
+const TILES = Array.from({ length: 144 }, (_, i) => PLATES[((i % 12) * 5 + Math.floor(i / 12) * 7) % PLATES.length]);
 
 function litCells(cols: number, cooked: number) {
   const rows = Math.max(2, Math.floor(cols * 0.8));
