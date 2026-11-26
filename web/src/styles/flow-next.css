@@ -1,0 +1,127 @@
+/* ========== Onboarding nuovo (in prova): /app/start-next ==========
+   Stesso sistema (carta, inchiostro, ciliegia). Regola in più: il testo
+   non sta mai sopra una foto, e niente sotto i 14px. */
+
+.nx .flow__top { margin-bottom: 18px; }
+.nx-top__logo { flex: 1; display: flex; justify-content: center; }
+.nx-q { font-size: clamp(34px, 9.4vw, 46px); line-height: .96; }
+.nx-lead { color: var(--ink-2); font-size: 17px; line-height: 1.45; margin-top: 14px; max-width: 36ch; }
+.nx-cta__note { text-align: center; color: var(--mute); font-size: 14px; margin-top: 12px; }
+.nx .flow__link { font-size: 15.5px; }
+
+.nx-preview { position: fixed; left: 50%; bottom: calc(3px + var(--safe-b)); transform: translateX(-50%); z-index: 60; padding: 1px 8px; border-radius: 999px; background: var(--ink); color: var(--paper); font-size: 10px; font-weight: 700; letter-spacing: .04em; opacity: .7; pointer-events: none; white-space: nowrap; }
+
+/* ---------- 1. Benvenuto ---------- */
+.nx-welcome { flex: 1; display: flex; flex-direction: column; }
+.nx-welcome__demo { width: min(58%, 230px); margin: 4px auto 0; }
+.nx-welcome__demo .loopdemo__card { min-height: 92px; }
+.nx-welcome__copy { margin-top: 26px; }
+.nx-welcome__title { font-size: clamp(40px, 11vw, 54px); line-height: .94; }
+.nx-ticks { display: flex; justify-content: center; flex-wrap: wrap; gap: 6px 16px; margin-top: 14px; }
+.nx-ticks li { display: inline-flex; align-items: center; gap: 6px; font-size: 14px; font-weight: 600; color: var(--mute); }
+.nx-ticks svg { color: var(--ink); }
+@media (max-height: 700px) { .nx-welcome__demo { width: min(46%, 180px); } .nx-welcome__copy { margin-top: 18px; } }
+
+/* ---------- 2. Quante ne hai salvate: schede da toccare ---------- */
+.nx-cards { display: grid; gap: 10px; margin-top: 24px; }
+.nx-card { display: flex; align-items: center; gap: 14px; width: 100%; min-height: 76px; padding: 12px 16px 12px 14px; border-radius: 22px; background: var(--white); text-align: left; box-shadow: inset 0 0 0 1.5px var(--line-2); transition: box-shadow var(--press), transform var(--press) var(--ease), background var(--press); }
+.nx-card:active { transform: scale(.985); }
+.nx-card.on { box-shadow: inset 0 0 0 2.5px var(--cherry); background: var(--cherry-wash); }
+.nx-card > svg { color: var(--faint); flex: none; }
+.nx-card__plates { display: flex; flex: none; width: 96px; }
+.nx-card__plates .plate { width: 44px; box-shadow: 0 0 0 2.5px var(--white), 0 4px 10px rgba(27, 19, 19, .14); }
+.nx-card__plates .plate + .plate { margin-left: -27px; }
+.nx-card__text { flex: 1; display: grid; gap: 1px; }
+.nx-card__text b { font-size: 18px; font-weight: 700; line-height: 1.2; }
+.nx-card__text small { font-size: 14px; color: var(--mute); }
+
+/* ---------- 4. Lo specchio: il testo sotto si deve leggere ---------- */
+.nx .reveal__big { font-size: clamp(76px, 23.5vw, 128px); white-space: nowrap; }
+.nx .reveal__body { font-size: 18px; color: rgba(244, 238, 228, .86); }
+.nx .reveal__fine { font-size: 14px; color: rgba(244, 238, 228, .62); }
+.nx .planlist li { font-size: 16.5px; color: rgba(244, 238, 228, .88); }
+.nx .opt__n { font-size: 13px; color: var(--mute); }
+.nx .ready__stats li { font-size: 14px; }
+
+/* ---------- 6. La soluzione ---------- */
+.nx-fix { display: flex; align-items: center; gap: 18px; margin-top: 22px; }
+.nx-fix__demo { width: 42%; max-width: 180px; flex: none; transform: rotate(-2deg); padding: 7px 7px 10px; border-radius: 20px; }
+.nx-fix__demo .loopdemo__card { min-height: 0; padding-top: 8px; }
+.nx-fix__demo .loopdemo__card p, .nx-fix__demo .loopdemo__card small { display: none; }
+.nx-fix__demo .loopdemo__card b { font-size: 15px; }
+.nx-fix__how { flex: 1; display: grid; gap: 14px; }
+.nx-fix__how li { display: flex; align-items: flex-start; gap: 10px; font-size: 15.5px; font-weight: 600; line-height: 1.3; }
+.nx-fix__how .num { flex: none; width: 26px; height: 26px; border-radius: 50%; background: var(--ink); color: var(--paper); display: grid; place-items: center; font-size: 15px; letter-spacing: 0; line-height: 1; }
+.nx-fix__list { margin-top: 22px; }
+.nx-fix__list s { font-size: 14px; color: var(--mute); }
+.nx-fix__list b { font-size: 16.5px; }
+
+/* ---------- 7. Provala ---------- */
+.nx-ready { padding-top: 18px; justify-content: flex-start; }
+.nx-ready .ready__card { height: min(34dvh, 300px); }
+.nx-ready .ready__title { font-size: clamp(28px, 7.6vw, 38px); }
+
+/* ---------- 11. Cosa cambia ---------- */
+.nx-after { display: grid; margin-top: 24px; border-top: 1.5px solid var(--ink); }
+.nx-after li { display: flex; align-items: center; gap: 16px; padding: 16px 0; border-bottom: 1px solid var(--line-2); }
+.nx-after__plate { width: 68px; flex: none; box-shadow: 0 8px 18px rgba(27, 19, 19, .16); }
+.nx-after small { display: block; color: var(--cherry); margin-bottom: 4px; }
+.nx-after b { display: block; font-size: 18.5px; font-weight: 700; line-height: 1.2; }
+.nx-after p { font-size: 15px; color: var(--ink-2); line-height: 1.4; margin-top: 3px; }
+
+/* ---------- 12. Recensioni ---------- */
+.nx-reviews { display: grid; gap: 10px; margin-top: 20px; }
+.nx-reviews li { padding: 16px 18px; border-radius: 22px; background: var(--white); box-shadow: var(--shadow-1); }
+.nx-reviews p { font-size: 16px; line-height: 1.45; }
+.nx-reviews footer { display: flex; align-items: center; gap: 10px; margin-top: 12px; }
+.nx-reviews .plate { width: 34px; box-shadow: none; }
+.nx-reviews footer b { display: block; font-size: 14.5px; }
+.nx-reviews footer small { font-size: 13px; color: var(--mute); }
+.nx-reviews li.is-placeholder { background: none; box-shadow: inset 0 0 0 1.5px var(--line-2); border-style: dashed; color: var(--mute); }
+.nx-warn { margin-top: 14px; padding: 10px 14px; border-radius: 12px; background: #FFF3C4; color: #5C4700; font-size: 13.5px; font-weight: 600; line-height: 1.4; }
+.nx-warn code { font-size: 12.5px; }
+
+/* ---------- 13. Promesse ---------- */
+.nx-founder { display: flex; align-items: center; gap: 14px; margin-top: 20px; padding: 14px 16px; border-radius: 22px; background: var(--paper-2); }
+.nx-founder img { width: 56px; height: 56px; border-radius: 50%; object-fit: cover; flex: none; }
+.nx-founder p { font-family: var(--serif); font-style: italic; font-size: 19px; line-height: 1.25; }
+.nx-founder small { display: block; margin-top: 6px; font-family: var(--body); font-style: normal; font-size: 13.5px; font-weight: 600; color: var(--mute); }
+.nx-promises { display: grid; margin-top: 8px; }
+.nx-promises li { display: flex; align-items: flex-start; gap: 14px; padding: 13px 0; border-bottom: 1px solid var(--line-2); }
+.nx-promises li:last-child { border-bottom: 0; }
+.nx-promises__icon { width: 38px; height: 38px; flex: none; border-radius: 50%; background: var(--white); box-shadow: var(--shadow-1); display: grid; place-items: center; color: var(--cherry); }
+.nx-promises b { display: block; font-size: 16.5px; font-weight: 700; line-height: 1.25; }
+.nx-promises p { font-size: 14.5px; color: var(--ink-2); line-height: 1.4; margin-top: 2px; }
+
+/* ---------- 14. Account ---------- */
+.nx-account { gap: 0; }
+.nx-account__recipe { display: flex; align-items: center; gap: 14px; padding: 10px 14px 10px 10px; border-radius: 22px; background: var(--white); box-shadow: var(--shadow-1); margin-bottom: 26px; }
+.nx-account__recipe img { width: 58px; height: 58px; border-radius: 14px; object-fit: cover; flex: none; }
+.nx-account__recipe div { flex: 1; min-width: 0; }
+.nx-account__recipe b { display: block; font-size: 16.5px; font-weight: 700; line-height: 1.2; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.nx-account__recipe span { font-size: 14px; color: var(--mute); }
+.nx-account__check { width: 30px; height: 30px; border-radius: 50%; background: var(--ink); color: var(--paper) !important; display: grid; place-items: center; flex: none; }
+.nx-account__go { margin-top: 28px; }
+
+/* ---------- Il bottone resta sempre a portata di pollice ----------
+   Nei browser dentro Facebook e Instagram lo schermo è più basso: se la schermata
+   è più lunga scorre sotto, ma l'azione non finisce mai fuori vista. */
+.nx .flow__cta { position: sticky; bottom: 0; z-index: 5; margin: auto -22px calc(-22px - var(--safe-b)); padding: 26px 22px calc(22px + var(--safe-b)); background: linear-gradient(to bottom, rgba(244, 238, 228, 0), var(--paper) 26px); }
+.nx.flow--dark .flow__cta { background: linear-gradient(to bottom, rgba(27, 19, 19, 0), var(--ink) 26px); }
+.nx-welcome .flow__cta { padding-bottom: calc(26px + var(--safe-b)); }
+@media (max-height: 720px) {
+  .nx .flow__top { margin-bottom: 10px; }
+  .nx-q { font-size: clamp(30px, 8.6vw, 40px); }
+  .nx-welcome__title { font-size: clamp(34px, 9.6vw, 46px); }
+  .nx-fix, .nx-fix__list, .nx-cards, .nx-after, .nx-founder { margin-top: 16px; }
+  .nx-promises li { padding: 10px 0; }
+  .nx-after li { padding: 12px 0; }
+  .nx-ready .ready__card { height: min(30dvh, 240px); }
+}
+@media (max-height: 720px) {
+  .nx-welcome__demo { width: min(40%, 150px); }
+  .nx-welcome__demo .loopdemo__card { min-height: 0; }
+  .nx-welcome__demo .loopdemo__card p { display: none; }
+  .nx-welcome__copy { margin-top: 14px; }
+  .nx-welcome .nx-lead { font-size: 16px; margin-top: 10px; }
+}

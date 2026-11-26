@@ -9,6 +9,7 @@ import { useSession } from '../../lib/store';
 import { journey, journeyId } from '../../lib/journey';
 import { signOut } from '../../lib/firebase';
 import { derive, hasFunnel, loadFunnel } from '../../lib/funnel';
+import { isPreview } from '../../lib/preview';
 
 // Paywall rigido. Chi arriva dal percorso trova la SUA ricetta pronta e i
 // SUOI numeri: non compra un'app, sblocca una cena che ha già scelto.
@@ -28,11 +29,11 @@ export function Join() {
   const first = user?.displayName?.split(' ')[0];
 
   useEffect(() => { getPlans().then((r) => setPlans(r.plans)).catch(() => setPlans([])); }, []);
-  useEffect(() => { if (entitled) navigate('/'); }, [entitled]);
+  // In sviluppo, o con l'anteprima accesa (lib/preview.ts): /app/join?preview mostra il paywall
+  // anche senza account e anche a chi è già abbonato (che però non può pagare due volte).
+  const devPreview = (import.meta.env.DEV || isPreview()) && new URLSearchParams(location.search).has('preview');
+  useEffect(() => { if (entitled && !devPreview) navigate('/'); }, [entitled]);
   useEffect(() => { if (user) void journey('paywall', { canceled: canceled || undefined }); }, [!!user]);
-
-  // Solo in sviluppo: /app/join?preview per vedere il paywall senza account.
-  const devPreview = import.meta.env.DEV && new URLSearchParams(location.search).has('preview');
   if (ready && !user && !devPreview) return <Redirect to="/start" />;
 
   const yearly = plans?.find((p) => p.plan === 'yearly');
@@ -42,6 +43,7 @@ export function Join() {
   const perMonth = yearly ? monthOf(yearly.amount) : null;
 
   const checkout = async () => {
+    if (entitled) { setError('Preview: you already have a membership, so checkout is off.'); return; }
     setBusy(true);
     setError(null);
     try {

@@ -55,7 +55,9 @@ export const setJourneyAuth = (fn: () => Promise<string | null>) => { tokenOf = 
 /** Il paese, se /api/geo l'ha già detto (lo chiede meta.ts all'avvio). */
 const country = () => { try { return sessionStorage.getItem('cherry.country') || undefined; } catch { return undefined; } };
 
-const isTest = () => import.meta.env.DEV || /^(localhost|127\.|192\.168\.)/.test(location.hostname) || new URLSearchParams(location.search).has('test');
+// Anche il browser con l'anteprima accesa (lib/preview.ts) è una prova: non entra nei numeri veri.
+const previewOn = () => { try { return localStorage.getItem('cherry.preview') === '1'; } catch { return false; } };
+const isTest = () => import.meta.env.DEV || /^(localhost|127\.|192\.168\.)/.test(location.hostname) || new URLSearchParams(location.search).has('test') || previewOn();
 
 /**
  * Un passo del percorso. `data` per le risposte (passo dell'onboarding) o altro.

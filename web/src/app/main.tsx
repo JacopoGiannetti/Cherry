@@ -1,4 +1,4 @@
-import { StrictMode, useEffect } from 'react';
+import { StrictMode, Suspense, lazy, useEffect } from 'react';
 import { createRoot } from 'react-dom/client';
 import { Route, Router, Switch, Redirect, useLocation } from 'wouter';
 import { useBrowserLocation } from 'wouter/use-browser-location';
@@ -26,6 +26,10 @@ import { initMeta, keepClickId, pageView } from '../lib/meta';
 import { setJourneyAuth } from '../lib/journey';
 import { auth } from '../lib/firebase';
 import { used } from '../lib/usage';
+import { isPreview } from '../lib/preview';
+
+// Il percorso nuovo, in prova: lo scarica solo chi ha la chiave d'anteprima (lib/preview.ts).
+const OnboardingNext = lazy(() => import('./screens/OnboardingNext').then((m) => ({ default: m.OnboardingNext })));
 
 document.body.classList.add('is-app');
 setJourneyAuth(async () => (auth.currentUser ? auth.currentUser.getIdToken() : null));
@@ -97,6 +101,7 @@ function App() {
       <div className="shell">
         <Switch>
           <Route path="/start"><Onboarding /></Route>
+          <Route path="/start-next">{isPreview() ? <Suspense fallback={<Boot />}><OnboardingNext /></Suspense> : <Redirect to="/start" />}</Route>
           <Route path="/signin"><SignIn /></Route>
           <Route path="/l/:id">{(p) => <SharedList id={p.id} />}</Route>
           <Route path="/join"><Join /></Route>
