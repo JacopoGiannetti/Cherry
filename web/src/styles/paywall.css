@@ -1,0 +1,71 @@
+/* ========== Paywall ==========
+   Carta, una frase grande, due telefoni che si muovono, i piani affiancati, un bottone nero. */
+
+.pw { min-height: 100dvh; max-width: 560px; margin: 0 auto; display: flex; flex-direction: column; padding: calc(12px + var(--safe-t)) 20px calc(18px + var(--safe-b)); background: var(--paper); }
+.pw__bar { display: flex; align-items: center; justify-content: space-between; height: 40px; }
+.pw__logo { display: inline-flex; align-items: center; gap: 8px; }
+.pw__logo img { width: 26px; height: 26px; border-radius: 8px; }
+.pw__logo b { font-size: 20px; letter-spacing: -.02em; }
+.pw__out { font-size: 13.5px; font-weight: 600; color: var(--mute); }
+
+.pw__head { margin-top: 14px; text-align: center; }
+.pw__title { font-size: clamp(44px, 12.4vw, 64px); line-height: .9; letter-spacing: -.04em; }
+.pw__title em { display: block; }
+.pw__sub { margin-top: 10px; font-size: 16.5px; color: var(--mute); }
+
+/* I due telefoni: si sovrappongono, ruotati, e sfumano nella carta in basso. */
+.pw__phones { position: relative; height: min(330px, 38dvh); margin: 18px -20px 0; overflow: hidden; }
+.pw__phone { position: absolute; top: 6px; width: min(46%, 230px); }
+.pw__phone--l { left: 50%; margin-left: calc(min(46%, 230px) * -0.93); z-index: 2; }
+.pw__phone--r { left: 50%; margin-left: calc(min(46%, 230px) * -0.07); top: 26px; z-index: 1; }
+.pw__fade { position: absolute; left: 0; right: 0; bottom: 0; height: 46%; z-index: 3; background: linear-gradient(to bottom, rgba(244, 238, 228, 0), var(--paper) 88%); pointer-events: none; }
+
+.pw-phone { position: relative; padding: 7px; border-radius: 40px; background: #121010; box-shadow: 0 0 0 1.5px #3a3232 inset, 0 30px 60px rgba(27, 19, 19, .28); }
+.pw-phone__island { position: absolute; z-index: 2; left: 50%; top: 14px; width: 30%; height: 15px; margin-left: -15%; border-radius: 10px; background: #000; }
+.pw-phone__screen { border-radius: 33px; overflow: hidden; background: var(--ink); aspect-ratio: 9 / 18; }
+.pw-phone--light .pw-phone__screen { background: var(--white); }
+.pw-phone .loopdemo { border-radius: 0; box-shadow: none; padding-top: 34px; height: 100%; }
+.pw-phone .loopdemo__card { min-height: 0; }
+
+.pw-list { height: 100%; padding: 40px 14px 14px; color: var(--ink); }
+.pw-list__eyebrow { font-size: 9.5px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: var(--mute); }
+.pw-list__title { display: block; font-size: 26px; line-height: 1; letter-spacing: -.02em; margin: 2px 0 8px; }
+.pw-list ul { display: grid; }
+.pw-list small { display: block; margin: 8px 0 2px; font-size: 9.5px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--cherry); }
+.pw-list li > span { display: flex; align-items: center; gap: 8px; padding: 6px 0; border-bottom: 1px solid var(--line); font-size: 12.5px; font-weight: 600; }
+.pw-list li i { width: 16px; height: 16px; flex: none; border-radius: 50%; display: grid; place-items: center; box-shadow: inset 0 0 0 1.5px var(--line-2); color: var(--white); transition: background var(--quick), box-shadow var(--quick); }
+.pw-list li i > span { display: grid; }
+.pw-list li em { flex: 1; font-style: normal; transition: color var(--quick); }
+.pw-list li u { text-decoration: none; font-weight: 500; font-size: 11px; color: var(--mute); }
+.pw-list li .on i { background: var(--ink); box-shadow: none; }
+.pw-list li .on em { color: var(--faint); text-decoration: line-through; text-decoration-color: var(--cherry); }
+
+/* I piani affiancati. */
+.pw__body { position: relative; z-index: 4; margin-top: -26px; }
+.pw__note { margin-bottom: 12px; padding: 10px 14px; border-radius: 14px; background: var(--paper-2); font-size: 14.5px; font-weight: 600; text-align: center; }
+.pw__plans { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.pw__plan { position: relative; min-height: 96px; display: grid; align-content: center; gap: 4px; padding: 16px 16px 14px; border-radius: 20px; text-align: left; background: var(--white); box-shadow: inset 0 0 0 1.5px var(--line-2); transition: box-shadow var(--press), background var(--press), transform var(--press) var(--ease); }
+.pw__plan:active { transform: scale(.98); }
+.pw__plan.on { background: var(--cherry-wash); box-shadow: inset 0 0 0 2.5px var(--cherry); }
+.pw__plan.shimmer { box-shadow: none; }
+.pw__planName { font-size: 16px; font-weight: 700; }
+.pw__price { font-size: 14px; font-weight: 600; color: var(--ink-2); }
+.pw__price .num { font-size: 25px; letter-spacing: -.03em; color: var(--ink); line-height: 1; }
+.pw__radio { position: absolute; right: 12px; top: 12px; width: 22px; height: 22px; border-radius: 50%; display: grid; place-items: center; color: var(--white); box-shadow: inset 0 0 0 1.5px var(--line-2); background: var(--white); transition: background var(--press), box-shadow var(--press); }
+.pw__plan.on .pw__radio { background: var(--cherry); box-shadow: none; }
+.pw__save { position: absolute; top: -11px; left: 50%; transform: translateX(-50%); height: 22px; padding: 0 10px; border-radius: 11px; background: var(--cherry); color: var(--white); font-size: 11px; font-weight: 800; letter-spacing: .06em; line-height: 22px; text-transform: uppercase; white-space: nowrap; }
+
+.pw__cancel { display: flex; align-items: center; justify-content: center; gap: 7px; margin: 16px 0 12px; font-size: 15px; font-weight: 600; }
+.pw__cta { height: 62px; font-size: 18px; box-shadow: 0 14px 30px rgba(27, 19, 19, .25); }
+.pw__fine { margin-top: 12px; text-align: center; font-size: 13.5px; color: var(--mute); min-height: 18px; }
+.pw__links { margin-top: 6px; text-align: center; font-size: 12px; color: var(--faint); }
+.pw__links svg { display: inline-block; vertical-align: -2px; margin-right: 2px; }
+.pw__links a { text-decoration: underline; }
+
+@media (max-height: 700px) {
+  .pw__phones { height: 210px; }
+  .pw__sub { font-size: 15px; }
+  .pw__cancel { margin: 12px 0 10px; }
+  .pw__title { font-size: clamp(38px, 10.6vw, 52px); }
+}
+@media (min-width: 640px) { .pw { padding-top: 28px; } }
