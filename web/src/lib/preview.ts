@@ -1,8 +1,8 @@
 // Anteprima privata: percorsi in prova che vede solo chi apre il sito con la chiave.
-//   /app/start-next?k=<chiave>   accende l'anteprima su questo browser (resta accesa)
-//   /app/start-next?k=off        la spegne
-// Chi non ha la chiave viene mandato al percorso in produzione. In anteprima niente
-// finisce nelle statistiche vere: il percorso è segnato "test" e il Pixel non parte.
+//   /app/start?k=<chiave>   accende la modalità prova su questo browser (resta accesa)
+//   /app/start?k=off        la spegne
+// In prova niente finisce nelle statistiche vere (il percorso è segnato "test", il Pixel non
+// manda la registrazione) e l'onboarding si può rifare anche da abbonati.
 const KEY = 'cherry.preview';
 const SECRET = 'cherry-jg-7q4m2x';
 

@@ -15,7 +15,7 @@ import { isPreview } from '../../lib/preview';
 import demo from '../../lib/demo.json';
 import type { Recipe } from '../../lib/types';
 
-// Il percorso nuovo (in prova, /app/start-next). Ogni schermata è una scena con
+// L'onboarding (/app/start, dal 26 nov 2026). Ogni schermata è una scena con
 // una sua idea visiva, non un testo con un bottone. Niente soldi da pagare,
 // prezzi o checkout prima del paywall.
 //
@@ -106,13 +106,14 @@ export function OnboardingNext() {
     document.documentElement.style.background = color;
     return () => { meta?.setAttribute('content', before.meta); document.body.style.background = before.body; document.documentElement.style.background = before.html; };
   }, [dark]);
-  useEffect(() => { void journey('step', { id: `next.${name}`, answers: answersOf(f) }); }, [name]);
+  useEffect(() => { void journey('step', { id: name, answers: answersOf(f) }); }, [name]);
   const set: Set = (patch) => setF((cur) => ({ ...cur, ...(typeof patch === 'function' ? patch(cur) : patch) }));
 
   useEffect(() => {
     if (!ready || !user || preview) return;
     if (entitled) { navigate('/'); return; }
-    if (name === 'account') finish();
+    // Anche chi torna dal login con redirect (la pagina riparte dall'inizio) va dritto al paywall.
+    if (name === 'account' || (step === 0 && f.recipe)) finish();
   }, [ready, user, entitled, name]);
 
   function finish() {

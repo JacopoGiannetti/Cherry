@@ -7,7 +7,6 @@ import '../styles/tokens.css';
 import '../styles/app.css';
 import '../styles/flow.css';
 import { startSession, useSession } from '../lib/store';
-import { Onboarding } from './screens/Onboarding';
 import { Join } from './screens/Join';
 import { Welcome } from './screens/Welcome';
 import { Library } from './screens/Library';
@@ -28,12 +27,14 @@ import { auth } from '../lib/firebase';
 import { used } from '../lib/usage';
 import { isPreview } from '../lib/preview';
 
-// Il percorso nuovo, in prova: lo scarica solo chi ha la chiave d'anteprima (lib/preview.ts).
+// L'onboarding (dal 26 nov 2026). Quello di prima resta in screens/Onboarding.tsx, non più collegato.
 const OnboardingNext = lazy(() => import('./screens/OnboardingNext').then((m) => ({ default: m.OnboardingNext })));
 
 document.body.classList.add('is-app');
 setJourneyAuth(async () => (auth.currentUser ? auth.currentUser.getIdToken() : null));
 startSession();
+// Chi apre con la chiave d'anteprima (lib/preview.ts) gira come prova: fuori dalle statistiche e dal Pixel.
+isPreview();
 keepClickId();
 initMeta();
 
@@ -100,8 +101,8 @@ function App() {
       <ScrollTop />
       <div className="shell">
         <Switch>
-          <Route path="/start"><Onboarding /></Route>
-          <Route path="/start-next">{isPreview() ? <Suspense fallback={<Boot />}><OnboardingNext /></Suspense> : <Redirect to="/start" />}</Route>
+          <Route path="/start"><Suspense fallback={<Boot />}><OnboardingNext /></Suspense></Route>
+          <Route path="/start-next"><Redirect to="/start" /></Route>
           <Route path="/signin"><SignIn /></Route>
           <Route path="/l/:id">{(p) => <SharedList id={p.id} />}</Route>
           <Route path="/join"><Join /></Route>

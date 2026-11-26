@@ -1,14 +1,17 @@
 // Il percorso anonimo di chi arriva sul sito (web/src/lib/journey.ts), in journeys/{fid}.
 // Lo legge la dashboard (Jacopo Giannetti Analytics → Cherry). Un documento per browser:
 //   first / last   da dove è arrivato (utm, referrer, fbclid, dispositivo, lingua)
-//   steps.<passo>  quando ci è arrivato la prima volta (landing, saved…account, paywall, checkout, paid)
+//   steps.<passo>  quando ci è arrivato la prima volta (landing, hello…account, paywall, checkout, paid)
 //   answers        le risposte dell'onboarding
 //   pixel.<evento> gli eventi del Pixel partiti davvero dal browser
 //   uid            se ha fatto l'account (verificato col token, mai dal corpo)
 // Niente IP: solo il paese, che serve al consenso e ai numeri per paese.
 const { db, FieldValue } = require('./firebase');
 
-const STEPS = ['saved', 'cooked', 'reveal', 'blockers', 'fix', 'table', 'takeout', 'math', 'paste', 'ready', 'account'];
+// L'onboarding dal 26 nov 2026 (web/src/app/screens/OnboardingNext.tsx), nell'ordine in cui si vede.
+const STEPS_NOW = ['hello', 'saved', 'cooked', 'reveal', 'blockers', 'magic', 'nights', 'receipt', 'chart', 'team', 'account'];
+// I passi di prima restano validi: servono a leggere i percorsi già scritti.
+const STEPS = [...new Set([...STEPS_NOW, 'fix', 'table', 'takeout', 'math', 'paste', 'ready'])];
 const EVENTS = new Set(['landing', 'step', 'account', 'paywall', 'checkout', 'paid', 'pixel', 'consent']);
 const PIXEL = new Set(['PageView', 'CompleteRegistration', 'InitiateCheckout', 'Purchase', 'Subscribe']);
 const BLOCKERS = new Set(['rewind', 'fast', 'amounts', 'lost', 'shopping']);
@@ -79,4 +82,4 @@ async function markPaid(fid, { plan, value, currency, uid, live }) {
   }, { merge: true }).catch((e) => console.warn('[journey] paid:', e.message));
 }
 
-module.exports = { record, markPaid, STEPS };
+module.exports = { record, markPaid, STEPS, STEPS_NOW };
