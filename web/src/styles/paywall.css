@@ -14,7 +14,7 @@
 .pw__sub { margin-top: 10px; font-size: 16.5px; color: var(--mute); }
 
 /* I telefoni (foto dell'app vera, sfondo bianco come la pagina). */
-.pw__phones { margin: 8px -20px 0; height: min(400px, 44dvh); overflow: hidden; display: flex; justify-content: center; }
+.pw__phones { margin: 0 -20px; height: min(560px, 60dvh); overflow: hidden; display: flex; justify-content: center; }
 .pw__phones img { height: 100%; width: auto; max-width: none; }
 
 /* I piani affiancati. */
@@ -40,7 +40,7 @@
 .pw__links a { text-decoration: underline; }
 
 @media (max-height: 700px) {
-  .pw__phones { height: 250px; }
+  .pw__phones { height: 330px; }
   .pw__sub { font-size: 15px; }
   .pw__cancel { margin: 12px 0 10px; }
   .pw__title { font-size: clamp(38px, 10.6vw, 52px); }

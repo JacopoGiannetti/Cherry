@@ -11,8 +11,8 @@ import { journey, journeyId } from '../../lib/journey';
 import { signOut } from '../../lib/firebase';
 import { isPreview } from '../../lib/preview';
 
-// Paywall rigido. Una frase che si capisce in un colpo ("costa meno di un asporto"), l'app vera
-// (public/assets/paywall/phones.jpg), i due piani affiancati, un bottone.
+// Paywall rigido. In cima l'immagine fatta e finita (titolo e telefoni con l'app vera,
+// public/assets/paywall/phones.jpg), poi i due piani affiancati e un bottone.
 // Pagamento su Stripe Checkout (Apple Pay e Google Pay inclusi).
 
 const EASE = [0.2, 0.8, 0.2, 1] as const;
@@ -77,17 +77,8 @@ export function Join() {
         {user && <button className="pw__out" onClick={() => signOut()}>Not {first || 'you'}?</button>}
       </header>
 
-      <section className="pw__head">
-        <motion.h1 className="display pw__title" initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, ease: EASE }}>
-          Less than one <em>takeout order.</em>
-        </motion.h1>
-        <motion.p className="pw__sub" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.25, duration: 0.5 }}>
-          Every recipe you save, finally on your table.
-        </motion.p>
-      </section>
-
-      <motion.div className="pw__phones" aria-hidden="true" initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ type: 'spring', stiffness: 80, damping: 16, delay: 0.15 }}>
-        <img src="/assets/paywall/phones.jpg" alt="" />
+      <motion.div className="pw__phones" initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ type: 'spring', stiffness: 80, damping: 16, delay: 0.15 }}>
+        <img src="/assets/paywall/phones.jpg" alt="Always know what to eat. Meal planning just got unfairly easy." />
       </motion.div>
 
       <section className="pw__body">
