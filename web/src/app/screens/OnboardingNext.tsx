@@ -20,9 +20,9 @@ import type { Recipe } from '../../lib/types';
 // prezzi o checkout prima del paywall.
 //
 //  1 hello     la presentazione: i piatti in orbita, "Saved it. Now cook it."
-//  2 saved     lo specchio: la tua cartella dei salvati, che si allontana
-//  3 cooked      …in cui si accendono solo quelle cucinate
-//  4 reveal      …e diventa buia: "1 su N". Non è colpa tua.
+//  2 saved     lo specchio: i reel salvati cadono nella scatola "Someday"
+//  3 cooked      …da cui escono solo quelli cucinati
+//  4 reveal      …e diventa buio: "1 su N". Non è colpa tua.
 //  5 blockers  la causa: il video che torna indietro, i commenti di tutti
 //  6 magic     la soluzione: un video si apre in passi, davanti a te (poi la provi)
 //  7 week      l'impegno: apparecchi la settimana, un piatto per sera
@@ -45,7 +45,7 @@ const PLATES = ['v-pizza', 'v-ramen', 'v-tacos', 'v-teriyaki', 'v-curry', 'v-udo
 const plate = (name: string) => `/assets/food/${name}.jpg`;
 
 const SAVED_STOPS = [10, 20, 30, 50, 75, 100, 150, 200, 300, 500];
-const SAVED_COLS = [3, 4, 5, 7, 9, 10, 12, 12, 12, 12];
+const SAVED_PILE = [4, 7, 10, 14, 18, 22, 27, 31, 36, 40];
 const savedLabel = (n: number) => (n >= 300 ? 'A full-blown archive.' : n >= 100 ? 'A serious collection.' : n >= 30 ? 'A healthy habit.' : 'Just getting started.');
 
 const BLOCKERS = [
@@ -255,48 +255,70 @@ function Hello({ onNext }: { onNext: () => void }) {
   );
 }
 
-// 2·3·4 ---------- Lo specchio: una sola griglia che resta, tre momenti
-const TILES = Array.from({ length: 144 }, (_, i) => PLATES[((i % 12) * 5 + Math.floor(i / 12) * 7) % PLATES.length]);
+// 2·3·4 ---------- Lo specchio: la scatola "Someday", tre momenti
+// Più ne dichiari, più reel cadono nella scatola. Poi escono solo quelli cucinati.
+const PILE = (() => {
+  const rows = [6, 5, 6, 5, 5, 4, 4, 3, 2];
+  const out: { x: number; b: number; r: number; z: number }[] = [];
+  let s = 11;
+  const rnd = () => { s = (s * 9301 + 49297) % 233280; return s / 233280 - 0.5; };
+  rows.forEach((n, row) => {
+    for (let i = 0; i < n; i++) out.push({ x: 50 + (i - (n - 1) / 2) * 15.2 + rnd() * 5, b: 56 + row * 19 + rnd() * 8, r: rnd() * 30, z: row });
+  });
+  return out;
+})();
 
-function litCells(cols: number, cooked: number) {
-  const rows = Math.max(2, Math.floor(cols * 0.8));
-  const cells: number[] = [];
-  for (let r = 0; r < rows; r++) for (let c = 0; c < cols; c++) cells.push(r * 12 + c);
-  let s = 7;
-  for (let i = cells.length - 1; i > 0; i--) {
-    s = (s * 9301 + 49297) % 233280;
-    const j = Math.floor((s / 233280) * (i + 1));
-    [cells[i], cells[j]] = [cells[j], cells[i]];
-  }
-  return new Set(cells.slice(0, Math.min(cooked, cells.length)));
+function SomedayBox({ count, cooked, phase }: { count: number; cooked: number; phase: 'saved' | 'cooked' | 'reveal' }) {
+  const out = phase === 'saved' ? 0 : Math.min(cooked, count, 12);
+  return (
+    <div className={`nx-box ${phase !== 'saved' ? 'is-closed' : ''}`} aria-hidden="true">
+      {phase !== 'saved' && (
+        <span className="nx-box__shelf">
+          <small>Made it out of the box</small>
+          {!out && <em className="voice">Not one.</em>}
+        </span>
+      )}
+      <span className="nx-box__back" />
+      <AnimatePresence initial={false}>
+        {PILE.slice(0, count).map((p, k) => {
+          const free = k >= count - out;
+          const j = count - 1 - k;
+          return (
+            <motion.span key={k} layout
+              className={`nx-reelcard ${free ? 'is-out' : ''}`}
+              style={free ? { left: `${1 + j * Math.min(14.5, 82 / Math.max(1, out - 1))}%`, bottom: 'calc(100% - 84px)', zIndex: 30 + j } : { left: `${p.x}%`, bottom: p.b, zIndex: p.z }}
+              initial={{ y: -280 - p.z * 8, opacity: 0, rotate: p.r * 3 }}
+              animate={{ y: 0, opacity: 1, rotate: free ? 0 : p.r }}
+              exit={{ y: -260, opacity: 0, transition: { duration: 0.22 } }}
+              transition={{ type: 'spring', stiffness: 250, damping: 22, delay: (k % 5) * 0.035, layout: { type: 'spring', stiffness: 200, damping: 20, delay: j * 0.06 } }}>
+              <img src={plate(PLATES[(k * 5 + p.z * 7) % PLATES.length])} alt="" />
+              <i />
+            </motion.span>
+          );
+        })}
+      </AnimatePresence>
+      <span className="nx-box__front">
+        <span className="nx-box__label"><small>I'll make this</small><b className="display">Someday.</b></span>
+        <em className="voice">never opened again</em>
+      </span>
+    </div>
+  );
 }
 
 function Mirror({ phase, f, set, onNext }: { phase: 'saved' | 'cooked' | 'reveal'; f: Funnel; set: Set; onNext: () => void }) {
   const idx = Math.max(0, SAVED_STOPS.indexOf(f.saved));
-  const cols = SAVED_COLS[idx];
-  const lit = useMemo(() => litCells(cols, f.cooked), [cols, f.cooked]);
   const d = derive(f);
-  const more = f.saved > 150 ? f.saved - 144 : 0;
   return (
     <div className={`nx-mirror nx-mirror--${phase}`}>
       <AnimatePresence mode="wait" initial={false}>
         <motion.div key={phase} className="nx-mirror__head" initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -8 }} transition={{ duration: 0.22 }}>
-          {phase === 'saved' && <Head kicker="First, your saved folder">How many recipes are <em>sitting</em> in there?</Head>}
+          {phase === 'saved' && <Head kicker="On Instagram and TikTok">How many recipe videos have you <em>saved?</em></Head>}
           {phase === 'cooked' && <Head kicker={`Out of ${d.savedLabel} saved`}>How many did you <em>cook</em> last month?</Head>}
           {phase === 'reveal' && <RevealTitle f={f} />}
         </motion.div>
       </AnimatePresence>
 
-      <div className="nx-grid" aria-hidden="true">
-        <div className="nx-grid__in" style={{ transform: `scale(${3 / cols})` }}>
-          {TILES.map((p, i) => (
-            <span key={i} className={`nx-tile ${phase !== 'saved' && !lit.has(i) ? 'is-dim' : ''} ${phase !== 'saved' && lit.has(i) ? 'is-lit' : ''}`}>
-              <img src={plate(p)} alt="" />
-            </span>
-          ))}
-        </div>
-        {more > 0 && <span className="nx-grid__more">+{f.saved >= 500 ? '350' : more} more</span>}
-      </div>
+      <SomedayBox count={SAVED_PILE[idx]} cooked={f.cooked} phase={phase} />
 
       <AnimatePresence mode="wait" initial={false}>
         <motion.div key={phase} className="nx-mirror__ctl" initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }} transition={{ duration: 0.22 }}>
