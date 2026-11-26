@@ -1,21 +1,24 @@
-import { StrictMode, useEffect, useRef, useState } from 'react';
-import { createRoot } from 'react-dom/client';
+import { useEffect, useRef, useState } from 'react';
 import { motion, useInView, useScroll, useTransform } from 'motion/react';
 import { Icon } from '../components/Icon';
 import { MagicStage, Orbit, SomedayBox } from '../components/Scenes';
-import { Closer, Cook, Faq, Footer, Marquee, More, Pricing, Reveal, SignIn, START } from './sections';
+import { Closer, Cook, Faq, Footer, Marquee, More, Reveal, SignIn, START } from './sections';
 // Dopo sections (che porta tokens.css e landing.css): queste regole devono vincere.
 import '../styles/landing-next.css';
 
-// La landing nuova, in prova su /next. Stesse scene dell'onboarding (i piatti in orbita,
+// La landing (dal 26 nov 2026). Stesse scene dell'onboarding (i piatti in orbita,
 // la scatola "Someday", il video che si apre in passi): chi arriva dal sito e chi arriva
 // dalle ads vede lo stesso mondo. Le sezioni che non cambiano vengono da sections.tsx.
 
 const EASE = [0.2, 0.8, 0.2, 1] as const;
 
 /** La barra in alto: larga e trasparente sopra l'hero, si stringe in una pillola mentre scorri. */
-function Nav() {
+export function Nav({ home = true }: { home?: boolean }) {
+  // Sulla home i titoletti scorrono alla sezione; dalle altre pagine riportano alla home, a quel punto.
+  const to = (id: string) => (home ? `#${id}` : `/#${id}`);
   const ref = useRef<HTMLElement>(null);
+  // Sul telefono i titoletti stanno in un menu che si apre dalla barra.
+  const [open, setOpen] = useState(false);
   useEffect(() => {
     let raf = 0;
     const on = () => {
@@ -30,21 +33,33 @@ function Nav() {
     return () => { window.removeEventListener('scroll', on); cancelAnimationFrame(raf); };
   }, []);
   return (
-    <header className="lnav" ref={ref}>
-      <a href="#top" className="lnav__logo" aria-label="Cherry home">
+    <header className={`lnav ${home ? '' : 'lnav--paper'}`} ref={ref}>
+      <a href={home ? '#top' : '/'} className="lnav__logo" aria-label="Cherry home">
         <img src="/assets/mascot.png" alt="" />
         <span className="display">Cherry</span>
       </a>
       <nav className="lnav__links" aria-label="Main">
-        <a href="#how">How it works</a>
-        <a href="#cook">Cook mode</a>
-        <a href="#pricing">Pricing</a>
-        <a href="#faq">FAQ</a>
+        <a href={to('how')}>How it works</a>
+        <a href={to('cook')}>Cook mode</a>
+        <a href="/pricing" aria-current={home ? undefined : 'page'}>Pricing</a>
+        <a href={to('faq')}>FAQ</a>
       </nav>
       <div className="lnav__cta">
         <SignIn className="lnav__signin" />
         <a href={START} className="btn btn--cherry btn--sm">Get started</a>
+        <button type="button" className="lnav__menu" aria-label={open ? 'Close menu' : 'Menu'} aria-expanded={open} onClick={() => setOpen((v) => !v)}>
+          <Icon name={open ? 'close' : 'aisle'} size={20} stroke={2.4} />
+        </button>
       </div>
+      {open && (
+        <nav className="lnav__sheet" aria-label="Menu" onClick={() => setOpen(false)}>
+          <a href={to('how')}>How it works</a>
+          <a href={to('cook')}>Cook mode</a>
+          <a href="/pricing">Pricing</a>
+          <a href={to('faq')}>FAQ</a>
+          <SignIn />
+        </nav>
+      )}
     </header>
   );
 }
@@ -166,7 +181,7 @@ function How() {
   );
 }
 
-function Landing() {
+export function Landing() {
   return (
     <>
       <Nav />
@@ -177,7 +192,6 @@ function Landing() {
         <How />
         <Cook />
         <More />
-        <Pricing />
         <Faq />
         <Closer />
       </main>
@@ -186,4 +200,3 @@ function Landing() {
   );
 }
 
-createRoot(document.getElementById('root')!).render(<StrictMode><Landing /></StrictMode>);

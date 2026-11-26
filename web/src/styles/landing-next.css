@@ -1,4 +1,4 @@
-/* ========== Landing nuova (in prova su /next) ==========
+/* ========== Landing (dal 26 nov 2026) ==========
    Sopra landing.css: cambia la barra, l'hero, il problema e "come funziona". */
 
 /* ---------- La barra: larga e trasparente in cima, pillola mentre scorri (--p va da 0 a 1) ---------- */
@@ -19,12 +19,22 @@
 .lnav__signin { font-weight: 600; font-size: 15px; white-space: nowrap; }
 .lnav .btn--sm { height: calc(46px - var(--p) * 6px); transition: height .22s var(--ease); }
 @media (max-width: 860px) {
-  .lnav { width: calc(100% - 20px - var(--p) * 26%); gap: 10px; padding-left: calc(14px - var(--p) * 2px); }
+  .lnav { width: calc(100% - 20px - var(--p) * 18%); gap: 10px; padding-left: calc(14px - var(--p) * 2px); }
   .lnav__links { display: none; }
-  .lnav__cta { gap: calc(12px - var(--p) * 12px); }
-  .lnav__signin { max-width: calc((1 - var(--p)) * 70px); opacity: calc(1 - var(--p) * 1.4); overflow: hidden; transition: max-width .22s var(--ease), opacity .22s linear; }
+  .lnav__signin { display: none; }
+  .lnav__cta { gap: 8px; }
   .lnav .btn--sm { padding: 0 16px; }
+  .lnav__menu { display: grid; }
 }
+.lnav__menu { display: none; place-items: center; width: calc(46px - var(--p) * 6px); height: calc(46px - var(--p) * 6px); border-radius: 50%; color: inherit; background: color-mix(in srgb, rgba(27, 19, 19, .07) calc(var(--p) * 100%), rgba(244, 238, 228, .14)); transition: width .22s var(--ease), height .22s var(--ease); }
+.lnav--paper .lnav__menu { background: rgba(27, 19, 19, .07); }
+.lnav__sheet { position: absolute; right: 0; top: calc(100% + 10px); min-width: 220px; display: grid; padding: 10px; border-radius: 24px; background: var(--white); color: var(--ink); box-shadow: 0 0 0 1px var(--line), 0 24px 50px rgba(27, 19, 19, .28); animation: lnav-sheet .22s var(--ease); transform-origin: 100% 0; }
+.lnav__sheet a { padding: 13px 14px; border-radius: 14px; font-weight: 600; font-size: 17px; }
+.lnav__sheet a:active { background: var(--paper-2); }
+.lnav__sheet a:last-child { margin-top: 6px; border-top: 1px solid var(--line); border-radius: 0 0 14px 14px; color: var(--mute); }
+@keyframes lnav-sheet { from { opacity: 0; transform: translateY(-8px) scale(.96); } }
+@media (min-width: 861px) { .lnav__sheet { display: none; } }
+@media (max-width: 860px) { .lnav__menu { display: grid; } }
 
 /* ---------- Hero: inchiostro, i piatti in orbita che girano con lo scroll ---------- */
 .lhero { max-width: none; margin: 0; padding: 0; background: var(--ink); color: var(--paper); border-radius: 0 0 clamp(32px, 5vw, 72px) clamp(32px, 5vw, 72px); overflow: hidden; }
@@ -91,6 +101,11 @@
 .lhow__steps b { display: block; font-size: clamp(20px, 1.9vw, 26px); font-weight: 700; letter-spacing: -.01em; }
 .lhow__steps p { margin-top: 6px; color: var(--mute); max-width: 40ch; }
 @media (max-width: 860px) { .lhow { grid-template-columns: minmax(0, 1fr); } .lhow__copy { order: -1; } }
+
+/* ---------- La pagina dei prezzi: la barra su carta (testo scuro anche in cima) ---------- */
+.lnav--paper { color: var(--ink); }
+.lnav__links a[aria-current="page"]::after { transform: scaleX(1); }
+.lprice { min-height: calc(100svh - 160px); padding-top: clamp(70px, 8vw, 110px); }
 
 /* ---------- Piccole correzioni alle sezioni condivise ---------- */
 .footer nav { flex-wrap: wrap; gap: 14px 24px; }

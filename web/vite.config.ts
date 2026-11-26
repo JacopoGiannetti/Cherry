@@ -26,8 +26,8 @@ export default defineConfig({
     rollupOptions: {
       input: {
         landing: resolve(__dirname, 'index.html'),
-        // La landing nuova, in prova su /next (non collegata da nessuna parte, noindex).
-        next: resolve(__dirname, 'next.html'),
+        // I prezzi stanno su una pagina loro (/pricing): dalla home ci si arriva solo dal menu.
+        pricing: resolve(__dirname, 'pricing.html'),
         app: resolve(__dirname, 'app.html'),
       },
       // Nomi col punto (non col trattino): file mai scaricati prima, così nessun browser
