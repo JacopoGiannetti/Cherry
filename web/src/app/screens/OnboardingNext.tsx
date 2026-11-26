@@ -5,7 +5,7 @@ import '../../styles/flow-next.css';
 import { Icon } from '../../components/Icon';
 import { CookMode } from '../../components/CookMode';
 import { GoogleButton } from '../../components/GoogleButton';
-import { DEMO_STEPS } from '../../components/LoopDemo';
+import { MagicStage, Orbit, PLATES, plate, SomedayBox } from '../../components/Scenes';
 import { useSession } from '../../lib/store';
 import { metaForServer, once, track } from '../../lib/meta';
 import { saveProfile, sendRegistrationEvent } from '../../lib/api';
@@ -38,10 +38,6 @@ const DARK: Step[] = ['hello', 'reveal'];
 const DEMO: Partial<Funnel> = { recipe: demo as unknown as Recipe, url: DEMO_URL, demo: true };
 type Set = (patch: Partial<Funnel> | ((f: Funnel) => Partial<Funnel>)) => void;
 const EASE = [0.2, 0.8, 0.2, 1] as const;
-
-// Solo le foto nuove (public/assets/food/v-*.jpg), le stesse della landing.
-const PLATES = ['v-pizza', 'v-ramen', 'v-tacos', 'v-teriyaki', 'v-curry', 'v-udon', 'v-dumplings', 'v-fettuccine', 'v-kungpao', 'v-gnocchi', 'v-beans', 'v-grilledcheese'];
-const plate = (name: string) => `/assets/food/${name}.jpg`;
 
 const SAVED_STOPS = [10, 20, 30, 50, 75, 100, 150, 200, 300, 500];
 const SAVED_PILE = [4, 7, 10, 14, 18, 22, 27, 31, 36, 40];
@@ -217,27 +213,17 @@ function Stepper({ value, min, max, onChange, label }: { value: number; min: num
 
 // 1 ---------- La presentazione
 function Hello({ onNext }: { onNext: () => void }) {
-  const ring = PLATES.slice(0, 10);
   const line = (text: React.ReactNode, delay: number) => (
     <span className="nx-mask"><motion.span initial={{ y: '112%' }} animate={{ y: 0 }} transition={{ duration: 0.8, delay, ease: EASE }}>{text}</motion.span></span>
   );
   return (
     <div className="nx-hello">
-      <div className="nx-orbit" aria-hidden="true">
-        <div className="nx-orbit__ring">
-          {ring.map((p, i) => (
-            <span key={p} className="nx-orbit__seat" style={{ ['--a' as any]: `${i * 36}deg` }}>
-              <motion.span className="plate" initial={{ scale: 0, rotate: -40 }} animate={{ scale: 1, rotate: 0 }} transition={{ type: 'spring', stiffness: 150, damping: 14, delay: 0.1 + i * 0.07 }}>
-                <img src={plate(p)} alt="" />
-              </motion.span>
-            </span>
-          ))}
-        </div>
+      <Orbit>
         <motion.div className="nx-orbit__core" initial={{ scale: 0, rotate: -30 }} animate={{ scale: 1, rotate: 0 }} transition={{ type: 'spring', stiffness: 200, damping: 12, delay: 0.75 }}>
           <img src="/assets/mascot.png" alt="" />
           <span className="display">Cherry</span>
         </motion.div>
-      </div>
+      </Orbit>
       <div className="nx-hello__copy">
         <h1 className="display shout nx-hello__title">
           {line('Saved it.', 1.0)}
@@ -254,56 +240,7 @@ function Hello({ onNext }: { onNext: () => void }) {
   );
 }
 
-// 2·3·4 ---------- Lo specchio: la scatola "Someday", tre momenti
-// Più ne dichiari, più reel cadono nella scatola. Poi escono solo quelli cucinati.
-const PILE = (() => {
-  const rows = [6, 5, 6, 5, 5, 4, 4, 3, 2];
-  const out: { x: number; b: number; r: number; z: number }[] = [];
-  let s = 11;
-  const rnd = () => { s = (s * 9301 + 49297) % 233280; return s / 233280 - 0.5; };
-  rows.forEach((n, row) => {
-    for (let i = 0; i < n; i++) out.push({ x: 50 + (i - (n - 1) / 2) * 15.2 + rnd() * 5, b: 56 + row * 19 + rnd() * 8, r: rnd() * 30, z: row });
-  });
-  return out;
-})();
-
-function SomedayBox({ count, cooked, phase }: { count: number; cooked: number; phase: 'saved' | 'cooked' | 'reveal' }) {
-  const out = phase === 'saved' ? 0 : Math.min(cooked, count, 12);
-  return (
-    <div className={`nx-box ${phase !== 'saved' ? 'is-closed' : ''}`} aria-hidden="true">
-      {phase !== 'saved' && (
-        <span className="nx-box__shelf">
-          <small>Made it out of the box</small>
-          {!out && <em className="voice">Not one.</em>}
-        </span>
-      )}
-      <span className="nx-box__back" />
-      <AnimatePresence initial={false}>
-        {PILE.slice(0, count).map((p, k) => {
-          const free = k >= count - out;
-          const j = count - 1 - k;
-          return (
-            <motion.span key={k} layout
-              className={`nx-reelcard ${free ? 'is-out' : ''}`}
-              style={free ? { left: `${1 + j * Math.min(14.5, 82 / Math.max(1, out - 1))}%`, bottom: 'calc(100% - 84px)', zIndex: 30 + j } : { left: `${p.x}%`, bottom: p.b, zIndex: p.z }}
-              initial={{ y: -280 - p.z * 8, opacity: 0, rotate: p.r * 3 }}
-              animate={{ y: 0, opacity: 1, rotate: free ? 0 : p.r }}
-              exit={{ y: -260, opacity: 0, transition: { duration: 0.22 } }}
-              transition={{ type: 'spring', stiffness: 250, damping: 22, delay: (k % 5) * 0.035, layout: { type: 'spring', stiffness: 200, damping: 20, delay: j * 0.06 } }}>
-              <img src={plate(PLATES[(k * 5 + p.z * 7) % PLATES.length])} alt="" />
-              <i />
-            </motion.span>
-          );
-        })}
-      </AnimatePresence>
-      <span className="nx-box__front">
-        <span className="nx-box__label"><small>I'll make this</small><b className="display">Someday.</b></span>
-        <em className="voice">never opened again</em>
-      </span>
-    </div>
-  );
-}
-
+// 2·3·4 ---------- Lo specchio: la scatola "Someday" (components/Scenes), tre momenti
 function Mirror({ phase, f, set, onNext }: { phase: 'saved' | 'cooked' | 'reveal'; f: Funnel; set: Set; onNext: () => void }) {
   const idx = Math.max(0, SAVED_STOPS.indexOf(f.saved));
   const d = derive(f);
@@ -421,54 +358,13 @@ function Blockers({ f, set, onNext }: { f: Funnel; set: Set; onNext: () => void 
 }
 
 // 6 ---------- La soluzione: un video si apre in passi
-const CAPTIONS = ['Paste any recipe link.', 'Cherry watches the whole video.', 'And writes it out, step by step.', 'Every step loops its own moment.'];
-
 function Magic({ f, onCook, onNext }: { f: Funnel; onCook: () => void; onNext: () => void }) {
   const [phase, setPhase] = useState(0);
-  const [run, setRun] = useState(0);
-  useEffect(() => {
-    setPhase(0);
-    const t = [setTimeout(() => setPhase(1), 1000), setTimeout(() => setPhase(2), 2900), setTimeout(() => setPhase(3), 4300)];
-    return () => t.forEach(clearTimeout);
-  }, [run]);
   const mine = BLOCKERS.filter((b) => f.blockers.includes(b.id)).slice(0, 2);
-  const open = phase >= 2;
   return (
     <>
       <Head kicker="Here's the fix">From video to <em>dinner.</em></Head>
-      <div className="nx-magic" aria-hidden="true">
-        <motion.div className="nx-link" key={`l${run}`} initial={{ opacity: 0, y: -14 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4, ease: EASE }}>
-          <Icon name="link" size={15} stroke={2.4} />
-          <span>tiktok.com/@pastanight/video/7431…</span>
-          <i className={phase >= 2 ? 'done' : ''}>{phase >= 2 ? <Icon name="check" size={13} stroke={3.4} /> : phase === 1 ? <span className="spinner" /> : <Icon name="next" size={13} stroke={3} />}</i>
-        </motion.div>
-
-        <div className="nx-magic__stage">
-          <motion.div className="nx-reel" animate={open ? { x: '-84%', scale: 0.62, rotate: -7 } : { x: '0%', scale: 1, rotate: 0 }} transition={{ type: 'spring', stiffness: 120, damping: 17 }}>
-            <img src="/assets/food/serve.jpg" alt="" />
-            <span className="nx-reel__ui"><i /><i /><i /></span>
-            <span className="nx-reel__cap"><b /><b /></span>
-            {phase === 1 && <motion.span className="nx-reel__scan" initial={{ top: '0%' }} animate={{ top: ['0%', '100%', '0%', '100%'] }} transition={{ duration: 1.9, ease: 'easeInOut' }} />}
-          </motion.div>
-          {DEMO_STEPS.map((s, i) => (
-            <motion.div key={s.title} className={`nx-step ${phase >= 3 && i === 0 ? 'is-live' : ''}`}
-              initial={false}
-              animate={open ? { opacity: 1, x: 0, y: i * 62, scale: 1, rotate: i % 2 ? 1.2 : -1.2 } : { opacity: 0, x: -70, y: 96, scale: 0.5, rotate: 0 }}
-              transition={{ type: 'spring', stiffness: 170, damping: 18, delay: open ? i * 0.11 : 0 }}>
-              <img src={s.img} alt="" />
-              <span><small>{s.t}–{s.end}</small><b>{s.title}</b></span>
-              {phase >= 3 && i === 0 && <motion.i initial={{ scale: 0 }} animate={{ scale: 1 }} transition={{ type: 'spring', stiffness: 300, damping: 14 }}><Icon name="refresh" size={13} stroke={3} /></motion.i>}
-            </motion.div>
-          ))}
-        </div>
-
-        <div className="nx-magic__cap">
-          <AnimatePresence mode="wait" initial={false}>
-            <motion.p key={phase} initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -8 }} transition={{ duration: 0.22 }}>{CAPTIONS[phase]}</motion.p>
-          </AnimatePresence>
-          <button onClick={() => setRun((r) => r + 1)} aria-label="Replay"><Icon name="refresh" size={15} stroke={2.6} /></button>
-        </div>
-      </div>
+      <MagicStage onPhase={setPhase} />
       {mine.length > 0 && (
         <ul className="nx-fixes">
           {mine.map((b, i) => (

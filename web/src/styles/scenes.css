@@ -1,0 +1,71 @@
+/* Le scene animate condivise tra onboarding e landing: i piatti in orbita, la scatola
+   "Someday", il righello, il video che si apre in passi. */
+.nx-orbit { --R: min(168px, 20dvh); --P: calc(var(--R) * .58); position: relative; height: calc(var(--R) * 2 + var(--P) * .5); margin: 4px -22px 0; }
+.nx-orbit::before { content: ""; position: absolute; left: 50%; top: 50%; width: calc(var(--R) * 1.9); aspect-ratio: 1; translate: -50% -50%; border-radius: 50%; background: radial-gradient(circle, rgba(232, 51, 74, .34), rgba(232, 51, 74, 0) 62%); }
+.nx-orbit__ring { position: absolute; left: 50%; top: 50%; width: 0; height: 0; animation: spin 80s linear infinite; }
+.nx-orbit__seat { position: absolute; width: var(--P); height: var(--P); left: calc(var(--P) / -2); top: calc(var(--P) / -2); transform: rotate(var(--a)) translateY(calc(var(--R) * -1)); }
+.nx-orbit__seat .plate { display: block; width: 100%; box-shadow: 0 16px 36px rgba(0, 0, 0, .55); background: #2a2020; }
+.nx-orbit__core { position: absolute; left: 50%; top: 50%; translate: -50% -50%; display: grid; justify-items: center; gap: 10px; }
+.nx-orbit__core img { width: 70px; height: 70px; border-radius: 22px; box-shadow: 0 14px 40px rgba(232, 51, 74, .45); }
+.nx-orbit__core .display { font-size: 34px; color: var(--paper); letter-spacing: -.03em; }
+.nx-mask { display: block; overflow: hidden; padding-bottom: .1em; margin-bottom: -.1em; }
+.nx-mask > span { display: block; }
+.nx-box { --kraft: #C9A574; --kraft-2: #A98556; --kraft-3: #DDBD8F; position: relative; height: min(310px, 36dvh); margin-top: 6px; }
+.nx-box__back { position: absolute; left: 7%; right: 7%; bottom: 0; height: 128px; border-radius: 8px 8px 14px 14px; background: linear-gradient(var(--kraft-2), #8E6E45); }
+.nx-box__back::before, .nx-box__back::after { content: ""; position: absolute; top: -26px; width: 44%; height: 30px; background: var(--kraft-3); border-radius: 4px; transition: transform var(--reveal) var(--ease); }
+.nx-box__back::before { left: -7%; transform-origin: 100% 100%; transform: rotate(-24deg); }
+.nx-box__back::after { right: -7%; transform-origin: 0 100%; transform: rotate(24deg); }
+.nx-box__front { position: absolute; z-index: 20; left: 3%; right: 3%; bottom: 0; height: 100px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; border-radius: 6px 6px 16px 16px; background: linear-gradient(var(--kraft-3), var(--kraft) 30%); box-shadow: 0 -2px 0 rgba(255, 255, 255, .35) inset, 0 18px 30px rgba(27, 19, 19, .22); }
+.nx-box__front::before { content: ""; position: absolute; left: 50%; top: 0; width: 46px; height: 100%; margin-left: -23px; background: rgba(255, 252, 247, .28); }
+.nx-box__label { position: relative; display: grid; justify-items: center; padding: 6px 16px 7px; background: var(--white); color: var(--ink); border-radius: 4px; transform: rotate(-2deg); box-shadow: 0 2px 6px rgba(27, 19, 19, .18); }
+.nx-box__label small { font-size: 10.5px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: var(--mute); }
+.nx-box__label b { font-size: 30px; line-height: .95; text-transform: uppercase; }
+.nx-box__front .voice { position: relative; font-size: 17px; line-height: 1; color: #5B4326; }
+.nx-box__shelf { position: absolute; left: 0; right: 0; top: 0; height: 92px; border-bottom: 2px solid var(--ink); }
+.nx-box__shelf small { display: block; font-size: 12px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: var(--mute); }
+.nx-box__shelf .voice { position: absolute; left: 0; bottom: 12px; font-size: 30px; line-height: 1; color: var(--faint); }
+.nx-reelcard { position: absolute; width: 15.5%; aspect-ratio: 3 / 4; margin-left: -7.75%; border-radius: 9px; overflow: hidden; background: var(--paper-3); box-shadow: 0 0 0 2px var(--white), 0 6px 14px rgba(27, 19, 19, .28); transition: filter 500ms var(--ease), border-radius 400ms var(--ease), box-shadow 300ms; }
+.nx-reelcard img { width: 100%; height: 100%; object-fit: cover; }
+.nx-reelcard i { position: absolute; right: 5px; top: 0; width: 9px; height: 13px; background: var(--cherry); clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 72%, 0 100%); }
+.nx-box.is-closed .nx-reelcard:not(.is-out) { filter: grayscale(1) brightness(.8); }
+.nx-reelcard.is-out { width: 16.5%; aspect-ratio: 1; margin-left: 0; border-radius: 50%; box-shadow: 0 0 0 3px var(--white), 0 0 0 6px var(--cherry), 0 10px 20px rgba(232, 51, 74, .4); }
+.nx-reelcard.is-out i { display: none; }
+.flow--dark .nx-box__shelf { border-color: rgba(244, 238, 228, .35); }
+.flow--dark .nx-box__shelf small { color: rgba(244, 238, 228, .55); }
+.flow--dark .nx-reelcard.is-out { box-shadow: 0 0 0 3px var(--ink), 0 0 0 6px var(--cherry), 0 10px 24px rgba(232, 51, 74, .5); }
+.flow--dark .nx-box__front { box-shadow: 0 -2px 0 rgba(255, 255, 255, .35) inset, 0 18px 40px rgba(0, 0, 0, .6); }
+.nx-readout { display: flex; align-items: baseline; gap: 14px; }
+.nx-readout .num { font-size: 84px; }
+.nx-readout .voice { font-size: 24px; color: var(--ink); line-height: 1.05; }
+.nx-ruler { -webkit-appearance: none; appearance: none; display: block; width: 100%; height: 48px; margin: 10px 0 0; background: repeating-linear-gradient(90deg, var(--line-2) 0 1.5px, transparent 1.5px calc((100% - 1.5px) / 27)) center / 100% 20px no-repeat; touch-action: pan-y; }
+.nx-ruler::-webkit-slider-runnable-track { height: 48px; background: none; }
+.nx-ruler::-moz-range-track { height: 48px; background: none; }
+.nx-ruler::-webkit-slider-thumb { -webkit-appearance: none; width: 12px; height: 48px; border-radius: 6px; background: var(--cherry); box-shadow: 0 0 0 4px var(--paper), var(--shadow-cherry); }
+.nx-ruler::-moz-range-thumb { width: 12px; height: 48px; border: 0; border-radius: 6px; background: var(--cherry); box-shadow: 0 0 0 4px var(--paper), var(--shadow-cherry); }
+.nx-ruler__ends { display: flex; justify-content: space-between; margin-top: 4px; font-size: 13px; font-weight: 600; color: var(--mute); }
+.nx-link { display: flex; align-items: center; gap: 10px; height: 46px; padding: 0 8px 0 14px; border-radius: 999px; background: var(--white); box-shadow: var(--shadow-1), inset 0 0 0 1.5px var(--line); font-size: 14px; font-weight: 600; color: var(--ink-2); }
+.nx-link > span { flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.nx-link > i { width: 30px; height: 30px; flex: none; border-radius: 50%; display: grid; place-items: center; background: var(--ink); color: var(--paper); transition: background var(--quick); }
+.nx-link > i.done { background: var(--cherry); }
+.nx-link .spinner { width: 14px; height: 14px; border-color: rgba(244, 238, 228, .3); border-top-color: var(--paper); }
+.nx-magic__stage { position: relative; height: 244px; margin-top: 14px; }
+.nx-reel { position: absolute; left: 50%; top: 0; width: 138px; height: 244px; margin-left: -69px; border-radius: 22px; overflow: hidden; background: #000; box-shadow: var(--shadow-2); transform-origin: 50% 42%; }
+.nx-reel img { width: 100%; height: 100%; object-fit: cover; }
+.nx-reel::after { content: ""; position: absolute; inset: 55% 0 0; background: linear-gradient(transparent, rgba(0, 0, 0, .6)); }
+.nx-reel__ui { position: absolute; z-index: 1; right: 8px; bottom: 52px; display: grid; gap: 8px; }
+.nx-reel__ui i { width: 22px; height: 22px; border-radius: 50%; background: rgba(255, 255, 255, .88); }
+.nx-reel__cap { position: absolute; z-index: 1; left: 10px; right: 44px; bottom: 14px; display: grid; gap: 5px; }
+.nx-reel__cap b { height: 6px; border-radius: 3px; background: rgba(255, 255, 255, .85); }
+.nx-reel__cap b:last-child { width: 60%; }
+.nx-reel__scan { position: absolute; z-index: 2; left: 0; right: 0; height: 3px; background: var(--cherry); box-shadow: 0 0 20px 7px rgba(232, 51, 74, .75); }
+.nx-step { position: absolute; left: 112px; right: 0; top: 4px; height: 54px; display: flex; align-items: center; gap: 10px; padding: 6px 10px 6px 6px; border-radius: 16px; background: var(--white); box-shadow: var(--shadow-1), inset 0 0 0 1px var(--line); }
+.nx-step img { width: 42px; height: 42px; flex: none; border-radius: 11px; object-fit: cover; }
+.nx-step > span { flex: 1; min-width: 0; display: grid; gap: 1px; }
+.nx-step small { font-size: 11px; font-weight: 700; letter-spacing: .06em; color: var(--mute); }
+.nx-step b { font-size: 14.5px; font-weight: 700; line-height: 1.15; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.nx-step > i { width: 24px; height: 24px; flex: none; border-radius: 50%; display: grid; place-items: center; background: var(--cherry); color: #fff; }
+.nx-step > i svg { animation: spin 2.4s linear infinite; }
+.nx-step.is-live { box-shadow: 0 0 0 2px var(--cherry), var(--shadow-2); }
+.nx-magic__cap { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: 12px; min-height: 32px; }
+.nx-magic__cap p { font-family: var(--serif); font-style: italic; font-size: 23px; line-height: 1.1; }
+.nx-magic__cap button { width: 32px; height: 32px; flex: none; border-radius: 50%; display: grid; place-items: center; background: var(--paper-2); color: var(--mute); }
