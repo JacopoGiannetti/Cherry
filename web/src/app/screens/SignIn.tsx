@@ -14,7 +14,7 @@ export function SignIn() {
     if (ready && user) navigate(entitled ? '/' : '/join');
   }, [ready, user, entitled]);
   return (
-    <div className="flow">
+    <div className="flow nx-white">
       <header className="flow__top">
         <Link href="/start" className="icon-btn" aria-label="Back"><Icon name="back" /></Link>
         <span />

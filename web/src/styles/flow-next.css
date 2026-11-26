@@ -12,7 +12,8 @@
 .nx .flow__link { font-size: 15.5px; }
 
 /* Il bottone resta sempre a portata di pollice (i browser dentro Facebook e Instagram sono bassi). */
-.nx .flow__cta { position: sticky; bottom: 0; z-index: 5; margin: auto -22px calc(-22px - var(--safe-b)); padding: 26px 22px calc(22px + var(--safe-b)); background: linear-gradient(to bottom, rgba(244, 238, 228, 0), var(--paper) 26px); }
+.nx:not(.flow--dark) { background: #FFFFFF; }
+.nx .flow__cta { position: sticky; bottom: 0; z-index: 5; margin: auto -22px calc(-22px - var(--safe-b)); padding: 26px 22px calc(22px + var(--safe-b)); background: linear-gradient(to bottom, rgba(255, 255, 255, 0), #FFFFFF 26px); }
 .nx.flow--dark .flow__cta { background: linear-gradient(to bottom, rgba(27, 19, 19, 0), var(--ink) 26px); }
 
 /* ---------- Contatore compatto ---------- */
@@ -183,3 +184,4 @@
   .nx-nights .nx-stepper__value { height: 96px; }
   .nx-nights .nx-stepper__value .num { font-size: 96px; }
 }
+.nx-white { background: #FFFFFF; }

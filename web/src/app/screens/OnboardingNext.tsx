@@ -100,7 +100,7 @@ export function OnboardingNext() {
   // il colore della scena, non restano chiare sopra e sotto.
   const dark = DARK.includes(name);
   useEffect(() => {
-    const color = dark ? '#1B1313' : '#F4EEE4';
+    const color = dark ? '#1B1313' : '#FFFFFF';
     const meta = document.querySelector('meta[name="theme-color"]');
     const before = { meta: meta?.getAttribute('content') || '', body: document.body.style.background, html: document.documentElement.style.background };
     meta?.setAttribute('content', color);
