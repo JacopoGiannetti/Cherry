@@ -9,10 +9,14 @@ import { SUPPORT_EMAIL } from '../../lib/pwa';
 import { loadFunnel } from '../../lib/funnel';
 import { once, track } from '../../lib/meta';
 import { journey } from '../../lib/journey';
+import '../../styles/flow-next.css';
+import { Logo } from '../../components/Icon';
+import { EmailAuth } from '../../components/EmailAuth';
+import { GoogleButton } from '../../components/GoogleButton';
 
 /** Ritorno da Stripe: si conferma l'abbonamento, festa, poi l'app sulla Home. */
 export function Welcome() {
-  const { user, entitled } = useSession();
+  const { user, entitled, ready } = useSession();
   const [, navigate] = useLocation();
   const [stage, setStage] = useState<'confirming' | 'ready' | 'install' | 'error'>('confirming');
   const session = new URLSearchParams(location.search).get('session');
@@ -38,6 +42,25 @@ export function Welcome() {
       .catch(() => { if (++tries < 6) setTimeout(attempt, 1500); else setStage('error'); });
     attempt();
   }, [user, entitled]);
+
+  // Chi paga dal link di un'email arriva qui in un browser dove non è loggato: il pagamento
+  // c'è già, serve solo entrare. Dopo il login la conferma qui sopra riparte da sola.
+  if (ready && !user && session) {
+    return (
+      <div className="flow nx-white">
+        <section className="flow__body save">
+          <Logo size={40} />
+          <h1 className="display save__title" style={{ marginTop: 28 }}>Payment received</h1>
+          <p className="save__lead">Sign in with the account you created to open your cookbook.</p>
+          <div className="nx-account" style={{ width: '100%' }}>
+            <EmailAuth mode="signin" />
+            <div className="nx-or"><span>or</span></div>
+            <GoogleButton />
+          </div>
+        </section>
+      </div>
+    );
+  }
 
   if (stage === 'install') {
     return (

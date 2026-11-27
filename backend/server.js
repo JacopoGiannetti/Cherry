@@ -57,6 +57,10 @@ app.use('/web', require('./web'));
 const web = require('./routes/web');
 app.post('/webhooks/stripe', web.stripeWebhook);
 app.use('/v1', web.router);
+// Recensioni: stesso prefisso, dopo web.router (che ha già fatto CORS e login).
+app.use('/v1', require('./routes/reviews'));
+// I link dentro le email (offerta, disiscrizione): pubblici, riconosciuti dal gettone firmato.
+app.use('/mail', require('./routes/mail'));
 
 // --- Rotte app (HMAC + token Firebase + quota giornaliera) ---------------
 const api = express.Router();
@@ -89,6 +93,8 @@ app.listen(keys.server.port, () => {
     console.log('Tutte le chiavi obbligatorie configurate.');
   }
   optional.forEach((k) => console.log('Opzionale non configurata:', k));
+  // L'email con l'offerta a chi si è registrato e non ha pagato (spenta finché non la si accende lì).
+  require('./lib/offer-mail').start();
   if (keys.catalog.enabled) {
     console.log(`Ricettario attivo${keys.catalog.sweep ? ' (con passaggio periodico)' : ''}.`);
     const tally = require('./lib/catalog/tally');

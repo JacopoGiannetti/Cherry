@@ -20,6 +20,7 @@ import { SharedList } from './screens/SharedList';
 import { RecipeEditor } from './screens/RecipeEditor';
 import { TabBar } from '../components/TabBar';
 import { ToastHost } from '../components/Toast';
+import { countOpen, ReviewHost } from '../components/ReviewPrompt';
 import { ConsentBanner } from '../components/ConsentBanner';
 import { initMeta, keepClickId, pageView } from '../lib/meta';
 import { setJourneyAuth } from '../lib/journey';
@@ -58,7 +59,7 @@ function Member({ children }: { children: React.ReactNode; tabs?: boolean }) {
 
 /** L'apertura del giorno, per la retention (una al giorno, la filtra used). */
 function Opened() {
-  useEffect(() => { used('app.open'); }, []);
+  useEffect(() => { used('app.open'); countOpen(); }, []);
   return null;
 }
 
@@ -120,6 +121,7 @@ function App() {
         </Switch>
       </div>
       <Tabs />
+      <ReviewHost />
       <ToastHost />
       <ConsentBanner />
     </Router>

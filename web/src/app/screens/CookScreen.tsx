@@ -3,6 +3,7 @@ import { useLocation } from 'wouter';
 import { CookMode } from '../../components/CookMode';
 import { useRecipe, useSession } from '../../lib/store';
 import { used } from '../../lib/usage';
+import { askReview } from '../../components/ReviewPrompt';
 
 export function CookScreen({ id }: { id: string }) {
   const { user } = useSession();
@@ -18,5 +19,5 @@ export function CookScreen({ id }: { id: string }) {
     if ((history.state as any)?.from === 'recipe') history.back();
     else navigate(`/r/${id}`, { replace: true });
   };
-  return <CookMode recipe={recipe} factor={factor} onClose={close} onDone={() => { used('cook.done'); close(); }} />;
+  return <CookMode recipe={recipe} factor={factor} onClose={close} onDone={() => { used('cook.done'); close(); askReview('cook'); }} />;
 }

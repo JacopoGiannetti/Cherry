@@ -116,6 +116,13 @@ const keys = {
     priceMonthly: process.env.STRIPE_PRICE_MONTHLY || '',
   },
   hmacSecret: process.env.HMAC_SECRET || '',
+  // Email dal sito (lib/offer-mail.js), spedite con Resend. Su Render la chiave si chiama "Resend".
+  mail: {
+    resendKey: process.env.Resend || process.env.RESEND_API_KEY || '',
+    from: process.env.MAIL_FROM || 'Cherry <hello@hellocherry.app>',
+    // L'indirizzo pubblico di questo backend: i link nelle email passano di qui (Render lo dà da solo).
+    apiUrl: (process.env.RENDER_EXTERNAL_URL || process.env.API_URL || 'http://localhost:3000').replace(/\/$/, ''),
+  },
   appsFlyer: {
     // Opzionale: l'app la pesca da GET /config. Vuota = SDK spento.
     // La metti su Render quando hai l'account, senza un update dell'app.
