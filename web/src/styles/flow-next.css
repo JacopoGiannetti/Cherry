@@ -184,3 +184,6 @@
   .nx-nights .nx-stepper__value .num { font-size: 96px; }
 }
 .nx-white, .nx.nx--white { background: #FFFFFF; }
+
+/* Domande senza risposta già data: il numero è un "?" spento finché non si sceglie. */
+.nx-stepper.is-empty .nx-stepper__value .num, .nx-readout.is-empty .num { color: var(--faint); }

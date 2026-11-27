@@ -44,14 +44,14 @@ const PILE = (() => {
   return out;
 })();
 
-export function SomedayBox({ count, cooked, phase }: { count: number; cooked: number; phase: 'saved' | 'cooked' | 'reveal' }) {
+export function SomedayBox({ count, cooked, phase, waiting }: { count: number; cooked: number; phase: 'saved' | 'cooked' | 'reveal'; waiting?: boolean }) {
   const out = phase === 'saved' ? 0 : Math.min(cooked, count, 12);
   return (
     <div className={`nx-box ${phase !== 'saved' ? 'is-closed' : ''}`} aria-hidden="true">
       {phase !== 'saved' && (
         <span className="nx-box__shelf">
           <small>Made it out of the box</small>
-          {!out && <em className="voice">Not one.</em>}
+          {!out && !waiting && <em className="voice">Not one.</em>}
         </span>
       )}
       <span className="nx-box__back" />

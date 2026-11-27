@@ -38,6 +38,9 @@ const MIRROR: Step[] = ['saved', 'cooked', 'reveal'];
 const DARK: Step[] = ['hello', 'reveal'];
 const DEMO: Partial<Funnel> = { recipe: demo as unknown as Recipe, url: DEMO_URL, demo: true };
 type Set = (patch: Partial<Funnel> | ((f: Funnel) => Partial<Funnel>)) => void;
+type Question = 'saved' | 'cooked' | 'nights' | 'household' | 'takeout';
+type Picked = Partial<Record<Question, boolean>>;
+type Pick = (k: Question) => void;
 const EASE = [0.2, 0.8, 0.2, 1] as const;
 
 const SAVED_STOPS = [10, 20, 30, 50, 75, 100, 150, 200, 300, 500];
@@ -92,6 +95,10 @@ export function OnboardingNext() {
   });
   const [dir, setDir] = useState(1);
   const [cooking, setCooking] = useState(false);
+  // Nessuna risposta è già data: si va avanti solo dopo aver scelto qualcosa (il valore
+  // preimpostato lo lasciavano quasi tutti, e le risposte non dicevano niente).
+  const [picked, setPicked] = useState<Picked>({});
+  const pick: Pick = (k) => setPicked((cur) => (cur[k] ? cur : { ...cur, [k]: true }));
   const name = STEPS[step];
   const scene = MIRROR.includes(name) ? 'mirror' : name;
 
@@ -163,11 +170,11 @@ export function OnboardingNext() {
           transition={{ duration: 0.26, ease: EASE }}
         >
           {scene === 'hello' && <Hello onNext={next} />}
-          {scene === 'mirror' && <Mirror phase={name as 'saved' | 'cooked' | 'reveal'} f={f} set={set} onNext={next} />}
+          {scene === 'mirror' && <Mirror phase={name as 'saved' | 'cooked' | 'reveal'} f={f} set={set} picked={picked} pick={pick} onNext={next} />}
           {scene === 'blockers' && <Blockers f={f} set={set} onNext={next} />}
           {scene === 'magic' && <Magic f={f} onCook={() => { set(DEMO); setCooking(true); }} onNext={() => { set(DEMO); next(); }} />}
-          {scene === 'nights' && <Nights f={f} set={set} onNext={next} />}
-          {scene === 'receipt' && <Receipt f={f} set={set} onNext={next} />}
+          {scene === 'nights' && <Nights f={f} set={set} picked={picked} pick={pick} onNext={next} />}
+          {scene === 'receipt' && <Receipt f={f} set={set} picked={picked} pick={pick} onNext={next} />}
           {scene === 'chart' && <Chart f={f} onNext={next} />}
           {scene === 'team' && <Team onNext={() => { set(DEMO); next(); }} />}
           {scene === 'account' && <Account f={f} signedInAs={preview && user ? (user.displayName || user.email || 'you') : null} onContinue={finish} />}
@@ -200,19 +207,23 @@ function Cta({ children, onClick, disabled }: { children: React.ReactNode; onCli
   );
 }
 
-function Stepper({ value, min, max, onChange, label }: { value: number; min: number; max: number; onChange: (n: number) => void; label: string }) {
-  const bump = (n: number) => { navigator.vibrate?.(6); onChange(Math.max(min, Math.min(max, value + n))); };
+/** `empty`: nessuna risposta ancora. Il primo tocco su − dà il minimo, su + dà 1. */
+function Stepper({ value, min, max, onChange, label, empty }: { value: number; min: number; max: number; onChange: (n: number) => void; label: string; empty?: boolean }) {
+  const bump = (n: number) => {
+    navigator.vibrate?.(6);
+    onChange(empty ? (n < 0 ? min : Math.max(min, 1)) : Math.max(min, Math.min(max, value + n)));
+  };
   return (
-    <div className="nx-stepper" role="group" aria-label={label}>
-      <button onClick={() => bump(-1)} disabled={value <= min} aria-label="Less">−</button>
+    <div className={`nx-stepper ${empty ? 'is-empty' : ''}`} role="group" aria-label={label}>
+      <button onClick={() => bump(-1)} disabled={!empty && value <= min} aria-label="Less">−</button>
       <div className="nx-stepper__value">
         <AnimatePresence mode="popLayout" initial={false}>
-          <motion.span key={value} className="num" initial={{ y: 20, opacity: 0 }} animate={{ y: 0, opacity: 1 }} exit={{ y: -20, opacity: 0 }} transition={{ duration: 0.16 }}>
-            {value}{value >= max && max > 7 ? '+' : ''}
+          <motion.span key={empty ? 'empty' : value} className="num" initial={{ y: 20, opacity: 0 }} animate={{ y: 0, opacity: 1 }} exit={{ y: -20, opacity: 0 }} transition={{ duration: 0.16 }}>
+            {empty ? '?' : <>{value}{value >= max && max > 7 ? '+' : ''}</>}
           </motion.span>
         </AnimatePresence>
       </div>
-      <button onClick={() => bump(1)} disabled={value >= max} aria-label="More">+</button>
+      <button onClick={() => bump(1)} disabled={!empty && value >= max} aria-label="More">+</button>
     </div>
   );
 }
@@ -247,9 +258,10 @@ function Hello({ onNext }: { onNext: () => void }) {
 }
 
 // 2·3·4 ---------- Lo specchio: la scatola "Someday" (components/Scenes), tre momenti
-function Mirror({ phase, f, set, onNext }: { phase: 'saved' | 'cooked' | 'reveal'; f: Funnel; set: Set; onNext: () => void }) {
+function Mirror({ phase, f, set, picked, pick, onNext }: { phase: 'saved' | 'cooked' | 'reveal'; f: Funnel; set: Set; picked: Picked; pick: Pick; onNext: () => void }) {
   const idx = Math.max(0, SAVED_STOPS.indexOf(f.saved));
   const d = derive(f);
+  const waiting = (phase === 'saved' && !picked.saved) || (phase === 'cooked' && !picked.cooked);
   return (
     <div className={`nx-mirror nx-mirror--${phase}`}>
       <AnimatePresence mode="wait" initial={false}>
@@ -260,25 +272,27 @@ function Mirror({ phase, f, set, onNext }: { phase: 'saved' | 'cooked' | 'reveal
         </motion.div>
       </AnimatePresence>
 
-      <SomedayBox count={SAVED_PILE[idx]} cooked={f.cooked} phase={phase} />
+      <SomedayBox count={picked.saved ? SAVED_PILE[idx] : 0} cooked={picked.cooked ? f.cooked : 0} phase={phase} waiting={phase === 'cooked' && !picked.cooked} />
 
       <AnimatePresence mode="wait" initial={false}>
         <motion.div key={phase} className="nx-mirror__ctl" initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }} transition={{ duration: 0.22 }}>
           {phase === 'saved' && (
             <>
-              <div className="nx-readout">
-                <span className="num">{f.saved >= 500 ? '500+' : f.saved}</span>
-                <em className="voice">{savedLabel(f.saved)}</em>
+              <div className={`nx-readout ${picked.saved ? '' : 'is-empty'}`}>
+                <span className="num">{!picked.saved ? '?' : f.saved >= 500 ? '500+' : f.saved}</span>
+                <em className="voice">{picked.saved ? savedLabel(f.saved) : 'Drag to answer.'}</em>
               </div>
-              <input className="nx-ruler" type="range" min={0} max={SAVED_STOPS.length - 1} step={1} value={idx}
-                onChange={(e) => { navigator.vibrate?.(4); set({ saved: SAVED_STOPS[Number(e.target.value)] }); }} aria-label="Saved recipes" />
+              {/* Anche solo toccare il cursore è una risposta (chi ne ha davvero poche non deve muoverlo). */}
+              <input className={`nx-ruler ${picked.saved ? '' : 'is-empty'}`} type="range" min={0} max={SAVED_STOPS.length - 1} step={1} value={idx}
+                onPointerDown={() => pick('saved')} onKeyDown={() => pick('saved')}
+                onChange={(e) => { navigator.vibrate?.(4); pick('saved'); set({ saved: SAVED_STOPS[Number(e.target.value)] }); }} aria-label="Saved recipes" />
               <div className="nx-ruler__ends"><span>A few</span><span>Lost count</span></div>
             </>
           )}
           {phase === 'cooked' && (
             <>
-              <Stepper value={f.cooked} min={0} max={12} onChange={(n) => set({ cooked: n })} label="Recipes cooked last month" />
-              <p className="nx-hint">{f.cooked === 0 ? 'Zero is a very common answer.' : f.cooked <= 2 ? 'No judgment. Most people say this.' : 'Better than most.'}</p>
+              <Stepper value={f.cooked} min={0} max={12} empty={!picked.cooked} onChange={(n) => { pick('cooked'); set({ cooked: n }); }} label="Recipes cooked last month" />
+              <p className="nx-hint">{!picked.cooked ? 'Tap − for none, + to count them.' : f.cooked === 0 ? 'Zero is a very common answer.' : f.cooked <= 2 ? 'No judgment. Most people say this.' : 'Better than most.'}</p>
             </>
           )}
           {phase === 'reveal' && (
@@ -289,7 +303,7 @@ function Mirror({ phase, f, set, onNext }: { phase: 'saved' | 'cooked' | 'reveal
         </motion.div>
       </AnimatePresence>
 
-      <Cta onClick={onNext}>{phase === 'saved' ? "That's about right" : phase === 'cooked' ? 'Continue' : "So what's stopping me?"}</Cta>
+      <Cta onClick={onNext} disabled={waiting}>{waiting ? (phase === 'saved' ? 'Drag the slider' : 'Tap + or −') : phase === 'saved' ? "That's about right" : phase === 'cooked' ? 'Continue' : "So what's stopping me?"}</Cta>
     </div>
   );
 }
@@ -389,32 +403,32 @@ function Magic({ f, onCook, onNext }: { f: Funnel; onCook: () => void; onNext: (
 }
 
 // 7 ---------- L'impegno: quante sere, sette posti a tavola
-function Nights({ f, set, onNext }: { f: Funnel; set: Set; onNext: () => void }) {
-  const n = f.nights;
-  const pick = (k: number) => { navigator.vibrate?.(6); set({ nights: k }); };
+function Nights({ f, set, picked, pick, onNext }: { f: Funnel; set: Set; picked: Picked; pick: Pick; onNext: () => void }) {
+  const n = picked.nights ? f.nights : 0;
+  const choose = (k: number) => { navigator.vibrate?.(6); pick('nights'); set({ nights: k }); };
   return (
     <>
       <Head kicker="Now, your goal">How many nights a week would you like to <em>cook?</em></Head>
       <div className="nx-nights">
         <div className="nx-pips" role="group" aria-label="Nights per week">
           {[1, 2, 3, 4, 5, 6, 7].map((k) => (
-            <button key={k} className={k <= n ? 'on' : ''} onClick={() => pick(k)} aria-label={`${k} night${k === 1 ? '' : 's'}`} aria-pressed={k <= n}>
+            <button key={k} className={k <= n ? 'on' : ''} onClick={() => choose(k)} aria-label={`${k} night${k === 1 ? '' : 's'}`} aria-pressed={k <= n}>
               <AnimatePresence initial={false}>
                 {k <= n && <motion.i key="d" initial={{ scale: 0 }} animate={{ scale: 1 }} exit={{ scale: 0 }} transition={{ type: 'spring', stiffness: 420, damping: 18, delay: 0.02 * k }} />}
               </AnimatePresence>
             </button>
           ))}
         </div>
-        <Stepper value={n} min={1} max={7} onChange={(v) => set({ nights: v })} label="Nights per week" />
-        <p className="nx-hint"><b>{n} night{n === 1 ? '' : 's'} a week</b> is {Math.round(n * 4.3)} home-cooked dinners a month.</p>
+        <Stepper value={n} min={1} max={7} empty={!picked.nights} onChange={(v) => { pick('nights'); set({ nights: v }); }} label="Nights per week" />
+        <p className="nx-hint">{picked.nights ? <><b>{n} night{n === 1 ? '' : 's'} a week</b> is {Math.round(n * 4.3)} home-cooked dinners a month.</> : 'Tap a plate, or use + and −.'}</p>
       </div>
       <div className="seg nx-seg" role="radiogroup" aria-label="Cooking for">
         <span className="seg__label">Cooking for</span>
         {[1, 2, 3, 4, 5].map((k) => (
-          <button key={k} role="radio" aria-checked={f.household === k} className={f.household === k ? 'on' : ''} onClick={() => set({ household: k })}>{k === 5 ? '5+' : k}</button>
+          <button key={k} role="radio" aria-checked={!!picked.household && f.household === k} className={picked.household && f.household === k ? 'on' : ''} onClick={() => { pick('household'); set({ household: k }); }}>{k === 5 ? '5+' : k}</button>
         ))}
       </div>
-      <Cta onClick={onNext}>That's my goal</Cta>
+      <Cta onClick={onNext} disabled={!picked.nights || !picked.household}>{!picked.nights ? 'Pick your nights' : !picked.household ? 'Cooking for how many?' : "That's my goal"}</Cta>
     </>
   );
 }
@@ -422,9 +436,10 @@ function Nights({ f, set, onNext }: { f: Funnel; set: Set; onNext: () => void })
 // 8 ---------- Il costo di oggi: lo scontrino
 const TAB = ['Delivery', 'Drive-thru', 'Pizza night', '"Just grabbing something"', 'Delivery, again', 'Late-night order', 'Sunday takeout'];
 
-function Receipt({ f, set, onNext }: { f: Funnel; set: Set; onNext: () => void }) {
+function Receipt({ f, set, picked, pick, onNext }: { f: Funnel; set: Set; picked: Picked; pick: Pick; onNext: () => void }) {
   const per = f.household * TAKEOUT_USD;
-  const month = Math.round((f.takeout * 4.3 * per) / 5) * 5;
+  const takeout = picked.takeout ? f.takeout : 0;
+  const month = Math.round((takeout * 4.3 * per) / 5) * 5;
   return (
     <>
       <Head kicker="One honest number">How many nights is it <em>takeout</em> right now?</Head>
@@ -434,27 +449,27 @@ function Receipt({ f, set, onNext }: { f: Funnel; set: Set; onNext: () => void }
           <p className="nx-receipt__head">Takeout · this week</p>
           <ul>
             <AnimatePresence initial={false}>
-              {Array.from({ length: f.takeout }).map((_, i) => (
+              {Array.from({ length: takeout }).map((_, i) => (
                 <motion.li key={i} initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: 30 }} exit={{ opacity: 0, height: 0 }} transition={{ duration: 0.26, ease: EASE }}>
                   <span>{TAB[i]}</span><i /><b>${per}</b>
                 </motion.li>
               ))}
             </AnimatePresence>
-            {f.takeout === 0 && <li className="is-empty">Nothing here. Nice.</li>}
+            {takeout === 0 && <li className="is-empty">{picked.takeout ? 'Nothing here. Nice.' : 'Your week goes here.'}</li>}
           </ul>
           <div className="nx-receipt__total">
             <span>A month of this</span>
             <AnimatePresence mode="popLayout" initial={false}>
-              <motion.b key={month} className="num" initial={{ y: 14, opacity: 0 }} animate={{ y: 0, opacity: 1 }} exit={{ y: -14, opacity: 0 }} transition={{ duration: 0.18 }}>${month}</motion.b>
+              <motion.b key={picked.takeout ? month : 'empty'} className="num" initial={{ y: 14, opacity: 0 }} animate={{ y: 0, opacity: 1 }} exit={{ y: -14, opacity: 0 }} transition={{ duration: 0.18 }}>{picked.takeout ? `$${month}` : '$?'}</motion.b>
             </AnimatePresence>
           </div>
         </div>
       </div>
       <div className="nx-receipt__ctl">
-        <Stepper value={f.takeout} min={0} max={7} onChange={(n) => set({ takeout: n })} label="Takeout nights per week" />
+        <Stepper value={f.takeout} min={0} max={7} empty={!picked.takeout} onChange={(n) => { pick('takeout'); set({ takeout: n }); }} label="Takeout nights per week" />
         <p className="nx-hint">Rough estimate: ${TAKEOUT_USD} a person per meal, for {f.household === 5 ? '5+' : f.household}.</p>
       </div>
-      <Cta onClick={onNext}>See what changes</Cta>
+      <Cta onClick={onNext} disabled={!picked.takeout}>{picked.takeout ? 'See what changes' : 'Tap + or −'}</Cta>
     </>
   );
 }
