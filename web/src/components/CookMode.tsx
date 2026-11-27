@@ -4,6 +4,7 @@ import type { Recipe, Segment } from '../lib/types';
 import { fmtTime, guessItem, scaleQuantity, section } from '../lib/kitchen';
 import { Icon } from './Icon';
 import { VideoPlayer, type PlayerHandle } from './VideoPlayer';
+import '../styles/cook-orig.css';
 
 type Page = Segment & { fromVideo: boolean };
 
@@ -40,6 +41,8 @@ export function CookMode({ recipe, factor = 1, onClose, onDone, limit, onUnlock 
   const [paused, setPaused] = useState(false);
   const [muted, setMuted] = useState(true);
   const [videoFailed, setVideoFailed] = useState(false);
+  // Instagram senza file del reel: niente riquadro grande bloccato, solo un link al video originale.
+  const [igOff, setIgOff] = useState(false);
   // Gli ingredienti del passo: chiusi sono solo emoji; aperti restano aperti anche nei passi dopo.
   const [showIngs, setShowIngs] = useState(false);
   const player = useRef<PlayerHandle>(null);
@@ -148,7 +151,7 @@ export function CookMode({ recipe, factor = 1, onClose, onDone, limit, onUnlock 
         <span className="cook__count">{Math.min(index + 1, all.length)}/{all.length}</span>
       </header>
 
-      {embed && !videoFailed && (
+      {embed && !videoFailed && !igOff && (
         <section className="cook__video">
           <VideoPlayer
             ref={player}
@@ -159,6 +162,7 @@ export function CookMode({ recipe, factor = 1, onClose, onDone, limit, onUnlock 
             onTime={onTime}
             onEnded={() => { if (!state.current.paused) restart(); }}
             onFail={() => { if (embed.type !== 'instagram') setVideoFailed(true); }}
+            onUnavailable={() => setIgOff(true)}
           />
           {controllable && (
             <div className="cook__controls">
@@ -175,12 +179,17 @@ export function CookMode({ recipe, factor = 1, onClose, onDone, limit, onUnlock 
           )}
         </section>
       )}
-      {embed?.type === 'instagram' && !controllable && page?.fromVideo && (
-        // Instagram non lascia comandare i suoi video da un altro sito: a volte il video parte qui ma senza
-        // loop né salto, a volte premendo si apre Instagram. Lo si dice chiaro, altrimenti sembra un guasto
-        // di Cherry. Con TikTok il loop c'è sempre.
-        // Una riga sola: sotto ci sono gli step, che devono restare in vista.
-        <p className="cook__note" style={{ marginTop: 8, fontSize: 12.5, lineHeight: 1.3 }}>Instagram doesn't allow looping. TikTok videos loop.</p>
+      {igOff && (
+        // Instagram non dà il file di questo reel: un link piccolo, e tutto lo spazio agli step.
+        <a className="cook__orig" href={recipe.sourceUrl || `https://www.instagram.com/reel/${embed?.type === 'instagram' ? embed.shortcode : ''}/`} target="_blank" rel="noopener">
+          {/* La copertina del reel, piccola, con il play sopra: si capisce subito che è il video. */}
+          <span className="cook__orig-thumb">
+            {recipe.imageUrl ? <img src={recipe.imageUrl} alt="" /> : null}
+            <Icon name="play" size={16} fill="currentColor" />
+          </span>
+          <span><b>Open original video</b><small>Instagram doesn't allow looping here</small></span>
+          <Icon name="external" size={15} />
+        </a>
       )}
 
       <div className="cook__pages" ref={scroller}>

@@ -5,13 +5,14 @@ import { EmailAuth } from '../../components/EmailAuth';
 import '../../styles/flow-next.css';
 import { Icon, Logo } from '../../components/Icon';
 import { useSession } from '../../lib/store';
+import { takeNext } from '../../lib/next';
 
 /** Per chi ha già l'account: login e dritto dentro (o al paywall). */
 export function SignIn() {
   const [, navigate] = useLocation();
   const { user, entitled, ready } = useSession();
   useEffect(() => {
-    if (ready && user) navigate(entitled ? '/' : '/join');
+    if (ready && user) navigate(entitled ? takeNext() || '/' : '/join');
   }, [ready, user, entitled]);
   return (
     <div className="flow nx-white">

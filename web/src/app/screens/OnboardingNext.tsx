@@ -13,6 +13,7 @@ import { saveProfile, sendRegistrationEvent } from '../../lib/api';
 import { DEMO_URL, derive, hasFunnel, loadFunnel, saveFunnel, TAKEOUT_USD, type Funnel } from '../../lib/funnel';
 import { journey } from '../../lib/journey';
 import { isPreview } from '../../lib/preview';
+import { takeNext } from '../../lib/next';
 import demo from '../../lib/demo.json';
 import type { Recipe } from '../../lib/types';
 
@@ -120,7 +121,7 @@ export function OnboardingNext() {
 
   useEffect(() => {
     if (!ready || !user || preview) return;
-    if (entitled) { navigate('/'); return; }
+    if (entitled) { navigate(takeNext() || '/'); return; }
     // Anche chi torna dal login con redirect (la pagina riparte dall'inizio) va dritto al paywall.
     if (name === 'account' || (step === 0 && f.recipe)) finish();
   }, [ready, user, entitled, name]);

@@ -26,6 +26,9 @@ type Props = {
   onTime?: (t: number) => void;
   onEnded?: () => void;
   onFail?: () => void;
+  /** Instagram: il file del reel non c'è. Se passato, al posto dell'embed bloccato non si mostra niente
+      (ci pensa chi usa il player, con un link al video originale). */
+  onUnavailable?: () => void;
 };
 
 const TIKTOK_PARAMS = [
@@ -104,8 +107,11 @@ const InstagramPlayer = forwardRef<PlayerHandle, Props & { shortcode: string }>(
     return () => { live = false; };
   }, [shortcode, recipeId]);
 
+  // Prima dei return: gli hook vanno chiamati sempre nello stesso ordine.
+  useEffect(() => { if (src === null) props.onUnavailable?.(); }, [src]);
+
   if (src === undefined) return <div className="cook__wait"><span className="spinner" /></div>;
-  if (src === null) return <EmbedPlayer {...props} />;
+  if (src === null) return props.onUnavailable ? null : <EmbedPlayer {...props} />;
   return (
     <NativePlayer {...props} ref={ref} src={src}
       // Il link del CDN può essere scaduto: se ne chiede uno nuovo, una volta sola; poi l'embed.

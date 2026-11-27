@@ -3,6 +3,7 @@ import { useLocation } from 'wouter';
 import { Icon } from './Icon';
 import { importRecipe } from '../lib/api';
 import { extractLink } from '../lib/kitchen';
+import { platform, SHORTCUT_URL } from '../lib/pwa';
 
 // Incolla un link: la ricetta compare nel ricettario e si riempie da sola.
 // Vive nel pannello che sale dal +, e da sola sulla pagina /add (condivisione).
@@ -68,6 +69,14 @@ export function AddRecipe({ onDone, autoLink }: { onDone?: () => void; autoLink?
         <li><span>2</span>Tap Share, then Copy link</li>
         <li><span>3</span>Come back and tap Paste link</li>
       </ol>
+      {/* Solo iPhone: il Comando rapido esiste solo lì. Dopo averlo aggiunto, niente più copia e incolla. */}
+      {platform() === 'ios' && (
+        <a className="add__own" href={SHORTCUT_URL} target="_blank" rel="noopener">
+          <span className="add__own-icon"><Icon name="share" size={18} /></span>
+          <span><b>Add Cherry to your Share menu</b><small>Then tap Share › Add to Cherry on any recipe video. Tip: in Settings › Accessibility › Touch › Back Tap, set Double Tap to Add to Cherry, and just copy a link and tap twice.</small></span>
+          <Icon name="next" size={18} />
+        </a>
+      )}
       <button className="add__own" onClick={() => { onDone?.(); navigate('/new'); }}>
         <span className="add__own-icon"><Icon name="pencil" size={18} /></span>
         <span><b>Write your own recipe</b><small>Your ingredients, steps, photo and video</small></span>

@@ -20,6 +20,7 @@ import { SharedList } from './screens/SharedList';
 import { RecipeEditor } from './screens/RecipeEditor';
 import { TabBar } from '../components/TabBar';
 import { ToastHost } from '../components/Toast';
+import { rememberNext } from '../lib/next';
 import { countOpen, ReviewHost } from '../components/ReviewPrompt';
 import { ConsentBanner } from '../components/ConsentBanner';
 import { initMeta, keepClickId, pageView } from '../lib/meta';
@@ -52,7 +53,11 @@ function Member({ children }: { children: React.ReactNode; tabs?: boolean }) {
   const s = useSession();
   const [location] = useLocation();
   if (!s.ready) return <Boot />;
-  if (!s.user) return <Redirect to={`/start${location === '/' ? '' : `?next=${encodeURIComponent(location)}`}`} />;
+  if (!s.user) {
+    // Dopo il login si torna qui (per esempio /add?u=… aperto dal comando "Add to Cherry").
+    if (location !== '/') rememberNext(location + window.location.search);
+    return <Redirect to={`/start${location === '/' ? '' : `?next=${encodeURIComponent(location)}`}`} />;
+  }
   if (!s.entitled) return <Redirect to="/join" />;
   return <><Opened />{children}</>;
 }

@@ -19,6 +19,9 @@ export function platform(): 'ios' | 'android' | 'desktop' {
   return 'desktop';
 }
 
+/** Il Comando rapido "Add to Cherry" (Share sheet e doppio tocco sul retro): apre /app/add?u=<link>. */
+export const SHORTCUT_URL = 'https://www.icloud.com/shortcuts/3e79b044e62e416eab51fce08b3ad945';
+
 export const isIOSSafari = () => platform() === 'ios' && /Safari/.test(navigator.userAgent) && !/CriOS|FxiOS|EdgiOS/.test(navigator.userAgent);
 
 export const canPromptInstall = () => !!deferred;
