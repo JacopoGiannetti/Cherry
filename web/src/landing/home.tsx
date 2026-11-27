@@ -100,7 +100,7 @@ function Hero() {
             {line(<>Now <em>cook</em> it.</>, 0.5)}
           </h1>
           <motion.p className="lhero__lead" initial={{ opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 1.0, duration: 0.5 }}>
-            Paste any TikTok or Instagram recipe. Cherry writes it out and builds a cook mode where every step <b>loops its exact moment of the video.</b>
+            Paste any TikTok or Instagram recipe. Cherry writes it out, with every amount, and builds a cook mode. On TikTok videos, every step <b>loops its exact moment of the video.</b>
           </motion.p>
           <motion.div className="lhero__cta" initial={{ opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 1.15, duration: 0.5 }}>
             <a href={START} className="btn btn--cherry btn--xl">Turn a video into dinner <Icon name="next" stroke={2.6} /></a>
@@ -165,7 +165,7 @@ function Someday() {
 const HOW = [
   ['Copy the link', 'On TikTok or Instagram, tap Share, then Copy link. Any recipe, any creator.'],
   ['Cherry watches it', 'The whole video. Every ingredient and step gets written out, with amounts.'],
-  ['You cook, step by step', 'Each step loops its moment of the video. Big text, screen awake, hands free.'],
+  ['You cook, step by step', 'Big text, screen awake, hands free. On TikTok videos each step loops its moment.'],
 ];
 
 /** Come funziona, mostrato: il video si apre in passi in loop; i tre punti si accendono mentre scendi. */

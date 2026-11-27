@@ -72,7 +72,7 @@ export function Hero() {
       </div>
       <div className="hero__foot">
         <motion.p className="hero__lead" initial={{ opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3 }}>
-          Paste any TikTok or Instagram recipe. Cherry writes it out and builds a cook mode where every step <b>loops its exact moment of the video.</b>
+          Paste any TikTok or Instagram recipe. Cherry writes it out, with every amount, and builds a cook mode. On TikTok videos, every step <b>loops its exact moment of the video.</b>
         </motion.p>
         <motion.div className="hero__cta" initial={{ opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.4 }}>
           <a href={START} className="btn btn--cherry btn--xl">Turn a video into dinner <Icon name="next" stroke={2.6} /></a>
@@ -170,7 +170,7 @@ export function How() {
   const steps = [
     ['Copy the link', 'On TikTok or Instagram, tap Share, then Copy link. Any recipe, any creator.'],
     ['Paste it in Cherry', 'Cherry watches the entire video and writes every ingredient and step, with amounts.'],
-    ['Cook, step by step', 'Each step loops its moment of the video. Big text, screen stays awake, hands stay free.'],
+    ['Cook, step by step', 'Big text, screen stays awake, hands stay free. On TikTok videos each step loops its moment.'],
   ];
   return (
     <section className="how" id="how">
@@ -199,7 +199,7 @@ export function Cook() {
           <Reveal delay={0.05}><h2 className="display section-title">The video repeats the part <em>you're on.</em></h2></Reveal>
           <ul className="cookm__list">
             {[
-              ['Synced to the second', 'Every step is matched to its exact moment. It loops until you move on.'],
+              ['Synced to the second', 'Every step is matched to its exact moment. On TikTok videos it loops until you move on.'],
               ['Read it from across the counter', 'Big type, one step at a time, screen stays awake.'],
               ['Amounts for your table', 'Cooking for two or six? Every quantity rescales.'],
               ['The creator stays in the frame', 'Videos play in the official TikTok and Instagram players.'],
@@ -281,7 +281,7 @@ export function Pricing() {
 
 const FAQ = [
   ['Does it work on my phone?', 'Yes. Cherry works on iPhone, Android, tablets and computers. Add it to your Home Screen for one-tap access, and your cookbook syncs everywhere.'],
-  ['Which videos work?', 'Public recipe videos from TikTok and Instagram Reels. If the video shows the cooking, Cherry can turn it into steps. On TikTok each step loops its moment automatically; on Instagram each step shows its timestamp next to the official player.'],
+  ['Which videos work?', 'Public recipe videos from TikTok and Instagram Reels. If the video shows the cooking, Cherry can turn it into steps. On TikTok each step loops its moment automatically; Instagram doesn’t let other apps control its videos: you get the full recipe and steps, and the video plays in Instagram’s own player, without the loop.'],
   ['How long does it take?', 'Usually under a minute. Cherry watches the whole video, so a longer recipe takes a bit longer. You can keep browsing while it works.'],
   ['Do creators get credit?', 'Always. Cook mode plays the original video in the official TikTok or Instagram player, with the creator’s name, and every recipe links back to the post.'],
   ['What if a recipe has no amounts?', 'Cherry estimates sensible amounts from what it sees in the video and the caption, and you can scale servings up or down.'],

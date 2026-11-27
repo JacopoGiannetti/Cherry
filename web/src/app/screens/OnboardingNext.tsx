@@ -48,7 +48,7 @@ const SAVED_PILE = [4, 7, 10, 14, 18, 22, 27, 31, 36, 40];
 const savedLabel = (n: number) => (n >= 300 ? 'A full-blown archive.' : n >= 100 ? 'A serious collection.' : n >= 30 ? 'A healthy habit.' : 'Just getting started.');
 
 const BLOCKERS = [
-  { id: 'rewind', label: 'I keep rewinding with messy hands', fix: 'Every step loops by itself. Hands stay in the bowl.' },
+  { id: 'rewind', label: 'I keep rewinding with messy hands', fix: 'On TikTok videos every step loops by itself. Hands stay in the bowl.' },
   { id: 'fast', label: 'The video goes way too fast', fix: 'One step at a time. It waits for you.' },
   { id: 'amounts', label: 'Amounts are missing or buried in comments', fix: 'Every ingredient written out, with amounts.' },
   { id: 'lost', label: 'I can never find the recipe again', fix: 'One cookbook, searchable, on every device.' },
