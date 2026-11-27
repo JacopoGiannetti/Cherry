@@ -176,7 +176,9 @@ export function CookMode({ recipe, factor = 1, onClose, onDone, limit, onUnlock 
         </section>
       )}
       {embed?.type === 'instagram' && !controllable && page?.fromVideo && (
-        <p className="cook__note">Instagram videos play in their own player: jump to <b>{fmtTime(page.start)}</b> for this step.</p>
+        // Instagram non lascia riprodurre questo video fuori da Instagram: lo si dice chiaro,
+        // altrimenti sembra un guasto di Cherry. Con TikTok il loop c'è sempre.
+        <p className="cook__note"><b>Instagram doesn't let this video play outside Instagram</b>, so this step can't loop. Skip to <b>{fmtTime(page.start)}</b> for this step. Looping steps always work with TikTok recipes.</p>
       )}
 
       <div className="cook__pages" ref={scroller}>
