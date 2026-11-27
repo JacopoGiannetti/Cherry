@@ -96,7 +96,9 @@ async function offerCheckoutUrl(uid) {
   const ref = db().doc(`users/${uid}`);
   const user = (await ref.get()).data();
   if (!user) return `${keys.web.appUrl}/app/start`;
-  if (isEntitled(user)) return `${keys.web.appUrl}/app`;
+  // Già abbonato: non c'è niente da comprare. Alla pagina di accesso, che porta dentro chi è già loggato
+  // (mandarlo all'app lo faceva finire sull'onboarding, se in quel browser non era entrato).
+  if (isEntitled(user)) return `${keys.web.appUrl}/app/signin`;
   const coupon = await ensureCoupon();
   let customer = user.stripe?.customerId;
   if (!customer) {
