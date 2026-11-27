@@ -124,3 +124,8 @@
 /* ---------- Piccole correzioni alle sezioni condivise ---------- */
 .footer nav { flex-wrap: wrap; gap: 14px 24px; }
 .footer { padding-bottom: calc(40px + var(--safe-b)); }
+
+/* La landing apre con il "Tonight, cook the one you saved." e chiude con l'hero scuro */
+.closer--top { padding-top: clamp(110px, 12vw, 170px); padding-bottom: clamp(40px, 6vw, 90px); }
+.lhero--end { border-radius: clamp(32px, 5vw, 72px); margin-top: clamp(40px, 6vw, 90px); }
+.lhero--end .lhero__in { min-height: 0; padding-top: clamp(60px, 8vw, 110px); }

@@ -311,17 +311,24 @@ export function Faq() {
   );
 }
 
-export function Closer() {
+/** In cima alla landing (top) è l'apertura: h1, immagini subito, niente attesa dello scroll. */
+export function Closer({ top = false }: { top?: boolean }) {
+  const load = top ? 'eager' : 'lazy';
+  const body = (
+    <>
+      {top
+        ? <h1 className="display shout closer__title">Tonight, cook the one <em>you saved.</em></h1>
+        : <h2 className="display shout closer__title">Tonight, cook the one <em>you saved.</em></h2>}
+      <a href={START} className="btn btn--cherry btn--xl">Start cooking <Icon name="next" stroke={2.6} /></a>
+    </>
+  );
   return (
-    <section className="closer">
+    <section className={top ? 'closer closer--top' : 'closer'} id={top ? 'top' : undefined}>
       <div className="closer__plates" aria-hidden="true">
-        <span className="plate"><img src="/assets/food/v-kungpao.jpg" alt="" loading="lazy" /></span>
-        <span className="plate"><img src="/assets/food/v-grilledcheese.jpg" alt="" loading="lazy" /></span>
+        <span className="plate"><img src="/assets/food/v-kungpao.jpg" alt="" loading={load} /></span>
+        <span className="plate"><img src="/assets/food/v-grilledcheese.jpg" alt="" loading={load} /></span>
       </div>
-      <Reveal>
-        <h2 className="display shout closer__title">Tonight, cook the one <em>you saved.</em></h2>
-        <a href={START} className="btn btn--cherry btn--xl">Start cooking <Icon name="next" stroke={2.6} /></a>
-      </Reveal>
+      {top ? body : <Reveal>{body}</Reveal>}
     </section>
   );
 }

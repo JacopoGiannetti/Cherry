@@ -76,33 +76,35 @@ export function Nav({ home = true }: { home?: boolean }) {
   );
 }
 
+/** Prima era l'apertura; ora chiude la landing, quindi le entrate partono quando arriva in vista. */
 function Hero() {
   const ref = useRef<HTMLElement>(null);
   const { scrollYProgress } = useScroll({ target: ref, offset: ['start start', 'end start'] });
   const rotate = useTransform(scrollYProgress, [0, 1], [0, 70]);
   const lift = useTransform(scrollYProgress, [0, 1], [0, -60]);
+  const seen = useInView(ref, { once: true, amount: 0.25 });
   const line = (text: React.ReactNode, delay: number) => (
-    <span className="nx-mask"><motion.span initial={{ y: '112%' }} animate={{ y: 0 }} transition={{ duration: 0.9, delay, ease: EASE }}>{text}</motion.span></span>
+    <span className="nx-mask"><motion.span initial={{ y: '112%' }} animate={seen ? { y: 0 } : undefined} transition={{ duration: 0.9, delay, ease: EASE }}>{text}</motion.span></span>
   );
   return (
-    <section className="lhero" id="top" ref={ref}>
+    <section className="lhero lhero--end" ref={ref}>
       <div className="lhero__in">
         <motion.div className="lhero__orbit" style={{ rotate, y: lift }}>
           <Orbit>
-            <motion.div className="nx-orbit__core" initial={{ scale: 0, rotate: -30 }} animate={{ scale: 1, rotate: 0 }} transition={{ type: 'spring', stiffness: 200, damping: 12, delay: 0.75 }}>
+            <motion.div className="nx-orbit__core" initial={{ scale: 0, rotate: -30 }} animate={seen ? { scale: 1, rotate: 0 } : undefined} transition={{ type: 'spring', stiffness: 200, damping: 12, delay: 0.75 }}>
               <img src="/assets/mascot.png" alt="" />
             </motion.div>
           </Orbit>
         </motion.div>
         <div className="lhero__text">
-          <h1 className="display shout lhero__title">
+          <h2 className="display shout lhero__title">
             {line('Saved it.', 0.35)}
             {line(<>Now <em>cook</em> it.</>, 0.5)}
-          </h1>
-          <motion.p className="lhero__lead" initial={{ opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 1.0, duration: 0.5 }}>
+          </h2>
+          <motion.p className="lhero__lead" initial={{ opacity: 0, y: 14 }} animate={seen ? { opacity: 1, y: 0 } : undefined} transition={{ delay: 1.0, duration: 0.5 }}>
             Paste any TikTok or Instagram recipe. Cherry writes it out, with every amount, and builds a cook mode. On TikTok videos, every step <b>loops its exact moment of the video.</b>
           </motion.p>
-          <motion.div className="lhero__cta" initial={{ opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 1.15, duration: 0.5 }}>
+          <motion.div className="lhero__cta" initial={{ opacity: 0, y: 14 }} animate={seen ? { opacity: 1, y: 0 } : undefined} transition={{ delay: 1.15, duration: 0.5 }}>
             <a href={START} className="btn btn--cherry btn--xl">Turn a video into dinner <Icon name="next" stroke={2.6} /></a>
             <span>Takes two minutes. Try a recipe before you sign up.</span>
           </motion.div>
@@ -215,14 +217,14 @@ export function Landing() {
     <>
       <Nav />
       <main>
-        <Hero />
+        <Closer top />
         <Marquee />
         <Someday />
         <How />
         <Cook />
         <More />
         <Faq />
-        <Closer />
+        <Hero />
       </main>
       <Footer />
     </>
