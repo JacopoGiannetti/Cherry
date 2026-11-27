@@ -14,6 +14,8 @@ const page = (title, body) => `<!doctype html><html lang="en"><head><meta charse
 router.get('/offer', async (req, res) => {
   const t = offer.readOfferToken(req.query.t);
   if (!t) return res.redirect(302, `${keys.web.appUrl}/app/join`);
+  // Il clic si conta sempre, anche a offerta scaduta: è il numero che si guarda in dashboard.
+  offer.mark(t.uid, 'click').catch(() => {});
   if (t.expired) return res.status(410).send(page('This offer has ended', 'The 48 hours are up. You can still join Cherry at the regular price.'));
   try {
     res.redirect(303, await offer.offerCheckoutUrl(t.uid));
@@ -21,6 +23,15 @@ router.get('/offer', async (req, res) => {
     console.error('[mail] offerta:', e.message);
     res.redirect(302, `${keys.web.appUrl}/app/join`);
   }
+});
+
+// L'apertura: un'immagine di un pixel in fondo all'email. È una stima: Apple Mail la scarica
+// da solo anche se nessuno legge, e chi blocca le immagini non risulta.
+const PIXEL = Buffer.from('R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7', 'base64');
+router.get('/o.gif', (req, res) => {
+  const uid = offer.readOpenToken(req.query.t);
+  if (uid) offer.mark(uid, 'open').catch(() => {});
+  res.set({ 'Content-Type': 'image/gif', 'Cache-Control': 'no-store, max-age=0' }).send(PIXEL);
 });
 
 // Disiscrizione: dal link in fondo (GET) e dal tasto del programma di posta (POST, un clic).

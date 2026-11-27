@@ -28,6 +28,19 @@ const OFFER_CENTS = 2499;
 const COUPON_ID = 'cherry-yearly-2499';
 const OFFER = 'yearly-2499';
 
+// Aperture e clic si leggono in dashboard (Cherry → Email offerta): a ogni invio ripartono da zero.
+const FRESH = { offerOpenedAt: FieldValue.delete(), offerOpens: FieldValue.delete(), offerClickedAt: FieldValue.delete(), offerClicks: FieldValue.delete(), offerCheckoutAt: FieldValue.delete() };
+
+/** Un'apertura (il pixel in fondo) o un clic sul bottone: la prima volta l'ora, poi solo il conto. */
+async function mark(uid, what) {
+  const at = what === 'open' ? 'offerOpenedAt' : 'offerClickedAt';
+  const n = what === 'open' ? 'offerOpens' : 'offerClicks';
+  const ref = db().doc(`users/${uid}`);
+  const cur = (await ref.get()).data();
+  if (!cur) return;
+  await ref.set({ mail: { [n]: FieldValue.increment(1), ...(cur.mail?.[at] ? {} : { [at]: FieldValue.serverTimestamp() }) } }, { merge: true });
+}
+
 const stripe = () => new Stripe(keys.stripe.secretKey);
 const ready = () => Boolean(keys.mail.resendKey && keys.stripe.secretKey && keys.stripe.priceYearly && keys.hmacSecret);
 const sign = (text) => crypto.createHmac('sha256', keys.hmacSecret).update(text).digest('base64url').slice(0, 32);
@@ -40,6 +53,12 @@ function readOfferToken(token) {
   if (!uid || !/^\d+$/.test(exp || '') || !sig || !keys.hmacSecret) return null;
   if (!same(sig, sign(`offer:${uid}:${exp}`))) return null;
   return { uid, exp: Number(exp), expired: Date.now() > Number(exp) };
+}
+const openToken = (uid) => `${uid}.${sign(`open:${uid}`)}`;
+function readOpenToken(token) {
+  const [uid, sig] = String(token || '').split('.');
+  if (!uid || !sig || !keys.hmacSecret || !same(sig, sign(`open:${uid}`))) return null;
+  return uid;
 }
 const unsubToken = (uid) => `${uid}.${sign(`unsub:${uid}`)}`;
 function readUnsubToken(token) {
@@ -96,7 +115,7 @@ async function offerCheckoutUrl(uid) {
     success_url: `${keys.web.appUrl}/app/welcome?session={CHECKOUT_SESSION_ID}`,
     cancel_url: `${keys.web.appUrl}/app/join?canceled=1`,
   });
-  ref.set({ mail: { offerClickedAt: FieldValue.serverTimestamp() } }, { merge: true }).catch(() => {});
+  ref.set({ mail: { offerCheckoutAt: FieldValue.serverTimestamp() } }, { merge: true }).catch(() => {});
   return session.url;
 }
 
@@ -107,7 +126,7 @@ const usd = (cents) => `$${(cents / 100).toFixed(2)}`;
  *  È un buono, non un avviso: titolo, il regalo, la pillola con lo sconto, il prezzo di prima
  *  barrato sopra quello nuovo, un bottone solo. Tabelle e stili in linea, niente immagini:
  *  si legge uguale anche dove il programma di posta le blocca. */
-function render({ offerUrl, unsubUrl, listCents, postal }) {
+function render({ offerUrl, unsubUrl, openUrl, listCents, postal }) {
   const list = usd(listCents), offer = usd(OFFER_CENTS);
   const save = Math.round((listCents - OFFER_CENTS) / 100);
   const pct = Math.round(((listCents - OFFER_CENTS) / listCents) * 100);
@@ -148,7 +167,7 @@ function render({ offerUrl, unsubUrl, listCents, postal }) {
 
 <tr><td align="center" style="padding:34px 8px 0;font-size:12px;line-height:1.6;color:#9A928E;">You are getting this because you created a Cherry account.<br><a href="${esc(unsubUrl)}" style="color:#9A928E;">Unsubscribe</a><br>${esc(postal)}</td></tr>
 </table>
-</td></tr></table></body></html>`;
+</td></tr></table>${openUrl ? `<img src="${esc(openUrl)}" width="1" height="1" alt="" style="display:block;border:0;width:1px;height:1px;">` : ''}</body></html>`;
   return { subject, text, html };
 }
 
@@ -159,7 +178,7 @@ async function sendOne(uid, user) {
   const mail = render({
     firstName: String(user.displayName || '').trim().split(' ')[0],
     offerUrl: `${keys.mail.apiUrl}/mail/offer?t=${offerToken(uid, exp)}`,
-    unsubUrl, listCents: price.cents, postal: POSTAL,
+    unsubUrl, openUrl: `${keys.mail.apiUrl}/mail/o.gif?t=${openToken(uid)}`, listCents: price.cents, postal: POSTAL,
   });
   const r = await fetch('https://api.resend.com/emails', {
     method: 'POST',
@@ -170,6 +189,8 @@ async function sendOne(uid, user) {
     }),
   });
   if (!r.ok) throw new Error(`Resend ${r.status}: ${(await r.text()).slice(0, 200)}`);
+  const id = await r.json().then((j) => j.id).catch(() => null);
+  if (id) db().doc(`users/${uid}`).set({ mail: { resendId: id } }, { merge: true }).catch(() => {});
   return exp;
 }
 
@@ -196,7 +217,7 @@ async function tick() {
       const mine = await db().runTransaction(async (t) => {
         const cur = (await t.get(doc.ref)).data() || {};
         if (cur.mail?.offerAt || cur.mail?.unsubscribed || isEntitled(cur)) return false;
-        t.set(doc.ref, { mail: { offerAt: FieldValue.serverTimestamp() } }, { merge: true });
+        t.set(doc.ref, { mail: { offerAt: FieldValue.serverTimestamp(), ...FRESH } }, { merge: true });
         return true;
       });
       if (!mine) continue;
@@ -219,7 +240,7 @@ async function tickTest() {
   for (const doc of snap.docs) {
     try {
       const user = doc.data();
-      await doc.ref.set({ mail: { test: false } }, { merge: true });
+      await doc.ref.set({ mail: { test: false, ...FRESH } }, { merge: true });
       if (!user.email) continue;
       await sendOne(doc.id, user);
       await doc.ref.set({ mail: { testSentAt: FieldValue.serverTimestamp() } }, { merge: true });
@@ -242,4 +263,4 @@ function start() {
   setInterval(run, (MODE === 'test' ? 1 : 5) * 60 * 1000).unref();
 }
 
-module.exports = { start, tick, render, offerToken, readOfferToken, unsubToken, readUnsubToken, offerCheckoutUrl, OFFER_CENTS };
+module.exports = { start, tick, render, mark, offerToken, readOfferToken, openToken, readOpenToken, unsubToken, readUnsubToken, offerCheckoutUrl, OFFER_CENTS };
