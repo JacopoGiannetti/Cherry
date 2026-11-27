@@ -179,7 +179,8 @@ export function CookMode({ recipe, factor = 1, onClose, onDone, limit, onUnlock 
         // Instagram non lascia comandare i suoi video da un altro sito: a volte il video parte qui ma senza
         // loop né salto, a volte premendo si apre Instagram. Lo si dice chiaro, altrimenti sembra un guasto
         // di Cherry. Con TikTok il loop c'è sempre.
-        <p className="cook__note"><b>Instagram doesn't let Cherry control its videos</b>, so steps can't loop or jump to their moment. Tap play to watch it here, or in Instagram if it opens there. Looping steps work with TikTok recipes.</p>
+        // Una riga sola: sotto ci sono gli step, che devono restare in vista.
+        <p className="cook__note" style={{ marginTop: 8, fontSize: 12.5, lineHeight: 1.3 }}>Instagram doesn't allow looping. TikTok videos loop.</p>
       )}
 
       <div className="cook__pages" ref={scroller}>
