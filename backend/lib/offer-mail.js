@@ -17,7 +17,7 @@ const { keys } = require('../config/keys');
 const { db, FieldValue } = require('./firebase');
 const { isEntitled } = require('./entitlement');
 
-const MODE = 'test';              // 'off' | 'test' | 'on'
+const MODE = 'on';                // 'off' | 'test' | 'on' (accesa il 27 nov 2026)
 const POSTAL = 'Cherry · Via Bernardino Lanino 5, 20144 Milano, Italy'; // obbligatorio in fondo (CAN-SPAM)
 const REPLY_TO = 'support@hellocherry.app';
 const COUNTRIES = new Set(['US']);
