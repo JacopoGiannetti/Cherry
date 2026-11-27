@@ -281,7 +281,7 @@ export function Pricing() {
 
 const FAQ = [
   ['Does it work on my phone?', 'Yes. Cherry works on iPhone, Android, tablets and computers. Add it to your Home Screen for one-tap access, and your cookbook syncs everywhere.'],
-  ['Which videos work?', 'Public recipe videos from TikTok and Instagram Reels. If the video shows the cooking, Cherry can turn it into steps. On TikTok each step loops its moment automatically; Instagram doesn’t let other apps control its videos: you get the full recipe and steps, and the video plays in Instagram’s own player, without the loop.'],
+  ['Which videos work?', 'Public recipe videos from TikTok and Instagram Reels. If the video shows the cooking, Cherry can turn it into steps. Step looping works mainly with TikTok: there each step loops its moment automatically. Instagram doesn’t let other apps control its videos, so for most Reels you get the full recipe, amounts and steps, with a link to the original video and no loop.'],
   ['How long does it take?', 'Usually under a minute. Cherry watches the whole video, so a longer recipe takes a bit longer. You can keep browsing while it works.'],
   ['Do creators get credit?', 'Always. Cook mode plays the original video in the official TikTok or Instagram player, with the creator’s name, and every recipe links back to the post.'],
   ['What if a recipe has no amounts?', 'Cherry estimates sensible amounts from what it sees in the video and the caption, and you can scale servings up or down.'],

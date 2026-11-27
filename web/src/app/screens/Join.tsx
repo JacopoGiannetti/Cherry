@@ -115,6 +115,7 @@ export function Join() {
         {error && <p className="err" role="alert">{error}</p>}
 
         <p className="pw__fine">{fine}</p>
+        <p className="pw__fine">Step looping works mainly with TikTok videos. Most Instagram Reels open in Instagram.</p>
         <p className="pw__links"><Icon name="lock" size={12} /> Secure checkout by Stripe · <a href="/terms">Terms</a> · <a href="/privacy">Privacy</a></p>
       </section>
     </div>
