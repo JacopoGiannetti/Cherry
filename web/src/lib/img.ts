@@ -3,10 +3,14 @@
 // prima ripartiva da trasparente a ogni ritorno e il ricettario lampeggiava di bianco.
 const loaded = new Set<string>();
 
+/** Questa foto è già stata caricata in questa sessione. */
+export const seen = (url: string | null | undefined) => !!url && loaded.has(url);
+
 /** Props per <img src={url}>. */
 export function fadeIn(url: string) {
   const known = loaded.has(url);
-  const done = (el: HTMLImageElement) => { loaded.add(url); el.classList.add('is-in'); };
+  // Si tiene anche l'elemento: finché qualcosa lo tiene, il browser non butta la foto già decodificata.
+  const done = (el: HTMLImageElement) => { loaded.add(url); if (!warm.has(url)) warm.set(url, el); el.classList.add('is-in'); };
   return {
     className: known ? 'is-in' : undefined,
     // Già in memoria: si disegna nello stesso fotogramma della card, non uno dopo.

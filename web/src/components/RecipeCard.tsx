@@ -4,7 +4,7 @@ import { Link } from 'wouter';
 import type { Recipe } from '../lib/types';
 import { minutes } from '../lib/kitchen';
 import { Icon } from './Icon';
-import { fadeIn } from '../lib/img';
+import { fadeIn, seen as seenPhoto } from '../lib/img';
 
 const STAGE: Record<string, string> = { reading: 'Opening the post', watching: 'Watching the video' };
 
@@ -24,7 +24,7 @@ export const RecipeCard = forwardRef<HTMLDivElement, { recipe: Recipe; index?: n
       transition={{ duration: 0.35, delay: Math.min(index, 6) * 0.035, ease: [0.2, 0.8, 0.2, 1] }}>
       <Link href={`/r/${recipe.id}`} state={{ from: 'library' }} className="card">
         <div className="card__img">
-          {recipe.imageUrl && !importing ? <img src={recipe.imageUrl} alt="" loading={index < 8 ? 'eager' : 'lazy'} {...fadeIn(recipe.imageUrl)} /> : <span className="shimmer card__ph" />}
+          {recipe.imageUrl && !importing ? <img src={recipe.imageUrl} alt="" loading={index < 8 || seenPhoto(recipe.imageUrl) ? 'eager' : 'lazy'} {...fadeIn(recipe.imageUrl)} /> : <span className="shimmer card__ph" />}
           {importing && <span className="card__busy"><span className="spinner" /></span>}
           {!importing && !failed && video && <span className="card__tag"><Icon name="play" size={10} fill="currentColor" stroke={0} />{recipe.segments!.length}</span>}
           {recipe.favorite && <span className="card__fav"><Icon name="heart" size={14} fill="currentColor" stroke={0} /></span>}
