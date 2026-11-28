@@ -1,4 +1,5 @@
 import { useRef, useState } from 'react';
+import { goBack } from '../../lib/nav';
 import { useLocation } from 'wouter';
 import { motion } from 'motion/react';
 import { Icon } from '../../components/Icon';
@@ -39,7 +40,7 @@ export function Settings() {
   return (
     <main className="page">
       <header className="bar">
-        <button className="bar__btn" onClick={() => (history.length > 1 ? history.back() : navigate('/'))} aria-label="Back"><Icon name="back" /></button>
+        <button className="bar__btn" onClick={() => (history.length > 1 ? goBack() : navigate('/'))} aria-label="Back"><Icon name="back" /></button>
         <h1 className="bar__title bar__title--center">Account</h1>
         <span className="bar__spacer" />
       </header>

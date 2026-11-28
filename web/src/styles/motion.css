@@ -1,0 +1,17 @@
+/* Fluidità: niente compare dal nulla.
+   - Le foto entrano con una dissolvenza la prima volta; se sono già pronte (tornando a una pagina) ci sono subito.
+   - La barra in basso, entrando in una ricetta, scende; tornando, risale (prima spariva e ricompariva di colpo). */
+
+.card__img img, .recipe__media img { opacity: 0; transition: opacity .32s var(--ease, ease); }
+.card__img img.is-in, .recipe__media img.is-in { opacity: 1; }
+
+::view-transition-group(tabbar) { animation: none; }
+::view-transition-old(tabbar) { display: block; animation: 220ms cubic-bezier(.4, 0, 1, 1) both tab-out; }
+::view-transition-new(tabbar) { animation: 340ms cubic-bezier(.2, .8, .2, 1) both tab-in; }
+@keyframes tab-out { to { transform: translateY(120%); } }
+@keyframes tab-in { from { transform: translateY(120%); } }
+
+@media (prefers-reduced-motion: reduce) {
+  .card__img img, .recipe__media img { transition: none; }
+  ::view-transition-old(tabbar), ::view-transition-new(tabbar) { animation: none; }
+}

@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import { goBack } from '../../lib/nav';
 import { useLocation } from 'wouter';
 import { CookMode } from '../../components/CookMode';
 import { useRecipe, useSession } from '../../lib/store';
@@ -16,7 +17,7 @@ export function CookScreen({ id }: { id: string }) {
   const factor = servings && recipe.servings ? servings / recipe.servings : 1;
   const close = () => {
     // Si è arrivati dalla ricetta: si torna indietro, così "indietro" dalla ricetta non riapre la cook mode.
-    if ((history.state as any)?.from === 'recipe') history.back();
+    if ((history.state as any)?.from === 'recipe') goBack();
     else navigate(`/r/${id}`, { replace: true });
   };
   return <CookMode recipe={recipe} factor={factor} onClose={close} onDone={() => { used('cook.done'); close(); askReview('cook'); }} />;

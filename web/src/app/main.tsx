@@ -1,11 +1,12 @@
-import { StrictMode, Suspense, lazy, useEffect } from 'react';
+import { StrictMode, Suspense, lazy, useEffect, useLayoutEffect } from 'react';
 import { createRoot } from 'react-dom/client';
 import { Route, Router, Switch, Redirect, useLocation } from 'wouter';
 import { useBrowserLocation } from 'wouter/use-browser-location';
-import { flushSync } from 'react-dom';
 import '../styles/tokens.css';
 import '../styles/app.css';
 import '../styles/flow.css';
+import '../styles/motion.css';
+import { takePopped, transition } from '../lib/nav';
 import { startSession, useSession } from '../lib/store';
 import { Join } from './screens/Join';
 import { Welcome } from './screens/Welcome';
@@ -81,9 +82,26 @@ function Tabs() {
   return <TabBar />;
 }
 
+/**
+ * Pagina nuova: si parte dall'alto. Tornando indietro: dalla posizione di prima
+ * (prima si ripartiva sempre dall'alto, e la foto non trovava la sua card).
+ * useLayoutEffect: succede prima che la transizione fotografi la pagina.
+ */
+const scrolls = new Map<string, number>();
+let lastPath = '';
 function ScrollTop() {
   const [location] = useLocation();
-  useEffect(() => { window.scrollTo(0, 0); pageView(window.location.pathname); }, [location]);
+  useLayoutEffect(() => {
+    // La posizione della pagina che si lascia la tiene già il listener (qui scrollY è già quello nuovo).
+    lastPath = location;
+    window.scrollTo(0, takePopped() ? scrolls.get(location) || 0 : 0);
+    pageView(window.location.pathname);
+  }, [location]);
+  useEffect(() => {
+    const save = () => { if (lastPath) scrolls.set(lastPath, scrollY); };
+    addEventListener('scroll', save, { passive: true });
+    return () => removeEventListener('scroll', save);
+  }, []);
   return null;
 }
 
@@ -91,13 +109,12 @@ function ScrollTop() {
 const useVtLocation: typeof useBrowserLocation = (opts) => {
   const [loc, nav] = useBrowserLocation(opts);
   return [loc, (to, o) => {
-    const start = (document as any).startViewTransition?.bind(document);
     // Tra le schede (Cookbook ↔ Groceries…) niente transizione: la barra resta ferma e la
     // pillola scorre da sola. Con la transizione Safari ridisegnava la barra e la faceva lampeggiare.
     const path = (p: string) => p.split('?')[0].replace(/^\/app/, '') || '/';
     const tabSwitch = TAB_ROUTES.includes(path(String(to))) && TAB_ROUTES.includes(path(loc));
-    if (!start || tabSwitch) return nav(to, o);
-    start(() => flushSync(() => nav(to, o)));
+    if (tabSwitch) return nav(to, o);
+    transition(() => nav(to, o));
   }];
 };
 

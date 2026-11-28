@@ -8,6 +8,8 @@ import { deleteRecipe, editList, saveCategory, setFavorite, setInCategory, setRe
 import { CategoryChooser, CategoryForm } from '../../components/Categories';
 import { uploadPhoto } from '../../lib/upload';
 import { importRecipe, refreshCover, regenerateFrames, resolveEmbed } from '../../lib/api';
+import { goBack } from '../../lib/nav';
+import { fadeIn } from '../../lib/img';
 import { mergeIntoList, minutes, removeRecipeFromList, scaleQuantity } from '../../lib/kitchen';
 import type { Recipe } from '../../lib/types';
 import { used } from '../../lib/usage';
@@ -156,7 +158,7 @@ function Ready({ recipe, uid, household }: { recipe: Recipe; uid: string; househ
   return (
     <main className="recipe">
       <div className="recipe__media" style={{ viewTransitionName: `img-${recipe.id}` } as React.CSSProperties}>
-        {recipe.imageUrl ? <img src={recipe.imageUrl} alt="" /> : <span className="shimmer card__ph" />}
+        {recipe.imageUrl ? <img src={recipe.imageUrl} alt="" {...fadeIn} /> : <span className="shimmer card__ph" />}
         {!recipe.imageUrl && (
           <button className={`btn btn--soft recipe__cover-btn ${coverBusy ? 'is-busy' : ''}`} onClick={() => (recipe.sourceUrl ? getCover() : photoInput.current?.click())}>
             <Icon name={recipe.sourceUrl ? 'refresh' : 'camera'} size={17} /> {recipe.sourceUrl ? 'Get the cover from the video' : 'Add a photo'}
@@ -166,7 +168,7 @@ function Ready({ recipe, uid, household }: { recipe: Recipe; uid: string; househ
         <input ref={photoInput} type="file" accept="image/*" hidden onChange={(e) => { ownPhoto(e.target.files?.[0]); e.target.value = ''; }} />
       </div>
       <header className="recipe__bar">
-        <button className="bar__btn bar__btn--float" onClick={() => ((history.state as any)?.from === 'library' ? history.back() : navigate('/', { replace: true }))} aria-label="Back"><Icon name="back" /></button>
+        <button className="bar__btn bar__btn--float" onClick={() => ((history.state as any)?.from === 'library' ? goBack() : navigate('/', { replace: true }))} aria-label="Back"><Icon name="back" /></button>
         <div className="bar__actions">
           <button className="bar__btn bar__btn--float" onClick={() => setFavorite(uid, recipe.id, !recipe.favorite)}
             aria-label={recipe.favorite ? 'Remove from favorites' : 'Add to favorites'} aria-pressed={!!recipe.favorite}>
@@ -193,9 +195,11 @@ function Ready({ recipe, uid, household }: { recipe: Recipe; uid: string; househ
           ))}
         </div>
 
-        <AnimatePresence mode="wait" initial={false}>
+        {/* popLayout: la vecchia lista esce mentre entra la nuova. Con "wait" per un attimo non c'era
+            niente, la pagina si accorciava e il pulsante in basso saltava su e giù. */}
+        <AnimatePresence mode="popLayout" initial={false}>
           {tab === 'ingredients' ? (
-            <motion.div key="i" initial={{ opacity: 0, x: -12 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -12 }} transition={{ duration: 0.18 }}>
+            <motion.div key="i" initial={{ opacity: 0, x: -16 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -16 }} transition={{ duration: 0.26, ease: [0.2, 0.8, 0.2, 1] }}>
               <div className="servings">
                 <span>Servings</span>
                 <div className="stepper">
@@ -211,7 +215,7 @@ function Ready({ recipe, uid, household }: { recipe: Recipe; uid: string; househ
               </ul>
             </motion.div>
           ) : (
-            <motion.ol key="s" className="method" initial={{ opacity: 0, x: 12 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: 12 }} transition={{ duration: 0.18 }}>
+            <motion.ol key="s" className="method" initial={{ opacity: 0, x: 16 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: 16 }} transition={{ duration: 0.26, ease: [0.2, 0.8, 0.2, 1] }}>
               {recipe.steps.map((s, i) => <li key={i}><span>{i + 1}</span><p>{s}</p></li>)}
             </motion.ol>
           )}
