@@ -1,17 +1,112 @@
-/* Fluidità: niente compare dal nulla.
-   - Le foto entrano con una dissolvenza la prima volta; se sono già pronte (tornando a una pagina) ci sono subito.
-   - La barra in basso, entrando in una ricetta, scende; tornando, risale (prima spariva e ricompariva di colpo). */
+/* ============================================================
+   Il movimento dell'app, tutto qui. La logica è in lib/nav.ts:
+   ogni cambio pagina ha un tipo (data-vt / data-enter su <html>)
+   e indietro è sempre il contrario dell'andata.
 
-.card__img img, .recipe__media img { opacity: 0; transition: opacity .32s var(--ease, ease); }
+   Regole:
+   - una sola curva per gli spostamenti (--m-ease, quella dei fogli di iOS),
+     una per ciò che entra (--m-out), una per ciò che esce (--m-in);
+   - si muovono solo transform e opacity;
+   - niente compare dal nulla: ogni cosa entra dal punto da cui arriva.
+   ============================================================ */
+
+:root {
+  --m-ease: cubic-bezier(.32, .72, 0, 1);
+  --m-out: cubic-bezier(.22, 1, .36, 1);
+  --m-in: cubic-bezier(.4, 0, 1, 1);
+  --m-page: 460ms;
+}
+
+/* ---------- Foto: dissolvenza la prima volta, subito se già pronte ---------- */
+.card__img img, .recipe__media img { opacity: 0; transition: opacity .32s var(--m-out); }
 .card__img img.is-in, .recipe__media img.is-in { opacity: 1; }
+/* Durante un passaggio di pagina le foto sono piene: la dissolvenza bucherebbe la foto che si trasforma. */
+html[data-vt] .card__img img, html[data-vt] .recipe__media img { opacity: 1; transition: none; }
 
-::view-transition-group(tabbar) { animation: none; }
-::view-transition-old(tabbar) { display: block; animation: 220ms cubic-bezier(.4, 0, 1, 1) both tab-out; }
-::view-transition-new(tabbar) { animation: 340ms cubic-bezier(.2, .8, .2, 1) both tab-in; }
-@keyframes tab-out { to { transform: translateY(120%); } }
-@keyframes tab-in { from { transform: translateY(120%); } }
+/* ---------- Chi partecipa al passaggio con un livello suo ---------- */
+/* Solo la card aperta (o quella a cui si torna) e la foto della ricetta: sono la stessa cosa. */
+html[data-vt="open"] .card__img[data-hero], html[data-vt="close"] .card__img[data-hero],
+html[data-vt="open"] .recipe__media, html[data-vt="close"] .recipe__media { view-transition-name: hero; }
+/* La barra della ricetta prende il posto della barra delle schede, e viceversa. */
+html[data-vt="open"] .recipe__cta, html[data-vt="close"] .recipe__cta { view-transition-name: cta; }
+/* I pulsanti sopra la foto e il foglio col titolo stanno SOPRA la foto anche mentre viaggia:
+   senza un livello loro restavano coperti dalla foto e comparivano di colpo alla fine. */
+html[data-vt="open"] .recipe__bar, html[data-vt="close"] .recipe__bar { view-transition-name: rbar; }
+html[data-vt="open"] .recipe__body, html[data-vt="close"] .recipe__body { view-transition-name: rbody; }
+/* Safari fotografa male l'effetto vetro (esce un rettangolo dietro): durante il passaggio è tinta piena. */
+html[data-vt] .tabbar, html[data-vt] .bar__btn--float { -webkit-backdrop-filter: none; backdrop-filter: none; background: rgba(255, 255, 255, .97); }
 
+::view-transition-group(*) { animation-duration: var(--m-page); animation-timing-function: var(--m-ease); }
+::view-transition-old(root), ::view-transition-new(root) { mix-blend-mode: normal; }
+::view-transition-old(hero), ::view-transition-new(hero) { height: 100%; width: 100%; object-fit: cover; }
+
+/* ---------- Pagina intera, per tipo di passaggio ---------- */
+/* fade: tra pagine senza una posizione (accesso, benvenuto…) */
+html[data-vt="fade"]::view-transition-old(root) { animation: m-fade-out 180ms var(--m-in) both; }
+html[data-vt="fade"]::view-transition-new(root) { animation: m-fade-in 320ms var(--m-out) both; }
+
+/* open / close: la foto fa il viaggio, il resto le lascia la scena */
+html[data-vt="open"]::view-transition-old(root), html[data-vt="close"]::view-transition-old(root) { animation: m-fade-out 200ms var(--m-in) both; }
+html[data-vt="open"]::view-transition-new(root) { animation: m-fade-in 300ms var(--m-out) both; }
+html[data-vt="close"]::view-transition-new(root) { animation: m-fade-in 360ms 80ms var(--m-out) both; }
+
+/* push / pop: più in profondità si entra da destra; indietro si esce a destra */
+html[data-vt="push"]::view-transition-old(root) { animation: m-park-left var(--m-page) var(--m-ease) both; }
+html[data-vt="push"]::view-transition-new(root) { animation: m-from-right var(--m-page) var(--m-ease) both; }
+html[data-vt="pop"]::view-transition-old(root) { animation: m-to-right var(--m-page) var(--m-ease) both; z-index: 2; }
+html[data-vt="pop"]::view-transition-new(root) { animation: m-unpark-left var(--m-page) var(--m-ease) both; }
+
+/* up / down: un foglio sale sopra la pagina, che arretra; chiudendo scende e la pagina torna avanti */
+html[data-vt="up"]::view-transition-old(root) { animation: m-recede var(--m-page) var(--m-ease) both; }
+html[data-vt="up"]::view-transition-new(root) { animation: m-from-bottom var(--m-page) var(--m-ease) both; z-index: 2; }
+html[data-vt="down"]::view-transition-old(root) { animation: m-to-bottom 380ms var(--m-ease) both; z-index: 2; }
+html[data-vt="down"]::view-transition-new(root) { animation: m-advance 380ms var(--m-ease) both; }
+
+/* ---------- Ricetta: il foglio sale da sotto la foto, i pulsanti arrivano per ultimi ---------- */
+::view-transition-group(rbar), ::view-transition-group(rbody) { animation: none; }
+::view-transition-new(rbody):only-child { animation: m-sheet-in 400ms 90ms var(--m-out) both; }
+::view-transition-old(rbody):only-child { animation: m-sheet-out 130ms var(--m-in) both; }
+::view-transition-new(rbar):only-child { animation: m-fade-in 220ms 240ms var(--m-out) both; }
+::view-transition-old(rbar):only-child { animation: m-fade-out 90ms var(--m-in) both; }
+@keyframes m-sheet-in { from { opacity: 0; transform: translateY(48px); } }
+@keyframes m-sheet-out { to { opacity: 0; transform: translateY(32px); } }
+
+/* ---------- Barre in basso: una scende, l'altra sale ---------- */
+::view-transition-group(tabbar), ::view-transition-group(cta) { animation: none; }
+::view-transition-old(tabbar):only-child, ::view-transition-old(cta):only-child { display: block; animation: m-bar-out 220ms var(--m-in) both; }
+::view-transition-new(tabbar):only-child, ::view-transition-new(cta):only-child { animation: m-bar-in 380ms 120ms var(--m-out) both; }
+
+@keyframes m-fade-in { from { opacity: 0; } }
+@keyframes m-fade-out { to { opacity: 0; } }
+@keyframes m-rise-in { from { opacity: 0; transform: translateY(14px); } }
+@keyframes m-from-right { from { transform: translateX(100%); } }
+@keyframes m-to-right { to { transform: translateX(100%); } }
+@keyframes m-park-left { to { transform: translateX(-24%); opacity: .55; } }
+@keyframes m-unpark-left { from { transform: translateX(-24%); opacity: .55; } }
+@keyframes m-from-bottom { from { transform: translateY(100%); } }
+@keyframes m-to-bottom { to { transform: translateY(100%); } }
+@keyframes m-recede { to { transform: scale(.94); opacity: .5; } }
+@keyframes m-advance { from { transform: scale(.94); opacity: .5; } }
+@keyframes m-bar-out { to { transform: translateY(130%); } }
+@keyframes m-bar-in { from { transform: translateY(130%); } }
+
+/* ---------- Tra le schede, e nei browser senza View Transitions ---------- */
+/* Si anima ogni blocco della pagina (non la pagina intera): così le barre fisse restano al loro posto. */
+html[data-enter] .shell > * > * { animation: m-enter 380ms var(--m-out) backwards; }
+html[data-enter="tab-next"], html[data-enter="push"] { --m-dx: 36px; }
+html[data-enter="tab-prev"], html[data-enter="pop"] { --m-dx: -36px; }
+html[data-enter="up"] { --m-dy: 56px; }
+html[data-enter="open"] { --m-dy: 16px; }
+html[data-enter="down"], html[data-enter="close"] { --m-s: .97; }
+@keyframes m-enter { from { opacity: 0; transform: translate3d(var(--m-dx, 0), var(--m-dy, 0), 0) scale(var(--m-s, 1)); } }
+
+/* ---------- Riduci movimento: niente spostamenti, ma una dissolvenza breve (non un taglio) ---------- */
 @media (prefers-reduced-motion: reduce) {
   .card__img img, .recipe__media img { transition: none; }
-  ::view-transition-old(tabbar), ::view-transition-new(tabbar) { animation: none; }
+  ::view-transition-group(*) { animation-duration: 200ms !important; }
+  html[data-vt]::view-transition-old(root) { animation: m-fade-out 150ms linear both !important; }
+  html[data-vt]::view-transition-new(root) { animation: m-fade-in 200ms linear both !important; }
+  ::view-transition-old(tabbar):only-child, ::view-transition-old(cta):only-child, ::view-transition-old(rbar):only-child, ::view-transition-old(rbody):only-child { animation: m-fade-out 150ms linear both !important; }
+  ::view-transition-new(tabbar):only-child, ::view-transition-new(cta):only-child, ::view-transition-new(rbar):only-child, ::view-transition-new(rbody):only-child { animation: m-fade-in 200ms linear both !important; }
+  html[data-enter] .shell > * > * { animation: m-fade-in 200ms linear backwards !important; animation-duration: 200ms !important; }
 }

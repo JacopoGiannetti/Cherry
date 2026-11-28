@@ -157,7 +157,7 @@ function Ready({ recipe, uid, household }: { recipe: Recipe; uid: string; househ
 
   return (
     <main className="recipe">
-      <div className="recipe__media" style={{ viewTransitionName: `img-${recipe.id}` } as React.CSSProperties}>
+      <div className="recipe__media">
         {recipe.imageUrl ? <img src={recipe.imageUrl} alt="" {...fadeIn} /> : <span className="shimmer card__ph" />}
         {!recipe.imageUrl && (
           <button className={`btn btn--soft recipe__cover-btn ${coverBusy ? 'is-busy' : ''}`} onClick={() => (recipe.sourceUrl ? getCover() : photoInput.current?.click())}>

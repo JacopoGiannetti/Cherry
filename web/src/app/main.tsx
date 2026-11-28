@@ -105,17 +105,10 @@ function ScrollTop() {
   return null;
 }
 
-/** Ogni cambio pagina passa dalle View Transitions: la card diventa la pagina, e indietro torna card. */
+/** Ogni cambio pagina ha il suo movimento, scelto da dove parti e dove vai (lib/nav.ts). */
 const useVtLocation: typeof useBrowserLocation = (opts) => {
   const [loc, nav] = useBrowserLocation(opts);
-  return [loc, (to, o) => {
-    // Tra le schede (Cookbook ↔ Groceries…) niente transizione: la barra resta ferma e la
-    // pillola scorre da sola. Con la transizione Safari ridisegnava la barra e la faceva lampeggiare.
-    const path = (p: string) => p.split('?')[0].replace(/^\/app/, '') || '/';
-    const tabSwitch = TAB_ROUTES.includes(path(String(to))) && TAB_ROUTES.includes(path(loc));
-    if (tabSwitch) return nav(to, o);
-    transition(() => nav(to, o));
-  }];
+  return [loc, (to, o) => transition(loc, String(to), () => nav(to, o))];
 };
 
 function App() {

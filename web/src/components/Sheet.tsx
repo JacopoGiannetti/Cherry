@@ -2,9 +2,10 @@ import { useEffect, type ReactNode } from 'react';
 import { createPortal } from 'react-dom';
 import { AnimatePresence, motion, useDragControls } from 'motion/react';
 
-// Un pannello sale dal bottone che lo apre, scurisce la pagina dietro
-// e se ne va per la stessa strada. `from` è il bottone (il suo rettangolo):
-// il pannello cresce da lì, non da un punto qualsiasi dello schermo.
+// Un foglio che sale dal basso, scurisce la pagina dietro e se ne va per la stessa
+// strada (anche trascinandolo giù). Sale intero, come ogni foglio dell'app:
+// prima cresceva da un punto e sembrava comparire dal nulla.
+// `from` resta per chi lo passa già, ma non serve più.
 
 export type Origin = { x: number; y: number } | null;
 
@@ -28,15 +29,6 @@ export function Sheet({ open, onClose, from, children, label }: {
     return () => { window.removeEventListener('keydown', onKey); document.body.style.overflow = prev; };
   }, [open]);
 
-  // Il pannello è largo quanto lo schermo (max 560) e attaccato al fondo:
-  // il punto di partenza è il bottone, espresso in coordinate del pannello.
-  const vw = typeof window !== 'undefined' ? window.innerWidth : 400;
-  const vh = typeof window !== 'undefined' ? window.innerHeight : 800;
-  const width = Math.min(vw, 560);
-  const left = (vw - width) / 2;
-  const ox = from ? `${from.x - left}px` : '50%';
-  const oy = from ? `${Math.max(0, from.y - vh * 0.35)}px` : '100%';
-
   return createPortal(
     <AnimatePresence>
       {open && (
@@ -45,16 +37,14 @@ export function Sheet({ open, onClose, from, children, label }: {
             className="sheet-dim"
             onClick={onClose}
             initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
-            transition={{ duration: 0.24 }}
+            transition={{ duration: 0.28 }}
           />
           <motion.div
             className="sheet"
             role="dialog" aria-modal="true" aria-label={label}
-            style={{ transformOrigin: `${ox} ${oy}` }}
-            initial={{ opacity: 0, scale: 0.2, y: 40 }}
-            animate={{ opacity: 1, scale: 1, y: 0 }}
-            exit={{ opacity: 0, scale: 0.2, y: 40 }}
-            transition={{ type: 'spring', stiffness: 520, damping: 42, mass: 0.9 }}
+            initial={{ y: '100%' }}
+            animate={{ y: 0, transition: { type: 'spring', stiffness: 380, damping: 38, mass: 1 } }}
+            exit={{ y: '100%', transition: { duration: 0.26, ease: [0.4, 0, 1, 1] } }}
             drag="y" dragControls={drag} dragListener={false}
             dragConstraints={{ top: 0, bottom: 0 }} dragElastic={{ top: 0, bottom: 0.6 }}
             onDragEnd={(_, info) => { if (info.offset.y > 90 || info.velocity.y > 600) onClose(); }}
