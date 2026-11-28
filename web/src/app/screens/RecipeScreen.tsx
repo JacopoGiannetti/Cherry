@@ -185,6 +185,23 @@ function Ready({ recipe, uid, household }: { recipe: Recipe; uid: string; househ
         {recipe.cuisine && <p className="recipe__kicker">{recipe.cuisine}</p>}
         <h1 className="recipe__title">{recipe.title}</h1>
         <p className="recipe__meta">{meta.join('  ·  ')}</p>
+        {(recipe.creator || recipe.sourceUrl) && (
+          <p className="credit">
+            {recipe.creator && (
+              <a className="credit__who" href={recipe.creator.profileUrl} target="_blank" rel="noopener">
+                <span className="credit__pic" aria-hidden="true">
+                  {recipe.creator.avatar ? <img src={recipe.creator.avatar} alt="" loading="lazy" /> : recipe.creator.handle.slice(0, 1).toUpperCase()}
+                </span>
+                <span>@{recipe.creator.handle}</span>
+              </a>
+            )}
+            {recipe.sourceUrl && (
+              <a className="credit__src" href={recipe.sourceUrl} target="_blank" rel="noopener">
+                Original video <Icon name="external" size={12} />
+              </a>
+            )}
+          </p>
+        )}
 
         <div className="rseg" role="tablist">
           {(['ingredients', 'steps'] as const).map((t) => (

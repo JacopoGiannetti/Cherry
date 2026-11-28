@@ -36,6 +36,8 @@ export type Recipe = {
   stepFramesStatus?: 'working' | 'done' | 'none';
   stepFramesSince?: number;
   imageUrl?: string | null;
+  /** Chi ha fatto il video: si mostra piccolo sotto il titolo, con il link al profilo e al video. */
+  creator?: { platform: string; handle: string; name?: string | null; profileUrl: string; avatar?: string | null } | null;
   createdAt?: { toMillis(): number } | null;
   favorite?: boolean;
   /** 'manual' = scritta a mano nell'app. */

@@ -14,7 +14,8 @@ const { stageRemoteVideo } = require('../services/storage');
 const { resolve, downloadVideo, detectPlatform } = require('../services/social-video');
 const { buildExtractionPrompt, videoExtractionSchema } = require('../prompts/swap');
 const { runWith, recordJob, recordJobError, newRun, finishRun } = require('./usage');
-const { buildStepFrames } = require('./step-frames');
+const { buildStepFrames, buildCover } = require('./step-frames');
+const { findCreator } = require('./creator');
 
 const UA = 'Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.0 Mobile/15E148 Safari/604.1';
 
@@ -28,6 +29,8 @@ const webSchema = (() => {
   const s = JSON.parse(JSON.stringify(videoExtractionSchema));
   s.properties.recipe.properties.ingredients.items.properties.storeSection.enum = WEB_SECTIONS;
   s.properties.recipe.properties.cuisine = { type: 'STRING', description: 'Cuisine in 1-2 words, e.g. "Italian"' };
+  // La copertina: non il primo fotogramma del video, ma il momento in cui il piatto si vede meglio.
+  s.properties.coverTimes = { type: 'ARRAY', items: { type: 'STRING' }, description: 'Up to 3 timestamps (MM:SS) of candidate frames for the recipe cover, best first' };
   return s;
 })();
 
@@ -99,7 +102,10 @@ async function extract(url, profile = PROFILE) {
   const post = await resolve(url);
   const request = {
     prompt: buildExtractionPrompt({ sourceType: 'video', caption: post.caption, profile, segments: true })
-      + '\nAlso return the cuisine in 1-2 words.',
+      + '\nAlso return the cuisine in 1-2 words.'
+      + '\nAlso return coverTimes: up to 3 timestamps (MM:SS), best first, of clearly different moments that could be the cover photo of this recipe.'
+      + ' Each must show the finished dish (plated or in the pan, ready to eat) in close-up, sharp and well lit, filling the frame, so that anyone understands at a glance what the recipe is.'
+      + ' Never a moment where a person or face is in frame, nor raw ingredients, on-screen titles or a transition.',
     schema: webSchema,
     temperature: 0.2,
     label: 'web-extract-video',
@@ -137,7 +143,8 @@ async function extract(url, profile = PROFILE) {
   const thumbnail = (await keepThumbnail(url, post.thumbnail)) || post.thumbnail || null;
   console.log(`[web] ${url}: ${recipe.steps?.length || 0} step, spezzoni ${segments?.length || 0},`
     + ` ${((Date.now() - t0) / 1000).toFixed(1)}s`);
-  return { recipe, thumbnail, caption: post.caption || null };
+  const creator = await findCreator(url, detectPlatform(url));
+  return { recipe, thumbnail, caption: post.caption || null, creator, coverTimes: Array.isArray(extraction.coverTimes) ? extraction.coverTimes.slice(0, 3) : null };
 }
 
 /** Link → { embed, entry }: dalla cache se c'è, altrimenti Gemini guarda il video. */
@@ -151,6 +158,10 @@ async function readRecipe(url, onStage = () => {}, profile = PROFILE) {
   if (!entry) {
     entry = await extract(url, profile);
     await setCached('sourceRecipes', key, entry);
+  } else if (entry.creator === undefined) {
+    // Ricette lette prima che si salvasse il creatore: si aggiunge ora (dati pubblici, gratis).
+    entry.creator = await findCreator(url, platform);
+    await setCached('sourceRecipes', key, entry);
   }
   return { embed, entry, platform };
 }
@@ -161,10 +172,22 @@ async function addStepFrames(url, entry, profile) {
   const videoUrl = (post.videoUrls || [])[0];
   if (!videoUrl) return null;
   const key = cacheKey(url, profile);
-  const { frames, segments } = await buildStepFrames({ videoUrl, recipe: entry.recipe, key: key.slice(0, 24) });
+  const { frames, segments, cover } = await buildStepFrames({ videoUrl, recipe: entry.recipe, key: key.slice(0, 24), coverTimes: entry.coverDone ? null : entry.coverTimes });
   if (segments) entry.recipe = { ...entry.recipe, segments };
-  if (frames || segments) await setCached('sourceRecipes', key, { ...entry, ...(frames ? { stepFrames: frames } : {}) });
-  return { frames, segments };
+  if (cover) Object.assign(entry, { thumbnail: cover, coverDone: true });
+  if (frames || segments || cover) await setCached('sourceRecipes', key, { ...entry, ...(frames ? { stepFrames: frames } : {}) });
+  return { frames, segments, cover };
+}
+
+/** La copertina scelta da Gemini, per i video senza foto degli step (TikTok). Una volta per link. */
+async function addCover(url, entry, profile) {
+  const post = await resolve(url);
+  const videoUrl = (post.videoUrls || [])[0];
+  if (!videoUrl) return null;
+  const key = cacheKey(url, profile);
+  const cover = await buildCover({ videoUrl, coverTimes: entry.coverTimes, key: key.slice(0, 24) });
+  if (cover) await setCached('sourceRecipes', key, Object.assign(entry, { thumbnail: cover, coverDone: true }));
+  return cover;
 }
 
 /** La forma che la web app mostra e salva. */
@@ -180,6 +203,7 @@ function recipeDoc(entry) {
     steps: r.steps || [],
     segments: r.segments || null,
     stepFrames: entry.stepFrames || null,
+    creator: entry.creator || null,
     imageUrl: entry.thumbnail || null,
   };
 }
@@ -234,15 +258,19 @@ async function importInto(uid, url) {
     // Instagram non lascia mandare in loop lo step: al suo posto i fotogrammi.
     // Dopo il "ready": la ricetta si apre subito, le immagini arrivano in pochi secondi.
     if (needsFrames) {
-      const { frames, segments } = await addStepFrames(url, entry, profile)
+      const { frames, segments, cover } = await addStepFrames(url, entry, profile)
         .catch((e) => { console.warn(`[frames] ${url}: ${e.message}`); return {}; });
       await ref.set({
+        ...(cover ? { imageUrl: cover } : {}),
         ...(frames ? { stepFrames: frames } : {}),
         ...(segments ? { segments } : {}),
         stepFramesStatus: frames ? 'done' : 'none',
         updatedAt: FieldValue.serverTimestamp(),
       }, { merge: true });
       photos = (frames || []).reduce((n, f) => n + f.frames.length, 0);
+    } else if (entry.coverTimes?.length && !entry.coverDone) {
+      const cover = await addCover(url, entry, profile).catch((e) => { console.warn(`[cover] ${url}: ${e.message}`); return null; });
+      if (cover) await ref.set({ imageUrl: cover, updatedAt: FieldValue.serverTimestamp() }, { merge: true });
     }
     finishRun(run, { ok: true, photos, steps: (entry.recipe.steps || []).length });
   }, { run }).catch(async (e) => {

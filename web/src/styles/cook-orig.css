@@ -35,3 +35,11 @@
 .ingredients li { justify-content: flex-start; gap: 12px; }
 .ingredients li > span { flex: 1; min-width: 0; }
 .ingredients__emoji { flex: none; width: 26px; font-style: normal; font-size: 20px; line-height: 1; text-align: center; align-self: center; }
+
+/* Ricetta: chi ha fatto il video, piccolo sotto il titolo, con il link al profilo e al video. */
+.credit { display: flex; align-items: center; flex-wrap: wrap; gap: 6px 14px; margin: 10px 0 2px; font-size: 13.5px; font-weight: 600; color: var(--mute); }
+.credit a { display: inline-flex; align-items: center; gap: 7px; color: inherit; text-decoration: none; min-height: 28px; }
+.credit__who { color: var(--ink) !important; }
+.credit__pic { flex: none; width: 24px; height: 24px; border-radius: 50%; overflow: hidden; display: grid; place-items: center; background: var(--paper-2); font-size: 12px; font-weight: 700; color: var(--mute); box-shadow: inset 0 0 0 1px var(--hair); }
+.credit__pic img { width: 100%; height: 100%; object-fit: cover; }
+.credit__src { gap: 4px !important; }

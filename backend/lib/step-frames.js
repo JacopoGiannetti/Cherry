@@ -111,7 +111,7 @@ Return every step index.`;
 }
 
 /** Il fotogramma più nitido nel secondo intorno a t. */
-async function sharpest(file, t, seconds) {
+async function sharpest(file, t, seconds, width = 540) {
   const from = Math.max(0, Math.min(t - WINDOW / 2, seconds - WINDOW));
   const { stdout } = await run(['-ss', from.toFixed(2), '-t', String(WINDOW), '-i', file,
     '-vf', 'scale=360:-2,blurdetect,metadata=print:file=-', '-an', '-f', 'null', '-']);
@@ -124,7 +124,7 @@ async function sharpest(file, t, seconds) {
   }
   const when = best ? best.t : t;
   const { stdout: jpg } = await run(['-ss', when.toFixed(3), '-i', file, '-frames:v', '1',
-    '-vf', 'scale=540:-2', '-q:v', '4', '-f', 'image2pipe', '-vcodec', 'mjpeg', '-'], { binary: true });
+    '-vf', `scale=${width}:-2`, '-q:v', width > 600 ? '3' : '4', '-f', 'image2pipe', '-vcodec', 'mjpeg', '-'], { binary: true });
   return jpg.length > 1000 ? { t: when, jpg } : null;
 }
 
@@ -173,7 +173,7 @@ Return every frame id.`;
  * Ritorna { frames: [{ step, frames: [{ url, caption }] }] | null, segments: gli spezzoni
  * coi tempi corretti se erano sbagliati, altrimenti null }.
  */
-async function buildStepFrames({ videoUrl, recipe, key }) {
+async function buildStepFrames({ videoUrl, recipe, key, coverTimes }) {
   const t0 = Date.now();
   const dir = await fs.mkdtemp(path.join(os.tmpdir(), 'frames-'));
   const file = path.join(dir, 'v.mp4');
@@ -181,6 +181,8 @@ async function buildStepFrames({ videoUrl, recipe, key }) {
     await download(videoUrl, file);
     const seconds = await duration(file);
     if (!seconds) throw new Error('durata del video non letta');
+    // La copertina: il momento scelto da Gemini leggendo la ricetta, dal video che è già qui.
+    const cover = coverTimes?.length ? await coverFrom(file, coverTimes, seconds, key) : null;
     const lite = await small(file, path.join(dir, 's.mp4'));
     if (!lite) throw new Error('video troppo lungo per Gemini inline');
 
@@ -216,7 +218,7 @@ async function buildStepFrames({ videoUrl, recipe, key }) {
       }
     }));
     const picks = wanted.map((w, n) => shots[n] && { step: w.step, caption: w.caption, ...shots[n] }).filter(Boolean);
-    if (!picks.length) return { frames: null, segments };
+    if (!picks.length) return { frames: null, segments, cover };
 
     const checked = await review(recipe, picks).catch((e) => {
       console.warn(`[frames] revisione saltata: ${e.message}`);
@@ -236,10 +238,52 @@ async function buildStepFrames({ videoUrl, recipe, key }) {
     for (const [step, list] of byStep) byStep.set(step, list.map((p) => ({ url: p.url, caption: p.caption })));
     const result = [...byStep.entries()].sort((a, b) => a[0] - b[0]).map(([step, frames]) => ({ step, frames }));
     console.log(`[frames] ${key}: ${picks.length} scelti, ${checked.filter((x) => x.keep).length} tenuti, ${result.length}/${nSteps} step, ${((Date.now() - t0) / 1000).toFixed(1)}s`);
-    return { frames: result.length ? result : null, segments };
+    return { frames: result.length ? result : null, segments, cover };
   } finally {
     await fs.rm(dir, { recursive: true, force: true }).catch(() => {});
   }
 }
 
-module.exports = { buildStepFrames };
+const coverPickSchema = {
+  type: 'OBJECT',
+  properties: { best: { type: 'INTEGER', description: 'Index of the best cover, or -1 if none is good' } },
+  required: ['best'],
+};
+
+/**
+ * La copertina: dai momenti proposti da Gemini (fino a 3) si prende per ognuno il fotogramma
+ * più nitido, poi Gemini guarda le immagini e sceglie la migliore. Se sono tutte scarse
+ * (faccia, scritte, piatto che non si capisce) torna null e resta la copertina del post.
+ */
+async function coverFrom(file, times, seconds, key) {
+  const list = (Array.isArray(times) ? times : [times]).map(toSeconds)
+    .map((t) => (Number.isFinite(t) && t > seconds && fromMss(t) <= seconds && t % 100 < 60 ? fromMss(t) : t))
+    .filter((t) => Number.isFinite(t) && t >= 0 && t <= seconds - 0.2).slice(0, 3);
+  const shots = (await Promise.all(list.map((t) => sharpest(file, t, seconds, 900).catch(() => null)))).filter(Boolean);
+  if (!shots.length) return null;
+  const parts = shots.flatMap((sh, n) => [{ text: `Image ${n}:` }, { inlineData: { mimeType: 'image/jpeg', data: sh.jpg.toString('base64') } }]);
+  const out = await generateJSON({
+    prompt: 'These are candidate cover photos for a recipe in a cooking app, cut from its video. Pick the best one: the finished dish clearly visible, appetizing, sharp, filling the frame, so anyone understands at a glance what the recipe is.'
+      + ' Reject images where a person or face is the main subject, with large on-screen text or logos, blurry, or where the dish is small or unclear.'
+      + ' Return best = the index of the best image, or -1 if none is good enough.',
+    schema: coverPickSchema, parts, temperature: 0.1, label: 'step-frames-cover', thinkingLevel: 'LOW',
+  }).catch(() => ({ best: -1 }));
+  const shot = shots[out.best];
+  if (!shot) return null;
+  return saveImage(shot.jpg, `covers/auto/${key}-${crypto.randomUUID().slice(0, 8)}.jpg`).catch(() => null);
+}
+
+/** Solo la copertina (TikTok, che non ha le foto degli step): scarica il video e prende quel fotogramma. */
+async function buildCover({ videoUrl, coverTimes, key }) {
+  const dir = await fs.mkdtemp(path.join(os.tmpdir(), 'cover-'));
+  const file = path.join(dir, 'v.mp4');
+  try {
+    await download(videoUrl, file);
+    const seconds = await duration(file);
+    return seconds ? await coverFrom(file, coverTimes, seconds, key) : null;
+  } finally {
+    await fs.rm(dir, { recursive: true, force: true }).catch(() => {});
+  }
+}
+
+module.exports = { buildStepFrames, buildCover };
