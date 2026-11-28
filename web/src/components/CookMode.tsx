@@ -55,7 +55,12 @@ export function CookMode({ recipe, factor = 1, onClose, onDone, limit, onUnlock 
   // Instagram con i fotogrammi degli step: il video grande non serve, resta il link piccolo.
   const frames = useMemo(() => new Map((recipe.stepFrames || []).map((f) => [f.step, f.frames])), [recipe.stepFrames]);
   const stills = embed?.type === 'instagram' && frames.size > 0;
-  const compact = igOff || stills;
+  // Si stanno preparando (circa un minuto dopo l'import): si vede che arrivano, non che mancano.
+  // Oltre 6 minuti si smette di aspettare: il server si è fermato a metà.
+  // Vale anche quando si rifanno dal menu: le vecchie lasciano il posto ai riquadri che pulsano.
+  const preparing = embed?.type === 'instagram' && recipe.stepFramesStatus === 'working'
+    && Date.now() - (recipe.stepFramesSince || 0) < 6 * 60e3;
+  const compact = igOff || stills || preparing;
   const [zoom, setZoom] = useState<{ url: string; caption: string } | null>(null);
   // TikTok si comanda sempre; Instagram solo se si è trovato il file del reel.
   const [canControl, setCanControl] = useState(embed?.type === 'tiktok');
@@ -192,7 +197,7 @@ export function CookMode({ recipe, factor = 1, onClose, onDone, limit, onUnlock 
             {recipe.imageUrl ? <img src={recipe.imageUrl} alt="" /> : null}
             <Icon name="play" size={16} fill="currentColor" />
           </span>
-          <span><b>Open original video</b><small>Instagram doesn't allow looping here</small></span>
+          <span><b>Open original video</b><small>No looping on Instagram</small></span>
           <Icon name="external" size={15} />
         </a>
       )}
@@ -208,13 +213,16 @@ export function CookMode({ recipe, factor = 1, onClose, onDone, limit, onUnlock 
             {p.ingredients.length > 0 && (
               <StepIngredients recipe={recipe} ids={p.ingredients} factor={factor} open={showIngs} onToggle={() => setShowIngs((o) => !o)} />
             )}
+            {preparing && (
+              <p className="cook__preparing" role="status"><span className="cook__spin" /> Picking photos from the video for each step…</p>
+            )}
             <ol className="cook__steps">
               {p.steps.map((i) => (
                 <li key={i}>
                   <span className="cook__num">{i + 1}</span>
                   <span className="cook__text">
                     {recipe.steps[i]}
-                    {stills && frames.get(i)?.length ? (
+                    {stills && !preparing && frames.get(i)?.length ? (
                       <span className="cook__frames">
                         {frames.get(i)!.map((f, k) => (
                           <button key={k} type="button" className="cook__frame" onClick={() => setZoom(f)} aria-label={f.caption || 'Enlarge photo'}>
@@ -223,6 +231,8 @@ export function CookMode({ recipe, factor = 1, onClose, onDone, limit, onUnlock 
                           </button>
                         ))}
                       </span>
+                    ) : preparing ? (
+                      <span className="cook__frames cook__frames--wait" aria-hidden="true"><i /><i /><i /></span>
                     ) : null}
                   </span>
                 </li>

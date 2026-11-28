@@ -59,6 +59,7 @@ app.post('/webhooks/stripe', web.stripeWebhook);
 app.use('/v1', web.router);
 // Recensioni: stesso prefisso, dopo web.router (che ha già fatto CORS e login).
 app.use('/v1', require('./routes/reviews'));
+app.use('/v1', require('./routes/frames'));
 // I link dentro le email (offerta, disiscrizione): pubblici, riconosciuti dal gettone firmato.
 app.use('/mail', require('./routes/mail'));
 

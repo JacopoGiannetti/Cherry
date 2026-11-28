@@ -7,7 +7,7 @@ import { Sheet, originOf, type Origin } from '../../components/Sheet';
 import { deleteRecipe, editList, saveCategory, setFavorite, setInCategory, setRecipePhoto, useCategories, useList, useRecipe, useSession } from '../../lib/store';
 import { CategoryChooser, CategoryForm } from '../../components/Categories';
 import { uploadPhoto } from '../../lib/upload';
-import { importRecipe, refreshCover, resolveEmbed } from '../../lib/api';
+import { importRecipe, refreshCover, regenerateFrames, resolveEmbed } from '../../lib/api';
 import { mergeIntoList, minutes, removeRecipeFromList, scaleQuantity } from '../../lib/kitchen';
 import type { Recipe } from '../../lib/types';
 import { used } from '../../lib/usage';
@@ -111,6 +111,14 @@ function Ready({ recipe, uid, household }: { recipe: Recipe; uid: string; househ
     try { await setRecipePhoto(uid, recipe.id, await uploadPhoto(uid, file)); toast('Photo updated', 'check'); }
     catch (e: any) { toast(e.message || 'Could not upload the photo', 'close'); }
     setCoverBusy(false);
+  };
+  // Instagram: rifà i fotogrammi degli step (anche per le ricette di prima). Si vedono arrivare nel cook mode.
+  const isInstagram = recipe.platform === 'instagram' || /instagr/i.test(recipe.sourceUrl || '');
+  const framesBusy = recipe.stepFramesStatus === 'working' && Date.now() - (recipe.stepFramesSince || 0) < 6 * 60e3;
+  const getFrames = async () => {
+    setMenu(false);
+    try { await regenerateFrames(recipe.id); toast('Picking step photos from the video. About a minute.', 'check'); }
+    catch (e: any) { toast(e.message || 'Could not start that. Try again.', 'close'); }
   };
   const getCover = async () => {
     setCoverBusy(true);
@@ -260,6 +268,11 @@ function Ready({ recipe, uid, household }: { recipe: Recipe; uid: string; househ
             {recipe.sourceUrl && (
               <button className={`menu__row ${coverBusy ? 'is-busy' : ''}`} onClick={getCover} disabled={coverBusy}>
                 <Icon name="refresh" size={19} /> {coverBusy ? 'Getting the cover…' : 'Get the cover again'}
+              </button>
+            )}
+            {isInstagram && (
+              <button className={`menu__row ${framesBusy ? 'is-busy' : ''}`} onClick={getFrames} disabled={framesBusy}>
+                <Icon name="image" size={19} /> {framesBusy ? 'Picking step photos…' : recipe.stepFrames?.length ? 'Pick step photos again' : 'Get step photos from the video'}
               </button>
             )}
             <button className="menu__row" onClick={() => { setMenu(false); toggleList(); }}>

@@ -216,8 +216,11 @@ async function importInto(uid, url) {
     const profile = profileFor(user.get('recipePrefs') || {});
     const { entry } = await readRecipe(url, (stage, embed) =>
       ref.update({ embed, importStage: stage, updatedAt: FieldValue.serverTimestamp() }), profile);
+    // Instagram senza fotogrammi in cache: si preparano dopo, e la pagina lo fa vedere.
+    const needsFrames = platform === 'instagram' && !entry.stepFrames;
     await ref.set({
       ...recipeDoc(entry),
+      ...(needsFrames ? { stepFramesStatus: 'working', stepFramesSince: Date.now() } : {}),
       status: 'ready',
       importStage: 'done',
       caption: entry.caption ? entry.caption.slice(0, 2000) : null,
@@ -226,10 +229,14 @@ async function importInto(uid, url) {
     recordJob(uid, 'web.import');
     // Instagram non lascia mandare in loop lo step: al suo posto i fotogrammi.
     // Dopo il "ready": la ricetta si apre subito, le immagini arrivano in pochi secondi.
-    if (platform === 'instagram' && !entry.stepFrames) {
-      await addStepFrames(url, entry, profile).then((frames) => frames
-        && ref.set({ stepFrames: frames, updatedAt: FieldValue.serverTimestamp() }, { merge: true }))
-        .catch((e) => console.warn(`[frames] ${url}: ${e.message}`));
+    if (needsFrames) {
+      const frames = await addStepFrames(url, entry, profile)
+        .catch((e) => { console.warn(`[frames] ${url}: ${e.message}`); return null; });
+      await ref.set({
+        ...(frames ? { stepFrames: frames } : {}),
+        stepFramesStatus: frames ? 'done' : 'none',
+        updatedAt: FieldValue.serverTimestamp(),
+      }, { merge: true });
     }
   }).catch(async (e) => {
     recordJobError(uid, 'web.import');
@@ -244,5 +251,32 @@ async function importInto(uid, url) {
   return { id, existing: false };
 }
 
+/**
+ * Rifà i fotogrammi di una ricetta Instagram già salvata (anche le vecchie,
+ * di prima che esistessero). Scrive lo stato sul documento: la pagina mostra
+ * il caricamento e poi le immagini. Se non riesce, restano quelle di prima.
+ */
+async function regenerateFrames(uid, id) {
+  const ref = db().doc(`users/${uid}/savedRecipes/${id}`);
+  const r = (await ref.get()).data();
+  if (!r) throw userError('not_found', 'Recipe not found.');
+  if (detectPlatform(r.sourceUrl || '') !== 'instagram') throw userError('not_instagram', 'Step photos are only for Instagram recipes.');
+  if (r.stepFramesStatus === 'working' && Date.now() - (r.stepFramesSince || 0) < 6 * 60e3) return { started: false };
+  await ref.set({ stepFramesStatus: 'working', stepFramesSince: Date.now() }, { merge: true });
+  runWith(uid, 'web.frames', async () => {
+    const post = await resolve(r.sourceUrl);
+    const videoUrl = (post.videoUrls || [])[0];
+    if (!videoUrl) throw new Error('nessun video dal link');
+    return buildStepFrames({ videoUrl, recipe: r, key: `u${uid.slice(0, 10)}-${id}` });
+  }).catch((e) => { console.warn(`[frames] rifai ${id}: ${e.message}`); return null; })
+    .then((frames) => ref.set({
+      ...(frames ? { stepFrames: frames } : {}),
+      stepFramesStatus: frames ? 'done' : 'none',
+      updatedAt: FieldValue.serverTimestamp(),
+    }, { merge: true }))
+    .catch(() => {});
+  return { started: true };
+}
+
 module.exports = {
-  profileFor, importInto, readRecipe, recipeDoc, recipeIdFor, findEmbed, addStepFrames, WEB_SECTIONS };
+  profileFor, importInto, readRecipe, recipeDoc, recipeIdFor, findEmbed, addStepFrames, regenerateFrames, WEB_SECTIONS };

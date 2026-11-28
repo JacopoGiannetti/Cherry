@@ -60,7 +60,7 @@ async function download(url, file) {
 /** Una copia piccola per Gemini: basta per capire i momenti, sta nella richiesta. */
 async function small(file, out) {
   for (const [w, kbps] of [[360, 450], [270, 250]]) {
-    await run(['-y', '-loglevel', 'error', '-i', file, '-vf', `scale=${w}:-2`, '-r', '15', '-b:v', `${kbps}k`, '-c:a', 'aac', '-b:a', '32k', out]);
+    await run(['-y', '-loglevel', 'error', '-i', file, '-vf', `scale=${w}:-2`, '-r', '15', '-b:v', `${kbps}k`, '-preset', 'ultrafast', '-c:a', 'aac', '-b:a', '32k', out]);
     const { size } = await fs.stat(out);
     if (size <= MAX_INLINE_BYTES) return fs.readFile(out);
   }
@@ -188,7 +188,7 @@ async function buildStepFrames({ videoUrl, recipe, key }) {
       label: 'step-frames', thinkingLevel: 'LOW',
     });
 
-    const picks = [];
+    const wanted = [];
     for (const s of asked.steps || []) {
       if (!Number.isInteger(s.step) || s.step < 0 || s.step >= nSteps) continue;
       let last = -10;
@@ -196,10 +196,19 @@ async function buildStepFrames({ videoUrl, recipe, key }) {
         const t = Number(m.t);
         if (!Number.isFinite(t) || t < 0 || t > seconds - 0.2 || t - last < 0.8) continue;
         last = t;
-        const shot = await sharpest(file, t, seconds).catch(() => null);
-        if (shot) picks.push({ step: s.step, caption: String(m.caption || '').trim(), ...shot });
+        wanted.push({ step: s.step, caption: String(m.caption || '').trim(), t });
       }
     }
+    // Tre ffmpeg alla volta: su Render uno per volta faceva aspettare più di un minuto.
+    const shots = new Array(wanted.length);
+    let next = 0;
+    await Promise.all([0, 1, 2].map(async () => {
+      while (next < wanted.length) {
+        const n = next++;
+        shots[n] = await sharpest(file, wanted[n].t, seconds).catch(() => null);
+      }
+    }));
+    const picks = wanted.map((w, n) => shots[n] && { step: w.step, caption: w.caption, ...shots[n] }).filter(Boolean);
     if (!picks.length) return null;
 
     const checked = await review(recipe, picks).catch((e) => {
@@ -211,10 +220,13 @@ async function buildStepFrames({ videoUrl, recipe, key }) {
     for (const p of checked.filter((x) => x.keep)) {
       const list = byStep.get(p.step) || [];
       if (list.length >= MAX_PER_STEP) continue;
-      const url = await saveImage(p.jpg, `stepFrames/${key}/${p.step}-${list.length}-${crypto.randomUUID().slice(0, 8)}.jpg`);
-      list.push({ url, caption: p.caption });
+      list.push(p);
       byStep.set(p.step, list);
     }
+    await Promise.all([...byStep.values()].flat().map(async (p, n) => {
+      p.url = await saveImage(p.jpg, `stepFrames/${key}/${p.step}-${n}-${crypto.randomUUID().slice(0, 8)}.jpg`);
+    }));
+    for (const [step, list] of byStep) byStep.set(step, list.map((p) => ({ url: p.url, caption: p.caption })));
     const result = [...byStep.entries()].sort((a, b) => a[0] - b[0]).map(([step, frames]) => ({ step, frames }));
     console.log(`[frames] ${key}: ${picks.length} scelti, ${checked.filter((x) => x.keep).length} tenuti, ${result.length}/${nSteps} step, ${((Date.now() - t0) / 1000).toFixed(1)}s`);
     return result.length ? result : null;

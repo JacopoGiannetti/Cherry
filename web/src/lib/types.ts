@@ -32,6 +32,9 @@ export type Recipe = {
   segments?: Segment[] | null;
   /** Instagram: per ogni step 1–4 fotogrammi dal video (prima, durante, dopo), al posto del loop. */
   stepFrames?: { step: number; frames: { url: string; caption: string }[] }[] | null;
+  /** 'working' mentre il backend prepara i fotogrammi (da stepFramesSince, ms). */
+  stepFramesStatus?: 'working' | 'done' | 'none';
+  stepFramesSince?: number;
   imageUrl?: string | null;
   createdAt?: { toMillis(): number } | null;
   favorite?: boolean;
