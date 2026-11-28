@@ -3,6 +3,7 @@ import { AnimatePresence, motion } from 'motion/react';
 import type { Recipe, Segment } from '../lib/types';
 import { fmtTime, guessItem, scaleQuantity, section } from '../lib/kitchen';
 import { Icon } from './Icon';
+import { repairSegments } from '../lib/timecode';
 import { VideoPlayer, type PlayerHandle } from './VideoPlayer';
 import '../styles/cook-orig.css';
 
@@ -33,7 +34,12 @@ export function CookMode({ recipe, factor = 1, onClose, onDone, limit, onUnlock 
   /** Anteprima: solo i primi passi, poi l'invito a sbloccare il resto. */
   limit?: number; onUnlock?: () => void;
 }) {
-  const all = useMemo(() => pagesFor(recipe), [recipe]);
+  // La durata vera del video (la dice il player): serve a correggere i tempi salvati male oltre il minuto.
+  const [videoSeconds, setVideoSeconds] = useState(0);
+  const all = useMemo(() => {
+    const fixed = repairSegments(recipe.segments, videoSeconds);
+    return pagesFor(fixed ? { ...recipe, segments: fixed } : recipe);
+  }, [recipe, videoSeconds]);
   const locked = !!limit && all.length > limit;
   const pages = useMemo(() => (locked ? all.slice(0, limit) : all), [all, locked, limit]);
   const lastIndex = locked ? pages.length : pages.length - 1;
@@ -107,7 +113,8 @@ export function CookMode({ recipe, factor = 1, onClose, onDone, limit, onUnlock 
     if (locked && index === pages.length) player.current?.pause(); else restart();
   }, [index]);
 
-  const onTime = (t: number) => {
+  const onTime = (t: number, duration?: number) => {
+    if (duration && Math.abs(duration - videoSeconds) > 1) setVideoSeconds(duration);
     const p = pages[state.current.index];
     if (!p || state.current.paused || !isControllable()) return;
     if (t >= p.end - 0.15 || t < p.start - 1) restart();

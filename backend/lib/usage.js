@@ -183,6 +183,39 @@ async function write(uid, patch) {
   await Promise.all(writes);
 }
 
+// ---------- Una riga per ogni ricetta letta (usageRuns) ----------
+// Il ledger sopra somma per utente e per giorno; qui resta il costo di OGNI run,
+// diviso in: leggere la ricetta (Gemini sul video), le foto degli step (Gemini due volte),
+// trovare il video (RapidAPI). La legge la dashboard: Cherry → Costo per ricetta.
+
+/** info: { uid, feature, platform, url, recipeId }. Si passa a runWith come { run }. */
+function newRun(info) {
+  return { ...info, startedAt: Date.now(), parts: { recipe: 0, photos: 0, video: 0 }, geminiCalls: 0, rapidCalls: 0, tokensIn: 0, tokensOut: 0 };
+}
+
+function addToRun(run, part, usd, more = {}) {
+  if (!run) return;
+  run.parts[part] = roundUsd((run.parts[part] || 0) + usd);
+  for (const [k, v] of Object.entries(more)) run[k] = (run[k] || 0) + v;
+}
+
+/** Scrive la riga. Fire-and-forget: non deve mai far cadere un import. */
+function finishRun(run, extra = {}) {
+  if (!run || run.done) return;
+  run.done = true;
+  const { parts, startedAt, done, ...rest } = run;
+  const usd = roundUsd(parts.recipe + parts.photos + parts.video);
+  db().collection('usageRuns').add({
+    ...rest, ...extra, parts, usd,
+    // Dalla cache: la ricetta era già stata letta per un altro account, non è costata niente.
+    cached: usd === 0,
+    ms: Date.now() - startedAt,
+    atMs: Date.now(),
+    day: todayKey(),
+    at: FieldValue.serverTimestamp(),
+  }).catch((e) => console.error('[usage] run non salvata:', e.message));
+}
+
 function recordJob(uid, feature) {
   apply(uid, { feature, job: true, count: true });
 }
@@ -195,10 +228,14 @@ function resolveGeminiModel() {
   return keys.gemini.model;
 }
 
-function recordGemini(usageMetadata) {
+function recordGemini(usageMetadata, label = '') {
   const current = ctx();
   if (!current || !usageMetadata) return;
   apply(current.uid, { feature: current.feature, gemini: usageMetadata });
+  if (current.run) {
+    const c = geminiCost(usageMetadata);
+    addToRun(current.run, String(label).startsWith('step-frames') ? 'photos' : 'recipe', c.usd, { geminiCalls: 1, tokensIn: c.input, tokensOut: c.output });
+  }
 }
 
 function recordFal(count = 1) {
@@ -211,6 +248,7 @@ function recordRapid(count = 1) {
   const current = ctx();
   if (!current || !count) return;
   apply(current.uid, { feature: current.feature, rapidCalls: count });
+  if (current.run) addToRun(current.run, 'video', roundUsd(count * rapidUsdPerCall()), { rapidCalls: count });
 }
 
 function recordSocial(uid, social) {
@@ -234,6 +272,8 @@ module.exports = {
   APP_OPEN_EVENT,
   PREVIEW_UID,
   runWith,
+  newRun,
+  finishRun,
   recordJob,
   recordJobError,
   recordGemini,

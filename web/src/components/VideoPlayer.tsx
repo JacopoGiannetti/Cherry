@@ -23,7 +23,8 @@ type Props = {
   /** Il player si può comandare (salto e loop). */
   onControl?: (on: boolean) => void;
   onReady?: () => void;
-  onTime?: (t: number) => void;
+  /** t = secondo corrente; duration = durata del video, quando il player la sa. */
+  onTime?: (t: number, duration?: number) => void;
   onEnded?: () => void;
   onFail?: () => void;
   /** Instagram: il file del reel non c'è. Se passato, al posto dell'embed bloccato non si mostra niente
@@ -70,7 +71,7 @@ const EmbedPlayer = forwardRef<PlayerHandle, Props>(function EmbedPlayer({ embed
       if (typeof d === 'string') { try { d = JSON.parse(d); } catch { return; } }
       if (!d || !d['x-tiktok-player']) return;
       if (d.type === 'onPlayerReady') { ready = true; cbs.current.onReady?.(); }
-      else if (d.type === 'onCurrentTime') cbs.current.onTime?.(Number(d.value?.currentTime));
+      else if (d.type === 'onCurrentTime') cbs.current.onTime?.(Number(d.value?.currentTime), Number(d.value?.duration) || undefined);
       else if (d.type === 'onStateChange' && Number(d.value) === 0) cbs.current.onEnded?.();
     };
     window.addEventListener('message', onMessage);
@@ -137,9 +138,9 @@ const NativePlayer = forwardRef<PlayerHandle, Props & { src: string; refresh?: (
       const v = video.current;
       if (!v) return;
       let raf = 0;
-      const tick = () => { cbs.current.onTime?.(v.currentTime); raf = requestAnimationFrame(tick); };
+      const tick = () => { cbs.current.onTime?.(v.currentTime, v.duration || undefined); raf = requestAnimationFrame(tick); };
       const start = () => { cancelAnimationFrame(raf); raf = requestAnimationFrame(tick); };
-      const stop = () => { cancelAnimationFrame(raf); cbs.current.onTime?.(v.currentTime); };
+      const stop = () => { cancelAnimationFrame(raf); cbs.current.onTime?.(v.currentTime, v.duration || undefined); };
       v.addEventListener('playing', start);
       v.addEventListener('pause', stop);
       v.addEventListener('seeked', stop);

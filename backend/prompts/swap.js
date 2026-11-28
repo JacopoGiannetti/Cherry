@@ -108,8 +108,9 @@ const extractionSchema = {
 const segmentItem = {
   type: 'OBJECT',
   properties: {
-    start: { type: 'NUMBER', description: 'Second of the video where this phase starts' },
-    end: { type: 'NUMBER', description: 'Second of the video where this phase ends' },
+    // Stringhe MM:SS: come numero Gemini oltre il minuto scriveva 226 per 2:26 (lib/timecode.js).
+    start: { type: 'STRING', description: 'Timestamp where this phase starts, as MM:SS (e.g. "01:27")' },
+    end: { type: 'STRING', description: 'Timestamp where this phase ends, as MM:SS (e.g. "01:41")' },
     title: { type: 'STRING', description: '2-5 words naming the action, e.g. "Brown the onion"' },
     steps: { type: 'ARRAY', items: { type: 'INTEGER' }, description: '0-based indexes into recipe.steps shown in this phase' },
     ingredients: { type: 'ARRAY', items: { type: 'INTEGER' }, description: '0-based indexes into recipe.ingredients used in this phase' },
@@ -153,7 +154,7 @@ function buildSegmentsPrompt(recipe) {
     '',
     'Split the video into segments: one per cooking phase the viewer would want to rewatch',
     '(chopping, browning, adding the sauce, plating...). Usually 3-8 segments, each at least 3 seconds.',
-    'start/end are seconds of THIS video, in order, not overlapping; skip intros, talking heads and outros',
+    'start/end are timestamps of THIS video written as MM:SS (e.g. "01:27"), in order, not overlapping; skip intros, talking heads and outros',
     'that show no cooking. For each segment list the 0-based indexes of the steps it shows and of the',
     'ingredients used in it. Every step should belong to exactly one segment when the video shows it.',
     'title = 2-5 words naming the action, in the same language as the steps.',
@@ -171,7 +172,7 @@ function buildExtractionPrompt({ sourceType, caption, text, profile, segments = 
     if (segments) lines.push(
       'Also split the video into segments: one per cooking phase the viewer would want to rewatch',
       '(chopping, browning, adding the sauce, plating...). Usually 3-8 segments, each at least 3 seconds.',
-      'start/end are seconds of THIS video, in order, not overlapping; skip intros, talking heads and outros',
+      'start/end are timestamps of THIS video written as MM:SS (e.g. "01:27"), in order, not overlapping; skip intros, talking heads and outros',
       'that show no cooking. For each segment list the 0-based indexes of the recipe steps it shows and of',
       'the ingredients used in it. Every step should belong to exactly one segment when the video shows it.'
     );

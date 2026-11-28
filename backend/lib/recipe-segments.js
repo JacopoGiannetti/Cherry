@@ -5,6 +5,8 @@
 // Uno spezzone: { start, end, title, steps: [int], ingredients: [int] },
 // indici nella ricetta a cui è attaccato.
 
+const { toSeconds } = require('./timecode');
+
 const MIN_SECONDS = 1.5;
 const MIN_SEGMENTS = 2;
 
@@ -29,8 +31,8 @@ function cleanSegments(raw, recipe) {
 
   const sorted = raw
     .map((s) => ({
-      start: Number(s?.start),
-      end: Number(s?.end),
+      start: toSeconds(s?.start),
+      end: toSeconds(s?.end),
       title: typeof s?.title === 'string' ? s.title.trim() : '',
       steps: indexes(s?.steps, nSteps),
       ingredients: indexes(s?.ingredients, nIngredients),

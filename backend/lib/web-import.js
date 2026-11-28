@@ -13,7 +13,7 @@ const { generateJSON, videoPart } = require('../services/gemini');
 const { stageRemoteVideo } = require('../services/storage');
 const { resolve, downloadVideo, detectPlatform } = require('../services/social-video');
 const { buildExtractionPrompt, videoExtractionSchema } = require('../prompts/swap');
-const { runWith, recordJob, recordJobError } = require('./usage');
+const { runWith, recordJob, recordJobError, newRun, finishRun } = require('./usage');
 const { buildStepFrames } = require('./step-frames');
 
 const UA = 'Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.0 Mobile/15E148 Safari/604.1';
@@ -161,9 +161,10 @@ async function addStepFrames(url, entry, profile) {
   const videoUrl = (post.videoUrls || [])[0];
   if (!videoUrl) return null;
   const key = cacheKey(url, profile);
-  const frames = await buildStepFrames({ videoUrl, recipe: entry.recipe, key: key.slice(0, 24) });
-  if (frames) await setCached('sourceRecipes', key, { ...entry, stepFrames: frames });
-  return frames;
+  const { frames, segments } = await buildStepFrames({ videoUrl, recipe: entry.recipe, key: key.slice(0, 24) });
+  if (segments) entry.recipe = { ...entry.recipe, segments };
+  if (frames || segments) await setCached('sourceRecipes', key, { ...entry, ...(frames ? { stepFrames: frames } : {}) });
+  return { frames, segments };
 }
 
 /** La forma che la web app mostra e salva. */
@@ -210,7 +211,10 @@ async function importInto(uid, url) {
     updatedAt: FieldValue.serverTimestamp(),
   }, { merge: false });
 
-  // Dentro runWith: Gemini e RapidAPI scrivono il loro costo su questo account (feature web.import).
+  // Dentro runWith: Gemini e RapidAPI scrivono il loro costo su questo account (feature web.import)
+  // e su questa run (una riga in usageRuns, con il costo diviso tra ricetta, foto e video).
+  const run = newRun({ uid, feature: 'web.import', platform, url, recipeId: id });
+  let photos = 0;
   runWith(uid, 'web.import', async () => {
     const user = await db().doc(`users/${uid}`).get();
     const profile = profileFor(user.get('recipePrefs') || {});
@@ -230,15 +234,19 @@ async function importInto(uid, url) {
     // Instagram non lascia mandare in loop lo step: al suo posto i fotogrammi.
     // Dopo il "ready": la ricetta si apre subito, le immagini arrivano in pochi secondi.
     if (needsFrames) {
-      const frames = await addStepFrames(url, entry, profile)
-        .catch((e) => { console.warn(`[frames] ${url}: ${e.message}`); return null; });
+      const { frames, segments } = await addStepFrames(url, entry, profile)
+        .catch((e) => { console.warn(`[frames] ${url}: ${e.message}`); return {}; });
       await ref.set({
         ...(frames ? { stepFrames: frames } : {}),
+        ...(segments ? { segments } : {}),
         stepFramesStatus: frames ? 'done' : 'none',
         updatedAt: FieldValue.serverTimestamp(),
       }, { merge: true });
+      photos = (frames || []).reduce((n, f) => n + f.frames.length, 0);
     }
-  }).catch(async (e) => {
+    finishRun(run, { ok: true, photos, steps: (entry.recipe.steps || []).length });
+  }, { run }).catch(async (e) => {
+    finishRun(run, { ok: false, error: e.code || 'error' });
     recordJobError(uid, 'web.import');
     console.error(`[web] import ${url}: ${e.message}`);
     await ref.set({
@@ -263,17 +271,23 @@ async function regenerateFrames(uid, id) {
   if (detectPlatform(r.sourceUrl || '') !== 'instagram') throw userError('not_instagram', 'Step photos are only for Instagram recipes.');
   if (r.stepFramesStatus === 'working' && Date.now() - (r.stepFramesSince || 0) < 6 * 60e3) return { started: false };
   await ref.set({ stepFramesStatus: 'working', stepFramesSince: Date.now() }, { merge: true });
+  const run = newRun({ uid, feature: 'web.frames', platform: 'instagram', url: r.sourceUrl, recipeId: id });
   runWith(uid, 'web.frames', async () => {
     const post = await resolve(r.sourceUrl);
     const videoUrl = (post.videoUrls || [])[0];
     if (!videoUrl) throw new Error('nessun video dal link');
     return buildStepFrames({ videoUrl, recipe: r, key: `u${uid.slice(0, 10)}-${id}` });
-  }).catch((e) => { console.warn(`[frames] rifai ${id}: ${e.message}`); return null; })
-    .then((frames) => ref.set({
-      ...(frames ? { stepFrames: frames } : {}),
-      stepFramesStatus: frames ? 'done' : 'none',
-      updatedAt: FieldValue.serverTimestamp(),
-    }, { merge: true }))
+  }, { run }).catch((e) => { console.warn(`[frames] rifai ${id}: ${e.message}`); return {}; })
+    .then(({ frames, segments } = {}) => {
+      finishRun(run, { ok: !!frames, photos: (frames || []).reduce((n, f) => n + f.frames.length, 0), steps: (r.steps || []).length });
+      return ref.set({
+        ...(frames ? { stepFrames: frames } : {}),
+        // I tempi degli step erano sbagliati oltre il minuto: si salvano quelli corretti.
+        ...(segments ? { segments } : {}),
+        stepFramesStatus: frames ? 'done' : 'none',
+        updatedAt: FieldValue.serverTimestamp(),
+      }, { merge: true });
+    })
     .catch(() => {});
   return { started: true };
 }

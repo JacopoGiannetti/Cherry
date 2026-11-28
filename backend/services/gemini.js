@@ -89,7 +89,7 @@ async function generateJSON({ prompt, schema, parts = [], temperature = 0.7, lab
         console.log(
           `[gemini ${label} ${model}] tokens in=${usage.promptTokenCount} out=${usage.candidatesTokenCount} think=${usage.thoughtsTokenCount || 0} tot=${usage.totalTokenCount}`
         );
-        recordGemini(usage);
+        recordGemini(usage, label);
       }
       return JSON.parse(stripJsonFences(text));
     } catch (e) {

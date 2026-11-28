@@ -16,6 +16,7 @@ const { spawn } = require('child_process');
 const axios = require('axios');
 const { generateJSON } = require('../services/gemini');
 const { saveImage } = require('../services/storage');
+const { toSeconds, fromMss, repairSegments, clock } = require('./timecode');
 
 let FFMPEG = 'ffmpeg';
 try { FFMPEG = require('ffmpeg-static') || 'ffmpeg'; } catch { /* quello di sistema */ }
@@ -76,7 +77,8 @@ const momentsSchema = {
         step: { type: 'INTEGER' },
         moments: { type: 'ARRAY', items: {
           type: 'OBJECT',
-          properties: { t: { type: 'NUMBER' }, caption: { type: 'STRING' } },
+          // Stringa MM:SS.s: come numero, oltre il minuto, Gemini scriveva 226 per 2:26.
+          properties: { t: { type: 'STRING', description: 'Timestamp as MM:SS.s, e.g. "01:27.5"' }, caption: { type: 'STRING' } },
           required: ['t', 'caption'],
         } },
       },
@@ -91,14 +93,14 @@ function momentsPrompt(recipe, seconds) {
   for (const s of recipe.segments || []) for (const i of s.steps || []) windows.set(i, s);
   const steps = (recipe.steps || []).map((text, i) => {
     const w = windows.get(i);
-    return `${i}. ${text}${w ? `  (shown around ${w.start}s–${w.end}s)` : ''}`;
+    return `${i}. ${text}${w ? `  (shown around ${clock(w.start)}–${clock(w.end)})` : ''}`;
   }).join('\n');
   return `You are picking still frames from a recipe video to illustrate each written step in a cooking app.
-The video is ${seconds.toFixed(1)} seconds long. Every timestamp must be between 0 and ${Math.max(0, seconds - 0.3).toFixed(1)}.
+The video is ${clock(seconds)} long (${seconds.toFixed(0)} seconds). Write every timestamp as MM:SS.s (e.g. "01:27.5"), between 00:00 and ${clock(Math.max(0, seconds - 1))}.
 The recipe "${recipe.title}" has these steps (0-based index; the time hints are approximate):
 ${steps}
 
-For each step pick 1 to ${MAX_PER_STEP} moments (timestamp in seconds, one decimal) whose frame best shows what to do or what it should look like.
+For each step pick 1 to ${MAX_PER_STEP} moments (timestamp as MM:SS.s) whose frame best shows what to do or what it should look like.
 - If the step has several visible stages, give them in order: e.g. before → during → after (what it looks like when done).
 - One moment is fine for a simple step. Never pad with near-duplicate frames: consecutive moments must look clearly different.
 - Each frame must be a steady, clear shot of the food, the pan or the hands working: no motion blur, no cut or transition, not mid camera move.
@@ -168,7 +170,8 @@ Return every frame id.`;
 
 /**
  * videoUrl: il file del reel. key: cartella su Storage (una per ricetta).
- * Ritorna [{ step, frames: [{ url, caption }] }] oppure null.
+ * Ritorna { frames: [{ step, frames: [{ url, caption }] }] | null, segments: gli spezzoni
+ * coi tempi corretti se erano sbagliati, altrimenti null }.
  */
 async function buildStepFrames({ videoUrl, recipe, key }) {
   const t0 = Date.now();
@@ -182,6 +185,9 @@ async function buildStepFrames({ videoUrl, recipe, key }) {
     if (!lite) throw new Error('video troppo lungo per Gemini inline');
 
     const nSteps = (recipe.steps || []).length;
+    // Spezzoni salvati coi tempi incollati (ricette di prima): si rimettono in secondi veri.
+    const segments = repairSegments(recipe.segments, seconds);
+    if (segments) recipe = { ...recipe, segments };
     const asked = await generateJSON({
       prompt: momentsPrompt(recipe, seconds), schema: momentsSchema, temperature: 0.2,
       parts: [{ inlineData: { mimeType: 'video/mp4', data: lite.toString('base64') } }],
@@ -193,7 +199,8 @@ async function buildStepFrames({ videoUrl, recipe, key }) {
       if (!Number.isInteger(s.step) || s.step < 0 || s.step >= nSteps) continue;
       let last = -10;
       for (const m of (s.moments || []).slice(0, MAX_PER_STEP)) {
-        const t = Number(m.t);
+        let t = toSeconds(m.t);
+        if (Number.isFinite(t) && t > seconds && fromMss(t) <= seconds && t % 100 < 60) t = fromMss(t);
         if (!Number.isFinite(t) || t < 0 || t > seconds - 0.2 || t - last < 0.8) continue;
         last = t;
         wanted.push({ step: s.step, caption: String(m.caption || '').trim(), t });
@@ -209,7 +216,7 @@ async function buildStepFrames({ videoUrl, recipe, key }) {
       }
     }));
     const picks = wanted.map((w, n) => shots[n] && { step: w.step, caption: w.caption, ...shots[n] }).filter(Boolean);
-    if (!picks.length) return null;
+    if (!picks.length) return { frames: null, segments };
 
     const checked = await review(recipe, picks).catch((e) => {
       console.warn(`[frames] revisione saltata: ${e.message}`);
@@ -229,7 +236,7 @@ async function buildStepFrames({ videoUrl, recipe, key }) {
     for (const [step, list] of byStep) byStep.set(step, list.map((p) => ({ url: p.url, caption: p.caption })));
     const result = [...byStep.entries()].sort((a, b) => a[0] - b[0]).map(([step, frames]) => ({ step, frames }));
     console.log(`[frames] ${key}: ${picks.length} scelti, ${checked.filter((x) => x.keep).length} tenuti, ${result.length}/${nSteps} step, ${((Date.now() - t0) / 1000).toFixed(1)}s`);
-    return result.length ? result : null;
+    return { frames: result.length ? result : null, segments };
   } finally {
     await fs.rm(dir, { recursive: true, force: true }).catch(() => {});
   }
