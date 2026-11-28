@@ -84,6 +84,7 @@ export function AppTour() {
                     <h1 className="display shout tour__hero">Tonight, cook the one <em>you saved.</em></h1>
                     <p className="tour__lead">Cherry turns a recipe video into a cook mode: every step, right in front of you, while you cook.</p>
                     <a href={START} className="btn btn--cherry btn--xl tour__go">Start cooking <Icon name="next" stroke={2.6} /></a>
+                    <small className="tour__note">Try a recipe first. No card needed to start.</small>
                   </>
                 ) : (
                   <>

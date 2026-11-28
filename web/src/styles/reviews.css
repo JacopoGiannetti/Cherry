@@ -1,0 +1,34 @@
+/* Le recensioni che scorrono (components/Reviews.tsx). Due righe, una per verso. */
+.rv { display: grid; gap: 14px; overflow: hidden; padding: 6px 0 18px; -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent); mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent); }
+.rv__track { display: flex; gap: 14px; width: max-content; margin: 0; padding: 0; list-style: none; animation: rv-slide calc(var(--n) * 6.5s) linear infinite; }
+.rv__row--back .rv__track { animation-direction: reverse; }
+.rv:hover .rv__track, .rv:active .rv__track { animation-play-state: paused; }
+@keyframes rv-slide { to { transform: translateX(calc(-50% - 7px)); } }
+
+.rv__card { flex: none; width: clamp(260px, 26vw, 340px); display: grid; grid-template-rows: auto 1fr auto; gap: 12px; padding: 20px 20px 18px; border-radius: 22px; background: #FFFCF7; color: #1B1313; box-shadow: 0 0 0 1px rgba(27, 19, 19, .07), 0 1px 2px rgba(27, 19, 19, .05), 0 10px 24px rgba(27, 19, 19, .06); }
+.rv__card p { margin: 0; font-size: 16px; line-height: 1.42; text-wrap: pretty; }
+.rv__card footer { display: flex; align-items: baseline; gap: 8px; font-size: 14px; }
+.rv__card footer b { font-weight: 700; }
+.rv__card footer span { color: #7D706A; }
+.rv__stars { display: inline-flex; gap: 2px; }
+.rv__stars svg { width: 16px; height: 16px; fill: rgba(27, 19, 19, .14); }
+.rv__stars svg.on { fill: #E8334A; }
+
+/* Nella landing: una sezione a tutta larghezza. */
+section.lrev { max-width: none; padding-left: 0; padding-right: 0; }
+.lrev__head { max-width: 1180px; margin: 0 auto clamp(26px, 3.4vw, 44px); padding: 0 clamp(22px, 5vw, 72px); }
+
+/* Nell'onboarding: le righe escono dai margini della schermata. */
+.nx-proof { width: 100vw; margin: 26px 0 0 calc(50% - 50vw); }
+.nx-proof .rv__card { width: min(78vw, 300px); }
+
+@media (max-width: 760px) {
+  .rv__card { width: min(78vw, 300px); padding: 18px 18px 16px; }
+  .rv__card p { font-size: 15.5px; }
+}
+/* Riduci movimento: niente scorrimento da solo, le righe si scorrono col dito. */
+@media (prefers-reduced-motion: reduce) {
+  .rv__track { animation: none; }
+  .rv__row { overflow-x: auto; scrollbar-width: none; }
+  .rv__card[aria-hidden] { display: none; }
+}

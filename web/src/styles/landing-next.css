@@ -129,3 +129,15 @@
 .closer--top { padding-top: clamp(110px, 12vw, 170px); padding-bottom: clamp(40px, 6vw, 90px); }
 .lhero--end { border-radius: clamp(32px, 5vw, 72px); margin-top: clamp(40px, 6vw, 90px); }
 .lhero--end .lhero__in { min-height: 0; padding-top: clamp(60px, 8vw, 110px); }
+
+/* Il pulsante dentro la pagina (sections.tsx, Go): dove la persona è convinta, non accanto alla barra. */
+.lgo { display: grid; gap: 12px; justify-items: start; margin-top: clamp(28px, 3.4vw, 44px); }
+.lgo span { font-size: 14.5px; color: var(--mute); }
+.cookm .lgo span { color: rgba(244, 238, 228, .6); }
+.lsome__go { grid-column: 1 / -1; display: grid; justify-items: center; }
+.lsome__go .lgo { justify-items: center; margin-top: clamp(8px, 2vw, 24px); }
+@media (max-width: 760px) {
+  .lgo { justify-items: stretch; }
+  .lgo .btn { width: 100%; }
+  .lgo span { text-align: center; }
+}

@@ -2,10 +2,11 @@ import { useEffect, useRef, useState } from 'react';
 import { motion, useInView, useScroll, useTransform } from 'motion/react';
 import { Icon } from '../components/Icon';
 import { MagicStage, Orbit, SomedayBox } from '../components/Scenes';
-import { Closer, Cook, Faq, Footer, Marquee, More, Reveal, SignIn, START } from './sections';
+import { Cook, Faq, Footer, Go, Marquee, More, Reveal, SignIn, START } from './sections';
 // Dopo sections (che porta tokens.css e landing.css): queste regole devono vincere.
 import '../styles/landing-next.css';
 import { AppTour } from './AppTour';
+import { Reviews } from '../components/Reviews';
 
 // La landing (dal 26 nov 2026). Stesse scene dell'onboarding (i piatti in orbita,
 // la scatola "Someday", il video che si apre in passi): chi arriva dal sito e chi arriva
@@ -59,7 +60,7 @@ export function Nav({ home = true }: { home?: boolean }) {
       </nav>
       <div className="lnav__cta">
         <SignIn className="lnav__signin" />
-        <a href={START} className="btn btn--cherry btn--sm">Get started</a>
+        <a href={START} className="btn btn--cherry btn--sm">Start cooking</a>
         <button type="button" className="lnav__menu" aria-label={open ? 'Close menu' : 'Menu'} aria-expanded={open} onClick={() => setOpen((v) => !v)}>
           <Icon name={open ? 'close' : 'aisle'} size={20} stroke={2.4} />
         </button>
@@ -103,11 +104,11 @@ function Hero() {
             {line(<>Now <em>cook</em> it.</>, 0.5)}
           </h2>
           <motion.p className="lhero__lead" initial={{ opacity: 0, y: 14 }} animate={seen ? { opacity: 1, y: 0 } : undefined} transition={{ delay: 1.0, duration: 0.5 }}>
-            Paste any TikTok or Instagram recipe. Cherry writes it out, with every amount, and builds a cook mode. On TikTok videos, every step <b>loops its exact moment of the video.</b>
+            Paste any TikTok or Instagram recipe. Cherry writes it out, with every amount, and builds a cook mode. <b>Every step comes with its moment of the video, or its photos.</b>
           </motion.p>
           <motion.div className="lhero__cta" initial={{ opacity: 0, y: 14 }} animate={seen ? { opacity: 1, y: 0 } : undefined} transition={{ delay: 1.15, duration: 0.5 }}>
-            <a href={START} className="btn btn--cherry btn--xl">Turn a video into dinner <Icon name="next" stroke={2.6} /></a>
-            <span>Takes two minutes. Try a recipe before you sign up.</span>
+            <a href={START} className="btn btn--cherry btn--xl">Start cooking <Icon name="next" stroke={2.6} /></a>
+            <span>Try a recipe first. No card needed to start.</span>
           </motion.div>
         </div>
       </div>
@@ -161,6 +162,7 @@ function Someday() {
           <Reveal key={t} delay={0.08 * i}><li><span className="num">{String(i + 1).padStart(2, '0')}</span><b>{t}</b><p>{b}</p></li></Reveal>
         ))}
       </ol>
+      <Reveal className="lsome__go"><Go /></Reveal>
     </section>
   );
 }
@@ -168,7 +170,7 @@ function Someday() {
 const HOW = [
   ['Copy the link', 'On TikTok or Instagram, tap Share, then Copy link. Any recipe, any creator.'],
   ['Cherry watches it', 'The whole video. Every ingredient and step gets written out, with amounts.'],
-  ['You cook, step by step', 'Big text, screen awake, hands free. On TikTok videos each step loops its moment.'],
+  ['You cook, step by step', 'Big text, screen awake, hands free. Each step comes with its moment of the video, or its photos.'],
 ];
 
 /** Come funziona, mostrato: il video si apre in passi in loop; i tre punti si accendono mentre scendi. */
@@ -213,6 +215,19 @@ function How() {
   );
 }
 
+/** Chi l'ha provata per primo, con parole sue. */
+function Proof() {
+  return (
+    <section className="lrev" id="reviews">
+      <div className="lrev__head">
+        <Reveal><p className="eyebrow">From our first testers</p></Reveal>
+        <Reveal delay={0.05}><h2 className="display section-title">They saved it. <em>Then they cooked it.</em></h2></Reveal>
+      </div>
+      <Reviews />
+    </section>
+  );
+}
+
 export function Landing() {
   return (
     <>
@@ -221,6 +236,7 @@ export function Landing() {
         <AppTour />
         <Marquee />
         <Someday />
+        <Proof />
         <How />
         <Cook />
         <More />

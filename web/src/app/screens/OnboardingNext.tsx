@@ -13,6 +13,7 @@ import { metaForServer, once, track } from '../../lib/meta';
 import { saveProfile, sendRegistrationEvent } from '../../lib/api';
 import { DEMO_URL, derive, hasFunnel, loadFunnel, saveFunnel, TAKEOUT_USD, type Funnel } from '../../lib/funnel';
 import { journey } from '../../lib/journey';
+import { Reviews } from '../../components/Reviews';
 import { isPreview } from '../../lib/preview';
 import { takeNext } from '../../lib/next';
 import demo from '../../lib/demo.json';
@@ -31,10 +32,11 @@ import type { Recipe } from '../../lib/types';
 //  7 nights    l'impegno: quante sere a settimana, un numero e sette posti a tavola
 //  8 receipt   il costo di oggi: lo scontrino dell'asporto che si allunga
 //  9 chart     il futuro con i suoi numeri: il ritmo di oggi contro quello con Cherry
-// 10 team      chi c'è dietro: una nota firmata dal team
-// 11 account   salva il piano (→ paywall)
+// 10 proof     chi l'ha provata: le recensioni dei primi tester, che scorrono
+// 11 team      chi c'è dietro: una nota firmata dal team
+// 12 account   salva il piano (→ paywall)
 
-const ALL = ['hello', 'saved', 'cooked', 'reveal', 'blockers', 'magic', 'nights', 'receipt', 'chart', 'team', 'account'] as const;
+const ALL = ['hello', 'saved', 'cooked', 'reveal', 'blockers', 'magic', 'nights', 'receipt', 'chart', 'proof', 'team', 'account'] as const;
 type Step = typeof ALL[number];
 const MIRROR: Step[] = ['saved', 'cooked', 'reveal'];
 const DARK: Step[] = ['hello', 'reveal'];
@@ -178,6 +180,7 @@ export function OnboardingNext() {
           {scene === 'nights' && <Nights f={f} set={set} picked={picked} pick={pick} onNext={next} />}
           {scene === 'receipt' && <Receipt f={f} set={set} picked={picked} pick={pick} onNext={next} />}
           {scene === 'chart' && <Chart f={f} onNext={next} />}
+          {scene === 'proof' && <Proof onNext={next} />}
           {scene === 'team' && <Team onNext={() => { set(DEMO); next(); }} />}
           {scene === 'account' && <Account f={f} signedInAs={preview && user ? (user.displayName || user.email || 'you') : null} onContinue={finish} />}
         </motion.section>
@@ -564,6 +567,16 @@ function Gain({ n, plus }: { n: number; plus: boolean }) {
 }
 
 // 10 ---------- Chi c'è dietro: una nota firmata dal team
+function Proof({ onNext }: { onNext: () => void }) {
+  return (
+    <>
+      <Head kicker="From our first testers">They saved it. <em>Then they cooked it.</em></Head>
+      <Reviews className="nx-proof" />
+      <Cta onClick={onNext}>Continue</Cta>
+    </>
+  );
+}
+
 function Team({ onNext }: { onNext: () => void }) {
   const rules = ['Made for cooking, not for scrolling.', 'Creators always get the credit.', 'Your cookbook, on every device you own.'];
   return (

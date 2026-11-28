@@ -46,6 +46,7 @@ section.tour { position: relative; height: calc(var(--steps) * 100svh); max-widt
 .tour__title em { display: block; color: var(--t-em); }
 .tour__body { margin: 24px 0 0; max-width: 36ch; font-size: clamp(17px, 1.5vw, 21px); line-height: 1.45; color: var(--t-soft); }
 .tour__text .btn { margin-top: 0; }
+.tour__note { margin-top: 12px; font-size: 14.5px; color: var(--t-mute); }
 .tour__text .tour__end { margin-top: 30px; background: #FFFCF7; color: #1B1313; box-shadow: 0 2px 4px rgba(120, 12, 28, .25), 0 16px 34px rgba(120, 12, 28, .35); }
 
 /* Il numero del capitolo, enorme, dietro il telefono. */
@@ -78,7 +79,7 @@ section.tour { position: relative; height: calc(var(--steps) * 100svh); max-widt
   .tour__lead { display: none; }
   .tour__hero { margin-bottom: 16px; }
   /* Sul telefono "Get started" è già fisso in alto, a due dita: un secondo pulsante uguale non serve. */
-  .tour__text .tour__go, .tour__text .tour__end { display: none; }
+  .tour__text .tour__go, .tour__text .tour__end, .tour__note { display: none; }
   .tour__kicker { margin-bottom: 10px; }
   .tour__title { font-size: clamp(32px, 9.4vw, 42px); }
   .tour__body { margin-top: 10px; font-size: 15.5px; line-height: 1.4; max-width: 40ch; }

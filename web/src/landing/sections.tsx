@@ -12,6 +12,16 @@ import { openCookiePrefs } from '../lib/meta';
 export const START = '/app/start';
 export const APP = '/app/';
 
+/** Il pulsante della landing: una scritta sola ovunque, e sotto la riga che toglie il dubbio. */
+export function Go({ light = false }: { light?: boolean }) {
+  return (
+    <div className={`lgo ${light ? 'lgo--light' : ''}`}>
+      <a href={START} className="btn btn--cherry btn--xl">Start cooking <Icon name="next" stroke={2.6} /></a>
+      <span>Try a recipe first. No card needed to start.</span>
+    </div>
+  );
+}
+
 /** "Sign in" porta alla pagina di login (email e password, o Google). Chi non ha l'account passa da "Create account". */
 export function SignIn({ className }: { className?: string }) {
   const [signedIn, setSignedIn] = useState(false);
@@ -199,14 +209,15 @@ export function Cook() {
           <Reveal delay={0.05}><h2 className="display section-title">The video repeats the part <em>you're on.</em></h2></Reveal>
           <ul className="cookm__list">
             {[
-              ['Synced to the second', 'Every step is matched to its exact moment. On TikTok videos it loops until you move on.'],
+              ['Every step, shown', 'On TikTok the video loops the exact moment you are on. On Instagram each step gets its own photos from the reel.'],
               ['Read it from across the counter', 'Big type, one step at a time, screen stays awake.'],
               ['Amounts for your table', 'Cooking for two or six? Every quantity rescales.'],
-              ['The creator stays in the frame', 'Videos play in the official TikTok and Instagram players.'],
+              ['The creator stays in the frame', 'Every recipe shows who made it and links back to the original post.'],
             ].map(([t, b], i) => (
               <Reveal key={t} delay={0.06 * i}><li><b>{t}</b><p>{b}</p></li></Reveal>
             ))}
           </ul>
+          <Reveal delay={0.1}><Go /></Reveal>
         </div>
         <Reveal className="cookm__demo" delay={0.1}>
           <LoopDemo />
@@ -281,9 +292,9 @@ export function Pricing() {
 
 const FAQ = [
   ['Does it work on my phone?', 'Yes. Cherry works on iPhone, Android, tablets and computers. Add it to your Home Screen for one-tap access, and your cookbook syncs everywhere.'],
-  ['Which videos work?', 'Public recipe videos from TikTok and Instagram Reels. If the video shows the cooking, Cherry can turn it into steps. Step looping works mainly with TikTok: there each step loops its moment automatically. Instagram doesn’t let other apps control its videos, so for most Reels you get the full recipe, amounts and steps, with a link to the original video and no loop.'],
+  ['Which videos work?', 'Public recipe videos from TikTok and Instagram Reels. If the video shows the cooking, Cherry can turn it into steps. On TikTok videos each step loops its own moment of the video. On Instagram Reels each step gets its own photos, taken from the reel, and a link to the original.'],
   ['How long does it take?', 'Usually under a minute. Cherry watches the whole video, so a longer recipe takes a bit longer. You can keep browsing while it works.'],
-  ['Do creators get credit?', 'Always. Cook mode plays the original video in the official TikTok or Instagram player, with the creator’s name, and every recipe links back to the post.'],
+  ['Do creators get credit?', 'Always. Every recipe shows the creator’s name and links back to the original post, and TikTok videos play in the official TikTok player.'],
   ['What if a recipe has no amounts?', 'Cherry estimates sensible amounts from what it sees in the video and the caption, and you can scale servings up or down.'],
   ['How do I cancel?', 'In Cherry, go to You, then Manage or cancel. Two taps, no emails, no calls.'],
 ];
