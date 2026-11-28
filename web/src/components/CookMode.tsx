@@ -3,6 +3,7 @@ import { AnimatePresence, motion } from 'motion/react';
 import type { Recipe, Segment } from '../lib/types';
 import { fmtTime, guessItem, scaleQuantity, section } from '../lib/kitchen';
 import { Icon } from './Icon';
+import { Swap } from './Swap';
 import { repairSegments } from '../lib/timecode';
 import { VideoPlayer, type PlayerHandle } from './VideoPlayer';
 import '../styles/cook-orig.css';
@@ -184,10 +185,10 @@ export function CookMode({ recipe, factor = 1, onClose, onDone, limit, onUnlock 
           {controllable && (
             <div className="cook__controls">
               <button className="icon-btn icon-btn--glass" onClick={togglePlay} aria-label={paused ? 'Play' : 'Pause'}>
-                <Icon name={paused ? 'play' : 'pause'} fill={paused ? 'currentColor' : 'none'} />
+                <Swap id={paused ? 'play' : 'pause'}><Icon name={paused ? 'play' : 'pause'} fill={paused ? 'currentColor' : 'none'} /></Swap>
               </button>
               <button className="icon-btn icon-btn--glass" onClick={toggleMute} aria-label={muted ? 'Sound on' : 'Sound off'}>
-                <Icon name={muted ? 'mute' : 'sound'} />
+                <Swap id={muted ? 'mute' : 'sound'}><Icon name={muted ? 'mute' : 'sound'} /></Swap>
               </button>
             </div>
           )}

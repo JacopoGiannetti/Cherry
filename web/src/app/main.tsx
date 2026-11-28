@@ -143,4 +143,7 @@ function App() {
   );
 }
 
+// Solo in sviluppo con dati finti: il giro guidato per registrare il video dimostrativo.
+if (import.meta.env.DEV && import.meta.env.VITE_MOCK === '1') void import('../lib/dev-tour');
+
 createRoot(document.getElementById('root')!).render(<StrictMode><App /></StrictMode>);

@@ -31,15 +31,20 @@ function normalize(id: string, data: any): Recipe {
 import demoRecipe from './demo.json';
 
 // ---------- Solo in sviluppo: /app/?mock apre l'app con dati finti, senza account ----------
-const MOCK = import.meta.env.DEV && (() => {
+// VITE_MOCK=1 all'avvio del server di sviluppo: dati finti sempre, anche nell'app aggiunta alla Home
+// del simulatore (che non vede ?mock). Serve a registrare il video dimostrativo.
+const MOCK = import.meta.env.DEV && (import.meta.env.VITE_MOCK === '1' || (() => {
   try {
     if (new URLSearchParams(location.search).has('mock')) sessionStorage.setItem('cherry.mock', '1');
     return sessionStorage.getItem('cherry.mock') === '1';
   } catch { return false; }
-})();
+})());
 const plate = (n: string) => `/assets/food/${n}.jpg`;
 const base = demoRecipe as unknown as Recipe;
-let MOCK_RECIPES: Recipe[] = [
+// Per il video dimostrativo: se c'è web/src/lib/dev-mine.json (ricette vere esportate dal database,
+// file locale mai pubblicato) l'app finta mostra quelle al posto delle ricette di esempio.
+const MINE = Object.values(import.meta.glob('./dev-mine.json', { eager: true, import: 'default' }))[0] as Recipe[] | undefined;
+let MOCK_RECIPES: Recipe[] = MINE?.length ? MINE : [
   { ...base, id: 'demo', imageUrl: '/assets/food/serve.jpg', favorite: true },
   { ...base, id: 'm2', title: 'Crispy Mushroom Tacos', cuisine: 'Mexican', cookMinutes: 25, imageUrl: plate('v-tacos') },
   { ...base, id: 'm3', title: 'Miso Ramen', cuisine: 'Japanese', cookMinutes: 40, imageUrl: plate('v-ramen') },

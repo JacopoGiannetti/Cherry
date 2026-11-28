@@ -9,6 +9,7 @@ import { CategoryChooser, CategoryForm } from '../../components/Categories';
 import { uploadPhoto } from '../../lib/upload';
 import { importRecipe, refreshCover, regenerateFrames, resolveEmbed } from '../../lib/api';
 import { goBack } from '../../lib/nav';
+import { Swap } from '../../components/Swap';
 import { fadeIn } from '../../lib/img';
 import { guessItem, mergeIntoList, minutes, removeRecipeFromList, scaleQuantity, section } from '../../lib/kitchen';
 import type { Recipe } from '../../lib/types';
@@ -95,7 +96,12 @@ function Ready({ recipe, uid, household }: { recipe: Recipe; uid: string; househ
   const [servings, setServings] = useState(household && household !== base ? household : base);
   const [tab, setTab] = useState<'ingredients' | 'steps'>('ingredients');
   const factor = servings / base;
-  const inList = !!list?.recipeIds?.includes(recipe.id);
+  const savedInList = !!list?.recipeIds?.includes(recipe.id);
+  // Il pulsante risponde al tocco, non al server: lo stato cambia subito e si allinea quando arriva la lista vera.
+  const [optimistic, setOptimistic] = useState<boolean | null>(null);
+  const inList = optimistic ?? savedInList;
+  useEffect(() => { if (optimistic !== null && optimistic === savedInList) setOptimistic(null); }, [optimistic, savedInList]);
+  const cartBtn = useRef<HTMLButtonElement>(null);
   const video = (recipe.segments?.length || 0) >= 2;
   const more = useRef<HTMLButtonElement>(null);
   const [from, setFrom] = useState<Origin>(null);
@@ -138,14 +144,23 @@ function Ready({ recipe, uid, household }: { recipe: Recipe; uid: string; househ
 
   const toggleList = async () => {
     navigator.vibrate?.(8);
-    if (inList && list) {
-      await editList(uid, (l) => ({ ...l, ...removeRecipeFromList(l, recipe.id) }));
-      toast('Removed from groceries', 'cart');
-    } else {
-      const scaled = { ...recipe, ingredients: recipe.ingredients.map((g) => ({ ...g, quantity: scaleQuantity(g.quantity, factor) })) };
-      await editList(uid, (l) => ({ ...l, ...mergeIntoList(l, [scaled]) }));
-      used('list.add');
-      toast(`${recipe.ingredients.length} items added to groceries`, 'cart');
+    const adding = !(inList && list);
+    setOptimistic(adding);
+    // La conferma si sente: il pulsante pulsa mentre la spunta prende il posto del carrello.
+    if (adding) cartBtn.current?.animate([{ transform: 'scale(1)' }, { transform: 'scale(1.12)' }, { transform: 'scale(1)' }], { duration: 460, easing: 'cubic-bezier(.22, 1, .36, 1)' });
+    try {
+      if (!adding) {
+        await editList(uid, (l) => ({ ...l, ...removeRecipeFromList(l, recipe.id) }));
+        toast('Removed from groceries', 'cart');
+      } else {
+        const scaled = { ...recipe, ingredients: recipe.ingredients.map((g) => ({ ...g, quantity: scaleQuantity(g.quantity, factor) })) };
+        await editList(uid, (l) => ({ ...l, ...mergeIntoList(l, [scaled]) }));
+        used('list.add');
+        toast(`${recipe.ingredients.length} items added to groceries`, 'cart');
+      }
+    } catch (e: any) {
+      setOptimistic(null);
+      toast(e?.message || 'Could not update groceries. Try again.', 'close');
     }
   };
 
@@ -158,7 +173,7 @@ function Ready({ recipe, uid, household }: { recipe: Recipe; uid: string; househ
   return (
     <main className="recipe">
       <div className="recipe__media">
-        {recipe.imageUrl ? <img src={recipe.imageUrl} alt="" {...fadeIn} /> : <span className="shimmer card__ph" />}
+        {recipe.imageUrl ? <img src={recipe.imageUrl} alt="" {...fadeIn(recipe.imageUrl)} /> : <span className="shimmer card__ph" />}
         {!recipe.imageUrl && (
           <button className={`btn btn--soft recipe__cover-btn ${coverBusy ? 'is-busy' : ''}`} onClick={() => (recipe.sourceUrl ? getCover() : photoInput.current?.click())}>
             <Icon name={recipe.sourceUrl ? 'refresh' : 'camera'} size={17} /> {recipe.sourceUrl ? 'Get the cover from the video' : 'Add a photo'}
@@ -240,14 +255,9 @@ function Ready({ recipe, uid, household }: { recipe: Recipe; uid: string; househ
       </section>
 
       <div className="recipe__cta">
-        <button className={`cart-btn ${inList ? 'is-on' : ''}`} onClick={toggleList} aria-pressed={inList}
+        <button ref={cartBtn} className={`cart-btn ${inList ? 'is-on' : ''}`} onClick={toggleList} aria-pressed={inList}
           aria-label={inList ? 'Remove from groceries' : 'Add ingredients to groceries'}>
-          <AnimatePresence mode="popLayout" initial={false}>
-            <motion.span key={String(inList)} initial={{ scale: 0.4, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} exit={{ scale: 0.4, opacity: 0 }}
-              transition={{ type: 'spring', stiffness: 600, damping: 26 }} style={{ display: 'grid' }}>
-              <Icon name={inList ? 'check' : 'cart'} size={21} stroke={inList ? 2.8 : 2.2} />
-            </motion.span>
-          </AnimatePresence>
+          <Swap id={inList ? 'check' : 'cart'}><Icon name={inList ? 'check' : 'cart'} size={21} stroke={inList ? 2.8 : 2.2} /></Swap>
           <span className="cart-btn__label">{inList ? 'On list' : 'Groceries'}</span>
         </button>
         <button className="btn btn--cherry btn--lg recipe__go" onClick={() => navigate(`/cook/${recipe.id}?s=${servings}`, { state: { from: 'recipe' } })}>
@@ -272,11 +282,7 @@ function Ready({ recipe, uid, household }: { recipe: Recipe; uid: string; househ
       <Sheet open={menu} onClose={() => { setMenu(false); setConfirm(false); }} from={from} label="Recipe options">
         {!confirm ? (
           <div className="menu">
-            {recipe.sourceUrl && (
-              <a className="menu__row" href={recipe.sourceUrl} target="_blank" rel="noopener" onClick={() => setMenu(false)}>
-                <Icon name="external" size={19} /> Open the original on {recipe.platform === 'instagram' || /instagr/i.test(recipe.sourceUrl) ? 'Instagram' : 'TikTok'}
-              </a>
-            )}
+            {/* Meno scelte, più veloci: il video originale è già sotto il titolo, la spesa nel pulsante in basso. */}
             <button className="menu__row" onClick={() => { setMenu(false); setCatView('list'); }}>
               <Icon name="flag" size={19} /> {inCats.length ? `In ${inCats.map((c) => c.name).join(', ')}` : 'Add to a category'}
             </button>
@@ -296,9 +302,6 @@ function Ready({ recipe, uid, household }: { recipe: Recipe; uid: string; househ
                 <Icon name="image" size={19} /> {framesBusy ? 'Picking step photos…' : recipe.stepFrames?.length ? 'Pick step photos again' : 'Get step photos from the video'}
               </button>
             )}
-            <button className="menu__row" onClick={() => { setMenu(false); toggleList(); }}>
-              <Icon name="cart" size={19} /> {inList ? 'Remove from groceries' : 'Add to groceries'}
-            </button>
             <button className="menu__row menu__row--danger" onClick={() => setConfirm(true)}><Icon name="trash" size={19} /> Delete recipe</button>
           </div>
         ) : (

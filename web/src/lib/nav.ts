@@ -100,6 +100,8 @@ function run(kind: Kind, from: string, to: string | null, update: () => Promise<
   if (import.meta.env.DEV && SLOW > 1) (vt as any).ready?.then(() => document.getAnimations().forEach((an) => { an.playbackRate = 1 / SLOW; })).catch(() => {});
   const done = () => { if (root().dataset.vt === kind) delete root().dataset.vt; clearHero(); };
   vt.finished.then(done, done);
+  // Una transizione saltata (app in secondo piano) rifiuta anche `ready`: non è un errore.
+  (vt as any).ready?.catch(() => {});
   setTimeout(() => { if (!ran) { ran = true; vt.skipTransition?.(); void update(); } }, 300);
 }
 

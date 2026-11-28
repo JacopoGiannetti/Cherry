@@ -110,3 +110,11 @@ html[data-enter="down"], html[data-enter="close"] { --m-s: .97; }
   ::view-transition-new(tabbar):only-child, ::view-transition-new(cta):only-child, ::view-transition-new(rbar):only-child, ::view-transition-new(rbody):only-child { animation: m-fade-in 200ms linear both !important; }
   html[data-enter] .shell > * > * { animation: m-fade-in 200ms linear backwards !important; animation-duration: 200ms !important; }
 }
+
+/* ---------- Dentro le pagine ---------- */
+/* Tra le schede si passa di continuo: più una cosa si usa, meno deve animarsi. Breve e quasi ferma. */
+html[data-enter="tab-next"] .shell > * > *, html[data-enter="tab-prev"] .shell > * > * { animation-duration: 200ms; }
+html[data-enter="tab-next"] { --m-dx: 12px; }
+html[data-enter="tab-prev"] { --m-dx: -12px; }
+/* Un foglio aperto ha la scena: la pagina dietro arretra di più. */
+.sheet-dim { background: rgba(27, 19, 19, .5); }

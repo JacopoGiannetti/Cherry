@@ -2,6 +2,7 @@ import { useEffect, useMemo, useRef, useState } from 'react';
 import { AnimatePresence, motion } from 'motion/react';
 import { Link } from 'wouter';
 import { Icon } from '../../components/Icon';
+import { Swap } from '../../components/Swap';
 import { RecipeCard } from '../../components/RecipeCard';
 import { Sheet, originOf, type Origin } from '../../components/Sheet';
 import { AddRecipe } from '../../components/AddRecipe';
@@ -61,7 +62,7 @@ export function Library() {
       <header className="bar">
         <h1 className="bar__title">Cookbook</h1>
         <div className="bar__actions">
-          {!empty && <button className="bar__btn" onClick={() => setSearching((s) => !s)} aria-label="Search"><Icon name={searching ? 'close' : 'search'} /></button>}
+          {!empty && <button className="bar__btn" onClick={() => setSearching((s) => !s)} aria-label="Search"><Swap id={searching ? 'close' : 'search'}><Icon name={searching ? 'close' : 'search'} /></Swap></button>}
           <Link href="/settings" className="bar__avatar" aria-label="Account">
             {user?.photoURL ? <img src={user.photoURL} alt="" referrerPolicy="no-referrer" /> : <Icon name="user" size={18} />}
           </Link>

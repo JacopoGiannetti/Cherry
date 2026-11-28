@@ -3,6 +3,7 @@ import { AnimatePresence, motion } from 'motion/react';
 import { useLocation } from 'wouter';
 import '../../styles/flow-next.css';
 import { Icon } from '../../components/Icon';
+import { PhoneDemo } from '../../components/PhoneDemo';
 import { CookMode } from '../../components/CookMode';
 import { GoogleButton } from '../../components/GoogleButton';
 import { EmailAuth } from '../../components/EmailAuth';
@@ -236,22 +237,20 @@ function Hello({ onNext }: { onNext: () => void }) {
   );
   return (
     <div className="nx-hello">
-      <Orbit>
-        <motion.div className="nx-orbit__core" initial={{ scale: 0, rotate: -30 }} animate={{ scale: 1, rotate: 0 }} transition={{ type: 'spring', stiffness: 200, damping: 12, delay: 0.75 }}>
-          <img src="/assets/mascot.png" alt="" />
-          <span className="display">Cherry</span>
-        </motion.div>
-      </Orbit>
+      {/* La prima cosa che si vede: l'app vera che gira in un iPhone (prima c'erano i piatti in orbita). */}
+      <motion.div className="nx-hello__phone" initial={{ opacity: 0, y: 30, scale: 0.94 }} animate={{ opacity: 1, y: 0, scale: 1 }} transition={{ duration: 0.8, delay: 0.15, ease: EASE }}>
+        <PhoneDemo />
+      </motion.div>
       <div className="nx-hello__copy">
         <h1 className="display shout nx-hello__title">
-          {line('Saved it.', 1.0)}
-          {line(<>Now <em>cook</em> it.</>, 1.14)}
+          {line('Saved it.', 0.6)}
+          {line(<>Now <em>cook</em> it.</>, 0.74)}
         </h1>
-        <motion.p initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 1.7, duration: 0.5 }}>
+        <motion.p initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 1.1, duration: 0.5 }}>
           Cherry turns the recipe videos you save into dinners you actually make.
         </motion.p>
       </div>
-      <motion.div className="flow__cta" initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 2.0, duration: 0.5, ease: EASE }}>
+      <motion.div className="flow__cta" initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 1.3, duration: 0.5, ease: EASE }}>
         <button className="btn btn--cherry btn--block" onClick={onNext}>Get started <Icon name="next" stroke={2.6} /></button>
       </motion.div>
     </div>
