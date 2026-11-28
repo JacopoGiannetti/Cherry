@@ -30,3 +30,8 @@
 @keyframes cook-spin { to { transform: rotate(360deg); } }
 @keyframes cook-shimmer { from { background-position: 100% 0; } to { background-position: 0 0; } }
 @media (prefers-reduced-motion: reduce) { .cook__spin, .cook__frames--wait i { animation: none; } }
+
+/* Ricetta: l'emoji davanti a ogni ingrediente, la stessa della lista della spesa. */
+.ingredients li { justify-content: flex-start; gap: 12px; }
+.ingredients li > span { flex: 1; min-width: 0; }
+.ingredients__emoji { flex: none; width: 26px; font-style: normal; font-size: 20px; line-height: 1; text-align: center; align-self: center; }

@@ -10,7 +10,7 @@ import { uploadPhoto } from '../../lib/upload';
 import { importRecipe, refreshCover, regenerateFrames, resolveEmbed } from '../../lib/api';
 import { goBack } from '../../lib/nav';
 import { fadeIn } from '../../lib/img';
-import { mergeIntoList, minutes, removeRecipeFromList, scaleQuantity } from '../../lib/kitchen';
+import { guessItem, mergeIntoList, minutes, removeRecipeFromList, scaleQuantity, section } from '../../lib/kitchen';
 import type { Recipe } from '../../lib/types';
 import { used } from '../../lib/usage';
 
@@ -210,7 +210,7 @@ function Ready({ recipe, uid, household }: { recipe: Recipe; uid: string; househ
               </div>
               <ul className="ingredients">
                 {recipe.ingredients.map((g, i) => (
-                  <li key={i}><span>{g.name}</span><em>{scaleQuantity(g.quantity, factor)}</em></li>
+                  <li key={i}><i className="ingredients__emoji" aria-hidden="true">{g.emoji || guessItem(g.name).emoji || section(g.storeSection).emoji}</i><span>{g.name}</span><em>{scaleQuantity(g.quantity, factor)}</em></li>
                 ))}
               </ul>
             </motion.div>
