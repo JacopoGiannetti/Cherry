@@ -29,7 +29,7 @@ export function PhoneDemo({ className = '' }: { className?: string }) {
   return (
     <div className={`phone ${className}`} aria-label="Cherry on an iPhone: the cookbook, a recipe and cook mode">
       <div className="phone__screen">
-        <video ref={video} key={clip} src={`/assets/demo/clip-${clip}.mp4`} poster={`/assets/demo/clip-${clip}.jpg`}
+        <video ref={video} key={clip} src={`/assets/demo/clip-${clip}.mp4?v=2`} poster={`/assets/demo/clip-${clip}.jpg?v=2`}
           muted playsInline preload="metadata" disablePictureInPicture autoPlay onEnded={() => setN((x) => (x + 1) % CLIPS.length)} />
         <i className="phone__island" aria-hidden="true" />
       </div>

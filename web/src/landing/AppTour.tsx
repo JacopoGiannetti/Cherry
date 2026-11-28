@@ -114,7 +114,7 @@ export function AppTour() {
                   <div className="phone__screen">
                     {CLIPS.map((name) => (
                       <video key={name} ref={(el) => { videos.current[name] = el; }} className={name === clip ? 'is-on' : ''}
-                        src={`/assets/demo/clip-${name}.mp4`} poster={`/assets/demo/clip-${name}.jpg`}
+                        src={`/assets/demo/clip-${name}.mp4?v=2`} poster={`/assets/demo/clip-${name}.jpg?v=2`}
                         muted loop playsInline disablePictureInPicture preload="auto" />
                     ))}
                     {CHAPTERS.map((c) => (
