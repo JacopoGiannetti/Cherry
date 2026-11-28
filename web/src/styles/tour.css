@@ -1,61 +1,92 @@
 /* L'apertura che si racconta scorrendo (landing/AppTour.tsx).
-   .tour è alto quanto tutti i capitoli; .tour__stage resta attaccato allo schermo. */
-.tour { position: relative; height: calc(var(--steps) * 86svh + 14svh); }
-.tour__stage { position: sticky; top: 0; height: 100svh; overflow: hidden; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); align-items: center; column-gap: clamp(24px, 5vw, 90px); max-width: 1320px; margin: 0 auto; padding: 96px clamp(24px, 5vw, 72px) 40px; }
+   .tour è alto quanto tutti i capitoli; .tour__stage resta attaccato allo schermo, a tutta
+   larghezza, e cambia colore a ogni capitolo. */
+
+/* landing.css dà a ogni <section> 160px di spazio e una larghezza massima: qui no, altrimenti
+   la pagina si apre col contenuto spostato in basso e si sistema solo scorrendo. */
+section.tour { position: relative; height: calc(var(--steps) * 100svh); max-width: none; margin: 0; padding: 0; }
+
+.tour__stage { position: sticky; top: 0; height: 100svh; overflow: hidden; background: var(--t-bg); color: var(--t-fg); transition: background-color .55s cubic-bezier(.22, 1, .36, 1), color .4s; }
+.tour__stage[data-theme="paper"] { --t-bg: #F4EEE4; --t-fg: #1B1313; --t-soft: #3B302E; --t-mute: #7D706A; --t-num: #EAE2D5; --t-em: #E8334A; --t-line: rgba(27, 19, 19, .2); }
+.tour__stage[data-theme="ink"] { --t-bg: #1B1313; --t-fg: #F4EEE4; --t-soft: rgba(244, 238, 228, .78); --t-mute: rgba(244, 238, 228, .55); --t-num: #2A1F1F; --t-em: #FF5C70; --t-line: rgba(244, 238, 228, .24); }
+.tour__stage[data-theme="blush"] { --t-bg: #F7C9C6; --t-fg: #1B1313; --t-soft: #3B302E; --t-mute: #6E5450; --t-num: #F1B7B3; --t-em: #C92239; --t-line: rgba(27, 19, 19, .22); }
+.tour__stage[data-theme="cherry"] { --t-bg: #E8334A; --t-fg: #FFFCF7; --t-soft: rgba(255, 252, 247, .9); --t-mute: rgba(255, 252, 247, .7); --t-num: #DB2940; --t-em: #1B1313; --t-line: rgba(255, 252, 247, .34); }
+
+.tour__in { position: relative; height: 100%; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); align-items: center; column-gap: clamp(24px, 5vw, 90px); max-width: 1320px; margin: 0 auto; padding: 92px clamp(24px, 5vw, 72px) 28px; }
 
 /* Il telefono cambia colonna a ogni capitolo; il testo sta dall'altra parte. */
 .tour__copy { grid-row: 1; grid-column: 1; position: relative; z-index: 2; }
-.tour__phone { grid-row: 1; grid-column: 2; justify-self: center; position: relative; z-index: 1; }
+.tour__device { grid-row: 1; grid-column: 2; justify-self: center; position: relative; z-index: 1; display: grid; justify-items: center; gap: 14px; }
 .tour__stage.is-left .tour__copy { grid-column: 2; }
-.tour__stage.is-left .tour__phone { grid-column: 1; }
-.tour__phone .phone { --w: clamp(250px, min(23vw, 36svh), 330px); }
+.tour__stage.is-left .tour__device { grid-column: 1; }
+/* Il telefono intero sta sempre dentro lo schermo: la larghezza dipende anche dall'altezza. */
+.tour__phone .phone { --w: clamp(220px, min(23vw, calc((100svh - 250px) * .46)), 330px); }
+.tour__phone .phone__screen { background: #1b1313; }
 .tour__phone .phone__screen video { position: absolute; inset: 0; opacity: 0; transition: opacity .35s ease; }
 .tour__phone .phone__screen video.is-on { opacity: 1; }
 
-.tour__text { display: grid; justify-items: start; gap: 0; max-width: 560px; }
-.tour__hero { font-size: clamp(64px, 8.4vw, 148px); line-height: .84; letter-spacing: -.045em; max-width: 8ch; margin: 0 0 38px; }
-.tour__hero em { text-transform: none; }
-.tour__hint { display: flex; align-items: center; gap: 8px; margin-top: 26px; font-size: 14.5px; font-weight: 600; color: var(--mute); }
-.tour__hint svg { animation: tour-nudge 1.6s ease-in-out infinite; }
-@keyframes tour-nudge { 50% { transform: translateY(5px); } }
+/* TikTok / Instagram: due tasti sopra il telefono. Dopo l'apertura spariscono senza spostare niente. */
+.tour__switch { position: relative; display: inline-grid; grid-auto-flow: column; padding: 4px; border-radius: 999px; background: rgba(27, 19, 19, .07); transition: opacity .3s, transform .3s; }
+.tour__switch button { position: relative; height: 38px; padding: 0 16px; border-radius: 999px; font-size: 14px; font-weight: 700; color: var(--t-mute); transition: color .2s; white-space: nowrap; }
+.tour__switch button.is-on { color: #FFFCF7; }
+.tour__switch button > span { position: relative; }
+.tour__switch-bg { position: absolute; inset: 0; border-radius: 999px; background: #1B1313; box-shadow: 0 2px 6px rgba(27, 19, 19, .22); }
+.tour__caption { margin: 2px 0 0; font-size: 14.5px; font-weight: 600; color: var(--t-mute); text-align: center; transition: opacity .3s; }
+.tour__switch.is-off, .tour__caption.is-off { opacity: 0; pointer-events: none; }
+.tour__switch.is-off { transform: translateY(8px); }
 
-.tour__kicker { display: flex; align-items: center; gap: 12px; margin-bottom: 20px; font-size: 13px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--cherry); }
-.tour__kicker b { display: grid; place-items: center; min-width: 34px; height: 26px; padding: 0 8px; border-radius: 999px; background: var(--cherry); color: var(--white); letter-spacing: .04em; font-feature-settings: "tnum"; }
+.tour__text { display: grid; justify-items: start; max-width: 560px; }
+.tour__hero { font-size: clamp(60px, min(8.2vw, 15svh), 148px); line-height: .84; letter-spacing: -.045em; max-width: 8ch; margin: 0; }
+.tour__hero em { text-transform: none; color: var(--t-em); }
+.tour__lead { margin: 26px 0 30px; max-width: 30ch; font-size: clamp(17px, 1.45vw, 21px); line-height: 1.42; color: var(--t-soft); }
+
+.tour__kicker { display: flex; align-items: center; gap: 12px; margin-bottom: 20px; font-size: 13px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--t-em); }
+.tour__kicker b { display: grid; place-items: center; min-width: 34px; height: 26px; padding: 0 8px; border-radius: 999px; background: var(--t-em); color: var(--t-bg); letter-spacing: .04em; font-feature-settings: "tnum"; }
 .tour__title { font-size: clamp(40px, 5vw, 78px); line-height: .92; letter-spacing: -.04em; margin: 0; text-wrap: balance; }
-.tour__title em { display: block; }
-.tour__body { margin: 24px 0 0; max-width: 34ch; font-size: clamp(17px, 1.5vw, 21px); line-height: 1.45; color: var(--ink-2); }
-.tour__text .btn { margin-top: 30px; }
+.tour__title em { display: block; color: var(--t-em); }
+.tour__body { margin: 24px 0 0; max-width: 36ch; font-size: clamp(17px, 1.5vw, 21px); line-height: 1.45; color: var(--t-soft); }
+.tour__text .btn { margin-top: 0; }
+.tour__text .tour__end { margin-top: 30px; background: #FFFCF7; color: #1B1313; box-shadow: 0 2px 4px rgba(120, 12, 28, .25), 0 16px 34px rgba(120, 12, 28, .35); }
 
 /* Il numero del capitolo, enorme, dietro il telefono. */
 .tour__num { position: absolute; inset: 0; z-index: 0; display: grid; place-items: center; pointer-events: none; }
-.tour__num b { font-family: var(--display); font-variation-settings: "wdth" 75, "opsz" 96; font-weight: 800; font-size: min(46vw, 620px); line-height: .8; letter-spacing: -.06em; color: var(--paper-2); }
+.tour__num b { font-family: var(--display); font-variation-settings: "wdth" 75, "opsz" 96; font-weight: 800; font-size: min(44vw, 600px); line-height: .8; letter-spacing: -.06em; color: var(--t-num); transition: color .5s; }
 
 /* Dove sei nel racconto. */
-.tour__rail { position: absolute; right: clamp(14px, 2vw, 28px); top: 50%; translate: 0 -50%; display: grid; gap: 8px; margin: 0; padding: 0; list-style: none; z-index: 3; }
-.tour__rail li { width: 4px; height: 22px; border-radius: 2px; background: var(--line-2); transition: height .35s cubic-bezier(.22, 1, .36, 1), background .25s; }
-.tour__rail li.is-past { background: var(--ink); }
-.tour__rail li.is-on { height: 44px; background: var(--cherry); }
+.tour__rail { position: absolute; right: clamp(10px, 1.6vw, 24px); top: 50%; translate: 0 -50%; display: grid; gap: 8px; margin: 0; padding: 0; list-style: none; z-index: 3; }
+.tour__rail li { width: 4px; height: 22px; border-radius: 2px; background: var(--t-line); transition: height .35s cubic-bezier(.22, 1, .36, 1), background .25s; }
+.tour__rail li.is-past { background: var(--t-fg); }
+.tour__rail li.is-on { height: 44px; background: var(--t-em); }
 .tour__stage.is-intro .tour__rail { opacity: 0; }
 
-/* Telefono: il testo sopra, l'iPhone sotto che entra nello schermo; cambia inclinazione e lato di poco. */
+/* Telefono: il testo sopra, l'iPhone sotto, INTERO: prende l'altezza che resta. */
 @media (max-width: 979px) {
-  .tour { height: calc(var(--steps) * 78svh + 22svh); }
-  .tour__stage { grid-template-columns: minmax(0, 1fr); grid-template-rows: auto minmax(0, 1fr); align-items: start; row-gap: 18px; padding: 84px 22px 0; }
-  .tour__copy, .tour__stage.is-left .tour__copy { grid-column: 1; grid-row: 1; min-height: 268px; }
-  .tour__phone, .tour__stage.is-left .tour__phone { grid-column: 1; grid-row: 2; align-self: start; justify-self: center; }
-  .tour__stage.is-left .tour__phone { justify-self: start; margin-left: 4vw; }
-  .tour__stage.is-right:not(.is-intro) .tour__phone { justify-self: end; margin-right: 4vw; }
-  .tour__phone .phone { --w: min(64vw, 300px); }
-  .tour__text { justify-items: start; }
-  .tour__stage.is-intro .tour__text { justify-items: center; text-align: center; margin: 0 auto; }
-  .tour__hero { font-size: clamp(46px, 13.5vw, 64px); margin-bottom: 20px; max-width: none; }
-  .tour__hint { margin-top: 14px; }
-  .tour__kicker { margin-bottom: 12px; }
-  .tour__title { font-size: clamp(34px, 9.6vw, 44px); }
-  .tour__body { margin-top: 12px; font-size: 16px; max-width: 40ch; }
-  .tour__text .btn { margin-top: 16px; }
-  .tour__num b { font-size: 92vw; }
-  .tour__num { align-items: end; padding-bottom: 6svh; }
-  .tour__rail { right: 8px; }
+  .tour__in { grid-template-columns: minmax(0, 1fr); grid-template-rows: auto minmax(0, 1fr); align-items: start; row-gap: 14px; padding: 88px 22px 16px; }
+  .tour__copy, .tour__stage.is-left .tour__copy { grid-column: 1; grid-row: 1; }
+  .tour__device, .tour__stage.is-left .tour__device { grid-column: 1; grid-row: 2; align-self: stretch; justify-self: stretch; grid-template-rows: auto minmax(0, 1fr) auto; gap: 10px; min-height: 0; }
+  /* Il riquadro del telefono ha un'altezza certa: il telefono ci sta dentro per intero. */
+  .tour__switch { grid-row: 1; }
+  .tour__caption { grid-row: 3; }
+  .tour__phone { grid-row: 2; container-type: size; align-self: stretch; justify-self: stretch; min-height: 0; display: grid; place-items: center; }
+  .tour__phone .phone { --w: min(58vw, 30svh); --w: min(58vw, calc((100cqh - 16px) * 402 / 874)); }
+  .tour__stage.is-left .tour__tilt { translate: -5vw 0; }
+  .tour__stage.is-right:not(.is-intro) .tour__tilt { translate: 5vw 0; }
+  .tour__text { justify-items: start; max-width: none; }
+  .tour__stage.is-intro .tour__text { justify-items: center; text-align: center; }
+  .tour__hero { font-size: clamp(42px, 12.6vw, 60px); max-width: none; }
+  /* Sul telefono lo spazio va all'iPhone: la riga di spiegazione sta già sotto di lui. */
+  .tour__lead { display: none; }
+  .tour__hero { margin-bottom: 16px; }
+  .tour__text .btn--xl { height: 54px; }
+  .tour__kicker { margin-bottom: 10px; }
+  .tour__title { font-size: clamp(32px, 9.4vw, 42px); }
+  .tour__body { margin-top: 10px; font-size: 15.5px; line-height: 1.4; max-width: 40ch; }
+  .tour__text .tour__end { margin-top: 14px; }
+  .tour__switch button { height: 34px; padding: 0 13px; font-size: 13px; }
+  .tour__caption { font-size: 13px; margin: 0; }
+  /* Dopo l'apertura i due tasti e la riga sotto lasciano il posto: il telefono si prende lo spazio. */
+  .tour__switch.is-off, .tour__caption.is-off { display: none; }
+  .tour__num b { font-size: 90vw; }
+  .tour__num { align-items: end; padding-bottom: 5svh; }
+  .tour__rail { right: 7px; }
 }
-@media (prefers-reduced-motion: reduce) { .tour__hint svg { animation: none; } }

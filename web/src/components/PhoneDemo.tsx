@@ -6,7 +6,7 @@ import '../styles/phone.css';
  * ricetta, cook mode) che gira da sola, muta, in loop. La cornice è disegnata in CSS,
  * così resta nitida a ogni grandezza; il video parte solo quando si vede.
  */
-const CLIPS = [1, 2, 3, 4, 5, 6];
+const CLIPS = ['tiktok', 'recipe', 'instagram', 'groceries', 'finish'];
 
 export function PhoneDemo({ className = '' }: { className?: string }) {
   const video = useRef<HTMLVideoElement>(null);
@@ -23,13 +23,13 @@ export function PhoneDemo({ className = '' }: { className?: string }) {
     io.observe(v);
     return () => io.disconnect();
   }, []);
-  // Finita una clip parte la successiva: ricettario, ricetta, cook mode, foto, spesa, finale.
+  // Finita una clip parte la successiva: cook mode, ricetta, foto degli step, spesa, finale.
   useEffect(() => { if (visible.current) video.current?.play().catch(() => {}); }, [n]);
   const clip = CLIPS[n];
   return (
     <div className={`phone ${className}`} aria-label="Cherry on an iPhone: the cookbook, a recipe and cook mode">
       <div className="phone__screen">
-        <video ref={video} key={clip} src={`/assets/demo/tour-${clip}.mp4`} poster={`/assets/demo/tour-${clip}.jpg`}
+        <video ref={video} key={clip} src={`/assets/demo/clip-${clip}.mp4`} poster={`/assets/demo/clip-${clip}.jpg`}
           muted playsInline preload="metadata" disablePictureInPicture autoPlay onEnded={() => setN((x) => (x + 1) % CLIPS.length)} />
         <i className="phone__island" aria-hidden="true" />
       </div>

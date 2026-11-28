@@ -5,22 +5,20 @@
    - Ombre a più strati, tinte del colore caldo dello sfondo (mai nero puro).
    - Un solo oggetto "fisico": il piatto in cima alla scheda. */
 /* A tutto schermo anche su computer (la pagina dell'app è larga al massimo 960). */
-.signin { position: fixed; inset: 0; z-index: 5; overflow-y: auto; min-height: 100dvh; display: grid; place-items: center; padding: calc(64px + env(safe-area-inset-top)) 16px calc(28px + env(safe-area-inset-bottom)); overflow: hidden; background: #efe6d8; }
+.signin { position: fixed; inset: 0; z-index: 5; overflow-y: auto; min-height: 100dvh; display: grid; place-items: center; padding: calc(72px + env(safe-area-inset-top)) 16px calc(28px + env(safe-area-inset-bottom)); overflow: hidden; background: #efe6d8; }
 .signin__bg { position: fixed; inset: -80px; background: url(/assets/food/v-fettuccine.jpg) center / cover no-repeat; filter: blur(46px) saturate(1.05) brightness(1.12); transform: scale(1.2); }
 /* Un velo chiaro e caldo sopra la foto: resta la luce della tavola, non il colore della pasta. */
 .signin__bg::after { content: ''; position: absolute; inset: 0; background: radial-gradient(120% 70% at 50% 18%, rgba(255, 250, 242, .5), rgba(255, 250, 242, 0) 70%), linear-gradient(180deg, rgba(249, 243, 234, .74), rgba(246, 238, 226, .6) 50%, rgba(243, 232, 216, .7)); }
 .signin__back { position: absolute; z-index: 2; top: calc(14px + env(safe-area-inset-top)); left: 16px; width: 44px; height: 44px; border-radius: 50%; display: grid; place-items: center; background: rgba(255, 255, 255, .72); color: var(--ink); box-shadow: 0 1px 2px rgba(110, 82, 52, .14), 0 8px 20px rgba(110, 82, 52, .14); }
 
-.signin__card { position: relative; z-index: 1; width: 100%; max-width: 384px; padding: 8px; padding-top: 64px; border-radius: 32px; background: rgba(255, 255, 255, .9); -webkit-backdrop-filter: blur(22px) saturate(1.2); backdrop-filter: blur(22px) saturate(1.2);
+.signin__card { position: relative; z-index: 1; width: 100%; max-width: 384px; padding: 8px; padding-top: 30px; border-radius: 32px; background: rgba(255, 255, 255, .9); -webkit-backdrop-filter: blur(22px) saturate(1.2); backdrop-filter: blur(22px) saturate(1.2);
   box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .7), 0 1px 1px rgba(110, 82, 52, .08), 0 6px 14px rgba(110, 82, 52, .1), 0 26px 60px rgba(110, 82, 52, .2); }
 
-/* Il piatto: bordo di ceramica, ombra sul tavolo. Sta a cavallo del bordo della scheda. */
-.signin__plate { position: absolute; left: 50%; top: -52px; margin-left: -54px; width: 108px; height: 108px; border-radius: 50%; overflow: hidden; background: #fff;
-  box-shadow: 0 0 0 5px #fff, 0 0 0 6px rgba(110, 82, 52, .1), 0 4px 8px rgba(110, 82, 52, .18), 0 18px 34px rgba(110, 82, 52, .28); }
-.signin__plate img { width: 100%; height: 100%; object-fit: cover; transform: scale(1.06); }
-.signin__plate::after { content: ''; position: absolute; inset: 0; border-radius: 50%; box-shadow: inset 0 2px 5px rgba(255, 255, 255, .7), inset 0 -4px 10px rgba(110, 82, 52, .18); }
+/* Il logo di Cherry in cima alla scheda: una tessera con gli angoli dell'icona dell'app. */
+.signin__logo { display: block; width: 68px; height: 68px; margin: 0 auto; border-radius: 20px; overflow: hidden; background: #fff; box-shadow: 0 0 0 1px rgba(110, 82, 52, .08), 0 2px 4px rgba(110, 82, 52, .14), 0 12px 26px rgba(110, 82, 52, .22); }
+.signin__logo img { display: block; width: 100%; height: 100%; object-fit: cover; }
 
-.signin__title { margin: 6px 0 22px; text-align: center; font-family: var(--body); font-weight: 650; font-size: 23px; letter-spacing: -.02em; line-height: 1.2; color: var(--ink); }
+.signin__title { margin: 16px 0 22px; text-align: center; font-family: var(--body); font-weight: 650; font-size: 23px; letter-spacing: -.02em; line-height: 1.2; color: var(--ink); }
 
 /* Campi: pieni, senza bordo, con l'icona davanti. A fuoco prendono un contorno scuro. */
 .signin .nx-email { gap: 8px; margin: 0; padding: 0 8px; }

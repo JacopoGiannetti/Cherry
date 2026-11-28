@@ -23,10 +23,10 @@ export function SignIn() {
       <Link href="/start" className="signin__back" aria-label="Back"><Icon name="back" /></Link>
       <motion.section className="signin__card" initial={{ opacity: 0, y: 26, scale: 0.97 }} animate={{ opacity: 1, y: 0, scale: 1 }}
         transition={{ type: 'spring', stiffness: 220, damping: 26 }}>
-        {/* L'unico oggetto "vero" della pagina: un piatto pronto, visto dall'alto. */}
-        <motion.span className="signin__plate" initial={{ rotate: -70, scale: 0.6 }} animate={{ rotate: 0, scale: 1 }}
-          transition={{ type: 'spring', stiffness: 120, damping: 14, delay: 0.1 }}>
-          <img src="/assets/food/v-fettuccine.jpg" alt="" />
+        {/* In cima alla scheda, il logo di Cherry: una tessera sola, come l'icona dell'app. */}
+        <motion.span className="signin__logo" aria-hidden="true" initial={{ scale: 0.5, rotate: -18, opacity: 0 }} animate={{ scale: 1, rotate: 0, opacity: 1 }}
+          transition={{ type: 'spring', stiffness: 220, damping: 14, delay: 0.1 }}>
+          <img src="/assets/mascot.png" alt="" />
         </motion.span>
         <h1 className="signin__title">Sign in to Cherry</h1>
         <EmailAuth mode="signin" />
