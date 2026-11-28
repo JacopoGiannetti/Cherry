@@ -50,26 +50,44 @@
 /* Le foto grandi a sinistra esistono solo in orizzontale. */
 .cook__side { display: none; }
 
+/* Il pulsante "Next step" occupa meno: più basso, largo quanto serve, e meno sfumatura sopra il testo. */
+.cook .cook__bottom { gap: 10px; padding: 14px 16px calc(12px + var(--safe-b)); }
+.cook .cook__next { min-width: 0; height: 48px; padding: 0 22px; font-size: 16px; }
+.cook .cook__page { padding-bottom: 88px; }
+
 /* ---------- Telefono in orizzontale: a sinistra il video (o le foto dello step), a destra gli step ---------- */
 @media (orientation: landscape) and (max-height: 540px) {
-  .cook--split { display: grid; grid-template-columns: minmax(0, 44%) minmax(0, 1fr); grid-template-rows: auto auto minmax(0, 1fr); }
-  .cook--split .cook__video, .cook--split .cook__side { grid-column: 1; grid-row: 1 / -1; width: auto; max-width: none; height: auto; min-height: 0; margin: 10px 0 10px max(12px, env(safe-area-inset-left)); }
-  .cook--split .cook__top { grid-column: 2; grid-row: 1; max-width: none; padding: 10px max(16px, env(safe-area-inset-right)) 6px 18px; }
-  .cook--split .cook__orig { grid-column: 2; grid-row: 2; width: auto; max-width: none; margin: 0 max(16px, env(safe-area-inset-right)) 0 18px; }
-  .cook--split .cook__pages { grid-column: 2; grid-row: 3; max-width: none; }
-  .cook--split .cook__bottom { left: 44%; padding: 14px max(16px, env(safe-area-inset-right)) calc(10px + var(--safe-b)) 16px; }
-  .cook--split .cook__page { padding: 10px max(18px, env(safe-area-inset-right)) 84px 18px; }
-  .cook--split .cook__title { font-size: clamp(24px, 3.6vw, 32px); margin: 6px 0 12px; }
-  .cook--split .cook__steps li { font-size: 17px; }
-  .cook--split .cook__next { min-width: 170px; }
+  /* Lo spazio in altezza è poco: via la riga del video originale, e i due tasti stanno in un angolo. */
+  .cook .cook__orig { display: none; }
+  .cook .cook__bottom { left: auto; right: 0; justify-content: flex-end; background: none; padding: 0 max(14px, env(safe-area-inset-right)) calc(10px + var(--safe-b)) 0; pointer-events: none; }
+  .cook .cook__bottom > * { pointer-events: auto; }
+  .cook .cook__next { height: 44px; padding: 0 18px; box-shadow: 0 6px 18px rgba(0, 0, 0, .45); }
+  .cook .cook__top { padding-top: 8px; padding-bottom: 4px; }
+  .cook .cook__page { padding: 8px max(20px, env(safe-area-inset-right)) 64px 20px; }
+  .cook .cook__title { font-size: clamp(26px, 3.6vw, 32px); margin: 6px 0 12px; }
+  .cook .cook__steps { gap: 14px; }
+  .cook .cook__steps li { font-size: 19px; line-height: 1.42; }
 
-  /* Senza video: le foto dello step corrente, alte quanto lo schermo, da scorrere di lato. */
-  .cook--side .cook__side { display: flex; gap: 8px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; border-radius: 20px; }
-  .cook--side .cook__side::-webkit-scrollbar { display: none; }
-  .cook__sidephoto { position: relative; flex: none; height: 100%; aspect-ratio: 3 / 4; padding: 0; border: 0; border-radius: 20px; overflow: hidden; background: rgba(255, 255, 255, .08); color: #fff; scroll-snap-align: start; cursor: zoom-in; }
-  .cook__sidephoto:only-child { flex: 1; aspect-ratio: auto; }
-  .cook__sidephoto img { display: block; width: 100%; height: 100%; object-fit: cover; }
-  .cook__sidephoto small { position: absolute; left: 0; right: 0; bottom: 0; padding: 26px 12px 10px; background: linear-gradient(transparent, rgba(0, 0, 0, .7)); font-size: 13px; font-weight: 600; line-height: 1.3; text-align: left; }
-  /* Le foto sono già grandi a sinistra: sotto il testo non si ripetono. */
+  .cook--split { display: grid; grid-template-columns: minmax(0, 38%) minmax(0, 1fr); grid-template-rows: auto minmax(0, 1fr); }
+  .cook--split .cook__video, .cook--split .cook__side { grid-column: 1; grid-row: 1 / -1; width: auto; max-width: none; height: auto; min-height: 0; margin: 10px 0 10px max(12px, env(safe-area-inset-left)); }
+  .cook--split .cook__top { grid-column: 2; grid-row: 1; max-width: none; padding-left: 20px; padding-right: max(16px, env(safe-area-inset-right)); }
+  .cook--split .cook__pages { grid-column: 2; grid-row: 2; max-width: none; }
+
+  /* Senza video: le foto dello step che stai leggendo. Stanno tutte nel riquadro, senza scorrere:
+     una sola lo riempie, due affiancate, tre con la prima alta e due a destra, quattro a griglia. */
+  .cook--side .cook__side { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); grid-auto-rows: minmax(0, 1fr); gap: 6px; border-radius: 20px; overflow: hidden; }
+  .cook--side .cook__side[data-n="0"], .cook--side .cook__side[data-n="1"] { grid-template-columns: minmax(0, 1fr); }
+  .cook--side .cook__side[data-n="3"] > :first-child { grid-row: span 2; }
+  .cook__sidephoto { position: relative; min-width: 0; min-height: 0; padding: 0; border: 0; border-radius: 8px; overflow: hidden; background: rgba(255, 255, 255, .08); color: #fff; cursor: zoom-in; }
+  .cook__sidephoto img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  .cook__sidephoto small { position: absolute; left: 0; right: 0; bottom: 0; padding: 22px 10px 8px; background: linear-gradient(transparent, rgba(0, 0, 0, .72)); font-size: 12.5px; font-weight: 600; line-height: 1.25; text-align: left; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+  /* Le foto sono già a sinistra: sotto il testo non si ripetono. */
   .cook--side .cook__frames { display: none; }
+
+  /* Video E foto insieme: il video a sinistra, e sotto ogni step le sue foto in piccolo (si toccano per ingrandirle).
+     "Photos only" sul video le porta grandi a sinistra al posto del video. */
+  .cook--split:not(.cook--side) .cook__frames { margin-top: 8px; gap: 6px; }
+  .cook--split:not(.cook--side) .cook__frame { width: 72px; }
+  .cook--split:not(.cook--side) .cook__frame img { border-radius: 10px; }
+  .cook--split:not(.cook--side) .cook__frame small { display: none; }
 }

@@ -232,7 +232,7 @@ export function CookMode({ recipe, factor = 1, onClose, onDone, limit, onUnlock 
         </button>
       )}
       {side && (
-        <aside className="cook__side" aria-label="Photos of this step">
+        <aside className="cook__side" data-n={Math.min(sidePhotos.length, 4)} aria-label="Photos of this step">
           {sidePhotos.length ? sidePhotos.map((f) => (
             <button key={`${f.step}-${f.index}`} type="button" className="cook__sidephoto" onClick={() => setZoom({ step: f.step, index: f.index })} aria-label={f.caption || 'Enlarge photo'}>
               <img src={f.url} alt="" decoding="async" />
