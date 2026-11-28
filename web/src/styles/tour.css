@@ -22,8 +22,8 @@ section.tour { position: relative; height: calc(var(--steps) * 100svh); max-widt
 /* Il telefono intero sta sempre dentro lo schermo: la larghezza dipende anche dall'altezza. */
 .tour__phone .phone { --w: clamp(220px, min(23vw, calc((100svh - 250px) * .46)), 330px); }
 .tour__phone .phone__screen { background: #1b1313; }
-.tour__phone .phone__screen video { position: absolute; inset: 0; opacity: 0; transition: opacity .35s ease; }
-.tour__phone .phone__screen video.is-on { opacity: 1; }
+.tour__phone .phone__screen video, .tour__phone .phone__screen img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity .35s ease; }
+.tour__phone .phone__screen video.is-on, .tour__phone .phone__screen img.is-on { opacity: 1; }
 
 /* TikTok / Instagram: due tasti sopra il telefono. Dopo l'apertura spariscono senza spostare niente. */
 .tour__switch { position: relative; display: inline-grid; grid-auto-flow: column; padding: 4px; border-radius: 999px; background: rgba(27, 19, 19, .07); transition: opacity .3s, transform .3s; }
@@ -77,11 +77,11 @@ section.tour { position: relative; height: calc(var(--steps) * 100svh); max-widt
   /* Sul telefono lo spazio va all'iPhone: la riga di spiegazione sta già sotto di lui. */
   .tour__lead { display: none; }
   .tour__hero { margin-bottom: 16px; }
-  .tour__text .btn--xl { height: 54px; }
+  /* Sul telefono "Get started" è già fisso in alto, a due dita: un secondo pulsante uguale non serve. */
+  .tour__text .tour__go, .tour__text .tour__end { display: none; }
   .tour__kicker { margin-bottom: 10px; }
   .tour__title { font-size: clamp(32px, 9.4vw, 42px); }
   .tour__body { margin-top: 10px; font-size: 15.5px; line-height: 1.4; max-width: 40ch; }
-  .tour__text .tour__end { margin-top: 14px; }
   .tour__switch button { height: 34px; padding: 0 13px; font-size: 13px; }
   .tour__caption { font-size: 13px; margin: 0; }
   /* Dopo l'apertura i due tasti e la riga sotto lasciano il posto: il telefono si prende lo spazio. */

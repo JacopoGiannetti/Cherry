@@ -8,26 +8,27 @@ import '../styles/tour.css';
 // L'apertura della landing è un racconto che si svolge scendendo. Il telefono resta sullo
 // schermo e cambia lato; a ogni capitolo cambiano la clip dentro il telefono, il testo accanto
 // e il colore di tutto lo sfondo.
-//   0  apertura: il cook mode (la cosa più bella), con il selettore TikTok / Instagram
-//   1  la ricetta scritta
+//   0  apertura: il cook mode in video, con il selettore TikTok / Instagram
+//   1  la lista degli ingredienti
 //   2  la spesa
-//   3  il finale
-// Poche tappe e clip lunghe: ognuna si lascia guardare. Le clip (public/assets/demo/clip-*.mp4)
-// sono registrazioni vere dell'app, fatte con lib/dev-tour.ts.
+//   3  il ricettario
+// I video stanno solo in apertura (public/assets/demo/clip-*.mp4, registrazioni vere dell'app
+// fatte con lib/dev-tour.ts). Dopo, ogni capitolo è una schermata ferma (shot-*.jpg): si legge
+// il testo, si guarda una cosa sola.
 
 type Source = 'tiktok' | 'instagram';
 type Theme = 'paper' | 'ink' | 'blush' | 'cherry';
-type Chapter = { clip: string; theme: Theme; kicker: string; title: React.ReactNode; body: string };
+type Chapter = { shot: string; theme: Theme; kicker: string; title: React.ReactNode; body: string };
 const CHAPTERS: Chapter[] = [
-  { clip: 'recipe', theme: 'ink', kicker: 'The recipe', title: <>Every amount, <em>written out.</em></>,
-    body: 'Paste a TikTok or Instagram link. Cherry watches the video and writes the recipe down: real quantities you can scale, and the method split into the phases of the video.' },
-  { clip: 'groceries', theme: 'blush', kicker: 'Groceries', title: <>One tap. <em>One list.</em></>,
+  { shot: 'ingredients', theme: 'ink', kicker: 'Ingredients', title: <>Every amount, <em>written out.</em></>,
+    body: 'Cherry watches the video and writes down what you need: real quantities, scaled to how many you are cooking for.' },
+  { shot: 'groceries', theme: 'blush', kicker: 'Groceries', title: <>One tap. <em>One list.</em></>,
     body: 'Send a recipe to your grocery list and it sorts itself by aisle. Tick things off as you walk the shop.' },
-  { clip: 'finish', theme: 'cherry', kicker: 'Dinner', title: <>And then, <em>you eat.</em></>,
-    body: 'The one you saved three weeks ago is on the table tonight.' },
+  { shot: 'cookbook', theme: 'cherry', kicker: 'Cookbook', title: <>Every save, <em>in one place.</em></>,
+    body: 'Everything you saved from TikTok and Instagram, in one cookbook. Tonight\u2019s dinner is already in there.' },
 ];
 const STEPS = CHAPTERS.length + 1;
-const CLIPS = ['tiktok', 'instagram', ...CHAPTERS.map((c) => c.clip)];
+const CLIPS: Source[] = ['tiktok', 'instagram'];
 
 export function AppTour() {
   const wrap = useRef<HTMLDivElement>(null);
@@ -46,7 +47,7 @@ export function AppTour() {
   const numberY = useTransform(smooth, [0, 1], ['5%', '-14%']);
 
   const chapter = step === 0 ? null : CHAPTERS[step - 1];
-  const clip = chapter ? chapter.clip : source;
+  const clip = chapter ? null : source;
   const theme: Theme = chapter ? chapter.theme : 'paper';
   const side = step % 2 === 0 ? 'right' : 'left';
 
@@ -82,7 +83,7 @@ export function AppTour() {
                   <>
                     <h1 className="display shout tour__hero">Tonight, cook the one <em>you saved.</em></h1>
                     <p className="tour__lead">Cherry turns a recipe video into a cook mode: every step, right in front of you, while you cook.</p>
-                    <a href={START} className="btn btn--cherry btn--xl">Start cooking <Icon name="next" stroke={2.6} /></a>
+                    <a href={START} className="btn btn--cherry btn--xl tour__go">Start cooking <Icon name="next" stroke={2.6} /></a>
                   </>
                 ) : (
                   <>
@@ -114,7 +115,10 @@ export function AppTour() {
                     {CLIPS.map((name) => (
                       <video key={name} ref={(el) => { videos.current[name] = el; }} className={name === clip ? 'is-on' : ''}
                         src={`/assets/demo/clip-${name}.mp4`} poster={`/assets/demo/clip-${name}.jpg`}
-                        muted loop playsInline disablePictureInPicture preload={name === clip || name === 'tiktok' ? 'auto' : 'metadata'} />
+                        muted loop playsInline disablePictureInPicture preload="auto" />
+                    ))}
+                    {CHAPTERS.map((c) => (
+                      <img key={c.shot} className={c === chapter ? 'is-on' : ''} src={`/assets/demo/shot-${c.shot}.jpg`} alt="" decoding="async" />
                     ))}
                     <i className="phone__island" aria-hidden="true" />
                   </div>
@@ -122,12 +126,12 @@ export function AppTour() {
               </motion.div>
             </div>
             <p className={`tour__caption ${step === 0 ? '' : 'is-off'}`}>
-              {source === 'tiktok' ? 'Each step loops its own moment of the video.' : 'Each step gets its photos: before, during, after.'}
+              {source === 'tiktok' ? 'Each step loops its own moment of the video.' : 'Each step gets its own photos from the reel.'}
             </p>
           </motion.div>
 
           <ol className="tour__rail" aria-hidden="true">
-            {CHAPTERS.map((c, n) => <li key={c.clip} className={n + 1 === step ? 'is-on' : n + 1 < step ? 'is-past' : ''} />)}
+            {CHAPTERS.map((c, n) => <li key={c.shot} className={n + 1 === step ? 'is-on' : n + 1 < step ? 'is-past' : ''} />)}
           </ol>
         </div>
       </div>

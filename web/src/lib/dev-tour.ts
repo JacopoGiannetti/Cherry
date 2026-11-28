@@ -11,6 +11,27 @@ const back = () => click('.recipe__bar [aria-label="Back"]', 1400);
 const closeCook = () => click('[aria-label="Close cook mode"]', 1100);
 
 const CHAPTERS: (() => Promise<void>)[] = [
+  // Cook mode su un video TikTok: si passa da uno step all'altro, ogni step col suo pezzo di video.
+  async () => {
+    await click(card(2), 1300);
+    await click('.recipe__go', 2600);
+    for (let n = 0; n < 4; n++) await click('.cook__next', 1900);
+    await closeCook();
+    await back();
+  },
+  // Cook mode su Instagram: si scorre tra gli step, ognuno con le sue foto. Le foto non si aprono.
+  async () => {
+    await click(card(3), 1300);
+    await click('.recipe__go', 1700);
+    for (let n = 0; n < 5; n++) {
+      const strip = document.querySelectorAll<HTMLElement>('.cook__frames');
+      strip.forEach((el) => el.scrollTo({ left: 170, behavior: 'smooth' }));
+      await sleep(750);
+      await click('.cook__next', 850);
+    }
+    await closeCook();
+    await back();
+  },
   // 1. Il ricettario.
   async () => { await sleep(700); await glide(460, 1500); await sleep(300); await glide(0, 1400); },
   // 2. Una ricetta: ingredienti e metodo.
@@ -19,26 +40,6 @@ const CHAPTERS: (() => Promise<void>)[] = [
     await glide(380, 1500); await sleep(500);
     await glide(900, 1700); await sleep(700);
     await glide(0, 1000);
-    await back();
-  },
-  // 3. Cook mode su un video TikTok: ogni step in loop.
-  async () => {
-    await click(card(2), 1500);
-    await click('.recipe__go', 5600);
-    await click('.cook__next', 3300);
-    await click('.cook__next', 3300);
-    await closeCook();
-    await back();
-  },
-  // 4. Cook mode su Instagram: le foto di ogni step, a tutto schermo.
-  async () => {
-    await click(card(3), 1500);
-    await click('.recipe__go', 2400);
-    await click('.cook__frame', 1500);
-    await click('.lightbox__dots button:nth-child(2)', 1400);
-    await click('.lightbox__close', 800);
-    await click('.cook__next', 2000);
-    await closeCook();
     await back();
   },
   // 5. La spesa: dalla ricetta alla lista, e si spunta.
