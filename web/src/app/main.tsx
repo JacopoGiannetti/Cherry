@@ -7,6 +7,7 @@ import '../styles/app.css';
 import '../styles/flow.css';
 import '../styles/motion.css';
 import { takePopped, transition } from '../lib/nav';
+import { watchForUpdates } from '../lib/update';
 import { startSession, useSession } from '../lib/store';
 import { Join } from './screens/Join';
 import { Welcome } from './screens/Welcome';
@@ -41,6 +42,8 @@ isPreview();
 keepClickId();
 initMeta();
 
+// Solo sul sito vero: l'app si ricarica da sola quando c'è una versione nuova (lib/update.ts).
+if (import.meta.env.PROD) watchForUpdates();
 if ('serviceWorker' in navigator && import.meta.env.PROD) {
   window.addEventListener('load', () => navigator.serviceWorker.register('/sw.js').catch(() => {}));
 }

@@ -2,6 +2,8 @@ import { useMemo, useState } from 'react';
 import { AnimatePresence, LayoutGroup, motion } from 'motion/react';
 import { Icon } from './Icon';
 import { guessItem, itemEmoji, section } from '../lib/kitchen';
+import '../styles/pages.css';
+import { Roll } from './Roll';
 import type { GroceryItem, GroceryList } from '../lib/types';
 
 // I pezzi della spesa usati sia dalla tua lista sia dalla pagina di chi apre il link:
@@ -61,7 +63,7 @@ export function Aisles({ list, onToggle, doneAction }: {
     <LayoutGroup>
       {aisles.map((a) => (
         <motion.section key={a.label} className="aisle" layout transition={ROW}>
-          <h2 className="aisle__label">{a.label}</h2>
+          <h2 className="aisle__label"><em>{a.label}</em><span>{a.items.length}</span></h2>
           <ul className="rows">
             <AnimatePresence initial={false}>
               {a.items.map((item) => <Row key={item.id} item={item} onToggle={onToggle} />)}
@@ -72,7 +74,7 @@ export function Aisles({ list, onToggle, doneAction }: {
       {done.length > 0 && (
         <motion.section className="aisle aisle--done" layout transition={ROW}>
           <div className="aisle__head">
-            <h2 className="aisle__label">In the cart</h2>
+            <h2 className="aisle__label"><em>In the cart</em><span>{done.length}</span></h2>
             {doneAction && <button className="link-btn" onClick={doneAction.run}>{doneAction.label}</button>}
           </div>
           <ul className="rows">
@@ -163,7 +165,10 @@ export function Progress({ list, children }: { list: GroceryList; children?: Rea
   return (
     <section className="summary">
       <div className="summary__row">
-        <p><b>{todo ? `${todo} to buy` : 'All done'}</b>{done > 0 && <span> · {done} in the cart</span>}</p>
+        {/* Il numero che conta, grande: quante cose mancano. */}
+        <p className="summary__count">
+          {todo ? <><b><Roll value={todo} /></b><span>to buy{done > 0 ? ` · ${done} in the cart` : ''}</span></> : <><b>Done</b><span>everything is in the cart</span></>}
+        </p>
         {children}
       </div>
       <div className="meter" aria-label={`${pct}% done`}><motion.i animate={{ width: `${pct}%` }} transition={{ duration: 0.5, ease: [0.2, 0.8, 0.2, 1] }} /></div>

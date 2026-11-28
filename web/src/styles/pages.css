@@ -1,0 +1,92 @@
+/* ============================================================
+   Le pagine "da leggere": la ricetta (ingredienti e metodo) e la lista della spesa.
+   Stesso carattere della landing: titoli compressi, corsivo per le fasi, numeri grandi.
+   Niente scatole bianche, niente filetti a ogni riga, niente etichette minuscole in maiuscolo:
+   la gerarchia la fanno i titoli e lo spazio.
+   ============================================================ */
+
+/* ---------- Ricetta: i tre numeri ---------- */
+.rfacts { display: grid; grid-template-columns: repeat(3, auto); justify-content: start; gap: 0 22px; margin: 16px 0 0; }
+.rfacts > div { display: grid; gap: 1px; padding-right: 22px; border-right: 1px solid var(--line); }
+.rfacts > div:last-child { border-right: 0; padding-right: 0; }
+.rfacts dt { order: 2; font-size: 12.5px; font-weight: 600; color: var(--mute); }
+.rfacts dd { margin: 0; font-family: var(--display); font-variation-settings: "wdth" 78, "opsz" 48; font-weight: 800; font-size: 26px; letter-spacing: -.03em; line-height: 1; color: var(--ink); white-space: nowrap; }
+.recipe .credit { margin-top: 16px; }
+
+/* ---------- Ricetta: i due capitoli ---------- */
+.rsec { display: flex; align-items: flex-end; justify-content: space-between; gap: 12px; margin: 34px 0 6px; padding-bottom: 12px; border-bottom: 2px solid var(--ink); }
+.rsec__title { font-family: var(--display); font-variation-settings: "wdth" 78, "opsz" 72; font-weight: 800; font-size: 30px; letter-spacing: -.035em; line-height: .95; }
+.rsec__note { font-size: 13.5px; font-weight: 600; color: var(--mute); padding-bottom: 2px; }
+.rserv { display: flex; align-items: center; gap: 10px; }
+.rserv > span { font-size: 13.5px; font-weight: 600; color: var(--mute); }
+.rserv .stepper { height: 36px; background: none; box-shadow: inset 0 0 0 1.5px var(--ink); }
+.rserv .stepper button { width: 28px; height: 28px; }
+
+/* Ingredienti: righe ariose, il nome a sinistra e la quantità in evidenza a destra. Un filetto solo ogni riga, leggerissimo. */
+.recipe .ingredients { margin: 0 0 6px; }
+.recipe .ingredients li { display: grid; grid-template-columns: 30px minmax(0, 1fr) auto; align-items: center; gap: 12px; padding: 13px 0; border-bottom: 1px solid var(--line); }
+.recipe .ingredients li:last-child { border-bottom: 0; }
+.recipe .ingredients li > span { font-size: 16.5px; font-weight: 500; line-height: 1.3; }
+.recipe .ingredients em { max-width: 44vw; font-size: 15px; font-weight: 700; color: var(--ink); text-align: right; line-height: 1.3; }
+.recipe .ingredients__emoji { width: 30px; height: 30px; display: grid; place-items: center; font-size: 19px; }
+
+/* Metodo: per fasi. Il titolo della fase in corsivo, col minuto del video; i passi con un numero grande. */
+.phase { padding: 20px 0 4px; border-bottom: 1px solid var(--line); }
+.phase:last-of-type { border-bottom: 0; }
+.phase__title { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; margin-bottom: 10px; }
+.phase__title em { font-family: var(--serif); font-style: italic; font-weight: 400; font-size: 25px; line-height: 1.1; letter-spacing: -.01em; color: var(--cherry); }
+.phase__title span { flex: none; font-size: 12.5px; font-weight: 700; font-feature-settings: "tnum"; color: var(--mute); padding: 3px 8px; border-radius: 999px; background: rgba(27, 19, 19, .055); }
+.recipe .method li { display: grid; grid-template-columns: 30px minmax(0, 1fr) auto; align-items: start; gap: 12px; padding: 10px 0 14px; border-bottom: 0; }
+.recipe .method .method__n { width: auto; height: auto; border-radius: 0; background: none; display: block; margin: 0; padding-top: 1px; font-family: var(--display); font-variation-settings: "wdth" 78, "opsz" 48; font-weight: 800; font-size: 24px; letter-spacing: -.04em; line-height: 1; color: var(--ink); font-feature-settings: "tnum"; }
+.recipe .method p { font-size: 16.5px; line-height: 1.5; }
+.method__thumb { width: 52px; height: 68px; border-radius: 10px; object-fit: cover; background: var(--paper-2); margin-top: 2px; }
+
+/* ============================================================
+   Lista della spesa
+   ============================================================ */
+
+/* Quante cose mancano, in grande; la barra sotto è il progresso della spesa. */
+.summary { margin: 2px 0 22px; }
+.summary__row { align-items: flex-end; margin-bottom: 14px; }
+.summary__row .summary__count { display: flex; align-items: baseline; gap: 10px; color: var(--mute); font-size: 15px; font-weight: 600; }
+.summary__row .summary__count b { font-family: var(--display); font-variation-settings: "wdth" 76, "opsz" 72; font-weight: 800; font-size: 52px; letter-spacing: -.05em; line-height: .82; color: var(--ink); font-feature-settings: "tnum"; }
+.meter { height: 6px; border-radius: 3px; background: rgba(27, 19, 19, .08); }
+.meter i { border-radius: 3px; }
+
+/* Aggiungere a mano: una riga da scrivere, non una scatola grigia. */
+.quick-add.field--quiet { height: 50px; padding: 0 4px; margin-bottom: 8px; border-radius: 0; background: none; box-shadow: none; border-bottom: 2px solid var(--ink); color: var(--ink); }
+.quick-add.field--quiet:focus-within { background: none; }
+.quick-add.field--quiet input { font-size: 17px; }
+.quick-add.field--quiet input::placeholder { color: var(--mute); }
+
+/* Le corsie: il nome in corsivo, quante cose, e le righe direttamente sulla pagina. */
+.aisle { margin-bottom: 6px; padding-top: 22px; }
+.aisle__label { display: flex; align-items: baseline; gap: 10px; margin: 0 0 4px; text-transform: none; letter-spacing: 0; font-size: inherit; color: inherit; }
+.aisle__label em { font-family: var(--serif); font-style: italic; font-weight: 400; font-size: 25px; line-height: 1.1; letter-spacing: -.01em; color: var(--cherry); }
+.aisle__label span { font-size: 12.5px; font-weight: 700; font-feature-settings: "tnum"; color: var(--mute); }
+.aisle__head { align-items: baseline; }
+.rows { background: none; border-radius: 0; box-shadow: none; overflow: visible; }
+.rows > li + li .row { border-top: 1px solid var(--line); }
+.row { gap: 12px; min-height: 56px; padding: 12px 0; }
+.row:active { background: none; opacity: .6; }
+.row__name { font-size: 16.5px; }
+.row__qty { font-size: 15px; font-weight: 700; color: var(--ink); max-width: 44%; }
+.row__emoji { margin-left: 0; width: 26px; font-size: 20px; }
+/* La casella è una casella (quadrata, da spuntare), non il pallino di un'opzione. */
+.tick { width: 26px; height: 26px; border-radius: 8px; box-shadow: inset 0 0 0 1.75px var(--ink); }
+.row.is-done .tick { background: var(--cherry); box-shadow: none; }
+.aisle--done { margin-top: 18px; border-top: 2px solid var(--ink); }
+.aisle--done .aisle__label em { color: var(--mute); }
+.aisle--done .row__qty { font-weight: 500; }
+
+/* Ricomprare: voci leggere, senza la pillola bianca. */
+.again { margin: 14px 0 6px; }
+.again .aisle__label { font-family: var(--body); font-size: 13.5px; font-weight: 600; color: var(--mute); margin-bottom: 10px; }
+.again__chip { height: 36px; background: none; box-shadow: inset 0 0 0 1.5px var(--line-2); font-weight: 600; }
+
+/* La spunta si disegna, da sinistra a destra, mentre la casella si colora. */
+.row .tick svg path { stroke-dasharray: 22; stroke-dashoffset: 22; animation: tick-draw .26s .06s cubic-bezier(.22, 1, .36, 1) forwards; }
+@keyframes tick-draw { to { stroke-dashoffset: 0; } }
+@media (prefers-reduced-motion: reduce) { .row .tick svg path { animation: none; stroke-dashoffset: 0; } }
+/* Il numero grande scorre senza tagliare le aste delle cifre. */
+.summary__count b { display: inline-block; padding: 4px 0 2px; margin: -4px 0 -2px; }

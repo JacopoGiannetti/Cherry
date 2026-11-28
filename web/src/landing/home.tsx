@@ -5,6 +5,7 @@ import { MagicStage, Orbit, SomedayBox } from '../components/Scenes';
 import { Closer, Cook, Faq, Footer, Marquee, More, Reveal, SignIn, START } from './sections';
 // Dopo sections (che porta tokens.css e landing.css): queste regole devono vincere.
 import '../styles/landing-next.css';
+import { AppTour } from './AppTour';
 
 // La landing (dal 26 nov 2026). Stesse scene dell'onboarding (i piatti in orbita,
 // la scatola "Someday", il video che si apre in passi): chi arriva dal sito e chi arriva
@@ -217,7 +218,7 @@ export function Landing() {
     <>
       <Nav />
       <main>
-        <Closer top />
+        <AppTour />
         <Marquee />
         <Someday />
         <How />

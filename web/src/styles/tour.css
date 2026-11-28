@@ -1,0 +1,61 @@
+/* L'apertura che si racconta scorrendo (landing/AppTour.tsx).
+   .tour è alto quanto tutti i capitoli; .tour__stage resta attaccato allo schermo. */
+.tour { position: relative; height: calc(var(--steps) * 86svh + 14svh); }
+.tour__stage { position: sticky; top: 0; height: 100svh; overflow: hidden; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); align-items: center; column-gap: clamp(24px, 5vw, 90px); max-width: 1320px; margin: 0 auto; padding: 96px clamp(24px, 5vw, 72px) 40px; }
+
+/* Il telefono cambia colonna a ogni capitolo; il testo sta dall'altra parte. */
+.tour__copy { grid-row: 1; grid-column: 1; position: relative; z-index: 2; }
+.tour__phone { grid-row: 1; grid-column: 2; justify-self: center; position: relative; z-index: 1; }
+.tour__stage.is-left .tour__copy { grid-column: 2; }
+.tour__stage.is-left .tour__phone { grid-column: 1; }
+.tour__phone .phone { --w: clamp(250px, min(23vw, 36svh), 330px); }
+.tour__phone .phone__screen video { position: absolute; inset: 0; opacity: 0; transition: opacity .35s ease; }
+.tour__phone .phone__screen video.is-on { opacity: 1; }
+
+.tour__text { display: grid; justify-items: start; gap: 0; max-width: 560px; }
+.tour__hero { font-size: clamp(64px, 8.4vw, 148px); line-height: .84; letter-spacing: -.045em; max-width: 8ch; margin: 0 0 38px; }
+.tour__hero em { text-transform: none; }
+.tour__hint { display: flex; align-items: center; gap: 8px; margin-top: 26px; font-size: 14.5px; font-weight: 600; color: var(--mute); }
+.tour__hint svg { animation: tour-nudge 1.6s ease-in-out infinite; }
+@keyframes tour-nudge { 50% { transform: translateY(5px); } }
+
+.tour__kicker { display: flex; align-items: center; gap: 12px; margin-bottom: 20px; font-size: 13px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--cherry); }
+.tour__kicker b { display: grid; place-items: center; min-width: 34px; height: 26px; padding: 0 8px; border-radius: 999px; background: var(--cherry); color: var(--white); letter-spacing: .04em; font-feature-settings: "tnum"; }
+.tour__title { font-size: clamp(40px, 5vw, 78px); line-height: .92; letter-spacing: -.04em; margin: 0; text-wrap: balance; }
+.tour__title em { display: block; }
+.tour__body { margin: 24px 0 0; max-width: 34ch; font-size: clamp(17px, 1.5vw, 21px); line-height: 1.45; color: var(--ink-2); }
+.tour__text .btn { margin-top: 30px; }
+
+/* Il numero del capitolo, enorme, dietro il telefono. */
+.tour__num { position: absolute; inset: 0; z-index: 0; display: grid; place-items: center; pointer-events: none; }
+.tour__num b { font-family: var(--display); font-variation-settings: "wdth" 75, "opsz" 96; font-weight: 800; font-size: min(46vw, 620px); line-height: .8; letter-spacing: -.06em; color: var(--paper-2); }
+
+/* Dove sei nel racconto. */
+.tour__rail { position: absolute; right: clamp(14px, 2vw, 28px); top: 50%; translate: 0 -50%; display: grid; gap: 8px; margin: 0; padding: 0; list-style: none; z-index: 3; }
+.tour__rail li { width: 4px; height: 22px; border-radius: 2px; background: var(--line-2); transition: height .35s cubic-bezier(.22, 1, .36, 1), background .25s; }
+.tour__rail li.is-past { background: var(--ink); }
+.tour__rail li.is-on { height: 44px; background: var(--cherry); }
+.tour__stage.is-intro .tour__rail { opacity: 0; }
+
+/* Telefono: il testo sopra, l'iPhone sotto che entra nello schermo; cambia inclinazione e lato di poco. */
+@media (max-width: 979px) {
+  .tour { height: calc(var(--steps) * 78svh + 22svh); }
+  .tour__stage { grid-template-columns: minmax(0, 1fr); grid-template-rows: auto minmax(0, 1fr); align-items: start; row-gap: 18px; padding: 84px 22px 0; }
+  .tour__copy, .tour__stage.is-left .tour__copy { grid-column: 1; grid-row: 1; min-height: 268px; }
+  .tour__phone, .tour__stage.is-left .tour__phone { grid-column: 1; grid-row: 2; align-self: start; justify-self: center; }
+  .tour__stage.is-left .tour__phone { justify-self: start; margin-left: 4vw; }
+  .tour__stage.is-right:not(.is-intro) .tour__phone { justify-self: end; margin-right: 4vw; }
+  .tour__phone .phone { --w: min(64vw, 300px); }
+  .tour__text { justify-items: start; }
+  .tour__stage.is-intro .tour__text { justify-items: center; text-align: center; margin: 0 auto; }
+  .tour__hero { font-size: clamp(46px, 13.5vw, 64px); margin-bottom: 20px; max-width: none; }
+  .tour__hint { margin-top: 14px; }
+  .tour__kicker { margin-bottom: 12px; }
+  .tour__title { font-size: clamp(34px, 9.6vw, 44px); }
+  .tour__body { margin-top: 12px; font-size: 16px; max-width: 40ch; }
+  .tour__text .btn { margin-top: 16px; }
+  .tour__num b { font-size: 92vw; }
+  .tour__num { align-items: end; padding-bottom: 6svh; }
+  .tour__rail { right: 8px; }
+}
+@media (prefers-reduced-motion: reduce) { .tour__hint svg { animation: none; } }

@@ -5,7 +5,6 @@ import '../styles/tokens.css';
 import '../styles/landing.css';
 import { Icon, Logo } from '../components/Icon';
 import { LoopDemo } from '../components/LoopDemo';
-import { PhoneDemo } from '../components/PhoneDemo';
 import { getPlans, money, perMonth, savePct, type Plan } from '../lib/plans';
 import { onUser } from '../lib/auth';
 import { openCookiePrefs } from '../lib/meta';
@@ -330,8 +329,6 @@ export function Closer({ top = false }: { top?: boolean }) {
         <span className="plate"><img src="/assets/food/v-grilledcheese.jpg" alt="" loading={load} /></span>
       </div>
       {top ? body : <Reveal>{body}</Reveal>}
-      {/* In apertura: l'app vera dentro un iPhone, così chi arriva la vede subito. */}
-      {top && <PhoneDemo className="closer__phone" />}
     </section>
   );
 }

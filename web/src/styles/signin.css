@@ -1,0 +1,53 @@
+/* Accesso. Una scheda sola, compatta, al centro di uno sfondo calmo.
+   - Un titolo, un pulsante principale; Google è una tessera secondaria sotto.
+   - Lo sfondo è una foto di tavola, molto sfocata: dà il tono senza farsi guardare.
+   - Angoli concentrici: scheda 32, spazio interno 8 → campi e pulsanti 24.
+   - Ombre a più strati, tinte del colore caldo dello sfondo (mai nero puro).
+   - Un solo oggetto "fisico": il piatto in cima alla scheda. */
+/* A tutto schermo anche su computer (la pagina dell'app è larga al massimo 960). */
+.signin { position: fixed; inset: 0; z-index: 5; overflow-y: auto; min-height: 100dvh; display: grid; place-items: center; padding: calc(64px + env(safe-area-inset-top)) 16px calc(28px + env(safe-area-inset-bottom)); overflow: hidden; background: #efe6d8; }
+.signin__bg { position: fixed; inset: -80px; background: url(/assets/food/v-fettuccine.jpg) center / cover no-repeat; filter: blur(46px) saturate(1.05) brightness(1.12); transform: scale(1.2); }
+/* Un velo chiaro e caldo sopra la foto: resta la luce della tavola, non il colore della pasta. */
+.signin__bg::after { content: ''; position: absolute; inset: 0; background: radial-gradient(120% 70% at 50% 18%, rgba(255, 250, 242, .5), rgba(255, 250, 242, 0) 70%), linear-gradient(180deg, rgba(249, 243, 234, .74), rgba(246, 238, 226, .6) 50%, rgba(243, 232, 216, .7)); }
+.signin__back { position: absolute; z-index: 2; top: calc(14px + env(safe-area-inset-top)); left: 16px; width: 44px; height: 44px; border-radius: 50%; display: grid; place-items: center; background: rgba(255, 255, 255, .72); color: var(--ink); box-shadow: 0 1px 2px rgba(110, 82, 52, .14), 0 8px 20px rgba(110, 82, 52, .14); }
+
+.signin__card { position: relative; z-index: 1; width: 100%; max-width: 384px; padding: 8px; padding-top: 64px; border-radius: 32px; background: rgba(255, 255, 255, .9); -webkit-backdrop-filter: blur(22px) saturate(1.2); backdrop-filter: blur(22px) saturate(1.2);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .7), 0 1px 1px rgba(110, 82, 52, .08), 0 6px 14px rgba(110, 82, 52, .1), 0 26px 60px rgba(110, 82, 52, .2); }
+
+/* Il piatto: bordo di ceramica, ombra sul tavolo. Sta a cavallo del bordo della scheda. */
+.signin__plate { position: absolute; left: 50%; top: -52px; margin-left: -54px; width: 108px; height: 108px; border-radius: 50%; overflow: hidden; background: #fff;
+  box-shadow: 0 0 0 5px #fff, 0 0 0 6px rgba(110, 82, 52, .1), 0 4px 8px rgba(110, 82, 52, .18), 0 18px 34px rgba(110, 82, 52, .28); }
+.signin__plate img { width: 100%; height: 100%; object-fit: cover; transform: scale(1.06); }
+.signin__plate::after { content: ''; position: absolute; inset: 0; border-radius: 50%; box-shadow: inset 0 2px 5px rgba(255, 255, 255, .7), inset 0 -4px 10px rgba(110, 82, 52, .18); }
+
+.signin__title { margin: 6px 0 22px; text-align: center; font-family: var(--body); font-weight: 650; font-size: 23px; letter-spacing: -.02em; line-height: 1.2; color: var(--ink); }
+
+/* Campi: pieni, senza bordo, con l'icona davanti. A fuoco prendono un contorno scuro. */
+.signin .nx-email { gap: 8px; margin: 0; padding: 0 8px; }
+.signin .nx-email__field { position: relative; display: flex; align-items: center; height: 54px; border-radius: 24px; background: rgba(27, 19, 19, .055); transition: background .18s, box-shadow .18s; }
+.signin .nx-email__field:focus-within { background: #fff; box-shadow: inset 0 0 0 1.75px var(--ink); }
+.signin .nx-email__ico { display: block; flex: none; width: 19px; height: 19px; margin-left: 18px; color: rgba(27, 19, 19, .5); }
+.signin .nx-email__field input, .signin .nx-email__field input:focus { flex: 1; min-width: 0; height: 100%; padding: 0 14px 0 12px; border: 0; border-radius: 0; background: none; box-shadow: none; font-size: 16px; }
+.signin .nx-email__eye { flex: none; width: 44px; height: 44px; margin-right: 6px; border-radius: 50%; display: grid; place-items: center; color: rgba(27, 19, 19, .5); }
+.signin .nx-email__eye svg { width: 20px; height: 20px; }
+.signin .nx-email__eye:active { background: rgba(27, 19, 19, .06); }
+.signin .nx-email .err, .signin .nx-email__note { margin: 4px 10px 0; font-size: 14px; }
+.signin .nx-email .btn { order: 3; height: 54px; margin-top: 6px; border-radius: 24px; font-size: 16px; box-shadow: 0 1px 2px rgba(27, 19, 19, .2), 0 10px 22px rgba(60, 40, 28, .26); }
+/* "Forgot password?" a destra, sotto i campi e sopra il pulsante. */
+.signin .nx-email__forgot { order: 2; justify-self: end; margin: -2px 6px -2px; padding: 6px 4px; font-size: 13.5px; font-weight: 600; color: var(--ink-2); text-decoration: none; }
+
+.signin__or { display: flex; align-items: center; gap: 12px; margin: 18px 16px 12px; color: var(--mute); font-size: 13px; font-weight: 500; }
+.signin__or::before, .signin__or::after { content: ''; flex: 1; height: 1px; background: rgba(27, 19, 19, .1); }
+.signin .signin-buttons { margin: 0; padding: 0 8px 8px; gap: 8px; }
+.signin .gbtn { height: 50px; margin: 0; border-radius: 24px; background: #fff; font-size: 15px; font-weight: 600; box-shadow: inset 0 0 0 1px rgba(27, 19, 19, .09), 0 1px 2px rgba(110, 82, 52, .08); }
+
+/* Fuori dalla schermata di accesso (registrazione nell'onboarding): i campi restano com'erano,
+   senza icona davanti; l'occhio sta dentro il campo password. */
+.nx-email__field { position: relative; display: block; }
+.nx-email__field input { width: 100%; box-sizing: border-box; }
+.nx-email__ico { display: none; }
+.nx-email__eye { position: absolute; right: 6px; top: 50%; translate: 0 -50%; width: 44px; height: 44px; border-radius: 50%; display: grid; place-items: center; color: var(--faint); }
+.nx-email__eye svg { width: 20px; height: 20px; }
+.nx-email__pw input { padding-right: 56px; }
+.signin .nx-email__eye { position: static; translate: none; }
+.signin .nx-email__pw input { padding-right: 4px; }

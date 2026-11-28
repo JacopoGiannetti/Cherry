@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { AnimatePresence, motion } from 'motion/react';
 import { useLocation } from 'wouter';
 import { Icon } from '../../components/Icon';
@@ -10,8 +10,10 @@ import { uploadPhoto } from '../../lib/upload';
 import { importRecipe, refreshCover, regenerateFrames, resolveEmbed } from '../../lib/api';
 import { goBack } from '../../lib/nav';
 import { Swap } from '../../components/Swap';
-import { fadeIn } from '../../lib/img';
-import { guessItem, mergeIntoList, minutes, removeRecipeFromList, scaleQuantity, section } from '../../lib/kitchen';
+import { Roll } from '../../components/Roll';
+import { fadeIn, preload } from '../../lib/img';
+import { fmtTime, guessItem, mergeIntoList, minutes, removeRecipeFromList, scaleQuantity, section } from '../../lib/kitchen';
+import '../../styles/pages.css';
 import type { Recipe } from '../../lib/types';
 import { used } from '../../lib/usage';
 
@@ -136,6 +138,9 @@ function Ready({ recipe, uid, household }: { recipe: Recipe; uid: string; househ
   };
 
   useEffect(() => { used('recipe.open'); }, [recipe.id]);
+  // Le foto degli step si scaricano appena apri la ricetta: nel cook mode sono già pronte,
+  // step dopo step, invece di caricarsi una a una mentre cucini.
+  useEffect(() => { preload((recipe.stepFrames || []).flatMap((f) => f.frames.map((x) => x.url))); }, [recipe.id, recipe.stepFrames]);
 
   // Ricette dall'app iOS con link TikTok corto: il video lo ricava il backend, una volta sola.
   useEffect(() => {
@@ -170,6 +175,29 @@ function Ready({ recipe, uid, household }: { recipe: Recipe; uid: string; househ
     video ? `${recipe.segments!.length} video steps` : `${recipe.steps.length} steps`,
   ].filter(Boolean);
 
+  const facts: [string, string][] = [
+    [minutes(recipe.cookMinutes) || '—', 'Time'],
+    [String(recipe.ingredients.length), 'Ingredients'],
+    [String(video ? recipe.segments!.length : recipe.steps.length), video ? 'Video steps' : 'Steps'],
+  ];
+  // Il metodo segue le fasi del video (ognuna col suo titolo e il suo momento); i passi che il
+  // video non mostra restano in coda, senza titolo. Senza fasi: un elenco solo.
+  const phases = useMemo(() => {
+    const n = recipe.steps.length;
+    // Uno step compare una volta sola, nella prima fase che lo mostra.
+    const seen = new Set<number>();
+    const segs = video ? recipe.segments!.map((g) => {
+      const steps = (g.steps || []).filter((i) => i >= 0 && i < n && !seen.has(i));
+      steps.forEach((i) => seen.add(i));
+      return { title: g.title || '', at: g.start as number | null, steps };
+    }).filter((g) => g.steps.length) : [];
+    const loose = recipe.steps.map((_, i) => i).filter((i) => !seen.has(i));
+    if (!segs.length) return [{ title: '', at: null as number | null, steps: loose }];
+    return [...segs, ...(loose.length ? [{ title: '', at: null as number | null, steps: loose }] : [])].sort((a, b) => Math.min(...a.steps) - Math.min(...b.steps));
+  }, [recipe.steps, recipe.segments, video]);
+  // Instagram: la prima foto di ogni step, piccola, accanto al testo.
+  const thumbs = useMemo(() => new Map((recipe.stepFrames || []).filter((f) => f.frames[0]).map((f) => [f.step, f.frames[0].url])), [recipe.stepFrames]);
+
   return (
     <main className="recipe">
       <div className="recipe__media">
@@ -199,7 +227,10 @@ function Ready({ recipe, uid, household }: { recipe: Recipe; uid: string; househ
       <section className="recipe__body">
         {recipe.cuisine && <p className="recipe__kicker">{recipe.cuisine}</p>}
         <h1 className="recipe__title">{recipe.title}</h1>
-        <p className="recipe__meta">{meta.join('  ·  ')}</p>
+        {/* Tre numeri grandi invece di una riga grigia: quanto ci vuole, quanta roba, quanti passi. */}
+        <dl className="rfacts">
+          {facts.map(([value, label]) => <div key={label}><dt>{label}</dt><dd>{value}</dd></div>)}
+        </dl>
         {(recipe.creator || recipe.sourceUrl) && (
           <p className="credit">
             {recipe.creator && (
@@ -218,40 +249,46 @@ function Ready({ recipe, uid, household }: { recipe: Recipe; uid: string; househ
           </p>
         )}
 
-        <div className="rseg" role="tablist">
-          {(['ingredients', 'steps'] as const).map((t) => (
-            <button key={t} role="tab" aria-selected={tab === t} className={tab === t ? 'is-on' : ''} onClick={() => setTab(t)}>
-              {tab === t && <motion.span layoutId="seg-on" className="rseg__bg" transition={{ type: 'spring', stiffness: 500, damping: 40 }} />}
-              <span>{t === 'ingredients' ? 'Ingredients' : 'Steps'}</span>
-            </button>
+        {/* Una pagina sola che scorre, come un ricettario: prima cosa serve, poi come si fa. */}
+        <header className="rsec">
+          <h2 className="rsec__title">Ingredients</h2>
+          <div className="rserv">
+            <span>Serves</span>
+            <div className="stepper">
+              <button onClick={() => setServings((n) => Math.max(1, n - 1))} aria-label="Fewer servings" disabled={servings <= 1}><Icon name="minus" size={16} stroke={2.6} /></button>
+              <b><Roll value={servings} /></b>
+              <button onClick={() => setServings((n) => Math.min(20, n + 1))} aria-label="More servings"><Icon name="plus" size={16} stroke={2.6} /></button>
+            </div>
+          </div>
+        </header>
+        <ul className="ingredients">
+          {recipe.ingredients.map((g, i) => (
+            <li key={i}>
+              <i className="ingredients__emoji" aria-hidden="true">{g.emoji || guessItem(g.name).emoji || section(g.storeSection).emoji}</i>
+              <span>{g.name}</span>
+              <em>{scaleQuantity(g.quantity, factor)}</em>
+            </li>
           ))}
-        </div>
+        </ul>
 
-        {/* popLayout: la vecchia lista esce mentre entra la nuova. Con "wait" per un attimo non c'era
-            niente, la pagina si accorciava e il pulsante in basso saltava su e giù. */}
-        <AnimatePresence mode="popLayout" initial={false}>
-          {tab === 'ingredients' ? (
-            <motion.div key="i" initial={{ opacity: 0, x: -16 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -16 }} transition={{ duration: 0.26, ease: [0.2, 0.8, 0.2, 1] }}>
-              <div className="servings">
-                <span>Servings</span>
-                <div className="stepper">
-                  <button onClick={() => setServings((s) => Math.max(1, s - 1))} aria-label="Fewer servings" disabled={servings <= 1}><Icon name="minus" size={16} stroke={2.6} /></button>
-                  <motion.b key={servings} initial={{ y: 8, opacity: 0 }} animate={{ y: 0, opacity: 1 }}>{servings}</motion.b>
-                  <button onClick={() => setServings((s) => Math.min(20, s + 1))} aria-label="More servings"><Icon name="plus" size={16} stroke={2.6} /></button>
-                </div>
-              </div>
-              <ul className="ingredients">
-                {recipe.ingredients.map((g, i) => (
-                  <li key={i}><i className="ingredients__emoji" aria-hidden="true">{g.emoji || guessItem(g.name).emoji || section(g.storeSection).emoji}</i><span>{g.name}</span><em>{scaleQuantity(g.quantity, factor)}</em></li>
-                ))}
-              </ul>
-            </motion.div>
-          ) : (
-            <motion.ol key="s" className="method" initial={{ opacity: 0, x: 16 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: 16 }} transition={{ duration: 0.26, ease: [0.2, 0.8, 0.2, 1] }}>
-              {recipe.steps.map((s, i) => <li key={i}><span>{i + 1}</span><p>{s}</p></li>)}
-            </motion.ol>
-          )}
-        </AnimatePresence>
+        <header className="rsec rsec--method">
+          <h2 className="rsec__title">Method</h2>
+          <span className="rsec__note">{recipe.steps.length} steps{video ? ' · each one on video' : ''}</span>
+        </header>
+        {phases.map((ph, n) => (
+          <section key={n} className="phase">
+            {ph.title && <h3 className="phase__title"><em>{ph.title}</em>{ph.at !== null && <span>{fmtTime(ph.at)}</span>}</h3>}
+            <ol className="method">
+              {ph.steps.map((i) => (
+                <li key={i}>
+                  <span className="method__n">{i + 1}</span>
+                  <p>{recipe.steps[i]}</p>
+                  {thumbs.get(i) && <img className="method__thumb" src={thumbs.get(i)} alt="" loading="lazy" />}
+                </li>
+              ))}
+            </ol>
+          </section>
+        ))}
       </section>
 
       <div className="recipe__cta">

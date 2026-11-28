@@ -4,7 +4,9 @@ import type { Recipe, Segment } from '../lib/types';
 import { fmtTime, guessItem, scaleQuantity, section } from '../lib/kitchen';
 import { Icon } from './Icon';
 import { Swap } from './Swap';
+import { Lightbox } from './Lightbox';
 import { repairSegments } from '../lib/timecode';
+import { preload } from '../lib/img';
 import { VideoPlayer, type PlayerHandle } from './VideoPlayer';
 import '../styles/cook-orig.css';
 
@@ -68,7 +70,10 @@ export function CookMode({ recipe, factor = 1, onClose, onDone, limit, onUnlock 
   const preparing = embed?.type === 'instagram' && recipe.stepFramesStatus === 'working'
     && Date.now() - (recipe.stepFramesSince || 0) < 6 * 60e3;
   const compact = igOff || stills || preparing;
-  const [zoom, setZoom] = useState<{ url: string; caption: string } | null>(null);
+  // Le foto di uno step a tutto schermo: di quale step, e quale foto.
+  const [zoom, setZoom] = useState<{ step: number; index: number } | null>(null);
+  // Tutte le foto degli step subito, non una pagina alla volta (di solito le ha già scaricate la pagina della ricetta).
+  useEffect(() => { preload((recipe.stepFrames || []).flatMap((f) => f.frames.map((x) => x.url))); }, [recipe.stepFrames]);
   // TikTok si comanda sempre; Instagram solo se si è trovato il file del reel.
   const [canControl, setCanControl] = useState(embed?.type === 'tiktok');
   const controlRef = useRef(canControl);
@@ -233,8 +238,8 @@ export function CookMode({ recipe, factor = 1, onClose, onDone, limit, onUnlock 
                     {stills && !preparing && frames.get(i)?.length ? (
                       <span className="cook__frames">
                         {frames.get(i)!.map((f, k) => (
-                          <button key={k} type="button" className="cook__frame" onClick={() => setZoom(f)} aria-label={f.caption || 'Enlarge photo'}>
-                            <img src={f.url} alt="" loading="lazy" />
+                          <button key={k} type="button" className="cook__frame" onClick={() => setZoom({ step: i, index: k })} aria-label={f.caption || 'Enlarge photo'}>
+                            <img src={f.url} alt="" decoding="async" />
                             {f.caption && <small>{f.caption}</small>}
                           </button>
                         ))}
@@ -257,15 +262,8 @@ export function CookMode({ recipe, factor = 1, onClose, onDone, limit, onUnlock 
         )}
       </div>
 
-      <AnimatePresence>
-        {zoom && (
-          <motion.button type="button" className="cook__zoom" onClick={() => setZoom(null)} aria-label="Close photo"
-            initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.15 }}>
-            <img src={zoom.url} alt="" />
-            {zoom.caption && <span>{zoom.caption}</span>}
-          </motion.button>
-        )}
-      </AnimatePresence>
+      <Lightbox photos={zoom ? frames.get(zoom.step) || null : null} index={zoom?.index || 0}
+        onIndex={(n) => setZoom((z) => (z ? { ...z, index: n } : z))} onClose={() => setZoom(null)} />
 
       <footer className="cook__bottom">
         <button className="icon-btn icon-btn--dark" onClick={() => go(index - 1)} disabled={index === 0} aria-label="Previous step">

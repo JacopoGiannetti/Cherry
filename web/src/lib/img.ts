@@ -16,3 +16,19 @@ export function fadeIn(url: string) {
     onError: (e: React.SyntheticEvent<HTMLImageElement>) => e.currentTarget.classList.add('is-in'),
   };
 }
+
+// Foto scaricate in anticipo: si tengono in memoria (se l'oggetto Image sparisce, il browser
+// può buttare via la foto già decodificata) e non si chiedono due volte.
+const warm = new Map<string, HTMLImageElement>();
+
+/** Scarica e decodifica queste foto adesso, in sottofondo, così quando servono ci sono già. */
+export function preload(urls: (string | null | undefined)[]) {
+  for (const url of urls) {
+    if (!url || warm.has(url)) continue;
+    const img = new Image();
+    img.decoding = 'async';
+    img.src = url;
+    img.decode?.().then(() => loaded.add(url)).catch(() => {});
+    warm.set(url, img);
+  }
+}
