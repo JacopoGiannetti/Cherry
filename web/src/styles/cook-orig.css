@@ -43,3 +43,33 @@
 .credit__pic { flex: none; width: 24px; height: 24px; border-radius: 50%; overflow: hidden; display: grid; place-items: center; background: var(--paper-2); font-size: 12px; font-weight: 700; color: var(--mute); box-shadow: inset 0 0 0 1px var(--hair); }
 .credit__pic img { width: 100%; height: 100%; object-fit: cover; }
 .credit__src { gap: 4px !important; }
+
+/* TikTok: il video si può chiudere per tenere solo le foto, e riaprire dalla riga in alto. */
+.cook__hide { position: absolute; left: 12px; top: 12px; display: inline-flex; align-items: center; gap: 6px; height: 30px; padding: 0 11px; border-radius: 15px; background: rgba(0, 0, 0, .5); -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); color: #fff; font-size: 12.5px; font-weight: 700; }
+.cook__orig--btn { border: 0; font: inherit; text-align: left; cursor: pointer; }
+/* Le foto grandi a sinistra esistono solo in orizzontale. */
+.cook__side { display: none; }
+
+/* ---------- Telefono in orizzontale: a sinistra il video (o le foto dello step), a destra gli step ---------- */
+@media (orientation: landscape) and (max-height: 540px) {
+  .cook--split { display: grid; grid-template-columns: minmax(0, 44%) minmax(0, 1fr); grid-template-rows: auto auto minmax(0, 1fr); }
+  .cook--split .cook__video, .cook--split .cook__side { grid-column: 1; grid-row: 1 / -1; width: auto; max-width: none; height: auto; min-height: 0; margin: 10px 0 10px max(12px, env(safe-area-inset-left)); }
+  .cook--split .cook__top { grid-column: 2; grid-row: 1; max-width: none; padding: 10px max(16px, env(safe-area-inset-right)) 6px 18px; }
+  .cook--split .cook__orig { grid-column: 2; grid-row: 2; width: auto; max-width: none; margin: 0 max(16px, env(safe-area-inset-right)) 0 18px; }
+  .cook--split .cook__pages { grid-column: 2; grid-row: 3; max-width: none; }
+  .cook--split .cook__bottom { left: 44%; padding: 14px max(16px, env(safe-area-inset-right)) calc(10px + var(--safe-b)) 16px; }
+  .cook--split .cook__page { padding: 10px max(18px, env(safe-area-inset-right)) 84px 18px; }
+  .cook--split .cook__title { font-size: clamp(24px, 3.6vw, 32px); margin: 6px 0 12px; }
+  .cook--split .cook__steps li { font-size: 17px; }
+  .cook--split .cook__next { min-width: 170px; }
+
+  /* Senza video: le foto dello step corrente, alte quanto lo schermo, da scorrere di lato. */
+  .cook--side .cook__side { display: flex; gap: 8px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; border-radius: 20px; }
+  .cook--side .cook__side::-webkit-scrollbar { display: none; }
+  .cook__sidephoto { position: relative; flex: none; height: 100%; aspect-ratio: 3 / 4; padding: 0; border: 0; border-radius: 20px; overflow: hidden; background: rgba(255, 255, 255, .08); color: #fff; scroll-snap-align: start; cursor: zoom-in; }
+  .cook__sidephoto:only-child { flex: 1; aspect-ratio: auto; }
+  .cook__sidephoto img { display: block; width: 100%; height: 100%; object-fit: cover; }
+  .cook__sidephoto small { position: absolute; left: 0; right: 0; bottom: 0; padding: 26px 12px 10px; background: linear-gradient(transparent, rgba(0, 0, 0, .7)); font-size: 13px; font-weight: 600; line-height: 1.3; text-align: left; }
+  /* Le foto sono già grandi a sinistra: sotto il testo non si ripetono. */
+  .cook--side .cook__frames { display: none; }
+}

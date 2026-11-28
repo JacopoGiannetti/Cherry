@@ -63,13 +63,25 @@ export function CookMode({ recipe, factor = 1, onClose, onDone, limit, onUnlock 
   const embed = recipe.embed;
   // Instagram con i fotogrammi degli step: il video grande non serve, resta il link piccolo.
   const frames = useMemo(() => new Map((recipe.stepFrames || []).map((f) => [f.step, f.frames])), [recipe.stepFrames]);
-  const stills = embed?.type === 'instagram' && frames.size > 0;
+  const hasFrames = frames.size > 0;
+  const stills = embed?.type === 'instagram' && hasFrames;
   // Si stanno preparando (circa un minuto dopo l'import): si vede che arrivano, non che mancano.
   // Oltre 6 minuti si smette di aspettare: il server si è fermato a metà.
   // Vale anche quando si rifanno dal menu: le vecchie lasciano il posto ai riquadri che pulsano.
-  const preparing = embed?.type === 'instagram' && recipe.stepFramesStatus === 'working'
+  const preparing = !!embed && recipe.stepFramesStatus === 'working'
     && Date.now() - (recipe.stepFramesSince || 0) < 6 * 60e3;
-  const compact = igOff || stills || preparing;
+  const compact = igOff || stills || (embed?.type === 'instagram' && preparing);
+  // TikTok: il video in loop è un'opzione in più. Chi vuole solo le foto lo chiude, e resta chiuso
+  // anche nelle prossime ricette finché non lo riapre.
+  const [videoOff, setVideoOff] = useState(() => { try { return localStorage.getItem('cherry.cook.video') === 'off'; } catch { return false; } });
+  const tiktokOff = embed?.type === 'tiktok' && videoOff;
+  const setVideo = (on: boolean) => {
+    ready.current = false;
+    setVideoOff(!on);
+    try { localStorage.setItem('cherry.cook.video', on ? 'on' : 'off'); } catch { /* privato */ }
+  };
+  const showVideo = !!embed && !videoFailed && !compact && !tiktokOff;
+  const showFrames = hasFrames && !preparing;
   // Le foto di uno step a tutto schermo: di quale step, e quale foto.
   const [zoom, setZoom] = useState<{ step: number; index: number } | null>(null);
   // Tutte le foto degli step subito, non una pagina alla volta (di solito le ha già scaricate la pagina della ricetta).
@@ -163,9 +175,12 @@ export function CookMode({ recipe, factor = 1, onClose, onDone, limit, onUnlock 
   }, [pages]);
 
   const page = pages[index];
+  // In orizzontale, senza video: a sinistra le foto dello step che stai leggendo, grandi.
+  const sidePhotos = showFrames && !showVideo && page ? page.steps.flatMap((i) => (frames.get(i) || []).map((f, k) => ({ ...f, step: i, index: k }))) : [];
+  const side = showFrames && !showVideo;
 
   return (
-    <div className="cook">
+    <div className={`cook ${showVideo || side ? 'cook--split' : ''} ${side ? 'cook--side' : ''}`}>
       <header className="cook__top">
         <button className="icon-btn icon-btn--dark" onClick={onClose} aria-label="Close cook mode"><Icon name="close" /></button>
         <div className="cook__ticks" aria-hidden="true">
@@ -174,7 +189,7 @@ export function CookMode({ recipe, factor = 1, onClose, onDone, limit, onUnlock 
         <span className="cook__count">{Math.min(index + 1, all.length)}/{all.length}</span>
       </header>
 
-      {embed && !videoFailed && !compact && (
+      {showVideo && embed && (
         <section className="cook__video">
           <VideoPlayer
             ref={player}
@@ -197,10 +212,34 @@ export function CookMode({ recipe, factor = 1, onClose, onDone, limit, onUnlock 
               </button>
             </div>
           )}
+          {embed.type === 'tiktok' && (
+            <button className="cook__hide" onClick={() => setVideo(false)}><Icon name="image" size={15} /> {hasFrames ? 'Photos only' : 'Hide video'}</button>
+          )}
           {controllable && page?.fromVideo && (
             <div className="cook__loop"><Icon name="refresh" size={13} stroke={2.6} /> Looping {fmtTime(page.start)}–{fmtTime(page.end)}</div>
           )}
         </section>
+      )}
+      {tiktokOff && !videoFailed && (
+        // TikTok col video chiuso: una riga per riaprirlo, e tutto lo spazio a step e foto.
+        <button type="button" className="cook__orig cook__orig--btn" onClick={() => setVideo(true)}>
+          <span className="cook__orig-thumb">
+            {recipe.imageUrl ? <img src={recipe.imageUrl} alt="" /> : null}
+            <Icon name="play" size={16} fill="currentColor" />
+          </span>
+          <span><b>Show the video</b><small>Each step loops its moment</small></span>
+          <Icon name="down" size={15} />
+        </button>
+      )}
+      {side && (
+        <aside className="cook__side" aria-label="Photos of this step">
+          {sidePhotos.length ? sidePhotos.map((f) => (
+            <button key={`${f.step}-${f.index}`} type="button" className="cook__sidephoto" onClick={() => setZoom({ step: f.step, index: f.index })} aria-label={f.caption || 'Enlarge photo'}>
+              <img src={f.url} alt="" decoding="async" />
+              {f.caption && <small>{f.caption}</small>}
+            </button>
+          )) : recipe.imageUrl ? <span className="cook__sidephoto"><img src={recipe.imageUrl} alt="" /></span> : null}
+        </aside>
       )}
       {compact && (
         // Instagram non dà il file di questo reel: un link piccolo, e tutto lo spazio agli step.
@@ -235,7 +274,7 @@ export function CookMode({ recipe, factor = 1, onClose, onDone, limit, onUnlock 
                   <span className="cook__num">{i + 1}</span>
                   <span className="cook__text">
                     {recipe.steps[i]}
-                    {stills && !preparing && frames.get(i)?.length ? (
+                    {showFrames && frames.get(i)?.length ? (
                       <span className="cook__frames">
                         {frames.get(i)!.map((f, k) => (
                           <button key={k} type="button" className="cook__frame" onClick={() => setZoom({ step: i, index: k })} aria-label={f.caption || 'Enlarge photo'}>

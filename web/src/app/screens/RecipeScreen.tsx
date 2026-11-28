@@ -123,7 +123,7 @@ function Ready({ recipe, uid, household }: { recipe: Recipe; uid: string; househ
     setCoverBusy(false);
   };
   // Instagram: rifà i fotogrammi degli step (anche per le ricette di prima). Si vedono arrivare nel cook mode.
-  const isInstagram = recipe.platform === 'instagram' || /instagr/i.test(recipe.sourceUrl || '');
+  const isInstagram = /instagram|tiktok/i.test(`${recipe.platform || ''} ${recipe.sourceUrl || ''}`);
   const framesBusy = recipe.stepFramesStatus === 'working' && Date.now() - (recipe.stepFramesSince || 0) < 6 * 60e3;
   const getFrames = async () => {
     setMenu(false);

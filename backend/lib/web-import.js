@@ -244,8 +244,9 @@ async function importInto(uid, url) {
     const profile = profileFor(user.get('recipePrefs') || {});
     const { entry } = await readRecipe(url, (stage, embed) =>
       ref.update({ embed, importStage: stage, updatedAt: FieldValue.serverTimestamp() }), profile);
-    // Instagram senza fotogrammi in cache: si preparano dopo, e la pagina lo fa vedere.
-    const needsFrames = platform === 'instagram' && !entry.stepFrames;
+    // Senza foto degli step in cache: si preparano dopo, e la pagina lo fa vedere.
+    // Per Instagram prendono il posto del video; per TikTok si aggiungono al video in loop.
+    const needsFrames = !entry.stepFrames;
     await ref.set({
       ...recipeDoc(entry),
       ...(needsFrames ? { stepFramesStatus: 'working', stepFramesSince: Date.now() } : {}),
@@ -255,7 +256,7 @@ async function importInto(uid, url) {
       updatedAt: FieldValue.serverTimestamp(),
     }, { merge: true });
     recordJob(uid, 'web.import');
-    // Instagram non lascia mandare in loop lo step: al suo posto i fotogrammi.
+    // Le foto di ogni step, prese dal video.
     // Dopo il "ready": la ricetta si apre subito, le immagini arrivano in pochi secondi.
     if (needsFrames) {
       const { frames, segments, cover } = await addStepFrames(url, entry, profile)
@@ -296,10 +297,11 @@ async function regenerateFrames(uid, id) {
   const ref = db().doc(`users/${uid}/savedRecipes/${id}`);
   const r = (await ref.get()).data();
   if (!r) throw userError('not_found', 'Recipe not found.');
-  if (detectPlatform(r.sourceUrl || '') !== 'instagram') throw userError('not_instagram', 'Step photos are only for Instagram recipes.');
+  const platform = detectPlatform(r.sourceUrl || '');
+  if (!r.sourceUrl || !platform) throw userError('not_instagram', 'Step photos need a recipe saved from a video.');
   if (r.stepFramesStatus === 'working' && Date.now() - (r.stepFramesSince || 0) < 6 * 60e3) return { started: false };
   await ref.set({ stepFramesStatus: 'working', stepFramesSince: Date.now() }, { merge: true });
-  const run = newRun({ uid, feature: 'web.frames', platform: 'instagram', url: r.sourceUrl, recipeId: id });
+  const run = newRun({ uid, feature: 'web.frames', platform, url: r.sourceUrl, recipeId: id });
   runWith(uid, 'web.frames', async () => {
     const post = await resolve(r.sourceUrl);
     const videoUrl = (post.videoUrls || [])[0];
