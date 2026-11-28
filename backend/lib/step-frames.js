@@ -286,4 +286,38 @@ async function buildCover({ videoUrl, coverTimes, key }) {
   }
 }
 
-module.exports = { buildStepFrames, buildCover };
+const coverTimesSchema = {
+  type: 'OBJECT',
+  properties: { coverTimes: { type: 'ARRAY', items: { type: 'STRING' } } },
+  required: ['coverTimes'],
+};
+
+/**
+ * Copertina per una ricetta già salvata (di prima che Gemini indicasse i momenti leggendo
+ * la ricetta): si scarica il video, Gemini lo guarda solo per trovare i momenti del piatto
+ * finito, poi la stessa scelta tra le immagini. null se non ne esce una buona.
+ */
+async function buildSmartCover({ videoUrl, key, title }) {
+  const dir = await fs.mkdtemp(path.join(os.tmpdir(), 'cover-'));
+  const file = path.join(dir, 'v.mp4');
+  try {
+    await download(videoUrl, file);
+    const seconds = await duration(file);
+    if (!seconds) return null;
+    const lite = await small(file, path.join(dir, 's.mp4'));
+    if (!lite) return null;
+    const asked = await generateJSON({
+      prompt: `Watch this recipe video${title ? ` ("${title}")` : ''}. It is ${clock(seconds)} long.`
+        + ' Return coverTimes: up to 3 timestamps (MM:SS), best first, of clearly different moments that could be the cover photo of this recipe.'
+        + ' Each must show the finished dish (plated or in the pan, ready to eat) in close-up, sharp and well lit, filling the frame, so that anyone understands at a glance what the recipe is.'
+        + ' Never a moment where a person or face is in frame, nor raw ingredients, on-screen titles or a transition.',
+      schema: coverTimesSchema, temperature: 0.2, label: 'step-frames-cover-find', thinkingLevel: 'LOW',
+      parts: [{ inlineData: { mimeType: 'video/mp4', data: lite.toString('base64') } }],
+    });
+    return await coverFrom(file, asked.coverTimes || [], seconds, key);
+  } finally {
+    await fs.rm(dir, { recursive: true, force: true }).catch(() => {});
+  }
+}
+
+module.exports = { buildStepFrames, buildCover, buildSmartCover };

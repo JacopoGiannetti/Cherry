@@ -96,6 +96,8 @@ app.listen(keys.server.port, () => {
   optional.forEach((k) => console.log('Opzionale non configurata:', k));
   // L'email con l'offerta a chi si è registrato e non ha pagato (spenta finché non la si accende lì).
   require('./lib/offer-mail').start();
+  // Una volta sola: copertine scelte da Gemini per le ricette salvate prima (poi non trova più niente).
+  require('./lib/cover-backfill').start();
   if (keys.catalog.enabled) {
     console.log(`Ricettario attivo${keys.catalog.sweep ? ' (con passaggio periodico)' : ''}.`);
     const tally = require('./lib/catalog/tally');
