@@ -76,6 +76,18 @@ async function persistImage(url, path) {
   return downloadUrl(b.name, path, token);
 }
 
+/** Un'immagine già in memoria (i fotogrammi degli step), salvata con un link che non scade. */
+async function saveImage(buffer, path, contentType = 'image/jpeg') {
+  const b = bucket();
+  const token = crypto.randomUUID();
+  await b.file(path).save(buffer, {
+    contentType,
+    resumable: false,
+    metadata: { cacheControl: 'public, max-age=31536000', metadata: { firebaseStorageDownloadTokens: token } },
+  });
+  return downloadUrl(b.name, path, token);
+}
+
 const MAX_SOURCE_VIDEO_BYTES = 300 * 1024 * 1024;
 const SOURCE_VIDEO_TIMEOUT_MS = 180000;
 
@@ -120,4 +132,4 @@ async function stageRemoteVideo(remoteUrl) {
   return { gsUri: `gs://${b.name}/${file.name}`, discard };
 }
 
-module.exports = { downloadImage, persistImage, stageRemoteVideo, isPersisted };
+module.exports = { downloadImage, persistImage, saveImage, stageRemoteVideo, isPersisted };

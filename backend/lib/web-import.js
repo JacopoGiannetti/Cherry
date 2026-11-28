@@ -14,6 +14,7 @@ const { stageRemoteVideo } = require('../services/storage');
 const { resolve, downloadVideo, detectPlatform } = require('../services/social-video');
 const { buildExtractionPrompt, videoExtractionSchema } = require('../prompts/swap');
 const { runWith, recordJob, recordJobError } = require('./usage');
+const { buildStepFrames } = require('./step-frames');
 
 const UA = 'Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.0 Mobile/15E148 Safari/604.1';
 
@@ -154,6 +155,17 @@ async function readRecipe(url, onStage = () => {}, profile = PROFILE) {
   return { embed, entry, platform };
 }
 
+/** I fotogrammi degli step, una volta per link e lingua: si salvano anche in cache. */
+async function addStepFrames(url, entry, profile) {
+  const post = await resolve(url);
+  const videoUrl = (post.videoUrls || [])[0];
+  if (!videoUrl) return null;
+  const key = cacheKey(url, profile);
+  const frames = await buildStepFrames({ videoUrl, recipe: entry.recipe, key: key.slice(0, 24) });
+  if (frames) await setCached('sourceRecipes', key, { ...entry, stepFrames: frames });
+  return frames;
+}
+
 /** La forma che la web app mostra e salva. */
 function recipeDoc(entry) {
   const r = entry.recipe;
@@ -166,6 +178,7 @@ function recipeDoc(entry) {
     ingredients: r.ingredients || [],
     steps: r.steps || [],
     segments: r.segments || null,
+    stepFrames: entry.stepFrames || null,
     imageUrl: entry.thumbnail || null,
   };
 }
@@ -211,6 +224,13 @@ async function importInto(uid, url) {
       updatedAt: FieldValue.serverTimestamp(),
     }, { merge: true });
     recordJob(uid, 'web.import');
+    // Instagram non lascia mandare in loop lo step: al suo posto i fotogrammi.
+    // Dopo il "ready": la ricetta si apre subito, le immagini arrivano in pochi secondi.
+    if (platform === 'instagram' && !entry.stepFrames) {
+      await addStepFrames(url, entry, profile).then((frames) => frames
+        && ref.set({ stepFrames: frames, updatedAt: FieldValue.serverTimestamp() }, { merge: true }))
+        .catch((e) => console.warn(`[frames] ${url}: ${e.message}`));
+    }
   }).catch(async (e) => {
     recordJobError(uid, 'web.import');
     console.error(`[web] import ${url}: ${e.message}`);
@@ -225,4 +245,4 @@ async function importInto(uid, url) {
 }
 
 module.exports = {
-  profileFor, importInto, readRecipe, recipeDoc, recipeIdFor, findEmbed, WEB_SECTIONS };
+  profileFor, importInto, readRecipe, recipeDoc, recipeIdFor, findEmbed, addStepFrames, WEB_SECTIONS };

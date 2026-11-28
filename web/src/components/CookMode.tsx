@@ -52,6 +52,11 @@ export function CookMode({ recipe, factor = 1, onClose, onDone, limit, onUnlock 
   state.current = { index, paused };
 
   const embed = recipe.embed;
+  // Instagram con i fotogrammi degli step: il video grande non serve, resta il link piccolo.
+  const frames = useMemo(() => new Map((recipe.stepFrames || []).map((f) => [f.step, f.frames])), [recipe.stepFrames]);
+  const stills = embed?.type === 'instagram' && frames.size > 0;
+  const compact = igOff || stills;
+  const [zoom, setZoom] = useState<{ url: string; caption: string } | null>(null);
   // TikTok si comanda sempre; Instagram solo se si è trovato il file del reel.
   const [canControl, setCanControl] = useState(embed?.type === 'tiktok');
   const controlRef = useRef(canControl);
@@ -151,7 +156,7 @@ export function CookMode({ recipe, factor = 1, onClose, onDone, limit, onUnlock 
         <span className="cook__count">{Math.min(index + 1, all.length)}/{all.length}</span>
       </header>
 
-      {embed && !videoFailed && !igOff && (
+      {embed && !videoFailed && !compact && (
         <section className="cook__video">
           <VideoPlayer
             ref={player}
@@ -179,7 +184,7 @@ export function CookMode({ recipe, factor = 1, onClose, onDone, limit, onUnlock 
           )}
         </section>
       )}
-      {igOff && (
+      {compact && (
         // Instagram non dà il file di questo reel: un link piccolo, e tutto lo spazio agli step.
         <a className="cook__orig" href={recipe.sourceUrl || `https://www.instagram.com/reel/${embed?.type === 'instagram' ? embed.shortcode : ''}/`} target="_blank" rel="noopener">
           {/* La copertina del reel, piccola, con il play sopra: si capisce subito che è il video. */}
@@ -207,7 +212,19 @@ export function CookMode({ recipe, factor = 1, onClose, onDone, limit, onUnlock 
               {p.steps.map((i) => (
                 <li key={i}>
                   <span className="cook__num">{i + 1}</span>
-                  <span>{recipe.steps[i]}</span>
+                  <span className="cook__text">
+                    {recipe.steps[i]}
+                    {stills && frames.get(i)?.length ? (
+                      <span className="cook__frames">
+                        {frames.get(i)!.map((f, k) => (
+                          <button key={k} type="button" className="cook__frame" onClick={() => setZoom(f)} aria-label={f.caption || 'Enlarge photo'}>
+                            <img src={f.url} alt="" loading="lazy" />
+                            {f.caption && <small>{f.caption}</small>}
+                          </button>
+                        ))}
+                      </span>
+                    ) : null}
+                  </span>
                 </li>
               ))}
             </ol>
@@ -221,6 +238,16 @@ export function CookMode({ recipe, factor = 1, onClose, onDone, limit, onUnlock 
           </article>
         )}
       </div>
+
+      <AnimatePresence>
+        {zoom && (
+          <motion.button type="button" className="cook__zoom" onClick={() => setZoom(null)} aria-label="Close photo"
+            initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.15 }}>
+            <img src={zoom.url} alt="" />
+            {zoom.caption && <span>{zoom.caption}</span>}
+          </motion.button>
+        )}
+      </AnimatePresence>
 
       <footer className="cook__bottom">
         <button className="icon-btn icon-btn--dark" onClick={() => go(index - 1)} disabled={index === 0} aria-label="Previous step">
